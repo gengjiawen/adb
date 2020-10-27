@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7abe7531_8a50b363",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1041495
+      },
+      "writtenOn": "2020-10-27T12:35:11Z",
+      "side": 1,
+      "message": "LGTM.\n\nWhile I had set +1 Verified on the original upload (https://android-review.googlesource.com/c/platform/system/core/+/1448896), I am not able to here -- perhaps because I\u0027m not the owner/committer?",
+      "revId": "30e74acef93318b07a2de7ffca5086dde868ad01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
