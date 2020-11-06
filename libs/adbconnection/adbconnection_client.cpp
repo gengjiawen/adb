@@ -27,6 +27,7 @@
 
 #include <android-base/cmsg.h>
 #include <android-base/logging.h>
+#include <android-base/properties.h>
 #include <android-base/unique_fd.h>
 
 #include "adbconnection/process_info.h"
@@ -125,6 +126,14 @@ AdbConnectionClientContext* adbconnection_client_new(
   ctx->control_socket_.reset(socket(AF_UNIX, SOCK_SEQPACKET | SOCK_CLOEXEC, 0));
   if (ctx->control_socket_ < 0) {
     PLOG(ERROR) << "failed to create Unix domain socket";
+    return nullptr;
+  }
+
+  // It's possible that adbd isn't running at this point.
+  // We don't want to just blindly connect, because if there's nothing listening, we'll end up
+  // waking up every second and preventing the CPU from going to sleep.
+  if (!android::base::WaitForProperty("init.svc.adbd", "running")) {
+    LOG(ERROR) << "adbd isn't running";
     return nullptr;
   }
 
