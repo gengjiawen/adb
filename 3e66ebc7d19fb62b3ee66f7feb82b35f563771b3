@@ -1,0 +1,10 @@
+Open-Source-Licensing+1: Lint 🤖 <ayeaye-gerrit@google.com>
+Code-Review+2: Rhed Jao <rhedjao@google.com>
+Code-Review+2: Josh Gao <jmgao@google.com>
+Lint+1: Lint 🤖 <ayeaye-gerrit@google.com>
+Presubmit-Verified+1: Treehugger Robot <treehugger-gerrit@google.com>
+Submitted-by: Dieter Hsu <dieterhsu@google.com>
+Submitted-at: Thu, 26 Nov 2020 07:44:14 +0000
+Reviewed-on: https://android-review.googlesource.com/c/platform/packages/modules/adb/+/1473639
+Project: platform/packages/modules/adb
+Branch: refs/heads/master
