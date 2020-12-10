@@ -418,7 +418,8 @@ asocket* create_local_service_socket(std::string_view name, atransport* transpor
 #if !ADB_HOST
     if ((name.starts_with("root:") && getuid() != 0 && __android_log_is_debuggable()) ||
         (name.starts_with("unroot:") && getuid() == 0) || name.starts_with("usb:") ||
-        name.starts_with("tcpip:")) {
+        name.starts_with("tcpip:") ||
+        name.starts_with("sideload:")) {
         D("LS(%d): enabling exit_on_close", s->id);
         s->exit_on_close = 1;
     }
