@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c304d24_552d5071",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2020-12-14T19:06:27Z",
+      "side": 1,
+      "message": "I\u0027m not sure we want sideload to be mentioned in adb\u0027s source, given that it\u0027s not actually implemented in adbd, unless there\u0027s no alternative.\n\nDid you try waiting for the socket to close in SideloadHostService, or does `adb sideload` keep its end open?",
+      "revId": "11aedc24953599e703d65ee1f0a55c649140a455",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
