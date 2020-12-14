@@ -88,6 +88,24 @@
       "parentUuid": "cb603e8a_d8815e90",
       "revId": "11aedc24953599e703d65ee1f0a55c649140a455",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cebd710e_534dc5be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1710792
+      },
+      "writtenOn": "2020-12-14T20:13:38Z",
+      "side": 1,
+      "message": "Is POLLRDHUP + poll() a reliable way to wait for socket to close? Or do you recommend reading until 0?",
+      "parentUuid": "e898e4a0_28fc561d",
+      "revId": "11aedc24953599e703d65ee1f0a55c649140a455",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
