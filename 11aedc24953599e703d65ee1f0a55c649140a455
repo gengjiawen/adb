@@ -70,6 +70,24 @@
       "parentUuid": "5780b402_da21ddc2",
       "revId": "11aedc24953599e703d65ee1f0a55c649140a455",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e898e4a0_28fc561d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2020-12-14T19:51:21Z",
+      "side": 1,
+      "message": "If you want a timeout, you\u0027ll want to use one of select/poll/epoll (I recommend poll for this, since you\u0027re only waiting on one fd). If poll returns that the fd is readable, read is guaranteed to not block the first time you call it, so you\u0027ll want something that looks like this:\n\n  while (true) {\n    struct pollfd pfd \u003d { .fd \u003d fd, .events \u003d POLLIN };\n    int rc \u003d TEMP_FAILURE_RETRY(poll(\u0026pfd, 1, timeout_ms));\n    if (rc \u003d\u003d 1) {\n      char buf;\n      rc \u003d TEMP_FAILURE_RETRY(read(fd, \u0026buf, 1));\n      if (rc \u003d\u003d 0) {\n        exit(0);\n      } else {\n        // Either the read unexpectedly failed, or we unexpectedly received data.\n      }\n    } else {\n      // poll failed, almost definitely due to timeout\n      // If not, you\u0027re screwed anyway, because it probably means the kernel ran\n      // out of memory.\n      CHECK_EQ(0, rc);\n      // do something here\n    }\n  }",
+      "parentUuid": "cb603e8a_d8815e90",
+      "revId": "11aedc24953599e703d65ee1f0a55c649140a455",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
