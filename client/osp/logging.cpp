@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 The Android Open Source Project
+ * Copyright (C) 2020 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,25 +14,22 @@
  * limitations under the License.
  */
 
-#pragma once
+#include <platform/api/logging.h>
 
-#include <optional>
-#include <string>
+#include <android-base/logging.h>
 
-#include "adb.h"
+namespace openscreen {
 
-#if ADB_HOST
+bool IsLoggingOn(LogLevel level, const char* file) {
+    return true;
+}
 
-void adb_wifi_init(void);
-void adb_wifi_pair_device(const std::string& host, const std::string& password,
-                          std::string& response);
-bool adb_wifi_is_known_host(const std::string& host);
+void LogWithLevel(LogLevel level, const char* file, int line, std::stringstream message) {
+    LOG(INFO) << message.str();
+}
 
-#else  // !ADB_HOST
+[[noreturn]] void Break() {
+    std::abort();
+}
 
-struct AdbdAuthContext;
-
-void adbd_wifi_init(AdbdAuthContext* ctx);
-void adbd_wifi_secure_connect(atransport* t);
-
-#endif
+}  // namespace openscreen
