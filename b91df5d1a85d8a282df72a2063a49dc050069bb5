@@ -33,6 +33,24 @@
       "message": "What is the state of this patch?",
       "revId": "b91df5d1a85d8a282df72a2063a49dc050069bb5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "388b87e8_fc2a0fbe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-01-19T20:15:49Z",
+      "side": 1,
+      "message": "This patch + go/ag/12661924 currently works on linux, windows, and mac. I am currently adding unittests ATM, but CL should be ready for review. Please ping me if you need more background.",
+      "parentUuid": "8b87246a_5603ca31",
+      "revId": "b91df5d1a85d8a282df72a2063a49dc050069bb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
