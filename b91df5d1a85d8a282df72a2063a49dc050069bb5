@@ -16,6 +16,23 @@
       "message": "+Jordan - One of his OKRs for this quarter is to help with this project!",
       "revId": "b91df5d1a85d8a282df72a2063a49dc050069bb5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b87246a_5603ca31",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1729080
+      },
+      "writtenOn": "2021-01-19T19:13:59Z",
+      "side": 1,
+      "message": "What is the state of this patch?",
+      "revId": "b91df5d1a85d8a282df72a2063a49dc050069bb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
