@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b93d84be_e127e6f6",
+        "filename": "daemon/transport_qemu.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1278660
+      },
+      "writtenOn": "2021-01-20T22:12:43Z",
+      "side": 1,
+      "message": "virtio-vsock does not support `listen` calls yet, I am working on it.",
+      "parentUuid": "4296e2c0_6ce08aa1",
+      "range": {
+        "startLine": 134,
+        "startChar": 7,
+        "endLine": 134,
+        "endChar": 69
+      },
+      "revId": "84f8852c12858cf37b5c81e2294df543f4a5958d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8f30793e_09ea2e7f",
