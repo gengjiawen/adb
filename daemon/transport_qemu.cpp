@@ -127,12 +127,12 @@ void qemu_socket_thread(std::string_view addr) {
 
 // If adbd is running inside the emulator, it will normally use QEMUD pipe (aka
 // goldfish) as the transport. This can either be explicitly set by the
-// service.adb.transport property, or be inferred from ro.kernel.qemu that is
-// set to "1" for ranchu/goldfish.
+// service.adb.transport property, or be inferred by the qemu_pipe_is_available
+// function.
 bool use_qemu_goldfish() {
     // Legacy way to detect if adbd should use the goldfish pipe is to check for
     // ro.kernel.qemu, keep that behaviour for backward compatibility.
-    if (android::base::GetBoolProperty("ro.kernel.qemu", false)) {
+    if (qemu_pipe_is_available()) {
         return true;
     }
     // If service.adb.transport is present and is set to "goldfish", use the
