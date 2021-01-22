@@ -1,5 +1,9 @@
 // libadbd_fs
 // =========================================================
+package {
+    default_applicable_licenses: ["packages_modules_adb_license"],
+}
+
 cc_library {
     name: "libadbd_fs",
     defaults: ["adbd_defaults"],
