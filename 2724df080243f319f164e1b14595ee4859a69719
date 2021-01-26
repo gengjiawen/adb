@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a01cedb9_696e3f11",
+        "filename": "client/osp/udp_socket.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-01-26T19:31:21Z",
+      "side": 1,
+      "message": "Looks like jophba@ CL (https://chromium-review.googlesource.com/c/openscreen/+/2643397/) exposes a bind failure for ipv6. Documentation (https://man7.org/linux/man-pages/man7/ipv6.7.html#ERRORS) shows sin6_scope_id must be set to a valid interface index.",
+      "range": {
+        "startLine": 275,
+        "startChar": 16,
+        "endLine": 275,
+        "endChar": 42
+      },
+      "revId": "2724df080243f319f164e1b14595ee4859a69719",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
