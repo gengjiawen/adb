@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28f51454_9f5b322d",
+        "filename": "Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1305591
+      },
+      "writtenOn": "2021-01-26T21:05:37Z",
+      "side": 1,
+      "message": "should also link c++ statically? btw, it would be also nice to inspect the final result. based on an analysis I ran on a flattened apex device last week, I suspect that there might be other libraries that could pull in libbase / libc++ dynamically. I +\u0027d you in a doc in which we discuss this.",
+      "range": {
+        "startLine": 154,
+        "startChar": 12,
+        "endLine": 154,
+        "endChar": 25
+      },
+      "revId": "bece43d261094f0da1e29643d4f3733abc1f8be6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4a7273a_5a420358",
+        "filename": "apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1305591
+      },
+      "writtenOn": "2021-01-26T21:05:37Z",
+      "side": 1,
+      "message": "I believe this would be temporary? can you add a comment and a todo?",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 55
+      },
+      "revId": "bece43d261094f0da1e29643d4f3733abc1f8be6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5bd9e95_dcecd411",
+        "filename": "apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1305591
+      },
+      "writtenOn": "2021-01-26T21:05:37Z",
+      "side": 1,
+      "message": "a comment and a todo about removing it?",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 9
+      },
+      "revId": "bece43d261094f0da1e29643d4f3733abc1f8be6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
