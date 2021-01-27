@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0e0ae5f_4efddf79",
+        "filename": "Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1305591
+      },
+      "writtenOn": "2021-01-27T16:36:47Z",
+      "side": 1,
+      "message": "oh I see you are only removing libbase rom the apex, makes sense.",
+      "parentUuid": "2312a6f5_a180e19c",
+      "range": {
+        "startLine": 154,
+        "startChar": 12,
+        "endLine": 154,
+        "endChar": 25
+      },
+      "revId": "bece43d261094f0da1e29643d4f3733abc1f8be6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f4a7273a_5a420358",
