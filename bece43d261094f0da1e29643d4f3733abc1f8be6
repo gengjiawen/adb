@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2312a6f5_a180e19c",
+        "filename": "Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1687194
+      },
+      "writtenOn": "2021-01-27T15:47:10Z",
+      "side": 1,
+      "message": "it wasn\u0027t linking c++ statically before my change, so I assumed (perhaps incorrectly) that this didn\u0027t need to be added.\n\nLooking into your doc, I think we want to do more exploration before shipping to S, but this may be sufficient for the testing we want to do?",
+      "parentUuid": "28f51454_9f5b322d",
+      "range": {
+        "startLine": 154,
+        "startChar": 12,
+        "endLine": 154,
+        "endChar": 25
+      },
+      "revId": "bece43d261094f0da1e29643d4f3733abc1f8be6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f4a7273a_5a420358",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-01-26T21:05:37Z",
       "side": 1,
       "message": "I believe this would be temporary? can you add a comment and a todo?",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 55
+      },
+      "revId": "bece43d261094f0da1e29643d4f3733abc1f8be6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60a09760_6fc54f13",
+        "filename": "apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1687194
+      },
+      "writtenOn": "2021-01-27T15:47:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4a7273a_5a420358",
       "range": {
         "startLine": 37,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ef756d1_5c5cb506",
+        "filename": "apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1687194
+      },
+      "writtenOn": "2021-01-27T15:47:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5bd9e95_dcecd411",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 9
+      },
+      "revId": "bece43d261094f0da1e29643d4f3733abc1f8be6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4a222207_e13e88a2",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-01-27T00:05:52Z",
       "side": 1,
       "message": "Does \"stripped\" here mean \"with shared libraries outside\"?\nStripped makes me think of symbols being stripped, so \"shared\" might be a better name for that if so.",
+      "range": {
+        "startLine": 52,
+        "startChar": 28,
+        "endLine": 52,
+        "endChar": 36
+      },
+      "revId": "bece43d261094f0da1e29643d4f3733abc1f8be6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0184a7d3_844c592a",
+        "filename": "apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1687194
+      },
+      "writtenOn": "2021-01-27T15:47:10Z",
+      "side": 1,
+      "message": "The naming is somewhat complicated as we want to build a version with libraries statically linked, one with libraries dynamically linked, and one with the dynamically linked libraries removed from the apex (which is the one we\u0027re building here). This is the naming we\u0027ve used to describe it so far, and we\u0027ll be deleting it from here relatively soon.\n\nFor the long-term solution, we\u0027ll both come up with names to distinguish the variations and make it such you don\u0027t have to worry about it in the Android.bp file.",
+      "parentUuid": "4a222207_e13e88a2",
       "range": {
         "startLine": 52,
         "startChar": 28,
