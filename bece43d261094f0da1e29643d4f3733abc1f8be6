@@ -68,6 +68,29 @@
       },
       "revId": "bece43d261094f0da1e29643d4f3733abc1f8be6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a222207_e13e88a2",
+        "filename": "apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-01-27T00:05:52Z",
+      "side": 1,
+      "message": "Does \"stripped\" here mean \"with shared libraries outside\"?\nStripped makes me think of symbols being stripped, so \"shared\" might be a better name for that if so.",
+      "range": {
+        "startLine": 52,
+        "startChar": 28,
+        "endLine": 52,
+        "endChar": 36
+      },
+      "revId": "bece43d261094f0da1e29643d4f3733abc1f8be6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
