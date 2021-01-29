@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73b60ea5_fb647c62",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-01-29T20:48:16Z",
+      "side": 1,
+      "message": "From conversation with Jordan:\n\nSo I\u0027ve found a socket configuration that works, and it requires two things:\n1) bind must be on INADDR_ANY, otherwise we can\u0027t receive multicast packets (only sending works)\n2) in UdpPacket::SendMessage, must explicitly use 224.0.0.251, otherwise the src/dest address is the same\n...\nThere\u0027s a weird behavior I noticed on linux (haven\u0027t tried on windows yet); if we bind to INADDR_ANY:5353 and send the mdns queries using INADDR_ANY, the resolve src/dest address is 127.0.0.1-\u003e127.0.0.1. If I explicitly set the destination address to 224.0.0.251, then the src/dest address is 192.168.86.248-\u003e224.0.0.251.",
+      "revId": "6a722d54174a016326d776c9e577568bc949bba0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
