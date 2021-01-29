@@ -1,0 +1,134 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000007745475",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1549744?revision\u003d3",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "4bfec1c1_64a5ca26",
+        "filename": "client/osp/udp_socket.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-01-29T20:45:24Z",
+      "side": 1,
+      "message": "Lines longer than 100 characters should be wrapped to improve readability; see https://source.android.com/setup/contribute/code-style#limit-line-length for more details.",
+      "range": {
+        "startLine": 291,
+        "startChar": 0,
+        "endLine": 291,
+        "endChar": 105
+      },
+      "revId": "6a722d54174a016326d776c9e577568bc949bba0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000007745475",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1549744?revision\u003d3",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "cb1c68d4_4fadeb03",
+        "filename": "client/osp/udp_socket.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-01-29T20:45:24Z",
+      "side": 1,
+      "message": "Lines longer than 100 characters should be wrapped to improve readability; see https://source.android.com/setup/contribute/code-style#limit-line-length for more details.",
+      "range": {
+        "startLine": 326,
+        "startChar": 0,
+        "endLine": 326,
+        "endChar": 105
+      },
+      "revId": "6a722d54174a016326d776c9e577568bc949bba0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000007745475",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1549744?revision\u003d3",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "ea70ba8d_1feba093",
+        "filename": "client/osp/udp_socket.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-01-29T20:45:24Z",
+      "side": 1,
+      "message": "Lines longer than 100 characters should be wrapped to improve readability; see https://source.android.com/setup/contribute/code-style#limit-line-length for more details.",
+      "range": {
+        "startLine": 341,
+        "startChar": 0,
+        "endLine": 341,
+        "endChar": 105
+      },
+      "revId": "6a722d54174a016326d776c9e577568bc949bba0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000007745475",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1549744?revision\u003d3",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "1fdfff71_f966d04e",
+        "filename": "client/osp/udp_socket.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-01-29T20:45:24Z",
+      "side": 1,
+      "message": "Lines longer than 100 characters should be wrapped to improve readability; see https://source.android.com/setup/contribute/code-style#limit-line-length for more details.",
+      "range": {
+        "startLine": 400,
+        "startChar": 0,
+        "endLine": 400,
+        "endChar": 105
+      },
+      "revId": "6a722d54174a016326d776c9e577568bc949bba0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000007745475",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1549744?revision\u003d3",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "f122decd_bbaf8077",
+        "filename": "client/osp/udp_socket.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-01-29T20:45:24Z",
+      "side": 1,
+      "message": "Lines longer than 100 characters should be wrapped to improve readability; see https://source.android.com/setup/contribute/code-style#limit-line-length for more details.",
+      "range": {
+        "startLine": 401,
+        "startChar": 0,
+        "endLine": 401,
+        "endChar": 117
+      },
+      "revId": "6a722d54174a016326d776c9e577568bc949bba0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
