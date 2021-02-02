@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6d859f0_88cd9141",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1305591
+      },
+      "writtenOn": "2021-02-02T23:58:01Z",
+      "side": 1,
+      "message": "I was playing with VSCode and this bug was driving me crazy: https://github.com/microsoft/vscode/issues/115645\n\nAt least it was worth something!",
+      "revId": "99210c5063b4773c7fcb678a330264486eb01dca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
