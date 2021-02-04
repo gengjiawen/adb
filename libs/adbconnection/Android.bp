@@ -2,6 +2,13 @@
 // =========================================================
 // libadbconnection_client/server implement the socket handling for jdwp
 // forwarding and the track-jdwp service.
+package {
+    // A large-scale-change added 'default_applicable_licenses' to import
+    // the below license kinds from "packages_modules_adb_license":
+    //   SPDX-license-identifier-Apache-2.0
+    default_applicable_licenses: ["packages_modules_adb_license"],
+}
+
 cc_library {
     name: "libadbconnection_server",
     srcs: ["adbconnection_server.cpp"],
