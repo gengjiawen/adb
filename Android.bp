@@ -463,6 +463,7 @@ cc_library_static {
         "daemon/logging.cpp",
         "daemon/property_monitor.cpp",
         "daemon/transport_local.cpp",
+        "daemon/watchdog.cpp",
     ],
 
     generated_headers: ["platform_tools_version"],
