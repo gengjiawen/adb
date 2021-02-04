@@ -461,6 +461,7 @@ cc_library_static {
         "daemon/auth.cpp",
         "daemon/jdwp_service.cpp",
         "daemon/logging.cpp",
+        "daemon/property_monitor.cpp",
         "daemon/transport_local.cpp",
     ],
 
@@ -766,6 +767,8 @@ cc_test {
 
     recovery_available: false,
     srcs: libadb_test_srcs + [
+        "daemon/property_monitor.cpp",
+        "daemon/property_monitor_test.cpp",
         "daemon/services.cpp",
         "daemon/shell_service.cpp",
         "daemon/shell_service_test.cpp",
