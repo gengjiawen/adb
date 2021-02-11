@@ -16,6 +16,499 @@
       "message": "Change ready for review.\n\nTested with openscreen @ b98dcaa0db83132203774a577c0a64c39f7092e9 (go/oag/1580897)",
       "revId": "e76508268f138ac11068f8316077457bcf6bff94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25ba770a_1560e0cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1729080
+      },
+      "writtenOn": "2021-02-11T00:52:21Z",
+      "side": 1,
+      "message": "Focused on open screen integrations but checked overall.\n\nPlease let me know if you have any suggestions or feedback on the openscreen public APIs, I am generally happy to do patches that improve usability and maintainability.",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed8b0ac5_b7809ac9",
+        "filename": "client/mdns_service_info.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1729080
+      },
+      "writtenOn": "2021-02-11T00:52:21Z",
+      "side": 1,
+      "message": "Nit: not grammatically correct. Maybe:\n\n  // Check if |endpoint| is a known ADB service name.",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77b332bd_f4bb439e",
+        "filename": "client/mdns_service_watcher.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1729080
+      },
+      "writtenOn": "2021-02-11T00:52:21Z",
+      "side": 1,
+      "message": "Unused?",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f89e0d36_f55bd05d",
+        "filename": "client/mdns_service_watcher.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1729080
+      },
+      "writtenOn": "2021-02-11T00:52:21Z",
+      "side": 1,
+      "message": "Consider inline if allowed by your style guide:\n\n  std::string service_name() const { \n    return service_name_;\n  }",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66f14bc4_052e713b",
+        "filename": "client/osp/logging.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1729080
+      },
+      "writtenOn": "2021-02-11T00:52:21Z",
+      "side": 1,
+      "message": "Nit: not a huge fan of copying the comments from the API logging.h file:\n\nhttps://osscs.corp.google.com/chromium/chromium/src/+/master:third_party/openscreen/src/platform/api/logging.h\n\nEspecially since it is not accurate--this implementation just calls std::abort so may or may not break into a present debugger.",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db34daf4_0b503b6c",
+        "filename": "client/osp/udp_socket.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1729080
+      },
+      "writtenOn": "2021-02-11T00:52:21Z",
+      "side": 1,
+      "message": "Consider making client_ mandatory. We have done that elsewhere and I think it makes things a little cleaner.",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95393fd2_312b53fa",
+        "filename": "client/osp/udp_socket.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1729080
+      },
+      "writtenOn": "2021-02-11T00:52:21Z",
+      "side": 1,
+      "message": "What does this do? I\u0027m guessing it was for debugging?",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dffd38ce_b7ae1222",
+        "filename": "client/osp/udp_socket.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1729080
+      },
+      "writtenOn": "2021-02-11T00:52:21Z",
+      "side": 1,
+      "message": "Does LOG(ERROR) also return? If not you should probably exit early here.",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac7c4530_2fe7be64",
+        "filename": "client/osp/udp_socket.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1729080
+      },
+      "writtenOn": "2021-02-11T00:52:21Z",
+      "side": 1,
+      "message": "Are we tracking a bug to change call order in Open Screen? Or is this an optimistic TODO?",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f33a144e_0882bb95",
+        "filename": "client/osp/udp_socket.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1729080
+      },
+      "writtenOn": "2021-02-11T00:52:21Z",
+      "side": 1,
+      "message": "Linux has ip_mreq, can you set s_addr for imr_interface the same way?",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f239f61_a794296b",
+        "filename": "client/osp/udp_socket.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1729080
+      },
+      "writtenOn": "2021-02-11T00:52:21Z",
+      "side": 1,
+      "message": "const?",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52060130_54bfe82f",
+        "filename": "client/osp/udp_socket.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1729080
+      },
+      "writtenOn": "2021-02-11T00:52:21Z",
+      "side": 1,
+      "message": "Can you refactor out the duplicate code between here and SetMulticastOutboundInterface?",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37c38ff6_f5288add",
+        "filename": "client/osp/udp_socket.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1729080
+      },
+      "writtenOn": "2021-02-11T00:52:21Z",
+      "side": 1,
+      "message": "Nit: consider explicitly naming the default.\n\nE.g.\n\n  struct ipv6_mreq multicast_properties {\n    ipv6mr_multiaddr{},\n    static_cast\u003cIPv6NetworkInterfaceIndex\u003e(ifindex),\n  };",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8895082c_f31831af",
+        "filename": "client/osp/udp_socket.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1729080
+      },
+      "writtenOn": "2021-02-11T00:52:21Z",
+      "side": 1,
+      "message": "const?",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dca749da_a7f57fb3",
+        "filename": "client/osp/udp_socket.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 1729080
+      },
+      "writtenOn": "2021-02-11T00:52:21Z",
+      "side": 1,
+      "message": "Consider adding a break;, or removing noop breaks/returns (like on line 400).",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1703495e_8c7507b3",
+        "filename": "client/osp/udp_socket.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 600,
+      "author": {
+        "id": 1729080
+      },
+      "writtenOn": "2021-02-11T00:52:21Z",
+      "side": 1,
+      "message": "const?",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c506966_290f3354",
+        "filename": "client/osp/udp_socket.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1729080
+      },
+      "writtenOn": "2021-02-11T00:52:21Z",
+      "side": 1,
+      "message": "const?",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2d716ed_f0acde44",
+        "filename": "client/transport_mdns.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1729080
+      },
+      "writtenOn": "2021-02-11T00:52:21Z",
+      "side": 1,
+      "message": "Should we check that discovery is started in all of the other methods?",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c509b4b_8bbb90b6",
+        "filename": "client/transport_mdns.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1729080
+      },
+      "writtenOn": "2021-02-11T00:52:21Z",
+      "side": 1,
+      "message": "Can you just move this class before DiscoveryState instead?",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0515f8fe_76ae9737",
+        "filename": "client/transport_mdns.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1729080
+      },
+      "writtenOn": "2021-02-11T00:52:21Z",
+      "side": 1,
+      "message": "Should this be logged as not reached?",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7386a97d_140a40d1",
+        "filename": "client/transport_mdns.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1729080
+      },
+      "writtenOn": "2021-02-11T00:52:21Z",
+      "side": 1,
+      "message": "const?",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3324977d_fdbd8f8e",
+        "filename": "client/transport_mdns.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1729080
+      },
+      "writtenOn": "2021-02-11T00:52:21Z",
+      "side": 1,
+      "message": "const?",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfbee308_b7b49add",
+        "filename": "sysdeps_win32.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 816,
+      "author": {
+        "id": 1729080
+      },
+      "writtenOn": "2021-02-11T00:52:21Z",
+      "side": 1,
+      "message": "const?",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5aacbba5_60374341",
+        "filename": "sysdeps_win32.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 866,
+      "author": {
+        "id": 1729080
+      },
+      "writtenOn": "2021-02-11T00:52:21Z",
+      "side": 1,
+      "message": "Should we log an error or something in this default?",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5561b9c_b3a36f7c",
+        "filename": "sysdeps_win32.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 889,
+      "author": {
+        "id": 1729080
+      },
+      "writtenOn": "2021-02-11T00:52:21Z",
+      "side": 1,
+      "message": "Do we want hungarian notation here and elsewhere? I thought that was generally considered out of date.",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d48748eb_4af31262",
+        "filename": "sysdeps_win32.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1729080
+      },
+      "writtenOn": "2021-02-11T00:52:21Z",
+      "side": 1,
+      "message": "This can be const right?",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1c15896_fe21bad6",
+        "filename": "sysdeps_win32.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 949,
+      "author": {
+        "id": 1729080
+      },
+      "writtenOn": "2021-02-11T00:52:21Z",
+      "side": 1,
+      "message": "Nit: type is unclear so not sure these are great candidates for auto.",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a0d27a4_d7fbd645",
+        "filename": "sysdeps_win32.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 953,
+      "author": {
+        "id": 1729080
+      },
+      "writtenOn": "2021-02-11T00:52:21Z",
+      "side": 1,
+      "message": "Nit: consider \n\n  while (bytes_remaining \u003e 0) {\n\nThen moving the if check below outside of the while loop.",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4500fce5_6f4ef0ce",
+        "filename": "sysdeps_win32.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 954,
+      "author": {
+        "id": 1729080
+      },
+      "writtenOn": "2021-02-11T00:52:21Z",
+      "side": 1,
+      "message": "const?",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
