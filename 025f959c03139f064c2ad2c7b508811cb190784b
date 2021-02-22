@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93af3e5b_a734dc16",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-02-22T20:50:01Z",
+      "side": 1,
+      "message": "```\npackages/modules/adb/libs/adbconnection/adbconnection_client.cpp:135:23: error: no member named \u0027WaitForProperty\u0027 in namespace \u0027android::base\u0027\n  if (!android::base::WaitForProperty(\"init.svc.adbd\", \"running\")) {\n       ~~~~~~~~~~~~~~~^\n```",
+      "revId": "025f959c03139f064c2ad2c7b508811cb190784b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
