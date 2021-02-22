@@ -16,6 +16,57 @@
       "message": "This has been working all week with no manual interventions required. I think the bugs are worked out.",
       "revId": "0bdf5912c2ea20a3c8b9c5b7fe2b78a75b862ab9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8840f8b_fa59a010",
+        "filename": "daemon/property_monitor.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-02-22T17:44:09Z",
+      "side": 1,
+      "message": "i\u0027m surprised clang-tidy doesn\u0027t complain about this. did we misconfigure something?\n```\n  while (this-\u003eRunOnce()) {\n  }\n```",
+      "revId": "0bdf5912c2ea20a3c8b9c5b7fe2b78a75b862ab9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "381c11fb_6d7dac23",
+        "filename": "daemon/property_monitor.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-02-22T17:44:09Z",
+      "side": 1,
+      "message": "why?",
+      "revId": "0bdf5912c2ea20a3c8b9c5b7fe2b78a75b862ab9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd23006f_40319852",
+        "filename": "daemon/property_monitor_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-02-22T17:44:09Z",
+      "side": 1,
+      "message": "just don\u0027t build this for non-Android?",
+      "revId": "0bdf5912c2ea20a3c8b9c5b7fe2b78a75b862ab9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
