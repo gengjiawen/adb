@@ -52,6 +52,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ac1df9e_9b46606e",
+        "filename": "client/mdns_service_info.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-02-24T17:55:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed8b0ac5_b7809ac9",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "77b332bd_f4bb439e",
@@ -65,6 +83,24 @@
       "writtenOn": "2021-02-11T00:52:21Z",
       "side": 1,
       "message": "Unused?",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a80a6fe_5bb409af",
+        "filename": "client/mdns_service_watcher.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-02-24T17:55:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77b332bd_f4bb439e",
       "revId": "e76508268f138ac11068f8316077457bcf6bff94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -86,6 +122,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ced4c6e_a3ff0029",
+        "filename": "client/mdns_service_watcher.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-02-24T17:55:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f89e0d36_f55bd05d",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "66f14bc4_052e713b",
@@ -99,6 +153,24 @@
       "writtenOn": "2021-02-11T00:52:21Z",
       "side": 1,
       "message": "Nit: not a huge fan of copying the comments from the API logging.h file:\n\nhttps://osscs.corp.google.com/chromium/chromium/src/+/master:third_party/openscreen/src/platform/api/logging.h\n\nEspecially since it is not accurate--this implementation just calls std::abort so may or may not break into a present debugger.",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "925c715d_e6b492ca",
+        "filename": "client/osp/logging.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-02-24T17:55:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66f14bc4_052e713b",
       "revId": "e76508268f138ac11068f8316077457bcf6bff94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -120,6 +192,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1386ba8_ac25d2aa",
+        "filename": "client/osp/udp_socket.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-02-24T17:55:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db34daf4_0b503b6c",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "95393fd2_312b53fa",
@@ -137,6 +227,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b53776ae_1f5b8a93",
+        "filename": "client/osp/udp_socket.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-02-24T17:55:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95393fd2_312b53fa",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dffd38ce_b7ae1222",
@@ -150,6 +258,24 @@
       "writtenOn": "2021-02-11T00:52:21Z",
       "side": 1,
       "message": "Does LOG(ERROR) also return? If not you should probably exit early here.",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96436c18_af38ebfc",
+        "filename": "client/osp/udp_socket.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-02-24T17:55:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dffd38ce_b7ae1222",
       "revId": "e76508268f138ac11068f8316077457bcf6bff94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -173,6 +299,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a123805a_e9c75141",
+        "filename": "client/osp/udp_socket.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-02-24T17:55:53Z",
+      "side": 1,
+      "message": "Yes, optimistic :). I haven\u0027t filed a bug for this issue. I went through chromium\u0027s udp implementation, and they seem to setsockopt on some of the multicast options upon creation (which is why openscreen works around by calling Bind() first). I\u0027ll leave it on your end to decide whether to file a bug, since this fix requires a change to chromium as well.",
+      "parentUuid": "ac7c4530_2fe7be64",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f33a144e_0882bb95",
         "filename": "client/osp/udp_socket.cpp",
         "patchSetId": 5
@@ -184,6 +328,24 @@
       "writtenOn": "2021-02-11T00:52:21Z",
       "side": 1,
       "message": "Linux has ip_mreq, can you set s_addr for imr_interface the same way?",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a21b1df_3a365eee",
+        "filename": "client/osp/udp_socket.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-02-24T17:55:53Z",
+      "side": 1,
+      "message": "It works, but must use the local address of the interface instead of the interface index for both linux and windows. Windows can interpret imr_interface as either an address or index, but linux can only process it as an address.",
+      "parentUuid": "f33a144e_0882bb95",
       "revId": "e76508268f138ac11068f8316077457bcf6bff94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -205,6 +367,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7420bdb4_b44c5e0a",
+        "filename": "client/osp/udp_socket.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-02-24T17:55:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f239f61_a794296b",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "52060130_54bfe82f",
@@ -218,6 +398,24 @@
       "writtenOn": "2021-02-11T00:52:21Z",
       "side": 1,
       "message": "Can you refactor out the duplicate code between here and SetMulticastOutboundInterface?",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9873155e_60d752aa",
+        "filename": "client/osp/udp_socket.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-02-24T17:55:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "52060130_54bfe82f",
       "revId": "e76508268f138ac11068f8316077457bcf6bff94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -239,6 +437,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce35c15f_251c5ad7",
+        "filename": "client/osp/udp_socket.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-02-24T17:55:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37c38ff6_f5288add",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8895082c_f31831af",
@@ -252,6 +468,24 @@
       "writtenOn": "2021-02-11T00:52:21Z",
       "side": 1,
       "message": "const?",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e15a162d_36b93baa",
+        "filename": "client/osp/udp_socket.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-02-24T17:55:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8895082c_f31831af",
       "revId": "e76508268f138ac11068f8316077457bcf6bff94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -273,6 +507,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1545923_63157de9",
+        "filename": "client/osp/udp_socket.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-02-24T17:55:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dca749da_a7f57fb3",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1703495e_8c7507b3",
@@ -286,6 +538,24 @@
       "writtenOn": "2021-02-11T00:52:21Z",
       "side": 1,
       "message": "const?",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6619085e_3986def6",
+        "filename": "client/osp/udp_socket.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 600,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-02-24T17:55:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1703495e_8c7507b3",
       "revId": "e76508268f138ac11068f8316077457bcf6bff94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -307,6 +577,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "de6a5586_d402f66f",
+        "filename": "client/osp/udp_socket.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-02-24T17:55:53Z",
+      "side": 1,
+      "message": "move constructor for const not defined.",
+      "parentUuid": "5c506966_290f3354",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d2d716ed_f0acde44",
@@ -320,6 +608,24 @@
       "writtenOn": "2021-02-11T00:52:21Z",
       "side": 1,
       "message": "Should we check that discovery is started in all of the other methods?",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6655024_7bcc7858",
+        "filename": "client/transport_mdns.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-02-24T17:55:53Z",
+      "side": 1,
+      "message": "Yes, I\u0027ll check if the receivers are running.",
+      "parentUuid": "d2d716ed_f0acde44",
       "revId": "e76508268f138ac11068f8316077457bcf6bff94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -341,6 +647,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "66bc92a2_0336353a",
+        "filename": "client/transport_mdns.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-02-24T17:55:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c509b4b_8bbb90b6",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0515f8fe_76ae9737",
@@ -354,6 +678,24 @@
       "writtenOn": "2021-02-11T00:52:21Z",
       "side": 1,
       "message": "Should this be logged as not reached?",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "967dd28b_25e35fa9",
+        "filename": "client/transport_mdns.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-02-24T17:55:53Z",
+      "side": 1,
+      "message": "There\u0027s one more state that I am ignoring (ServicesUpdatedState::EndpointDeleted).",
+      "parentUuid": "0515f8fe_76ae9737",
       "revId": "e76508268f138ac11068f8316077457bcf6bff94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -375,6 +717,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "749ba5c6_3114a45e",
+        "filename": "client/transport_mdns.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-02-24T17:55:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7386a97d_140a40d1",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3324977d_fdbd8f8e",
@@ -388,6 +748,24 @@
       "writtenOn": "2021-02-11T00:52:21Z",
       "side": 1,
       "message": "const?",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2239824d_50fa1a6a",
+        "filename": "client/transport_mdns.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-02-24T17:55:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3324977d_fdbd8f8e",
       "revId": "e76508268f138ac11068f8316077457bcf6bff94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -409,6 +787,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7a3ec8a_31c00a50",
+        "filename": "sysdeps_win32.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 816,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-02-24T17:55:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bfbee308_b7b49add",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5aacbba5_60374341",
@@ -422,6 +818,24 @@
       "writtenOn": "2021-02-11T00:52:21Z",
       "side": 1,
       "message": "Should we log an error or something in this default?",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "833a2312_e4850be4",
+        "filename": "sysdeps_win32.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 866,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-02-24T17:55:53Z",
+      "side": 1,
+      "message": "This field may be unset when receiving messages, so we can safely ignore. I\u0027ll leave a note.",
+      "parentUuid": "5aacbba5_60374341",
       "revId": "e76508268f138ac11068f8316077457bcf6bff94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -443,6 +857,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c9911f9_4d4c9391",
+        "filename": "sysdeps_win32.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 889,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-02-24T17:55:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5561b9c_b3a36f7c",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d48748eb_4af31262",
@@ -456,6 +888,24 @@
       "writtenOn": "2021-02-11T00:52:21Z",
       "side": 1,
       "message": "This can be const right?",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2d988a1_ae71a168",
+        "filename": "sysdeps_win32.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-02-24T17:55:53Z",
+      "side": 1,
+      "message": "I\u0027ll keep as-is, otherwise need to const_cast in WSAIoctl().",
+      "parentUuid": "d48748eb_4af31262",
       "revId": "e76508268f138ac11068f8316077457bcf6bff94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -477,6 +927,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "27b2924c_a45b5461",
+        "filename": "sysdeps_win32.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 949,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-02-24T17:55:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1c15896_fe21bad6",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9a0d27a4_d7fbd645",
@@ -494,6 +962,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "231b05f9_6e5d254b",
+        "filename": "sysdeps_win32.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 953,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-02-24T17:55:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a0d27a4_d7fbd645",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4500fce5_6f4ef0ce",
@@ -507,6 +993,24 @@
       "writtenOn": "2021-02-11T00:52:21Z",
       "side": 1,
       "message": "const?",
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70d01059_f1eea856",
+        "filename": "sysdeps_win32.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 954,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-02-24T17:55:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4500fce5_6f4ef0ce",
       "revId": "e76508268f138ac11068f8316077457bcf6bff94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }

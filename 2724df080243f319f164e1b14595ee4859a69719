@@ -22,6 +22,30 @@
       },
       "revId": "2724df080243f319f164e1b14595ee4859a69719",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38904938_74148387",
+        "filename": "client/osp/udp_socket.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-02-24T17:55:53Z",
+      "side": 1,
+      "message": "Actually, if we bind to ANY, then scope_id must be zero, otherwise it fails on Windows.",
+      "parentUuid": "a01cedb9_696e3f11",
+      "range": {
+        "startLine": 275,
+        "startChar": 16,
+        "endLine": 275,
+        "endChar": 42
+      },
+      "revId": "2724df080243f319f164e1b14595ee4859a69719",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
