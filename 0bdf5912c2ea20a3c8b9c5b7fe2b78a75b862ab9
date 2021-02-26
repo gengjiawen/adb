@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "84a633fc_abb288bb",
+        "filename": "daemon/property_monitor.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-02-26T08:10:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8840f8b_fa59a010",
+      "revId": "0bdf5912c2ea20a3c8b9c5b7fe2b78a75b862ab9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "381c11fb_6d7dac23",
@@ -52,6 +70,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e11c1e55_5d9a8160",
+        "filename": "daemon/property_monitor.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-02-26T08:10:01Z",
+      "side": 1,
+      "message": "If a property was freshly added, it\u0027s \"changed\".\n\n(Although, the fact that we change last_serial_ means we\u0027ll miss updated properties if you call RunOnce, add a property, and then start again. Reworked the loop below to fix that.)",
+      "parentUuid": "381c11fb_6d7dac23",
+      "revId": "0bdf5912c2ea20a3c8b9c5b7fe2b78a75b862ab9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bd23006f_40319852",
@@ -65,6 +101,24 @@
       "writtenOn": "2021-02-22T17:44:09Z",
       "side": 1,
       "message": "just don\u0027t build this for non-Android?",
+      "revId": "0bdf5912c2ea20a3c8b9c5b7fe2b78a75b862ab9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ebe7156_fafbdf3f",
+        "filename": "daemon/property_monitor_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-02-26T08:10:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd23006f_40319852",
       "revId": "0bdf5912c2ea20a3c8b9c5b7fe2b78a75b862ab9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
