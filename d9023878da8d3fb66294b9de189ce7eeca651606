@@ -22,6 +22,30 @@
       },
       "revId": "d9023878da8d3fb66294b9de189ce7eeca651606",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49496de4_abd6b45e",
+        "filename": "socket_spec.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-02-26T01:47:13Z",
+      "side": 1,
+      "message": "My guess is that a packet per second per connection probably isn\u0027t going to cause any problems, especially if most connections are going to be on the same local network.\n\n(An idle gmail tab appears to be sending more packets per second, across the internet)",
+      "parentUuid": "8d481885_ad4d0444",
+      "range": {
+        "startLine": 225,
+        "startChar": 34,
+        "endLine": 225,
+        "endChar": 35
+      },
+      "revId": "d9023878da8d3fb66294b9de189ce7eeca651606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
