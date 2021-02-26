@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d481885_ad4d0444",
+        "filename": "socket_spec.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-02-26T01:28:50Z",
+      "side": 1,
+      "message": "is this going to get complaints from the \"laptop on the shuttle\" crowd? (not this year, obviously, but eventually...)",
+      "range": {
+        "startLine": 225,
+        "startChar": 34,
+        "endLine": 225,
+        "endChar": 35
+      },
+      "revId": "d9023878da8d3fb66294b9de189ce7eeca651606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
