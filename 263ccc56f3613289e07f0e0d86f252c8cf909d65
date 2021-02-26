@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91575488_7bda9a78",
+        "filename": "daemon/property_monitor.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-02-26T16:47:49Z",
+      "side": 1,
+      "message": "why 0?",
+      "revId": "263ccc56f3613289e07f0e0d86f252c8cf909d65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8790228a_f112fd54",
+        "filename": "daemon/property_monitor.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-02-26T16:47:49Z",
+      "side": 1,
+      "message": "why call the callback if the property doesn\u0027t exist? seems odd?",
+      "revId": "263ccc56f3613289e07f0e0d86f252c8cf909d65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52c35ba7_7dcd0271",
+        "filename": "daemon/property_monitor.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-02-26T16:47:49Z",
+      "side": 1,
+      "message": "is there a better name for this?\n\nis RunOnce really just public for testing? make that clearer?",
+      "revId": "263ccc56f3613289e07f0e0d86f252c8cf909d65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
