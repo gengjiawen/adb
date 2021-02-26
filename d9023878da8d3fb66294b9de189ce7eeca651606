@@ -46,6 +46,30 @@
       },
       "revId": "d9023878da8d3fb66294b9de189ce7eeca651606",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3353954_72ee80aa",
+        "filename": "socket_spec.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-02-26T17:11:50Z",
+      "side": 1,
+      "message": "and we\u0027re keeping the device\u0027s radio awake but assuming that\u0027s okay because you\u0027re actively debugging? (i\u0027m assuming that almost by definition you\u0027re not charging because if you were plugged in, why would you be using wifi?)",
+      "parentUuid": "49496de4_abd6b45e",
+      "range": {
+        "startLine": 225,
+        "startChar": 34,
+        "endLine": 225,
+        "endChar": 35
+      },
+      "revId": "d9023878da8d3fb66294b9de189ce7eeca651606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
