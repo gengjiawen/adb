@@ -1,0 +1,141 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d57b567e_4c325a00",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-02-26T17:02:58Z",
+      "side": 1,
+      "message": "(apologies in advance for being convinced there must be a clearer API here, but not yet having a concrete suggestion...)",
+      "revId": "04e34178781bbf0065faa6d35e1896553b651c59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d7884e8_beb9bada",
+        "filename": "daemon/watchdog.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-02-26T17:02:58Z",
+      "side": 1,
+      "message": "i\u0027d have expected Arm and Disarm to be free functions and this to just be inlined rather than two lambdas and a single-use free function?\n\nit\u0027s too early in the morning for me to tell if this is actually different from the usual `GetBoolProperty(\"a\", GetBoolProperty(\"b\", false))`?",
+      "revId": "04e34178781bbf0065faa6d35e1896553b651c59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8b65158_eae44abd",
+        "filename": "daemon/watchdog.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-02-26T17:02:58Z",
+      "side": 1,
+      "message": "do dogs count? maybe s/g_watchdog_counting/g_watchdog_running/ and s/alarm_running/alarm_set/ or even just `armed` reads better?",
+      "range": {
+        "startLine": 105,
+        "startChar": 8,
+        "endLine": 105,
+        "endChar": 27
+      },
+      "revId": "04e34178781bbf0065faa6d35e1896553b651c59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8e17658_d0f5b3b9",
+        "filename": "daemon/watchdog.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-02-26T17:02:58Z",
+      "side": 1,
+      "message": "i assumed the \"call callbacks even if the property doesn\u0027t exist\" behavior was to avoid this kind of thing?",
+      "range": {
+        "startLine": 153,
+        "startChar": 4,
+        "endLine": 154,
+        "endChar": 12
+      },
+      "revId": "04e34178781bbf0065faa6d35e1896553b651c59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85ae43b7_bb08682a",
+        "filename": "daemon/watchdog.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-02-26T17:02:58Z",
+      "side": 1,
+      "message": "(i was actually thinking in the readme, but i see that\u0027s not currently a general interest readme anyway. so maybe s.a.c is the right place to talk about this? this is an improvement, but i\u0027m also thinking of the questions \"how do you get more than one user?\" and \"how do users know what\u0027s supported/what the expected use looks like?\")",
+      "revId": "04e34178781bbf0065faa6d35e1896553b651c59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49779861_192ee665",
+        "filename": "daemon/watchdog.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-02-26T17:02:58Z",
+      "side": 1,
+      "message": "why two properties?",
+      "revId": "04e34178781bbf0065faa6d35e1896553b651c59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "daa909cb_9a47b046",
+        "filename": "daemon/watchdog.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-02-26T17:02:58Z",
+      "side": 1,
+      "message": "with what timeout?",
+      "range": {
+        "startLine": 27,
+        "startChar": 21,
+        "endLine": 27,
+        "endChar": 54
+      },
+      "revId": "04e34178781bbf0065faa6d35e1896553b651c59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
