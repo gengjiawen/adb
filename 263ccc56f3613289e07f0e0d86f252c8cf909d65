@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c3c4c21_a70f64e7",
+        "filename": "daemon/property_monitor.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-02-26T21:31:42Z",
+      "side": 1,
+      "message": "That\u0027s the only way I found to get the current serial:\n\n```\n/*\n * Waits for the specific system property identified by `pi` to be updated\n * past `old_serial`. Waits no longer than `relative_timeout`, or forever\n * if `relaive_timeout` is null.\n *\n * If `pi` is null, waits for the global serial number instead.\n *\n * If you don\u0027t know the current serial, use 0.\n *\n * Returns true and updates `*new_serial_ptr` on success, or false if the call\n * timed out.\n */\nbool __system_property_wait(const prop_info* __pi, uint32_t __old_serial, uint32_t* __new_serial_ptr, const struct timespec* __relative_timeout)\n    __INTRODUCED_IN(26);\n```",
+      "parentUuid": "91575488_7bda9a78",
+      "revId": "263ccc56f3613289e07f0e0d86f252c8cf909d65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8790228a_f112fd54",
@@ -35,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aac5b6db_d1df322b",
+        "filename": "daemon/property_monitor.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-02-26T21:31:42Z",
+      "side": 1,
+      "message": "We can\u0027t unset a property, so this is to ensure that users don\u0027t assume that there\u0027s a difference between an unset property and a property set to the empty string.",
+      "parentUuid": "8790228a_f112fd54",
+      "revId": "263ccc56f3613289e07f0e0d86f252c8cf909d65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "52c35ba7_7dcd0271",
@@ -48,6 +84,24 @@
       "writtenOn": "2021-02-26T16:47:49Z",
       "side": 1,
       "message": "is there a better name for this?\n\nis RunOnce really just public for testing? make that clearer?",
+      "revId": "263ccc56f3613289e07f0e0d86f252c8cf909d65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01ad6033_139a52ea",
+        "filename": "daemon/property_monitor.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-02-26T21:31:42Z",
+      "side": 1,
+      "message": "For should_exit? I guess I could call it done or something along those lines?\n\nIt\u0027s mostly there for being able to get the initial values for properties and do stuff with them before reentering the loop. The implementation of Run is literally 1 line (well, two now), so it seems like there\u0027s little reason not to expose this.",
+      "parentUuid": "52c35ba7_7dcd0271",
       "revId": "263ccc56f3613289e07f0e0d86f252c8cf909d65",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
