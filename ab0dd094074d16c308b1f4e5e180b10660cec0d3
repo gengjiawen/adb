@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb3b08d8_a8748754",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-03-04T05:03:59Z",
+      "side": 1,
+      "message": "Josh, could you review this? This is critical for enabling adb in microdroid. https://android.googlesource.com/platform/packages/modules/Virtualization/+/refs/heads/master/microdroid/README.md#adb",
+      "revId": "ab0dd094074d16c308b1f4e5e180b10660cec0d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
