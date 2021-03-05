@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f5091f9_01a31e69",
+        "filename": "Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-03-05T17:58:47Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "431ee475_95cfb112",
+      "revId": "9620b99fd19499e47590a9c186c249607f95ddbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a31cf910_0de4f9ec",
@@ -48,6 +66,30 @@
       "writtenOn": "2021-02-26T23:05:29Z",
       "side": 1,
       "message": "We can do `std::unordered_set\u003cint\u003e g_autoconn_allowedlist [[clang::no_destroy]]` now.",
+      "range": {
+        "startLine": 49,
+        "startChar": 50,
+        "endLine": 50,
+        "endChar": 58
+      },
+      "revId": "9620b99fd19499e47590a9c186c249607f95ddbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0399afeb_4baa343a",
+        "filename": "adb_mdns.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-03-05T17:58:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a31cf910_0de4f9ec",
       "range": {
         "startLine": 49,
         "startChar": 50,
@@ -81,6 +123,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6544d791_70a518cc",
+        "filename": "adb_mdns.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-03-05T17:58:47Z",
+      "side": 1,
+      "message": "Yeah, I guess for debugging purposes it would be slightly annoying. I\u0027ll change it to an ordered set.",
+      "parentUuid": "f7b7e1b4_15452689",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 21
+      },
+      "revId": "9620b99fd19499e47590a9c186c249607f95ddbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9bbc5c83_c97fd6e2",
@@ -98,6 +164,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c95bead8_51ebef0c",
+        "filename": "client/adb_mdns_client.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-03-05T17:58:47Z",
+      "side": 1,
+      "message": "removed.",
+      "parentUuid": "9bbc5c83_c97fd6e2",
+      "revId": "9620b99fd19499e47590a9c186c249607f95ddbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3e71fca7_dfd6a13b",
@@ -111,6 +195,30 @@
       "writtenOn": "2021-02-26T23:05:29Z",
       "side": 1,
       "message": "Maybe we should have a client/openscreen and client/openscreen/platform, since a bunch of these files are returning and taking openscreen types?",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 70
+      },
+      "revId": "9620b99fd19499e47590a9c186c249607f95ddbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd153dcb_57057bba",
+        "filename": "client/mdns_service_info.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-03-05T17:58:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e71fca7_dfd6a13b",
       "range": {
         "startLine": 35,
         "startChar": 0,
@@ -144,6 +252,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b383225f_cb764368",
+        "filename": "client/mdns_service_watcher.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-03-05T17:58:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94c370ff_0fe8effb",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 62
+      },
+      "revId": "9620b99fd19499e47590a9c186c249607f95ddbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "57476183_ea466787",
@@ -157,6 +289,30 @@
       "writtenOn": "2021-02-26T23:05:29Z",
       "side": 1,
       "message": "g_",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 0
+      },
+      "revId": "9620b99fd19499e47590a9c186c249607f95ddbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1bbf8fb9_e4cf9b37",
+        "filename": "client/mdnsresponder_client.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-03-05T17:58:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57476183_ea466787",
       "range": {
         "startLine": 46,
         "startChar": 0,
@@ -190,6 +346,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "519e1c92_b2faf0e4",
+        "filename": "client/mdnsresponder_client.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-03-05T17:58:47Z",
+      "side": 1,
+      "message": "removed.",
+      "parentUuid": "b86cccd6_df206f51",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 6
+      },
+      "revId": "9620b99fd19499e47590a9c186c249607f95ddbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c916ca88_7814cc6d",
@@ -203,6 +383,30 @@
       "writtenOn": "2021-02-26T23:05:29Z",
       "side": 1,
       "message": "Do we need to do something here?",
+      "range": {
+        "startLine": 131,
+        "startChar": 44,
+        "endLine": 132,
+        "endChar": 57
+      },
+      "revId": "9620b99fd19499e47590a9c186c249607f95ddbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f830ed13_219c59b9",
+        "filename": "client/mdnsresponder_client.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-03-05T17:58:47Z",
+      "side": 1,
+      "message": "Nope. We just check Initialized() after constructing and destroy if not inited successfully. This happens in the register_service_ip callback as we have to wait for the mdns query result.",
+      "parentUuid": "c916ca88_7814cc6d",
       "range": {
         "startLine": 131,
         "startChar": 44,
@@ -236,6 +440,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7592ddae_b0ad4a35",
+        "filename": "client/mdnsresponder_client.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-03-05T17:58:47Z",
+      "side": 1,
+      "message": "Yeah, looks like it\u0027s not const in our mingw headers: cs/android/prebuilts/gcc/linux-x86/host/x86_64-w64-mingw32-4.8/x86_64-w64-mingw32/include/ws2tcpip.h;l\u003d447?q\u003dfile:ws2tcpip.h\u0026ss\u003dpiper%2FGoogle%2Fandroid",
+      "parentUuid": "b2a55d84_aa3335b4",
+      "range": {
+        "startLine": 169,
+        "startChar": 51,
+        "endLine": 169,
+        "endChar": 69
+      },
+      "revId": "9620b99fd19499e47590a9c186c249607f95ddbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "369b9986_b9c8f0eb",
@@ -249,6 +477,30 @@
       "writtenOn": "2021-02-26T23:05:29Z",
       "side": 1,
       "message": "\u003csuspicious hermione.gif\u003e\n\nIt might be better to use std::enable_shared_from_this, this looks pretty sketchy.\n\nIt doesn\u0027t seem like we\u0027re removing it from the services if we return false on line 208?",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 200,
+        "endChar": 68
+      },
+      "revId": "9620b99fd19499e47590a9c186c249607f95ddbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf8a9225_f7fae82d",
+        "filename": "client/mdnsresponder_client.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-03-05T17:58:47Z",
+      "side": 1,
+      "message": "Yeah, this looks weird. I refactored this to have the caller move it.",
+      "parentUuid": "369b9986_b9c8f0eb",
       "range": {
         "startLine": 199,
         "startChar": 0,
@@ -282,6 +534,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd8c284c_b89dcf10",
+        "filename": "client/mdnsresponder_client.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-03-05T17:58:47Z",
+      "side": 1,
+      "message": "Probably better then to just change all these string_view params to const std::string\u0026 since we are assuming null-terminated strings everywhere.",
+      "parentUuid": "84b86605_a12e2c70",
+      "range": {
+        "startLine": 323,
+        "startChar": 49,
+        "endLine": 323,
+        "endChar": 68
+      },
+      "revId": "9620b99fd19499e47590a9c186c249607f95ddbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5b916d3b_02f2d018",
@@ -295,6 +571,30 @@
       "writtenOn": "2021-02-26T23:05:29Z",
       "side": 1,
       "message": "const std::string\u0026 instead, since you\u0027re calling this with string::c_str(), anyway?",
+      "range": {
+        "startLine": 327,
+        "startChar": 9,
+        "endLine": 328,
+        "endChar": 86
+      },
+      "revId": "9620b99fd19499e47590a9c186c249607f95ddbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79a5ffd1_6fbb45c8",
+        "filename": "client/mdnsresponder_client.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-03-05T17:58:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b916d3b_02f2d018",
       "range": {
         "startLine": 327,
         "startChar": 9,
@@ -328,6 +628,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "98958f69_84e7a246",
+        "filename": "client/mdnsresponder_client.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-03-05T17:58:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63d495c8_a3aaa4f5",
+      "range": {
+        "startLine": 366,
+        "startChar": 42,
+        "endLine": 366,
+        "endChar": 58
+      },
+      "revId": "9620b99fd19499e47590a9c186c249607f95ddbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2218ce2f_1f937899",
@@ -341,6 +665,30 @@
       "writtenOn": "2021-02-26T23:05:29Z",
       "side": 1,
       "message": "`\u003e INT_MAX || \u003c INT_MIN`, since you\u0027re casting to an int",
+      "range": {
+        "startLine": 461,
+        "startChar": 30,
+        "endLine": 462,
+        "endChar": 72
+      },
+      "revId": "9620b99fd19499e47590a9c186c249607f95ddbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a72b3851_7ec7f885",
+        "filename": "client/mdnsresponder_client.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-03-05T17:58:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2218ce2f_1f937899",
       "range": {
         "startLine": 461,
         "startChar": 30,
@@ -374,6 +722,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "13c27621_6ada5140",
+        "filename": "client/osp/logging.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-03-05T17:58:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f12c8c80_e14fa720",
+      "range": {
+        "startLine": 28,
+        "startChar": 8,
+        "endLine": 28,
+        "endChar": 12
+      },
+      "revId": "9620b99fd19499e47590a9c186c249607f95ddbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "83546226_1d0171c9",
@@ -387,6 +759,30 @@
       "writtenOn": "2021-02-26T23:05:29Z",
       "side": 1,
       "message": "This doesn\u0027t actually seem to be optional",
+      "range": {
+        "startLine": 59,
+        "startChar": 10,
+        "endLine": 60,
+        "endChar": 39
+      },
+      "revId": "9620b99fd19499e47590a9c186c249607f95ddbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a712c77_84885e60",
+        "filename": "client/osp/task_runner.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-03-05T17:58:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83546226_1d0171c9",
       "range": {
         "startLine": 59,
         "startChar": 10,
@@ -420,6 +816,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ca3d356_0d565958",
+        "filename": "client/osp/task_runner.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-03-05T17:58:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f4ee7b0_7a9e43ee",
+      "range": {
+        "startLine": 62,
+        "startChar": 87,
+        "endLine": 63,
+        "endChar": 76
+      },
+      "revId": "9620b99fd19499e47590a9c186c249607f95ddbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ca31ba3_88aa1bcb",
@@ -433,6 +853,30 @@
       "writtenOn": "2021-02-26T23:05:29Z",
       "side": 1,
       "message": "This doesn\u0027t actually appear to be a type that benefits from std::move (IPAddress has an array, not a vector, so moving is a copy)",
+      "range": {
+        "startLine": 145,
+        "startChar": 84,
+        "endLine": 146,
+        "endChar": 69
+      },
+      "revId": "9620b99fd19499e47590a9c186c249607f95ddbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e675476b_b0a6b5ab",
+        "filename": "client/osp/udp_socket.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-03-05T17:58:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ca31ba3_88aa1bcb",
       "range": {
         "startLine": 145,
         "startChar": 84,

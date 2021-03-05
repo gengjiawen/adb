@@ -58,6 +58,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "451edd4f_d58c5990",
+        "filename": "adb_mdns.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-03-05T17:58:47Z",
+      "side": 1,
+      "message": "agreed.",
+      "parentUuid": "edfbdf9d_6e0be246",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 5
+      },
+      "revId": "e76508268f138ac11068f8316077457bcf6bff94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ed8b0ac5_b7809ac9",
