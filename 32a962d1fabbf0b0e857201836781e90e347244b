@@ -16,6 +16,171 @@
       "message": "Thanks Josh!",
       "revId": "32a962d1fabbf0b0e857201836781e90e347244b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af8f63eb_fb944391",
+        "filename": "client/mdnsresponder_client.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-03-10T23:16:16Z",
+      "side": 1,
+      "message": "aka `else`?",
+      "revId": "32a962d1fabbf0b0e857201836781e90e347244b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01b38bce_656cdfb8",
+        "filename": "client/mdnsresponder_client.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-03-10T23:16:16Z",
+      "side": 1,
+      "message": "just `return \"constant\";` here?",
+      "range": {
+        "startLine": 574,
+        "startChar": 15,
+        "endLine": 574,
+        "endChar": 21
+      },
+      "revId": "32a962d1fabbf0b0e857201836781e90e347244b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68c4eecf_6cb1dc73",
+        "filename": "client/mdnsresponder_client.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-03-10T23:16:16Z",
+      "side": 1,
+      "message": "and `return android::...` here?",
+      "range": {
+        "startLine": 577,
+        "startChar": 4,
+        "endLine": 578,
+        "endChar": 17
+      },
+      "revId": "32a962d1fabbf0b0e857201836781e90e347244b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcbbcf10_96524c6e",
+        "filename": "client/openscreen/platform/udp_socket.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-03-10T23:16:16Z",
+      "side": 1,
+      "message": "missing `return;`?",
+      "revId": "32a962d1fabbf0b0e857201836781e90e347244b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d6547bd_d113cf67",
+        "filename": "client/openscreen/platform/udp_socket.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-03-10T23:16:16Z",
+      "side": 1,
+      "message": "missing `return;`?",
+      "revId": "32a962d1fabbf0b0e857201836781e90e347244b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c4d126f_396445f1",
+        "filename": "client/openscreen/platform/udp_socket.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-03-10T23:16:16Z",
+      "side": 1,
+      "message": "missing `return;`?",
+      "revId": "32a962d1fabbf0b0e857201836781e90e347244b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25524fc2_1b41afb5",
+        "filename": "client/openscreen/platform/udp_socket.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-03-10T23:16:16Z",
+      "side": 1,
+      "message": "missing `return;`?",
+      "revId": "32a962d1fabbf0b0e857201836781e90e347244b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8775d14_7b7813bf",
+        "filename": "client/openscreen/platform/udp_socket.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-03-10T23:16:16Z",
+      "side": 1,
+      "message": "missing `return;`?",
+      "revId": "32a962d1fabbf0b0e857201836781e90e347244b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1af9e188_fbfad22d",
+        "filename": "sysdeps_win32.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 942,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-03-10T23:16:16Z",
+      "side": 1,
+      "message": "should this set errno to something?",
+      "revId": "32a962d1fabbf0b0e857201836781e90e347244b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
