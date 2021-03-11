@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "307e2de9_9a97c22c",
+        "filename": "client/mdnsresponder_client.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-03-11T00:31:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af8f63eb_fb944391",
+      "revId": "32a962d1fabbf0b0e857201836781e90e347244b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "01b38bce_656cdfb8",
@@ -48,6 +66,30 @@
       "writtenOn": "2021-03-10T23:16:16Z",
       "side": 1,
       "message": "just `return \"constant\";` here?",
+      "range": {
+        "startLine": 574,
+        "startChar": 15,
+        "endLine": 574,
+        "endChar": 21
+      },
+      "revId": "32a962d1fabbf0b0e857201836781e90e347244b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8b74b39_a2a7756e",
+        "filename": "client/mdnsresponder_client.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-03-11T00:31:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01b38bce_656cdfb8",
       "range": {
         "startLine": 574,
         "startChar": 15,
@@ -81,6 +123,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e756522f_e6a14d9e",
+        "filename": "client/mdnsresponder_client.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-03-11T00:31:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68c4eecf_6cb1dc73",
+      "range": {
+        "startLine": 577,
+        "startChar": 4,
+        "endLine": 578,
+        "endChar": 17
+      },
+      "revId": "32a962d1fabbf0b0e857201836781e90e347244b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dcbbcf10_96524c6e",
@@ -94,6 +160,24 @@
       "writtenOn": "2021-03-10T23:16:16Z",
       "side": 1,
       "message": "missing `return;`?",
+      "revId": "32a962d1fabbf0b0e857201836781e90e347244b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12b41771_f3d28e9c",
+        "filename": "client/openscreen/platform/udp_socket.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-03-11T00:31:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dcbbcf10_96524c6e",
       "revId": "32a962d1fabbf0b0e857201836781e90e347244b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -115,6 +199,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b8a8dc1_88e7c46b",
+        "filename": "client/openscreen/platform/udp_socket.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-03-11T00:31:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d6547bd_d113cf67",
+      "revId": "32a962d1fabbf0b0e857201836781e90e347244b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2c4d126f_396445f1",
@@ -128,6 +230,24 @@
       "writtenOn": "2021-03-10T23:16:16Z",
       "side": 1,
       "message": "missing `return;`?",
+      "revId": "32a962d1fabbf0b0e857201836781e90e347244b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e20ae46_3ee3b964",
+        "filename": "client/openscreen/platform/udp_socket.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-03-11T00:31:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c4d126f_396445f1",
       "revId": "32a962d1fabbf0b0e857201836781e90e347244b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -149,6 +269,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "70067fe6_3fcdbebe",
+        "filename": "client/openscreen/platform/udp_socket.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-03-11T00:31:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25524fc2_1b41afb5",
+      "revId": "32a962d1fabbf0b0e857201836781e90e347244b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d8775d14_7b7813bf",
@@ -166,6 +304,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e88d7f71_a8f06a1a",
+        "filename": "client/openscreen/platform/udp_socket.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-03-11T00:31:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8775d14_7b7813bf",
+      "revId": "32a962d1fabbf0b0e857201836781e90e347244b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1af9e188_fbfad22d",
@@ -179,6 +335,24 @@
       "writtenOn": "2021-03-10T23:16:16Z",
       "side": 1,
       "message": "should this set errno to something?",
+      "revId": "32a962d1fabbf0b0e857201836781e90e347244b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "314910b1_c820482e",
+        "filename": "sysdeps_win32.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 942,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-03-11T00:31:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1af9e188_fbfad22d",
       "revId": "32a962d1fabbf0b0e857201836781e90e347244b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
