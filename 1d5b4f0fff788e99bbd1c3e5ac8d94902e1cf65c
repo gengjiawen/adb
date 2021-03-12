@@ -16,6 +16,29 @@
       "message": "Thanks Elliott!",
       "revId": "1d5b4f0fff788e99bbd1c3e5ac8d94902e1cf65c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27381a30_9c01a833",
+        "filename": "client/mdnsresponder_client.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-03-12T22:15:18Z",
+      "side": 1,
+      "message": "FYI, this file is not new code. This was just code taken from the original client/transport_mdns.cpp file.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 2
+      },
+      "revId": "1d5b4f0fff788e99bbd1c3e5ac8d94902e1cf65c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
