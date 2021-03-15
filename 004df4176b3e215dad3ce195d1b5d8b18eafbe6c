@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3bf30b4b_e89da5c9",
+        "filename": "daemon/property_monitor.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-03-15T23:10:21Z",
+      "side": 1,
+      "message": "\"If the property is not defined, the callback will be invoked with the empty string as the value.\"\n\n(i\u0027m planning ahead assuming this ends up in libbase after smoreland\u0027s using it!)",
+      "revId": "004df4176b3e215dad3ce195d1b5d8b18eafbe6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0514fecd_3c2904d2",
+        "filename": "daemon/property_monitor.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-03-15T23:10:21Z",
+      "side": 1,
+      "message": "(this is particular seems like a gotcha for non-test users?)",
+      "range": {
+        "startLine": 55,
+        "startChar": 65,
+        "endLine": 56,
+        "endChar": 86
+      },
+      "revId": "004df4176b3e215dad3ce195d1b5d8b18eafbe6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d7e9fe4_dc540ced",
+        "filename": "daemon/property_monitor.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-03-15T23:10:21Z",
+      "side": 1,
+      "message": "no longer needed? or just for testing? (say so?)",
+      "revId": "004df4176b3e215dad3ce195d1b5d8b18eafbe6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
