@@ -104,6 +104,24 @@
       "parentUuid": "52c35ba7_7dcd0271",
       "revId": "263ccc56f3613289e07f0e0d86f252c8cf909d65",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e663502c_2dc9b8a9",
+        "filename": "daemon/property_monitor.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-03-15T22:39:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01ad6033_139a52ea",
+      "revId": "263ccc56f3613289e07f0e0d86f252c8cf909d65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

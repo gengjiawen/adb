@@ -16,6 +16,24 @@
       "message": "(did you look at the alternative for calling the callbacks initially?)",
       "revId": "8ab48b811dc2332de502f9165c8485b711d27e77",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85fba046_8c16ce77",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-03-15T22:39:02Z",
+      "side": 1,
+      "message": "Forgot to change Add\u0027s comment, that\u0027s the implemented behavior.\n\nAlthough, I notice that there\u0027s a bug if we add multiple callbacks to the same property. This is actually pretty annoying to fix: would you expect a different callback to be invoked by Add? Maybe I should just make it so that previous callbacks get deleted...",
+      "parentUuid": "0eb3001c_941144d3",
+      "revId": "8ab48b811dc2332de502f9165c8485b711d27e77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
