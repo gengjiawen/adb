@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "116ffb3b_2c689641",
+        "filename": "daemon/property_monitor.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-03-15T23:26:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3bf30b4b_e89da5c9",
+      "revId": "004df4176b3e215dad3ce195d1b5d8b18eafbe6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0514fecd_3c2904d2",
@@ -41,6 +59,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b58bcf5_23cbe50e",
+        "filename": "daemon/property_monitor.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-03-15T23:26:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0514fecd_3c2904d2",
+      "range": {
+        "startLine": 55,
+        "startChar": 65,
+        "endLine": 56,
+        "endChar": 86
+      },
+      "revId": "004df4176b3e215dad3ce195d1b5d8b18eafbe6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7d7e9fe4_dc540ced",
@@ -54,6 +96,24 @@
       "writtenOn": "2021-03-15T23:10:21Z",
       "side": 1,
       "message": "no longer needed? or just for testing? (say so?)",
+      "revId": "004df4176b3e215dad3ce195d1b5d8b18eafbe6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a293fac_83039814",
+        "filename": "daemon/property_monitor.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-03-15T23:26:09Z",
+      "side": 1,
+      "message": "deleted",
+      "parentUuid": "7d7e9fe4_dc540ced",
       "revId": "004df4176b3e215dad3ce195d1b5d8b18eafbe6c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
