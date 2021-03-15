@@ -1,0 +1,82 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000009002202",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1549744?revision\u003d9",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "a5ab7459_e5dc702a",
+        "filename": "client/mdnsresponder_client.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-03-15T19:29:27Z",
+      "side": 1,
+      "message": "Lines longer than 100 characters should be wrapped to improve readability; see https://source.android.com/setup/contribute/code-style#limit-line-length for more details.",
+      "range": {
+        "startLine": 528,
+        "startChar": 0,
+        "endLine": 528,
+        "endChar": 102
+      },
+      "revId": "dd3f487a057da951c3c831ca9a230e73f1630ab1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000009002202",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1549744?revision\u003d9",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "2aaa59ca_83513a31",
+        "filename": "client/transport_mdns.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-03-15T19:29:27Z",
+      "side": 1,
+      "message": "TODO statements should not reference a specific human; consider using a bug number instead; see https://source.android.com/setup/contribute/code-style#use-todo-comments for more details.",
+      "range": {
+        "startLine": 245,
+        "startChar": 7,
+        "endLine": 245,
+        "endChar": 24
+      },
+      "revId": "dd3f487a057da951c3c831ca9a230e73f1630ab1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000009002202",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1549744?revision\u003d9",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "22202abf_0e09f7ba",
+        "filename": "transport.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-03-15T19:29:27Z",
+      "side": 1,
+      "message": "TODO statements should not reference a specific human; consider using a bug number instead; see https://source.android.com/setup/contribute/code-style#use-todo-comments for more details.",
+      "range": {
+        "startLine": 90,
+        "startChar": 3,
+        "endLine": 90,
+        "endChar": 20
+      },
+      "revId": "dd3f487a057da951c3c831ca9a230e73f1630ab1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
