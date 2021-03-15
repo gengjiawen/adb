@@ -64,6 +64,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed94a3f5_8a2e48ab",
+        "filename": "daemon/watchdog.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-03-15T23:04:57Z",
+      "side": 1,
+      "message": "IMO \"enabled\" should refer to whether it\u0027s enabled via property, counting (now running) is `enabled \u0026\u0026 \"we don\u0027t have a connected client\"`",
+      "parentUuid": "3862175a_76da3f45",
+      "range": {
+        "startLine": 88,
+        "startChar": 8,
+        "endLine": 88,
+        "endChar": 27
+      },
+      "revId": "db5e4ae7bf5d4253df9bdb027810d86b05aaad9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d709016_2303d27e",
