@@ -16,6 +16,75 @@
       "message": "(lots of unresolved comments)",
       "revId": "db5e4ae7bf5d4253df9bdb027810d86b05aaad9e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c681d00e_ccbee875",
+        "filename": "daemon/watchdog.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-03-15T23:02:27Z",
+      "side": 1,
+      "message": "(i\u0027m torn on whether \"running\" [since we\u0027re really talking about the asynchronous alarm()] or \"armed\" [since this is the boolean that corresponds to arm/disarm] makes more sense. but since i\u0027m torn... wait until this actually confuses.)",
+      "range": {
+        "startLine": 69,
+        "startChar": 6,
+        "endLine": 69,
+        "endChar": 19
+      },
+      "revId": "db5e4ae7bf5d4253df9bdb027810d86b05aaad9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3862175a_76da3f45",
+        "filename": "daemon/watchdog.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-03-15T23:02:27Z",
+      "side": 1,
+      "message": "`g_watchdog_enabled`, or am i missing something subtle?",
+      "range": {
+        "startLine": 88,
+        "startChar": 8,
+        "endLine": 88,
+        "endChar": 27
+      },
+      "revId": "db5e4ae7bf5d4253df9bdb027810d86b05aaad9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d709016_2303d27e",
+        "filename": "daemon/watchdog.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-03-15T23:02:27Z",
+      "side": 1,
+      "message": "not needed?",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 33
+      },
+      "revId": "db5e4ae7bf5d4253df9bdb027810d86b05aaad9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
