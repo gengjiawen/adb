@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3c8a979_b988afd3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-03-15T19:37:14Z",
+      "side": 1,
+      "message": "Added environment variable ADB_MDNS_OPENSCREEN to turn on openscreen discovery and \"openscreen_mdns\" feature string to check via `adb host-features`.",
+      "revId": "4c6866958714c60937eaa22133c9538daadf3d46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
