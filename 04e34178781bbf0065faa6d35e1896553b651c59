@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "48344c68_5ac06b77",
+        "filename": "daemon/watchdog.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-03-15T22:44:27Z",
+      "side": 1,
+      "message": "Inlined.",
+      "parentUuid": "8d7884e8_beb9bada",
+      "revId": "04e34178781bbf0065faa6d35e1896553b651c59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e8b65158_eae44abd",
@@ -58,6 +76,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5158a403_14c38f89",
+        "filename": "daemon/watchdog.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-03-15T22:44:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8b65158_eae44abd",
+      "range": {
+        "startLine": 105,
+        "startChar": 8,
+        "endLine": 105,
+        "endChar": 27
+      },
+      "revId": "04e34178781bbf0065faa6d35e1896553b651c59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c8e17658_d0f5b3b9",
@@ -71,6 +113,30 @@
       "writtenOn": "2021-02-26T17:02:58Z",
       "side": 1,
       "message": "i assumed the \"call callbacks even if the property doesn\u0027t exist\" behavior was to avoid this kind of thing?",
+      "range": {
+        "startLine": 153,
+        "startChar": 4,
+        "endLine": 154,
+        "endChar": 12
+      },
+      "revId": "04e34178781bbf0065faa6d35e1896553b651c59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4844324_7dc37c22",
+        "filename": "daemon/watchdog.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-03-15T22:44:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8e17658_d0f5b3b9",
       "range": {
         "startLine": 153,
         "startChar": 4,
@@ -115,6 +181,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8c8070c_3da0d6f3",
+        "filename": "daemon/watchdog.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-03-15T22:44:27Z",
+      "side": 1,
+      "message": "I think it should be possible to turn it on without having to explicitly set a timeout (and if it were just named \"watchdog\", we\u0027d have to special case \"1\" or end up bootlooping anyone that assumes that doesn\u0027t take a time.)",
+      "parentUuid": "49779861_192ee665",
+      "revId": "04e34178781bbf0065faa6d35e1896553b651c59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "daa909cb_9a47b046",
@@ -128,6 +212,30 @@
       "writtenOn": "2021-02-26T17:02:58Z",
       "side": 1,
       "message": "with what timeout?",
+      "range": {
+        "startLine": 27,
+        "startChar": 21,
+        "endLine": 27,
+        "endChar": 54
+      },
+      "revId": "04e34178781bbf0065faa6d35e1896553b651c59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7911c406_2e651659",
+        "filename": "daemon/watchdog.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-03-15T22:44:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "daa909cb_9a47b046",
       "range": {
         "startLine": 27,
         "startChar": 21,
