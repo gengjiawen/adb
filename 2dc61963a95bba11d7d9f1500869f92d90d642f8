@@ -16,6 +16,23 @@
       "message": "PS8 just adds a comment.",
       "revId": "2dc61963a95bba11d7d9f1500869f92d90d642f8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc08dd38_5d1074be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-03-16T21:28:33Z",
+      "side": 1,
+      "message": "(weird... i\u0027ve got the mail where i ask for the comment, and i\u0027ve got the mail where you time out and self-+2, but i don\u0027t have any email from gerrit in between. nor is it in my spam folder.)",
+      "revId": "2dc61963a95bba11d7d9f1500869f92d90d642f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
