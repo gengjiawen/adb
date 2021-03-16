@@ -16,6 +16,248 @@
       "message": "Added environment variable ADB_MDNS_OPENSCREEN to turn on openscreen discovery and \"openscreen_mdns\" feature string to check via `adb host-features`.",
       "revId": "4c6866958714c60937eaa22133c9538daadf3d46",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4630ad67_a47e48f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-03-16T03:23:57Z",
+      "side": 1,
+      "message": "Okay, took another scan through and it LGTM aside from nits, except for the task runner.",
+      "revId": "4c6866958714c60937eaa22133c9538daadf3d46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14e0dc43_2518aafc",
+        "filename": "adb.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-03-16T03:23:57Z",
+      "side": 1,
+      "message": "I don\u0027t think this is necessary: an old server version is going to be missing the host feature by definition.",
+      "revId": "4c6866958714c60937eaa22133c9538daadf3d46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "661f04d2_fdc86f4c",
+        "filename": "adb_mdns.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-03-16T03:23:57Z",
+      "side": 1,
+      "message": "std::optional\u003cint\u003e (explanation below)",
+      "range": {
+        "startLine": 87,
+        "startChar": 8,
+        "endLine": 87,
+        "endChar": 12
+      },
+      "revId": "4c6866958714c60937eaa22133c9538daadf3d46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a22b29a8_0ed6f074",
+        "filename": "adb_mdns.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-03-16T03:23:57Z",
+      "side": 1,
+      "message": "Explicitly call this std::optional\u003cint\u003e? I was confused by the following line, because I thought that it was a pointer, but you then compared it with !\u003d.",
+      "range": {
+        "startLine": 121,
+        "startChar": 4,
+        "endLine": 121,
+        "endChar": 8
+      },
+      "revId": "4c6866958714c60937eaa22133c9538daadf3d46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17321247_72285894",
+        "filename": "client/mdnsresponder_client.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-03-16T03:23:57Z",
+      "side": 1,
+      "message": "blame mingw instead of microsoft here?",
+      "range": {
+        "startLine": 173,
+        "startChar": 51,
+        "endLine": 173,
+        "endChar": 69
+      },
+      "revId": "4c6866958714c60937eaa22133c9538daadf3d46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0972d4de_29f5ae40",
+        "filename": "client/mdnsresponder_client.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-03-16T03:23:57Z",
+      "side": 1,
+      "message": ".c_str() instead of .data(), to make it clear that these are null-terminated C strings (since std::string_view doesn\u0027t have a c_str())",
+      "range": {
+        "startLine": 314,
+        "startChar": 0,
+        "endLine": 319,
+        "endChar": 9
+      },
+      "revId": "4c6866958714c60937eaa22133c9538daadf3d46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e42b0f6c_a73d9eb9",
+        "filename": "client/mdnsresponder_client.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-03-16T03:23:57Z",
+      "side": 1,
+      "message": "This copy seems unnecessary?",
+      "range": {
+        "startLine": 364,
+        "startChar": 0,
+        "endLine": 365,
+        "endChar": 36
+      },
+      "revId": "4c6866958714c60937eaa22133c9538daadf3d46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c84fb11e_d56b9d7c",
+        "filename": "client/mdnsresponder_client.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-03-16T03:23:57Z",
+      "side": 1,
+      "message": "\u003e Lines longer than 100 characters should be wrapped to improve readability; see https://source.android.com/setup/contribute/code-style#limit-line-length for more details.\n\n(does clang-format not reflow this line?)",
+      "parentUuid": "c8a583c0_b048e191",
+      "range": {
+        "startLine": 528,
+        "startChar": 0,
+        "endLine": 528,
+        "endChar": 102
+      },
+      "revId": "4c6866958714c60937eaa22133c9538daadf3d46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebc578e5_495e85f3",
+        "filename": "client/mdnsresponder_client.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-03-16T03:23:57Z",
+      "side": 1,
+      "message": "indentation seems wrong here also",
+      "range": {
+        "startLine": 551,
+        "startChar": 0,
+        "endLine": 552,
+        "endChar": 91
+      },
+      "revId": "4c6866958714c60937eaa22133c9538daadf3d46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ebd4f6f_e3dc9522",
+        "filename": "client/openscreen/platform/task_runner.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-03-16T03:23:57Z",
+      "side": 1,
+      "message": "(I think this actually *must* not happen, for the reason given below)",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 39
+      },
+      "revId": "4c6866958714c60937eaa22133c9538daadf3d46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17f369f3_7194768f",
+        "filename": "client/openscreen/platform/task_runner.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-03-16T03:23:57Z",
+      "side": 1,
+      "message": "Is this a permissible implementation of the API? If the interface is thread safe, my guess would be that the expectation if you submit a task with a billion second timeout, and then submit another one with a 1 second delay, you don\u0027t end up waiting for a billion seconds before doing anything.\n\nI think a better implementation would use wait_for on the condition variable, and when you add a new task, poke it if the task you just added is newer.",
+      "range": {
+        "startLine": 81,
+        "startChar": 58,
+        "endLine": 85,
+        "endChar": 13
+      },
+      "revId": "4c6866958714c60937eaa22133c9538daadf3d46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

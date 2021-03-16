@@ -39,6 +39,30 @@
       },
       "revId": "1d5b4f0fff788e99bbd1c3e5ac8d94902e1cf65c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a8d6ebe_3d6a356c",
+        "filename": "client/mdnsresponder_client.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-03-16T03:23:57Z",
+      "side": 1,
+      "message": "Oops. Left a few comments on this before noticing this comment.\n\n(Could you fix them up while you\u0027re at it?)",
+      "parentUuid": "27381a30_9c01a833",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 2
+      },
+      "revId": "1d5b4f0fff788e99bbd1c3e5ac8d94902e1cf65c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
