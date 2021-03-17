@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1be19a48_d6b1f80c",
+        "filename": "client/openscreen/platform/task_runner.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-03-17T18:00:58Z",
+      "side": 1,
+      "message": "Just kill the loop here, now that you\u0027re running all of the ready tasks in one go?",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 18
+      },
+      "revId": "ed15338fcf43197d1be012db7cf2e904a5ef944c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5dbd481_a31003fb",
+        "filename": "client/openscreen/platform/task_runner.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-03-17T18:00:58Z",
+      "side": 1,
+      "message": "nit: emplace_back",
+      "range": {
+        "startLine": 105,
+        "startChar": 38,
+        "endLine": 105,
+        "endChar": 47
+      },
+      "revId": "ed15338fcf43197d1be012db7cf2e904a5ef944c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
