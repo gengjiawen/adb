@@ -47,6 +47,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7796771f_814c6aa5",
+        "filename": "client/openscreen/platform/task_runner.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-03-17T17:38:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "322afc73_6bba6bc9",
+      "range": {
+        "startLine": 77,
+        "startChar": 17,
+        "endLine": 77,
+        "endChar": 24
+      },
+      "revId": "96ec4e9ffe6454f0a9c121347c89d2d57c3e9b15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d34e8ab2_5f88c3cf",
+        "filename": "client/openscreen/platform/task_runner.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-03-17T17:38:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be48f251_5e6c985d",
+      "range": {
+        "startLine": 77,
+        "startChar": 27,
+        "endLine": 77,
+        "endChar": 53
+      },
+      "revId": "96ec4e9ffe6454f0a9c121347c89d2d57c3e9b15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "00887c12_b9e4d4f8",
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "131e94c6_60553287",
+        "filename": "client/openscreen/platform/task_runner.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-03-17T17:38:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "00887c12_b9e4d4f8",
+      "range": {
+        "startLine": 81,
+        "startChar": 47,
+        "endLine": 82,
+        "endChar": 52
+      },
+      "revId": "96ec4e9ffe6454f0a9c121347c89d2d57c3e9b15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aeeda4ed_06742edb",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-03-17T16:54:59Z",
       "side": 1,
       "message": "This can just be `std::lock_guard\u003cstd::mutex\u003e lock(mutex_)`, since you\u0027re not passing it to cv::wait",
+      "range": {
+        "startLine": 93,
+        "startChar": 13,
+        "endLine": 95,
+        "endChar": 58
+      },
+      "revId": "96ec4e9ffe6454f0a9c121347c89d2d57c3e9b15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cdaa60a_b9d96bb8",
+        "filename": "client/openscreen/platform/task_runner.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-03-17T17:38:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aeeda4ed_06742edb",
       "range": {
         "startLine": 93,
         "startChar": 13,
@@ -129,6 +225,54 @@
       "writtenOn": "2021-03-17T16:54:59Z",
       "side": 1,
       "message": "This is correct, but looks suspicious: `erase(task_with_delay)` instead?",
+      "range": {
+        "startLine": 105,
+        "startChar": 29,
+        "endLine": 105,
+        "endChar": 43
+      },
+      "revId": "96ec4e9ffe6454f0a9c121347c89d2d57c3e9b15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d275808c_13b2188b",
+        "filename": "client/openscreen/platform/task_runner.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-03-17T17:38:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "780a318a_b6064fbe",
+      "range": {
+        "startLine": 98,
+        "startChar": 17,
+        "endLine": 105,
+        "endChar": 45
+      },
+      "revId": "96ec4e9ffe6454f0a9c121347c89d2d57c3e9b15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7c6c400_83a8aaf6",
+        "filename": "client/openscreen/platform/task_runner.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-03-17T17:38:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1b34aca_53c4bac9",
       "range": {
         "startLine": 105,
         "startChar": 29,
