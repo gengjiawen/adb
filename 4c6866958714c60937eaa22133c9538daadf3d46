@@ -353,6 +353,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cffd07d4_770d994f",
+        "filename": "client/mdnsresponder_client.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-03-17T16:54:59Z",
+      "side": 1,
+      "message": "Oops. Thanks!",
+      "parentUuid": "36408984_c2eeace1",
+      "range": {
+        "startLine": 528,
+        "startChar": 0,
+        "endLine": 528,
+        "endChar": 102
+      },
+      "revId": "4c6866958714c60937eaa22133c9538daadf3d46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ebc578e5_495e85f3",
