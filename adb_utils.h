@@ -78,6 +78,14 @@ class BlockingQueue {
         cv.notify_one();
     }
 
+    void Push(T&& t) {
+        {
+            std::unique_lock<std::mutex> lock(mutex);
+            queue.push_back(std::move(t));
+        }
+        cv.notify_one();
+    }
+
     template <typename Fn>
     void PopAll(Fn fn) {
         std::vector<T> popped;
