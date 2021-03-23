@@ -42,8 +42,11 @@
 #include "adb_io.h"
 #include "adb_unique_fd.h"
 #include "adb_utils.h"
+#include "client/adb_connect_helper.h"
 #include "socket_spec.h"
 #include "sysdeps/chrono.h"
+
+using namespace mdns;
 
 // Android Wear has been using port 5601 in all of its documentation/tooling,
 // but we search for emulators on ports [5554, 5555 + ADB_LOCAL_TRANSPORT_MAX].
@@ -78,59 +81,8 @@ bool local_connect(int port) {
     return local_connect_arbitrary_ports(port - 1, port, &dummy) == 0;
 }
 
-void connect_device(const std::string& address, std::string* response) {
-    if (address.empty()) {
-        *response = "empty address";
-        return;
-    }
-
-    D("connection requested to '%s'", address.c_str());
-    unique_fd fd;
-    int port;
-    std::string serial, prefix_addr;
-
-    // If address does not match any socket type, it should default to TCP.
-    if (address.starts_with("vsock:") || address.starts_with("localfilesystem:")) {
-        prefix_addr = address;
-    } else {
-        prefix_addr = "tcp:" + address;
-    }
-
-    socket_spec_connect(&fd, prefix_addr, &port, &serial, response);
-    if (fd.get() == -1) {
-        return;
-    }
-    auto reconnect = [prefix_addr](atransport* t) {
-        std::string response;
-        unique_fd fd;
-        int port;
-        std::string serial;
-        socket_spec_connect(&fd, prefix_addr, &port, &serial, &response);
-        if (fd == -1) {
-            D("reconnect failed: %s", response.c_str());
-            return ReconnectResult::Retry;
-        }
-        // This invokes the part of register_socket_transport() that needs to be
-        // invoked if the atransport* has already been setup. This eventually
-        // calls atransport->SetConnection() with a newly created Connection*
-        // that will in turn send the CNXN packet.
-        return init_socket_transport(t, std::move(fd), port, 0) >= 0 ? ReconnectResult::Success
-                                                                     : ReconnectResult::Retry;
-    };
-
-    int error;
-    if (!register_socket_transport(std::move(fd), serial, port, 0, std::move(reconnect), false,
-                                   &error)) {
-        if (error == EALREADY) {
-            *response = android::base::StringPrintf("already connected to %s", serial.c_str());
-        } else if (error == EPERM) {
-            *response = android::base::StringPrintf("failed to authenticate to %s", serial.c_str());
-        } else {
-            *response = android::base::StringPrintf("failed to connect to %s", serial.c_str());
-        }
-    } else {
-        *response = android::base::StringPrintf("connected to %s", serial.c_str());
-    }
+std::future<std::string> connect_device(const std::string& address) {
+    return PostAdbConnectionRequest(address);
 }
 
 int local_connect_arbitrary_ports(int console_port, int adb_port, std::string* error) {

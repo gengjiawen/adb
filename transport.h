@@ -24,6 +24,7 @@
 #include <condition_variable>
 #include <deque>
 #include <functional>
+#include <future>
 #include <list>
 #include <memory>
 #include <mutex>
@@ -506,7 +507,7 @@ void unregister_usb_transport(usb_handle* usb);
 #endif
 
 /* Connect to a network address and register it as a device */
-void connect_device(const std::string& address, std::string* response);
+std::future<std::string> connect_device(const std::string& address);
 
 /* cause new transports to be init'd and added to the list */
 bool register_socket_transport(unique_fd s, std::string serial, int port, int local,
