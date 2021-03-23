@@ -257,6 +257,7 @@ cc_library_host_static {
     defaults: ["adb_defaults"],
 
     srcs: libadb_srcs + [
+        "client/openscreen/adb_connect_helper.cpp",
         "client/openscreen/mdns_service_info.cpp",
         "client/openscreen/mdns_service_watcher.cpp",
         "client/openscreen/platform/logging.cpp",

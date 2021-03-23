@@ -24,6 +24,7 @@
 #include <arpa/inet.h>
 #endif
 
+#include <future>
 #include <memory>
 #include <thread>
 #include <vector>
@@ -38,11 +39,14 @@
 #include "adb_utils.h"
 #include "adb_wifi.h"
 #include "client/mdns_utils.h"
+#include "client/openscreen/adb_connect_helper.h"
 #include "fdevent/fdevent.h"
 #include "sysdeps.h"
 
 // TODO: Remove this file once openscreen has bonjour client APIs implemented.
 namespace {
+
+using namespace mdns;
 
 DNSServiceRef g_service_refs[kNumADBDNSServices];
 fdevent* g_service_ref_fdes[kNumADBDNSServices];
@@ -214,19 +218,20 @@ class ResolvedService : public AsyncServiceRef {
         auto ip_addr = s->ip_address();
         auto port = s->port();
         if (adb_DNSServiceShouldAutoConnect(reg_type, service_name)) {
-            std::string response;
             D("Attempting to connect service_name=[%s], regtype=[%s] ip_addr=(%s:%hu)",
               service_name.c_str(), reg_type.c_str(), ip_addr.c_str(), port);
 
-            if (*service_index == kADBSecureConnectServiceRefIndex) {
-                s->ConnectSecureWifiDevice();
-            } else {
-                connect_device(android::base::StringPrintf("%s.%s", service_name.c_str(),
-                                                           reg_type.c_str()),
-                               &response);
-                D("Connect to %s regtype %s (%s:%hu) : %s", service_name.c_str(), reg_type.c_str(),
-                  ip_addr.c_str(), port, response.c_str());
+            if (*service_index == kADBSecureConnectServiceRefIndex &&
+                !adb_wifi_is_known_host(service_name)) {
+                LOG(INFO) << "service_name=" << service_name << " not in keystore";
+                return;
             }
+
+            // Connection attempt needs to happen off the fdevent thread to unblock other fdevents
+            // from processing.
+            D("Posting auto-connect request for %s.%s (%s:%hu)", service_name.c_str(),
+              reg_type.c_str(), ip_addr.c_str(), port);
+            PostAdbConnectionRequest(service_name, reg_type);
         } else {
             D("Not immediately connecting to service_name=[%s], regtype=[%s] ip_addr=(%s:%hu)",
               service_name.c_str(), reg_type.c_str(), ip_addr.c_str(), port);

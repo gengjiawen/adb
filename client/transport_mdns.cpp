@@ -46,6 +46,7 @@
 #include "adb_utils.h"
 #include "adb_wifi.h"
 #include "client/mdns_utils.h"
+#include "client/openscreen/adb_connect_helper.h"
 #include "client/openscreen/mdns_service_watcher.h"
 #include "client/openscreen/platform/task_runner.h"
 #include "fdevent/fdevent.h"
@@ -117,14 +118,10 @@ void OnServiceReceiverResult(std::vector<std::reference_wrapper<const ServiceInf
                     LOG(INFO) << "instance_name=" << info.get().instance_name << " not in keystore";
                     return;
                 }
-                std::string response;
-                LOG(INFO) << "Attempting to auto-connect to instance=" << info.get().instance_name
-                          << " service=" << info.get().service_name << " addr4=%s"
-                          << info.get().v4_address << ":" << info.get().port;
-                connect_device(
-                        android::base::StringPrintf("%s.%s", info.get().instance_name.c_str(),
-                                                    info.get().service_name.c_str()),
-                        &response);
+                LOG(INFO) << "Posting auto-connect request for " << info.get().instance_name << "."
+                          << info.get().service_name << " addr4=%s" << info.get().v4_address << ":"
+                          << info.get().port;
+                PostAdbConnectionRequest(info.get().instance_name, info.get().service_name);
             }
             break;
         default:
@@ -165,7 +162,7 @@ std::optional<discovery::Config> GetConfigForAllInterfaces() {
 void StartDiscovery() {
     CHECK(!g_state);
     g_state = new DiscoveryState();
-    g_state->task_runner = std::make_unique<AdbOspTaskRunner>();
+    g_state->task_runner = std::make_unique<AdbOspTaskRunner>(true);
     g_state->reporting_client = std::make_unique<DiscoveryReportingClient>();
 
     g_state->task_runner->PostTask([]() {
