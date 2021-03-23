@@ -30,8 +30,11 @@ using namespace openscreen;
 
 namespace mdns {
 
-AdbOspTaskRunner::AdbOspTaskRunner() {
-    check_main_thread();
+AdbOspTaskRunner::AdbOspTaskRunner(bool run_tasks_on_main_thread)
+    : use_main_thread_(run_tasks_on_main_thread) {
+    if (use_main_thread_) {
+        check_main_thread();
+    }
     thread_id_ = android::base::GetThreadId();
     task_handler_ = std::thread([this]() { TaskExecutorWorker(); });
 }
@@ -105,16 +108,23 @@ void AdbOspTaskRunner::TaskExecutorWorker() {
         }
 
         CHECK(!running_tasks.empty());
-        std::packaged_task<int()> waitable_task([&] {
+
+        if (use_main_thread_) {
+            std::packaged_task<int()> waitable_task([&] {
+                for (Task& task : running_tasks) {
+                    task();
+                }
+                return 0;
+            });
+
+            fdevent_run_on_main_thread([&]() { waitable_task(); });
+
+            waitable_task.get_future().wait();
+        } else {
             for (Task& task : running_tasks) {
                 task();
             }
-            return 0;
-        });
-
-        fdevent_run_on_main_thread([&]() { waitable_task(); });
-
-        waitable_task.get_future().wait();
+        }
     }
 }
 }  // namespace mdns

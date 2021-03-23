@@ -46,17 +46,18 @@ class AdbOspTaskRunner final : public openscreen::TaskRunner {
   public:
     using Task = openscreen::TaskRunner::Task;
 
-    // Must be called on the fdevent thread.
-    explicit AdbOspTaskRunner();
+    // If |run_tasks_on_main_thread| is true, then all posted tasks will be run on the main thread.
+    // Otherwise, the tasks will be queued and run in a newly created thread.
+    explicit AdbOspTaskRunner(bool run_tasks_on_main_thread);
     ~AdbOspTaskRunner() final;
     void PostPackagedTask(Task task) final;
     void PostPackagedTaskWithDelay(Task task, openscreen::Clock::duration delay) final;
     bool IsRunningOnTaskRunner() final;
 
+  private:
     // The task executor thread.
     void TaskExecutorWorker();
 
-  private:
     uint64_t thread_id_;
     std::mutex mutex_;
     std::multimap<std::chrono::time_point<std::chrono::steady_clock>, Task> tasks_
@@ -64,6 +65,7 @@ class AdbOspTaskRunner final : public openscreen::TaskRunner {
     std::atomic<bool> terminate_loop_ = false;
     std::condition_variable cv_;
     std::thread task_handler_;
+    bool use_main_thread_;
 };
 
 }  // namespace mdns

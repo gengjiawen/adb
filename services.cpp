@@ -139,7 +139,9 @@ static void connect_service(unique_fd fd, std::string host) {
     if (!strncmp(host.c_str(), "emu:", 4)) {
         connect_emulator(host.c_str() + 4, &response);
     } else {
-        connect_device(host, &response);
+        auto result = connect_device(host);
+        result.wait();
+        response = result.get();
     }
 
     // Send response for emulator and device
