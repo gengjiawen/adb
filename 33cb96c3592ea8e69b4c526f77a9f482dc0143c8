@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c9ba6db_b08ffc5f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-03-31T21:49:56Z",
+      "side": 1,
+      "message": "Instead of doing this for just mdns, can we do it for all tcp connections? We could change connect_device to spawn a thread internally and return its result via future (or a pollable fd? It might be worth doing this so that we can connect to multiple mdns devices at once instead of going through them serially?)",
+      "revId": "33cb96c3592ea8e69b4c526f77a9f482dc0143c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
