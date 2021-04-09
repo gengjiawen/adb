@@ -34,6 +34,24 @@
       "parentUuid": "9c9ba6db_b08ffc5f",
       "revId": "33cb96c3592ea8e69b4c526f77a9f482dc0143c8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "144afc7d_8c49caaa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-04-09T01:27:04Z",
+      "side": 1,
+      "message": "Yeah, if we\u0027re expecting to connect to a hundred devices at a time, then spawning a thread for each might not be a great idea.\n\nLooking at the callers of connect_device, there\u0027s one in services.cpp that\u0027s already on its own thread, and then the two mdns ones. I think the easiest thing to do would be to just move your thread up one layer and have it serve all connect_devices instead of just mdns requests, and have connect_device return a future so that the connect service can block on it.",
+      "parentUuid": "e9ed949a_5b0beb13",
+      "revId": "33cb96c3592ea8e69b4c526f77a9f482dc0143c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
