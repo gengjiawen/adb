@@ -153,6 +153,8 @@ library_linking_strategy_cc_defaults {
         "libadbconnection_server",
         "libasyncio",
         "libbrotli",
+        "libcrypto",
+        "libcrypto_utils",
         "libcutils_sockets",
         "libdiagnose_usb",
         "libmdnssd",
@@ -166,8 +168,6 @@ library_linking_strategy_cc_defaults {
     shared_libs: [
         "libadbd_auth",
         "libadbd_fs",
-        "libcrypto",
-        "libcrypto_utils",
         "liblog",
         "libselinux",
     ],
