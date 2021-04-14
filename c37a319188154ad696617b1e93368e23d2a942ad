@@ -16,6 +16,24 @@
       "message": "errors look legit:\n```\nerror: packages/modules/adb/Android.bp:801:1: dependency \"libcrypto\" of \"adbd_test\" missing variant:\n  os:android,image:,arch:x86_64_silvermont,sdk:,link:static\n```",
       "revId": "c37a319188154ad696617b1e93368e23d2a942ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9ca86a2_db850c6d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-04-14T23:51:15Z",
+      "side": 1,
+      "message": "Damn it, forgot to amend before pushing.",
+      "parentUuid": "54113852_d8a50160",
+      "revId": "c37a319188154ad696617b1e93368e23d2a942ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
