@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1b5ea89_2482b8f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-04-15T01:54:31Z",
+      "side": 1,
+      "message": "\u003e [Invocation] apct/device_boot_health_check: No capacity available to run this test.",
+      "revId": "7e3f8119d7bb8946b95f099c5b9bc3b5dc4dd495",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
