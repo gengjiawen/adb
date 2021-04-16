@@ -79,12 +79,17 @@ static inline void append_int(borrowed_fd fd, std::vector<char>* bytes) {
     memcpy(bytes->data() + old_size, &le_val, sizeof(le_val));
 }
 
-static inline void append_bytes_with_size(borrowed_fd fd, std::vector<char>* bytes) {
+static inline void append_bytes_with_size(borrowed_fd fd, std::vector<char>* bytes,
+                                          int* bytes_left) {
     int32_t le_size = read_int32(fd);
-    if (le_size < 0) {
+    if (le_size <= 0) {
         return;
     }
-    int32_t size = int32_t(le32toh(le_size));
+    int32_t size = std::min(int32_t(le32toh(le_size)), *bytes_left);
+    if (size <= 0) {
+        return;
+    }
+    *bytes_left -= size;
     auto old_size = bytes->size();
     bytes->resize(old_size + sizeof(le_size) + size);
     memcpy(bytes->data() + old_size, &le_size, sizeof(le_size));
@@ -101,13 +106,15 @@ static inline int32_t skip_bytes_with_size(borrowed_fd fd) {
 }
 
 std::pair<std::vector<char>, int32_t> read_id_sig_headers(borrowed_fd fd) {
-    std::vector<char> result;
-    append_int(fd, &result);              // version
-    append_bytes_with_size(fd, &result);  // hashingInfo
-    append_bytes_with_size(fd, &result);  // signingInfo
+    std::vector<char> signature;
+    append_int(fd, &signature);  // version
+    int max_size =
+            kMaxSignatureSize;  // add extra sizeof(int) bytes to trigger verification failure
+    append_bytes_with_size(fd, &signature, &max_size);  // hashingInfo
+    append_bytes_with_size(fd, &signature, &max_size);  // signingInfo
     auto le_tree_size = read_int32(fd);
     auto tree_size = int32_t(le32toh(le_tree_size));  // size of the verity tree
-    return {std::move(result), tree_size};
+    return {std::move(signature), tree_size};
 }
 
 std::pair<off64_t, ssize_t> skip_id_sig_headers(borrowed_fd fd) {
