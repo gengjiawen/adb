@@ -46,6 +46,30 @@
       },
       "revId": "554365b0ff3ac870b378d150353b32608823afb3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6d01e53_ccb0487d",
+        "filename": "client/incremental_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-04-19T19:33:44Z",
+      "side": 1,
+      "message": "Just abort? It seems better than just proceeding with garbage and relying on signature checks to validate. (and hoping that there aren\u0027t assumptions about the size of the signature in the meantime)",
+      "parentUuid": "2cc6e26a_74e40dc9",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 24
+      },
+      "revId": "554365b0ff3ac870b378d150353b32608823afb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
