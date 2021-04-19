@@ -22,6 +22,30 @@
       },
       "revId": "554365b0ff3ac870b378d150353b32608823afb3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cc6e26a_74e40dc9",
+        "filename": "client/incremental_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1166043
+      },
+      "writtenOn": "2021-04-19T19:30:35Z",
+      "side": 1,
+      "message": "this code is to protect us from OOMing, signature validation will be done later.\n\nalternatively we could return some kind of error, but this would be a much bigger change, not sure i want to do it just for this single bug",
+      "parentUuid": "08cfb0f6_995b02a1",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 24
+      },
+      "revId": "554365b0ff3ac870b378d150353b32608823afb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
