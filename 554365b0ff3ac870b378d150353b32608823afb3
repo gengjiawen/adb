@@ -70,6 +70,30 @@
       },
       "revId": "554365b0ff3ac870b378d150353b32608823afb3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e44b0ca0_7a658d0e",
+        "filename": "client/incremental_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1166043
+      },
+      "writtenOn": "2021-04-19T19:38:15Z",
+      "side": 1,
+      "message": "ah, no. we don\u0027t want to always abort.\nthere is a mode where we try with whatever we have and fallback to streaming installation in case of failure.\n\nhaving said that, the signature will most probably be incorrect, but this is something our code has to be able to handle",
+      "parentUuid": "e6d01e53_ccb0487d",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 24
+      },
+      "revId": "554365b0ff3ac870b378d150353b32608823afb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
