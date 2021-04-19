@@ -94,6 +94,30 @@
       },
       "revId": "554365b0ff3ac870b378d150353b32608823afb3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b020c200_e79aebaf",
+        "filename": "client/incremental_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-04-19T20:31:29Z",
+      "side": 1,
+      "message": "\u003e alternatively we could return some kind of error, but this would be a much bigger change, not sure i want to do it just for this single bug\n\nI think it\u0027d be a two line change here, and no action needed in the caller? It looks like you\u0027re already returning an empty vector as an invalid signature in read_signature, so making this function return a bool and returning an empty vector if it returns false would give you the behavior you expect.",
+      "parentUuid": "e44b0ca0_7a658d0e",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 24
+      },
+      "revId": "554365b0ff3ac870b378d150353b32608823afb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
