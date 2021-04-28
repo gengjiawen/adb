@@ -1,0 +1,130 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37a0b6c1_20c2569f",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-04-28T16:38:45Z",
+      "side": 1,
+      "message": "code comment explaining why this should be at global scope rather than where it\u0027s actually needed?",
+      "revId": "629f92a55227033758c33dd594cba8c5991a491c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39002851_2fa7273a",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-04-28T16:38:45Z",
+      "side": 1,
+      "message": "did you see the bug that was just filed about this?",
+      "revId": "629f92a55227033758c33dd594cba8c5991a491c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f629cd1f_f5a25684",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-04-28T16:38:45Z",
+      "side": 1,
+      "message": "(have you tested this on a hwasan build to see if it\u0027s happy? just because i\u0027m always scared by std::moves...)",
+      "range": {
+        "startLine": 137,
+        "startChar": 30,
+        "endLine": 137,
+        "endChar": 39
+      },
+      "revId": "629f92a55227033758c33dd594cba8c5991a491c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05e71077_e3c004b2",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-04-28T16:38:45Z",
+      "side": 1,
+      "message": "there\u0027s no \"toString\" for these?",
+      "range": {
+        "startLine": 175,
+        "startChar": 70,
+        "endLine": 175,
+        "endChar": 72
+      },
+      "revId": "629f92a55227033758c33dd594cba8c5991a491c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "921e56cd_532f2125",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-04-28T16:38:45Z",
+      "side": 1,
+      "message": "if you\u0027re not sure, should this be higher than VERBOSE to make it more likely you\u0027ll get to see this when debugging?",
+      "range": {
+        "startLine": 379,
+        "startChar": 19,
+        "endLine": 379,
+        "endChar": 23
+      },
+      "revId": "629f92a55227033758c33dd594cba8c5991a491c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e909044b_aa342db9",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 598,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-04-28T16:38:45Z",
+      "side": 1,
+      "message": "(maybe explicitly call out that this is an atomic, because otherwise this sounds like a bug :-) )",
+      "range": {
+        "startLine": 598,
+        "startChar": 27,
+        "endLine": 598,
+        "endChar": 34
+      },
+      "revId": "629f92a55227033758c33dd594cba8c5991a491c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
