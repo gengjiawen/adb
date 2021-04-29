@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa322814_5143e91b",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-04-29T19:57:33Z",
+      "side": 1,
+      "message": "Oops, I added that while developing to avoid -Werror\u003dunused without having to modify the bp file and wait a minute.",
+      "parentUuid": "37a0b6c1_20c2569f",
+      "revId": "629f92a55227033758c33dd594cba8c5991a491c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "39002851_2fa7273a",
@@ -58,6 +76,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "502da57f_a26bea67",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-04-29T19:57:33Z",
+      "side": 1,
+      "message": "Yeah, I was running with SANITIZE_HOST\u003daddress.",
+      "parentUuid": "f629cd1f_f5a25684",
+      "range": {
+        "startLine": 137,
+        "startChar": 30,
+        "endLine": 137,
+        "endChar": 39
+      },
+      "revId": "629f92a55227033758c33dd594cba8c5991a491c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "05e71077_e3c004b2",
@@ -71,6 +113,30 @@
       "writtenOn": "2021-04-28T16:38:45Z",
       "side": 1,
       "message": "there\u0027s no \"toString\" for these?",
+      "range": {
+        "startLine": 175,
+        "startChar": 70,
+        "endLine": 175,
+        "endChar": 72
+      },
+      "revId": "629f92a55227033758c33dd594cba8c5991a491c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07686df0_c9103449",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-04-29T19:57:33Z",
+      "side": 1,
+      "message": "Not that I could find. There\u0027s libusb_strerror, but that just returns \"Unknown\" for status values, AFAICT.",
+      "parentUuid": "05e71077_e3c004b2",
       "range": {
         "startLine": 175,
         "startChar": 70,
@@ -104,6 +170,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c00d9d5d_cdbfc48b",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-04-29T19:57:33Z",
+      "side": 1,
+      "message": "Done (moved it below the adb check, so that we don\u0027t spew this for non-adb devices)",
+      "parentUuid": "921e56cd_532f2125",
+      "range": {
+        "startLine": 379,
+        "startChar": 19,
+        "endLine": 379,
+        "endChar": 23
+      },
+      "revId": "629f92a55227033758c33dd594cba8c5991a491c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e909044b_aa342db9",
@@ -117,6 +207,30 @@
       "writtenOn": "2021-04-28T16:38:45Z",
       "side": 1,
       "message": "(maybe explicitly call out that this is an atomic, because otherwise this sounds like a bug :-) )",
+      "range": {
+        "startLine": 598,
+        "startChar": 27,
+        "endLine": 598,
+        "endChar": 34
+      },
+      "revId": "629f92a55227033758c33dd594cba8c5991a491c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e932c09e_4aa07303",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 598,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-04-29T19:57:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e909044b_aa342db9",
       "range": {
         "startLine": 598,
         "startChar": 27,
