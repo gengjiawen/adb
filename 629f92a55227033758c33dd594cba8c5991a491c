@@ -53,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f52150cb_6c08bcec",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-04-30T23:32:31Z",
+      "side": 1,
+      "message": "(resolved on thread)",
+      "parentUuid": "39002851_2fa7273a",
+      "revId": "629f92a55227033758c33dd594cba8c5991a491c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f629cd1f_f5a25684",
