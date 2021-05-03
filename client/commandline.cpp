@@ -1900,13 +1900,21 @@ int adb_commandline(int argc, const char** argv) {
         } else if (strcmp(argv[0], "--no-rebind") == 0) {
             // forward --no-rebind <local> <remote>
             if (argc != 3) error_exit("--no-rebind takes two arguments");
-            if (forward_targets_are_valid(argv[1], argv[2], &error_message)) {
+            auto&& features = adb_get_feature_set(&error_message);
+            if (!features) error_exit("%s", error_message.c_str());
+            if (forward_targets_are_valid(argv[1], argv[2],
+                                          CanUseFeature(*features, kFeatureForwardRemoteHost),
+                                          &error_message)) {
                 cmd = std::string("forward:norebind:") + argv[1] + ";" + argv[2];
             }
         } else {
             // forward <local> <remote>
             if (argc != 2) error_exit("forward takes two arguments");
-            if (forward_targets_are_valid(argv[0], argv[1], &error_message)) {
+            auto&& features = adb_get_feature_set(&error_message);
+            if (!features) error_exit("%s", error_message.c_str());
+            if (forward_targets_are_valid(argv[0], argv[1],
+                                          CanUseFeature(*features, kFeatureForwardRemoteHost),
+                                          &error_message)) {
                 cmd = std::string("forward:") + argv[0] + ";" + argv[1];
             }
         }

@@ -218,21 +218,31 @@ class ForwardReverseTest(DeviceTest):
         finally:
             self.device.reverse_remove_all()
 
-    def test_forward_reverse_echo(self):
+    def impl_test_forward_reverse_echo(self, hostname):
         """Send data through adb forward and read it back via adb reverse"""
-        forward_port = 12345
-        reverse_port = forward_port + 1
-        forward_spec = 'tcp:' + str(forward_port)
-        reverse_spec = 'tcp:' + str(reverse_port)
+        host_write_port = 12345
+        device_port = 12346
+        host_read_port = 12347
+
+        if hostname:
+            hostname = hostname + ':'
+        else:
+            hostname = ''
+
+        host_write_spec = 'tcp:' + str(host_write_port)
+        device_read_spec = 'tcp:' + hostname + str(device_port)
+        device_write_spec = 'tcp:' + str(device_port)
+        host_read_spec = 'tcp:' + str(host_read_port)
+
         forward_setup = False
         reverse_setup = False
 
         try:
-            # listen on localhost:forward_port, connect to remote:forward_port
-            self.device.forward(forward_spec, forward_spec)
+            # listen on localhost:write_port, connect to remote:device_port
+            self.device.forward(host_write_spec, device_read_spec)
             forward_setup = True
-            # listen on remote:forward_port, connect to localhost:reverse_port
-            self.device.reverse(forward_spec, reverse_spec)
+            # listen on remote:device_port, connect to localhost:read_port
+            self.device.reverse(device_write_spec, host_read_spec)
             reverse_setup = True
 
             listener = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -244,13 +254,13 @@ class ForwardReverseTest(DeviceTest):
                 # Listen on localhost:reverse_port before connecting to
                 # localhost:forward_port because that will cause adb to connect
                 # back to localhost:reverse_port.
-                listener.bind(('127.0.0.1', reverse_port))
+                listener.bind(('127.0.0.1', host_read_port))
                 listener.listen(4)
 
                 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                 with contextlib.closing(client):
                     # Connect to the listener.
-                    client.connect(('127.0.0.1', forward_port))
+                    client.connect(('127.0.0.1', host_write_port))
 
                     # Accept the client connection.
                     accepted_connection, addr = listener.accept()
@@ -266,9 +276,15 @@ class ForwardReverseTest(DeviceTest):
                         self.assertEqual(data, server.makefile().read().encode("utf8"))
         finally:
             if reverse_setup:
-                self.device.reverse_remove(forward_spec)
+                self.device.reverse_remove(device_write_spec)
             if forward_setup:
-                self.device.forward_remove(forward_spec)
+                self.device.forward_remove(host_write_spec)
+
+    def test_forward_reverse_echo(self):
+        self.impl_test_forward_reverse_echo(None)
+
+    def test_forward_reverse_echo_hostname(self):
+        self.impl_test_forward_reverse_echo("127.0.0.1")
 
 
 class ShellTest(DeviceTest):

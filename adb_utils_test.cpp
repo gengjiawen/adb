@@ -164,21 +164,38 @@ TEST(adb_utils, test_forward_targets_are_valid) {
     std::string error;
 
     // Source port can be >= 0.
-    EXPECT_FALSE(forward_targets_are_valid("tcp:-1", "tcp:9000", &error));
-    EXPECT_TRUE(forward_targets_are_valid("tcp:0", "tcp:9000", &error));
-    EXPECT_TRUE(forward_targets_are_valid("tcp:8000", "tcp:9000", &error));
+    EXPECT_FALSE(forward_targets_are_valid("tcp:-1", "tcp:9000", false, &error));
+    EXPECT_FALSE(forward_targets_are_valid("tcp:-1", "tcp:9000", true, &error));
+    EXPECT_TRUE(forward_targets_are_valid("tcp:0", "tcp:9000", false, &error));
+    EXPECT_TRUE(forward_targets_are_valid("tcp:0", "tcp:9000", true, &error));
+    EXPECT_TRUE(forward_targets_are_valid("tcp:8000", "tcp:9000", false, &error));
+    EXPECT_TRUE(forward_targets_are_valid("tcp:8000", "tcp:9000", true, &error));
 
     // Destination port must be >0.
-    EXPECT_FALSE(forward_targets_are_valid("tcp:8000", "tcp:-1", &error));
-    EXPECT_FALSE(forward_targets_are_valid("tcp:8000", "tcp:0", &error));
+    EXPECT_FALSE(forward_targets_are_valid("tcp:8000", "tcp:-1", false, &error));
+    EXPECT_FALSE(forward_targets_are_valid("tcp:8000", "tcp:-1", true, &error));
+    EXPECT_FALSE(forward_targets_are_valid("tcp:8000", "tcp:0", false, &error));
+    EXPECT_FALSE(forward_targets_are_valid("tcp:8000", "tcp:0", true, &error));
 
     // Port must be a number.
-    EXPECT_FALSE(forward_targets_are_valid("tcp:", "tcp:9000", &error));
-    EXPECT_FALSE(forward_targets_are_valid("tcp:a", "tcp:9000", &error));
-    EXPECT_FALSE(forward_targets_are_valid("tcp:22x", "tcp:9000", &error));
-    EXPECT_FALSE(forward_targets_are_valid("tcp:8000", "tcp:", &error));
-    EXPECT_FALSE(forward_targets_are_valid("tcp:8000", "tcp:a", &error));
-    EXPECT_FALSE(forward_targets_are_valid("tcp:8000", "tcp:22x", &error));
+    EXPECT_FALSE(forward_targets_are_valid("tcp:", "tcp:9000", false, &error));
+    EXPECT_FALSE(forward_targets_are_valid("tcp:", "tcp:9000", true, &error));
+    EXPECT_FALSE(forward_targets_are_valid("tcp:a", "tcp:9000", false, &error));
+    EXPECT_FALSE(forward_targets_are_valid("tcp:a", "tcp:9000", true, &error));
+    EXPECT_FALSE(forward_targets_are_valid("tcp:22x", "tcp:9000", false, &error));
+    EXPECT_FALSE(forward_targets_are_valid("tcp:22x", "tcp:9000", true, &error));
+    EXPECT_FALSE(forward_targets_are_valid("tcp:8000", "tcp:", false, &error));
+    EXPECT_FALSE(forward_targets_are_valid("tcp:8000", "tcp:", true, &error));
+    EXPECT_FALSE(forward_targets_are_valid("tcp:8000", "tcp:a", false, &error));
+    EXPECT_FALSE(forward_targets_are_valid("tcp:8000", "tcp:a", true, &error));
+    EXPECT_FALSE(forward_targets_are_valid("tcp:8000", "tcp:22x", false, &error));
+    EXPECT_FALSE(forward_targets_are_valid("tcp:8000", "tcp:22x", true, &error));
+
+    // Hostname can only be specified on destination, when supported.
+    EXPECT_FALSE(forward_targets_are_valid("tcp:1234", "tcp:foo:1234", false, &error));
+    EXPECT_FALSE(forward_targets_are_valid("tcp:1234", "tcp:foo:1234", true, &error));
+    EXPECT_FALSE(forward_targets_are_valid("tcp:foo:1234", "tcp:1234", false, &error));
+    EXPECT_FALSE(forward_targets_are_valid("tcp:foo:1234", "tcp:1234", false, &error));
 }
 
 void TestParseUint(std::string_view string, bool expected_success, uint32_t expected_value = 0) {

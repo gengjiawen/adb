@@ -89,6 +89,7 @@ const char* const kFeatureSendRecv2Zstd = "sendrecv_v2_zstd";
 const char* const kFeatureSendRecv2DryRunSend = "sendrecv_v2_dry_run_send";
 // TODO(joshuaduong): Bump to v2 when openscreen discovery is enabled by default
 const char* const kFeatureOpenscreenMdns = "openscreen_mdns";
+const char* const kFeatureForwardRemoteHost = "forward_remote_host";
 
 namespace {
 
@@ -1196,6 +1197,7 @@ const FeatureSet& supported_features() {
                 kFeatureSendRecv2Zstd,
                 kFeatureSendRecv2DryRunSend,
                 kFeatureOpenscreenMdns,
+                kFeatureForwardRemoteHost,
                 // Increment ADB_SERVER_VERSION when adding a feature that adbd needs
                 // to know about. Otherwise, the client can be stuck running an old
                 // version of the server even after upgrading their copy of adb.

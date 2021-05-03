@@ -215,9 +215,7 @@ bool socket_spec_connect(unique_fd* fd, std::string_view address, int* port, std
                 fd->reset(network_connect(hostname, port_value, SOCK_STREAM, 0, error));
             }
 #else
-            // Disallow arbitrary connections in adbd.
-            *error = "adbd does not support arbitrary tcp connections";
-            return false;
+            fd->reset(network_connect(hostname, port_value, SOCK_STREAM, 0, error));
 #endif
         }
 

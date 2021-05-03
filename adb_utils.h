@@ -60,7 +60,7 @@ bool set_file_block_mode(borrowed_fd fd, bool block);
 // Currently this only checks "tcp:" targets. Additional checking could be added for other targets
 // if needed.
 bool forward_targets_are_valid(const std::string& source, const std::string& dest,
-                               std::string* error);
+                               bool remote_host_supported, std::string* error);
 
 // A thread-safe blocking queue.
 template <typename T>

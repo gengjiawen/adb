@@ -98,6 +98,8 @@ extern const char* const kFeatureSendRecv2LZ4;
 extern const char* const kFeatureSendRecv2Zstd;
 // adbd supports dry-run send for send/recv v2.
 extern const char* const kFeatureSendRecv2DryRunSend;
+// adbd supports forwarding to remote addresses.
+extern const char* const kFeatureForwardRemoteHost;
 
 TransportId NextTransportId();
 

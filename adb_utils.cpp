@@ -35,6 +35,7 @@
 
 #include "adb.h"
 #include "adb_trace.h"
+#include "socket_spec.h"
 #include "sysdeps.h"
 
 #ifdef _WIN32
@@ -250,7 +251,7 @@ bool set_file_block_mode(borrowed_fd fd, bool block) {
 #endif
 
 bool forward_targets_are_valid(const std::string& source, const std::string& dest,
-                               std::string* error) {
+                               bool remote_host_supported, std::string* error) {
     if (android::base::StartsWith(source, "tcp:")) {
         // The source port may be 0 to allow the system to select an open port.
         int port;
@@ -261,9 +262,19 @@ bool forward_targets_are_valid(const std::string& source, const std::string& des
     }
 
     if (android::base::StartsWith(dest, "tcp:")) {
-        // The destination port must be > 0.
         int port;
-        if (!android::base::ParseInt(&dest[4], &port) || port <= 0) {
+        std::string hostname;
+        if (!parse_tcp_socket_spec(dest, &hostname, &port, nullptr, error)) {
+            return false;
+        }
+
+        if (!remote_host_supported && !hostname.empty()) {
+            *error = "device doesn't support forwarding with hostname";
+            return false;
+        }
+
+        // The destination port must be > 0.
+        if (port <= 0) {
             *error = android::base::StringPrintf("Invalid destination port: '%s'", &dest[4]);
             return false;
         }
