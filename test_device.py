@@ -218,21 +218,28 @@ class ForwardReverseTest(DeviceTest):
         finally:
             self.device.reverse_remove_all()
 
-    def test_forward_reverse_echo(self):
+    def impl_test_forward_reverse_echo(self, hostname):
         """Send data through adb forward and read it back via adb reverse"""
         forward_port = 12345
+
+        forward_host = 'tcp:' + str(forward_port)
+        if hostname:
+            forward_target = 'tcp:' + str(forward_port)
+        else:
+            forward_target = 'tcp:' + str(forward_port)
+
         reverse_port = forward_port + 1
-        forward_spec = 'tcp:' + str(forward_port)
         reverse_spec = 'tcp:' + str(reverse_port)
+
         forward_setup = False
         reverse_setup = False
 
         try:
             # listen on localhost:forward_port, connect to remote:forward_port
-            self.device.forward(forward_spec, forward_spec)
+            self.device.forward(forward_host, forward_target)
             forward_setup = True
             # listen on remote:forward_port, connect to localhost:reverse_port
-            self.device.reverse(forward_spec, reverse_spec)
+            self.device.reverse(forward_target, reverse_spec)
             reverse_setup = True
 
             listener = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -266,9 +273,15 @@ class ForwardReverseTest(DeviceTest):
                         self.assertEqual(data, server.makefile().read().encode("utf8"))
         finally:
             if reverse_setup:
-                self.device.reverse_remove(forward_spec)
+                self.device.reverse_remove(forward_target)
             if forward_setup:
-                self.device.forward_remove(forward_spec)
+                self.device.forward_remove(forward_host)
+
+    def test_forward_reverse_echo(self):
+        self.impl_test_forward_reverse_echo(None)
+
+    def test_forward_reverse_echo_hostname(self):
+        self.impl_test_forward_reverse_echo("127.0.0.1")
 
 
 class ShellTest(DeviceTest):

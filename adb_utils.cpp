@@ -35,6 +35,7 @@
 
 #include "adb.h"
 #include "adb_trace.h"
+#include "socket_spec.h"
 #include "sysdeps.h"
 
 #ifdef _WIN32
@@ -261,9 +262,13 @@ bool forward_targets_are_valid(const std::string& source, const std::string& des
     }
 
     if (android::base::StartsWith(dest, "tcp:")) {
-        // The destination port must be > 0.
         int port;
-        if (!android::base::ParseInt(&dest[4], &port) || port <= 0) {
+        if (!parse_tcp_socket_spec(dest, nullptr, &port, nullptr, error)) {
+            return false;
+        }
+
+        // The destination port must be > 0.
+        if (port <= 0) {
             *error = android::base::StringPrintf("Invalid destination port: '%s'", &dest[4]);
             return false;
         }
