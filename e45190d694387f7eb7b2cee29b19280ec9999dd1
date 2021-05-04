@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0d731ac_25a460a0",
+        "filename": "socket_spec.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1493203
+      },
+      "writtenOn": "2021-05-04T23:41:43Z",
+      "side": 1,
+      "message": "nit: ADB_TCP_KEEPALIVE_INTERVAL_MS to specify units",
+      "range": {
+        "startLine": 226,
+        "startChar": 52,
+        "endLine": 226,
+        "endChar": 78
+      },
+      "revId": "e45190d694387f7eb7b2cee29b19280ec9999dd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a83cc95f_64eb369a",
+        "filename": "socket_spec.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1493203
+      },
+      "writtenOn": "2021-05-04T23:41:43Z",
+      "side": 1,
+      "message": "\u003e\u003d\n\n0 is to disable the keepalives: https://source.corp.google.com/android/packages/modules/adb/sysdeps.h;l\u003d790 which might be nice to have.",
+      "range": {
+        "startLine": 228,
+        "startChar": 26,
+        "endLine": 228,
+        "endChar": 27
+      },
+      "revId": "e45190d694387f7eb7b2cee29b19280ec9999dd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
