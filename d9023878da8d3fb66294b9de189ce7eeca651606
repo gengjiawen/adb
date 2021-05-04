@@ -70,6 +70,30 @@
       },
       "revId": "d9023878da8d3fb66294b9de189ce7eeca651606",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95a8fa31_e755e47b",
+        "filename": "socket_spec.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1493203
+      },
+      "writtenOn": "2021-05-04T23:18:05Z",
+      "side": 1,
+      "message": "I ran into this issue (b/187218137). It is going to cause a large increase in the phone battery life if you leave your phone unplugged and adb tcpip is still alive. Especially since prior to this change, it really never work up the kernel (once every 2 hours is OK).",
+      "parentUuid": "d3353954_72ee80aa",
+      "range": {
+        "startLine": 225,
+        "startChar": 34,
+        "endLine": 225,
+        "endChar": 35
+      },
+      "revId": "d9023878da8d3fb66294b9de189ce7eeca651606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
