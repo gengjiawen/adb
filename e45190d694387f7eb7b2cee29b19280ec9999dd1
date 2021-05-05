@@ -120,6 +120,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "695c3190_5ddfad18",
+        "filename": "socket_spec.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1493203
+      },
+      "writtenOn": "2021-05-05T00:18:31Z",
+      "side": 1,
+      "message": "SG!",
+      "parentUuid": "0720ec60_efc66670",
+      "range": {
+        "startLine": 226,
+        "startChar": 52,
+        "endLine": 226,
+        "endChar": 78
+      },
+      "revId": "e45190d694387f7eb7b2cee29b19280ec9999dd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a83cc95f_64eb369a",
