@@ -98,6 +98,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0720ec60_efc66670",
+        "filename": "socket_spec.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-05-05T00:13:58Z",
+      "side": 1,
+      "message": "we try to be self-consistent at least, so either \"SECONDS\" or \"S\".\n\nthe case where \"use whatever\" really breaks down is \"ms\". there are way too many short forms there.\n\nfwiw, personally i\u0027d rather _not_ include a unit here (but keep rejecting \"not a plain integer\") so that if it\u0027s ever useful we can come back and use a proper duration parser like we do in toybox. that way the user gets to choose their own units in the long run.",
+      "parentUuid": "a585624e_d06d668f",
+      "range": {
+        "startLine": 226,
+        "startChar": 52,
+        "endLine": 226,
+        "endChar": 78
+      },
+      "revId": "e45190d694387f7eb7b2cee29b19280ec9999dd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a83cc95f_64eb369a",
         "filename": "socket_spec.cpp",
         "patchSetId": 1
