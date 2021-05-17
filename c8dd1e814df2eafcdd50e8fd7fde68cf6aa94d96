@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8201d94a_bae5ea84",
+        "filename": "client/openscreen/adb_connect_helper.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-05-17T21:24:18Z",
+      "side": 1,
+      "message": "FYI this is the old `connect_device` implementation. Just copied here with no changes.",
+      "revId": "c8dd1e814df2eafcdd50e8fd7fde68cf6aa94d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
