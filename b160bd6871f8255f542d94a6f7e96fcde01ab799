@@ -34,6 +34,24 @@
       "parentUuid": "ce43de3b_c02747b8",
       "revId": "b160bd6871f8255f542d94a6f7e96fcde01ab799",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "541f0ddf_0adfd4eb",
+        "filename": "OWNERS",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1061164
+      },
+      "writtenOn": "2021-05-20T19:37:09Z",
+      "side": 1,
+      "message": "Thanks! 2 is strictly better than 1 :-)",
+      "parentUuid": "52417ae9_0695d7c3",
+      "revId": "b160bd6871f8255f542d94a6f7e96fcde01ab799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
