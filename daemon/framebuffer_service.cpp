@@ -78,7 +78,7 @@ void framebuffer_service(unique_fd fd) {
         const char* command = "screencap";
         const char *args[2] = {command, nullptr};
         execvp(command, (char**)args);
-        perror_exit("exec screencap failed");
+        _exit(1);
     }
 
     adb_close(fds[1]);

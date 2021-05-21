@@ -57,6 +57,7 @@ bool set_tcp_keepalive(borrowed_fd fd, int interval_sec) {
     return true;
 }
 
+#if ADB_HOST
 static __inline__ void disable_close_on_exec(borrowed_fd fd) {
     const auto oldFlags = fcntl(fd.get(), F_GETFD);
     const auto newFlags = (oldFlags & ~FD_CLOEXEC);
@@ -90,3 +91,4 @@ Process adb_launch_process(std::string_view executable, std::vector<std::string>
     }
     exit(execv(copies.front().data(), rawArgs.data()));
 }
+#endif
