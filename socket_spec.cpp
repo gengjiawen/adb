@@ -405,6 +405,7 @@ int socket_spec_listen(std::string_view spec, std::string* error, int* resolved_
         *error = "vsock is only supported on linux";
         return -1;
 #endif  // ADB_LINUX
+#if ADB_HOST
     } else if (ConsumePrefix(&spec, "acceptfd:")) {
 #if ADB_WINDOWS
         *error = "socket activation not supported under Windows";
@@ -444,7 +445,8 @@ int socket_spec_listen(std::string_view spec, std::string* error, int* resolved_
             return -1;
         }
         return new_fd;
-#endif
+#endif  // ADB_WINDOWS
+#endif  // ADB_HOST
     }
 
     for (const auto& it : kLocalSocketTypes) {
