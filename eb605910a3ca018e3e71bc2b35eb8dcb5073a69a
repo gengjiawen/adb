@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f686afa_f9d80ff6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-05-21T16:55:02Z",
+      "side": 1,
+      "message": "build failure seems legit for this stack, presumably the #ifdef change:\n```\npackages/modules/adb/transport.cpp:977:26: error: use of undeclared identifier \u0027UsbNoPermissionsLongHelpText\u0027\n            *error_out \u003d UsbNoPermissionsLongHelpText();\n                         ^\n```",
+      "revId": "eb605910a3ca018e3e71bc2b35eb8dcb5073a69a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
