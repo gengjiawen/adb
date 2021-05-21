@@ -66,12 +66,14 @@ void close_stdin() {
     unix_close(fd);
 }
 
+#if ADB_HOST
 bool getcwd(std::string* s) {
   char* cwd = getcwd(nullptr, 0);
   if (cwd != nullptr) *s = cwd;
   free(cwd);
   return (cwd != nullptr);
 }
+#endif
 
 bool directory_exists(const std::string& path) {
   struct stat sb;
@@ -272,6 +274,7 @@ bool forward_targets_are_valid(const std::string& source, const std::string& des
     return true;
 }
 
+#if ADB_HOST
 std::string adb_get_homedir_path() {
 #ifdef _WIN32
     WCHAR path[MAX_PATH];
@@ -378,3 +381,4 @@ void perror_exit(const char* fmt, ...) {
     error_exit_va(errno, fmt, va);
     va_end(va);
 }
+#endif  // ADB_HOST
