@@ -394,6 +394,11 @@ cc_test_host {
             shared_libs: ["AdbWinApi"],
         },
     },
+
+    bazel_module: {
+        bp2build_available: true,
+        generate_synthetic_target: true,
+    }
 }
 
 cc_binary_host {
@@ -485,6 +490,8 @@ cc_binary_host {
             ],
         },
     },
+
+    bazel_module: { generate_synthetic_target: true },
 }
 
 // libadbd_core contains the common sources to build libadbd and libadbd_services.
