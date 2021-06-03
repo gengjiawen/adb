@@ -16,6 +16,24 @@
       "message": "FYI this is the old `connect_device` implementation. Just copied here with no changes.",
       "revId": "c8dd1e814df2eafcdd50e8fd7fde68cf6aa94d96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40a8d954_ebcbb995",
+        "filename": "client/openscreen/adb_connect_helper.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-06-03T00:43:05Z",
+      "side": 1,
+      "message": "It seems strange to have this inside client/openscreen, given that it\u0027s generic to all of the rest of adb. If it\u0027s here just because you\u0027re using the openscreen task runner stuff, there\u0027s also a BlockingQueue in adb_utils.h that can be used for this.",
+      "parentUuid": "8201d94a_bae5ea84",
+      "revId": "c8dd1e814df2eafcdd50e8fd7fde68cf6aa94d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
