@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6efa624_ff575fdb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1030767
+      },
+      "writtenOn": "2021-06-03T20:37:41Z",
+      "side": 1,
+      "message": "Hi Josh do you or someone need to reset the Presubmit-Ready bit for this to go through automation again?",
+      "revId": "e44a4e7bd6998514f1d505d75eda2224072217db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
