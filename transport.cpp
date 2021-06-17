@@ -282,21 +282,21 @@ BlockingConnectionAdapter::BlockingConnectionAdapter(std::unique_ptr<BlockingCon
     : underlying_(std::move(connection)) {}
 
 BlockingConnectionAdapter::~BlockingConnectionAdapter() {
-    LOG(INFO) << "BlockingConnectionAdapter(" << this->transport_name_ << "): destructing";
+    LOG(INFO) << "BlockingConnectionAdapter(" << transport_->serial_name() << "): destructing";
     Stop();
 }
 
 void BlockingConnectionAdapter::Start() {
     std::lock_guard<std::mutex> lock(mutex_);
     if (started_) {
-        LOG(FATAL) << "BlockingConnectionAdapter(" << this->transport_name_
+        LOG(FATAL) << "BlockingConnectionAdapter(" << transport_->serial_name()
                    << "): started multiple times";
     }
 
     StartReadThread();
 
     write_thread_ = std::thread([this]() {
-        LOG(INFO) << this->transport_name_ << ": write thread spawning";
+        LOG(INFO) << transport_->serial_name() << ": write thread spawning";
         while (true) {
             std::unique_lock<std::mutex> lock(mutex_);
             ScopedLockAssertion assume_locked(mutex_);
@@ -316,7 +316,7 @@ void BlockingConnectionAdapter::Start() {
                 break;
             }
         }
-        std::call_once(this->error_flag_, [this]() { this->error_callback_(this, "write failed"); });
+        std::call_once(this->error_flag_, [this]() { transport_->HandleError("write failed"); });
     });
 
     started_ = true;
@@ -324,11 +324,11 @@ void BlockingConnectionAdapter::Start() {
 
 void BlockingConnectionAdapter::StartReadThread() {
     read_thread_ = std::thread([this]() {
-        LOG(INFO) << this->transport_name_ << ": read thread spawning";
+        LOG(INFO) << transport_->serial_name() << ": read thread spawning";
         while (true) {
             auto packet = std::make_unique<apacket>();
             if (!underlying_->Read(packet.get())) {
-                PLOG(INFO) << this->transport_name_ << ": read failed";
+                PLOG(INFO) << transport_->serial_name() << ": read failed";
                 break;
             }
 
@@ -337,18 +337,18 @@ void BlockingConnectionAdapter::StartReadThread() {
                 got_stls_cmd = true;
             }
 
-            read_callback_(this, std::move(packet));
+            transport_->HandleRead(std::move(packet));
 
             // If we received the STLS packet, we are about to perform the TLS
             // handshake. So this read thread must stop and resume after the
             // handshake completes otherwise this will interfere in the process.
             if (got_stls_cmd) {
-                LOG(INFO) << this->transport_name_
+                LOG(INFO) << transport_->serial_name()
                           << ": Received STLS packet. Stopping read thread.";
                 return;
             }
         }
-        std::call_once(this->error_flag_, [this]() { this->error_callback_(this, "read failed"); });
+        std::call_once(this->error_flag_, [this]() { transport_->HandleError("read failed"); });
     });
 }
 
@@ -366,18 +366,19 @@ void BlockingConnectionAdapter::Reset() {
     {
         std::lock_guard<std::mutex> lock(mutex_);
         if (!started_) {
-            LOG(INFO) << "BlockingConnectionAdapter(" << this->transport_name_ << "): not started";
+            LOG(INFO) << "BlockingConnectionAdapter(" << transport_->serial_name()
+                      << "): not started";
             return;
         }
 
         if (stopped_) {
-            LOG(INFO) << "BlockingConnectionAdapter(" << this->transport_name_
+            LOG(INFO) << "BlockingConnectionAdapter(" << transport_->serial_name()
                       << "): already stopped";
             return;
         }
     }
 
-    LOG(INFO) << "BlockingConnectionAdapter(" << this->transport_name_ << "): resetting";
+    LOG(INFO) << "BlockingConnectionAdapter(" << transport_->serial_name() << "): resetting";
     this->underlying_->Reset();
     Stop();
 }
@@ -386,12 +387,13 @@ void BlockingConnectionAdapter::Stop() {
     {
         std::lock_guard<std::mutex> lock(mutex_);
         if (!started_) {
-            LOG(INFO) << "BlockingConnectionAdapter(" << this->transport_name_ << "): not started";
+            LOG(INFO) << "BlockingConnectionAdapter(" << transport_->serial_name()
+                      << "): not started";
             return;
         }
 
         if (stopped_) {
-            LOG(INFO) << "BlockingConnectionAdapter(" << this->transport_name_
+            LOG(INFO) << "BlockingConnectionAdapter(" << transport_->serial_name()
                       << "): already stopped";
             return;
         }
@@ -399,7 +401,7 @@ void BlockingConnectionAdapter::Stop() {
         stopped_ = true;
     }
 
-    LOG(INFO) << "BlockingConnectionAdapter(" << this->transport_name_ << "): stopping";
+    LOG(INFO) << "BlockingConnectionAdapter(" << transport_->serial_name() << "): stopping";
 
     this->underlying_->Close();
     this->cv_.notify_one();
@@ -417,8 +419,8 @@ void BlockingConnectionAdapter::Stop() {
     read_thread.join();
     write_thread.join();
 
-    LOG(INFO) << "BlockingConnectionAdapter(" << this->transport_name_ << "): stopped";
-    std::call_once(this->error_flag_, [this]() { this->error_callback_(this, "requested stop"); });
+    LOG(INFO) << "BlockingConnectionAdapter(" << transport_->serial_name() << "): stopped";
+    std::call_once(this->error_flag_, [this]() { transport_->HandleError("requested stop"); });
 }
 
 bool BlockingConnectionAdapter::Write(std::unique_ptr<apacket> packet) {
@@ -792,30 +794,7 @@ static void transport_registration_func(int _fd, unsigned ev, void*) {
 
     /* don't create transport threads for inaccessible devices */
     if (t->GetConnectionState() != kCsNoPerm) {
-        // The connection gets a reference to the atransport. It will release it
-        // upon a read/write error.
-        t->connection()->SetTransportName(t->serial_name());
-        t->connection()->SetReadCallback([t](Connection*, std::unique_ptr<apacket> p) {
-            if (!check_header(p.get(), t)) {
-                D("%s: remote read: bad header", t->serial.c_str());
-                return false;
-            }
-
-            VLOG(TRANSPORT) << dump_packet(t->serial.c_str(), "from remote", p.get());
-            apacket* packet = p.release();
-
-            // TODO: Does this need to run on the main thread?
-            fdevent_run_on_main_thread([packet, t]() { handle_packet(packet, t); });
-            return true;
-        });
-        t->connection()->SetErrorCallback([t](Connection*, const std::string& error) {
-            LOG(INFO) << t->serial_name() << ": connection terminated: " << error;
-            fdevent_run_on_main_thread([t]() {
-                handle_offline(t);
-                transport_destroy(t);
-            });
-        });
-
+        t->connection()->SetTransport(t);
         t->connection()->Start();
 #if ADB_HOST
         send_connect(t);
@@ -1127,6 +1106,28 @@ void atransport::SetConnectionState(ConnectionState state) {
 void atransport::SetConnection(std::shared_ptr<Connection> connection) {
     std::lock_guard<std::mutex> lock(mutex_);
     connection_ = std::shared_ptr<Connection>(std::move(connection));
+}
+
+bool atransport::HandleRead(std::unique_ptr<apacket> p) {
+    if (!check_header(p.get(), this)) {
+        D("%s: remote read: bad header", serial.c_str());
+        return false;
+    }
+
+    VLOG(TRANSPORT) << dump_packet(serial.c_str(), "from remote", p.get());
+    apacket* packet = p.release();
+
+    // TODO: Does this need to run on the main thread?
+    fdevent_run_on_main_thread([packet, this]() { handle_packet(packet, this); });
+    return true;
+}
+
+void atransport::HandleError(const std::string& error) {
+    LOG(INFO) << serial_name() << ": connection terminated: " << error;
+    fdevent_run_on_main_thread([this]() {
+        handle_offline(this);
+        transport_destroy(this);
+    });
 }
 
 std::string atransport::connection_state_name() const {

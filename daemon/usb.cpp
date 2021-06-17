@@ -582,7 +582,7 @@ struct UsbFfsConnection : public Connection {
 
                 // TODO: Make apacket contain an IOVector so we don't have to coalesce.
                 packet->payload = std::move(incoming_payload_).coalesce();
-                read_callback_(this, std::move(packet));
+                transport_->HandleRead(std::move(packet));
 
                 incoming_header_.reset();
                 // reuse the capacity of the incoming payload while we can.
