@@ -130,17 +130,17 @@ struct LibusbConnection : public Connection {
         libusb_free_transfer(read_block->transfer);
         read_block->active = false;
         read_block->transfer = nullptr;
-        if (terminating_) {
+        if (terminated_) {
             destruction_cv_.notify_one();
         }
     }
 
     bool MaybeCleanup(ReadBlock* read_block) REQUIRES(read_mutex_) {
         if (read_block->transfer->status == LIBUSB_TRANSFER_CANCELLED) {
-            CHECK(terminating_);
+            CHECK(terminated_);
         }
 
-        if (terminating_) {
+        if (terminated_) {
             Cleanup(read_block);
             return true;
         }
@@ -161,7 +161,9 @@ struct LibusbConnection : public Connection {
         if (transfer->status != LIBUSB_TRANSFER_COMPLETED) {
             std::string msg = StringPrintf("usb read failed: status = %d", transfer->status);
             LOG(ERROR) << msg;
-            self->OnError(msg);
+            if (!self->detached_) {
+                self->OnError(msg);
+            }
             self->Cleanup(read_block);
             return;
         }
@@ -208,7 +210,9 @@ struct LibusbConnection : public Connection {
         if (transfer->status != LIBUSB_TRANSFER_COMPLETED) {
             std::string msg = StringPrintf("usb read failed: status = %d", transfer->status);
             LOG(ERROR) << msg;
-            self->OnError(msg);
+            if (!self->detached_) {
+                self->OnError(msg);
+            }
             self->Cleanup(&self->payload_read_);
             return;
         }
@@ -242,12 +246,12 @@ struct LibusbConnection : public Connection {
             libusb_free_transfer(transfer);
             self->writes_.erase(write_block->id);
 
-            if (self->terminating_ && self->writes_.empty()) {
+            if (self->terminated_ && self->writes_.empty()) {
                 self->destruction_cv_.notify_one();
             }
         }
 
-        if (!succeeded) {
+        if (!succeeded && !self->detached_) {
             self->OnError("libusb write failed");
         }
     }
@@ -304,8 +308,12 @@ struct LibusbConnection : public Connection {
         memcpy(header.data(), &packet->msg, sizeof(packet->msg));
 
         std::lock_guard<std::mutex> lock(write_mutex_);
-        if (terminating_) {
+        if (terminated_) {
             return false;
+        }
+
+        if (detached_) {
+            return true;
         }
 
         SubmitWrite(std::move(header));
@@ -463,32 +471,16 @@ struct LibusbConnection : public Connection {
 
     bool OpenDevice(std::string* error) {
         if (device_handle_) {
-            return true;
+            *error = "device already open";
+            return false;
         }
 
         libusb_device_handle* handle_raw;
         int rc = libusb_open(device_.get(), &handle_raw);
         if (rc != 0) {
+            // TODO: Handle no permissions.
             std::string err = StringPrintf("failed to open device: %s", libusb_strerror(rc));
             LOG(ERROR) << err;
-
-#if defined(__linux__)
-            std::string device_serial;
-            // libusb doesn't think we should be messing around with devices we don't have
-            // write access to, but Linux at least lets us get the serial number anyway.
-            if (!android::base::ReadFileToString(get_device_serial_path(device_.get()),
-                                                 &device_serial)) {
-                // We don't actually want to treat an unknown serial as an error because
-                // devices aren't able to communicate a serial number in early bringup.
-                // http://b/20883914
-                serial_ = "<unknown>";
-            } else {
-                serial_ = android::base::Trim(device_serial);
-            }
-#else
-            // On Mac OS and Windows, we're screwed. But I don't think this situation actually
-            // happens on those OSes.
-#endif
 
             if (error) {
                 *error = std::move(err);
@@ -515,8 +507,78 @@ struct LibusbConnection : public Connection {
         return true;
     }
 
+    void CloseDevice() {
+        // This is rather messy, because of the lifecyle of libusb_transfers.
+        //
+        // We can't call libusb_free_transfer for a submitted transfer, we have to cancel it
+        // and free it in the callback. Complicating things more, it's possible for us to be in
+        // the callback for a transfer as the destructor is being called, at which point cancelling
+        // the transfer won't do anything (and it's possible that we'll submit the transfer again
+        // in the callback).
+        //
+        // Resolve this by setting an atomic flag before we lock to cancel transfers, and take the
+        // lock in the callbacks before checking the flag.
+
+        if (terminated_) {
+            return;
+        }
+
+        terminated_ = true;
+
+        {
+            std::unique_lock<std::mutex> lock(write_mutex_);
+            ScopedLockAssertion assumed_locked(write_mutex_);
+
+            if (!writes_.empty()) {
+                for (auto& [id, write] : writes_) {
+                    libusb_cancel_transfer(write->transfer);
+                }
+
+                destruction_cv_.wait(lock, [this]() {
+                    ScopedLockAssertion assumed_locked(write_mutex_);
+                    return writes_.empty();
+                });
+            }
+        }
+
+        {
+            std::unique_lock<std::mutex> lock(read_mutex_);
+            ScopedLockAssertion assumed_locked(read_mutex_);
+
+            if (header_read_.transfer) {
+                if (header_read_.active) {
+                    libusb_cancel_transfer(header_read_.transfer);
+                } else {
+                    libusb_free_transfer(header_read_.transfer);
+                }
+            }
+
+            if (payload_read_.transfer) {
+                if (payload_read_.active) {
+                    libusb_cancel_transfer(payload_read_.transfer);
+                } else {
+                    libusb_free_transfer(payload_read_.transfer);
+                }
+            }
+
+            destruction_cv_.wait(lock, [this]() {
+                ScopedLockAssertion assumed_locked(read_mutex_);
+                return !header_read_.active && !payload_read_.active;
+            });
+
+            incoming_header_.reset();
+            incoming_payload_.clear();
+        }
+
+        if (device_handle_) {
+            libusb_release_interface(device_handle_.get(), interface_num_);
+            device_handle_.reset();
+        }
+    }
+
     bool StartImpl(std::string* error) {
-        if (!OpenDevice(error)) {
+        if (!device_handle_) {
+            *error = "device not opened";
             return false;
         }
 
@@ -559,11 +621,36 @@ struct LibusbConnection : public Connection {
         });
     }
 
-    virtual void Reset() override final {
-        Stop();
+    virtual bool Attach(std::string* error) override final {
+        terminated_ = false;
+        detached_ = false;
 
+        if (!OpenDevice(error)) {
+            OnError(*error);
+            return false;
+        }
+
+        if (!StartImpl(error)) {
+            OnError(*error);
+            return false;
+        }
+
+        return true;
+    }
+
+    virtual bool Detach(std::string* error) override final {
+        detached_ = true;
+        CloseDevice();
+        return true;
+    }
+
+    virtual void Reset() override final {
+        LOG(INFO) << "resetting " << transport_->serial_name();
         if (libusb_reset_device(device_handle_.get()) == 0) {
             libusb_device* device = libusb_ref_device(device_.get());
+
+            Stop();
+
             fdevent_run_on_main_thread([device]() {
                 process_device(device);
                 libusb_unref_device(device);
@@ -573,75 +660,11 @@ struct LibusbConnection : public Connection {
 
     virtual void Start() override final {
         std::string error;
-        if (!StartImpl(&error)) {
-            OnError(error);
-            return;
-        }
+        Attach(&error);
     }
 
     virtual void Stop() override final {
-        // This is rather messy, because of the lifecyle of libusb_transfers.
-        //
-        // We can't call libusb_free_transfer for a submitted transfer, we have to cancel it
-        // and free it in the callback. Complicating things more, it's possible for us to be in
-        // the callback for a transfer as the destructor is being called, at which point cancelling
-        // the transfer won't do anything (and it's possible that we'll submit the transfer again
-        // in the callback).
-        //
-        // Resolve this by setting an atomic flag before we lock to cancel transfers, and take the
-        // lock in the callbacks before checking the flag.
-
-        if (terminating_) {
-            return;
-        }
-
-        terminating_ = true;
-
-        {
-            std::unique_lock<std::mutex> lock(write_mutex_);
-            ScopedLockAssertion assumed_locked(write_mutex_);
-
-            if (!writes_.empty()) {
-                for (auto& [id, write] : writes_) {
-                    libusb_cancel_transfer(write->transfer);
-                }
-
-                destruction_cv_.wait(lock, [this]() {
-                    ScopedLockAssertion assumed_locked(write_mutex_);
-                    return writes_.empty();
-                });
-            }
-        }
-
-        {
-            std::unique_lock<std::mutex> lock(read_mutex_);
-            ScopedLockAssertion assumed_locked(read_mutex_);
-            if (header_read_.transfer) {
-                if (header_read_.active) {
-                    libusb_cancel_transfer(header_read_.transfer);
-                } else {
-                    libusb_free_transfer(header_read_.transfer);
-                }
-            }
-
-            if (payload_read_.transfer) {
-                if (payload_read_.active) {
-                    libusb_cancel_transfer(payload_read_.transfer);
-                } else {
-                    libusb_free_transfer(payload_read_.transfer);
-                }
-            }
-
-            destruction_cv_.wait(lock, [this]() {
-                ScopedLockAssertion assumed_locked(read_mutex_);
-                return !header_read_.active && !payload_read_.active;
-            });
-        }
-
-        if (device_handle_) {
-            libusb_release_interface(device_handle_.get(), interface_num_);
-        }
-
+        CloseDevice();
         OnError("requested stop");
     }
 
@@ -660,9 +683,25 @@ struct LibusbConnection : public Connection {
             return {};
         }
 
+#if defined(__linux__)
+        std::string device_serial;
+        if (android::base::ReadFileToString(get_device_serial_path(connection->device_.get()),
+                                            &device_serial)) {
+            connection->serial_ = android::base::Trim(device_serial);
+        } else {
+            // We don't actually want to treat an unknown serial as an error because
+            // devices aren't able to communicate a serial number in early bringup.
+            // http://b/20883914
+            connection->serial_ = "<unknown>";
+        }
+#else
+        // We need to open the device to get its serial on Windows and OS X.
         if (!connection->OpenDevice(nullptr)) {
             return {};
         }
+        connection->serial_ = connection->GetSerial();
+        connection->CloseDevice();
+#endif
 
         return connection;
     }
@@ -687,7 +726,8 @@ struct LibusbConnection : public Connection {
     std::atomic<size_t> next_write_id_ = 0;
 
     std::once_flag error_flag_;
-    std::atomic<bool> terminating_ = false;
+    std::atomic<bool> terminated_ = false;
+    std::atomic<bool> detached_ = false;
     std::condition_variable destruction_cv_;
 
     size_t zero_mask_ = 0;
