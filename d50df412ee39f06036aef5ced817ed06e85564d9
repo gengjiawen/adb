@@ -16,6 +16,24 @@
       "message": "is there a reason this is opt-in rather than opt-out? seems like opt-out would require less boilerplate? (and there\u0027s no useful information in the code comment explaining why this apex is opted in, or what would preclude doing so, so even if we do stick with opt-in, it seems like we shouldn\u0027t be copy \u0026 pasting an uninformative comment everywhere...)",
       "revId": "d50df412ee39f06036aef5ced817ed06e85564d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f4023ac_466c5894",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1439319
+      },
+      "writtenOn": "2021-06-24T18:09:23Z",
+      "side": 1,
+      "message": "\u003e is there a reason this is opt-in rather than opt-out?\n\nIt\u0027s easier to reason with when it\u0027s opt-in. We don\u0027t want to compress non-updatable apex, bootstrap apex, non-module apex and test apex. So there are plenty of apex which would need to be opt-out too. I would say both are cumbersome.\n\nBy opting-in, we found that it is easier to verify side effects from compression. For example, when we compressed art-apex, it broke few builds cause art-apex runs some tests during build time to check its internal structure. Test failed since art was suddenly compressed.\n\nJust today, I merged a cl to compress extservice and it broke a tv build due to artifact error. Conscrypt is also failing pre-submit due to some test failure during build time. It\u0027s easier to fix these issues when we are dealing with them one at a time.\n\n\u003e and there\u0027s no useful information in the code comment explaining why this apex is opted in\n\nSorry about that. I have updated the commit message with more explanation.",
+      "parentUuid": "ac788f82_78d4eafd",
+      "revId": "d50df412ee39f06036aef5ced817ed06e85564d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
