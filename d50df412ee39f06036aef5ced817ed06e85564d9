@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac788f82_78d4eafd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-06-24T16:35:13Z",
+      "side": 1,
+      "message": "is there a reason this is opt-in rather than opt-out? seems like opt-out would require less boilerplate? (and there\u0027s no useful information in the code comment explaining why this apex is opted in, or what would preclude doing so, so even if we do stick with opt-in, it seems like we shouldn\u0027t be copy \u0026 pasting an uninformative comment everywhere...)",
+      "revId": "d50df412ee39f06036aef5ced817ed06e85564d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
