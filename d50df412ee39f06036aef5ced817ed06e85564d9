@@ -34,6 +34,24 @@
       "parentUuid": "ac788f82_78d4eafd",
       "revId": "d50df412ee39f06036aef5ced817ed06e85564d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18580750_e6c397da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-06-24T22:31:35Z",
+      "side": 1,
+      "message": "thanks. yeah, that\u0027s probably what the bug should have said :-)\n\ncan you remove the comment in the .bp file? seems like it\u0027s adding no value (even more so now that the commit message contains rationale).",
+      "parentUuid": "6f4023ac_466c5894",
+      "revId": "d50df412ee39f06036aef5ced817ed06e85564d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
