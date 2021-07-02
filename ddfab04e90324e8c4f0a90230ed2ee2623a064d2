@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55ee0a3b_5aa8db08",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2021-07-02T23:42:14Z",
+      "side": 1,
+      "message": "(passed presubmit previously, and the only change was to a shell script that isn\u0027t run)",
+      "revId": "ddfab04e90324e8c4f0a90230ed2ee2623a064d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
