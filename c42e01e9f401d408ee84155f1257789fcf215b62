@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab02a3eb_7882ca43",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 787,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-07-12T23:12:41Z",
+      "side": 1,
+      "message": "until a",
+      "range": {
+        "startLine": 787,
+        "startChar": 51,
+        "endLine": 787,
+        "endChar": 52
+      },
+      "revId": "c42e01e9f401d408ee84155f1257789fcf215b62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c40a2d87_3b3c7715",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 836,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-07-12T23:12:41Z",
+      "side": 1,
+      "message": "you added the continue just so you\u0027d have somewhere to hang the comment? stick it with the call to poll instead? or reword it to start with \"we don\u0027t actually care about the data\"?",
+      "revId": "c42e01e9f401d408ee84155f1257789fcf215b62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
