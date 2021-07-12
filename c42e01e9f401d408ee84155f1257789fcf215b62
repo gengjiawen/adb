@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2558caa_3be7431f",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 787,
+      "author": {
+        "id": 1076798
+      },
+      "writtenOn": "2021-07-12T23:42:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab02a3eb_7882ca43",
+      "range": {
+        "startLine": 787,
+        "startChar": 51,
+        "endLine": 787,
+        "endChar": 52
+      },
+      "revId": "c42e01e9f401d408ee84155f1257789fcf215b62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c40a2d87_3b3c7715",
@@ -37,6 +61,24 @@
       "writtenOn": "2021-07-12T23:12:41Z",
       "side": 1,
       "message": "you added the continue just so you\u0027d have somewhere to hang the comment? stick it with the call to poll instead? or reword it to start with \"we don\u0027t actually care about the data\"?",
+      "revId": "c42e01e9f401d408ee84155f1257789fcf215b62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6da650ea_e46f8111",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 836,
+      "author": {
+        "id": 1076798
+      },
+      "writtenOn": "2021-07-12T23:42:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c40a2d87_3b3c7715",
       "revId": "c42e01e9f401d408ee84155f1257789fcf215b62",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
