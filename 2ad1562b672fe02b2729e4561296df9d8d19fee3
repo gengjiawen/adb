@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5eb512bc_58bd3f81",
+        "filename": "daemon/framebuffer_service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1076798
+      },
+      "writtenOn": "2021-07-13T03:28:42Z",
+      "side": 1,
+      "message": "not that it matters here, since this is linux daemon only, but in general, the sysdeps.h include should happen before includes of other headers like this, or else we might end up with references to the wrong type in some places (e.g. if one of the utils takes `struct pollfd` (forward declaring it), and we define pollfd to our own adb_pollfd on windows, or if we have static inlines in a header).",
+      "range": {
+        "startLine": 21,
+        "startChar": 22,
+        "endLine": 22,
+        "endChar": 20
+      },
+      "revId": "2ad1562b672fe02b2729e4561296df9d8d19fee3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
