@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6d0fb27f_fa6ff21f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-07-13T21:34:10Z",
+      "side": 1,
+      "message": "i\u0027ve no idea why CI thinks this broke shell test, which seems very dubious to me.\n\non the bright side, by stumbling into it by accidentally locally, i\u0027ve worked out what the original framebuffer test failure was: https://android-review.googlesource.com/c/platform/packages/modules/adb/+/1764835\n\nwith no better ideas, i might just resubmit this CL[\u0027s revert-revert] after that framebuffer test fix is in, and see if it really happens again...",
+      "revId": "2ad1562b672fe02b2729e4561296df9d8d19fee3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5eb512bc_58bd3f81",
         "filename": "daemon/framebuffer_service.cpp",
         "patchSetId": 1
@@ -14,6 +31,30 @@
       "writtenOn": "2021-07-13T03:28:42Z",
       "side": 1,
       "message": "not that it matters here, since this is linux daemon only, but in general, the sysdeps.h include should happen before includes of other headers like this, or else we might end up with references to the wrong type in some places (e.g. if one of the utils takes `struct pollfd` (forward declaring it), and we define pollfd to our own adb_pollfd on windows, or if we have static inlines in a header).",
+      "range": {
+        "startLine": 21,
+        "startChar": 22,
+        "endLine": 22,
+        "endChar": 20
+      },
+      "revId": "2ad1562b672fe02b2729e4561296df9d8d19fee3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5675563_5e9b0329",
+        "filename": "daemon/framebuffer_service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-07-13T21:34:10Z",
+      "side": 1,
+      "message": "yeah, if you can think of a clever way to enforce this better, let me know.",
+      "parentUuid": "5eb512bc_58bd3f81",
       "range": {
         "startLine": 21,
         "startChar": 22,
