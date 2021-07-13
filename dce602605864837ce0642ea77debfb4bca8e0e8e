@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92e5b6be_4f297873",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1873737
+      },
+      "writtenOn": "2021-07-13T07:45:06Z",
+      "side": 1,
+      "message": "As partner, I review it +2 for the regression",
+      "revId": "dce602605864837ce0642ea77debfb4bca8e0e8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
