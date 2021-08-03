@@ -1240,54 +1240,8 @@ static void write_zeros(int bytes, borrowed_fd fd) {
 }
 
 static int backup(int argc, const char** argv) {
-    fprintf(stdout, "WARNING: adb backup is deprecated and may be removed in a future release\n");
-
-    const char* filename = "backup.ab";
-
-    /* find, extract, and use any -f argument */
-    for (int i = 1; i < argc; i++) {
-        if (!strcmp("-f", argv[i])) {
-            if (i == argc - 1) error_exit("backup -f passed with no filename");
-            filename = argv[i+1];
-            for (int j = i+2; j <= argc; ) {
-                argv[i++] = argv[j++];
-            }
-            argc -= 2;
-            argv[argc] = nullptr;
-        }
-    }
-
-    // Bare "adb backup" or "adb backup -f filename" are not valid invocations ---
-    // a list of packages is required.
-    if (argc < 2) error_exit("backup either needs a list of packages or -all/-shared");
-
-    adb_unlink(filename);
-    unique_fd outFd(adb_creat(filename, 0640));
-    if (outFd < 0) {
-        fprintf(stderr, "adb: backup unable to create file '%s': %s\n", filename, strerror(errno));
-        return EXIT_FAILURE;
-    }
-
-    std::string cmd = "backup:";
-    --argc;
-    ++argv;
-    while (argc-- > 0) {
-        cmd += " " + escape_arg(*argv++);
-    }
-
-    D("backup. filename=%s cmd=%s", filename, cmd.c_str());
-    std::string error;
-    unique_fd fd(adb_connect(cmd, &error));
-    if (fd < 0) {
-        fprintf(stderr, "adb: unable to connect for backup: %s\n", error.c_str());
-        return EXIT_FAILURE;
-    }
-
-    fprintf(stdout, "Now unlock your device and confirm the backup operation...\n");
-    fflush(stdout);
-
-    copy_to_file(fd.get(), outFd.get());
-    return EXIT_SUCCESS;
+    fprintf(stdout, "WARNING: adb backup has been removed.\n");
+    return -1;
 }
 
 static int restore(int argc, const char** argv) {
