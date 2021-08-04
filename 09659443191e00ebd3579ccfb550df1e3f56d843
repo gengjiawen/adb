@@ -16,6 +16,24 @@
       "message": "Hey Al! Thanks for the CL. However, please note that for third-party apps targeting Android 12, adb backup is already restricted to debuggable apps, so developers can use it on their own app if needed (e.g. for integration testing) but not on other people\u0027s apps. See documentation for details: https://developer.android.com/about/versions/12/behavior-changes-12?hl\u003dbg#adb-backup-restrictions\n\nMerging this CL would break the above use case.",
       "revId": "09659443191e00ebd3579ccfb550df1e3f56d843",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71fb137e_f9c84319",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1887910
+      },
+      "writtenOn": "2021-08-04T09:03:18Z",
+      "side": 1,
+      "message": "Hi Ruslan,\n\nHope you\u0027re keeping well. Thanks for letting me know what the approach is you\u0027ve taken.\n\nThe behaviour you describe doesn\u0027t seem to be working in the latest public S emulator (SPB3.210618.013). If I run the following command I get a backup which contains the launcher favourites database;\n\nadb backup -apk -shared -all -f backup.ab\n\nThe following commands show me which apps the user has run recently, which feels, to me, like it shouldn\u0027t be public;\n\nalsutton@svr200:~/tmp2/apps/com.google.android.apps.nexuslauncher/db$ sqlite3 launcher.db\nSQLite version 3.27.2 2019-02-25 16:06:06\nEnter \".help\" for usage hints.\nsqlite\u003e select title from favorites;\nPhone\nMessages\nPlay Store\nChrome\nsqlite\u003e\n\nDo you know which build should contain the behaviour change?",
+      "parentUuid": "84d70efb_e32be66d",
+      "revId": "09659443191e00ebd3579ccfb550df1e3f56d843",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
