@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84d70efb_e32be66d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1448820
+      },
+      "writtenOn": "2021-08-04T06:35:12Z",
+      "side": 1,
+      "message": "Hey Al! Thanks for the CL. However, please note that for third-party apps targeting Android 12, adb backup is already restricted to debuggable apps, so developers can use it on their own app if needed (e.g. for integration testing) but not on other people\u0027s apps. See documentation for details: https://developer.android.com/about/versions/12/behavior-changes-12?hl\u003dbg#adb-backup-restrictions\n\nMerging this CL would break the above use case.",
+      "revId": "09659443191e00ebd3579ccfb550df1e3f56d843",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
