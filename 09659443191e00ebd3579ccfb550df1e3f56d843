@@ -34,6 +34,24 @@
       "parentUuid": "84d70efb_e32be66d",
       "revId": "09659443191e00ebd3579ccfb550df1e3f56d843",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d78a3553_c1f1b055",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1448820
+      },
+      "writtenOn": "2021-08-04T09:27:06Z",
+      "side": 1,
+      "message": "The behaviour is available in all builds starting from Developer Preview 1, which was released back in January (including the build you mention)\n\nThe launcher doesn\u0027t fall into the below as it\u0027s a system app:\n\n\"for third-party apps targeting Android 12, adb backup is already restricted to debuggable apps\"",
+      "parentUuid": "71fb137e_f9c84319",
+      "revId": "09659443191e00ebd3579ccfb550df1e3f56d843",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
