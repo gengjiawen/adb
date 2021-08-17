@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55190418_28ce114d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1079424
+      },
+      "writtenOn": "2021-08-17T20:01:47Z",
+      "side": 1,
+      "message": "I verified this change with a locally modified ART (https://android-review.googlesource.com/c/platform/art/+/1798816) to simulate the behavior of R\u0027s ART (i.e., not sending profileable and architecture fields in adbconnection_client_new()). Before my fix, I did see the offending log comes back every 2 seconds; and after my fix, the process doesn\u0027t wake up repeatedly.",
+      "revId": "305095b94db7aa46757a0eb35c100c55d785cb83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
