@@ -16,6 +16,24 @@
       "message": "(seems reasonable, since we don\u0027t know what the distinction between the two groups was meant to be ... but in that case, |sort the entire list, rather than having the concatenation of two separately-sorted lists?)",
       "revId": "5d9402f239d9efd84e851cf682213eea97dca9ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85be51c5_0b557e22",
+        "filename": "Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1890055
+      },
+      "writtenOn": "2021-08-20T17:56:01Z",
+      "side": 0,
+      "message": "Thanks for spotting this, done.",
+      "parentUuid": "9942a34f_9c2350b2",
+      "revId": "5d9402f239d9efd84e851cf682213eea97dca9ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
