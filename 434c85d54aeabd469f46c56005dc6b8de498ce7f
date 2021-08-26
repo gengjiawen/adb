@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd79aee1_d9e4070e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-08-26T20:04:27Z",
+      "side": 1,
+      "message": "i\u0027m assuming the defaults are equivalent?\n\n+joshuaduong, since it\u0027s his users that will notice anything...",
+      "revId": "434c85d54aeabd469f46c56005dc6b8de498ce7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
