@@ -68,7 +68,11 @@ void adb_get_transport(TransportType* type, const char** serial, TransportId* tr
 
 void adb_set_socket_spec(const char* socket_spec) {
     if (__adb_server_socket_spec) {
+#ifndef ADB_FUZZER
         LOG(FATAL) << "attempted to reinitialize adb_server_socket_spec " << socket_spec << " (was " << __adb_server_socket_spec << ")";
+#else
+        return;
+#endif
     }
     __adb_server_socket_spec = socket_spec;
 }
