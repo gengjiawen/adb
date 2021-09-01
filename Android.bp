@@ -395,12 +395,8 @@ cc_test_host {
     },
 }
 
-cc_binary_host {
-    name: "adb",
-
-    stl: "libc++_static",
-    defaults: ["adb_defaults"],
-
+filegroup {
+    name: "adb_sources",
     srcs: [
         "client/adb_client.cpp",
         "client/bugreport.cpp",
@@ -416,6 +412,59 @@ cc_binary_host {
         "client/incremental_server.cpp",
         "client/incremental_utils.cpp",
         "shell_service_protocol.cpp",
+    ],
+}
+
+cc_defaults {
+    name: "adb_binary_defaults",
+    static_libs: [
+        "libadb_crypto",
+        "libadb_host",
+        "libadb_pairing_auth",
+        "libadb_pairing_connection",
+        "libadb_protos",
+        "libadb_sysdeps",
+        "libadb_tls_connection",
+        "libandroidfw",
+        "libapp_processes_protos_full",
+        "libbase",
+        "libbrotli",
+        "libcrypto",
+        "libcrypto_utils",
+        "libcutils",
+        "libdiagnose_usb",
+        "libfastdeploy_host",
+        "liblog",
+        "liblog",
+        "liblz4",
+        "libmdnssd",
+        "libopenscreen-discovery",
+        "libopenscreen-platform-impl",
+        "libprotobuf-cpp-full",
+        "libssl",
+        "libusb",
+        "libutils",
+        "libz",
+        "libziparchive",
+        "libzstd",
+    ],
+    generated_headers: [
+        "bin2c_fastdeployagent",
+        "bin2c_fastdeployagentscript"
+    ],
+}
+
+cc_binary_host {
+    name: "adb",
+
+    stl: "libc++_static",
+    defaults: [
+        "adb_defaults",
+        "adb_binary_defaults",
+    ],
+
+    srcs: [
+        ":adb_sources",
     ],
 
     generated_headers: [

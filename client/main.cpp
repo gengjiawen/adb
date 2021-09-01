@@ -237,9 +237,11 @@ int adb_server_main(int is_daemon, const std::string& socket_spec, int ack_reply
     return 0;
 }
 
+#ifndef ADB_FUZZER
 int main(int argc, char* argv[], char* envp[]) {
     __adb_argv = const_cast<const char**>(argv);
     __adb_envp = const_cast<const char**>(envp);
     adb_trace_init(argv);
     return adb_commandline(argc - 1, const_cast<const char**>(argv + 1));
 }
+#endif
