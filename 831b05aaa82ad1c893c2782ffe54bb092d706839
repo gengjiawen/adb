@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e088b7e_1cb40b50",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-09-03T19:26:55Z",
+      "side": 1,
+      "message": "please don\u0027t waste time (and data center electricity) on fuzzing command-line parsing...",
+      "revId": "831b05aaa82ad1c893c2782ffe54bb092d706839",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
