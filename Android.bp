@@ -164,26 +164,12 @@ library_linking_strategy_cc_defaults {
     ],
 
     shared_libs: [
+	"libbase",
         "libadbd_auth",
         "libadbd_fs",
         "liblog",
         "libselinux",
     ],
-
-    soong_config_variables:{
-        library_linking_strategy: {
-            prefer_static: {
-                static_libs: [
-                    "libbase",
-                ],
-            },
-            conditions_default: {
-                shared_libs: [
-                    "libbase",
-                ],
-            },
-        },
-    },
 
     target: {
         android: {
