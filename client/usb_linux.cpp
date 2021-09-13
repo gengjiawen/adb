@@ -183,6 +183,8 @@ static void find_usb_device(const std::string& base,
             vid = device->idVendor;
             pid = device->idProduct;
             DBGX("[ %s is V:%04x P:%04x ]\n", dev_name.c_str(), vid, pid);
+            (void) vid;
+            (void) pid;
 
                 // should have config descriptor next
             config = (struct usb_config_descriptor *)bufptr;
