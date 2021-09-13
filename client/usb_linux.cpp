@@ -180,11 +180,10 @@ static void find_usb_device(const std::string& base,
                 continue;
             }
 
-            vid = device->idVendor;
-            pid = device->idProduct;
-            DBGX("[ %s is V:%04x P:%04x ]\n", dev_name.c_str(), vid, pid);
+            DBGX("[ %s is V:%04x P:%04x ]\n", dev_name.c_str(), device->idVendor,
+                 device->idProduct);
 
-                // should have config descriptor next
+            // should have config descriptor next
             config = (struct usb_config_descriptor *)bufptr;
             bufptr += USB_DT_CONFIG_SIZE;
             if (config->bLength != USB_DT_CONFIG_SIZE || config->bDescriptorType != USB_DT_CONFIG) {
