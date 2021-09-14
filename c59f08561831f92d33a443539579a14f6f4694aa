@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f738741b_eaf13037",
+        "filename": "client/usb_linux.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-09-14T18:08:04Z",
+      "side": 1,
+      "message": "(avoid C-style casts in new code. seems cleaner to just inline these in the DBGX line anyway, so i\u0027ve done that.)",
+      "revId": "c59f08561831f92d33a443539579a14f6f4694aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

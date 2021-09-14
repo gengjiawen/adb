@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f77acc9_79846bf0",
+        "filename": "client/file_sync_client.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1279,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-09-14T18:08:04Z",
+      "side": 0,
+      "message": "this stuff was added for https://android-review.googlesource.com/c/platform/system/core/+/180568/ where it was used after the while loop, but then that was made obsolete by...\n```\ncommit 37f11f595e7e90de669a791f5d0a9484492c3a56\nAuthor: Josh Gao \u003cjmgao@google.com\u003e\nDate:   Mon Jul 9 18:00:48 2018 -0700\n\n    adb: work around adbd push bug.\n    \n    We shipped (well, are about to ship) an adbd that spuriously fails to\n    create directories upon push. Work around this in the adb client by\n    running a mkdir on all of the directories we would have otherwise\n    created.\n    \n!   On devices where we perform the workaround, this coincidentally fixes\n!   a historic bug where we failed to push empty directories.\n    \n    Bug: http://b/25566053\n    Bug: http://b/110953234\n    Test: python test_device.py\n    Change-Id: I690ec356c206fed4e5ab2c681c5570c8b231e26b\n```\n...without this now-unused variable being removed. so this seems safe to remove (see the lines marked with \u0027!\u0027), rather than pointing to a bug because we should be using this variable.",
+      "revId": "434c85d54aeabd469f46c56005dc6b8de498ce7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06606e99_e43e960c",
+        "filename": "transport.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-09-14T18:08:04Z",
+      "side": 0,
+      "message": "this one\u0027s less obvious, since it was added unused in...\n```\ncommit 13cb8c01b5e9bcc703227dff2801d24e220bd589\nAuthor: Josh Gao \u003cjmgao@google.com\u003e\nDate:   Fri Aug 10 14:44:54 2018 -0700\n\n    adb: make disconnect stop reconnection immediately.\n    \n    Make `adb disconnect` remove transports immediately, instead of on\n    their next reconnection cycle.\n    \n    Test: adb connect unreachable:12345; adb devices; adb disconnect; adb devices\n    Change-Id: I35c8b57344e847575596d09216fc636be47dde64\n```\n...but it\u0027s not clear to me what this would have been useful for, so it seems okay to remove...",
+      "revId": "434c85d54aeabd469f46c56005dc6b8de498ce7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
