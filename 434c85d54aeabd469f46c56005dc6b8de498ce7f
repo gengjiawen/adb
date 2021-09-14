@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c0a3b4ec_187190ff",
+        "filename": "client/usb_linux.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-09-14T18:13:30Z",
+      "side": 0,
+      "message": "lol, you forgot to actually remove the declaration! i\u0027ll upload another ps...",
+      "revId": "434c85d54aeabd469f46c56005dc6b8de498ce7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "06606e99_e43e960c",
         "filename": "transport.cpp",
         "patchSetId": 1
