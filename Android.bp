@@ -55,7 +55,7 @@ cc_defaults {
 
     use_version_lib: true,
     compile_multilib: "first",
-
+    min_sdk_version: "29",
     target: {
         darwin: {
             host_ldlibs: [
