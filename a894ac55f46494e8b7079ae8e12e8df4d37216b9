@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37e0fd1f_91384c6b",
+        "filename": "Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-09-24T20:49:00Z",
+      "side": 1,
+      "message": "can this go into adb_defaults instead, and everyone just inherits it from there?",
+      "revId": "a894ac55f46494e8b7079ae8e12e8df4d37216b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
