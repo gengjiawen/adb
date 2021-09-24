@@ -16,6 +16,24 @@
       "message": "can this go into adb_defaults instead, and everyone just inherits it from there?",
       "revId": "a894ac55f46494e8b7079ae8e12e8df4d37216b9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b339c2a4_54ffd172",
+        "filename": "Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1878380
+      },
+      "writtenOn": "2021-09-24T21:16:02Z",
+      "side": 1,
+      "message": "That\u0027s a good idea, I have added this property to `adb_defaults`",
+      "parentUuid": "37e0fd1f_91384c6b",
+      "revId": "a894ac55f46494e8b7079ae8e12e8df4d37216b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
