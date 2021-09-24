@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "65ab5bcb_dd7f9976",
+        "filename": "Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1878380
+      },
+      "writtenOn": "2021-09-24T22:57:27Z",
+      "side": 1,
+      "message": "Ah sorry I think I misinterpreted your comment https://android-review.googlesource.com/c/platform/packages/modules/adb/+/1835710/comments/37e0fd1f_91384c6b.\nThis should be `apex_inherit` and not hardcoded to 29. \n\nI am also re-adding 29 as the min_sdk_version to `adbd_test` since I think it is not part of an apex",
+      "parentUuid": "40afcbdf_d21a5728",
+      "range": {
+        "startLine": 58,
+        "startChar": 22,
+        "endLine": 58,
+        "endChar": 24
+      },
+      "revId": "59823ad67aaa6fccc04b3bf173fba9094f930174",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "70a54d95_a8d2c311",
         "filename": "Android.bp",
         "patchSetId": 2
@@ -37,6 +61,24 @@
       "writtenOn": "2021-09-24T21:44:46Z",
       "side": 1,
       "message": "we can delete this now, right?",
+      "revId": "59823ad67aaa6fccc04b3bf173fba9094f930174",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3c6c3e8_bfcd6adc",
+        "filename": "Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1878380
+      },
+      "writtenOn": "2021-09-24T22:57:27Z",
+      "side": 1,
+      "message": "Yes I think so, since it now inherits this property from `adb_defaults`\nI have removed this from here",
+      "parentUuid": "70a54d95_a8d2c311",
       "revId": "59823ad67aaa6fccc04b3bf173fba9094f930174",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
