@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40afcbdf_d21a5728",
+        "filename": "Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-09-24T21:44:46Z",
+      "side": 1,
+      "message": "why 29 rather than apex_inherit?",
+      "range": {
+        "startLine": 58,
+        "startChar": 22,
+        "endLine": 58,
+        "endChar": 24
+      },
+      "revId": "59823ad67aaa6fccc04b3bf173fba9094f930174",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70a54d95_a8d2c311",
+        "filename": "Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-09-24T21:44:46Z",
+      "side": 1,
+      "message": "we can delete this now, right?",
+      "revId": "59823ad67aaa6fccc04b3bf173fba9094f930174",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
