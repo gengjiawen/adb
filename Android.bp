@@ -55,7 +55,7 @@ cc_defaults {
 
     use_version_lib: true,
     compile_multilib: "first",
-
+    min_sdk_version: "apex_inherit",
     target: {
         darwin: {
             host_ldlibs: [
@@ -324,7 +324,6 @@ cc_library {
     recovery_available: true,
     host_supported: true,
     compile_multilib: "both",
-    min_sdk_version: "apex_inherit",
     // This library doesn't use build::GetBuildNumber()
     use_version_lib: false,
 
@@ -835,6 +834,7 @@ cc_test {
     ],
     test_suites: ["general-tests", "mts-adbd"],
     require_root: true,
+    min_sdk_version: "29",
 }
 
 python_test_host {
