@@ -835,6 +835,7 @@ cc_test {
     ],
     test_suites: ["general-tests", "mts-adbd"],
     require_root: true,
+    min_sdk_version: "29",
 }
 
 python_test_host {
