@@ -103,6 +103,56 @@ class AsyncServiceRef {
     fdevent* fde_;
 };
 
+class ResolvedRecord : public AsyncServiceRef {
+  public:
+    virtual ~ResolvedRecord() = default;
+
+    using Callback = std::function<void(uint16_t, const void*)>;
+
+    ResolvedRecord(uint32_t interface, const std::string& fullname, uint16_t rrtype,
+                   uint16_t rrclass, Callback cb)
+        : cb_(cb) {
+        DNSServiceErrorType ret = DNSServiceQueryRecord(
+                &sdref_, 0, interface, fullname.c_str(), rrtype, rrclass,
+                ResolvedRecord::DnsQueryRecordCallback, reinterpret_cast<void*>(this));
+        if (ret != kDNSServiceErr_NoError) {
+            D("Error %d from DNSServiceQueryRecord", ret);
+        } else {
+            D("DNSServiceQueryRecord interface=%u fullname=%s rrtype=%u rrclass=%u", interface,
+              fullname.c_str(), rrtype, rrclass);
+            Initialize();
+        }
+    }
+
+  private:
+    static void DNSSD_API DnsQueryRecordCallback(DNSServiceRef sdRef, DNSServiceFlags flags,
+                                                 uint32_t interfaceIndex,
+                                                 DNSServiceErrorType errorCode,
+                                                 const char* fullname, uint16_t rrtype,
+                                                 uint16_t rrclass, uint16_t rdlen,
+                                                 const void* rdata, uint32_t ttl, void* context);
+    Callback cb_;
+};
+
+// static
+void DNSSD_API ResolvedRecord::DnsQueryRecordCallback(
+        DNSServiceRef sdRef, DNSServiceFlags flags, uint32_t interfaceIndex,
+        DNSServiceErrorType error_code, const char* fullname, uint16_t rrtype, uint16_t rrclass,
+        uint16_t rdlen, const void* rdata, uint32_t ttl, void* context) {
+    D("%s: sdref=%p flags=0x%08x error_code=%u ttl=%u", __func__, sdRef, flags, error_code, ttl);
+    std::unique_ptr<ResolvedRecord> data(static_cast<ResolvedRecord*>(context));
+    data->DestroyServiceRef();
+
+    if (error_code != kDNSServiceErr_NoError) {
+        D("Error [%u] in DnsServiceQueryRecord callback", error_code);
+        return;
+    }
+
+    if (flags & kDNSServiceFlagsAdd) {
+        data->cb_(rdlen, rdata);
+    }
+}
+
 class ResolvedService : public AsyncServiceRef {
   public:
     virtual ~ResolvedService() = default;
@@ -115,6 +165,7 @@ class ResolvedService : public AsyncServiceRef {
           host_target_(host_target),
           port_(port),
           sa_family_(0),
+          interface_index_(interface_index),
           service_version_(version) {
         /* TODO: We should be able to get IPv6 support by adding
          * kDNSServiceProtocol_IPv6 to the flags below. However, when we do
@@ -263,9 +314,44 @@ class ResolvedService : public AsyncServiceRef {
     static bool ConnectByServiceName(const ServiceRegistry& services,
                                      const std::string& service_name);
 
+    static void ReconfirmRecordByServiceName(const ServiceRegistry& services,
+                                             const std::string& service_name);
+
     static void RemoveDNSService(const std::string& reg_type, const std::string& service_name);
 
   private:
+    void ReconfirmRecord() {
+        bool expected = false;
+        if (reconfirm_in_flight.compare_exchange_strong(expected, true)) {
+            D("Reconfirm SRV record for %s regtype %s (%s:%hu)", service_name_.c_str(),
+              reg_type_.c_str(), ip_addr_.c_str(), port_);
+            std::string fullname = service_name_ + "." + reg_type_ + "local";
+
+            ResolvedRecord* resolved_record = new ResolvedRecord(
+                    interface_index_, fullname, kDNSServiceType_SRV, kDNSServiceClass_IN,
+                    [&](uint16_t rdlen, const void* rdata) {
+                        if (rdlen > 0) {
+                            std::string fullname = service_name_ + "." + reg_type_ + "local";
+                            D("Got SRV record rdlen=%u", rdlen);
+                            auto err = DNSServiceReconfirmRecord(
+                                    0, interface_index_, fullname.c_str(), kDNSServiceType_SRV,
+                                    kDNSServiceClass_IN, rdlen, rdata);
+                            D("DNSServiceReconfirmRecord err=%d", err);
+                        }
+                        reconfirm_in_flight = false;
+                    });
+            if (!resolved_record->Initialized()) {
+                delete resolved_record;
+                LOG(WARNING) << "Failed to initialize ResolvedRecord for fullname=" << fullname;
+                reconfirm_in_flight = false;
+                return;
+            }
+
+        } else {
+            D("Can't reconfirm. No SRV record present or already reconfirmed.");
+        }
+    }
+
     int clientVersion_ = ADB_SECURE_CLIENT_VERSION;
     std::string addr_format_;
     std::string service_name_;
@@ -273,8 +359,11 @@ class ResolvedService : public AsyncServiceRef {
     std::string host_target_;
     const uint16_t port_;
     int sa_family_;
+    uint32_t interface_index_;
     std::string ip_addr_;
     int service_version_;
+
+    std::atomic_bool reconfirm_in_flight{false};
 };
 
 // static
@@ -332,6 +421,21 @@ bool ResolvedService::ConnectByServiceName(const ServiceRegistry& services,
     }
     D("No registered service_names matched [%s]", service_name.c_str());
     return false;
+}
+
+// static
+void ResolvedService::ReconfirmRecordByServiceName(const ServiceRegistry& services,
+                                                   const std::string& service_name) {
+    InitAdbServiceRegistries();
+    for (const auto& service : services) {
+        auto wanted_name = service->service_name();
+        if (wanted_name == service_name) {
+            D("Got service_name match [%s]", wanted_name.c_str());
+            fdevent_run_on_main_thread([&]() { service->ReconfirmRecord(); });
+            return;
+        }
+    }
+    D("No registered service_names matched [%s]", service_name.c_str());
 }
 
 // static
@@ -678,6 +782,34 @@ std::optional<MdnsInfo> mdns_get_pairing_service_info(const std::string& name) {
     return info;
 }
 
+void mdns_reconfirm_record(const MdnsInfo& info) {
+    D("reconfirming %s", info.service_name.c_str());
+    auto index = adb_DNSServiceIndexByName(info.service_type);
+    if (!index) {
+        return;
+    }
+    ResolvedService::ServiceRegistry* services;
+    switch (*index) {
+        case kADBTransportServiceRefIndex:
+            services = ResolvedService::sAdbTransportServices;
+            break;
+        case kADBSecurePairingServiceRefIndex:
+            services = ResolvedService::sAdbSecurePairingServices;
+            break;
+        case kADBSecureConnectServiceRefIndex:
+            services = ResolvedService::sAdbSecureConnectServices;
+            break;
+        default:
+            return;
+    }
+
+    if (services->empty()) {
+        return;
+    }
+
+    ResolvedService::ReconfirmRecordByServiceName(*services, info.service_name);
+}
+
 void mdns_cleanup() {}
 
 }  // namespace MdnsResponder
@@ -693,6 +825,7 @@ AdbMdnsResponderFuncs StartMdnsResponderDiscovery() {
             .mdns_get_pairing_service_info = MdnsResponder::mdns_get_pairing_service_info,
             .mdns_cleanup = MdnsResponder::mdns_cleanup,
             .adb_secure_connect_by_service_name = MdnsResponder::adb_secure_connect_by_service_name,
+            .mdns_reconfirm_record = MdnsResponder::mdns_reconfirm_record,
     };
     return f;
 }
