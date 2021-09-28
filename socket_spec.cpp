@@ -201,15 +201,14 @@ bool socket_spec_connect(unique_fd* fd, std::string_view address, int* port, std
                 mdns_info != std::nullopt) {
                 fd->reset(network_connect(mdns_info->addr, mdns_info->port, SOCK_STREAM, 0, error));
                 if (fd->get() != -1) {
-                    // TODO(joshuaduong): We still show the ip address for the serial. Change it to
-                    // use the mdns instance name, so we can adjust to address changes on
-                    // reconnects.
                     port_value = mdns_info->port;
                     if (serial) {
                         *serial = android::base::StringPrintf("%s.%s",
                                                               mdns_info->service_name.c_str(),
                                                               mdns_info->service_type.c_str());
                     }
+                } else {
+                    mdns_reconfirm_record(*mdns_info);
                 }
             } else {
                 fd->reset(network_connect(hostname, port_value, SOCK_STREAM, 0, error));
