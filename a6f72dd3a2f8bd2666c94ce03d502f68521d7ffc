@@ -16,6 +16,24 @@
       "message": "this shouldn\u0027t be needed any more?",
       "revId": "a6f72dd3a2f8bd2666c94ce03d502f68521d7ffc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "056a4dcf_4990b6da",
+        "filename": "Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 837,
+      "author": {
+        "id": 1878380
+      },
+      "writtenOn": "2021-09-28T21:19:44Z",
+      "side": 1,
+      "message": "I am not certain, but I think since this test module is not part of an apex, its min_sdk_version will default to the sdk version https://cs.android.com/android/platform/superproject/+/master:build/soong/cc/cc.go;l\u003d255?q\u003dapex_inherit%20f:build%2Fsoong\n\nExplicitly setting it to 29 here ensures that this test will run on a Q device and we do not run into errors like such https://b.corp.google.com/issues?q\u003d%22cannot%20run%20on%20R%20platform%22",
+      "parentUuid": "63069cfd_3297070a",
+      "revId": "a6f72dd3a2f8bd2666c94ce03d502f68521d7ffc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
