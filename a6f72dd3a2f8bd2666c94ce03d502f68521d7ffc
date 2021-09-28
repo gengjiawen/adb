@@ -52,6 +52,24 @@
       "parentUuid": "056a4dcf_4990b6da",
       "revId": "a6f72dd3a2f8bd2666c94ce03d502f68521d7ffc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f87feadf_9db143a1",
+        "filename": "Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 837,
+      "author": {
+        "id": 1878380
+      },
+      "writtenOn": "2021-09-28T22:57:28Z",
+      "side": 1,
+      "message": "```\nthat seems kind of broken if it doesn\u0027t work (and yet isn\u0027t an error) though?\n```\nIs there a way for me to verify that it is working? The approach I used previously was running `atest adbd_test`\n\n```\nhave you built it and used `adb shell file /path/to/binary` to see the actual API level it\u0027s built with?\n```\nThanks for this debugging tip. I think it is being built with API 30. The commands I ran were\n```\n$ m adbd_test\n$ adb push out/host/linux-x86/mts/android-mts/testcases/adbd_test /bin/adbd_test\n$ adb shell file /bin/adbd_test\n/bin/adbd_test: ELF shared object, 64-bit LSB x86-64, dynamic (/system/bin/linker64), for Android 30, BuildID\u003dbdec421bfc3ac079bccd1231658bf377, stripped\n```",
+      "parentUuid": "5cf6d4f6_a85e1d9a",
+      "revId": "a6f72dd3a2f8bd2666c94ce03d502f68521d7ffc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
