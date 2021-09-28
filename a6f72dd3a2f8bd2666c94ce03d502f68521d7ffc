@@ -34,6 +34,24 @@
       "parentUuid": "63069cfd_3297070a",
       "revId": "a6f72dd3a2f8bd2666c94ce03d502f68521d7ffc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cf6d4f6_a85e1d9a",
+        "filename": "Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 837,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-09-28T21:26:10Z",
+      "side": 1,
+      "message": "that seems kind of broken if it doesn\u0027t work (and yet isn\u0027t an error) though? have you built it and used `adb shell file /path/to/binary` to see the actual API level it\u0027s built with?",
+      "parentUuid": "056a4dcf_4990b6da",
+      "revId": "a6f72dd3a2f8bd2666c94ce03d502f68521d7ffc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
