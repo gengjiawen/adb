@@ -81,6 +81,10 @@ struct MdnsInfo {
 std::optional<MdnsInfo> mdns_get_connect_service_info(const std::string& name);
 std::optional<MdnsInfo> mdns_get_pairing_service_info(const std::string& name);
 
+// Requests to the mdns daemon to reconfirm the resource record for the |info| in question.
+// Should be used only when the TCP connection to the target fails.
+void mdns_reconfirm_record(const MdnsInfo& info);
+
 // TODO: Remove once openscreen has support for bonjour client APIs.
 struct AdbMdnsResponderFuncs {
     std::string (*_Nonnull mdns_check)(void);
@@ -89,6 +93,7 @@ struct AdbMdnsResponderFuncs {
     std::optional<MdnsInfo> (*_Nonnull mdns_get_pairing_service_info)(const std::string&);
     void (*_Nonnull mdns_cleanup)(void);
     bool (*_Nonnull adb_secure_connect_by_service_name)(const std::string&);
+    void (*_Nonnull mdns_reconfirm_record)(const MdnsInfo&);
 };  // AdbBonjourCallbacks
 
 // TODO: Remove once openscreen has support for bonjour client APIs.
