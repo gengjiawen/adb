@@ -394,3 +394,10 @@ std::optional<MdnsInfo> mdns_get_pairing_service_info(const std::string& name) {
 
     return info;
 }
+
+void mdns_reconfirm_record(const MdnsInfo& info) {
+    if (g_using_bonjour) {
+        return g_adb_mdnsresponder_funcs.mdns_reconfirm_record(info);
+    }
+    // No-op since openscreen discovery already handles record reconfirmations internally.
+}
