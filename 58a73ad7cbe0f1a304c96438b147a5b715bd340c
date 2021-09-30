@@ -16,6 +16,24 @@
       "message": "Is the test failure related? \"Failed to parse the python logs: Parser finished in unexpected state TRACEBACK. Please ensure that verbosity of output is high enough to be parsed.\"\n\nIt doesn\u0027t seem to be, and the test does appear to be flaky. ",
       "revId": "58a73ad7cbe0f1a304c96438b147a5b715bd340c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36cf3fbb_b114a1b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-09-30T20:50:47Z",
+      "side": 1,
+      "message": "\u003e It doesn\u0027t seem to be, and the test does appear to be flaky.\n\nyeah, that was my assumption too. i\u0027m assuming it worked locally, and we can always revert if it is genuine.\n\n+jiyong as FYI though, since i think his folks are the main users of this.",
+      "parentUuid": "488851c2_0f9280a6",
+      "revId": "58a73ad7cbe0f1a304c96438b147a5b715bd340c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
