@@ -34,6 +34,24 @@
       "parentUuid": "488851c2_0f9280a6",
       "revId": "58a73ad7cbe0f1a304c96438b147a5b715bd340c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1762f38e_60b2418e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2021-09-30T21:11:53Z",
+      "side": 1,
+      "message": "Yes I tested it locally. I\u0027m not sure what else I should do other than \"adb shell\" into the device since that should trigger the adb-\u003eshell transition.",
+      "parentUuid": "36cf3fbb_b114a1b9",
+      "revId": "58a73ad7cbe0f1a304c96438b147a5b715bd340c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
