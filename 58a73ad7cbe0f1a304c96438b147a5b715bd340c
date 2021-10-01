@@ -52,6 +52,24 @@
       "parentUuid": "36cf3fbb_b114a1b9",
       "revId": "58a73ad7cbe0f1a304c96438b147a5b715bd340c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18ba698b_9e3370de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-10-01T00:39:02Z",
+      "side": 1,
+      "message": "This should be fine. If this runs on CF, it should be able to run on microdroid.",
+      "parentUuid": "1762f38e_60b2418e",
+      "revId": "58a73ad7cbe0f1a304c96438b147a5b715bd340c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
