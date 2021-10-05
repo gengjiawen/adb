@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1414ae9_e8cc40fe",
+        "filename": "client/mdnsresponder_client.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-10-05T19:23:11Z",
+      "side": 1,
+      "message": "Minor nit: wonder whether it\u0027s prudent to follow the pattern from ResolveService wherein the context is wrapped in a unique_ptr\u003c\u003e which might be more resilient (to say, exceptions).",
+      "range": {
+        "startLine": 143,
+        "startChar": 20,
+        "endLine": 143,
+        "endChar": 24
+      },
+      "revId": "3a0b43e45e213f53aa687eaef1a9d6bc1ac0b870",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
