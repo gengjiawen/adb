@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a73ba315_9a9b214e",
+        "filename": "SYNC.TXT",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-10-07T15:41:00Z",
+      "side": 1,
+      "message": "strictly they\u0027re four *bytes*, not characters. (in which case \"ASCII bytes, just to make them more human-readable when debugging\" is both more accurate and more useful?)",
+      "range": {
+        "startLine": 20,
+        "startChar": 21,
+        "endLine": 20,
+        "endChar": 42
+      },
+      "revId": "fec2cf3d9c57835ea5bd55476a6b818e6c244a1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
