@@ -16,6 +16,23 @@
       "message": "(still lgtm :-) )",
       "revId": "2e19bd134e3c05ef1efa56c6145f9302ababc514",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf439acf_fe6875e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-10-08T21:01:11Z",
+      "side": 1,
+      "message": "Thanks for the presubmit override suggestion, Chris!",
+      "revId": "2e19bd134e3c05ef1efa56c6145f9302ababc514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
