@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9902e451_b4054cff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-10-12T21:02:52Z",
+      "side": 1,
+      "message": "Do we have any tests that can validate IPV4 \u0026 IPV6 configuration?",
+      "revId": "d9b3147c905ed4bc439237a99a66ec7cf20e4c6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
