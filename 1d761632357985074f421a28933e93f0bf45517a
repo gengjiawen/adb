@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38f8fe17_15d0b730",
+        "filename": "client/mdnsresponder_client.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-10-12T20:43:56Z",
+      "side": 1,
+      "message": "nit: const qualify (here and below)",
+      "range": {
+        "startLine": 328,
+        "startChar": 12,
+        "endLine": 328,
+        "endChar": 23
+      },
+      "revId": "1d761632357985074f421a28933e93f0bf45517a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
