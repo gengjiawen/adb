@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ec7f9f6_aa155a77",
+        "filename": "client/adb_connect_helper.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-10-12T21:12:21Z",
+      "side": 1,
+      "message": "Nit: please move to line #50",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 42,
+        "endChar": 23
+      },
+      "revId": "8072a724cf21c22817c5092fd63b47b2d46a8da5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
