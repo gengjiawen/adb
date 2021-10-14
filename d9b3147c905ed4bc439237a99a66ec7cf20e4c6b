@@ -16,6 +16,24 @@
       "message": "Do we have any tests that can validate IPV4 \u0026 IPV6 configuration?",
       "revId": "d9b3147c905ed4bc439237a99a66ec7cf20e4c6b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a107d2c_83ebd28e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2021-10-14T17:42:31Z",
+      "side": 1,
+      "message": "There\u0027s a test_adb.py, but this looks to only test a fake adb device over localhost.",
+      "parentUuid": "9902e451_b4054cff",
+      "revId": "d9b3147c905ed4bc439237a99a66ec7cf20e4c6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
