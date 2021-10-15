@@ -206,10 +206,19 @@ int adbd_main(int server_port) {
     // descriptor will always be open.
     adbd_cloexec_auth_socket();
 
-#if defined(__ANDROID__)
-    // If we're on userdebug/eng or the device is unlocked, permit no-authentication.
-    bool device_unlocked = "orange" == android::base::GetProperty("ro.boot.verifiedbootstate", "");
-    if (__android_log_is_debuggable() || device_unlocked) {
+#if defined(__ANDROID_RECOVERY__)
+    if ("orange" == android::base::GetProperty("ro.boot.verifiedbootstate", "") ||
+        __android_log_is_debuggable()) {
+        auth_required = false;  // Bypass authorization when the device transitions to
+        // fastbootd (from recovery). A corrupt userdata image can potentially
+        // result in the device falling into rescue, and a subsequent fastboot
+        // state should not require authorization - otherwisee, it will force the
+        // need for manual intervention(b/188703874).
+    }
+#elif defined(__ANDROID__)
+    if ("orange" == android::base::GetProperty("ro.boot.verifiedbootstate", "") ||
+        __android_log_is_debuggable()) {
+        // If we're on userdebug/eng or the device is unlocked, permit no-authentication.
         auth_required = android::base::GetBoolProperty("ro.adb.secure", false);
     }
 #endif
