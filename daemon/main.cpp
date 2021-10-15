@@ -63,6 +63,10 @@
 #if defined(__ANDROID__)
 static const char* root_seclabel = nullptr;
 
+static inline bool is_device_unlocked() {
+    return "orange" == android::base::GetProperty("ro.boot.verifiedbootstate", "");
+}
+
 static bool should_drop_privileges() {
     // The properties that affect `adb root` and `adb unroot` are ro.secure and
     // ro.debuggable. In this context the names don't make the expected behavior
@@ -206,13 +210,18 @@ int adbd_main(int server_port) {
     // descriptor will always be open.
     adbd_cloexec_auth_socket();
 
-#if defined(__ANDROID__)
-    // If we're on userdebug/eng or the device is unlocked, permit no-authentication.
-    bool device_unlocked = "orange" == android::base::GetProperty("ro.boot.verifiedbootstate", "");
-    if (__android_log_is_debuggable() || device_unlocked) {
+    if (is_device_unlocked() || __android_log_is_debuggable()) {
+#if defined(__ANDROID_RECOVERY__)
+        auth_required = false;  // Bypass authorization when the device transitions to
+        // fastbootd (from recovery). A corrupt userdata image can potentially
+        // result in the device falling into rescue, and a subsequent fastboot
+        // state should not require authorization - otherwisee, it will force the
+        // need for manual intervention(b/188703874).
+#elif defined(__ANDROID__)
+        // If we're on userdebug/eng or the device is unlocked, permit no-authentication.
         auth_required = android::base::GetBoolProperty("ro.adb.secure", false);
-    }
 #endif
+    }
 
     // Our external storage path may be different than apps, since
     // we aren't able to bind mount after dropping root.
