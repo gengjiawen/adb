@@ -63,6 +63,13 @@
 #if defined(__ANDROID__)
 static const char* root_seclabel = nullptr;
 
+#if defined(__ANDROID_RECOVERY__)
+static inline bool is_device_unlocked() {
+    LOG(INFO) << "recovery::" << __func__ << __FILE__ << __LINE__;
+    return "orange" == android::base::GetProperty("ro.boot.verifiedbootstate", "");
+}
+#endif
+
 static bool should_drop_privileges() {
     // The properties that affect `adb root` and `adb unroot` are ro.secure and
     // ro.debuggable. In this context the names don't make the expected behavior
@@ -206,7 +213,13 @@ int adbd_main(int server_port) {
     // descriptor will always be open.
     adbd_cloexec_auth_socket();
 
-#if defined(__ANDROID__)
+#if defined(__ANDROID_RECOVERY__)
+    LOG(INFO) << "recovery::" << __func__ << __FILE__ << __LINE__;
+    if (is_device_unlocked() || __android_log_is_debuggable()) {
+        LOG(INFO) << "recovery::" << __func__ << __FILE__ << __LINE__;
+        auth_required = false;
+    }
+#elif defined(__ANDROID__)
     // If we're on userdebug/eng or the device is unlocked, permit no-authentication.
     bool device_unlocked = "orange" == android::base::GetProperty("ro.boot.verifiedbootstate", "");
     if (__android_log_is_debuggable() || device_unlocked) {
