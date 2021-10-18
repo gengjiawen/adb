@@ -33,6 +33,23 @@
       "message": "Thanks, all!",
       "revId": "390e67addff67a60737a8e0cc1a47d244d8b809a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "781aff88_3b8c234b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-10-18T18:23:16Z",
+      "side": 1,
+      "message": "Bypassing presubmit since two tests failed.",
+      "revId": "390e67addff67a60737a8e0cc1a47d244d8b809a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
