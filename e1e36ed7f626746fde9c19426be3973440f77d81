@@ -16,6 +16,24 @@
       "message": "i think this would work too if you wanted to avoid the duplication?\n```\n#if defined(__ANDROID__)\n    bool device_unlocked \u003d android::base::GetProperty(\"ro.boot.verifiedbootstate\", \"\") \u003d\u003d \"orange\";\n    if (device_unlocked || __android_log_is_debuggable()) {\n#if defined(__ANDROID_RECOVERY__)\n        auth_required \u003d false;  // Bypass authorization when the device transitions to\n        // fastbootd (from recovery). A corrupt userdata image can potentially\n        // result in the device falling into rescue, and a subsequent fastboot\n        // state should not require authorization - otherwise, it will force the\n        // need for manual intervention(b/188703874).\n#else\n        // If we\u0027re on userdebug/eng or the device is unlocked, permit no-authentication.\n        auth_required \u003d android::base::GetBoolProperty(\"ro.adb.secure\", false);\n#endif\n    }\n#endif\n```\nthough i\u0027m not sure whether that\u0027s more or less clear, so +2 anyway!",
       "revId": "e1e36ed7f626746fde9c19426be3973440f77d81",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1088f6bf_2dfaaf56",
+        "filename": "daemon/main.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-10-18T16:51:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03f61e90_37ceb90d",
+      "revId": "e1e36ed7f626746fde9c19426be3973440f77d81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
