@@ -1582,8 +1582,8 @@ int adb_commandline(int argc, const char** argv) {
         } else if (!strcmp(argv[0], "--reply-fd")) {
             if (argc < 2) error_exit("--reply-fd requires an argument");
             const char* reply_fd_str = argv[1];
-            argc--;
-            argv++;
+            --argc;
+            ++argv;
             ack_reply_fd = strtol(reply_fd_str, nullptr, 10);
             if (!_is_valid_ack_reply_fd(ack_reply_fd)) {
                 fprintf(stderr, "adb: invalid reply fd \"%s\"\n", reply_fd_str);
@@ -1595,8 +1595,8 @@ int adb_commandline(int argc, const char** argv) {
             } else {
                 if (argc < 2 || argv[0][2] != '\0') error_exit("-s requires an argument");
                 serial = argv[1];
-                argc--;
-                argv++;
+                --argc;
+                ++argv;
             }
         } else if (!strncmp(argv[0], "-t", 2)) {
             const char* id;
@@ -1605,8 +1605,8 @@ int adb_commandline(int argc, const char** argv) {
             } else {
                 if (argc < 2 || argv[0][2] != '\0') error_exit("-t requires an argument");
                 id = argv[1];
-                argc--;
-                argv++;
+                --argc;
+                ++argv;
             }
             transport_id = strtoll(id, const_cast<char**>(&id), 10);
             if (*id != '\0') {
@@ -1622,8 +1622,8 @@ int adb_commandline(int argc, const char** argv) {
             if (argv[0][2] == '\0') {
                 if (argc < 2) error_exit("-H requires an argument");
                 server_host_str = argv[1];
-                argc--;
-                argv++;
+                --argc;
+                ++argv;
             } else {
                 server_host_str = argv[0] + 2;
             }
@@ -1631,22 +1631,22 @@ int adb_commandline(int argc, const char** argv) {
             if (argv[0][2] == '\0') {
                 if (argc < 2) error_exit("-P requires an argument");
                 server_port_str = argv[1];
-                argc--;
-                argv++;
+                --argc;
+                ++argv;
             } else {
                 server_port_str = argv[0] + 2;
             }
         } else if (!strcmp(argv[0], "-L")) {
             if (argc < 2) error_exit("-L requires an argument");
             server_socket_str = argv[1];
-            argc--;
-            argv++;
+            --argc;
+            ++argv;
         } else {
             /* out of recognized modifiers and flags */
             break;
         }
-        argc--;
-        argv++;
+        --argc;
+        ++argv;
     }
 
     if ((server_host_str || server_port_str) && server_socket_str) {
@@ -1732,8 +1732,8 @@ int adb_commandline(int argc, const char** argv) {
         }
 
         /* Fall through */
-        argc--;
-        argv++;
+        --argc;
+        ++argv;
     }
 
     /* adb_connect() commands */
