@@ -22,6 +22,30 @@
       },
       "revId": "9f2ca0738f79409c30768ca3b1348c988224b36b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb2c43fc_aa987b64",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1609,
+      "author": {
+        "id": 1894651
+      },
+      "writtenOn": "2021-10-19T22:51:36Z",
+      "side": 1,
+      "message": "Done in a followup CL to fix all of the others.",
+      "parentUuid": "2ed25e8c_5596c1ae",
+      "range": {
+        "startLine": 1608,
+        "startChar": 16,
+        "endLine": 1609,
+        "endChar": 22
+      },
+      "revId": "9f2ca0738f79409c30768ca3b1348c988224b36b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
