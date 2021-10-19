@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ed25e8c_5596c1ae",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1609,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-10-19T00:16:46Z",
+      "side": 1,
+      "message": "Nit: Can we (opportunistically) switch to prefix decrement/increment?",
+      "range": {
+        "startLine": 1608,
+        "startChar": 16,
+        "endLine": 1609,
+        "endChar": 22
+      },
+      "revId": "9f2ca0738f79409c30768ca3b1348c988224b36b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
