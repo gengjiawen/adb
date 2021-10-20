@@ -39,6 +39,30 @@
       },
       "revId": "cb8c5aeda3eb03dfa88fa5c630e7ef3e400c9615",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c9b97d0_891911d9",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1084,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-10-20T01:58:26Z",
+      "side": 1,
+      "message": "https://godbolt.org/ is your friend for answering questions like that :-)\n\nTL;DR: current compilers don\u0027t even break a sweat on stuff like this, especially not when it really is an int. (but, yeah, when we touch code we do tend to move it to match the style guide, and wouldn\u0027t write _new_ post-increment/decrements.)",
+      "parentUuid": "502b7267_3b309445",
+      "range": {
+        "startLine": 1084,
+        "startChar": 32,
+        "endLine": 1084,
+        "endChar": 35
+      },
+      "revId": "cb8c5aeda3eb03dfa88fa5c630e7ef3e400c9615",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
