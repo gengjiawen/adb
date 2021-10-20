@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "71faf21f_6f219d53",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-10-20T01:59:31Z",
+      "side": 1,
+      "message": "(note that only googlers can kick off presubmit; if outsiders could do it they could mine cryptocurrencies on our build servers by checking in dodgy genrules :-) )",
+      "revId": "cb8c5aeda3eb03dfa88fa5c630e7ef3e400c9615",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "502b7267_3b309445",
