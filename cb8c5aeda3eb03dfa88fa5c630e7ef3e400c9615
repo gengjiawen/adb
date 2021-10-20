@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ab091d3_84b797fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-10-20T01:30:48Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "cb8c5aeda3eb03dfa88fa5c630e7ef3e400c9615",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "502b7267_3b309445",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1084,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-10-20T01:30:48Z",
+      "side": 1,
+      "message": "Unsure whether the compiler optimizes this or not (here and elsewhere)?",
+      "range": {
+        "startLine": 1084,
+        "startChar": 32,
+        "endLine": 1084,
+        "endChar": 35
+      },
+      "revId": "cb8c5aeda3eb03dfa88fa5c630e7ef3e400c9615",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
