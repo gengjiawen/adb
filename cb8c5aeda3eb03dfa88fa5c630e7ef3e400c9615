@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "40e01aa0_ca1c390a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894651
+      },
+      "writtenOn": "2021-10-21T00:49:50Z",
+      "side": 1,
+      "message": "\u003e WARN: Found unapproved submitted together changes: Change 1861898.\n\n(and only if you mark every single commit as presubmit-ready, because of that bug where you could stick your bitcoin miner into a topic and attach yourself onto someone else\u0027s topic)",
+      "parentUuid": "71faf21f_6f219d53",
+      "revId": "cb8c5aeda3eb03dfa88fa5c630e7ef3e400c9615",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "502b7267_3b309445",
