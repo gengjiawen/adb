@@ -316,7 +316,9 @@ int read_and_dump(borrowed_fd fd, bool use_shell_protocol,
                     // data() returns a char* which doesn't have defined signedness.
                     // Cast to uint8_t to prevent 255 from being sign extended to INT_MIN,
                     // which doesn't get truncated on Windows.
+                    LOG(INFO) << __func__ << " exit_code:" << exit_code;
                     exit_code = static_cast<uint8_t>(protocol->data()[0]);
+                    LOG(INFO) << __func__ << " exit_code:" << exit_code;
                     continue;
                 default:
                     continue;
@@ -333,6 +335,7 @@ int read_and_dump(borrowed_fd fd, bool use_shell_protocol,
         }
     }
 
+    LOG(INFO) << __func__ << " exit_code:" << exit_code;
     return callback->Done(exit_code);
 }
 
@@ -782,8 +785,10 @@ static int adb_shell(int argc, const char** argv) {
     }
 
     std::string service_string = ShellServiceString(use_shell_protocol, shell_type_arg, command);
-    return RemoteShell(use_shell_protocol, shell_type_arg, escape_char, command.empty(),
-                       service_string);
+    int ret = RemoteShell(use_shell_protocol, shell_type_arg, escape_char, command.empty(),
+                          service_string);
+    LOG(INFO) << __func__ << " ret:" << ret;
+    return ret;
 }
 
 static int adb_abb(int argc, const char** argv) {
@@ -1851,13 +1856,32 @@ int adb_commandline(int argc, const char** argv) {
         } else {
             return adb_connect_command("remount:");
         }
+    } else if (!strcmp(argv[0], "disable-verity")) {
+        LOG(INFO) << __func__ << " handling disable-verity";
+        std::string error;
+        auto&& features = adb_get_feature_set(&error);
+        if (!features) {
+            LOG(INFO) << __func__ << " disable-verity: error retrieving feature set!";
+            error_exit("%s", error.c_str());
+        }
+
+        if (CanUseFeature(*features, kFeatureDisableVerityShell)) {
+            std::vector<const char*> args = {"shell"};
+            args.insert(args.cend(), argv, argv + argc);
+            LOG(INFO) << __func__ << " disable-verity?:" << *argv;
+            return adb_shell_noinput(args.size(), args.data());
+        } else if (argc > 1) {
+            auto command = android::base::StringPrintf("%s:%s", argv[0], argv[1]);
+            return adb_connect_command(command);
+        } else {
+            return adb_connect_command("disable-verity:");
+        }
     }
     // clang-format off
     else if (!strcmp(argv[0], "reboot") ||
              !strcmp(argv[0], "reboot-bootloader") ||
              !strcmp(argv[0], "reboot-fastboot") ||
              !strcmp(argv[0], "usb") ||
-             !strcmp(argv[0], "disable-verity") ||
              !strcmp(argv[0], "enable-verity")) {
         // clang-format on
         std::string command;
