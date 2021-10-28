@@ -86,6 +86,10 @@ extern const char* const kFeatureAbbExec;
 extern const char* const kFeatureFixedPushSymlinkTimestamp;
 // Implement `adb remount` via shelling out to /system/bin/remount.
 extern const char* const kFeatureRemountShell;
+// `adb disable-verity` via shelling out to /system/bin/set-verity-state.
+extern const char* const kFeatureDisableVerityShell;
+// `adb enable-verity` via shelling out to /system/bin/set-verity-state.
+extern const char* const kFeatureEnableVerityShell;
 // adbd supports `track-app` service reporting debuggable/profileable apps.
 extern const char* const kFeatureTrackApp;
 // adbd supports version 2 of send/recv.

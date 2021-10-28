@@ -316,7 +316,9 @@ int read_and_dump(borrowed_fd fd, bool use_shell_protocol,
                     // data() returns a char* which doesn't have defined signedness.
                     // Cast to uint8_t to prevent 255 from being sign extended to INT_MIN,
                     // which doesn't get truncated on Windows.
+                    LOG(INFO) << __func__ << " exit_code:" << exit_code;
                     exit_code = static_cast<uint8_t>(protocol->data()[0]);
+                    LOG(INFO) << __func__ << " exit_code:" << exit_code;
                     continue;
                 default:
                     continue;
@@ -333,6 +335,7 @@ int read_and_dump(borrowed_fd fd, bool use_shell_protocol,
         }
     }
 
+    LOG(INFO) << __func__ << " exit_code:" << exit_code;
     return callback->Done(exit_code);
 }
 
@@ -782,8 +785,10 @@ static int adb_shell(int argc, const char** argv) {
     }
 
     std::string service_string = ShellServiceString(use_shell_protocol, shell_type_arg, command);
-    return RemoteShell(use_shell_protocol, shell_type_arg, escape_char, command.empty(),
-                       service_string);
+    int ret = RemoteShell(use_shell_protocol, shell_type_arg, escape_char, command.empty(),
+                          service_string);
+    LOG(INFO) << __func__ << " ret:" << ret;
+    return ret;
 }
 
 static int adb_abb(int argc, const char** argv) {
@@ -1474,6 +1479,40 @@ static int adb_connect_command_bidirectional(const std::string& command) {
     return 0;
 }
 
+// Helper function to handle processing of shell service command such as:
+// remount, disable/enable-verity
+static int process_service(const int argc, const char** argv) {
+    std::string error;
+    auto&& features = adb_get_feature_set(&error);
+    if (!features) {
+        LOG(WARNING) << __func__ << " Error retrieving feature set for:" << argv[0];
+        error_exit("%s", error.c_str());
+    }
+
+    // Default to 'remount' shell to avoid uninitialized-use warnings.
+    const char* const* shell_name = &kFeatureRemountShell;
+
+    if (!strcmp(argv[0], "disable-verity")) {
+        shell_name = &kFeatureDisableVerityShell;
+    } else if (!strcmp(argv[0], "enable-verity")) {
+        shell_name = &kFeatureEnableVerityShell;
+    } else {
+        assert(0 == strcmp(argv[0], "remount"));
+    }
+
+    if (CanUseFeature(*features, *shell_name)) {
+        std::vector<const char*> args = {"shell"};
+        args.insert(args.cend(), argv, argv + argc);
+        LOG(INFO) << __func__ << " executing shell for:" << *shell_name;
+        return adb_shell_noinput(args.size(), args.data());
+    } else if (argc > 1) {
+        auto command = android::base::StringPrintf("%s:%s", argv[0], argv[1]);
+        return adb_connect_command(command);
+    } else {
+        return adb_connect_command(std::string(argv[0]) + ":");
+    }
+}
+
 static int adb_query_command(const std::string& command) {
     std::string result;
     std::string error;
@@ -1834,32 +1873,11 @@ int adb_commandline(int argc, const char** argv) {
             error_exit("tcpip: invalid port: %s", argv[1]);
         }
         return adb_connect_command(android::base::StringPrintf("tcpip:%d", port));
-    } else if (!strcmp(argv[0], "remount")) {
-        std::string error;
-        auto&& features = adb_get_feature_set(&error);
-        if (!features) {
-            error_exit("%s", error.c_str());
-        }
-
-        if (CanUseFeature(*features, kFeatureRemountShell)) {
-            std::vector<const char*> args = {"shell"};
-            args.insert(args.cend(), argv, argv + argc);
-            return adb_shell_noinput(args.size(), args.data());
-        } else if (argc > 1) {
-            auto command = android::base::StringPrintf("%s:%s", argv[0], argv[1]);
-            return adb_connect_command(command);
-        } else {
-            return adb_connect_command("remount:");
-        }
-    }
-    // clang-format off
-    else if (!strcmp(argv[0], "reboot") ||
-             !strcmp(argv[0], "reboot-bootloader") ||
-             !strcmp(argv[0], "reboot-fastboot") ||
-             !strcmp(argv[0], "usb") ||
-             !strcmp(argv[0], "disable-verity") ||
-             !strcmp(argv[0], "enable-verity")) {
-        // clang-format on
+    } else if (!strcmp(argv[0], "remount") || !strcmp(argv[0], "disable-verity") ||
+               !strcmp(argv[0], "enable-verity")) {
+        return process_service(argc, argv);
+    } else if (!strcmp(argv[0], "reboot") || !strcmp(argv[0], "reboot-bootloader") ||
+               !strcmp(argv[0], "reboot-fastboot") || !strcmp(argv[0], "usb")) {
         std::string command;
         if (!strcmp(argv[0], "reboot-bootloader")) {
             command = "reboot:bootloader";
