@@ -84,6 +84,8 @@ const char* const kFeatureAbb = "abb";
 const char* const kFeatureFixedPushSymlinkTimestamp = "fixed_push_symlink_timestamp";
 const char* const kFeatureAbbExec = "abb_exec";
 const char* const kFeatureRemountShell = "remount_shell";
+const char* const kFeatureDisableVerityShell = "disable-verity_shell";
+const char* const kFeatureEnableVerityShell = "enable-verity_shell";
 const char* const kFeatureTrackApp = "track_app";
 const char* const kFeatureSendRecv2 = "sendrecv_v2";
 const char* const kFeatureSendRecv2Brotli = "sendrecv_v2_brotli";
@@ -1230,6 +1232,8 @@ const FeatureSet& supported_features() {
                 kFeatureFixedPushSymlinkTimestamp,
                 kFeatureAbbExec,
                 kFeatureRemountShell,
+                kFeatureDisableVerityShell,
+                kFeatureEnableVerityShell,
                 kFeatureTrackApp,
                 kFeatureSendRecv2,
                 kFeatureSendRecv2Brotli,
