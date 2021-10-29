@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "8401ee7c_b72f529d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-10-29T18:07:54Z",
+      "side": 1,
+      "message": "(typical commit message style is a short stand-alone first line -- because some people/tools will only see that line -- then a blank line, then as much text as you like. `git log` should show you a lot of examples :-) )",
+      "revId": "b8447a1abb26c98d4a392c556a148d058be027fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "6dba10f0_2fa10565",
@@ -14,6 +31,148 @@
       "writtenOn": "2021-10-29T09:03:11Z",
       "side": 1,
       "message": "Addressing enable-verity and disable-verity error propagation under unprivileged execution - PTAL!",
+      "revId": "b8447a1abb26c98d4a392c556a148d058be027fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0075dc3f_0bd764d2",
+        "filename": "adb.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-10-29T18:07:54Z",
+      "side": 1,
+      "message": "we don\u0027t _need_ users to restart, right? the feature stuff means they\u0027ll get the old behavior until they do, but the new behavior afterwards?\n\nin fact... do we even need a feature? all the changes here are on the _client_ side, no, and just re-use the existing shell protocol stuff that isn\u0027t changing? so unless i\u0027m missing something (which is quite possible), i think a new client should \"just work\" with an old server/daemon anyway?\n\ni _think_ (though git history is more trustworthy than my memory!) that the reason why remount needed a feature was because remount used to be actually built in to the daemon?",
+      "revId": "b8447a1abb26c98d4a392c556a148d058be027fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22bf7afc_9cca98dd",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-10-29T18:07:54Z",
+      "side": 1,
+      "message": "remove debug logging in this file?",
+      "revId": "b8447a1abb26c98d4a392c556a148d058be027fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4945a173_ad36ec67",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1488,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-10-29T18:07:54Z",
+      "side": 1,
+      "message": "you\u0027re probably more likely to actually see this warning if you include it in the error_exit() output instead :-)\n\n(tbh, i don\u0027t think the specific service is relevant to feature set errors, so there\u0027s probably not much value to the extra logging? but it does look like most users in this file [but not other files] actually just want a adb_get_feature_set_or_die() instead... probably doesn\u0027t belong in this CL even if you like that idea though.)",
+      "revId": "b8447a1abb26c98d4a392c556a148d058be027fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56c95ea2_9739e902",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1492,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-10-29T18:07:54Z",
+      "side": 1,
+      "message": "or stick this in the `else` :-)",
+      "revId": "b8447a1abb26c98d4a392c556a148d058be027fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11e07aba_ec88a2fa",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1493,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-10-29T18:07:54Z",
+      "side": 1,
+      "message": "command_name might be clearer? or shell_command or something? (since the _shell_ is always mksh :-) )",
+      "range": {
+        "startLine": 1493,
+        "startChar": 23,
+        "endLine": 1493,
+        "endChar": 33
+      },
+      "revId": "b8447a1abb26c98d4a392c556a148d058be027fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e156d5b_8db8e1c3",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1500,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-10-29T18:07:54Z",
+      "side": 1,
+      "message": "assert is always compiled out on Android :-(\n\nif you want something similar, try the google3-style CHECK macros (from \u003candroid-base/logging.h\u003e).",
+      "revId": "b8447a1abb26c98d4a392c556a148d058be027fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bbbb131_96fe33d3",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1506,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-10-29T18:07:54Z",
+      "side": 1,
+      "message": "drop this debug logging?",
+      "revId": "b8447a1abb26c98d4a392c556a148d058be027fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bfe43c7_74cc0777",
+        "filename": "transport.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-10-29T18:07:54Z",
+      "side": 1,
+      "message": "even if we do need a feature, we don\u0027t need two separate features, right? just one `kFeatureSetVerityStateShell` should be enough?",
       "revId": "b8447a1abb26c98d4a392c556a148d058be027fb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
