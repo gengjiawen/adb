@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6dba10f0_2fa10565",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-10-29T09:03:11Z",
+      "side": 1,
+      "message": "Addressing enable-verity and disable-verity error propagation under unprivileged execution - PTAL!",
+      "revId": "b8447a1abb26c98d4a392c556a148d058be027fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
