@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "f75e7d06_b6bc4742",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-10-29T23:23:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8401ee7c_b72f529d",
+      "revId": "b8447a1abb26c98d4a392c556a148d058be027fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "6dba10f0_2fa10565",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 5
@@ -52,6 +70,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "37672506_2165098d",
+        "filename": "adb.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-10-29T23:23:44Z",
+      "side": 1,
+      "message": "Thanks for the insight! Following your (offline) nuance (OS-dev vs other), will preserve  \u0027remount as a feature\u0027 (and consider set-verity-state from a clean slate standpoint).",
+      "parentUuid": "0075dc3f_0bd764d2",
+      "revId": "b8447a1abb26c98d4a392c556a148d058be027fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "22bf7afc_9cca98dd",
@@ -65,6 +101,24 @@
       "writtenOn": "2021-10-29T18:07:54Z",
       "side": 1,
       "message": "remove debug logging in this file?",
+      "revId": "b8447a1abb26c98d4a392c556a148d058be027fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e040f0e_5381aa1d",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-10-29T23:23:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22bf7afc_9cca98dd",
       "revId": "b8447a1abb26c98d4a392c556a148d058be027fb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -86,6 +140,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccd8f686_8905dab9",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1488,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-10-29T23:23:44Z",
+      "side": 1,
+      "message": "Done - also added b/204592196 for future work.",
+      "parentUuid": "4945a173_ad36ec67",
+      "revId": "b8447a1abb26c98d4a392c556a148d058be027fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "56c95ea2_9739e902",
@@ -99,6 +171,24 @@
       "writtenOn": "2021-10-29T18:07:54Z",
       "side": 1,
       "message": "or stick this in the `else` :-)",
+      "revId": "b8447a1abb26c98d4a392c556a148d058be027fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b340c81a_f4fc0762",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1492,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-10-29T23:23:44Z",
+      "side": 1,
+      "message": "N/A now :) - ack/done",
+      "parentUuid": "56c95ea2_9739e902",
       "revId": "b8447a1abb26c98d4a392c556a148d058be027fb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -126,6 +216,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c260270_1b24d22c",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1493,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-10-29T23:23:44Z",
+      "side": 1,
+      "message": "good point :) done",
+      "parentUuid": "11e07aba_ec88a2fa",
+      "range": {
+        "startLine": 1493,
+        "startChar": 23,
+        "endLine": 1493,
+        "endChar": 33
+      },
+      "revId": "b8447a1abb26c98d4a392c556a148d058be027fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9e156d5b_8db8e1c3",
@@ -139,6 +253,24 @@
       "writtenOn": "2021-10-29T18:07:54Z",
       "side": 1,
       "message": "assert is always compiled out on Android :-(\n\nif you want something similar, try the google3-style CHECK macros (from \u003candroid-base/logging.h\u003e).",
+      "revId": "b8447a1abb26c98d4a392c556a148d058be027fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ad1c3ba_fa9f9bd6",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1500,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-10-29T23:23:44Z",
+      "side": 1,
+      "message": "I was concerned about assert() for other reasons (execution in the face of failure), however will use the CHECK() g3-pattern for the future.",
+      "parentUuid": "9e156d5b_8db8e1c3",
       "revId": "b8447a1abb26c98d4a392c556a148d058be027fb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -160,6 +292,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "07ae4bb2_b9cece8f",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1506,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-10-29T23:23:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0bbbb131_96fe33d3",
+      "revId": "b8447a1abb26c98d4a392c556a148d058be027fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8bfe43c7_74cc0777",
@@ -173,6 +323,24 @@
       "writtenOn": "2021-10-29T18:07:54Z",
       "side": 1,
       "message": "even if we do need a feature, we don\u0027t need two separate features, right? just one `kFeatureSetVerityStateShell` should be enough?",
+      "revId": "b8447a1abb26c98d4a392c556a148d058be027fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "123bec5c_68e08d32",
+        "filename": "transport.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-10-29T23:23:44Z",
+      "side": 1,
+      "message": "Thinking back, yes - that makes sense since it\u0027s a single binary.",
+      "parentUuid": "8bfe43c7_74cc0777",
       "revId": "b8447a1abb26c98d4a392c556a148d058be027fb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
