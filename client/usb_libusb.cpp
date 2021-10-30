@@ -34,6 +34,7 @@
 #include <string>
 #include <thread>
 #include <unordered_map>
+#include <vector>
 
 #include <libusb/libusb.h>
 
@@ -889,6 +890,28 @@ static void device_disconnected(libusb_device* device) {
     usb_handles_mutex.unlock();
 }
 
+template <class Range, class Value>
+static bool contains(const Range& r, const Value& v) {
+    return std::find(std::begin(r), std::end(r), v) != std::end(r);
+}
+
+// ADB_LIBUSB_FILTER is a comma-delimited list of usb device addresses that
+// this adb server is allowed to speak to.  controls what devices and adb
+// server can interact with.
+// This prevents any interaction with the device and makes it invisible on
+// "adb devices".
+// example: ADB_LIBUSB_FILTER=1-3.4.5,2-6
+bool is_device_address_visible(const std::string& device_address) {
+    const char* filter = getenv("ADB_LIBUSB_FILTER");
+    if (!filter) {
+        // All devices are visible by default.
+        return true;
+    }
+    static std::vector<std::string>* visible_device_addresses =
+            new std::vector<std::string>(android::base::Split(filter, ","));
+    return contains(*visible_device_addresses, device_address);
+}
+
 static auto& hotplug_queue = *new BlockingQueue<std::pair<libusb_hotplug_event, libusb_device*>>();
 static void hotplug_thread() {
     LOG(INFO) << "libusb hotplug thread started";
@@ -897,6 +920,11 @@ static void hotplug_thread() {
         hotplug_queue.PopAll([](std::pair<libusb_hotplug_event, libusb_device*> pair) {
             libusb_hotplug_event event = pair.first;
             libusb_device* device = pair.second;
+            std::string device_address = get_device_address(device);
+            if (!is_device_address_visible(device_address)) {
+                LOG(INFO) << "libusb hotplug: device event from filtered device ignored.";
+                return;
+            }
             if (event == LIBUSB_HOTPLUG_EVENT_DEVICE_ARRIVED) {
                 LOG(INFO) << "libusb hotplug: device arrived";
                 device_connected(device);
