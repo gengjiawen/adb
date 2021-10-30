@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "425c4343_2545591c",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-10-30T03:13:49Z",
+      "side": 1,
+      "message": "Can we switch to prefix increment please?",
+      "range": {
+        "startLine": 579,
+        "startChar": 34,
+        "endLine": 579,
+        "endChar": 35
+      },
+      "revId": "70a8e1362f4eccc97a77e57b1a52a2c0f4804b8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
