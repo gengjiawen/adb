@@ -592,7 +592,11 @@ struct LibusbConnection : public Connection {
 
             if (header_read_.transfer) {
                 if (header_read_.active) {
-                    libusb_cancel_transfer(header_read_.transfer);
+                    int result = libusb_cancel_transfer(header_read_.transfer);
+                    if (result != 0) {
+                        LOG(INFO) << "libusb_cancel_transfer header_read_ failed: " << result;
+                        Cleanup(&header_read_);
+                    }
                 } else {
                     Cleanup(&header_read_);
                 }
@@ -600,7 +604,11 @@ struct LibusbConnection : public Connection {
 
             if (payload_read_.transfer) {
                 if (payload_read_.active) {
-                    libusb_cancel_transfer(payload_read_.transfer);
+                    int result = libusb_cancel_transfer(payload_read_.transfer);
+                    if (result != 0) {
+                        LOG(INFO) << "libusb_cancel_transfer payload_read_ failed: " << result;
+                        Cleanup(&payload_read_);
+                    }
                 } else {
                     Cleanup(&payload_read_);
                 }
