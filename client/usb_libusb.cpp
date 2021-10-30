@@ -567,8 +567,16 @@ struct LibusbConnection : public Connection {
             ScopedLockAssertion assumed_locked(write_mutex_);
 
             if (!writes_.empty()) {
-                for (auto& [id, write] : writes_) {
-                    libusb_cancel_transfer(write->transfer);
+                for (auto write_iterator = writes_.begin(); write_iterator != writes_.end();) {
+                    auto& write = write_iterator->second;
+                    int result = libusb_cancel_transfer(write->transfer);
+                    if (result != 0) {
+                        LOG(INFO) << "libusb_cancel_transfer failed: " << result;
+                        libusb_free_transfer(write->transfer);
+                        write_iterator = writes_.erase(write_iterator);
+                        continue;
+                    }
+                    write_iterator++;
                 }
 
                 destruction_cv_.wait(lock, [this]() {
