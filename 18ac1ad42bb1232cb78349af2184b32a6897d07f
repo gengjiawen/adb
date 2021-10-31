@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62ebd7be_71b80022",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-10-31T19:34:56Z",
+      "side": 1,
+      "message": "Couple of minor comments (sorry didn\u0027t catch it Friday!).",
+      "revId": "18ac1ad42bb1232cb78349af2184b32a6897d07f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e5bf001_8b60b707",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-10-31T19:34:56Z",
+      "side": 1,
+      "message": "Nit: Do we really need this?",
+      "range": {
+        "startLine": 569,
+        "startChar": 12,
+        "endLine": 569,
+        "endChar": 34
+      },
+      "revId": "18ac1ad42bb1232cb78349af2184b32a6897d07f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f85d3ff5_004a07b7",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 570,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-10-31T19:34:56Z",
+      "side": 1,
+      "message": "Can we use the cbegin() and cend() variants instead?",
+      "range": {
+        "startLine": 570,
+        "startChar": 51,
+        "endLine": 570,
+        "endChar": 56
+      },
+      "revId": "18ac1ad42bb1232cb78349af2184b32a6897d07f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abd0ec07_02c00227",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-10-31T19:34:56Z",
+      "side": 1,
+      "message": "One suggestion: replace the loop with the algorithm/lambda instead which might be shorter/expressive (IMO :)  Like so:\n    const auto count \u003d std::erase_if(writes_, [](const auto\u0026 write_item) {\n      auto const\u0026 [k, v] \u003d write_item;\n      return libusb_cancel_transfer(v.transfer) ? libusb_free_transfer(v.transfer) \n        : false;\n    });",
+      "range": {
+        "startLine": 576,
+        "startChar": 0,
+        "endLine": 577,
+        "endChar": 33
+      },
+      "revId": "18ac1ad42bb1232cb78349af2184b32a6897d07f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
