@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1defde63_da6d2049",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-11-01T06:03:05Z",
+      "side": 1,
+      "message": "Minor nit: Please capitalize and remove the extra space char.",
+      "range": {
+        "startLine": 899,
+        "startChar": 42,
+        "endLine": 899,
+        "endChar": 45
+      },
+      "revId": "c1c7054f44554bd2396c63f795462799d92594f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
