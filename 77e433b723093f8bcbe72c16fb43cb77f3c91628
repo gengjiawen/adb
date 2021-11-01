@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f128dcb8_dacd271c",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-11-01T05:27:24Z",
+      "side": 1,
+      "message": "Nit: Can we consider refactoring this out to a parameterized function so we can apply this to line #605-615 as well?",
+      "range": {
+        "startLine": 593,
+        "startChar": 12,
+        "endLine": 603,
+        "endChar": 13
+      },
+      "revId": "77e433b723093f8bcbe72c16fb43cb77f3c91628",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
