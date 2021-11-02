@@ -22,6 +22,30 @@
       },
       "revId": "c1c7054f44554bd2396c63f795462799d92594f8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87933a29_8e17acd2",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1048574
+      },
+      "writtenOn": "2021-11-02T02:28:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1defde63_da6d2049",
+      "range": {
+        "startLine": 899,
+        "startChar": 42,
+        "endLine": 899,
+        "endChar": 45
+      },
+      "revId": "c1c7054f44554bd2396c63f795462799d92594f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

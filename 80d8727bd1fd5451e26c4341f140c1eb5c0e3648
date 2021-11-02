@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "84a4fa1c_79bd5454",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 904,
+      "author": {
+        "id": 1048574
+      },
+      "writtenOn": "2021-11-02T02:28:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5506e036_9ce2b7dc",
+      "range": {
+        "startLine": 904,
+        "startChar": 5,
+        "endLine": 904,
+        "endChar": 30
+      },
+      "revId": "80d8727bd1fd5451e26c4341f140c1eb5c0e3648",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e399c09e_c18fd247",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-11-01T06:03:05Z",
       "side": 1,
       "message": "Although this appears to be a singleton (as far as memory allocation is concerned), perhaps it\u0027s prudent to hoist it outside the function (unless you mean for it to follow a lazy initialization idiom)?",
+      "range": {
+        "startLine": 911,
+        "startChar": 12,
+        "endLine": 911,
+        "endChar": 27
+      },
+      "revId": "80d8727bd1fd5451e26c4341f140c1eb5c0e3648",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52bf4a57_f7032e98",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 911,
+      "author": {
+        "id": 1048574
+      },
+      "writtenOn": "2021-11-02T02:28:11Z",
+      "side": 1,
+      "message": "I can only run this if filter is non-null, so I initialize it here in the non-null code path. lazy initialization is just a perk.",
+      "parentUuid": "e399c09e_c18fd247",
       "range": {
         "startLine": 911,
         "startChar": 12,
