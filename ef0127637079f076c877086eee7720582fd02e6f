@@ -105,6 +105,24 @@
       "parentUuid": "15063527_89ddc2fa",
       "revId": "ef0127637079f076c877086eee7720582fd02e6f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27b79740_da1797bf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076798
+      },
+      "writtenOn": "2021-11-02T23:25:56Z",
+      "side": 1,
+      "message": "This seems like a fix in the wrong place though? Why not just create a container that only exposes the one device you selected and run adb in there?\n\n\u003e I would be surprised if anyone is using the feature as implemented. We can\u0027t.\n\nIt was implemented for MTaaS, I\u0027m guessing they\u0027re probably still using it? +williamhester",
+      "parentUuid": "4c1b29ab_83c09abf",
+      "revId": "ef0127637079f076c877086eee7720582fd02e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
