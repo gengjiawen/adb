@@ -69,6 +69,24 @@
       "parentUuid": "5b4f15b8_a7f8c680",
       "revId": "ef0127637079f076c877086eee7720582fd02e6f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15063527_89ddc2fa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1048574
+      },
+      "writtenOn": "2021-11-02T23:06:55Z",
+      "side": 1,
+      "message": "Device Cloud is meant to be capable of doing almost any kind of device access you could do locally. Users could use it to test new recovery packages, new bootloaders, new versions of adb, and new Android Builds, and new builds of LK.\n\nDevice hosts in device cloud usually have more than one Android device connected.\n\nSince different, parallel versions of adb are supported, we need different instances. Buggy versions of adb could hang or crash, and reduce the overall stability of tests.  Finally, and most importantly, many developers will run adb kill-server without thinking about it and interfere with other peoples\u0027 tests.\n\n\u003e or we could add a new \"filtered\" state to the `adb devices` display... that way parsers of `adb devices` output fail more gracefully too.\n\nThis is still confusing to users. They check out one device, they expect to see on device on adb devices. We are constantly explaining this to people. Your suggestion is an improvement, not a full fix.\n\n\u003e have you talked to the \"other internal engprods\" (android and google3) about this? because #1 does sound like something they would all have encountered\n\nhttps://groups.google.com/a/google.com/g/si-device-cloud-team/c/yF5_hIrO7yk/m/_t_KA2AnBAAJ?utm_medium\u003demail\u0026utm_source\u003dfooter\u0026pli\u003d1\n\nBack in the day, mobile ninjas wrote adb turbo to solve this and other issues I believe.\n\n\u003e  i\u0027m curious what other engprod groups are doing in that regard\n\nI would be surprised if anyone is using the feature as implemented. We can\u0027t.\n\n\u003e heh, \"more environment variables\" is something i think we want to _avoid_ rather than promote :-)\n\nADB_LIBUSB_DEVICES_LIE_TO_ME\u003d1\n\nHonestly, the architecture of adb silently forking a server run as user foo, that can be killed at any moment by user foo is inherently hostile to multi-user workflows. The auto-kill adb server on version mismatch is hostile. This aspect of adb has always really bothered me.",
+      "parentUuid": "d0ade883_df7c9812",
+      "revId": "ef0127637079f076c877086eee7720582fd02e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
