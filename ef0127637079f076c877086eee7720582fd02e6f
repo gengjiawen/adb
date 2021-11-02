@@ -51,6 +51,24 @@
       "parentUuid": "48a4193a_c097ecf3",
       "revId": "ef0127637079f076c877086eee7720582fd02e6f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0ade883_df7c9812",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-11-02T20:45:41Z",
+      "side": 1,
+      "message": "\u003e This supports running multiple parallel adb servers (possibly different versions) on Linux. (maybe mac in the future, but not likely)\n\nwhy? what\u0027s the bug _that\u0027s_ trying to solve?\n\n\u003e What if adb devices is modified to print out a message indicating that the set of devices is limited to usb device addresses \u0027x,y,z\u0027 because of ADB_LIBUSB_FILTER is set.\n\nor we could add a new \"filtered\" state to the `adb devices` display... that way parsers of `adb devices` output fail more gracefully too.\n\n(this still shouldn\u0027t be libusb-only though.)\n\n\u003e If you prefer, the attach feature could be modified to \n\u003e 1) always reattach after device reboot\n\u003e 2) support a list of USB device ids to auto attach (so no one ever has to call attach)\n\nhave you talked to the \"other internal engprods\" (android and google3) about this? because #1 does sound like something they would all have encountered, and i\u0027m curious what they think. (\"everyone says this would let them remove some flaky code\" would be a strong argument.) #2 sounds like we could have a new \"autoattach\" or whatever, so we wouldn\u0027t need to worry about breaking existing users. (though once again i\u0027m curious what other engprod groups are doing in that regard.)\n\n\u003e 3) another environment variable to control whether adb devices shows the entire list, or is filtered to attached devices\n\nheh, \"more environment variables\" is something i think we want to _avoid_ rather than promote :-)",
+      "parentUuid": "5b4f15b8_a7f8c680",
+      "revId": "ef0127637079f076c877086eee7720582fd02e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
