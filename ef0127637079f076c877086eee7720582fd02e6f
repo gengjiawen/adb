@@ -87,6 +87,24 @@
       "parentUuid": "d0ade883_df7c9812",
       "revId": "ef0127637079f076c877086eee7720582fd02e6f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c1b29ab_83c09abf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1048574
+      },
+      "writtenOn": "2021-11-02T23:20:23Z",
+      "side": 1,
+      "message": "I guess Mobile Harness works around this issue by forcing all users to a specific adb version.\n\nI dropped some time on your calendars tomorrow at 9AM. Please move somewhere else if that doesn\u0027t work for you. FYI, This is one change of many that fixes reliability issues with device cloud that are impacting the silicon org.",
+      "parentUuid": "15063527_89ddc2fa",
+      "revId": "ef0127637079f076c877086eee7720582fd02e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
