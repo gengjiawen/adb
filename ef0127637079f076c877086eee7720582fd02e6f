@@ -141,6 +141,24 @@
       "parentUuid": "a7f9d681_7ded8b29",
       "revId": "ef0127637079f076c877086eee7720582fd02e6f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e1dd1e3_bf84b3c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1048574
+      },
+      "writtenOn": "2021-11-02T23:34:49Z",
+      "side": 1,
+      "message": "\u003e Why not just create a container that only exposes the one device you selected and run adb in there?\n\nFor the reasons I mentioned. The current architecture of adb doesn\u0027t provide any multi-user isolation or even isolation between tests on different devices run by the same user.\n\nThe solution to this should be to start to shift the design of adb, not use containers to work around it.",
+      "parentUuid": "27b79740_da1797bf",
+      "revId": "ef0127637079f076c877086eee7720582fd02e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
