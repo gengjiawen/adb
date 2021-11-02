@@ -33,6 +33,24 @@
       "message": "i\u0027m uncomfortable with the idea of adding extra functionality to the \"not finished yet\" path... that\u0027s a bit too google3 \"this one is deprecated, that one isn\u0027t finished yet\" for me. right now we\u0027re mostly telling folks with libusb bugs \"don\u0027t do that then\", so giving users something that only works if you use libusb seems like a bad idea for both sides.\n\ncan we lift this up somewhere into code that\u0027s shared by both backends for now?\n\nat an even higher level, i\u0027m not entirely comfortable with the idea of adding functionality to adb to make it _lie_ to callers. sure, _you_ know what you\u0027re doing, but i\u0027m not sure we want to have to live in a world where everyone on the internet can accidentally get themselves into a position where `adb devices` is no longer a source of truth.\n\nwhy can\u0027t you just do any filtering in your test harness, which seems like the more traditional approach, and much less likely to have random fallout?",
       "revId": "ef0127637079f076c877086eee7720582fd02e6f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b4f15b8_a7f8c680",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1048574
+      },
+      "writtenOn": "2021-11-02T20:31:37Z",
+      "side": 1,
+      "message": "This supports running multiple parallel adb servers (possibly different versions) on Linux. (maybe mac in the future, but not likely)\n\nUsers use go/si-device-cloud to check out a device and use that device. We also proxy adb connections from the user\u0027s workstation to the remote host running thte adb server. Currently, when they check out a device and run adb devices, they very often get multiple devices in the list that don\u0027t belong to them (because we have several devices per host). This causes significant confusion.\n\nAlso, I really dislike the attach feature as implemented because most users/tools aren\u0027t familiar with adb attach and don\u0027t know they need to re-attach after every device reboot.\n\nI would argue that is doesn\u0027t lie to callers, but that it gives you exactly what you asked for when you set ADB_LIBUSB_FILTER before launching the server. What if adb devices is modified to print out a message indicating that the set of devices is limited to usb device addresses \u0027x,y,z\u0027 because of ADB_LIBUSB_FILTER is set. This is similar to the way ADB_VENDOR_KEYS outputs a troubleshooting message.\n\nIf you prefer, the attach feature could be modified to \n\n1) always reattach after device reboot\n2) support a list of USB device ids to auto attach (so no one ever has to call attach)\n3) another environment variable to control whether adb devices shows the entire list, or is filtered to attached devices\n\nor\n\n1) I could just remove the attach feature and we go with this one?",
+      "parentUuid": "48a4193a_c097ecf3",
+      "revId": "ef0127637079f076c877086eee7720582fd02e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
