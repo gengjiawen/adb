@@ -16,6 +16,23 @@
       "message": "This has some overlap with `adb attach/detach` which was added in https://android-review.googlesource.com/c/platform/packages/modules/adb/+/1739034\n\nAre you doing this because you need support for multiple adb servers on mac/windows?",
       "revId": "ef0127637079f076c877086eee7720582fd02e6f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48a4193a_c097ecf3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-11-02T15:27:22Z",
+      "side": 1,
+      "message": "i\u0027m uncomfortable with the idea of adding extra functionality to the \"not finished yet\" path... that\u0027s a bit too google3 \"this one is deprecated, that one isn\u0027t finished yet\" for me. right now we\u0027re mostly telling folks with libusb bugs \"don\u0027t do that then\", so giving users something that only works if you use libusb seems like a bad idea for both sides.\n\ncan we lift this up somewhere into code that\u0027s shared by both backends for now?\n\nat an even higher level, i\u0027m not entirely comfortable with the idea of adding functionality to adb to make it _lie_ to callers. sure, _you_ know what you\u0027re doing, but i\u0027m not sure we want to have to live in a world where everyone on the internet can accidentally get themselves into a position where `adb devices` is no longer a source of truth.\n\nwhy can\u0027t you just do any filtering in your test harness, which seems like the more traditional approach, and much less likely to have random fallout?",
+      "revId": "ef0127637079f076c877086eee7720582fd02e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
