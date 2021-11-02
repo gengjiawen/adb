@@ -123,6 +123,24 @@
       "parentUuid": "4c1b29ab_83c09abf",
       "revId": "ef0127637079f076c877086eee7720582fd02e6f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b824c36_1842124d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1048574
+      },
+      "writtenOn": "2021-11-02T23:31:35Z",
+      "side": 1,
+      "message": "multiple adb servers on Linux. (more discussion below)",
+      "parentUuid": "a7f9d681_7ded8b29",
+      "revId": "ef0127637079f076c877086eee7720582fd02e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
