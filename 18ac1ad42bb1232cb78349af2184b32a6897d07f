@@ -65,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f522c28_4cc2e607",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1048574
+      },
+      "writtenOn": "2021-11-03T01:53:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f057e46a_81ef3801",
+      "range": {
+        "startLine": 569,
+        "startChar": 12,
+        "endLine": 569,
+        "endChar": 34
+      },
+      "revId": "18ac1ad42bb1232cb78349af2184b32a6897d07f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f85d3ff5_004a07b7",
@@ -78,6 +102,30 @@
       "writtenOn": "2021-10-31T19:34:56Z",
       "side": 1,
       "message": "Can we use the cbegin() and cend() variants instead?",
+      "range": {
+        "startLine": 570,
+        "startChar": 51,
+        "endLine": 570,
+        "endChar": 56
+      },
+      "revId": "18ac1ad42bb1232cb78349af2184b32a6897d07f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62f2f654_10d1d50d",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 570,
+      "author": {
+        "id": 1048574
+      },
+      "writtenOn": "2021-11-03T01:53:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f85d3ff5_004a07b7",
       "range": {
         "startLine": 570,
         "startChar": 51,
