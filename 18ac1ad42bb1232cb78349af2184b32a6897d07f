@@ -133,6 +133,54 @@
       },
       "revId": "18ac1ad42bb1232cb78349af2184b32a6897d07f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "501ca3a0_9ac4b985",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1048574
+      },
+      "writtenOn": "2021-11-03T01:52:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ec204205_08e1f1f9",
+      "range": {
+        "startLine": 576,
+        "startChar": 0,
+        "endLine": 577,
+        "endChar": 33
+      },
+      "revId": "18ac1ad42bb1232cb78349af2184b32a6897d07f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4bc1093_052a7a82",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1048574
+      },
+      "writtenOn": "2021-11-03T01:52:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ec204205_08e1f1f9",
+      "range": {
+        "startLine": 576,
+        "startChar": 0,
+        "endLine": 577,
+        "endChar": 33
+      },
+      "revId": "18ac1ad42bb1232cb78349af2184b32a6897d07f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
