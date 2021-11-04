@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84439683_0bc38ba0",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 635,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-11-04T17:53:18Z",
+      "side": 1,
+      "message": "Switch to WARNING (here and line 563)? Unless you feel it might cause more confusion to the user.",
+      "range": {
+        "startLine": 635,
+        "startChar": 20,
+        "endLine": 635,
+        "endChar": 24
+      },
+      "revId": "bc611b41c9aa6f0a8120890733551630c4c08af5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
