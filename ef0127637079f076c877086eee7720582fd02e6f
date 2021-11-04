@@ -177,6 +177,24 @@
       "parentUuid": "1e1dd1e3_bf84b3c6",
       "revId": "ef0127637079f076c877086eee7720582fd02e6f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed94c6f2_28377d0d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1156333
+      },
+      "writtenOn": "2021-11-04T22:22:14Z",
+      "side": 1,
+      "message": "We explored using the feature for MTaaS, however we ultimately decided against this approach (adb attach/detach). We\u0027re currently working on manually resetting the USB device to forcefully kick it off the ADB server, because we found that the libusb version of ADB was too flaky.\n\nAnother solution I\u0027ve been exploring personally is treating the ADB server that\u0027s actually attached to the devices only as a proxy, and creating a fake adbd client that attaches to a second server. This allows Client -\u003e Server -\u003e Fake Device -\u003e Server -\u003e Real Device so that the server running closest to the client (in a container, remotely, etc) is only aware of one device. Mitchell Wills wrote this idea up in go/better-adb-port-forward-proxy. We plan on using it for sharing devices across a network and still allowing port forwarding to work, but I think it could also be used for isolation.",
+      "parentUuid": "63f772b1_b97b0698",
+      "revId": "ef0127637079f076c877086eee7720582fd02e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
