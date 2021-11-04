@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b6fec94_94a32ae3",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 594,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-11-04T19:28:47Z",
+      "side": 1,
+      "message": "Didn\u0027t catch it in the last review.Please include \u003cvector\u003e",
+      "range": {
+        "startLine": 594,
+        "startChar": 17,
+        "endLine": 594,
+        "endChar": 25
+      },
+      "revId": "3d414ad046141c659db0760e0544d6a738444a1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
