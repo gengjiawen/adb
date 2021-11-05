@@ -195,6 +195,24 @@
       "parentUuid": "63f772b1_b97b0698",
       "revId": "ef0127637079f076c877086eee7720582fd02e6f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "345e9ead_ab0acce5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1048574
+      },
+      "writtenOn": "2021-11-05T21:58:31Z",
+      "side": 1,
+      "message": "I was able to access an Android device from within a container. However, it was done by mapping /dev/bus/usb/00X/00Y to the container. I\u0027m concerned that the /dev/bus/usb/ will not be constant across device reboots, especially while other devices on the same bus may be rebooting.\n\nAlso, it doesn\u0027t look like docker supports dynamically mapping/unmapping devices into the containers without a restart. Also, slider/cloudripper USB devices like /dev/ttyACM? and /dev/ttyUSB? can absolutely change during device restart.",
+      "parentUuid": "ed94c6f2_28377d0d",
+      "revId": "ef0127637079f076c877086eee7720582fd02e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
