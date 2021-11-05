@@ -213,6 +213,24 @@
       "parentUuid": "ed94c6f2_28377d0d",
       "revId": "ef0127637079f076c877086eee7720582fd02e6f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29782846_0aa32376",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1562318
+      },
+      "writtenOn": "2021-11-05T22:48:21Z",
+      "side": 1,
+      "message": "Using the /dev/bus/usb/00X/00Y route to map a device to a container isn\u0027t particular a good idea as if device gets disconnected or re-enumerated by the host the 00Y value typically changes (or increments upwards).\n\nThese devices may power cycle in the middle of session which means the 00Y value will change. This most consistent way of ensuring we get the same device each time when this occurs is to use the device address (e.g. 1-9.4.4) format noted above.\n\nUntil docker supports mounting a specific USB port, using docker to filter particular devices is not really feasible.",
+      "parentUuid": "345e9ead_ab0acce5",
+      "revId": "ef0127637079f076c877086eee7720582fd02e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
