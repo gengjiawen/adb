@@ -469,6 +469,8 @@ struct LibusbConnection : public Connection {
         return true;
     }
 
+    std::string GetUsbDeviceAddress() const { return std::string("usb:") + device_address_; }
+
     std::string GetSerial() {
         std::string serial;
 
@@ -480,11 +482,11 @@ struct LibusbConnection : public Connection {
                 reinterpret_cast<unsigned char*>(&serial[0]), serial.length());
         if (rc == 0) {
             LOG(WARNING) << "received empty serial from device at " << device_address_;
-            return {};
+            return GetUsbDeviceAddress();
         } else if (rc < 0) {
             LOG(WARNING) << "failed to get serial from device at " << device_address_
                          << libusb_error_name(rc);
-            return {};
+            return GetUsbDeviceAddress();
         }
         serial.resize(rc);
 
@@ -738,7 +740,7 @@ struct LibusbConnection : public Connection {
             // We don't actually want to treat an unknown serial as an error because
             // devices aren't able to communicate a serial number in early bringup.
             // http://b/20883914
-            connection->serial_ = "<unknown>";
+            connection->serial_ = connection->GetUsbDeviceAddress();
         }
 #else
         // We need to open the device to get its serial on Windows and OS X.
