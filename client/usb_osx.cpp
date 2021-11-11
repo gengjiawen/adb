@@ -295,6 +295,10 @@ AndroidInterfaceAdded(io_iterator_t iterator)
             (*iface)->Release(iface);
             continue;
         }
+        if (strlen(serial) == 0) {
+            strncpy(serial, devpath.c_str(), sizeof(serial));
+            serial[sizeof(serial) - 1] = 0;
+        }
 
         std::unique_ptr<usb_handle> handle =
             CheckInterface((IOUSBInterfaceInterface550**)iface, vendor, product);
