@@ -588,7 +588,7 @@ static void register_device(const char* dev_name, const char* dev_path, unsigned
         // We don't actually want to treat an unknown serial as an error because
         // devices aren't able to communicate a serial number in early bringup.
         // http://b/20883914
-        serial = "";
+        serial = dev_path;
     }
     serial = android::base::Trim(serial);
 
