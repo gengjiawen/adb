@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a46858d_da2ab840",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-11-12T23:09:36Z",
+      "side": 1,
+      "message": "Suggestion: const qualify this function.",
+      "range": {
+        "startLine": 472,
+        "startChar": 16,
+        "endLine": 472,
+        "endChar": 38
+      },
+      "revId": "b84923d2a36919c3fb4e02311ee02cceec9daf75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9924a0c4_7117ee7e",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-11-12T23:09:36Z",
+      "side": 1,
+      "message": "Update the comment? Is this (early bringup phase) still applicable? If so, will \"usb:\" be the output of GetUsbDeviceAddress?",
+      "range": {
+        "startLine": 740,
+        "startChar": 50,
+        "endLine": 740,
+        "endChar": 76
+      },
+      "revId": "b84923d2a36919c3fb4e02311ee02cceec9daf75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
