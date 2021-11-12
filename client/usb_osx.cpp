@@ -299,15 +299,13 @@ AndroidInterfaceAdded(io_iterator_t iterator)
             strncpy(serial, devpath.c_str(), sizeof(serial));
             serial[sizeof(serial) - 1] = 0;
         }
-<<<<<<< Updated upstream
-=======
+
         if (!transport_server_owns_device(devpath, serial)) {
             // We aren't allowed to communicate with this device. Don't open this device.
             D("ignoring device: not owned by this server dev_path: '%s', serial: '%s'",
               devpath.c_str(), serial);
             continue;
         }
->>>>>>> Stashed changes
 
         std::unique_ptr<usb_handle> handle =
             CheckInterface((IOUSBInterfaceInterface550**)iface, vendor, product);
