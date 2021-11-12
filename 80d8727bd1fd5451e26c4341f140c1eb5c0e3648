@@ -116,6 +116,30 @@
       },
       "revId": "80d8727bd1fd5451e26c4341f140c1eb5c0e3648",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26db6342_47674fa7",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 921,
+      "author": {
+        "id": 1048574
+      },
+      "writtenOn": "2021-11-12T20:54:57Z",
+      "side": 1,
+      "message": "I\u0027m not touching this code anymore.",
+      "parentUuid": "2f90d135_0fcd0e32",
+      "range": {
+        "startLine": 921,
+        "startChar": 12,
+        "endLine": 921,
+        "endChar": 32
+      },
+      "revId": "80d8727bd1fd5451e26c4341f140c1eb5c0e3648",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
