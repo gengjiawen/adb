@@ -1558,6 +1558,7 @@ int adb_commandline(int argc, const char** argv) {
     const char* server_host_str = nullptr;
     const char* server_port_str = nullptr;
     const char* server_socket_str = nullptr;
+    const char* one_device_str = nullptr;
 
     // We need to check for -d and -e before we look at $ANDROID_SERIAL.
     const char* serial = nullptr;
@@ -1581,6 +1582,11 @@ int adb_commandline(int argc, const char** argv) {
                 fprintf(stderr, "adb: invalid reply fd \"%s\"\n", reply_fd_str);
                 return 1;
             }
+        } else if (!strcmp(argv[0], "--one-device")) {
+            if (argc < 2) error_exit("--one-device requires an argument");
+            one_device_str = argv[1];
+            argc--;
+            argv++;
         } else if (!strncmp(argv[0], "-s", 2)) {
             if (isdigit(argv[0][2])) {
                 serial = argv[0] + 2;
@@ -1678,6 +1684,18 @@ int adb_commandline(int argc, const char** argv) {
         server_socket_str = temp;
     }
 
+    bool server_start = is_daemon || is_server || strcmp(argv[0], "start-server") == 0;
+    if (one_device_str) {
+        // --one-device was specified on the command line. This only makes sense for servers.
+        if (!server_start) {
+            error_exit("--one-device is only allowed when starting a server.");
+        }
+    } else if (server_start) {
+        // If the command line is unset, use the env var.
+        one_device_str = getenv("ADB_SERVER_ONE_DEVICE");
+    }
+
+    adb_set_one_device(one_device_str);
     adb_set_socket_spec(server_socket_str);
 
     // If none of -d, -e, or -s were specified, try $ANDROID_SERIAL.
@@ -1693,9 +1711,9 @@ int adb_commandline(int argc, const char** argv) {
                 fprintf(stderr, "reply fd for adb server to client communication not specified.\n");
                 return 1;
             }
-            r = adb_server_main(is_daemon, server_socket_str, ack_reply_fd);
+            r = adb_server_main(is_daemon, server_socket_str, one_device_str, ack_reply_fd);
         } else {
-            r = launch_server(server_socket_str);
+            r = launch_server(server_socket_str, one_device_str);
         }
         if (r) {
             fprintf(stderr,"* could not start server *\n");
