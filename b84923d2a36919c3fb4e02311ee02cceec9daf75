@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "612e020b_68bdf15c",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1048574
+      },
+      "writtenOn": "2021-11-13T00:31:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a46858d_da2ab840",
+      "range": {
+        "startLine": 472,
+        "startChar": 16,
+        "endLine": 472,
+        "endChar": 38
+      },
+      "revId": "b84923d2a36919c3fb4e02311ee02cceec9daf75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9924a0c4_7117ee7e",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-11-12T23:09:36Z",
       "side": 1,
       "message": "Update the comment? Is this (early bringup phase) still applicable? If so, will \"usb:\" be the output of GetUsbDeviceAddress?",
+      "range": {
+        "startLine": 740,
+        "startChar": 50,
+        "endLine": 740,
+        "endChar": 76
+      },
+      "revId": "b84923d2a36919c3fb4e02311ee02cceec9daf75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ca2bddc_1d5e04c0",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 1048574
+      },
+      "writtenOn": "2021-11-13T00:31:46Z",
+      "side": 1,
+      "message": "Yes, it means early bringup of a new board. There will always be a new board. I\u0027m intentionally prepending \"usb:\" so that it\u0027s clear it\u0027s not a regular serial number but a stand-in for a serial number.",
+      "parentUuid": "9924a0c4_7117ee7e",
       "range": {
         "startLine": 740,
         "startChar": 50,
