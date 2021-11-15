@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b9ff8b05_f9a19dfe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-11-15T18:53:44Z",
+      "side": 1,
+      "message": "\u003e In any event, an empty serial number seems like a bad idea.\n\nyeah, that\u0027s an excellent point... hard not to agree with \"we should either completely ignore no-serial devices, or clearly warn that something\u0027s broken; the current \u0027you get a device with an empty serial\u0027 is a bug\".\n\nwhat does `fastboot devices` do for devices without a serial?\n\nif we did go this way, i\u0027d suggest making the serial something more like \"tmp-no-serial-...\" to make it a bit more explicit, but i do like the idea of just rejecting no-serial devices. it wouldn\u0027t change the usual debug flow much of \"my device doesn\u0027t show up in adb!\" -\u003e \"what does `lsusb -v` show?\", and devices without a serial are pretty rare, even internally for OS developers, let alone externally for app developers.",
+      "parentUuid": "045a50f1_1635e212",
+      "revId": "60c4dab744246f43d06d611380b360476e8c55be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e06e43b8_85aa638d",
         "filename": "client/usb_libusb.cpp",
         "patchSetId": 3
