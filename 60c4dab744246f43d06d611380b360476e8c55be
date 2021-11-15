@@ -56,6 +56,30 @@
       },
       "revId": "60c4dab744246f43d06d611380b360476e8c55be",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3831ea9b_c6125936",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 1048574
+      },
+      "writtenOn": "2021-11-15T17:57:43Z",
+      "side": 1,
+      "message": "Not without refactoring a lot of code to mock something out.",
+      "parentUuid": "e06e43b8_85aa638d",
+      "range": {
+        "startLine": 743,
+        "startChar": 12,
+        "endLine": 743,
+        "endChar": 67
+      },
+      "revId": "60c4dab744246f43d06d611380b360476e8c55be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
