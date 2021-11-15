@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3cb0a5e_3e4376b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-11-15T17:45:38Z",
+      "side": 1,
+      "message": "Can we also please fill in the Bug field so we can track the resolutions?",
+      "revId": "60c4dab744246f43d06d611380b360476e8c55be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e06e43b8_85aa638d",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-11-15T17:45:38Z",
+      "side": 1,
+      "message": "Testing question: Is there a (deterministic, ideally) way to force this execution path? Other than programmatically failing line #736?",
+      "range": {
+        "startLine": 743,
+        "startChar": 12,
+        "endLine": 743,
+        "endChar": 67
+      },
+      "revId": "60c4dab744246f43d06d611380b360476e8c55be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
