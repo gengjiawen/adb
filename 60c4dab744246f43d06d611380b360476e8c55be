@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "045a50f1_1635e212",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1048574
+      },
+      "writtenOn": "2021-11-15T18:01:10Z",
+      "side": 1,
+      "message": "I don\u0027t have any skin in this game. If you want to keep support for no-serial devices, I think this is an improvement. If you want to remove it eventually, then this change isn\u0027t necessary. In any event, an empty serial number seems like a bad idea.",
+      "parentUuid": "95ac744a_c1553efe",
+      "revId": "60c4dab744246f43d06d611380b360476e8c55be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e06e43b8_85aa638d",
         "filename": "client/usb_libusb.cpp",
         "patchSetId": 3
