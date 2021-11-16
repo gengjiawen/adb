@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad6bbb39_56ca52b5",
+        "filename": "adb.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 987,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-11-16T23:34:33Z",
+      "side": 1,
+      "message": "What I meant was: perhaps use \u0027execv_args\u0027 instead of \u0027argv\u0027.\nPS: Not too picky about this, though.",
+      "parentUuid": "b04e47d6_2f19b733",
+      "range": {
+        "startLine": 987,
+        "startChar": 33,
+        "endLine": 987,
+        "endChar": 37
+      },
+      "revId": "a32b22bf55980e415ab591bf1a4c35981d1c2633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c0134ff_aed7f760",
