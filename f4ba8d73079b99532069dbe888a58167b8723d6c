@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d4f0c9a_583d1758",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2021-11-16T19:00:44Z",
+      "side": 1,
+      "message": "Drive-by post-submit on code from a while back.",
+      "revId": "f4ba8d73079b99532069dbe888a58167b8723d6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b072fe95_9846ecef",
+        "filename": "adb_mdns.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2021-11-16T19:00:44Z",
+      "side": 1,
+      "message": "...but here, in the function definition, \"service_name\" is the second argument.\n\nI\u0027m not sure which order this should be in, but it seems like there\u0027s a decent chance one of these should be changed.",
+      "revId": "f4ba8d73079b99532069dbe888a58167b8723d6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e9a7fef_d41236c1",
+        "filename": "adb_mdns.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2021-11-16T19:00:44Z",
+      "side": 1,
+      "message": "Here, in the function declaration, \"service_name\" is our first argument...",
+      "revId": "f4ba8d73079b99532069dbe888a58167b8723d6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
