@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c0134ff_aed7f760",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 1695,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-11-16T02:11:48Z",
+      "side": 1,
+      "message": "seems fine to me apart from this bit... still not comfortable with any new environment variables...",
+      "revId": "a32b22bf55980e415ab591bf1a4c35981d1c2633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e44ea63b_ce317492",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 727,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-11-16T02:11:48Z",
+      "side": 1,
+      "message": "any time you\u0027re logging like this, you should include some identifying information.",
+      "revId": "a32b22bf55980e415ab591bf1a4c35981d1c2633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f56de9a_7e0d63eb",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 816,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-11-16T02:11:48Z",
+      "side": 1,
+      "message": "(i guess `connection-\u003eserial_` is what we should have used :-) )",
+      "revId": "a32b22bf55980e415ab591bf1a4c35981d1c2633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

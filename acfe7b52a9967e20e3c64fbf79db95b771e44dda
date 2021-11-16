@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8518fcd9_b6f54cc7",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 795,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-11-16T02:11:48Z",
+      "side": 0,
+      "message": "(even if we didn\u0027t here :-( )",
+      "revId": "acfe7b52a9967e20e3c64fbf79db95b771e44dda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
