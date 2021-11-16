@@ -231,6 +231,24 @@
       "parentUuid": "345e9ead_ab0acce5",
       "revId": "ef0127637079f076c877086eee7720582fd02e6f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aea430c3_0b8f9171",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-11-16T02:04:38Z",
+      "side": 1,
+      "message": "(sorry, very far behind atm...)\n\n\u003e Honestly, the architecture of adb silently forking a server run as user foo, that can be killed at any moment by user foo is inherently hostile to multi-user workflows. The auto-kill adb server on version mismatch is hostile. This aspect of adb has always really bothered me.\n\nit\u0027s not obvious there\u0027s an alternative to having the server, though, and although *test labs* might be fine/better off having their infrastructure handle that side of things, regular users struggle just using USB without having to deal with that themselves!\n\nbut the auto-kill shouldn\u0027t have happened in years ... the new \"adb features\" stuff means that most protocol extensions can now be dealt with dynamically. if you\u0027re not seeing that in practice, that\u0027s a separate bug/bugs and definitely worth investigation.\n\n\n\u003e We explored using the feature for MTaaS, however we ultimately decided against this approach (adb attach/detach).\n\nhmm... so two groups have kicked the tires of this and found it not usable... me might want to remove it if we don\u0027t think we can fix it?",
+      "parentUuid": "29782846_0aa32376",
+      "revId": "ef0127637079f076c877086eee7720582fd02e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
