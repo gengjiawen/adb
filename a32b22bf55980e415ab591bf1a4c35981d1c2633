@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b04e47d6_2f19b733",
+        "filename": "adb.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 987,
+      "author": {
+        "id": 1048574
+      },
+      "writtenOn": "2021-11-16T21:42:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ff4daa8_0119aa95",
+      "range": {
+        "startLine": 987,
+        "startChar": 33,
+        "endLine": 987,
+        "endChar": 37
+      },
+      "revId": "a32b22bf55980e415ab591bf1a4c35981d1c2633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c0134ff_aed7f760",
@@ -37,6 +61,24 @@
       "writtenOn": "2021-11-16T02:11:48Z",
       "side": 1,
       "message": "seems fine to me apart from this bit... still not comfortable with any new environment variables...",
+      "revId": "a32b22bf55980e415ab591bf1a4c35981d1c2633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfb2929b_a2af92cd",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 1695,
+      "author": {
+        "id": 1048574
+      },
+      "writtenOn": "2021-11-16T21:42:43Z",
+      "side": 1,
+      "message": "*Pretty please*\n\nI get that environment variables are not ideal. This is really important to us. There is a whole category of bugs this helps us avoid.\n\nIf the user stop/starts the adb server, they can forget to specify --one-device or -P. Specifying these in the default environment for all commands makes it very difficult for users to accidentally do the wrong thing.\n\nWe have a similar problem with users launching the system adb instead of their pushed adb. We are also going to solve that by modifying the PATH environment variable.",
+      "parentUuid": "5c0134ff_aed7f760",
       "revId": "a32b22bf55980e415ab591bf1a4c35981d1c2633",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -58,6 +100,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a28b152_421af0d1",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 727,
+      "author": {
+        "id": 1048574
+      },
+      "writtenOn": "2021-11-16T21:42:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e44ea63b_ce317492",
+      "revId": "a32b22bf55980e415ab591bf1a4c35981d1c2633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3f56de9a_7e0d63eb",
@@ -71,6 +131,24 @@
       "writtenOn": "2021-11-16T02:11:48Z",
       "side": 1,
       "message": "(i guess `connection-\u003eserial_` is what we should have used :-) )",
+      "revId": "a32b22bf55980e415ab591bf1a4c35981d1c2633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9e31dca_b2f5dd4d",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 816,
+      "author": {
+        "id": 1048574
+      },
+      "writtenOn": "2021-11-16T21:42:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3f56de9a_7e0d63eb",
       "revId": "a32b22bf55980e415ab591bf1a4c35981d1c2633",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }

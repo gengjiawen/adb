@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7376443e_b9af9465",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 1589,
+      "author": {
+        "id": 1048574
+      },
+      "writtenOn": "2021-11-16T21:42:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "996cca05_773416db",
+      "range": {
+        "startLine": 1588,
+        "startChar": 0,
+        "endLine": 1589,
+        "endChar": 19
+      },
+      "revId": "62072f19c2eac6b2d73ff41fb92e64a6d3fc8d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ee5b77a4_cc0f61ac",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-11-16T17:37:10Z",
       "side": 1,
       "message": "Can we make this a const function (here and elsewhere)?",
+      "range": {
+        "startLine": 959,
+        "startChar": 5,
+        "endLine": 959,
+        "endChar": 34
+      },
+      "revId": "62072f19c2eac6b2d73ff41fb92e64a6d3fc8d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1348880d_a52002fd",
+        "filename": "transport.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 959,
+      "author": {
+        "id": 1048574
+      },
+      "writtenOn": "2021-11-16T21:42:43Z",
+      "side": 1,
+      "message": "Thanks for requesting const on GetUsbDeviceAddress, but these aren\u0027t member functions. I looked over other changes and didn\u0027t notice any that should have const. Please re-open if I missed something or misunderstood.",
+      "parentUuid": "ee5b77a4_cc0f61ac",
       "range": {
         "startLine": 959,
         "startChar": 5,
