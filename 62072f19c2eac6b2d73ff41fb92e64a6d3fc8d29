@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "996cca05_773416db",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 1589,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-11-16T17:37:10Z",
+      "side": 1,
+      "message": "Nit: prefix by default (unless it\u0027s intentional)",
+      "range": {
+        "startLine": 1588,
+        "startChar": 0,
+        "endLine": 1589,
+        "endChar": 19
+      },
+      "revId": "62072f19c2eac6b2d73ff41fb92e64a6d3fc8d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee5b77a4_cc0f61ac",
+        "filename": "transport.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 959,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-11-16T17:37:10Z",
+      "side": 1,
+      "message": "Can we make this a const function (here and elsewhere)?",
+      "range": {
+        "startLine": 959,
+        "startChar": 5,
+        "endLine": 959,
+        "endChar": 34
+      },
+      "revId": "62072f19c2eac6b2d73ff41fb92e64a6d3fc8d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
