@@ -224,6 +224,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bebc28e9_c127b477",
+        "filename": "transport.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 965,
+      "author": {
+        "id": 1048574
+      },
+      "writtenOn": "2021-11-17T01:09:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5fd266eb_8ed26a01",
+      "range": {
+        "startLine": 964,
+        "startChar": 0,
+        "endLine": 965,
+        "endChar": 17
+      },
+      "revId": "a32b22bf55980e415ab591bf1a4c35981d1c2633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "723fefb7_22f50ea4",
@@ -237,6 +261,30 @@
       "writtenOn": "2021-11-16T23:26:36Z",
       "side": 1,
       "message": "Since lines#968-973 are identical to lines#960-964, perhaps it\u0027s less maintenance to do a minor refactor and invoke transport_server_owns_device(string_view) from transport_server_owns_device(string_view, string_view)?",
+      "range": {
+        "startLine": 969,
+        "startChar": 0,
+        "endLine": 973,
+        "endChar": 72
+      },
+      "revId": "a32b22bf55980e415ab591bf1a4c35981d1c2633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1015078_638d734d",
+        "filename": "transport.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 973,
+      "author": {
+        "id": 1048574
+      },
+      "writtenOn": "2021-11-17T01:09:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "723fefb7_22f50ea4",
       "range": {
         "startLine": 969,
         "startChar": 0,
