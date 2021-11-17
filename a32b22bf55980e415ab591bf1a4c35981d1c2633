@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf9b0a9c_cf68a744",
+        "filename": "adb.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 987,
+      "author": {
+        "id": 1048574
+      },
+      "writtenOn": "2021-11-17T01:01:42Z",
+      "side": 1,
+      "message": "Sorry. I made this change, but I didn\u0027t Ctrl-S so it didn\u0027t make it into the git change. Should be there now.",
+      "parentUuid": "ad6bbb39_56ca52b5",
+      "range": {
+        "startLine": 987,
+        "startChar": 33,
+        "endLine": 987,
+        "endChar": 37
+      },
+      "revId": "a32b22bf55980e415ab591bf1a4c35981d1c2633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c0134ff_aed7f760",
