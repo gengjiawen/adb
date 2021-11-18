@@ -133,6 +133,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "62f502cd_c7608b56",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 1695,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-11-18T23:41:56Z",
+      "side": 1,
+      "message": "IMHO this is a very narrow use-case already and it\u0027s unlikely that many developers will even be aware of this option. One can make a reasonable assumption that the (relatively tiny subset of) users who care will *not* forget such a feature. In fact, I\u0027d be concerned about the opposite wherein a user might set that env variable one time and then forget about it. If the user really cares about this feature, it\u0027s reasonable (in my mind :) for them to pay that price (of passing in that switch on the command-line). The right place for adding such a safety net  would be in a wrapper script, perhaps (instead of within the guts of adb)?\nWhich brings me to another question: Should the --one-device option be documented in the help string? (commandline.cpp) Would it introduce perceived complexity of the tool (vs the downside of an undocumented feature)?",
+      "parentUuid": "cfb2929b_a2af92cd",
+      "revId": "a32b22bf55980e415ab591bf1a4c35981d1c2633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e44ea63b_ce317492",
         "filename": "client/usb_libusb.cpp",
         "patchSetId": 9
