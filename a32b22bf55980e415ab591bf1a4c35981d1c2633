@@ -151,6 +151,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4553a215_029ad443",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 1695,
+      "author": {
+        "id": 1048574
+      },
+      "writtenOn": "2021-11-19T00:36:17Z",
+      "side": 1,
+      "message": "\u003e One can make a reasonable assumption that the (relatively tiny subset of) users who care will *not* forget such a feature.\n\nUsers of Device Cloud are just normal Android developers, not specialists from the Device Cloud team. Also, we repeatedly make similar mistakes.\n\nThe user won\u0027t be setting this environment variable, the system will be setting it for them for commands run within the system.\n\nI think we should meet to discuss, because we have different understandings and this is a very low bandwidth/high latency medium.\n\nDoes adb support \"adb start-server --help\" or adb server --help, we could put it there.",
+      "parentUuid": "62f502cd_c7608b56",
+      "revId": "a32b22bf55980e415ab591bf1a4c35981d1c2633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e44ea63b_ce317492",
         "filename": "client/usb_libusb.cpp",
         "patchSetId": 9
