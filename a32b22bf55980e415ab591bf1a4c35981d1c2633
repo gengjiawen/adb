@@ -169,6 +169,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d8cae2bd_ac4fcfe9",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 1695,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-11-19T01:11:25Z",
+      "side": 1,
+      "message": "As we discussed, let\u0027s keep the \u0027dc push\u0027/script-executing-on-the-agent-host use-case separate. Once the basic functionality (--one-device switch) is in place, a significant number of your use-cases will become unblocked.\nAlso, please update the help string so that we can get this behavior documented well (unless enh@ feel\u0027s otherwise).",
+      "parentUuid": "4553a215_029ad443",
+      "revId": "a32b22bf55980e415ab591bf1a4c35981d1c2633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e44ea63b_ce317492",
         "filename": "client/usb_libusb.cpp",
         "patchSetId": 9
