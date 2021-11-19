@@ -1,0 +1,98 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ff22d4d_fa29372e",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-11-19T08:09:20Z",
+      "side": 1,
+      "message": "\u003e Lines longer than 100 characters should be wrapped to improve readability; see https://source.android.com/setup/contribute/code-style#limit-line-length for more details.\n\nPlease fix.",
+      "parentUuid": "2bfc298a_bb30735b",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 104
+      },
+      "revId": "c2277433166dccb4af56338858382b34138f362b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da1415f7_a0b85aa8",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-11-19T08:09:20Z",
+      "side": 1,
+      "message": "\u003e Lines longer than 100 characters should be wrapped to improve readability; see https://source.android.com/setup/contribute/code-style#limit-line-length for more details.\n\nPlease fix.",
+      "parentUuid": "bf189590_cd79a8a8",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 188
+      },
+      "revId": "c2277433166dccb4af56338858382b34138f362b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa699eca_6f6780cf",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 1691,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-11-19T08:09:20Z",
+      "side": 1,
+      "message": "Suggestion: Remove the nesting by doing: if (one_device_str \u0026\u0026 !server_start) { error_exit(); }",
+      "range": {
+        "startLine": 1689,
+        "startChar": 4,
+        "endLine": 1691,
+        "endChar": 25
+      },
+      "revId": "c2277433166dccb4af56338858382b34138f362b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d74e94f_5ef9f8d9",
+        "filename": "transport.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-11-19T08:09:20Z",
+      "side": 1,
+      "message": "typo?",
+      "range": {
+        "startLine": 428,
+        "startChar": 43,
+        "endLine": 428,
+        "endChar": 45
+      },
+      "revId": "c2277433166dccb4af56338858382b34138f362b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
