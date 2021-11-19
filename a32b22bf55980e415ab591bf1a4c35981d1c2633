@@ -203,6 +203,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "99a3e0b3_253d674f",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 1695,
+      "author": {
+        "id": 1048574
+      },
+      "writtenOn": "2021-11-19T17:43:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4553a215_029ad443",
+      "revId": "a32b22bf55980e415ab591bf1a4c35981d1c2633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e44ea63b_ce317492",
