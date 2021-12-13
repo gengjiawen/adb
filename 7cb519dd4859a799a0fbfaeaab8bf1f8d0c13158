@@ -16,6 +16,24 @@
       "message": "note that adbd is a mainline module, so this will add this group for *old* devices too. i think that\u0027s probably fine, since they\u0027re reserved to us, but wanted to point that out explicitly...",
       "revId": "7cb519dd4859a799a0fbfaeaab8bf1f8d0c13158",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8daeb39b_2b39d142",
+        "filename": "daemon/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1499410
+      },
+      "writtenOn": "2021-12-13T18:49:05Z",
+      "side": 1,
+      "message": "Ack. Thanks for bringing that to attention",
+      "parentUuid": "db6bd9fc_7c8a6f89",
+      "revId": "7cb519dd4859a799a0fbfaeaab8bf1f8d0c13158",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
