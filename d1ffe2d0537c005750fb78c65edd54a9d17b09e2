@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0723be9_37eea938",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1077574
+      },
+      "writtenOn": "2021-12-23T19:18:53Z",
+      "side": 1,
+      "message": "fastdeploy_test failed when run with Bazel. The root cause is identified as the following: \nhttps://b.corp.google.com/issues/211806329#comment3\n\nPlease help with the review.",
+      "revId": "d1ffe2d0537c005750fb78c65edd54a9d17b09e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
