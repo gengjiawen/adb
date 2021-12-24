@@ -37,6 +37,10 @@ void restart_root_service(unique_fd fd) {
         WriteFdExactly(fd.get(), "adbd cannot run as root in production builds\n");
         return;
     }
+    if (!android::base::GetBoolProperty("ro.adb.allow_root", true)) {
+        WriteFdExactly(fd.get(), "adbd cannot run as root when ro.adb.allow_root is false\n");
+        return;
+    }
 
     LOG(INFO) << "adbd restarting as root";
     android::base::SetProperty("service.adb.root", "1");
