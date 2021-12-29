@@ -16,6 +16,23 @@
       "message": "fastdeploy_test failed when run with Bazel. The root cause is identified as the following: \nhttps://b.corp.google.com/issues/211806329#comment3\n\nPlease help with the review.",
       "revId": "d1ffe2d0537c005750fb78c65edd54a9d17b09e2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b122d40e_ac468ca1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2021-12-29T11:26:07Z",
+      "side": 1,
+      "message": "\u003e\u003eExpected: (patchSize) \u003c\u003d (512), actual: 715 vs 512\n\u003e\u003e[  FAILED  ] DeployPatchGeneratorTest.ZeroSizePatch (0 ms)\nIs this failure also a dependency (and would it be taken care of also)?",
+      "revId": "d1ffe2d0537c005750fb78c65edd54a9d17b09e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
