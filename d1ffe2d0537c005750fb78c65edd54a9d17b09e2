@@ -33,6 +33,24 @@
       "message": "\u003e\u003eExpected: (patchSize) \u003c\u003d (512), actual: 715 vs 512\n\u003e\u003e[  FAILED  ] DeployPatchGeneratorTest.ZeroSizePatch (0 ms)\nIs this failure also a dependency (and would it be taken care of also)?",
       "revId": "d1ffe2d0537c005750fb78c65edd54a9d17b09e2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b0c1732_85e97406",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1077574
+      },
+      "writtenOn": "2021-12-29T17:38:17Z",
+      "side": 1,
+      "message": "[6/11] fastdeploy_test DeployPatchGeneratorTest#ZeroSizePatch PASSED\nThis test passed with or without this CL. I think it might be another problem.",
+      "parentUuid": "b122d40e_ac468ca1",
+      "revId": "d1ffe2d0537c005750fb78c65edd54a9d17b09e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
