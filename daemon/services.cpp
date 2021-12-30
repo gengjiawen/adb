@@ -162,9 +162,12 @@ static void spin_service(unique_fd fd) {
 }
 
 struct ServiceSocket : public asocket {
-    ServiceSocket() {
+    explicit ServiceSocket(atransport* transport) {
         install_local_socket(this);
+        this->transport = transport;
         this->enqueue = [](asocket* self, apacket::payload_type data) {
+            // TODO: This interface currently can't give any backpressure.
+            send_ready(self->id, self->peer->id, self->transport, data.size());
             return static_cast<ServiceSocket*>(self)->Enqueue(std::move(data));
         };
         this->ready = [](asocket* self) { return static_cast<ServiceSocket*>(self)->Ready(); };
@@ -189,9 +192,9 @@ struct ServiceSocket : public asocket {
 };
 
 struct SinkSocket : public ServiceSocket {
-    explicit SinkSocket(size_t byte_count) {
+    explicit SinkSocket(atransport* transport, size_t byte_count)
+        : ServiceSocket(transport), bytes_left_(byte_count) {
         LOG(INFO) << "Creating new SinkSocket with capacity " << byte_count;
-        bytes_left_ = byte_count;
     }
 
     virtual ~SinkSocket() { LOG(INFO) << "SinkSocket destroyed"; }
@@ -211,9 +214,9 @@ struct SinkSocket : public ServiceSocket {
 };
 
 struct SourceSocket : public ServiceSocket {
-    explicit SourceSocket(size_t byte_count) {
+    explicit SourceSocket(atransport* transport, size_t byte_count)
+        : ServiceSocket(transport), bytes_left_(byte_count) {
         LOG(INFO) << "Creating new SourceSocket with capacity " << byte_count;
-        bytes_left_ = byte_count;
     }
 
     virtual ~SourceSocket() { LOG(INFO) << "SourceSocket destroyed"; }
@@ -236,7 +239,7 @@ struct SourceSocket : public ServiceSocket {
     size_t bytes_left_;
 };
 
-asocket* daemon_service_to_socket(std::string_view name) {
+asocket* daemon_service_to_socket(std::string_view name, atransport* transport) {
     if (name == "jdwp") {
         return create_jdwp_service_socket();
     } else if (name == "track-jdwp") {
@@ -248,13 +251,13 @@ asocket* daemon_service_to_socket(std::string_view name) {
         if (!ParseUint(&byte_count, name)) {
             return nullptr;
         }
-        return new SinkSocket(byte_count);
+        return new SinkSocket(transport, byte_count);
     } else if (android::base::ConsumePrefix(&name, "source:")) {
         uint64_t byte_count = 0;
         if (!ParseUint(&byte_count, name)) {
             return nullptr;
         }
-        return new SourceSocket(byte_count);
+        return new SourceSocket(transport, byte_count);
     }
 
     return nullptr;
