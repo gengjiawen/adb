@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38b689a1_1f9e1720",
+        "filename": "daemon/restart_service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-01-10T21:20:39Z",
+      "side": 1,
+      "message": "isn\u0027t an `allow_root` that defaults to `true` worrying?\n\nand does this actually solve the problem: why won\u0027t we see partners override this too?",
+      "revId": "21e356c45e52aedafe055894a35c52ccd2dc5f9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
