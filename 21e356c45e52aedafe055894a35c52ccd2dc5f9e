@@ -16,6 +16,24 @@
       "message": "isn\u0027t an `allow_root` that defaults to `true` worrying?\n\nand does this actually solve the problem: why won\u0027t we see partners override this too?",
       "revId": "21e356c45e52aedafe055894a35c52ccd2dc5f9e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1796d154_b6228bcd",
+        "filename": "daemon/restart_service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2022-01-11T03:38:53Z",
+      "side": 1,
+      "message": "\u003e isn\u0027t an `allow_root` that defaults to `true` worrying?\n\nIf the default value is false, then we won\u0027t be able to run `adb root` on userdebug/eng builds.\n\nLet me add some comments to clarify this.\n\nIn an USER build, \"__android_log_is_debuggable()\" is false so we cannot run `adb root` due to L36.\n\nSome partner might override \"__android_log_is_debuggable()\" just to skip ADB authentication on a unlocked device for automate testing. \n\nIn this case, even if they override \"ro.adb.allow_root\" to True, `adb root` will get stuck because there is no userdebug sepolicy. i.e., \"ro.adb.allow_root\" is more like a protection here.",
+      "parentUuid": "38b689a1_1f9e1720",
+      "revId": "21e356c45e52aedafe055894a35c52ccd2dc5f9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
