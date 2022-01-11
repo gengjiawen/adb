@@ -34,6 +34,24 @@
       "parentUuid": "38b689a1_1f9e1720",
       "revId": "21e356c45e52aedafe055894a35c52ccd2dc5f9e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a6da9b0_dda4a674",
+        "filename": "daemon/restart_service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2022-01-11T05:47:18Z",
+      "side": 1,
+      "message": "How about re-naming \"ro.adb.allow_root\" to \"ro.adb.debuggable.allow_root\" to make it clear?\n\nMeans allow adb root on debuggable.",
+      "parentUuid": "1796d154_b6228bcd",
+      "revId": "21e356c45e52aedafe055894a35c52ccd2dc5f9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
