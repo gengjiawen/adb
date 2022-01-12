@@ -70,6 +70,24 @@
       "parentUuid": "8a6da9b0_dda4a674",
       "revId": "21e356c45e52aedafe055894a35c52ccd2dc5f9e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d95fb735_c3fc2061",
+        "filename": "daemon/restart_service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2022-01-12T03:57:50Z",
+      "side": 1,
+      "message": "IIRC, it seems that ADB_VENDOR_KEYS only work in userdebug/eng build, right?\n\nThe request here is to automate user build testing, which is the final shipping image. Because the delta between user v.s userdebug cannot be easily tracked.",
+      "parentUuid": "03dfe083_395a6efa",
+      "revId": "21e356c45e52aedafe055894a35c52ccd2dc5f9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
