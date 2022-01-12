@@ -52,6 +52,24 @@
       "parentUuid": "1796d154_b6228bcd",
       "revId": "21e356c45e52aedafe055894a35c52ccd2dc5f9e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03dfe083_395a6efa",
+        "filename": "daemon/restart_service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-01-12T03:09:56Z",
+      "side": 1,
+      "message": "\u003e Some partner might override \"__android_log_is_debuggable()\" just to skip ADB authentication on a unlocked device for automate testing. \n\nwhich isn\u0027t supported. they should be using vendor keys instead.",
+      "parentUuid": "8a6da9b0_dda4a674",
+      "revId": "21e356c45e52aedafe055894a35c52ccd2dc5f9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
