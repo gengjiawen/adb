@@ -88,6 +88,24 @@
       "parentUuid": "03dfe083_395a6efa",
       "revId": "21e356c45e52aedafe055894a35c52ccd2dc5f9e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3ca6624_a2357dd0",
+        "filename": "daemon/restart_service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2022-01-17T04:11:40Z",
+      "side": 1,
+      "message": "After checking, they can probably build a special userdebug.img with /data/misc/adb/adb_keys\n\nhttps://cs.android.com/android/platform/superproject/+/master:frameworks/native/libs/adbd_auth/adbd_auth.cpp;l\u003d391;drc\u003de3e1cd5351b445a0d8df1617bbd2fc456c16cbd0\n\nThis should be able to skip ADB auth, IIUC.\n\nSo let me drop this CL.",
+      "parentUuid": "d95fb735_c3fc2061",
+      "revId": "21e356c45e52aedafe055894a35c52ccd2dc5f9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
