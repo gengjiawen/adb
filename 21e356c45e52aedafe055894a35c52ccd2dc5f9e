@@ -106,6 +106,24 @@
       "parentUuid": "d95fb735_c3fc2061",
       "revId": "21e356c45e52aedafe055894a35c52ccd2dc5f9e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d0c085b_0e304893",
+        "filename": "daemon/restart_service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2022-01-17T16:05:16Z",
+      "side": 1,
+      "message": "Just to clarify, you don\u0027t mean \"skip ADB auth\" right? But rather that they can include their own adb keys on their own debug builds which will result in a key match and thus adb auth succeeding?",
+      "parentUuid": "a3ca6624_a2357dd0",
+      "revId": "21e356c45e52aedafe055894a35c52ccd2dc5f9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
