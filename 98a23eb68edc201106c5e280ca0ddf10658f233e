@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "440790cf_b9bd0894",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-01-19T16:29:52Z",
+      "side": 1,
+      "message": "Thanks for jumping into this effort.",
+      "revId": "98a23eb68edc201106c5e280ca0ddf10658f233e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "671b7603_7efff3f4",
+        "filename": "transport.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1252,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-01-19T16:29:52Z",
+      "side": 1,
+      "message": "Nit: can we add a local variable so getenv() gets invoked only once (when using the feature)?",
+      "range": {
+        "startLine": 1252,
+        "startChar": 25,
+        "endLine": 1252,
+        "endChar": 86
+      },
+      "revId": "98a23eb68edc201106c5e280ca0ddf10658f233e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
