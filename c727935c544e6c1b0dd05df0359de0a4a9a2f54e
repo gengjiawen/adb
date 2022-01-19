@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c5ba55f_27ba78d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-01-19T23:40:04Z",
+      "side": 1,
+      "message": "doesn\u0027t build for me:\n```\n[ 80% 275/340] //bootable/recovery/minadbd:minadbd link minadbd\nFAILED: out/soong/.intermediates/bootable/recovery/minadbd/minadbd/android_recovery_x86_64_silvermont/unstripped/minadbd\nprebuilts/clang/host/linux-x86/clang-r437112b/bin/clang++ out/soong/.intermediates/bionic/libc/crtbegin_dynamic/android_recovery_x86_64_silvermont/crtbegin_dynamic.o @out/soong/.intermediates/bootable/recovery/minadbd/minadbd/android_recovery_x86_64_silvermont/unstripped/minadbd.rsp out/soong/.intermediates/bootable/recovery/minadbd/libminadbd_services/android_recovery_x86_64_silvermont_static/libminadbd_services.a out/soong/.intermediates/packages/modules/adb/libadbd/android_recovery_x86_64_silvermont_static/libadbd.a out/soong/.intermediates/packages/modules/adb/libadbd_core/android_recovery_x86_64_silvermont_static/libadbd_core.a out/soong/.intermediates/external/brotli/libbrotli/android_recovery_x86_64_silvermont_static/libbrotli.a out/soong/.intermediates/system/core/libcutils/libcutils_sockets/android_recovery_x86_64_silvermont_static/libcutils_sockets.a out/soong/.intermediates/system/core/diagnose_usb/libdiagnose_usb/android_recovery_x86_64_silvermont_static/libdiagnose_usb.a out/soong/.intermediates/external/mdnsresponder/libmdnssd/android_recovery_x86_64_silvermont_static/libmdnssd.a out/soong/.intermediates/external/zstd/libzstd/android_recovery_x86_64_silvermont_static/libzstd.a out/soong/.intermediates/packages/modules/adb/libs/adbconnection/libadbconnection_server/android_recovery_x86_64_silvermont_static/libadbconnection_server.a out/soong/.intermediates/packages/modules/adb/proto/libapp_processes_protos_lite/android_recovery_x86_64_silvermont_static/libapp_processes_protos_lite.a out/soong/.intermediates/packages/modules/adb/crypto/libadb_crypto/android_recovery_x86_64_silvermont_static/libadb_crypto.a out/soong/.intermediates/packages/modules/adb/proto/libadb_protos/android_recovery_x86_64_silvermont_static/libadb_protos.a out/soong/.intermediates/external/protobuf/libprotobuf-cpp-lite/android_recovery_x86_64_silvermont_static/libprotobuf-cpp-lite.a out/soong/.intermediates/packages/modules/adb/libadb_sysdeps/android_recovery_x86_64_silvermont_static/libadb_sysdeps.a out/soong/.intermediates/packages/modules/adb/tls/libadb_tls_connection/android_recovery_x86_64_silvermont_static/libadb_tls_connection.a out/soong/.intermediates/system/core/libasyncio/libasyncio/android_recovery_x86_64_silvermont_static/libasyncio.a out/soong/.intermediates/bootable/recovery/fuse_sideload/libfusesideload/android_recovery_x86_64_silvermont_static/libfusesideload.a out/soong/.intermediates/bootable/recovery/recovery_utils/librecovery_utils/android_recovery_x86_64_silvermont_static/librecovery_utils.a out/soong/.intermediates/bootable/recovery/otautil/libotautil/android_recovery_x86_64_silvermont_static/libotautil.a out/soong/.intermediates/hardware/interfaces/health/2.0/utils/libh\nld.lld: error: undefined symbol: daemon_service_to_socket(std::__1::basic_string_view\u003cchar, std::__1::char_traits\u003cchar\u003e \u003e, atransport*)\n\u003e\u003e\u003e referenced by sockets.cpp:463 (packages/modules/adb/sockets.cpp:463)\n\u003e\u003e\u003e               sockets.o:(create_local_service_socket(std::__1::basic_string_view\u003cchar, std::__1::char_traits\u003cchar\u003e \u003e, atransport*)) in archive out/soong/.intermediates/packages/modules/adb/libadbd_core/android_recovery_x86_64_silvermont_static/libadbd_core.a\nclang-14: error: linker command failed with exit code 1 (use -v to see invocation)\n15:35:54 ninja failed with: exit status 1\n\n#### failed to build some targets (01:05 (mm:ss)) ####\n```",
+      "revId": "c727935c544e6c1b0dd05df0359de0a4a9a2f54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
