@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "afa70621_dbeb28c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-01-20T22:34:56Z",
+      "side": 1,
+      "message": "Dead-code removal (dev: local service processing) in AOSP/gerrit.",
+      "revId": "7282f073270933d9cd18b997305830e595979076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
