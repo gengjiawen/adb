@@ -96,7 +96,8 @@ std::string adb_version() {
     return android::base::StringPrintf(
         "Android Debug Bridge version %d.%d.%d\n"
         "Version %s-%s\n"
-        "Installed as %s\n",
+        "Installed as %s\n"
+        "Mobile Harness ADB Features: MH_ADB_DEVICE_BLOCKING.\n",
         ADB_VERSION_MAJOR, ADB_VERSION_MINOR, ADB_SERVER_VERSION,
         PLATFORM_TOOLS_VERSION, android::build::GetBuildNumber().c_str(),
         android::base::GetExecutablePath().c_str());
