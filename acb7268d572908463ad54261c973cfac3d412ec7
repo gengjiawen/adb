@@ -16,6 +16,24 @@
       "message": "There are some suggestion regarding allow_list/deny_list, please fix.",
       "revId": "acb7268d572908463ad54261c973cfac3d412ec7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd8d1373_d7c869d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1885037
+      },
+      "writtenOn": "2022-01-25T13:29:00Z",
+      "side": 1,
+      "message": "Will do. Just to align on the expectations, I\u0027m not sure Android people is going to allow us to submit this change, but I do want to keep this change open to make future adb updates easier.",
+      "parentUuid": "9d18781f_3804caab",
+      "revId": "acb7268d572908463ad54261c973cfac3d412ec7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
