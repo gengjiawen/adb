@@ -31,13 +31,14 @@
 #include <stdlib.h>
 #include <string.h>
 #include <sys/ioctl.h>
-#include <sys/time.h>
 #include <sys/sysmacros.h>
+#include <sys/time.h>
 #include <sys/types.h>
 #include <unistd.h>
 
 #include <chrono>
 #include <condition_variable>
+#include <filesystem>
 #include <list>
 #include <mutex>
 #include <string>
@@ -53,6 +54,7 @@
 
 using namespace std::chrono_literals;
 using namespace std::literals;
+namespace fs = std::filesystem;
 
 /* usb scan debugging is waaaay too verbose */
 #define DBGX(x...)
@@ -86,6 +88,8 @@ struct usb_handle {
 
     // ID of thread currently in REAPURB
     pthread_t reaper_thread = 0;
+
+    std::string serial;
 };
 
 static auto& g_usb_handles_mutex = *new std::mutex();
@@ -122,6 +126,53 @@ static inline bool contains_non_digit(const char* name) {
     return false;
 }
 
+static std::vector<std::string> get_black_list_device() {
+    std::vector<std::string> black_list_devices;
+    std::error_code ec;
+
+    const char* black_list_device_dir = getenv("MH_ADB_DEVICE_BLOCKING_DIR");
+    if (black_list_device_dir == nullptr)
+        black_list_device_dir = "/tmp/mh_adb_device_blocking_dir/";
+
+    std::filesystem::path p1 = black_list_device_dir;
+    if (!fs::is_directory(p1)) {
+        return black_list_devices;
+    }
+
+    for (auto& p : fs::directory_iterator(p1)) {
+        if (!std::filesystem::is_regular_file(p.status())) {
+            continue;
+        }
+        black_list_devices.emplace_back(p.path().filename().string());
+    }
+
+    return black_list_devices;
+}
+
+static int stop_black_list_device(std::string_view dev_name, std::vector<std::string>& black_list) {
+    if (black_list.empty()) {
+        return 0;
+    }
+
+    std::lock_guard<std::mutex> lock(g_usb_handles_mutex);
+    for (usb_handle* usb : g_usb_handles) {
+        if (usb->path == dev_name) {
+            std::string serial = usb->serial;
+            if (serial.empty()) {
+                return 0;
+            }
+            std::vector<std::string>::iterator it;
+            it = std::find(black_list.begin(), black_list.end(), serial);
+            if (it != black_list.end()) {
+                D("Device %s blocked", serial.c_str());
+                usb->mark = false;
+                return 1;
+            }
+        }
+    }
+    return 0;
+}
+
 static void find_usb_device(const std::string& base,
                             void (*register_device_callback)(const char*, const char*,
                                                              unsigned char, unsigned char, int, int,
@@ -129,12 +180,18 @@ static void find_usb_device(const std::string& base,
     std::unique_ptr<DIR, int(*)(DIR*)> bus_dir(opendir(base.c_str()), closedir);
     if (!bus_dir) return;
 
+    std::vector<std::string> serial_black_list = get_black_list_device();
+    if (!serial_black_list.empty()) {
+        for (std::string device_name : serial_black_list) {
+            D("Load black list: %s", device_name.c_str());
+        }
+    }
+
     dirent* de;
     while ((de = readdir(bus_dir.get())) != nullptr) {
         if (contains_non_digit(de->d_name)) continue;
 
         std::string bus_name = base + "/" + de->d_name;
-
         std::unique_ptr<DIR, int(*)(DIR*)> dev_dir(opendir(bus_name.c_str()), closedir);
         if (!dev_dir) continue;
 
@@ -152,6 +209,10 @@ static void find_usb_device(const std::string& base,
             if (contains_non_digit(de->d_name)) continue;
 
             std::string dev_name = bus_name + "/" + de->d_name;
+            if (stop_black_list_device(dev_name, serial_black_list)) {
+                continue;
+            }
+
             if (is_known_device(dev_name)) {
                 continue;
             }
@@ -543,6 +604,21 @@ static void register_device(const char* dev_name, const char* dev_path, unsigned
         serial = "";
     }
     serial = android::base::Trim(serial);
+    usb->serial = serial;
+
+    std::vector<std::string> serial_black_list = get_black_list_device();
+    if (!serial_black_list.empty()) {
+        for (std::string device_name : serial_black_list) {
+            D("Load black list: %s", device_name.c_str());
+        }
+    }
+
+    std::vector<std::string>::iterator it;
+    it = std::find(serial_black_list.begin(), serial_black_list.end(), serial);
+    if (it != serial_black_list.end()) {
+        D("Device %s blocked", serial.c_str());
+        return;
+    }
 
     if (!transport_server_owns_device(dev_path, serial)) {
         // We aren't allowed to communicate with this device. Don't open this device.
