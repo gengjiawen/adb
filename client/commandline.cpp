@@ -95,8 +95,8 @@ static void help() {
         " -P                       port of adb server [default=5037]\n"
         " -L SOCKET                listen on given socket for adb server"
         " [default=tcp:localhost:5037]\n"
-        " --one-device SERIAL|USB  only allowed with 'start-server' or 'server nodaemon', server"
-        " will only connect to one USB device, specified by a serial number or USB device"
+        " --one-device SERIAL|USB  will only connect to one USB device, specified by a serial number"
+        " or USB device. Only used when starting server. Ignored otherwise."
         " address.\n"
         "\n"
         "general commands:\n"
@@ -1678,12 +1678,6 @@ int adb_commandline(int argc, const char** argv) {
             LOG(FATAL) << "failed to allocate server socket specification";
         }
         server_socket_str = temp;
-    }
-
-    bool server_start =
-            is_daemon || is_server || (argc > 0 && strcmp(argv[0], "start-server") == 0);
-    if (one_device_str && !server_start) {
-        error_exit("--one-device is only allowed when starting a server.");
     }
 
     adb_set_one_device(one_device_str);
