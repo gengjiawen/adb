@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000019890461",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1897930?revision\u003d3",
+      "fixSuggestions": [
+        {
+          "fixId": "f8eb635b_3bcf5a23",
+          "description": "Change to \"test/one_device.sh\"",
+          "replacements": [
+            {
+              "path": "test/one_device.sh",
+              "range": {
+                "startLine": 3,
+                "startChar": 16,
+                "endLine": 3,
+                "endChar": 23
+              },
+              "replacement": "succeeds"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "c087d4fc_babfa100",
+        "filename": "test/one_device.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2022-01-28T22:48:20Z",
+      "side": 1,
+      "message": "Common typo found: \"suceeds\" -- should it be \"succeeds\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 3,
+        "startChar": 16,
+        "endLine": 3,
+        "endChar": 23
+      },
+      "revId": "d2b3efd918ab62fb67f66b9c51415ee53d9de9fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000019890461",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1897930?revision\u003d3",
+      "fixSuggestions": [
+        {
+          "fixId": "27fdbccb_f9362c0d",
+          "description": "Change to \"test/one_device_libusb.sh\"",
+          "replacements": [
+            {
+              "path": "test/one_device_libusb.sh",
+              "range": {
+                "startLine": 4,
+                "startChar": 16,
+                "endLine": 4,
+                "endChar": 23
+              },
+              "replacement": "succeeds"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "3761e588_96da8339",
+        "filename": "test/one_device_libusb.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2022-01-28T22:48:20Z",
+      "side": 1,
+      "message": "Common typo found: \"suceeds\" -- should it be \"succeeds\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 4,
+        "startChar": 16,
+        "endLine": 4,
+        "endChar": 23
+      },
+      "revId": "d2b3efd918ab62fb67f66b9c51415ee53d9de9fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
