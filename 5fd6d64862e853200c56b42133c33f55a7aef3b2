@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c19e67c_d1b2046e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1388536
+      },
+      "writtenOn": "2022-02-09T21:24:58Z",
+      "side": 1,
+      "message": "Hi Viet,\n\nSorry if you\u0027re not the right code reviewer, first time working in the adb repo. Would you mind taking a look?\n\nThank you!\nPeter",
+      "revId": "5fd6d64862e853200c56b42133c33f55a7aef3b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
