@@ -33,6 +33,24 @@
       "message": "i\u0027d +2 \"even harder\" if you added a test, but this seems like it was obviously wrong, so feel free to just hand the bug over to us to add a test later rather than mark it fixed...\n\nthanks!",
       "revId": "5fd6d64862e853200c56b42133c33f55a7aef3b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21315b15_72a62711",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1388536
+      },
+      "writtenOn": "2022-02-10T16:10:58Z",
+      "side": 1,
+      "message": "Thank you! Sorry it\u0027ll probably take me a long time to figure out how to add a test (and run it) so I appreciate you being willing to add a test for this later. I\u0027ll follow the bug so I\u0027ll know how to add a test next time.",
+      "parentUuid": "8b572570_f9a5ebbf",
+      "revId": "5fd6d64862e853200c56b42133c33f55a7aef3b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
