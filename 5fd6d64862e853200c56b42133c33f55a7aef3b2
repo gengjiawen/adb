@@ -16,6 +16,23 @@
       "message": "Hi Viet,\n\nSorry if you\u0027re not the right code reviewer, first time working in the adb repo. Would you mind taking a look?\n\nThank you!\nPeter",
       "revId": "5fd6d64862e853200c56b42133c33f55a7aef3b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b572570_f9a5ebbf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-02-10T00:48:37Z",
+      "side": 1,
+      "message": "i\u0027d +2 \"even harder\" if you added a test, but this seems like it was obviously wrong, so feel free to just hand the bug over to us to add a test later rather than mark it fixed...\n\nthanks!",
+      "revId": "5fd6d64862e853200c56b42133c33f55a7aef3b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
