@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc49c32c_c7deabeb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2022-03-02T18:40:26Z",
+      "side": 1,
+      "message": "Presubmit will fail as the other change isn\u0027t submitted \u0026 built yet, but probably better to rerun presubmit after that\u0027s done instead of putting this in the same topic.",
+      "revId": "061ba795bb12e2fba5d2727220a749d2accf821a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
