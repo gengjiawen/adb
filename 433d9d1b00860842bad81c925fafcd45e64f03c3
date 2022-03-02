@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "946db03d_fcf31bca",
+        "filename": "apex/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-03-02T18:37:20Z",
+      "side": 0,
+      "message": "nice! declaring this as \"r-launched\" does seem like a better way to do it (and should insulate us against copy \u0026 paste in future)...",
+      "revId": "433d9d1b00860842bad81c925fafcd45e64f03c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
