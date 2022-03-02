@@ -16,6 +16,23 @@
       "message": "Presubmit will fail as the other change isn\u0027t submitted \u0026 built yet, but probably better to rerun presubmit after that\u0027s done instead of putting this in the same topic.",
       "revId": "061ba795bb12e2fba5d2727220a749d2accf821a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff83a8a1_05244662",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1930744
+      },
+      "writtenOn": "2022-03-02T20:19:19Z",
+      "side": 1,
+      "message": "https://android-review.googlesource.com/c/platform/packages/modules/common/+/2005890?forceReload\u003dtrue\n\nThe above mentioned CL needs to check in before this CL can be submitted. \nThere is no need to submit them together so keep the changes independent, hence not using the same topic.\n\nWill keep this comment open till the above CL goes in.\n\n",
+      "revId": "061ba795bb12e2fba5d2727220a749d2accf821a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
