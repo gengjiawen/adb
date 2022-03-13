@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14b87214_00114c73",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2022-03-13T10:46:09Z",
+      "side": 1,
+      "message": "Some history:\n - feature set caching introduction aosp/1270084\n - fix for backward incompatibility of above aosp/1287916\n - above resulted in `adb install` ignoring connection errors\n - introduction of `adb_get_feature_set_or_die()` aosp/1876162",
+      "revId": "341381bfcd6132ff96105b170eb58e7754f93552",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
