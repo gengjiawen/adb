@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c17217e_2059cf92",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-03-14T16:43:54Z",
+      "side": 1,
+      "message": "nice that `adb_get_feature_set_or_die()` has come in useful again so soon :-)",
+      "revId": "4b243a5a4bdc4f13eca75fb3b28ca3dfd115f7fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
