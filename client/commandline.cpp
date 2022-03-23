@@ -229,6 +229,7 @@ static void help() {
         " unroot                   restart adbd without root permissions\n"
         " usb                      restart adbd listening on USB\n"
         " tcpip PORT               restart adbd listening on TCP on PORT\n"
+        " track-devices [-l] long poll version of 'devices' command\n"
         "\n"
         "internal debugging:\n"
         " start-server             ensure that there is a server running\n"
