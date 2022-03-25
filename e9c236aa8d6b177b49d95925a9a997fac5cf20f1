@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e40049a5_9c10b9d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-03-25T00:54:37Z",
+      "side": 1,
+      "message": "otherwise looks much better, thanks!",
+      "revId": "e9c236aa8d6b177b49d95925a9a997fac5cf20f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7dba4b5_77aa8819",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-03-25T00:54:37Z",
+      "side": 1,
+      "message": "or `while (protocol-\u003eRead()) {`?",
+      "range": {
+        "startLine": 294,
+        "startChar": 4,
+        "endLine": 295,
+        "endChar": 30
+      },
+      "revId": "e9c236aa8d6b177b49d95925a9a997fac5cf20f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b40e36c7_d947950b",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-03-25T00:54:37Z",
+      "side": 1,
+      "message": "this is effectively `return 0`, which seems wrong for a failure?\n\na quick test seems to agree with my guess that `128 + SIGPIPE` is probably the way to go:\n```\nenh-p920.mtv:~$ yes | head\ny\ny\ny\ny\ny\ny\ny\ny\ny\ny\nenh-p920.mtv:~$ echo \"${PIPESTATUS[@]}\"\n141 0\nenh-p920.mtv:~$ \n```\n\n(i\u0027m assuming that `W_STOPCODE(SIGPIPE)` won\u0027t work on Windows, but then i\u0027m not sure whether SIGPIPE is there on Windows. building this will tell us though; we automatically cross-compile for Windows as part of the Linux build.)",
+      "revId": "e9c236aa8d6b177b49d95925a9a997fac5cf20f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

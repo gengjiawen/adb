@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c496228_206ab3bd",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-03-25T00:54:37Z",
+      "side": 0,
+      "message": "(weird. i guess this was just dead code before, given L310?)",
+      "revId": "4b243a5a4bdc4f13eca75fb3b28ca3dfd115f7fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
