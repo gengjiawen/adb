@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77d37873_aaf289d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-03-25T19:33:32Z",
+      "side": 1,
+      "message": "looks like you might need to define `_POSIX` to get these? +pirama in case he knows what else that does. looks safe to me though? https://source.corp.google.com/search?q\u003d%5Cb_POSIX%5Cb%20case:yes\u0026ss\u003dpiper%2FGoogle%2Fandroid:prebuilts%2Fgcc%2Flinux-x86%2Fhost%2Fx86_64-w64-mingw32-4.8%2Fx86_64-w64-mingw32%2Finclude%2F",
+      "revId": "d3432064b677d82f474f0b637983544fb49f640c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d862c5c3_08826704",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-03-25T19:33:32Z",
+      "side": 1,
+      "message": "(i think just move both of these up to L26)",
+      "revId": "d3432064b677d82f474f0b637983544fb49f640c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
