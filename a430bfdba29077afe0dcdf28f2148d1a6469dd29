@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab5fa5c0_ef0bb3e2",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-03-25T16:30:32Z",
+      "side": 1,
+      "message": "i actually really meant `128 + SIGPIPE`, not *E*PIPE... my feeling was \"we should behave as if we _didn\u0027t_ ignore SIGPIPE\", which would mean we\u0027d die like that. i think that makes the most sense (and is going to be the least confusing when someone googles for \"wtf does exit status 141 mean?!\")?\n\ni did also wonder \"what idiot thought we should just ignore SIGPIPE in adb?\" and was unsurprised to find it was me: https://android-review.googlesource.com/c/platform/system/core/+/183250 :-) i\u0027m _think_ that all still holds true, and that we do want different behavior between \"we wrote to stdout/stderr and *that* failed\" versus \"we wrote to a socket talking to a server and *that* failed\", so this probably is the right way to go. (though we might want to note that somewhere, if only the commit message?)\n\nthe other thing that comes to mind is \"what happens on Windows (which doesn\u0027t have SIGPIPE anyway)?\". i _think_ this patch certainly doesn\u0027t make Windows worse, but do we get a write failure at all there? (last time i used Windows i think \"pipes\" were actually just temporary files, so i\u0027m really not sure what `adb logcat | head` means there, with or without this change!) my gut says \"meh, Windows users won\u0027t care anyway; if they do they\u0027ll use the Linux adb in WSL and be fine\"? a quick cs/ suggests that mingw\u0027s \u003csignal.h\u003e does have SIGPIPE defined, so i think we\u0027ll at least *build* find there!",
+      "revId": "a430bfdba29077afe0dcdf28f2148d1a6469dd29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
