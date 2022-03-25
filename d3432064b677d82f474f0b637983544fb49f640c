@@ -104,6 +104,24 @@
       "parentUuid": "d862c5c3_08826704",
       "revId": "d3432064b677d82f474f0b637983544fb49f640c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de83b38c_46f80ae9",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-03-25T20:33:23Z",
+      "side": 1,
+      "message": "sgtm. any future breakage will be pretty obvious anyway. thanks!\n\n(and sorry that this is so painful. unfortunately Windows users are 80% of our users, and the other 20% is macOS. to a first-order approximation, only _we_ use Linux :-( )",
+      "parentUuid": "9ed9ec39_3d987855",
+      "revId": "d3432064b677d82f474f0b637983544fb49f640c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
