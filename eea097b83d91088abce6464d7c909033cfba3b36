@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76ddd497_51315518",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-03-25T18:19:41Z",
+      "side": 1,
+      "message": "can\u0027t we just `#include \u003csignal.h\u003e` on _WIN32 too? my cs/ showed a mingw \u003csignal.h\u003e and it did have `#define SIGPIPE 13` in it...",
+      "revId": "eea097b83d91088abce6464d7c909033cfba3b36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
