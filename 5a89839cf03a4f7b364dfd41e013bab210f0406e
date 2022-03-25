@@ -16,6 +16,24 @@
       "message": "actually, it looks like sysdeps.h is already including \u003csignal.h\u003e for non-windows, so maybe we just want this to be added to the windows side of that #if (https://source.corp.google.com/android/packages/modules/adb/sysdeps.h?q\u003dfile:sysdeps.h%20signal.h\u0026sq\u003dpackage:%5Eandroid$) and then just delete these?",
       "revId": "5a89839cf03a4f7b364dfd41e013bab210f0406e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee6c75dd_447784a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-03-25T19:39:57Z",
+      "side": 1,
+      "message": "(i\u0027m just thinking defensively, so no prior #includes can hurt you by pulling in \u003csignal.h\u003e _without_ `_POSIX` defined.)",
+      "parentUuid": "6588e8a7_81abd6af",
+      "revId": "5a89839cf03a4f7b364dfd41e013bab210f0406e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
