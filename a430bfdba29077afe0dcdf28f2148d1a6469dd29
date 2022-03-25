@@ -34,6 +34,24 @@
       "parentUuid": "ab5fa5c0_ef0bb3e2",
       "revId": "a430bfdba29077afe0dcdf28f2148d1a6469dd29",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae25d755_b9bda844",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1623611
+      },
+      "writtenOn": "2022-03-25T17:18:57Z",
+      "side": 1,
+      "message": "I ran the test with pipefail set and verified that adb exits with status 141.",
+      "parentUuid": "e128cf40_704cd041",
+      "revId": "a430bfdba29077afe0dcdf28f2148d1a6469dd29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
