@@ -35,6 +35,42 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee042cd0_c8746126",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1623611
+      },
+      "writtenOn": "2022-03-25T20:31:56Z",
+      "side": 1,
+      "message": "The definition is abandoned.  SIGPIPE is now defined via signal.h with _POSIX defined first.",
+      "parentUuid": "ad13e2c2_4d7ef048",
+      "revId": "d3432064b677d82f474f0b637983544fb49f640c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fcd0620b_49818089",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1623611
+      },
+      "writtenOn": "2022-03-25T20:31:56Z",
+      "side": 1,
+      "message": "I defined _POSIX right before #include \u003csignal.h\u003e for Windows.  That seems to have fixed the build issues.",
+      "parentUuid": "77d37873_aaf289d6",
+      "revId": "d3432064b677d82f474f0b637983544fb49f640c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d862c5c3_08826704",
@@ -48,6 +84,24 @@
       "writtenOn": "2022-03-25T19:33:32Z",
       "side": 1,
       "message": "(i think just move both of these up to L26)",
+      "revId": "d3432064b677d82f474f0b637983544fb49f640c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ed9ec39_3d987855",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1623611
+      },
+      "writtenOn": "2022-03-25T20:31:56Z",
+      "side": 1,
+      "message": "I removed \u003csignal.h\u003e from the unix side of this conditional, since it is already included from sysdeps.h.  Based on that, I did not try to move signal.h up into the main block of includes.",
+      "parentUuid": "d862c5c3_08826704",
       "revId": "d3432064b677d82f474f0b637983544fb49f640c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
