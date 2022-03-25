@@ -34,6 +34,24 @@
       "parentUuid": "76ddd497_51315518",
       "revId": "eea097b83d91088abce6464d7c909033cfba3b36",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13585b85_5ebc1a8f",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1623611
+      },
+      "writtenOn": "2022-03-25T20:44:55Z",
+      "side": 1,
+      "message": "SIGPIPE is defined in signal.h with _POSIX defined (for Windows only)",
+      "parentUuid": "b2ce34d0_1601ebf5",
+      "revId": "eea097b83d91088abce6464d7c909033cfba3b36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
