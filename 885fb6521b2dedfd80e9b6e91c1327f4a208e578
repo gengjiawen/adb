@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0e9174d_67523e4b",
+        "filename": "SERVICES.TXT",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-03-28T19:50:34Z",
+      "side": 1,
+      "message": "Nit: use",
+      "range": {
+        "startLine": 175,
+        "startChar": 68,
+        "endLine": 175,
+        "endChar": 69
+      },
+      "revId": "885fb6521b2dedfd80e9b6e91c1327f4a208e578",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
