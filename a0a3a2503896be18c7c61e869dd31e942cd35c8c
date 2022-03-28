@@ -22,6 +22,30 @@
       },
       "revId": "a0a3a2503896be18c7c61e869dd31e942cd35c8c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0afbbd0c_c02c262c",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-03-28T20:36:46Z",
+      "side": 1,
+      "message": "I will add it my next CL",
+      "parentUuid": "c782d1cd_7735e9b7",
+      "range": {
+        "startLine": 232,
+        "startChar": 10,
+        "endLine": 232,
+        "endChar": 23
+      },
+      "revId": "a0a3a2503896be18c7c61e869dd31e942cd35c8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
