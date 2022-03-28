@@ -46,6 +46,29 @@
       },
       "revId": "a0a3a2503896be18c7c61e869dd31e942cd35c8c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0443c01_e5ef6d16",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-03-28T21:51:22Z",
+      "side": 1,
+      "message": "indentation wrong here\n\nalso is \"long poll\" commonly used?",
+      "range": {
+        "startLine": 232,
+        "startChar": 28,
+        "endLine": 232,
+        "endChar": 29
+      },
+      "revId": "a0a3a2503896be18c7c61e869dd31e942cd35c8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
