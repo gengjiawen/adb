@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e5f5135_a8118723",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-03-28T23:57:37Z",
+      "side": 1,
+      "message": "one of our external websites, or do you mean a third-party website? we should probably remove that if it\u0027s one of ours... afaik _we_ don\u0027t use this for anything, so they\u0027re at best untested.",
+      "range": {
+        "startLine": 9,
+        "startChar": 19,
+        "endLine": 9,
+        "endChar": 49
+      },
+      "revId": "28b6344d0af576296f44ce585c33fefb7a23e2bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
