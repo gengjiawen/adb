@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e603c037_ef977866",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-03-28T23:56:21Z",
+      "side": 1,
+      "message": "would it help you to have something akin to -tt where you can effectively say \"shell,v2 or error out\"?\n\n(i wish i could remember why we have `-x` and whether anyone actually needs it, or it was another thing like the recent SIGPIPE change where we added an opt-out \"just in case\"...)",
+      "revId": "92aa8bd3574b27d015cca264e398b9a10a6c8058",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
