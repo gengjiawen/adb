@@ -69,6 +69,30 @@
       },
       "revId": "a0a3a2503896be18c7c61e869dd31e942cd35c8c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84978c4d_5d4c94fd",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-03-28T22:05:25Z",
+      "side": 1,
+      "message": "What is wrong with the indentation?\n\nAs for \"long poll\", it is a term commonly used in web browser world (https://javascript.info/long-polling). And googling for it returns the right result (https://www.google.com/search?q\u003dlong+poll).",
+      "parentUuid": "f0443c01_e5ef6d16",
+      "range": {
+        "startLine": 232,
+        "startChar": 28,
+        "endLine": 232,
+        "endChar": 29
+      },
+      "revId": "a0a3a2503896be18c7c61e869dd31e942cd35c8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
