@@ -93,6 +93,30 @@
       },
       "revId": "a0a3a2503896be18c7c61e869dd31e942cd35c8c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "912aae70_d41ac226",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-03-28T22:23:48Z",
+      "side": 1,
+      "message": "\u003e What is wrong with the indentation?\n\n\"long\" should line up with \"restart\" on the previous line.\n\n\u003e As for \"long poll\", it is a term commonly used in web browser world (https://javascript.info/long-polling). And googling for it returns the right result (https://www.google.com/search?q\u003dlong+poll).\n\nhuh, interesting. hadn\u0027t heard that before (not being involved in much web stuff). to me the analogy was more like `tail -f` or `dmesg -w`, but i\u0027m not sure there\u0027s a common term for them.\n\nthat said, if this is just in the \"man page\" .md file, we can just explain what we mean using as many words as it takes (and an example!) rather than trying to come up with a short but distinct phrase :-)",
+      "parentUuid": "84978c4d_5d4c94fd",
+      "range": {
+        "startLine": 232,
+        "startChar": 28,
+        "endLine": 232,
+        "endChar": 29
+      },
+      "revId": "a0a3a2503896be18c7c61e869dd31e942cd35c8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
