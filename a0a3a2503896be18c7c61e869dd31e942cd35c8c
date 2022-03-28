@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c782d1cd_7735e9b7",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-03-28T19:48:48Z",
+      "side": 1,
+      "message": "Wonder whether we should also update documentation for other services like track-jdwp, raw, etc?",
+      "range": {
+        "startLine": 232,
+        "startChar": 10,
+        "endLine": 232,
+        "endChar": 23
+      },
+      "revId": "a0a3a2503896be18c7c61e869dd31e942cd35c8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
