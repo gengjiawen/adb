@@ -22,6 +22,30 @@
       },
       "revId": "28b6344d0af576296f44ce585c33fefb7a23e2bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8d59a5c_93a13473",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-03-30T20:51:41Z",
+      "side": 1,
+      "message": "I meant third-party:\n\nhttps://stackoverflow.com/questions/11689511/transferring-binary-data-over-adb-shell-ie-fast-file-transfer-using-tar\nhttps://stackoverflow.com/questions/13578416/read-binary-stdout-data-from-adb-shell\nhttps://stackoverflow.com/questions/42564693/adb-exec-out-not-working\nhttps://android.stackexchange.com/questions/213454/how-to-passthrough-a-file-from-pc-to-android-and-back-using-exec-in-and-exe\nhttps://www.linux-magazine.com/Issues/2017/195/Ask-Klaus\nhttps://adb-shell.readthedocs.io/_/downloads/en/stable/pdf/",
+      "parentUuid": "3e5f5135_a8118723",
+      "range": {
+        "startLine": 9,
+        "startChar": 19,
+        "endLine": 9,
+        "endChar": 49
+      },
+      "revId": "28b6344d0af576296f44ce585c33fefb7a23e2bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
