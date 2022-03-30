@@ -16,6 +16,24 @@
       "message": "would it help you to have something akin to -tt where you can effectively say \"shell,v2 or error out\"?\n\n(i wish i could remember why we have `-x` and whether anyone actually needs it, or it was another thing like the recent SIGPIPE change where we added an opt-out \"just in case\"...)",
       "revId": "92aa8bd3574b27d015cca264e398b9a10a6c8058",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53ac3f60_f55f641a",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-03-30T20:54:08Z",
+      "side": 1,
+      "message": "I think using v2 by default is fine. I wanted to know how to use v2 from the doc and this tell us. \n\nWe could also add that this is decision (v1 vs v2) is based on `adb device-features` output.",
+      "parentUuid": "e603c037_ef977866",
+      "revId": "92aa8bd3574b27d015cca264e398b9a10a6c8058",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
