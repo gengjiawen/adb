@@ -46,6 +46,30 @@
       },
       "revId": "28b6344d0af576296f44ce585c33fefb7a23e2bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5b770db_27ca0a36",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-03-31T00:18:44Z",
+      "side": 1,
+      "message": "yeah, i really hate that some hacked in the half-assed thing rather than fix shell.\n\nwhile i disagree with the _checkin comment_ -- we definitely _shouldn\u0027t_ document this in `adb --help` because it\u0027s yet more noise and `adb --help` is already far too large -- i do agree that we should document all the things *somewhere*, and since we don\u0027t have anywhere else ... \"this is fine\" :-)\n\nwe can come back and clean this up later.\n\n(we should also see if we can at least re-implement this crap as a special case of shell, so we can have a bit more confidence that it\u0027s tested and working, and less motivation to try to remove it. though i\u0027m still very tempted to remove it...)",
+      "parentUuid": "b8d59a5c_93a13473",
+      "range": {
+        "startLine": 9,
+        "startChar": 19,
+        "endLine": 9,
+        "endChar": 49
+      },
+      "revId": "28b6344d0af576296f44ce585c33fefb7a23e2bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
