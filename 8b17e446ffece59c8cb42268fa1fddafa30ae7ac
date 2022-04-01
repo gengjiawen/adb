@@ -34,6 +34,24 @@
       "parentUuid": "1508915d_686e90a7",
       "revId": "8b17e446ffece59c8cb42268fa1fddafa30ae7ac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ea7fb02_abb9027e",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-04-01T16:43:23Z",
+      "side": 1,
+      "message": "\u003e But how high will this md rank when they google \"adb documentation\" or \"adb command-line\", we have no idea. Whereas putting it in here in guaranteed to be seen.\n\noh, to be clear: my assumption is that the minute we *have* a man page, we include the URL at the bottom of the `adb --help` output, so when a user\u0027s sitting there slack-jawed and wondering how they\u0027ll find anything in this mess, the link is right there staring at them. this is what we\u0027ve done for discoverability elsewhere in the system.",
+      "parentUuid": "b36b4a35_c2a7c4ba",
+      "revId": "8b17e446ffece59c8cb42268fa1fddafa30ae7ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
