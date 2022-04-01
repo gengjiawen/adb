@@ -16,6 +16,24 @@
       "message": "this one maybe really should just go straight into one of the .md files? there\u0027s no explanation of what a \"feature\" is, what the set of features are, what any given feature name means? i\u0027m not sure what\u0027s here is actually useful without that? (\"what can i do with what you\u0027ve just told me?\")\n\nif you learned about features elsewhere, but didn\u0027t know how to query them from the command line, is the better fix to mention `adb features` there?",
       "revId": "8b17e446ffece59c8cb42268fa1fddafa30ae7ac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b36b4a35_c2a7c4ba",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-04-01T01:13:41Z",
+      "side": 1,
+      "message": "Putting it in a md and explain `features` at length is definitely something I want to do.\n\nBut how high will this md rank when they google \"adb documentation\" or \"adb command-line\", we have no idea. Whereas putting it in here in guaranteed to be seen.\n\nI agree that `features` may not be that useful to most users but this `-help` section is so bad that I don\u0027t even bother using it anymore. Resorting to finding out what adb CLI can do by reading the source code is not acceptable.",
+      "parentUuid": "1508915d_686e90a7",
+      "revId": "8b17e446ffece59c8cb42268fa1fddafa30ae7ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
