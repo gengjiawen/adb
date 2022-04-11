@@ -139,6 +139,8 @@ int launch_server(const std::string& socket_spec, const char* one_device);
 int adb_server_main(int is_daemon, const std::string& socket_spec, const char* one_device,
                     int ack_reply_fd);
 
+bool is_one_device_required(const std::string& path);
+
 /* initialize a transport object's func pointers and state */
 int init_socket_transport(atransport* t, unique_fd s, int port, int local);
 
