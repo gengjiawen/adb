@@ -33,6 +33,7 @@ void close_stdin();
 
 bool getcwd(std::string* cwd);
 bool directory_exists(const std::string& path);
+bool file_exists(const std::string& path);
 
 // Return the user's home directory.
 std::string adb_get_homedir_path();
