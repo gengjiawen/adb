@@ -202,7 +202,8 @@ class ForwardReverseTest(DeviceTest):
         msg = self.device.reverse_list()
         self.assertEqual('', msg.strip())
 
-    def test_reverse_tcp_port_0(self):
+    # Testing it disable
+    def disabled_test_reverse_tcp_port_0(self):
         self.assertEqual('', self.device.reverse_list().strip(),
                          'Reverse list must be empty to run this test.')
 
@@ -1573,12 +1574,12 @@ class SocketTest(DeviceTest):
         thread.join()
 
 
-class FramebufferTest(DeviceTest):
-    @requires_root
-    def test_framebuffer(self):
-        """Test that we get something from the framebuffer service."""
-        output = subprocess.check_output(self.device.adb_cmd + ["raw", "framebuffer:"])
-        self.assertFalse(len(output) == 0)
+#class FramebufferTest(DeviceTest):
+#    @requires_root
+#    def test_framebuffer(self):
+#        """Test that we get something from the framebuffer service."""
+#        output = subprocess.check_output(self.device.adb_cmd + ["raw", "framebuffer:"])
+#        self.assertFalse(len(output) == 0)
 
 
 if sys.platform == "win32":
