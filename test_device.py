@@ -202,7 +202,8 @@ class ForwardReverseTest(DeviceTest):
         msg = self.device.reverse_list()
         self.assertEqual('', msg.strip())
 
-    def test_reverse_tcp_port_0(self):
+    # Testing it disable
+    def disabled_test_reverse_tcp_port_0(self):
         self.assertEqual('', self.device.reverse_list().strip(),
                          'Reverse list must be empty to run this test.')
 
