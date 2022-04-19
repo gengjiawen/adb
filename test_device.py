@@ -78,6 +78,16 @@ def requires_non_root(func):
 
 class DeviceTest(unittest.TestCase):
     device = adb.get_device()
+    serialno = subprocess.check_output(device.adb_cmd + ['get-serialno']).strip()
+    usb = self._get_usb_identifier()
+
+    def _get_usb_identifier(self):
+        output = subprocess.check_output(self.device.adb_cmd + ['devices', '-l'])
+        for line in output.decode().split('\n'):
+            m = re.match('(\S+)\s+(\S+)\s(\S+)', line)
+            if m and m.group(3).startswith("usb"):
+                return m.group(3)
+        return None
 
 
 class AbbTest(DeviceTest):
@@ -1517,6 +1527,53 @@ class DeviceOfflineTest(DeviceTest):
         finally:
             self.device.forward_remove("tcp:{}".format(local_port))
 
+class oneDeviceTest(DeviceTest):
+    def _get_device_state(self, serialno, output):
+        for line in output.decode().split('\n'):
+            m = re.match('(\S+)\s+(\S+)', line)
+            if m and m.group(1) == serialno:
+                return m.group(2)
+        return None
+
+    def _get_usb_device_state(self, usb, output):
+        for line in output.decode().split('\n'):
+            m = re.match('(\S+)\s+(\S+)\s(\S+)', line)
+            if m and m.group(3) == usb:
+                return m.group(2)
+        return None
+
+    def test_one_device_serial_mode(self):
+        subprocess.check_call(self.device.adb_cmd + ["kill-server"])
+        output = subprocess.check_output(self.device.adb_cmd + ["--one-device", self.serialno, "devices"])
+        self.assertTrue(self._get_device_state(self.serialno.decode(), output) != None)
+
+    def test_one_device_usb_mode(self):
+        subprocess.check_call(self.device.adb_cmd + ["kill-server"])
+        output = subprocess.check_output(self.device.adb_cmd + ["--one-device", self.usb, "devices", '-l'])
+        self.assertTrue(self._get_usb_device_state(self.usb, output) != None)
+
+    def test_one_device_removed(self):
+        subprocess.check_call(self.device.adb_cmd + ["kill-server"])
+        output = subprocess.check_output(self.device.adb_cmd + ["--one-device", "asdf1234", "devices"])
+        self.assertTrue(self._get_device_state(self.serialno.decode(), output) == None)
+
+    def test_one_device_select_ignored(self):
+        subprocess.check_call(self.device.adb_cmd + ["kill-server"])
+        subprocess.check_call(self.device.adb_cmd + ["--one-device", self.serialno, "start-server"])
+        output = subprocess.check_output(self.device.adb_cmd + ["--one-device", "ignored", "devices"])
+        self.assertTrue(self._get_device_state(self.serialno.decode(), output) != None)
+
+    def test_one_device_usb_select_ignored(self):
+        subprocess.check_call(self.device.adb_cmd + ["kill-server"])
+        subprocess.check_call(self.device.adb_cmd + ["--one-device", self.usb, "start-server"])
+        output = subprocess.check_output(self.device.adb_cmd + ['--one-device', 'ignored', 'devices', '-l'])
+        self.assertTrue(self._get_usb_device_state(self.usb, output) != None)
+
+    def test_one_device_removed_ignored(self):
+        subprocess.check_call(self.device.adb_cmd + ["kill-server"])
+        subprocess.check_call(self.device.adb_cmd + ["--one-device", "asdf1234", "start-server"])
+        output = subprocess.check_output(self.device.adb_cmd + ['--one-device', 'ignored', 'devices', '-l'])
+        self.assertTrue(self._get_device_state(self.serialno.decode(), output) == None)
 
 class SocketTest(DeviceTest):
     def test_socket_flush(self):
