@@ -360,6 +360,7 @@ cc_library {
 cc_test_host {
     name: "adb_test",
     defaults: ["adb_defaults"],
+    isolated: false,
     srcs: libadb_test_srcs + [
         "client/mdns_utils_test.cpp",
     ],
@@ -941,6 +942,7 @@ cc_library_host_static {
 cc_test_host {
     name: "fastdeploy_test",
     defaults: ["adb_defaults"],
+    isolated: false,
     srcs: [
         "fastdeploy/deploypatchgenerator/apk_archive_test.cpp",
         "fastdeploy/deploypatchgenerator/deploy_patch_generator_test.cpp",
