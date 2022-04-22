@@ -1518,6 +1518,106 @@ class DeviceOfflineTest(DeviceTest):
             self.device.forward_remove("tcp:{}".format(local_port))
 
 
+class AdbOneDeviceTest(DeviceTest):
+
+    def _get_device_state(self, serialno, output):
+        for line in output.decode().split('\n'):
+            m = re.match('(\S+)\s+(\S+)', line)
+            if m and m.group(1) == serialno:
+                return m.group(2)
+        return None
+
+    def _get_serial_no(self):
+        try:
+            return subprocess.check_output(self.device.adb_cmd + ['get-serialno']).strip()
+        except subprocess.CalledProcessError as e:
+            return None
+
+    def _get_usb_identifier(self):
+        output = subprocess.check_output(self.device.adb_cmd + ['devices', '-l'])
+        if output:
+            for line in output.decode().split('\n'):
+                m = re.match('(\S+)\s+(\S+)\s(\S+)', line)
+                if m and m.group(3).startswith("usb"):
+                    return m.group(3)
+        return None
+
+    def _get_usb_device_state(self, usb, output):
+        for line in output.decode().split('\n'):
+            m = re.match('(\S+)\s+(\S+)\s(\S+)', line)
+            if m and m.group(3) == usb:
+                return m.group(2)
+        return None
+
+    def _restart_adb_server(self):
+        subprocess.check_call(self.device.adb_cmd + ['kill-server'])
+        time.sleep(0.5)
+        subprocess.check_output(self.device.adb_cmd + ['devices', '-l'])
+
+    def test_one_device_serial_mode(self):
+        serialno = self._get_serial_no()
+        if not serialno:
+            raise unittest.SkipTest('unable to get serial number of device to run tests')
+        subprocess.check_call(self.device.adb_cmd + ['kill-server'])
+        time.sleep(0.5)
+        output = subprocess.check_output(self.device.adb_cmd + ['--one-device', serialno, 'devices'])
+        self.assertFalse(self._get_device_state(serialno.decode(), output) is None)
+        self._restart_adb_server()
+
+    def test_one_device_usb_mode(self):
+        usb = self._get_usb_identifier()
+        if not usb:
+            raise unittest.SkipTest('requires usb connected device')
+        subprocess.check_call(self.device.adb_cmd + ['kill-server'])
+        time.sleep(0.5)
+        output = subprocess.check_output(self.device.adb_cmd + ['--one-device', usb, 'devices', '-l'])
+        self.assertFalse(self._get_usb_device_state(usb, output) is None)
+        self._restart_adb_server()
+
+    def test_one_device_serial_removed(self):
+        serialno = self._get_serial_no()
+        if not serialno:
+            raise unittest.SkipTest('unable to get serial number of device to run tests')
+        subprocess.check_call(self.device.adb_cmd + ['kill-server'])
+        time.sleep(0.5)
+        output = subprocess.check_output(self.device.adb_cmd + ['--one-device', 'asdf1234', 'devices'])
+        self.assertTrue(self._get_device_state(serialno.decode(), output) is None)
+        self._restart_adb_server()
+
+    def test_one_device_select_ignored(self):
+        serialno = self._get_serial_no()
+        if not serialno:
+            raise unittest.SkipTest('unable to get serial number of device to run tests')
+        subprocess.check_call(self.device.adb_cmd + ['kill-server'])
+        time.sleep(0.5)
+        subprocess.check_call(self.device.adb_cmd + ['--one-device', serialno, 'start-server'])
+        output = subprocess.check_output(self.device.adb_cmd + ['--one-device', 'ignored', 'devices'])
+        self.assertFalse(self._get_device_state(serialno.decode(), output) is None)
+        self._restart_adb_server()
+
+    def test_one_device_usb_select_ignored(self):
+        usb = self._get_usb_identifier()
+        if not usb:
+            raise unittest.SkipTest('requires usb connected device')
+        subprocess.check_call(self.device.adb_cmd + ['kill-server'])
+        time.sleep(0.5)
+        subprocess.check_call(self.device.adb_cmd + ['--one-device', usb, 'start-server'])
+        output = subprocess.check_output(self.device.adb_cmd + ['--one-device', 'ignored', 'devices', '-l'])
+        self.assertFalse(self._get_usb_device_state(usb, output) is None)
+        self._restart_adb_server()
+
+    def test_one_device_removed_ignored(self):
+        serialno = self._get_serial_no()
+        if not serialno:
+            raise unittest.SkipTest('unable to get serial number of device to run tests')
+        subprocess.check_call(self.device.adb_cmd + ['kill-server'])
+        time.sleep(0.5)
+        subprocess.check_call(self.device.adb_cmd + ['--one-device', 'asdf1234', 'start-server'])
+        output = subprocess.check_output(self.device.adb_cmd + ['--one-device', 'ignored', 'devices', '-l'])
+        self.assertTrue(self._get_device_state(serialno.decode(), output) is None)
+        self._restart_adb_server()
+
+
 class SocketTest(DeviceTest):
     def test_socket_flush(self):
         """Test that we handle socket closure properly.
