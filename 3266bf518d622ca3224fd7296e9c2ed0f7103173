@@ -98,6 +98,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b5301613_64b01972",
+        "filename": "adb.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 835,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-04-25T22:06:25Z",
+      "side": 1,
+      "message": "hmm... does this even make sense on Windows? YAGNI and remove the Windows codepath?",
+      "parentUuid": "9303afb3_19cdba4a",
+      "range": {
+        "startLine": 835,
+        "startChar": 39,
+        "endLine": 835,
+        "endChar": 85
+      },
+      "revId": "3266bf518d622ca3224fd7296e9c2ed0f7103173",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8c31496a_3633e467",
         "filename": "adb.cpp",
         "patchSetId": 3
@@ -221,6 +245,30 @@
       "side": 1,
       "message": "for what file_exists is used for currently the access(F_OK) should not be used because if the user can not access that folder access(F_OK) will return false, but we want to enforce that if that file exists at that location at all then --one-device is required. As for S_ISREG i can add that if it is necessary.",
       "parentUuid": "f50859ab_64300b05",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 1
+      },
+      "revId": "3266bf518d622ca3224fd7296e9c2ed0f7103173",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4e1f27f_f3241f71",
+        "filename": "adb_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-04-25T22:06:25Z",
+      "side": 1,
+      "message": "i don\u0027t think stat() and access() behave any differently in that regard? they should both fail with EACCES in that case? (note this is F_OK, not R_OK...)",
+      "parentUuid": "17ceaf42_6faa12df",
       "range": {
         "startLine": 76,
         "startChar": 0,
