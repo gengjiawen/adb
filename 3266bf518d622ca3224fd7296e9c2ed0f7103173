@@ -50,6 +50,70 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a8fa1dd9_c7311d07",
+        "filename": "adb.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 835,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-04-25T21:24:17Z",
+      "side": 1,
+      "message": "yeah, look at the existing code for dealing with keys: you want  adb_get_android_dir_path() instead of this.",
+      "parentUuid": "f103a729_b6e69805",
+      "range": {
+        "startLine": 835,
+        "startChar": 39,
+        "endLine": 835,
+        "endChar": 85
+      },
+      "revId": "3266bf518d622ca3224fd7296e9c2ed0f7103173",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c31496a_3633e467",
+        "filename": "adb.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 998,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-04-25T21:24:17Z",
+      "side": 1,
+      "message": "todo :-)",
+      "revId": "3266bf518d622ca3224fd7296e9c2ed0f7103173",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9462ccb4_8c74edc4",
+        "filename": "adb.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1029,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-04-25T21:24:17Z",
+      "side": 1,
+      "message": "i\u0027d either move the two paths _inside_ this function or (more likely) just inline this one-liner in the two places it\u0027s used.",
+      "range": {
+        "startLine": 1029,
+        "startChar": 5,
+        "endLine": 1029,
+        "endChar": 27
+      },
+      "revId": "3266bf518d622ca3224fd7296e9c2ed0f7103173",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6fceeced_1852eed7",
         "filename": "adb_utils.cpp",
         "patchSetId": 3
@@ -85,6 +149,30 @@
       "side": 1,
       "message": "hmm i am certainly open to doing this, do you want me to adjust everywhere directory_exists is called as well to use the new method of file_exists(path, is_file)?",
       "parentUuid": "6fceeced_1852eed7",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 1
+      },
+      "revId": "3266bf518d622ca3224fd7296e9c2ed0f7103173",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f50859ab_64300b05",
+        "filename": "adb_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-04-25T21:24:17Z",
+      "side": 1,
+      "message": "personally, since it seems like you don\u0027t actually _mean_ \"file\" (and don\u0027t have any other callers yet) it\u0027s probably not worth getting into this business (and whether there\u0027s a missing S_ISREG() here) --- just use access(F_OK) instead?\n\nif that\u0027s not available on Windows (i have no idea), then we\u0027ll probably want to refactor https://source.corp.google.com/android/system/libbase/file.cpp;l\u003d365;bpv\u003d0;bpt\u003d1 so that the file-existence check in there (which already has cruft for \"Windows vs the world\") can be reused here.",
+      "parentUuid": "25db4e9f_6fbd974b",
       "range": {
         "startLine": 76,
         "startChar": 0,
