@@ -146,6 +146,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "20d54b36_73ad980b",
+        "filename": "adb.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 835,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-04-25T23:40:37Z",
+      "side": 1,
+      "message": "sure, but we can decide whether we want to _support_ that or not. and given that the correct fix here is non-obvious (and what we have now is clearly wrong), i\u0027m leaning towards \"not supported\" :-)",
+      "parentUuid": "7761fd5f_7f2dedd7",
+      "range": {
+        "startLine": 835,
+        "startChar": 39,
+        "endLine": 835,
+        "endChar": 85
+      },
+      "revId": "3266bf518d622ca3224fd7296e9c2ed0f7103173",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8c31496a_3633e467",
         "filename": "adb.cpp",
         "patchSetId": 3
@@ -317,6 +341,30 @@
       "side": 1,
       "message": "i was wrong ACCESS does the same as STAT, but there isnt much difference between the 2 for what this method does, im fine with using either really as long as it works. so the question becomes use stat so it is the same as directory_exists or change it to use Access?",
       "parentUuid": "d4e1f27f_f3241f71",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 1
+      },
+      "revId": "3266bf518d622ca3224fd7296e9c2ed0f7103173",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cec9e44_94783a8f",
+        "filename": "adb_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-04-25T23:40:37Z",
+      "side": 1,
+      "message": "my suggestion is just remove all of this stuff we don\u0027t actually need and just say `if (access(\"/etc/foo\", F_OK) \u003d\u003d 0)` directly instead. given that the body of the if is the error message, we\u0027re already about as self-documenting as possible, and spreading the code around multiple functions in multiple files _harms_ readability rather than helping.",
+      "parentUuid": "f1b8a985_ca0a7f19",
       "range": {
         "startLine": 76,
         "startChar": 0,
