@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89c609ca_8f005835",
+        "filename": "adb.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 835,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-04-25T20:44:41Z",
+      "side": 1,
+      "message": "Sounds like \n\\ProgramData appears to be a good location to consolidate application data, but - is C:\\ProgramData guaranteed to exist? If the C:\\ drive does not exist, is there a fallback?",
+      "range": {
+        "startLine": 835,
+        "startChar": 39,
+        "endLine": 835,
+        "endChar": 85
+      },
+      "revId": "3266bf518d622ca3224fd7296e9c2ed0f7103173",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fceeced_1852eed7",
+        "filename": "adb_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-04-25T20:44:41Z",
+      "side": 1,
+      "message": "Files and directories are very similar - consider combining the two functions - perhaps with an extra (default) param?",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 1
+      },
+      "revId": "3266bf518d622ca3224fd7296e9c2ed0f7103173",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
