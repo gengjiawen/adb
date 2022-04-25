@@ -122,6 +122,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7761fd5f_7f2dedd7",
+        "filename": "adb.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 835,
+      "author": {
+        "id": 1943050
+      },
+      "writtenOn": "2022-04-25T23:02:07Z",
+      "side": 1,
+      "message": "while we dont forsee any windows system ever using this particular feature we cant rule out that some organization out there is using a windows setup that would use this",
+      "parentUuid": "b5301613_64b01972",
+      "range": {
+        "startLine": 835,
+        "startChar": 39,
+        "endLine": 835,
+        "endChar": 85
+      },
+      "revId": "3266bf518d622ca3224fd7296e9c2ed0f7103173",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8c31496a_3633e467",
         "filename": "adb.cpp",
         "patchSetId": 3
@@ -269,6 +293,30 @@
       "side": 1,
       "message": "i don\u0027t think stat() and access() behave any differently in that regard? they should both fail with EACCES in that case? (note this is F_OK, not R_OK...)",
       "parentUuid": "17ceaf42_6faa12df",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 1
+      },
+      "revId": "3266bf518d622ca3224fd7296e9c2ed0f7103173",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1b8a985_ca0a7f19",
+        "filename": "adb_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1943050
+      },
+      "writtenOn": "2022-04-25T23:02:07Z",
+      "side": 1,
+      "message": "i was wrong ACCESS does the same as STAT, but there isnt much difference between the 2 for what this method does, im fine with using either really as long as it works. so the question becomes use stat so it is the same as directory_exists or change it to use Access?",
+      "parentUuid": "d4e1f27f_f3241f71",
       "range": {
         "startLine": 76,
         "startChar": 0,
