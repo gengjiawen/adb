@@ -13,9 +13,9 @@ cc_library {
     name: "libadbd_fs",
     defaults: ["adbd_defaults"],
 
-    srcs: ["adbd_fs.cpp"],
+    srcs: ["adbd_fs.cpp",
+    	"libbase"],
     static_libs: [
-        "libbase",
         "libcutils",
         "liblog",
     ],
