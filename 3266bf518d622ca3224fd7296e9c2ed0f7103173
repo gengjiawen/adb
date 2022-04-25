@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9303afb3_19cdba4a",
+        "filename": "adb.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 835,
+      "author": {
+        "id": 1943050
+      },
+      "writtenOn": "2022-04-25T21:53:06Z",
+      "side": 1,
+      "message": "adb_get_android_dir_path gets the user directory what we want to do is that a system can dictate whether the --one-device option is required for all users of that system so there is no accidental usage of starting a server without --one-device",
+      "parentUuid": "a8fa1dd9_c7311d07",
+      "range": {
+        "startLine": 835,
+        "startChar": 39,
+        "endLine": 835,
+        "endChar": 85
+      },
+      "revId": "3266bf518d622ca3224fd7296e9c2ed0f7103173",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8c31496a_3633e467",
         "filename": "adb.cpp",
         "patchSetId": 3
@@ -173,6 +197,30 @@
       "side": 1,
       "message": "personally, since it seems like you don\u0027t actually _mean_ \"file\" (and don\u0027t have any other callers yet) it\u0027s probably not worth getting into this business (and whether there\u0027s a missing S_ISREG() here) --- just use access(F_OK) instead?\n\nif that\u0027s not available on Windows (i have no idea), then we\u0027ll probably want to refactor https://source.corp.google.com/android/system/libbase/file.cpp;l\u003d365;bpv\u003d0;bpt\u003d1 so that the file-existence check in there (which already has cruft for \"Windows vs the world\") can be reused here.",
       "parentUuid": "25db4e9f_6fbd974b",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 1
+      },
+      "revId": "3266bf518d622ca3224fd7296e9c2ed0f7103173",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17ceaf42_6faa12df",
+        "filename": "adb_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1943050
+      },
+      "writtenOn": "2022-04-25T21:53:06Z",
+      "side": 1,
+      "message": "for what file_exists is used for currently the access(F_OK) should not be used because if the user can not access that folder access(F_OK) will return false, but we want to enforce that if that file exists at that location at all then --one-device is required. As for S_ISREG i can add that if it is necessary.",
+      "parentUuid": "f50859ab_64300b05",
       "range": {
         "startLine": 76,
         "startChar": 0,
