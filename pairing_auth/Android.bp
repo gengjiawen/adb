@@ -60,9 +60,9 @@ cc_defaults {
 
     stl: "libc++_static",
 
-    static_libs: ["libbase"],
     shared_libs: [
-        "libcrypto",
+        "libbase",
+	"libcrypto",
         "liblog",
     ],
 }
