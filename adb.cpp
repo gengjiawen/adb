@@ -29,6 +29,7 @@
 #include <string.h>
 #include <sys/time.h>
 #include <time.h>
+#include <unistd.h>
 
 #include <chrono>
 #include <condition_variable>
@@ -832,11 +833,6 @@ int launch_server(const std::string& socket_spec, const char* one_device) {
         snwprintf(args, arraysize(args),
                   L"adb -L %s fork-server server --reply-fd %d --one-device %s",
                   socket_spec.c_str(), ack_write_as_int, one_device);
-    } else if (is_one_device_required("C:\\ProgramData\\adb\\one_device_required.txt")) {
-        fprintf(stderr,
-                "adb: cannot start server: --one-device option is required for this system in "
-                "order to start adb.\n");
-        return -1;
     } else {
         snwprintf(args, arraysize(args), L"adb -L %s fork-server server --reply-fd %d",
                   socket_spec.c_str(), ack_write_as_int);
@@ -994,8 +990,7 @@ int launch_server(const std::string& socket_spec, const char* one_device) {
         if (one_device) {
             child_argv.push_back("--one-device");
             child_argv.push_back(one_device);
-        } else if (is_one_device_required("/etc/adb/one_device_required")) {
-            fprintf(stderr, "test\n");  // todo clean this up
+        } else if (access("/etc/adb/one_device_required", F_OK) == 0) {
             fprintf(stderr,
                     "adb: cannot start server: --one-device option is required for this system in "
                     "order to start adb.\n");
@@ -1024,11 +1019,6 @@ int launch_server(const std::string& socket_spec, const char* one_device) {
     }
 #endif /* !defined(_WIN32) */
     return 0;
-}
-
-bool is_one_device_required(const std::string& path) {
-    // one device is required if the specified file exists
-    return file_exists(path);
 }
 
 #endif /* ADB_HOST */

@@ -78,11 +78,6 @@ bool directory_exists(const std::string& path) {
   return stat(path.c_str(), &sb) != -1 && S_ISDIR(sb.st_mode);
 }
 
-bool file_exists(const std::string& path) {
-    struct stat sb;
-    return stat(path.c_str(), &sb) != -1;
-}
-
 std::string escape_arg(const std::string& s) {
   // Escape any ' in the string (before we single-quote the whole thing).
   // The correct way to do this for the shell is to replace ' with '\'' --- that is,
