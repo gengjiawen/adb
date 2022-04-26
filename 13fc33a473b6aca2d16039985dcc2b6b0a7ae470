@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "500fc6ca_453ce0d8",
+        "filename": "adb.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 831,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-04-26T20:00:08Z",
+      "side": 1,
+      "message": "Any reason for widening it?",
+      "range": {
+        "startLine": 831,
+        "startChar": 15,
+        "endLine": 831,
+        "endChar": 19
+      },
+      "revId": "13fc33a473b6aca2d16039985dcc2b6b0a7ae470",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b20c19d9_b629829c",
+        "filename": "adb.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1023,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-04-26T20:00:08Z",
+      "side": 1,
+      "message": "Unless clang-tidy added this, pl remove.",
+      "revId": "13fc33a473b6aca2d16039985dcc2b6b0a7ae470",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
