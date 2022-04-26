@@ -168,6 +168,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6b41f39_bd00bfb0",
+        "filename": "adb.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 835,
+      "author": {
+        "id": 1943050
+      },
+      "writtenOn": "2022-04-26T18:46:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20d54b36_73ad980b",
+      "range": {
+        "startLine": 835,
+        "startChar": 39,
+        "endLine": 835,
+        "endChar": 85
+      },
+      "revId": "3266bf518d622ca3224fd7296e9c2ed0f7103173",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c31496a_3633e467",
@@ -185,6 +209,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a87a62a_e7cc6d82",
+        "filename": "adb.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 998,
+      "author": {
+        "id": 1943050
+      },
+      "writtenOn": "2022-04-26T18:46:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c31496a_3633e467",
+      "revId": "3266bf518d622ca3224fd7296e9c2ed0f7103173",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9462ccb4_8c74edc4",
@@ -198,6 +240,30 @@
       "writtenOn": "2022-04-25T21:24:17Z",
       "side": 1,
       "message": "i\u0027d either move the two paths _inside_ this function or (more likely) just inline this one-liner in the two places it\u0027s used.",
+      "range": {
+        "startLine": 1029,
+        "startChar": 5,
+        "endLine": 1029,
+        "endChar": 27
+      },
+      "revId": "3266bf518d622ca3224fd7296e9c2ed0f7103173",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db2caac7_da356302",
+        "filename": "adb.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1029,
+      "author": {
+        "id": 1943050
+      },
+      "writtenOn": "2022-04-26T18:46:49Z",
+      "side": 1,
+      "message": "removed in place of using access in the if block",
+      "parentUuid": "9462ccb4_8c74edc4",
       "range": {
         "startLine": 1029,
         "startChar": 5,
@@ -365,6 +431,30 @@
       "side": 1,
       "message": "my suggestion is just remove all of this stuff we don\u0027t actually need and just say `if (access(\"/etc/foo\", F_OK) \u003d\u003d 0)` directly instead. given that the body of the if is the error message, we\u0027re already about as self-documenting as possible, and spreading the code around multiple functions in multiple files _harms_ readability rather than helping.",
       "parentUuid": "f1b8a985_ca0a7f19",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 1
+      },
+      "revId": "3266bf518d622ca3224fd7296e9c2ed0f7103173",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d3bb87a_21c0ef43",
+        "filename": "adb_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1943050
+      },
+      "writtenOn": "2022-04-26T18:46:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cec9e44_94783a8f",
       "range": {
         "startLine": 76,
         "startChar": 0,
