@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56b4c150_7c9380b1",
+        "filename": "libs/adbconnection/Android.bp",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-05-02T18:17:29Z",
+      "side": 1,
+      "message": "run bpfmt on these files? this looks wrong.",
+      "revId": "5a97d579e4b6711a51325c926880d2c436014cff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
