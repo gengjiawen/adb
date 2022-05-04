@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4cc7abdb_f0e419ff",
+        "filename": "pairing_connection/Android.bp",
+        "patchSetId": 19
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-05-04T20:46:02Z",
+      "side": 0,
+      "message": "(and thanks for fixing this while you were here :-) )",
+      "range": {
+        "startLine": 179,
+        "startChar": 0,
+        "endLine": 179,
+        "endChar": 1
+      },
+      "revId": "17b638c32418194eb7ec81bc2de37bf2eb838089",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
