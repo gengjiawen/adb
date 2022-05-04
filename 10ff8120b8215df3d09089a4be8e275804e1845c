@@ -16,6 +16,24 @@
       "message": "stray tab",
       "revId": "10ff8120b8215df3d09089a4be8e275804e1845c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a919f780_f2a6a1b9",
+        "filename": "pairing_connection/Android.bp",
+        "patchSetId": 18
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1949445
+      },
+      "writtenOn": "2022-05-04T20:17:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61217cc0_9dff8f55",
+      "revId": "10ff8120b8215df3d09089a4be8e275804e1845c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
