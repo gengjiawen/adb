@@ -16,6 +16,24 @@
       "message": "now you have libbase in both static *and* shared...",
       "revId": "d04636e21e3cc6b8c042efcf21b78b957211124c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b99e969_50621898",
+        "filename": "pairing_connection/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1949445
+      },
+      "writtenOn": "2022-05-05T18:22:31Z",
+      "side": 1,
+      "message": "Done, sorry about that, was trying to fix a merge conflict. Should be set now!",
+      "parentUuid": "8bd1d2e2_036f3eae",
+      "revId": "d04636e21e3cc6b8c042efcf21b78b957211124c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
