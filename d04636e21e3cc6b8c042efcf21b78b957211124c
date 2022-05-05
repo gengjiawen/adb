@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bd1d2e2_036f3eae",
+        "filename": "pairing_connection/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-05-05T18:21:19Z",
+      "side": 1,
+      "message": "now you have libbase in both static *and* shared...",
+      "revId": "d04636e21e3cc6b8c042efcf21b78b957211124c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
