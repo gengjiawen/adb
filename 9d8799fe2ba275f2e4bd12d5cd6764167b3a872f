@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a239a35_945ec265",
+        "filename": "adb.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-05-06T04:49:32Z",
+      "side": 1,
+      "message": "Nit: since we invoke sizeof(x) thrice, consider a const local",
+      "range": {
+        "startLine": 243,
+        "startChar": 29,
+        "endLine": 245,
+        "endChar": 62
+      },
+      "revId": "9d8799fe2ba275f2e4bd12d5cd6764167b3a872f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b87ea349_b786da54",
+        "filename": "adb.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-05-06T04:49:32Z",
+      "side": 1,
+      "message": "Consider refactor/hauling outside the if()/else(). Will the logging get noisy?",
+      "range": {
+        "startLine": 497,
+        "startChar": 20,
+        "endLine": 503,
+        "endChar": 32
+      },
+      "revId": "9d8799fe2ba275f2e4bd12d5cd6764167b3a872f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b54d05c5_abcf842f",
+        "filename": "sockets.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-05-06T04:49:32Z",
+      "side": 1,
+      "message": "Is create_local_socket() no-fail?",
+      "range": {
+        "startLine": 474,
+        "startChar": 4,
+        "endLine": 474,
+        "endChar": 7
+      },
+      "revId": "9d8799fe2ba275f2e4bd12d5cd6764167b3a872f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

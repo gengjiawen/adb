@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f790c4c4_bad4812f",
+        "filename": "daemon/services.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-05-06T04:49:32Z",
+      "side": 0,
+      "message": "Should the default constructor be suppressed as a private/unimplemented?",
+      "range": {
+        "startLine": 165,
+        "startChar": 4,
+        "endLine": 165,
+        "endChar": 19
+      },
+      "revId": "d1ffe2d0537c005750fb78c65edd54a9d17b09e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
