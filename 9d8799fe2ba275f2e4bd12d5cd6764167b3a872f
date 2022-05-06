@@ -164,6 +164,30 @@
       },
       "revId": "9d8799fe2ba275f2e4bd12d5cd6764167b3a872f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "835ef567_d4afc9dd",
+        "filename": "sockets.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-05-06T15:14:17Z",
+      "side": 1,
+      "message": "(not in this CL obviously, but it might be worth sprinkling the equivalent of bionic\u0027s `__wur` everywhere so the computer can worry about that rather than humans...)",
+      "parentUuid": "e7aa98ed_2bd60dfe",
+      "range": {
+        "startLine": 474,
+        "startChar": 4,
+        "endLine": 474,
+        "endChar": 7
+      },
+      "revId": "9d8799fe2ba275f2e4bd12d5cd6764167b3a872f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
