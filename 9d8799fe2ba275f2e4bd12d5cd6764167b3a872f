@@ -188,6 +188,30 @@
       },
       "revId": "9d8799fe2ba275f2e4bd12d5cd6764167b3a872f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27ff3d25_7d34c839",
+        "filename": "sockets.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1894651
+      },
+      "writtenOn": "2022-05-06T21:08:44Z",
+      "side": 1,
+      "message": "Are _Nullable/_Nonnull warnings usable yet? IIRC, they were all guarded by one flag, and that flag also required that you added nullability annotations to every pointer in the file.",
+      "parentUuid": "835ef567_d4afc9dd",
+      "range": {
+        "startLine": 474,
+        "startChar": 4,
+        "endLine": 474,
+        "endChar": 7
+      },
+      "revId": "9d8799fe2ba275f2e4bd12d5cd6764167b3a872f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
