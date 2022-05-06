@@ -95,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "05a57f6e_7426f0b4",
+        "filename": "adb.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 1894651
+      },
+      "writtenOn": "2022-05-06T06:04:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bedd2822_376daeff",
+      "range": {
+        "startLine": 497,
+        "startChar": 20,
+        "endLine": 503,
+        "endChar": 32
+      },
+      "revId": "9d8799fe2ba275f2e4bd12d5cd6764167b3a872f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b54d05c5_abcf842f",
