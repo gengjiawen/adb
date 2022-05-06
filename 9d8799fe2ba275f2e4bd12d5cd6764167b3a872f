@@ -212,6 +212,30 @@
       },
       "revId": "9d8799fe2ba275f2e4bd12d5cd6764167b3a872f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a6e7df8_85fdaaec",
+        "filename": "sockets.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-05-06T22:26:52Z",
+      "side": 1,
+      "message": "afaik that\u0027s not changed :-(",
+      "parentUuid": "27ff3d25_7d34c839",
+      "range": {
+        "startLine": 474,
+        "startChar": 4,
+        "endLine": 474,
+        "endChar": 7
+      },
+      "revId": "9d8799fe2ba275f2e4bd12d5cd6764167b3a872f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
