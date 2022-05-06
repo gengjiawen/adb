@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bd04ba9b_153021f4",
+        "filename": "adb.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1894651
+      },
+      "writtenOn": "2022-05-06T06:03:54Z",
+      "side": 1,
+      "message": "I don\u0027t think that makes the code any better.\n\nI\u0027d rather just inline 4 and add a static_assert that sizeof(ack_bytes) \u003d\u003d 4, because we cannot change this without a protocol rev.",
+      "parentUuid": "5a239a35_945ec265",
+      "range": {
+        "startLine": 243,
+        "startChar": 29,
+        "endLine": 245,
+        "endChar": 62
+      },
+      "revId": "9d8799fe2ba275f2e4bd12d5cd6764167b3a872f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b87ea349_b786da54",
         "filename": "adb.cpp",
         "patchSetId": 5
@@ -49,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bedd2822_376daeff",
+        "filename": "adb.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 1894651
+      },
+      "writtenOn": "2022-05-06T06:03:54Z",
+      "side": 1,
+      "message": "The logs are DEBUG, so it should only show up when persist.adb.trace_mask is set. (default is INFO, iirc).\n\nExtracting the s-\u003eready(s), but left the send_ready, since that wouldn\u0027t save any code. While I was at it, I removed some layers of indentation by adding some early exits.",
+      "parentUuid": "b87ea349_b786da54",
+      "range": {
+        "startLine": 497,
+        "startChar": 20,
+        "endLine": 503,
+        "endChar": 32
+      },
+      "revId": "9d8799fe2ba275f2e4bd12d5cd6764167b3a872f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b54d05c5_abcf842f",
         "filename": "sockets.cpp",
         "patchSetId": 5
@@ -60,6 +108,30 @@
       "writtenOn": "2022-05-06T04:49:32Z",
       "side": 1,
       "message": "Is create_local_socket() no-fail?",
+      "range": {
+        "startLine": 474,
+        "startChar": 4,
+        "endLine": 474,
+        "endChar": 7
+      },
+      "revId": "9d8799fe2ba275f2e4bd12d5cd6764167b3a872f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7aa98ed_2bd60dfe",
+        "filename": "sockets.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1894651
+      },
+      "writtenOn": "2022-05-06T06:03:54Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "b54d05c5_abcf842f",
       "range": {
         "startLine": 474,
         "startChar": 4,
