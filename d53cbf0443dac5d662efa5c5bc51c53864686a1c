@@ -22,6 +22,30 @@
       },
       "revId": "d53cbf0443dac5d662efa5c5bc51c53864686a1c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20fb6b7c_6d6efe7a",
+        "filename": "adb.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1881459
+      },
+      "writtenOn": "2022-05-08T14:19:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c7f9f5a_2ecb4298",
+      "range": {
+        "startLine": 37,
+        "startChar": 41,
+        "endLine": 37,
+        "endChar": 43
+      },
+      "revId": "d53cbf0443dac5d662efa5c5bc51c53864686a1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
