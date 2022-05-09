@@ -46,6 +46,30 @@
       },
       "revId": "d53cbf0443dac5d662efa5c5bc51c53864686a1c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba8152f5_6a2bd5b6",
+        "filename": "adb.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1894651
+      },
+      "writtenOn": "2022-05-09T18:28:20Z",
+      "side": 1,
+      "message": "I wasn\u0027t seeing any improvement with a higher value, presumably due to other inefficiencies. 32 MB should be sufficient for 2.5Gbps up to 100ms of latency, which is way higher than should be happening.",
+      "parentUuid": "6c7f9f5a_2ecb4298",
+      "range": {
+        "startLine": 37,
+        "startChar": 41,
+        "endLine": 37,
+        "endChar": 43
+      },
+      "revId": "d53cbf0443dac5d662efa5c5bc51c53864686a1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
