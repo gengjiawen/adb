@@ -3,6 +3,69 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1d3da630_a5cb6642",
+        "filename": "adb.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-05-18T17:33:26Z",
+      "side": 1,
+      "message": "sockets.cpp #572\n s-\u003eavailable_send_bytes \u003d MAX_DELAYED_ACK_BYTES;\n \nIs this value the bytes that can be acknowledged? If so, please add an appropriate comment.",
+      "range": {
+        "startLine": 236,
+        "startChar": 73,
+        "endLine": 236,
+        "endChar": 82
+      },
+      "revId": "d53cbf0443dac5d662efa5c5bc51c53864686a1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c4a63d4_215888c0",
+        "filename": "adb.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-05-18T17:33:26Z",
+      "side": 1,
+      "message": "À",
+      "revId": "d53cbf0443dac5d662efa5c5bc51c53864686a1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fe25075_b053caee",
+        "filename": "adb.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-05-18T17:33:26Z",
+      "side": 1,
+      "message": "Switch to asocket\u0026 instead (since this will never be null)?",
+      "range": {
+        "startLine": 539,
+        "startChar": 37,
+        "endLine": 539,
+        "endChar": 39
+      },
+      "revId": "d53cbf0443dac5d662efa5c5bc51c53864686a1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6c7f9f5a_2ecb4298",
         "filename": "adb.h",
         "patchSetId": 6
@@ -67,6 +130,190 @@
         "startChar": 41,
         "endLine": 37,
         "endChar": 43
+      },
+      "revId": "d53cbf0443dac5d662efa5c5bc51c53864686a1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8df3bccd_3e66bd5a",
+        "filename": "adb.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-05-18T17:33:26Z",
+      "side": 1,
+      "message": "How does this relate(if any) to MAX_PAYLOAD(is it 4*sizeof(byte)*MAX_PAYLOAD)? Also, is this bytes?\nsockets.cpp #572\n s-\u003eavailable_send_bytes \u003d MAX_DELAYED_ACK_BYTES;",
+      "range": {
+        "startLine": 37,
+        "startChar": 41,
+        "endLine": 37,
+        "endChar": 57
+      },
+      "revId": "d53cbf0443dac5d662efa5c5bc51c53864686a1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2be25a67_08902526",
+        "filename": "adb.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-05-18T17:33:26Z",
+      "side": 1,
+      "message": "Is this bytes?\n s-\u003eavailable_send_bytes \u003d MAX_DELAYED_ACK_BYTES;\n sockets.cpp 572",
+      "range": {
+        "startLine": 241,
+        "startChar": 73,
+        "endLine": 241,
+        "endChar": 82
+      },
+      "revId": "d53cbf0443dac5d662efa5c5bc51c53864686a1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "924dd057_409d5f2c",
+        "filename": "daemon/services.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-05-18T17:33:26Z",
+      "side": 1,
+      "message": "Disable assignment?",
+      "range": {
+        "startLine": 178,
+        "startChar": 4,
+        "endLine": 178,
+        "endChar": 44
+      },
+      "revId": "d53cbf0443dac5d662efa5c5bc51c53864686a1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46785e05_10d64579",
+        "filename": "sockets.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-05-18T17:33:26Z",
+      "side": 1,
+      "message": "You can use __func__ (here and above).",
+      "range": {
+        "startLine": 128,
+        "startChar": 18,
+        "endLine": 128,
+        "endChar": 45
+      },
+      "revId": "d53cbf0443dac5d662efa5c5bc51c53864686a1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e425bba4_05f3e905",
+        "filename": "sockets.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-05-18T17:33:26Z",
+      "side": 1,
+      "message": "Can we do CHECK() (or some such) for the condition described in line #146?",
+      "range": {
+        "startLine": 137,
+        "startChar": 12,
+        "endLine": 137,
+        "endChar": 26
+      },
+      "revId": "d53cbf0443dac5d662efa5c5bc51c53864686a1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b086840_d7e56acc",
+        "filename": "sockets.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-05-18T17:33:26Z",
+      "side": 1,
+      "message": "Reference instead?",
+      "range": {
+        "startLine": 420,
+        "startChar": 22,
+        "endLine": 420,
+        "endChar": 32
+      },
+      "revId": "d53cbf0443dac5d662efa5c5bc51c53864686a1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "805cc19f_b2880c9b",
+        "filename": "transport.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1293,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-05-18T17:33:26Z",
+      "side": 1,
+      "message": "#if ADB_HOST\n        if (delayed_ack_enabled())\n#endif\n        result.push_back(kFeatureDelayedAck);\nLesser LOC above - feel free to keep as-is, if this looks complex.",
+      "range": {
+        "startLine": 1287,
+        "startChar": 0,
+        "endLine": 1293,
+        "endChar": 6
+      },
+      "revId": "d53cbf0443dac5d662efa5c5bc51c53864686a1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f73457c_b7e8f08d",
+        "filename": "transport.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1326,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-05-18T17:33:26Z",
+      "side": 1,
+      "message": "Inline(move to the header) since this is a POD byte read?",
+      "range": {
+        "startLine": 1325,
+        "startChar": 0,
+        "endLine": 1326,
+        "endChar": 24
       },
       "revId": "d53cbf0443dac5d662efa5c5bc51c53864686a1c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
