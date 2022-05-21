@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6bccf79_c16ba8c7",
+        "filename": "daemon/services.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-05-21T08:33:45Z",
+      "side": 1,
+      "message": "Can this be null? Please add a comment (or CHECK) if that\u0027s not the case, since it\u0027s confusing from a readability standpoint (and the intent is  to merely maintain  consistency with the legacy code-base).",
+      "range": {
+        "startLine": 165,
+        "startChar": 27,
+        "endLine": 165,
+        "endChar": 38
+      },
+      "revId": "27b8952fcfd1ac56d6527452706909bbdcb72a77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

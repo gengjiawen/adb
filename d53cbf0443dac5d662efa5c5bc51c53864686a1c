@@ -147,6 +147,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbcc0fbf_f47bc349",
+        "filename": "adb.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-05-21T08:33:45Z",
+      "side": 1,
+      "message": "Non-optional input parameters should usually be values or const references, while non-optional output and input/output parameters should usually be references (which cannot be null). \nRef: https://engdoc.corp.google.com/eng/doc/devguide/cpp/styleguide.md?cl\u003dhead\u0026l\u003d100#Inputs_and_Outputs (there might be a public version as well)\n\nLeaving this resolved, since you\u0027re right in that it would diverge from existing code (action item for me to address that separately, as applicable).",
+      "parentUuid": "4e4cce91_8700b032",
+      "range": {
+        "startLine": 539,
+        "startChar": 37,
+        "endLine": 539,
+        "endChar": 39
+      },
+      "revId": "d53cbf0443dac5d662efa5c5bc51c53864686a1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6c7f9f5a_2ecb4298",
@@ -396,6 +420,30 @@
       "side": 1,
       "message": "I don\u0027t agree that it\u0027s an improvement, but fine.",
       "parentUuid": "46785e05_10d64579",
+      "range": {
+        "startLine": 128,
+        "startChar": 18,
+        "endLine": 128,
+        "endChar": 45
+      },
+      "revId": "d53cbf0443dac5d662efa5c5bc51c53864686a1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa384bc9_4b8d7dee",
+        "filename": "sockets.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-05-21T08:33:45Z",
+      "side": 1,
+      "message": "If the function gets renamed, there\u0027s no need to maintain/touch this log. Also, it\u0027s fewer characters (in this particular case).",
+      "parentUuid": "89fcbb4c_73e4684d",
       "range": {
         "startLine": 128,
         "startChar": 18,
