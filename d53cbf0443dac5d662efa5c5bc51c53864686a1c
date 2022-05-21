@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3016c3e6_25a2a9a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894651
+      },
+      "writtenOn": "2022-05-21T01:39:36Z",
+      "side": 1,
+      "message": "PS7 also fixes a bug: on the side that\u0027s opening a socket, we were ignoring the first A_OKAY ack value, and initializing the send window to our default value, not the one that the remote side sent to us.",
+      "revId": "d53cbf0443dac5d662efa5c5bc51c53864686a1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1d3da630_a5cb6642",
@@ -14,6 +31,30 @@
       "writtenOn": "2022-05-18T17:33:26Z",
       "side": 1,
       "message": "sockets.cpp #572\n s-\u003eavailable_send_bytes \u003d MAX_DELAYED_ACK_BYTES;\n \nIs this value the bytes that can be acknowledged? If so, please add an appropriate comment.",
+      "range": {
+        "startLine": 236,
+        "startChar": 73,
+        "endLine": 236,
+        "endChar": 82
+      },
+      "revId": "d53cbf0443dac5d662efa5c5bc51c53864686a1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51fc38bd_924d6c6c",
+        "filename": "adb.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1894651
+      },
+      "writtenOn": "2022-05-21T01:39:36Z",
+      "side": 1,
+      "message": "It\u0027s the initial number of bytes we\u0027re willing to accept from the other side. Renamed to INITIAL_DELAYED_ACK_BYTES for clarity.",
+      "parentUuid": "1d3da630_a5cb6642",
       "range": {
         "startLine": 236,
         "startChar": 73,
@@ -72,6 +113,30 @@
       "writtenOn": "2022-05-18T17:33:26Z",
       "side": 1,
       "message": "Switch to asocket\u0026 instead (since this will never be null)?",
+      "range": {
+        "startLine": 539,
+        "startChar": 37,
+        "endLine": 539,
+        "endChar": 39
+      },
+      "revId": "d53cbf0443dac5d662efa5c5bc51c53864686a1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e4cce91_8700b032",
+        "filename": "adb.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1894651
+      },
+      "writtenOn": "2022-05-21T01:39:36Z",
+      "side": 1,
+      "message": "I don\u0027t think that\u0027s an improvement: this would diverge from the rest of the code base and force you to randomly pass *s or s depending on when a function was written.",
+      "parentUuid": "4fe25075_b053caee",
       "range": {
         "startLine": 539,
         "startChar": 37,
@@ -176,6 +241,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1847d70f_89e38646",
+        "filename": "adb.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1894651
+      },
+      "writtenOn": "2022-05-21T01:39:36Z",
+      "side": 1,
+      "message": "It\u0027s not related to MAX_PAYLOAD.",
+      "parentUuid": "8df3bccd_3e66bd5a",
+      "range": {
+        "startLine": 37,
+        "startChar": 41,
+        "endLine": 37,
+        "endChar": 57
+      },
+      "revId": "d53cbf0443dac5d662efa5c5bc51c53864686a1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2be25a67_08902526",
@@ -189,6 +278,30 @@
       "writtenOn": "2022-05-18T17:33:26Z",
       "side": 1,
       "message": "Is this bytes?\n s-\u003eavailable_send_bytes \u003d MAX_DELAYED_ACK_BYTES;\n sockets.cpp 572",
+      "range": {
+        "startLine": 241,
+        "startChar": 73,
+        "endLine": 241,
+        "endChar": 82
+      },
+      "revId": "d53cbf0443dac5d662efa5c5bc51c53864686a1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c04d2591_234bdc67",
+        "filename": "adb.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1894651
+      },
+      "writtenOn": "2022-05-21T01:39:36Z",
+      "side": 1,
+      "message": "Yes?",
+      "parentUuid": "2be25a67_08902526",
       "range": {
         "startLine": 241,
         "startChar": 73,
@@ -222,6 +335,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "43d87e1a_1a09d0a8",
+        "filename": "daemon/services.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1894651
+      },
+      "writtenOn": "2022-05-21T01:39:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "924dd057_409d5f2c",
+      "range": {
+        "startLine": 178,
+        "startChar": 4,
+        "endLine": 178,
+        "endChar": 44
+      },
+      "revId": "d53cbf0443dac5d662efa5c5bc51c53864686a1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "46785e05_10d64579",
@@ -235,6 +372,30 @@
       "writtenOn": "2022-05-18T17:33:26Z",
       "side": 1,
       "message": "You can use __func__ (here and above).",
+      "range": {
+        "startLine": 128,
+        "startChar": 18,
+        "endLine": 128,
+        "endChar": 45
+      },
+      "revId": "d53cbf0443dac5d662efa5c5bc51c53864686a1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89fcbb4c_73e4684d",
+        "filename": "sockets.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1894651
+      },
+      "writtenOn": "2022-05-21T01:39:36Z",
+      "side": 1,
+      "message": "I don\u0027t agree that it\u0027s an improvement, but fine.",
+      "parentUuid": "46785e05_10d64579",
       "range": {
         "startLine": 128,
         "startChar": 18,
@@ -268,6 +429,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "699eb6d7_f1d09fb5",
+        "filename": "sockets.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1894651
+      },
+      "writtenOn": "2022-05-21T01:39:36Z",
+      "side": 1,
+      "message": "I don\u0027t think that\u0027s necessary? It\u0027s the precondition for us being here in the first place, and we\u0027re obviously not mutating packet_queue on the side of the branch.",
+      "parentUuid": "e425bba4_05f3e905",
+      "range": {
+        "startLine": 137,
+        "startChar": 12,
+        "endLine": 137,
+        "endChar": 26
+      },
+      "revId": "d53cbf0443dac5d662efa5c5bc51c53864686a1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0b086840_d7e56acc",
@@ -281,6 +466,30 @@
       "writtenOn": "2022-05-18T17:33:26Z",
       "side": 1,
       "message": "Reference instead?",
+      "range": {
+        "startLine": 420,
+        "startChar": 22,
+        "endLine": 420,
+        "endChar": 32
+      },
+      "revId": "d53cbf0443dac5d662efa5c5bc51c53864686a1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6b02b8f_3eae0e46",
+        "filename": "sockets.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1894651
+      },
+      "writtenOn": "2022-05-21T01:39:36Z",
+      "side": 1,
+      "message": "(see above)",
+      "parentUuid": "0b086840_d7e56acc",
       "range": {
         "startLine": 420,
         "startChar": 22,
@@ -327,6 +536,30 @@
       "writtenOn": "2022-05-18T17:33:26Z",
       "side": 1,
       "message": "Inline(move to the header) since this is a POD byte read?",
+      "range": {
+        "startLine": 1325,
+        "startChar": 0,
+        "endLine": 1326,
+        "endChar": 24
+      },
+      "revId": "d53cbf0443dac5d662efa5c5bc51c53864686a1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "003d0246_8ed3e41c",
+        "filename": "transport.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1326,
+      "author": {
+        "id": 1894651
+      },
+      "writtenOn": "2022-05-21T01:39:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f73457c_b7e8f08d",
       "range": {
         "startLine": 1325,
         "startChar": 0,
