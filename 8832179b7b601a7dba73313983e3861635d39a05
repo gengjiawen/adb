@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "423dbbb9_634aa8b1",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-05-23T17:15:36Z",
+      "side": 1,
+      "message": "(continued lines like this should line up with the right-hand column)",
+      "revId": "8832179b7b601a7dba73313983e3861635d39a05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cd4e671_b1d23d63",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-05-23T17:15:36Z",
+      "side": 1,
+      "message": "this makes me question why this change would be a good idea. the fact that we need to add docs (that no-one will read) and remove a helpful error message (that they will) makes this seem like a bad idea to me?",
+      "range": {
+        "startLine": 102,
+        "startChar": 47,
+        "endLine": 103,
+        "endChar": 19
+      },
+      "revId": "8832179b7b601a7dba73313983e3861635d39a05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
