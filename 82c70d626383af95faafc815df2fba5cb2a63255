@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f82ffa92_a8ddba55",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1680,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-05-23T22:35:32Z",
+      "side": 0,
+      "message": "Someone in line with the comment from enh@: go/adb-silos is a narrow use-case and the very vast majority of adb users would be (blissfully!) unaware of the intricacies (as they should be). Given that, an in-your-face error (although unsettling at that moment) might be acceptable vs the intellectual overhead for absorbing go/adb-silos. Is there any downside to leaving this error_exit() in?",
+      "range": {
+        "startLine": 1680,
+        "startChar": 4,
+        "endLine": 1680,
+        "endChar": 21
+      },
+      "revId": "82c70d626383af95faafc815df2fba5cb2a63255",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
