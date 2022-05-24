@@ -22,6 +22,30 @@
       },
       "revId": "82c70d626383af95faafc815df2fba5cb2a63255",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3defb0b_cb93848a",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1680,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-05-24T02:45:10Z",
+      "side": 0,
+      "message": ":%s/Someone/Somewhat",
+      "parentUuid": "f82ffa92_a8ddba55",
+      "range": {
+        "startLine": 1680,
+        "startChar": 4,
+        "endLine": 1680,
+        "endChar": 21
+      },
+      "revId": "82c70d626383af95faafc815df2fba5cb2a63255",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
