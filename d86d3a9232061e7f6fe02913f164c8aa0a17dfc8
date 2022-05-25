@@ -16,6 +16,24 @@
       "message": "I feel like this adds some risk if we add things into s-launched-apex-module that we don\u0027t want adb to get just because of this min_sdk_version hack we have.\n\nI wonder if this would make more sense if it was inverted, such that we have a  dcla-r-launched-apex-module that inherits r-launched-apex-module and twiddles these settings? Would that work w.r.t defaults resolution order? I\u0027m guessing yes but I\u0027m not sure.",
       "revId": "d86d3a9232061e7f6fe02913f164c8aa0a17dfc8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a03f4fd_c75acd3a",
+        "filename": "apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1687194
+      },
+      "writtenOn": "2022-05-25T23:20:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "efa5524b_126fdc2d",
+      "revId": "d86d3a9232061e7f6fe02913f164c8aa0a17dfc8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
