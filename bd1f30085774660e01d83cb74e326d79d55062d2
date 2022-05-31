@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0d083a4_f61d16f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-05-31T13:54:12Z",
+      "side": 1,
+      "message": "Can we specify a bug (or feature request) for this CL? (unsure whether we have an existing bug already, since this appears to be the result of some previously planned work).",
+      "revId": "bd1f30085774660e01d83cb74e326d79d55062d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
