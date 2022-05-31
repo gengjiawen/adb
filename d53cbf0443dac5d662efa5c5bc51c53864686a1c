@@ -171,6 +171,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da80c8ed_8fcb5e46",
+        "filename": "adb.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-05-31T13:49:57Z",
+      "side": 1,
+      "message": "Resolving as we decided to maintain the legacy interface (will rework in a separate CL, as applicable).",
+      "parentUuid": "4fe25075_b053caee",
+      "range": {
+        "startLine": 539,
+        "startChar": 37,
+        "endLine": 539,
+        "endChar": 39
+      },
+      "revId": "d53cbf0443dac5d662efa5c5bc51c53864686a1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6c7f9f5a_2ecb4298",
