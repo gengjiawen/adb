@@ -595,6 +595,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1319546f_88f41703",
+        "filename": "transport.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1293,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-06-08T23:24:26Z",
+      "side": 1,
+      "message": "Closing out.",
+      "parentUuid": "805cc19f_b2880c9b",
+      "range": {
+        "startLine": 1287,
+        "startChar": 0,
+        "endLine": 1293,
+        "endChar": 6
+      },
+      "revId": "d53cbf0443dac5d662efa5c5bc51c53864686a1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3f73457c_b7e8f08d",
