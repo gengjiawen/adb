@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3b9ec6f_f71fde14",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-06-10T16:09:07Z",
+      "side": 1,
+      "message": "it might be clearer in the history to revert the original removal CL and then have a CL with your extra commentary on top of that instead?",
+      "revId": "455871ee313d5124ccff5cd9ddb10ef00d2260dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9a28851_ad24d114",
+        "filename": "SERVICES.TXT",
+        "patchSetId": 8
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-06-10T16:09:07Z",
+      "side": 1,
+      "message": "it\u0027s just an open() so it could be any file, right? or a pipe?",
+      "range": {
+        "startLine": 176,
+        "startChar": 12,
+        "endLine": 176,
+        "endChar": 23
+      },
+      "revId": "455871ee313d5124ccff5cd9ddb10ef00d2260dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f63b5848_79265725",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-06-10T16:09:07Z",
+      "side": 1,
+      "message": "device",
+      "range": {
+        "startLine": 123,
+        "startChar": 31,
+        "endLine": 123,
+        "endChar": 34
+      },
+      "revId": "455871ee313d5124ccff5cd9ddb10ef00d2260dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff8902d3_d2561eaa",
+        "filename": "daemon/services.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-06-10T16:09:07Z",
+      "side": 1,
+      "message": "to be honest, i still don\u0027t really understand their use case. _why_ is this useful?\n\n(i was expecting it was going to be the _opposite_, so a serial console on the device could be exposed as a network port on the host...)",
+      "revId": "455871ee313d5124ccff5cd9ddb10ef00d2260dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
