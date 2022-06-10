@@ -51,6 +51,23 @@
       "message": "Thanks, Josh!",
       "revId": "bd1f30085774660e01d83cb74e326d79d55062d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51f2fe7b_4a5d2df4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-06-10T21:43:00Z",
+      "side": 1,
+      "message": "i think you\u0027re just wasting your time repeatedly re-running presubmit --- i don\u0027t think you\u0027ll ever get a run with no warnings. (and our \"natural\" flake rate for the adb tests is 33%!)\n\nit probably makes more sense to look at what the warnings were? looks like it\u0027s some app compat issue that looks more like an ndk-translation thing: https://android-build.googleplex.com/builds/tests/view?invocationId\u003dI96500010059501978\u0026testResultId\u003dTR88628081881994600",
+      "revId": "bd1f30085774660e01d83cb74e326d79d55062d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
