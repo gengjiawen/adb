@@ -79,6 +79,24 @@
       "message": "to be honest, i still don\u0027t really understand their use case. _why_ is this useful?\n\n(i was expecting it was going to be the _opposite_, so a serial console on the device could be exposed as a network port on the host...)",
       "revId": "455871ee313d5124ccff5cd9ddb10ef00d2260dd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48150c73_d66ff3b8",
+        "filename": "daemon/services.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-06-13T23:25:24Z",
+      "side": 1,
+      "message": "Given comments #1 and this one, I feel I should wait for the reporter to clearly articulate expected behavior before moving forward. Thanks for this feedback (will keep these open for now).",
+      "parentUuid": "ff8902d3_d2561eaa",
+      "revId": "455871ee313d5124ccff5cd9ddb10ef00d2260dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
