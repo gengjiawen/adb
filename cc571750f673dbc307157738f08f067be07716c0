@@ -16,6 +16,24 @@
       "message": "just put the test _command_ in the commit message, not the entire output. i think that only makes sense if you\u0027re looking at a benchmark (in which case you want before and after anyway) or some _manual_ testing (in which case you should be asking yourself \"can i turn this into an actual test\" anyway!).",
       "revId": "cc571750f673dbc307157738f08f067be07716c0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbcaf31a_de1ad4ed",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-06-28T15:53:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19d84edd_29678d4c",
+      "revId": "cc571750f673dbc307157738f08f067be07716c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
