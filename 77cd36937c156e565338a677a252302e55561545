@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "739ffafb_3ee0667b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-07-07T22:38:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f8489e8_cf3dab06",
+      "range": {
+        "startLine": 11,
+        "startChar": 5,
+        "endLine": 11,
+        "endChar": 7
+      },
+      "revId": "77cd36937c156e565338a677a252302e55561545",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "07f13810_2dafa20c",
@@ -41,6 +65,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "49abcd92_9a5b4df1",
+        "filename": "SERVICES.TXT",
+        "patchSetId": 2
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-07-07T22:38:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07f13810_2dafa20c",
+      "revId": "77cd36937c156e565338a677a252302e55561545",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a273cb47_0a3dec7a",
@@ -54,6 +96,30 @@
       "writtenOn": "2022-07-07T22:23:11Z",
       "side": 1,
       "message": "\"mangle output\"(in plural, for consistency with line #180).",
+      "range": {
+        "startLine": 172,
+        "startChar": 59,
+        "endLine": 172,
+        "endChar": 72
+      },
+      "revId": "77cd36937c156e565338a677a252302e55561545",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89209edb_47c74f85",
+        "filename": "SERVICES.TXT",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-07-07T22:38:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a273cb47_0a3dec7a",
       "range": {
         "startLine": 172,
         "startChar": 59,
