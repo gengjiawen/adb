@@ -16,6 +16,24 @@
       "message": "Fold this into https://android-review.googlesource.com/c/platform/packages/modules/adb/+/2034825 ?",
       "revId": "5e5d2e50b2b120eb0c2c2ffead76384670b647d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "154cad3c_ed335ee1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-07-07T23:13:23Z",
+      "side": 1,
+      "message": "I would prefer to keep it separated so people who search for \"get-product\" have a simple clear CL explaining what this was instead of having to parse a commit message.",
+      "parentUuid": "38d4ffca_c0387c25",
+      "revId": "5e5d2e50b2b120eb0c2c2ffead76384670b647d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
