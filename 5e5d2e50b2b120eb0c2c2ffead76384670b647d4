@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38d4ffca_c0387c25",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-07-07T23:08:12Z",
+      "side": 1,
+      "message": "Fold this into https://android-review.googlesource.com/c/platform/packages/modules/adb/+/2034825 ?",
+      "revId": "5e5d2e50b2b120eb0c2c2ffead76384670b647d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
