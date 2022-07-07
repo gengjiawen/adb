@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4348ab24_bd94ff51",
+        "filename": "man/adb.1",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-07-07T22:36:45Z",
+      "side": 1,
+      "message": "Wonder whether it should be (further) qualified as \u0027in-process server\u0027? (which\u0027ll also serve to preclude the need for extra verbiage).\ne.g. adb is a client to the adb server (that runs in-process)",
+      "range": {
+        "startLine": 11,
+        "startChar": 37,
+        "endLine": 11,
+        "endChar": 72
+      },
+      "revId": "1255cac56ff047107a0aa96596f5aca2feac74aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "accffc8b_0157a28e",
+        "filename": "man/adb.1",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-07-07T22:36:45Z",
+      "side": 1,
+      "message": "Needs correction?",
+      "range": {
+        "startLine": 34,
+        "startChar": 18,
+        "endLine": 34,
+        "endChar": 31
+      },
+      "revId": "1255cac56ff047107a0aa96596f5aca2feac74aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
