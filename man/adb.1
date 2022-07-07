@@ -1,0 +1,63 @@
+.\" Manpage for adb.
+.TH ADB 1
+
+.SH NAME
+adb \- Android Debug Bridge
+
+.SH SYNOPSIS
+adb [GLOBAL_OPTIONS] command [COMMAND_OPTIONS]
+
+.SH DESCRIPTION
+adb is a client to adb server (which must be running on the same machine).
+
+.SH GLOBAL_OPTIONS
+.IP -a
+Listen on all network interfaces, not just localhost
+.IP -d
+Use USB device (error if multiple devices connected)
+.IP -e
+Use TCP/IP device (error if multiple TCP/IP devices available)
+.IP -s \fISERIAL\fR
+Use device with given serial (overrides $ANDROID_SERIAL)
+.IP -t \fIID\fR
+Use device with given transport id
+.IP -H
+Name of adb server host [default=localhost]
+.IP -P
+Port of adb server [default=5037]
+.IP -L \fISOCKET\fR
+Listen on given socket for adb server [default=tcp:localhost:5037]
+
+.SH COMMANDS
+
+.SH shell [-e ESCAPE] [-n] [-Tt] [-x] \fISHELL_COMMAND\fR
+.IP -e ESCAPE
+Choose escape character, or "none"; default '~'.
+
+.SH install [-lrtsdg] [--instant] PACKAGE
+.SH install-multiple [-lrtsdpg] [--instant] PACKAGE...
+.SH install-multi-package [-lrtsdpg] [--instant] PACKAGE...
+[install] push a single package to the device and install it.
+
+[install-multiple] push multiple APKs to the device for a single package and install them.
+
+[install-multiple-package] push one or more packages to the device and install them atomically.
+
+.IP -r
+Replace existing application
+.IP -t
+Allow test (debuggable) application.
+.IP -d
+Allow version code downgrade (debuggable app only).
+.IP -p
+Allow partial app install (with inheritance) (install-multiple only).
+.IP -g
+TODO
+.IP --abi ABI
+Override platform's default abi.
+
+.SH EXAMPLES
+Here comes examples on how to start adb server in debug mode etc.
+
+.SH BUGS
+No known bugs.
