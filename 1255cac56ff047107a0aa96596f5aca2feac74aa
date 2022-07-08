@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d66275c_0888e931",
+        "filename": "man/adb.1",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-07-08T21:54:17Z",
+      "side": 1,
+      "message": "I am concern the term may be confusing to people unfamiliar with it (like me). It sounds like client and server run in the same process which is no the case.",
+      "parentUuid": "4348ab24_bd94ff51",
+      "range": {
+        "startLine": 11,
+        "startChar": 37,
+        "endLine": 11,
+        "endChar": 72
+      },
+      "revId": "1255cac56ff047107a0aa96596f5aca2feac74aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "accffc8b_0157a28e",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-07-07T22:36:45Z",
       "side": 1,
       "message": "Needs correction?",
+      "range": {
+        "startLine": 34,
+        "startChar": 18,
+        "endLine": 34,
+        "endChar": 31
+      },
+      "revId": "1255cac56ff047107a0aa96596f5aca2feac74aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0bebd6d_79def57c",
+        "filename": "man/adb.1",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-07-08T21:54:17Z",
+      "side": 1,
+      "message": "Removing for now as we discuss further the best approach between adb.1, adb.1.md, and adb.1.html.",
+      "parentUuid": "accffc8b_0157a28e",
       "range": {
         "startLine": 34,
         "startChar": 18,
