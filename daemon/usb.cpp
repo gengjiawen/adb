@@ -567,6 +567,10 @@ struct UsbFfsConnection : public Connection {
                 memcpy(&msg, block->payload.data(), sizeof(msg));
                 LOG(DEBUG) << "USB read:" << dump_header(&msg);
                 incoming_header_ = msg;
+
+                if (msg.command == A_CNXN) {
+                    CancelWrites();
+                }
             } else {
                 size_t bytes_left = incoming_header_->data_length - incoming_payload_.size();
                 if (block->payload.size() > bytes_left) {
@@ -673,6 +677,31 @@ struct UsbFfsConnection : public Connection {
         } else if (rc != writes_to_submit) {
             LOG(FATAL) << "failed to submit all writes: wanted to submit " << writes_to_submit
                        << ", actually submitted " << rc;
+        }
+    }
+
+    void CancelWrites() {
+        std::lock_guard<std::mutex> lock(write_mutex_);
+        if (writes_submitted_ == 0) {
+            return;
+        }
+
+        struct io_event res;
+        struct iocb *w_iocb;
+        size_t req_count = writes_submitted_;
+
+        LOG(INFO) << "CancelWrites: writes_submitted_:" << writes_submitted_;
+        for (size_t i = 0; i < req_count; ++i) {
+            LOG(INFO) << "i:" << i <<", request.pending: " << write_requests_[i].pending;
+            if (write_requests_[i].pending == true) {
+                w_iocb = &write_requests_[i].control;
+                LOG(INFO) << "cancelling w_iocb: " << static_cast<void*>(w_iocb);
+                io_cancel(aio_context_.get(), w_iocb, &res);
+                if (res.res < 0) {
+                    LOG(WARNING) << "failed to cancel w_iocb: " << static_cast<void*>(w_iocb)
+                                 << ", with error: " << strerror(res.res);
+                }
+            }
         }
     }
 
