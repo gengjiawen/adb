@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d300438f_a7976840",
+        "filename": "man/adb.1",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-07-14T19:11:17Z",
+      "side": 1,
+      "message": "yeah, agree that \u0027in-process\u0027 isn\u0027t right, but i do think this is a great place to introduce client + server + daemon. either that, or \"don\u0027t talk about an implementation detail in the first sentence\" and just go with something more user-focused like \"adb lets you interact with Android devices over USB or TCP/IP\", because the whole client/server/daemon thing probably warrants a whole section to itself...\n\n(don\u0027t worry, i\u0027m not asking you [or anyone!] to write any specific section. i\u0027m even happy to +2 empty \"TODO\" sections tbh. it\u0027s times like this that make me wish we had a more docs/wiki kind of alternative to hand... something more collaborative for the \"let\u0027s just get everything down\" phase. but i think the key is just to have _a_ doc started, so whenever we have something that\u0027s not yet documented anywhere, we have somewhere to put it!)",
+      "parentUuid": "0d66275c_0888e931",
+      "range": {
+        "startLine": 11,
+        "startChar": 37,
+        "endLine": 11,
+        "endChar": 72
+      },
+      "revId": "1255cac56ff047107a0aa96596f5aca2feac74aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "accffc8b_0157a28e",
         "filename": "man/adb.1",
         "patchSetId": 3
