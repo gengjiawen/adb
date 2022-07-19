@@ -854,8 +854,13 @@ int install_multi_package(int argc, const char** argv) {
         fprintf(stdout, "Created child session ID %d.\n", session_id);
         session_ids.push_back(session_id);
 
+#ifdef _WIN32
+        // Support splitAPKs by allowing the notation split1.apk,split2.apk,split3.apk as argument.
+        std::vector<std::string> splits = android::base::Split(file, ",");
+#else
         // Support splitAPKs by allowing the notation split1.apk:split2.apk:split3.apk as argument.
         std::vector<std::string> splits = android::base::Split(file, ":");
+#endif
 
         for (const std::string& split : splits) {
             struct stat sb;
