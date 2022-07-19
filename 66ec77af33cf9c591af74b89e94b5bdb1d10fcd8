@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "031bc6e0_492ea539",
+        "filename": "client/adb_install.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 857,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-07-19T16:32:31Z",
+      "side": 1,
+      "message": "see comments on bug.",
+      "revId": "66ec77af33cf9c591af74b89e94b5bdb1d10fcd8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
