@@ -16,6 +16,24 @@
       "message": "see comments on bug.",
       "revId": "66ec77af33cf9c591af74b89e94b5bdb1d10fcd8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4ba627c_5960eef8",
+        "filename": "client/adb_install.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 857,
+      "author": {
+        "id": 1305591
+      },
+      "writtenOn": "2022-07-22T13:09:42Z",
+      "side": 1,
+      "message": "PTAL",
+      "parentUuid": "031bc6e0_492ea539",
+      "revId": "66ec77af33cf9c591af74b89e94b5bdb1d10fcd8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
