@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e3cf3ce_4ba4681b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-07-22T14:29:08Z",
+      "side": 1,
+      "message": "yeah, normally the bar for adb compatibility is higher, but given that this is effectively \"platform only\" and doesn\u0027t affect app developers, i think this is fine (and, for Windows users, necessary)...",
+      "revId": "fce671786ca3b3666c50af8be2999eb2742ff754",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
