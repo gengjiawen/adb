@@ -454,7 +454,7 @@ atransport* acquire_one_transport(TransportType type, const char* serial, Transp
                                   bool* is_ambiguous, std::string* error_out,
                                   bool accept_any_state = false);
 void kick_transport(atransport* t, bool reset = false);
-void update_transports(void);
+void update_transports(const std::string from);
 
 // Iterates across all of the current and pending transports.
 // Stops iteration and returns false if fn returns false, otherwise returns true.

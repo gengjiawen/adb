@@ -664,6 +664,7 @@ static void device_tracker_ready(asocket* socket) {
 
     // We want to send the device list when the tracker connects
     // for the first time, even if no update occurred.
+    printf("tracker->update_needed=%d\n", tracker->update_needed);
     if (tracker->update_needed) {
         tracker->update_needed = false;
         device_tracker_send(tracker, list_transports(tracker->long_output));
@@ -704,8 +705,10 @@ bool iterate_transports(std::function<bool(const atransport*)> fn) {
     return true;
 }
 
+#include <stdio.h>
 // Call this function each time the transport list has changed.
-void update_transports() {
+void update_transports(const std::string from) {
+    printf("update_transport from %s\n", from.c_str()) ;
     update_transport_status();
 
     // Notify `adb track-devices` clients.
@@ -713,14 +716,15 @@ void update_transports() {
     while (tracker != nullptr) {
         device_tracker* next = tracker->next;
         // This may destroy the tracker if the connection is closed.
-        device_tracker_send(tracker, list_transports(tracker->long_output));
+        std::string s = list_transports(tracker->long_output);
+        device_tracker_send(tracker, s);
         tracker = next;
     }
 }
 
 #else
 
-void update_transports() {
+void update_transports(const std::string from) {
     // Nothing to do on the device side.
 }
 
@@ -801,7 +805,7 @@ static void transport_registration_func(int _fd, unsigned ev, void*) {
 
         delete t;
 
-        update_transports();
+        update_transports("transport_registration_func action=0");
         return;
     }
 
@@ -828,7 +832,7 @@ static void transport_registration_func(int _fd, unsigned ev, void*) {
         }
     }
 
-    update_transports();
+    update_transports("transport_registration_func action != 0");
 }
 
 #if ADB_HOST
@@ -1146,7 +1150,7 @@ ConnectionState atransport::GetConnectionState() const {
 void atransport::SetConnectionState(ConnectionState state) {
     check_main_thread();
     connection_state_ = state;
-    update_transports();
+    update_transports("SetConnectionState " + to_string(state));
 }
 
 #if ADB_HOST
@@ -1409,6 +1413,7 @@ static void append_transport_info(std::string* result, const char* key, const st
 }
 
 static void append_transport(const atransport* t, std::string* result, bool long_listing) {
+    printf("append_transport before '%s'\n", result->c_str());
     std::string serial = t->serial;
     if (serial.empty()) {
         serial = "(no serial number)";
@@ -1433,6 +1438,7 @@ static void append_transport(const atransport* t, std::string* result, bool long
         *result += std::to_string(t->id);
     }
     *result += '\n';
+    printf("append_transport after '%s'\n", result->c_str());
 }
 
 std::string list_transports(bool long_listing) {

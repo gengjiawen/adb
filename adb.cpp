@@ -399,7 +399,8 @@ static void handle_new_connection(atransport* t, apacket* p) {
     }
 #endif
 
-    update_transports();
+    // Updating transport is not needed since it is done via SetConnectionState (called in parse_banner
+//    update_transports("handle_new_connection");
 }
 
 void handle_packet(apacket *p, atransport *t)
