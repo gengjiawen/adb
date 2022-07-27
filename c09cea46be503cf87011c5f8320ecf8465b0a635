@@ -81,6 +81,30 @@
       },
       "revId": "c09cea46be503cf87011c5f8320ecf8465b0a635",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf3ba1f8_a5f9fd89",
+        "filename": "adb.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-07-27T23:45:01Z",
+      "side": 1,
+      "message": "that seems pretty convincing to me, and i don\u0027t know of a more direct way (given that `adb shell` isn\u0027t available so you can\u0027t ask ps :-) )",
+      "parentUuid": "c1e9e43c_0217842f",
+      "range": {
+        "startLine": 119,
+        "startChar": 80,
+        "endLine": 119,
+        "endChar": 84
+      },
+      "revId": "c09cea46be503cf87011c5f8320ecf8465b0a635",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
