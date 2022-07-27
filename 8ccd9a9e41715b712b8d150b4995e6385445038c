@@ -351,6 +351,30 @@
       },
       "revId": "8ccd9a9e41715b712b8d150b4995e6385445038c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46d2ea0e_b526077c",
+        "filename": "daemon/usb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 700,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-07-27T20:31:39Z",
+      "side": 1,
+      "message": "hmm... looks like we\u0027re both wrong, at least for current kernels?\n\nhttps://elixir.bootlin.com/linux/latest/source/fs/aio.c#L2176\n\nbut that makes it easier to just delete this code :-)",
+      "parentUuid": "82f5fa72_8b8a9714",
+      "range": {
+        "startLine": 700,
+        "startChar": 10,
+        "endLine": 700,
+        "endChar": 52
+      },
+      "revId": "8ccd9a9e41715b712b8d150b4995e6385445038c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
