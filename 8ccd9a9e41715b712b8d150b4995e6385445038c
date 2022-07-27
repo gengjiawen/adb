@@ -53,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "af83cc1f_70463833",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1764341
+      },
+      "writtenOn": "2022-07-27T20:17:18Z",
+      "side": 1,
+      "message": "test case could see issue with: \nadb wait-for-device\nadb root\nadb wait-for-device\nadb pull /data/1GB_file c:\\temp\\\nadb devices -\u003e just to see offline happen or not\nadb reboot\n\nOR other use case is:\nadb pull /data/1GB_file c:\\temp\\ \n\nand on other cmd pmpt just ran: adb reconnect\n\nok will file bug.",
+      "parentUuid": "b6d83ec1_06aad889",
+      "revId": "8ccd9a9e41715b712b8d150b4995e6385445038c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0db07c74_92fb38e2",
@@ -102,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "de704ad8_da63f945",
+        "filename": "daemon/usb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1764341
+      },
+      "writtenOn": "2022-07-27T20:17:18Z",
+      "side": 1,
+      "message": "Thanks for review.\n\nnext patchset I have incorporated 2 formatting with change.\n1. removing tab, and using space\n2. having braces for single line if condition body part",
+      "parentUuid": "fba38349_670ce9cd",
+      "range": {
+        "startLine": 685,
+        "startChar": 0,
+        "endLine": 685,
+        "endChar": 1
+      },
+      "revId": "8ccd9a9e41715b712b8d150b4995e6385445038c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c959da33_87c08fdf",
         "filename": "daemon/usb.cpp",
         "patchSetId": 2
@@ -136,6 +178,30 @@
       "writtenOn": "2022-07-27T19:20:25Z",
       "side": 1,
       "message": "Do we need this local variable? Alternatively (if you\u0027re intending to scope the lock by making a copy), please move this to line #686 (and scope the lock inside {}).",
+      "range": {
+        "startLine": 689,
+        "startChar": 12,
+        "endLine": 689,
+        "endChar": 20
+      },
+      "revId": "8ccd9a9e41715b712b8d150b4995e6385445038c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13387db8_20e56636",
+        "filename": "daemon/usb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 689,
+      "author": {
+        "id": 1764341
+      },
+      "writtenOn": "2022-07-27T20:17:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "329b5d6a_1a9b700a",
       "range": {
         "startLine": 689,
         "startChar": 12,
@@ -195,6 +261,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d7a7f783_d8ce21a3",
+        "filename": "daemon/usb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 693,
+      "author": {
+        "id": 1764341
+      },
+      "writtenOn": "2022-07-27T20:17:18Z",
+      "side": 1,
+      "message": "\u003e\u003e how often is CancelWrites() called? (and what\u0027s the _worst_ case?)\nShould happen when situation is seen of adb offline, and adbd server is just restarting adb session by closing fd, and reopening it.\n\n\u003e\u003e 2. how many writes are normally queued? (and what\u0027s the _max_?)\nADBD daemon is having 8 USB write/IN requests/buffers. So when issue is observed, all 8 USB write/IN requests/buffers are queued with USB controller.\n\nWithout adb offline issue also, if adb session is abrupted, and next CNXN is being received, seen 1 or 2 request pending. Specific use case involve: performing adb pull of huge file say 1 GB\n\nadb wait-for-device\nadb root\nadb wait-for-device\nadb pull /data/1GB_file c:\\temp\\\nadb devices\nadb reboot\n\nabove is one specific test case I ran to reproduce issue.",
+      "parentUuid": "2b6976f1_0afbe318",
+      "range": {
+        "startLine": 693,
+        "startChar": 7,
+        "endLine": 693,
+        "endChar": 17
+      },
+      "revId": "8ccd9a9e41715b712b8d150b4995e6385445038c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7127befa_fbabff7d",
         "filename": "daemon/usb.cpp",
         "patchSetId": 2
@@ -229,6 +319,30 @@
       "writtenOn": "2022-07-27T19:38:11Z",
       "side": 1,
       "message": "i think this is wrong anyway, no? isn\u0027t res.res `-errno`? but i\u0027m guessing there\u0027s nothing useful to do with these errors anyway?",
+      "range": {
+        "startLine": 700,
+        "startChar": 10,
+        "endLine": 700,
+        "endChar": 52
+      },
+      "revId": "8ccd9a9e41715b712b8d150b4995e6385445038c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82f5fa72_8b8a9714",
+        "filename": "daemon/usb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 700,
+      "author": {
+        "id": 1764341
+      },
+      "writtenOn": "2022-07-27T20:17:18Z",
+      "side": 1,
+      "message": "io_cancel() invokes systemcall which is being invoking ffs_aio_cancel() API in kernel drivers/usb/gadget/function/f_fs.c\n\nffs_aio_cancel()\n  -\u003e usb_ep_dequeue()\n      -\u003e dwc3_gadget_ep_dequeue() (USB dwc3 controller/IP is used here)\n         -\u003e This API returns multiple values: -EINPROGRESS success (i.e. request is found) OR -EINVAL (even though it has started stopping usb controller endpoint, and giving back request/buffer back to f_fs.c driver\n                \nio_cancel() -\u003e return always -1 due to usb_ep_dqueue() return -EINVAL or -EINPROGRESS\n\nres.res is one updated with actual completion value.",
+      "parentUuid": "a4e57a75_bba815fb",
       "range": {
         "startLine": 700,
         "startChar": 10,
