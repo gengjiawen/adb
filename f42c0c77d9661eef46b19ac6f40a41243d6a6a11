@@ -1,0 +1,118 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0332b570_f208aa70",
+        "filename": "daemon/usb.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-07-27T23:18:11Z",
+      "side": 1,
+      "message": "(we don\u0027t need this if we make the logging change i suggest below.)",
+      "range": {
+        "startLine": 685,
+        "startChar": 8,
+        "endLine": 687,
+        "endChar": 9
+      },
+      "revId": "f42c0c77d9661eef46b19ac6f40a41243d6a6a11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a9ba927_3dc8b0d3",
+        "filename": "daemon/usb.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 689,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-07-27T23:18:11Z",
+      "side": 1,
+      "message": "seems like this shouldn\u0027t be needed unless you\u0027re missing a lock? (and i think you already took the correct lock on L684 :-) )",
+      "revId": "f42c0c77d9661eef46b19ac6f40a41243d6a6a11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "438b8227_881a4b07",
+        "filename": "daemon/usb.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 691,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-07-27T23:18:11Z",
+      "side": 1,
+      "message": "lose this? not useful because we\u0027re about to log each [pending] one individually?",
+      "revId": "f42c0c77d9661eef46b19ac6f40a41243d6a6a11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdf63e34_0c91447e",
+        "filename": "daemon/usb.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-07-27T23:18:11Z",
+      "side": 1,
+      "message": "and move this down inside the `if` and rewrite as `LOG(INFO) \u003c\u003c \"Cancelling pending write #\" \u003c\u003c i;`? then it stands alone without need the L691 log, and the `pending \u003d\u003d true` is implicit. (because there\u0027s no point printing out the non-pending ones that we\u0027re going to ignore, right?)",
+      "revId": "f42c0c77d9661eef46b19ac6f40a41243d6a6a11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "617e8640_abe4a79f",
+        "filename": "daemon/usb.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 698,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-07-27T23:18:11Z",
+      "side": 1,
+      "message": "is this useful? the pointer doesn\u0027t mean anything to anyone not already in a debugger, right? and (if we make the suggested logging change above, this is also implied by the one remaining LOG).",
+      "revId": "f42c0c77d9661eef46b19ac6f40a41243d6a6a11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8b38c32_48f278e4",
+        "filename": "daemon/usb.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 699,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-07-27T23:18:11Z",
+      "side": 1,
+      "message": "(and then we just have `\u0026write_requests_[i].control` here and lose the single-use local.)",
+      "range": {
+        "startLine": 699,
+        "startChar": 46,
+        "endLine": 699,
+        "endChar": 52
+      },
+      "revId": "f42c0c77d9661eef46b19ac6f40a41243d6a6a11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
