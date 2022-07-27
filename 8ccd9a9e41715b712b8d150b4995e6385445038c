@@ -142,6 +142,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6d6bfd3_f99e17f5",
+        "filename": "daemon/usb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1764341
+      },
+      "writtenOn": "2022-07-27T21:31:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de704ad8_da63f945",
+      "range": {
+        "startLine": 685,
+        "startChar": 0,
+        "endLine": 685,
+        "endChar": 1
+      },
+      "revId": "8ccd9a9e41715b712b8d150b4995e6385445038c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c959da33_87c08fdf",
@@ -307,6 +331,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e58c3d07_59f269e6",
+        "filename": "daemon/usb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 693,
+      "author": {
+        "id": 1764341
+      },
+      "writtenOn": "2022-07-27T21:31:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7a7f783_d8ce21a3",
+      "range": {
+        "startLine": 693,
+        "startChar": 7,
+        "endLine": 693,
+        "endChar": 17
+      },
+      "revId": "8ccd9a9e41715b712b8d150b4995e6385445038c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7127befa_fbabff7d",
@@ -439,6 +487,30 @@
       "side": 1,
       "message": "sure. so just checking res.res against error doesn\u0027t matter.\nand io_cancel() also doesn\u0027t give any useful information. \n\nI am fine without having any error log",
       "parentUuid": "46d2ea0e_b526077c",
+      "range": {
+        "startLine": 700,
+        "startChar": 10,
+        "endLine": 700,
+        "endChar": 52
+      },
+      "revId": "8ccd9a9e41715b712b8d150b4995e6385445038c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f16015a6_409d162a",
+        "filename": "daemon/usb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 700,
+      "author": {
+        "id": 1764341
+      },
+      "writtenOn": "2022-07-27T21:31:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1478ee1_7d254a0d",
       "range": {
         "startLine": 700,
         "startChar": 10,
