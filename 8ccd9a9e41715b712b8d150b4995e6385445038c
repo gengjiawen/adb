@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b707fb8_018fa108",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-07-27T20:04:31Z",
+      "side": 1,
+      "message": "Pl ignore my comment about adding a bug.\nHowever (any) relevant test instructions/scripts (if applicable) would be much appreciated.",
+      "parentUuid": "b6d83ec1_06aad889",
+      "revId": "8ccd9a9e41715b712b8d150b4995e6385445038c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0db07c74_92fb38e2",
