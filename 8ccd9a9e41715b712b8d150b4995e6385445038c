@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0db07c74_92fb38e2",
+        "filename": "daemon/usb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-07-27T19:20:25Z",
+      "side": 1,
+      "message": "Can we run clang-format (to get rid of \\t)?",
+      "range": {
+        "startLine": 685,
+        "startChar": 0,
+        "endLine": 685,
+        "endChar": 1
+      },
+      "revId": "8ccd9a9e41715b712b8d150b4995e6385445038c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c959da33_87c08fdf",
+        "filename": "daemon/usb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 688,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-07-27T19:20:25Z",
+      "side": 1,
+      "message": "Can we scope these locals more narrowly?",
+      "range": {
+        "startLine": 687,
+        "startChar": 5,
+        "endLine": 688,
+        "endChar": 25
+      },
+      "revId": "8ccd9a9e41715b712b8d150b4995e6385445038c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "329b5d6a_1a9b700a",
+        "filename": "daemon/usb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 689,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-07-27T19:20:25Z",
+      "side": 1,
+      "message": "Do we need this local variable? Alternatively (if you\u0027re intending to scope the lock by making a copy), please move this to line #686 (and scope the lock inside {}).",
+      "range": {
+        "startLine": 689,
+        "startChar": 12,
+        "endLine": 689,
+        "endChar": 20
+      },
+      "revId": "8ccd9a9e41715b712b8d150b4995e6385445038c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ccb1ea7_d685889f",
+        "filename": "daemon/usb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 693,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-07-27T19:20:25Z",
+      "side": 1,
+      "message": "Would the LOG(INFO) cause inordinate noise?",
+      "range": {
+        "startLine": 693,
+        "startChar": 7,
+        "endLine": 693,
+        "endChar": 17
+      },
+      "revId": "8ccd9a9e41715b712b8d150b4995e6385445038c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
