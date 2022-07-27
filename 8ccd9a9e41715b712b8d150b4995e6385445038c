@@ -375,6 +375,30 @@
       },
       "revId": "8ccd9a9e41715b712b8d150b4995e6385445038c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1478ee1_7d254a0d",
+        "filename": "daemon/usb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 700,
+      "author": {
+        "id": 1764341
+      },
+      "writtenOn": "2022-07-27T21:24:16Z",
+      "side": 1,
+      "message": "sure. so just checking res.res against error doesn\u0027t matter.\nand io_cancel() also doesn\u0027t give any useful information. \n\nI am fine without having any error log",
+      "parentUuid": "46d2ea0e_b526077c",
+      "range": {
+        "startLine": 700,
+        "startChar": 10,
+        "endLine": 700,
+        "endChar": 52
+      },
+      "revId": "8ccd9a9e41715b712b8d150b4995e6385445038c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
