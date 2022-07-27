@@ -22,6 +22,30 @@
       },
       "revId": "09810363f2a504211802af6bd6c1f807937545fb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "768dbd19_08feb217",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-07-27T19:49:29Z",
+      "side": 1,
+      "message": "i think we\u0027re all agreed on \"not actually a man page\" already. and \"adb.1.md\" is fine --- the web browser will do the work, and we\u0027ll still have a README.md that acts as a signpost to the different docs, at least until/unless we end up with One True Doc that has everything (which seems unlikely; sooner or later every doc gets big enough that you want to split it into pieces).\n\nif we\u0027re worried about that already, we can just go straight to a docs/ directory with a README.md serving as index. (but once we put a URL in the `adb --help` output, we\u0027re pretty much stuck with it. and note that gittiles _doesn\u0027t_ support symlinks to .md files in the way you\u0027d want; that\u0027s why bionic has most of its documentation in a docs/ directory, but one file outside of there that we can\u0027t move without breaking references on the internet.)\n\n(so if your point was actually just \"we should call the directory `man`\", yeah, +1 :-) )",
+      "parentUuid": "e9c641d0_5dd6f991",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 36
+      },
+      "revId": "09810363f2a504211802af6bd6c1f807937545fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
