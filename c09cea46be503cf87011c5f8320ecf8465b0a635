@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5350ffe9_b06f8153",
+        "filename": "adb.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-07-27T23:43:45Z",
+      "side": 1,
+      "message": "I propose to attempt that in then next CL (I did not want to make a CL that change too many files and add comments).",
+      "parentUuid": "906c4e22_7b380d50",
+      "revId": "c09cea46be503cf87011c5f8320ecf8465b0a635",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "08ff33f8_0e7159d8",
         "filename": "adb.h",
         "patchSetId": 4
@@ -31,6 +49,30 @@
       "writtenOn": "2022-07-27T22:59:28Z",
       "side": 1,
       "message": "isn\u0027t that minadb?",
+      "range": {
+        "startLine": 119,
+        "startChar": 80,
+        "endLine": 119,
+        "endChar": 84
+      },
+      "revId": "c09cea46be503cf87011c5f8320ecf8465b0a635",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1e9e43c_0217842f",
+        "filename": "adb.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-07-27T23:43:45Z",
+      "side": 1,
+      "message": "It seems to be full `adbd`. It I reboot a device in recovery mode, `shell` works and `rescue getprop` doesn\u0027t.\n\n```\n$ adb reboot recovery\n$ adb devices\nList of devices attached\n04081FDD4000DU\trecovery\n$ adb shell\n$ exit\n$ adb rescue getprop\nerror: closed\n```\n\n`minadb` does not support the shell service (https://cs.android.com/android/platform/superproject/+/master:bootable/recovery/minadbd/minadbd_services.cpp) but supports `rescue-getprop` service. If I reboot in rescue mode, I see the behavior expected by `minadbd`.\n```\n$ adb reboot rescue\n$ adb devices\nList of devices attached\n04081FDD4000DU\trescue\n$ adb shell\nerror: closed\n$ adb rescue getprop\n[ro.product.device]: [oriole]\n[ro.product.vendor.device]: [oriole]\n...\n```\n\nOr is there a better way to test whether `minadbd` or `adbd` is running?",
+      "parentUuid": "08ff33f8_0e7159d8",
       "range": {
         "startLine": 119,
         "startChar": 80,
