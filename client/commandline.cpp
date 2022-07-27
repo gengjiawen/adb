@@ -857,8 +857,8 @@ static int adb_sideload_legacy(const char* filename, int in_fd, int size) {
 
 #define SIDELOAD_HOST_BLOCK_SIZE (CHUNK_SIZE)
 
-// Connects to the sideload / rescue service on the device (served by minadbd) and sends over the
-// data in an OTA package.
+// Connects to the sideload / rescue service on the device (served by minadbd: a subset of adbd
+// running in fastboot context) and sends over the data in an OTA package.
 //
 // It uses a simple protocol as follows.
 //
