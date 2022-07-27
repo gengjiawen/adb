@@ -69,6 +69,24 @@
       "parentUuid": "2c54d1b1_3c9f2ad8",
       "revId": "8d25cfc3ebb8a23df0a5efb4eba3bf2a0f92d9fe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f5a8286_729fee12",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-07-27T23:20:22Z",
+      "side": 1,
+      "message": "yeah, sgtm, especially since libusb is still experimental and not otherwise used/tested.",
+      "parentUuid": "1aefcd56_c9094336",
+      "revId": "8d25cfc3ebb8a23df0a5efb4eba3bf2a0f92d9fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
