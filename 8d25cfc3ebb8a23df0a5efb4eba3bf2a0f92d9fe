@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5078ca3_6349787b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-07-27T19:18:43Z",
+      "side": 1,
+      "message": "d\u0027oh! now i\u0027m wondering why this hasn\u0027t had _worse_ effects? are most people just \"always allow\", and so they don\u0027t hit this?",
+      "revId": "8d25cfc3ebb8a23df0a5efb4eba3bf2a0f92d9fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c54d1b1_3c9f2ad8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-07-27T19:18:43Z",
+      "side": 1,
+      "message": "i think just \"manual\" is fine for now. clear regression that actual users are hitting... let\u0027s just get this fixed and in the next release and worry about a test later? (unless you actually have a specific _plan_ for how you\u0027d test this. but i\u0027m assuming it\u0027ll be non-trivial, given that you want devices connecting and disconnecting, and we don\u0027t have any unit test infrastructure for testing that kind of thing.)",
+      "revId": "8d25cfc3ebb8a23df0a5efb4eba3bf2a0f92d9fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
