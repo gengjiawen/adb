@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "97e978fa_bc83bb97",
+        "filename": "man/adb.1",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-07-27T19:23:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d300438f_a7976840",
+      "range": {
+        "startLine": 11,
+        "startChar": 37,
+        "endLine": 11,
+        "endChar": 72
+      },
+      "revId": "1255cac56ff047107a0aa96596f5aca2feac74aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "accffc8b_0157a28e",
