@@ -111,12 +111,14 @@ enum ConnectionState {
     kCsDetached,        // USB device that's detached from the adb server.
     kCsOffline,
 
-    kCsBootloader,
-    kCsDevice,
-    kCsHost,
-    kCsRecovery,
-    kCsSideload,
-    kCsRescue,
+    // After CNXN packet, the ConnectionState describes not a state but the type of service
+    // on the other end of the transport.
+    kCsBootloader,  // Device running fastboot OS or Android fastbootd (userspace).
+    kCsDevice,      // Device running Android OS (adbd)
+    kCsHost,        // ADB host (What a device sees from its end of a Transport).
+    kCsRecovery,    // Device running Android OS (adbd).
+    kCsSideload,    // Device running Android OS (minadbd) (allows OTA package installs).
+    kCsRescue,      // Device running Android (minadbd).
 };
 
 std::string to_string(ConnectionState state);
