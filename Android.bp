@@ -536,6 +536,7 @@ cc_library_static {
             srcs: [
                 "daemon/property_monitor.cpp",
                 "daemon/usb.cpp",
+		"daemon/usb_io.cpp",
                 "daemon/usb_ffs.cpp",
                 "daemon/watchdog.cpp",
             ]

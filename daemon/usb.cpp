@@ -18,8 +18,6 @@
 
 #include "daemon/usb.h"
 
-using android::base::StringPrintf;
-
 const char* UsbFfsConnection::to_string(enum usb_functionfs_event_type type) {
     switch (type) {
         case FUNCTIONFS_BIND:
@@ -44,21 +42,15 @@ UsbFfsConnection::UsbFfsConnection(unique_fd control, unique_fd read, unique_fd 
   : worker_started_(false),
   stopped_(false),
   destruction_notifier_(std::move(destruction_notifier)),
-  control_fd_(std::move(control)),
-  read_fd_(std::move(read)),
-  write_fd_(std::move(write)) {
+  control_fd_(std::move(control)) {
     LOG(INFO) << "UsbFfsConnection constructed";
-    worker_event_fd_.reset(eventfd(0, EFD_CLOEXEC));
-    if (worker_event_fd_ == -1) {
-      PLOG(FATAL) << "failed to create eventfd";
-    }
 
     monitor_event_fd_.reset(eventfd(0, EFD_CLOEXEC));
     if (monitor_event_fd_ == -1) {
       PLOG(FATAL) << "failed to create eventfd";
     }
 
-    aio_context_ = ScopedAioContext::Create(kUsbReadQueueDepth + kUsbWriteQueueDepth);
+    io_context_ = IUsbIoContext::Init(std::move(read), std::move(write));
 }
 
 void UsbFfsConnection::HandleError(const std::string& error) {
@@ -71,226 +63,6 @@ void UsbFfsConnection::HandleError(const std::string& error) {
       Stop();
     }
   });
-}
-
-void UsbFfsConnection::SubmitWrites() REQUIRES(write_mutex_) {
-  if (writes_submitted_ == kUsbWriteQueueDepth) {
-    return;
-  }
-
-  ssize_t writes_to_submit = std::min(kUsbWriteQueueDepth - writes_submitted_,
-                                      write_requests_.size() - writes_submitted_);
-  CHECK_GE(writes_to_submit, 0);
-  if (writes_to_submit == 0) {
-    return;
-  }
-
-  struct iocb* iocbs[kUsbWriteQueueDepth];
-  for (int i = 0; i < writes_to_submit; ++i) {
-    CHECK(!write_requests_[writes_submitted_ + i].pending);
-    write_requests_[writes_submitted_ + i].pending = true;
-    iocbs[i] = &write_requests_[writes_submitted_ + i].control;
-    LOG(VERBOSE) << "submitting write_request " << static_cast<void*>(iocbs[i]);
-  }
-
-  writes_submitted_ += writes_to_submit;
-
-  int rc = io_submit(aio_context_.get(), writes_to_submit, iocbs);
-  if (rc == -1) {
-    HandleError(StringPrintf("failed to submit write requests: %s", strerror(errno)));
-    return;
-  } else if (rc != writes_to_submit) {
-    LOG(FATAL) << "failed to submit all writes: wanted to submit " << writes_to_submit
-               << ", actually submitted " << rc;
-  }
-}
-
-IoWriteBlock UsbFfsConnection::CreateWriteBlock(Block&& payload, uint64_t id) {
-  size_t len = payload.size();
-  return CreateWriteBlock(std::make_shared<Block>(std::move(payload)), 0, len, id);
-}
-
-IoWriteBlock UsbFfsConnection::CreateWriteBlock(std::shared_ptr<Block> payload, size_t offset, size_t len,
-                                                uint64_t id) {
-        auto block = IoWriteBlock();
-        block.payload = std::move(payload);
-        block.control.aio_data = static_cast<uint64_t>(TransferId::write(id));
-        block.control.aio_rw_flags = 0;
-        block.control.aio_lio_opcode = IOCB_CMD_PWRITE;
-        block.control.aio_reqprio = 0;
-        block.control.aio_fildes = write_fd_.get();
-        block.control.aio_buf = reinterpret_cast<uintptr_t>(block.payload->data() + offset);
-        block.control.aio_nbytes = len;
-        block.control.aio_offset = 0;
-        block.control.aio_flags = IOCB_FLAG_RESFD;
-        block.control.aio_resfd = worker_event_fd_.get();
-        return block;
-}
-
-void UsbFfsConnection::HandleWrite(TransferId id) {
-  std::lock_guard<std::mutex> lock(write_mutex_);
-  auto it =
-      std::find_if(write_requests_.begin(), write_requests_.end(), [id](const auto& req) {
-        return static_cast<uint64_t>(req.id()) == static_cast<uint64_t>(id);
-      });
-  CHECK(it != write_requests_.end());
-
-  write_requests_.erase(it);
-  size_t outstanding_writes = --writes_submitted_;
-  LOG(DEBUG) << "USB write: reaped, down to " << outstanding_writes;
-}
-
-bool UsbFfsConnection::SubmitRead(IoReadBlock* block) {
-  block->pending = true;
-  struct iocb* iocb = &block->control;
-  if (io_submit(aio_context_.get(), 1, &iocb) != 1) {
-    HandleError(StringPrintf("failed to submit read: %s", strerror(errno)));
-    return false;
-  }
-
-  return true;
-}
-
-bool UsbFfsConnection::ProcessRead(IoReadBlock* block) {
-  if (!block->payload.empty()) {
-    if (!incoming_header_.has_value()) {
-      if (block->payload.size() != sizeof(amessage)) {
-        HandleError("received packet of unexpected length while reading header");
-        return false;
-      }
-      amessage& msg = incoming_header_.emplace();
-      memcpy(&msg, block->payload.data(), sizeof(msg));
-      LOG(DEBUG) << "USB read:" << dump_header(&msg);
-      incoming_header_ = msg;
-    } else {
-      size_t bytes_left = incoming_header_->data_length - incoming_payload_.size();
-      if (block->payload.size() > bytes_left) {
-        HandleError("received too many bytes while waiting for payload");
-        return false;
-      }
-      incoming_payload_.append(std::move(block->payload));
-    }
-
-    if (incoming_header_->data_length == incoming_payload_.size()) {
-      auto packet = std::make_unique<apacket>();
-      packet->msg = *incoming_header_;
-
-      // TODO: Make apacket contain an IOVector so we don't have to coalesce.
-      packet->payload = std::move(incoming_payload_).coalesce();
-      transport_->HandleRead(std::move(packet));
-
-      incoming_header_.reset();
-      // reuse the capacity of the incoming payload while we can.
-      auto free_block = incoming_payload_.clear();
-      if (block->payload.capacity() == 0) {
-        block->payload = std::move(free_block);
-      }
-    }
-  }
-
-  PrepareReadBlock(block, block->id().id + kUsbReadQueueDepth);
-  SubmitRead(block);
-  return true;
-}
-
-bool UsbFfsConnection::HandleRead(TransferId id, int64_t size) {
-  uint64_t read_idx = id.id % kUsbReadQueueDepth;
-  IoReadBlock* block = &read_requests_[read_idx];
-  block->pending = false;
-  block->payload.resize(size);
-
-  // Notification for completed reads can be received out of order.
-  if (block->id().id != needed_read_id_) {
-    LOG(VERBOSE) << "read " << block->id().id << " completed while waiting for "
-                 << needed_read_id_;
-    return true;
-  }
-
-  for (uint64_t id = needed_read_id_;; ++id) {
-    size_t read_idx = id % kUsbReadQueueDepth;
-    IoReadBlock* current_block = &read_requests_[read_idx];
-    if (current_block->pending) {
-      break;
-    }
-    if (!ProcessRead(current_block)) {
-      return false;
-    }
-    ++needed_read_id_;
-  }
-
-  return true;
-}
-
-void UsbFfsConnection::ReadEvents() {
-  static constexpr size_t kMaxEvents = kUsbReadQueueDepth + kUsbWriteQueueDepth;
-  struct io_event events[kMaxEvents];
-  struct timespec timeout = {.tv_sec = 0, .tv_nsec = 0};
-  int rc = io_getevents(aio_context_.get(), 0, kMaxEvents, events, &timeout);
-  if (rc == -1) {
-    HandleError(StringPrintf("io_getevents failed while reading: %s", strerror(errno)));
-    return;
-  }
-
-  for (int event_idx = 0; event_idx < rc; ++event_idx) {
-    auto& event = events[event_idx];
-    TransferId id = TransferId::from_value(event.data);
-
-    if (event.res < 0) {
-      // On initial connection, some clients will send a ClearFeature(HALT) to
-      // attempt to resynchronize host and device after the adb server is killed.
-      // On newer device kernels, the reads we've already dispatched will be cancelled.
-      // Instead of treating this as a failure, which will tear down the interface and
-      // lead to the client doing the same thing again, just resubmit if this happens
-      // before we've actually read anything.
-      if (!connection_started_ && event.res == -EPIPE &&
-          id.direction == TransferDirection::READ) {
-        uint64_t read_idx = id.id % kUsbReadQueueDepth;
-        SubmitRead(&read_requests_[read_idx]);
-        continue;
-      } else {
-        std::string error =
-            StringPrintf("%s %" PRIu64 " failed with error %s",
-                         id.direction == TransferDirection::READ ? "read" : "write",
-                         id.id, strerror(-event.res));
-        HandleError(error);
-        return;
-      }
-    }
-
-    if (id.direction == TransferDirection::READ) {
-      connection_started_ = true;
-      if (!HandleRead(id, event.res)) {
-        return;
-      }
-    } else {
-      HandleWrite(id);
-    }
-  }
-}
-
-IoReadBlock UsbFfsConnection::CreateReadBlock(uint64_t id) {
-  IoReadBlock block;
-  PrepareReadBlock(&block, id);
-  block.control.aio_rw_flags = 0;
-  block.control.aio_lio_opcode = IOCB_CMD_PREAD;
-  block.control.aio_reqprio = 0;
-  block.control.aio_fildes = read_fd_.get();
-  block.control.aio_offset = 0;
-  block.control.aio_flags = IOCB_FLAG_RESFD;
-  block.control.aio_resfd = worker_event_fd_.get();
-  return block;
-}
-
-void UsbFfsConnection::PrepareReadBlock(IoReadBlock* block, uint64_t id) {
-  block->pending = false;
-  if (block->payload.capacity() >= kUsbReadSize) {
-    block->payload.resize(kUsbReadSize);
-  } else {
-    block->payload = Block(kUsbReadSize);
-  }
-  block->control.aio_data = static_cast<uint64_t>(TransferId::read(id));
-  block->control.aio_buf = reinterpret_cast<uintptr_t>(block->payload.data());
-  block->control.aio_nbytes = block->payload.size();
 }
 
 void UsbFfsConnection::StopWorker() {
@@ -328,26 +100,23 @@ void UsbFfsConnection::StartWorker() {
     adb_thread_setname("UsbFfs-worker");
     LOG(INFO) << "UsbFfs-worker thread spawned";
 
-    for (size_t i = 0; i < kUsbReadQueueDepth; ++i) {
-      read_requests_[i] = CreateReadBlock(next_read_id_++);
-      if (!SubmitRead(&read_requests_[i])) {
+    if (!io_context_->SubmitReadRequests()) {
+        HandleError("SubmitReadRequests failed");
         return;
-      }
     }
 
     while (!stopped_) {
-      uint64_t dummy;
-      ssize_t rc = adb_read(worker_event_fd_.get(), &dummy, sizeof(dummy));
-      if (rc == -1) {
-        PLOG(FATAL) << "failed to read from eventfd";
-      } else if (rc == 0) {
-        LOG(FATAL) << "hit EOF on eventfd";
+      if (!io_context_->WaitForIORequest()) {
+          LOG(FATAL) << "WaitForIORequest failed";
       }
 
-      ReadEvents();
+      if (!io_context_->ProcessEvents(transport_)) {
+          HandleError("ProcessEvents Failed");
+      }
 
-      std::lock_guard<std::mutex> lock(write_mutex_);
-      SubmitWrites();
+      if (!io_context_->SubmitWrites()) {
+          HandleError("SubmitWrites Failed");
+      }
     }
   });
 }
@@ -512,14 +281,11 @@ void UsbFfsConnection::Stop() {
     return;
   }
   stopped_ = true;
-  uint64_t notify = 1;
-  ssize_t rc = adb_write(worker_event_fd_.get(), &notify, sizeof(notify));
-  if (rc < 0) {
-    PLOG(FATAL) << "failed to notify worker eventfd to stop UsbFfsConnection";
-  }
-  CHECK_EQ(static_cast<size_t>(rc), sizeof(notify));
 
-  rc = adb_write(monitor_event_fd_.get(), &notify, sizeof(notify));
+  io_context_->NotifyWorkerEventFd();
+
+  uint64_t notify = 1;
+  ssize_t rc = adb_write(monitor_event_fd_.get(), &notify, sizeof(notify));
   if (rc < 0) {
     PLOG(FATAL) << "failed to notify monitor eventfd to stop UsbFfsConnection";
   }
@@ -529,38 +295,7 @@ void UsbFfsConnection::Stop() {
 
 
 bool UsbFfsConnection::Write(std::unique_ptr<apacket> packet) {
-  LOG(DEBUG) << "USB write: " << dump_header(&packet->msg);
-  auto header = std::make_shared<Block>(sizeof(packet->msg));
-  memcpy(header->data(), &packet->msg, sizeof(packet->msg));
-
-  std::lock_guard<std::mutex> lock(write_mutex_);
-  write_requests_.push_back(
-      CreateWriteBlock(std::move(header), 0, sizeof(packet->msg), next_write_id_++));
-  if (!packet->payload.empty()) {
-    // The kernel attempts to allocate a contiguous block of memory for each write,
-    // which can fail if the write is large and the kernel heap is fragmented.
-    // Split large writes into smaller chunks to avoid this.
-    auto payload = std::make_shared<Block>(std::move(packet->payload));
-    size_t offset = 0;
-    size_t len = payload->size();
-
-    while (len > 0) {
-      size_t write_size = std::min(kUsbWriteSize, len);
-      write_requests_.push_back(
-          CreateWriteBlock(payload, offset, write_size, next_write_id_++));
-      len -= write_size;
-      offset += write_size;
-    }
-  }
-
-  // Wake up the worker thread to submit writes.
-  uint64_t notify = 1;
-  ssize_t rc = adb_write(worker_event_fd_.get(), &notify, sizeof(notify));
-  if (rc < 0) {
-    PLOG(FATAL) << "failed to notify worker eventfd to submit writes";
-  }
-
-  return true;
+    return io_context_->ProcessWriteRequest(std::move(packet));
 }
 
 UsbFfsConnection::~UsbFfsConnection() {
@@ -570,11 +305,8 @@ UsbFfsConnection::~UsbFfsConnection() {
 
   // We need to explicitly close our file descriptors before we notify our destruction,
   // because the thread listening on the future will immediately try to reopen the endpoint.
-  aio_context_.reset();
+  io_context_.reset();
   control_fd_.reset();
-  read_fd_.reset();
-  write_fd_.reset();
-
   destruction_notifier_.set_value();
 }
 
