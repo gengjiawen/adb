@@ -100,6 +100,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a2e82ac_3555c1d1",
+        "filename": "daemon/usb.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 691,
+      "author": {
+        "id": 1764341
+      },
+      "writtenOn": "2022-07-28T00:30:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "438b8227_881a4b07",
+      "revId": "f42c0c77d9661eef46b19ac6f40a41243d6a6a11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fdf63e34_0c91447e",
