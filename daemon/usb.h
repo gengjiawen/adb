@@ -39,15 +39,19 @@ class UsbFfsConnection : public Connection {
   private:
     void StartMonitor();
     void StartWorker();
+    void StartWriteWorker();
     void StopWorker();
 
+    bool IsIouringSupported();
     void HandleError(const std::string& error);
     const char* to_string(enum usb_functionfs_event_type type);
 
     std::thread monitor_thread_;
 
     bool worker_started_;
+    bool worker_write_started_;
     std::thread worker_thread_;
+    std::thread worker_write_thread_;
 
     std::atomic<bool> stopped_;
     std::promise<void> destruction_notifier_;
@@ -56,6 +60,8 @@ class UsbFfsConnection : public Connection {
     unique_fd monitor_event_fd_;
 
     std::unique_ptr<IUsbIoContext> io_context_;
+    std::unique_ptr<IUsbIoContext> iou_context_;
+
     unique_fd control_fd_;
     unique_fd read_fd_;
     unique_fd write_fd_;

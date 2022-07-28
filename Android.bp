@@ -154,6 +154,7 @@ library_linking_strategy_cc_defaults {
         "libadbd_core",
         "libapp_processes_protos_lite",
         "libasyncio",
+	"liburing",
         "libbrotli",
         "libcrypto_utils",
         "libcutils_sockets",
@@ -162,6 +163,8 @@ library_linking_strategy_cc_defaults {
         "libprotobuf-cpp-lite",
         "libzstd",
     ],
+
+    include_dirs: ["bionic/libc/kernel"],
 
     shared_libs: [
         "libadbd_auth",
@@ -507,7 +510,10 @@ cc_library_static {
 
     static_libs: [
         "libdiagnose_usb",
+	"liburing",
     ],
+
+    include_dirs: ["bionic/libc/kernel"],
 
     shared_libs: [
         "libadb_crypto",
@@ -579,6 +585,8 @@ cc_library {
         "-Wno-deprecated-declarations",
     ],
 
+    include_dirs: ["bionic/libc/kernel"],
+
     static_libs: [
         "libadbconnection_server",
         "libadbd_core",
@@ -587,6 +595,7 @@ cc_library {
         "liblz4",
         "libprotobuf-cpp-lite",
         "libzstd",
+	"liburing",
     ],
 
     shared_libs: [
@@ -665,7 +674,10 @@ cc_library {
         "libmdnssd",
         "libprotobuf-cpp-lite",
         "libzstd",
+	"liburing",
     ],
+
+    include_dirs: ["bionic/libc/kernel"],
 
     shared_libs: [
         "libadbconnection_server",
@@ -726,11 +738,14 @@ cc_binary {
         "libadbd",
         "libadbd_services",
         "libasyncio",
+	"liburing",
         "libcap",
         "liblz4",
         "libminijail",
         "libssl",
     ],
+
+    include_dirs: ["bionic/libc/kernel"],
 
     shared_libs: [
         "libadbd_auth",

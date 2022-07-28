@@ -16,6 +16,8 @@
 
 #define TRACE_TAG USB
 
+#include <sys/utsname.h>
+
 #include "daemon/usb.h"
 
 const char* UsbFfsConnection::to_string(enum usb_functionfs_event_type type) {
@@ -37,9 +39,60 @@ const char* UsbFfsConnection::to_string(enum usb_functionfs_event_type type) {
     }
 }
 
+#include <sys/types.h>
+#include <sys/time.h>
+#include <sys/resource.h>
+
+bool UsbFfsConnection::IsIouringSupported() {
+    struct utsname uts;
+    unsigned int major, minor;
+
+    std::string prop = android::base::GetProperty("service.adb.root", "");
+
+    if (prop == "0") {
+        LOG(INFO) << "service.adb.root is false";
+        return false;
+    }
+
+    if (!(getuid() == 0)) {
+        LOG(INFO) << "adbd does not have root access";
+        return false;
+    }
+
+    LOG(INFO) << "adbd is running as root";
+    struct rlimit limit;
+
+    int ret = getrlimit(RLIMIT_MEMLOCK, &limit);
+    if (ret == 0) {
+        LOG(INFO) << "rlim_cur: " << limit.rlim_cur
+                  << " rlim_max:: " << limit.rlim_max;
+    } else {
+        PLOG(ERROR) << "getrlimit failed";
+    }
+
+    if ((uname(&uts) != 0) || (sscanf(uts.release, "%u.%u", &major, &minor) != 2)) {
+        PLOG(ERROR) << "Could not parse the kernel version from uname. "
+                        << " io_uring not supported";
+        return false;
+    }
+
+    // We will only support kernels from 5.6 onwards as IOSQE_ASYNC flag and
+    // IO_URING_OP_READ/WRITE opcodes were introduced only on 5.6 kernel
+    if (major >= 5) {
+        if (major == 5 && minor < 6) {
+            return false;
+        }
+    } else {
+        return false;
+    }
+
+    LOG(INFO) << "IsIouringSupported - true";
+    return true;
+}
+
 UsbFfsConnection::UsbFfsConnection(unique_fd control, unique_fd read, unique_fd write,
                                    std::promise<void> destruction_notifier)
-  : worker_started_(false),
+  : worker_started_(false), worker_write_started_(false),
   stopped_(false),
   destruction_notifier_(std::move(destruction_notifier)),
   control_fd_(std::move(control)) {
@@ -50,7 +103,10 @@ UsbFfsConnection::UsbFfsConnection(unique_fd control, unique_fd read, unique_fd 
       PLOG(FATAL) << "failed to create eventfd";
     }
 
-    io_context_ = IUsbIoContext::Init(std::move(read), std::move(write));
+    //io_context_ = IUsbIoContext::Init(std::move(read), std::move(write), IsIouringSupported());
+    io_context_ = IUsbIoContext::Init(std::move(read), std::move(write), IsIouringSupported());
+
+    //iou_context_ = IUsbIoContext::Init_iou(std::move(write), IsIouringSupported());
 }
 
 void UsbFfsConnection::HandleError(const std::string& error) {
@@ -91,6 +147,32 @@ void UsbFfsConnection::StopWorker() {
   }
 
   worker_thread_.join();
+
+  if (!worker_write_started_) {
+    return;
+  }
+  // Debug
+  pthread_t worker_write_thread_handle = worker_write_thread_.native_handle();
+  while (true) {
+    int rc = pthread_kill(worker_write_thread_handle, kInterruptionSignal);
+    if (rc != 0) {
+      LOG(ERROR) << "failed to send interruption signal to worker: " << strerror(rc);
+      break;
+    }
+
+    std::this_thread::sleep_for(100ms);
+
+    rc = pthread_kill(worker_write_thread_handle, 0);
+    if (rc == 0) {
+      continue;
+    } else if (rc == ESRCH) {
+      break;
+    } else {
+      LOG(ERROR) << "failed to send interruption signal to worker: " << strerror(rc);
+    }
+  }
+
+  worker_write_thread_.join();
 }
 
 void UsbFfsConnection::StartWorker() {
@@ -113,13 +195,41 @@ void UsbFfsConnection::StartWorker() {
       if (!io_context_->ProcessEvents(transport_)) {
           HandleError("ProcessEvents Failed");
       }
-
+#if 1
       if (!io_context_->SubmitWrites()) {
+          HandleError("SubmitWrites Failed");
+      }
+#endif
+    }
+  });
+}
+
+void UsbFfsConnection::StartWriteWorker() {
+  CHECK(!worker_write_started_);
+  worker_write_started_ = true;
+  worker_write_thread_ = std::thread([this]() {
+    adb_thread_setname("UsbFfs-write-worker");
+    LOG(INFO) << "UsbFfs-write-worker thread spawned";
+
+    while (!stopped_) {
+      if (!iou_context_->WaitForIORequest()) {
+          LOG(FATAL) << "WaitForIORequest failed";
+          //LOG(ERROR) << "WaitForIORequest failed";
+          continue;
+      }
+
+      if (!iou_context_->ProcessEvents(transport_)) {
+          HandleError("ProcessEvents Failed");
+      }
+
+      if (!iou_context_->SubmitWrites()) {
           HandleError("SubmitWrites Failed");
       }
     }
   });
 }
+
+
 
 void UsbFfsConnection::StartMonitor() {
   // This is a bit of a mess.
@@ -209,6 +319,7 @@ void UsbFfsConnection::StartMonitor() {
 
           enabled = true;
           StartWorker();
+          //StartWriteWorker();
           break;
 
         case FUNCTIONFS_DISABLE:
@@ -283,6 +394,7 @@ void UsbFfsConnection::Stop() {
   stopped_ = true;
 
   io_context_->NotifyWorkerEventFd();
+  //iou_context_->NotifyWorkerEventFd();
 
   uint64_t notify = 1;
   ssize_t rc = adb_write(monitor_event_fd_.get(), &notify, sizeof(notify));
@@ -296,6 +408,7 @@ void UsbFfsConnection::Stop() {
 
 bool UsbFfsConnection::Write(std::unique_ptr<apacket> packet) {
     return io_context_->ProcessWriteRequest(std::move(packet));
+    //return iou_context_->ProcessWriteRequest(std::move(packet));
 }
 
 UsbFfsConnection::~UsbFfsConnection() {
@@ -306,6 +419,7 @@ UsbFfsConnection::~UsbFfsConnection() {
   // We need to explicitly close our file descriptors before we notify our destruction,
   // because the thread listening on the future will immediately try to reopen the endpoint.
   io_context_.reset();
+  //iou_context_.reset();
   control_fd_.reset();
   destruction_notifier_.set_value();
 }

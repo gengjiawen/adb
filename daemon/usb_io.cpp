@@ -60,7 +60,8 @@ class UsbIoContext : public IUsbIoContext {
       virtual void PrepareReadBlock(IoReadBlock* block, uint64_t id) = 0;
       virtual bool SubmitIO(int num_blocks, IoReadBlock* block) = 0;
 
-      bool HandleRead(TransferId id, int64_t size, atransport* transport);
+      virtual bool HandleRead(TransferId id, int64_t size, atransport* transport) = 0;
+
       bool ProcessRead(IoReadBlock* block, atransport* transport);
       void HandleWrite(TransferId id);
 
@@ -92,6 +93,9 @@ UsbIoContext::UsbIoContext() {
     if (worker_event_fd_ == -1) {
         PLOG(FATAL) << "failed to create eventfd";
     }
+
+    LOG(INFO) << "UsbIoContext Constructor - worker_event_fd initialized: "
+              << worker_event_fd_.get();
 }
 
 bool UsbIoContext::WaitForIORequest() {
@@ -151,34 +155,6 @@ bool UsbIoContext::ProcessWriteRequest(std::unique_ptr<apacket> packet) {
   return true;
 }
 
-bool UsbIoContext::HandleRead(TransferId id, int64_t size, atransport* transport) {
-  uint64_t read_idx = id.id % kUsbReadQueueDepth;
-  IoReadBlock* block = &read_requests_[read_idx];
-  block->pending = false;
-  block->payload.resize(size);
-
-  // Notification for completed reads can be received out of order.
-  if (block->id().id != needed_read_id_) {
-    LOG(VERBOSE) << "read " << block->id().id << " completed while waiting for "
-                 << needed_read_id_;
-    return true;
-  }
-
-  for (uint64_t id = needed_read_id_;; ++id) {
-    size_t read_idx = id % kUsbReadQueueDepth;
-    IoReadBlock* current_block = &read_requests_[read_idx];
-    if (current_block->pending) {
-      break;
-    }
-    if (!ProcessRead(current_block, transport)) {
-      return false;
-    }
-    ++needed_read_id_;
-  }
-
-  return true;
-}
-
 bool UsbIoContext::ProcessRead(IoReadBlock* block, atransport* transport) {
   if (!block->payload.empty()) {
     if (!incoming_header_.has_value()) {
@@ -216,11 +192,7 @@ bool UsbIoContext::ProcessRead(IoReadBlock* block, atransport* transport) {
     }
   }
 
-  PrepareReadBlock(block, block->id().id + kUsbReadQueueDepth);
-  if (!SubmitIO(1, block)) {
-      return false;
-  }
-  return true;
+ return true;
 }
 
 void UsbIoContext::HandleWrite(TransferId id) {
@@ -229,11 +201,295 @@ void UsbIoContext::HandleWrite(TransferId id) {
       std::find_if(write_requests_.begin(), write_requests_.end(), [id](const auto& req) {
         return static_cast<uint64_t>(req.id()) == static_cast<uint64_t>(id);
       });
+
   CHECK(it != write_requests_.end());
 
   write_requests_.erase(it);
   size_t outstanding_writes = --writes_submitted_;
-  LOG(DEBUG) << "USB write: reaped, down to " << outstanding_writes;
+  LOG(DEBUG) << "USB write: reaped, down to " << outstanding_writes
+            << " write_requests_ vector size: " << write_requests_.size()
+            << " Write success for id: " << static_cast<uint64_t>(id);
+}
+
+class IouringContext final : public UsbIoContext {
+    public:
+        IouringContext(unique_fd read_fd, unique_fd write_fd);
+        ~IouringContext();
+
+        bool SubmitReadRequests() override;
+        bool ProcessEvents(atransport* transport) override;
+        bool SubmitWrites() override;
+
+    protected:
+        IoReadBlock CreateReadBlock(uint64_t id) override;
+        IoWriteBlock CreateWriteBlock(std::shared_ptr<Block> payload, size_t offset, size_t len,
+                                          uint64_t id) override;
+        void PrepareReadBlock(IoReadBlock* block, uint64_t id) override;
+        bool SubmitIO(int num_blocks, IoReadBlock* block = nullptr) override;
+
+        bool HandleRead(TransferId id, int64_t size, atransport* transport) override;
+
+    private:
+        std::unique_ptr<struct io_uring> ring_;
+};
+
+IouringContext::IouringContext(unique_fd read_fd, unique_fd write_fd) {
+    read_fd_ = std::move(read_fd);
+    write_fd_ = std::move(write_fd);
+
+    ring_ = std::make_unique<struct io_uring>();
+    int ret = io_uring_queue_init(kUsbReadQueueDepth + kUsbWriteQueueDepth, ring_.get(), 0);
+    if (ret) {
+      PLOG(FATAL) << "io_uring_queue_init failed with ret: " << ret;
+    }
+
+    ret = io_uring_register_eventfd(ring_.get(), worker_event_fd_.get());
+    if (ret) {
+      PLOG(FATAL) << "io_uring_register_eventfd failed with ret: " << ret;
+    }
+
+    LOG(INFO) << "IouringContext initialized";
+}
+
+IouringContext::~IouringContext() {
+    io_uring_queue_exit(ring_.get());
+    read_fd_.reset();
+    write_fd_.reset();
+}
+
+bool IouringContext::SubmitReadRequests() {
+    for (size_t i = 0; i < kUsbReadQueueDepth; ++i) {
+        read_requests_[i] = CreateReadBlock(next_read_id_++);
+    }
+
+    if (!SubmitIO(kUsbReadQueueDepth)) {
+        return false;
+    }
+
+    return true;
+}
+
+IoReadBlock IouringContext::CreateReadBlock(uint64_t id) {
+    IoReadBlock block;
+    PrepareReadBlock(&block, id);
+    return block;
+}
+
+void IouringContext::PrepareReadBlock(IoReadBlock* block, uint64_t id) {
+  if (block->payload.capacity() >= kUsbReadSize) {
+    block->payload.resize(kUsbReadSize);
+  } else {
+    block->payload = Block(kUsbReadSize);
+  }
+
+  block->io_uring = true;
+  struct io_uring_sqe* sqe = io_uring_get_sqe(ring_.get());
+  if (!sqe) {
+      LOG(FATAL) << "Failed to get SQE during PrepareReadBlock";
+  }
+  io_uring_prep_read(sqe, read_fd_.get(), block->payload.data(),
+                      block->payload.size(), 0);
+  sqe->user_data = block->iou_data.id = static_cast<uint64_t>(TransferId::read(id));
+  //sqe->flags |= (IOSQE_ASYNC);
+  LOG(DEBUG) << "READ: Submit-read block with sqe-id: " << sqe->user_data
+            << " block->iou_data.id: " << block->iou_data.id
+            << " Value: " << id;
+  block->pending = true;
+}
+
+bool IouringContext::SubmitIO(int num_blocks, IoReadBlock*) {
+  int ret = io_uring_submit(ring_.get());
+  if (ret != num_blocks) {
+    LOG(ERROR) << "io_uring_submit failed ret: " << ret
+               << " Expected: " << num_blocks;
+    return false;
+  }
+
+  return true;
+}
+
+bool IouringContext::ProcessEvents(atransport* transport) {
+  size_t kMaxEvents = kUsbReadQueueDepth + kUsbWriteQueueDepth;
+
+  while (kMaxEvents) {
+      struct io_uring_cqe *cqe;
+
+      int ret = io_uring_cq_ready(ring_.get());
+      if (ret <= 0) {
+          return true;
+      }
+
+      ret = io_uring_peek_cqe(ring_.get(), &cqe);
+      if (ret) {
+          if (ret == -EAGAIN || ret == -EINTR) {
+              LOG(ERROR) << "io_uring_peek_cqe returned: " << ret
+                         << " retrying completion-queue";
+              usleep(1);
+              continue;
+          }
+          if (ret != -EAGAIN) {
+              LOG(ERROR) << "io_uring_peek_cqe failed with ret: " << ret;
+              return false;
+          }
+          return true;
+      }
+
+      TransferId id = TransferId::from_value(cqe->user_data);
+      LOG(DEBUG) << "CQE received with cqe_id: " << cqe->user_data
+                << " Value: " << id.id
+                << " cqe->res: " << cqe->res;
+
+      if (cqe->res < 0) {
+          if (!connection_started_ && (ret == -EPIPE || cqe->res  == -EPIPE) &&
+              id.direction == TransferDirection::READ) {
+              uint64_t read_idx = id.id % kUsbReadQueueDepth;
+              io_uring_cqe_seen(ring_.get(), cqe);
+              PrepareReadBlock(&read_requests_[read_idx], id.id);
+              if (!SubmitIO(1)) {
+                  return false;
+              }
+              kMaxEvents -= 1;
+              continue;
+          } else {
+              if (cqe->res == -ECANCELED || cqe->res == -EAGAIN || cqe->res == -EINTR) {
+                  uint64_t index;
+                  io_uring_cqe_seen(ring_.get(), cqe);
+                  if (id.direction == TransferDirection::READ) {
+                      index = id.id % kUsbReadQueueDepth;
+                      PrepareReadBlock(&read_requests_[index], id.id);
+                  } else {
+                      index = id.id % kUsbWriteQueueDepth;
+                      LOG(ERROR) << "Received write error: " << cqe->res;
+                      return false;
+                  }
+
+                  LOG(INFO) << "I/O failed with: " << cqe->res << " retrying again";
+                  if (!SubmitIO(1)) {
+                      return false;
+                  }
+                  kMaxEvents -= 1;
+                  continue;
+              }
+              std::string error =
+                StringPrintf("%s %" PRIu64 " failed with error %s",
+                         id.direction == TransferDirection::READ ? "read" : "write",
+                         id.id, strerror(cqe->res));
+              LOG(ERROR) << error;
+              return false;
+          }
+      }
+
+      size_t io_size = cqe->res;
+      io_uring_cqe_seen(ring_.get(), cqe);
+
+      if (id.direction == TransferDirection::READ) {
+          connection_started_ = true;
+          if (!HandleRead(id, io_size, transport)) {
+              return false;
+          }
+      } else {
+          HandleWrite(id);
+      }
+
+      kMaxEvents -= 1;
+  }
+
+  return true;
+}
+
+bool IouringContext::HandleRead(TransferId id, int64_t size, atransport* transport) {
+  uint64_t read_idx = id.id % kUsbReadQueueDepth;
+  IoReadBlock* block = &read_requests_[read_idx];
+  block->pending = false;
+  block->payload.resize(size);
+
+  // Notification for completed reads can be received out of order.
+  if (block->id().id != needed_read_id_) {
+    LOG(VERBOSE) << "read " << block->id().id << " completed while waiting for "
+                 << needed_read_id_;
+    return true;
+  }
+
+  int num_blocks_to_submit = 0;
+  for (uint64_t id = needed_read_id_;; ++id) {
+    size_t read_idx = id % kUsbReadQueueDepth;
+    IoReadBlock* current_block = &read_requests_[read_idx];
+    if (current_block->pending) {
+      break;
+    }
+    if (!ProcessRead(current_block, transport)) {
+      return false;
+    }
+
+    num_blocks_to_submit += 1;
+    PrepareReadBlock(current_block, block->id().id + kUsbReadQueueDepth);
+    ++needed_read_id_;
+  }
+
+  // Submit the I/O in one shot
+  if (!SubmitIO(num_blocks_to_submit)) {
+      return false;
+  }
+  return true;
+}
+
+IoWriteBlock IouringContext::CreateWriteBlock(std::shared_ptr<Block> payload, size_t offset, size_t len,
+                                          uint64_t id) {
+  auto block = IoWriteBlock();
+  block.payload = std::move(payload);
+
+  block.iou_data.id = static_cast<uint64_t>(TransferId::write(id));
+  block.iou_data.data = reinterpret_cast<void*>(block.payload->data() + offset);
+  block.iou_data.len = len;
+  block.pending = false;
+  block.io_uring = true;
+
+  LOG(DEBUG) << "WRITE: Submit-write"
+            << " block.iou_data.id: " << block.iou_data.id
+            << " Value: " << id;
+
+  return block;
+}
+
+bool IouringContext::SubmitWrites() {
+  std::lock_guard<std::mutex> lock(write_mutex_);
+
+  if (writes_submitted_ == kUsbWriteQueueDepth) {
+    return true;
+  }
+
+  ssize_t writes_to_submit = std::min(kUsbWriteQueueDepth - writes_submitted_,
+                                      write_requests_.size() - writes_submitted_);
+  CHECK_GE(writes_to_submit, 0);
+  if (writes_to_submit == 0) {
+    return true;
+  }
+
+  for (int i = 0; i < writes_to_submit; ++i) {
+    auto& block = write_requests_[writes_submitted_ + i];
+    CHECK(!block.pending);
+
+    struct io_uring_sqe* sqe = io_uring_get_sqe(ring_.get());
+    if (!sqe) {
+      LOG(ERROR) << "Failed to get SQE";
+      return false;
+    }
+
+    io_uring_prep_write(sqe, write_fd_.get(), block.iou_data.data,
+                        block.iou_data.len, 0);
+    sqe->user_data = block.iou_data.id;
+    //sqe->flags |= (IOSQE_ASYNC);
+    block.pending = true;
+  }
+
+  writes_submitted_ += writes_to_submit;
+
+  if (!SubmitIO(writes_to_submit)) {
+    LOG(ERROR) << "Failed to submit writes";
+    return false;
+  }
+
+  return true;
 }
 
 class AioContext final : public UsbIoContext {
@@ -251,6 +507,7 @@ class AioContext final : public UsbIoContext {
                                           uint64_t id) override;
         void PrepareReadBlock(IoReadBlock* block, uint64_t id) override;
         bool SubmitIO(int num_blocks, IoReadBlock* block = nullptr) override;
+        bool HandleRead(TransferId id, int64_t size, atransport* transport) override;
 
         ScopedAioContext aio_context_;
 };
@@ -368,6 +625,40 @@ bool AioContext::ProcessEvents(atransport* transport) {
   return true;
 }
 
+bool AioContext::HandleRead(TransferId id, int64_t size, atransport* transport) {
+  uint64_t read_idx = id.id % kUsbReadQueueDepth;
+  IoReadBlock* block = &read_requests_[read_idx];
+  block->pending = false;
+  block->payload.resize(size);
+
+  // Notification for completed reads can be received out of order.
+  if (block->id().id != needed_read_id_) {
+    LOG(VERBOSE) << "read " << block->id().id << " completed while waiting for "
+                 << needed_read_id_;
+    return true;
+  }
+
+  for (uint64_t id = needed_read_id_;; ++id) {
+    size_t read_idx = id % kUsbReadQueueDepth;
+    IoReadBlock* current_block = &read_requests_[read_idx];
+    if (current_block->pending) {
+      break;
+    }
+    if (!ProcessRead(current_block, transport)) {
+      return false;
+    }
+
+    PrepareReadBlock(current_block, current_block->id().id + kUsbReadQueueDepth);
+    if (!SubmitIO(1, current_block)) {
+      return false;
+    }
+
+    ++needed_read_id_;
+  }
+
+  return true;
+}
+
 IoWriteBlock AioContext::CreateWriteBlock(std::shared_ptr<Block> payload, size_t offset, size_t len,
                                           uint64_t id) {
   auto block = IoWriteBlock();
@@ -421,8 +712,23 @@ bool AioContext::SubmitWrites() {
   return true;
 }
 
-std::unique_ptr<IUsbIoContext> IUsbIoContext::Init(unique_fd read_fd, unique_fd write_fd) {
+#if 0
+std::unique_ptr<IUsbIoContext> IUsbIoContext::Init_iou(unique_fd write_fd, bool io_uring) {
+    LOG(INFO) << "init_iou: " << io_uring;
+    return std::unique_ptr<IUsbIoContext>(new IouringContext(std::move(write_fd)));
+}
+#endif
+
+std::unique_ptr<IUsbIoContext> IUsbIoContext::Init(unique_fd read_fd, unique_fd write_fd, bool io_uring) {
+    //io_uring = false;
+#if 1
+    if (io_uring) {
+        return std::unique_ptr<IUsbIoContext>(new IouringContext(std::move(read_fd), std::move(write_fd)));
+    }
+#endif
     return std::unique_ptr<IUsbIoContext>(new AioContext(std::move(read_fd), std::move(write_fd)));
+    LOG(INFO) << "Init: " << io_uring;
+    //return std::unique_ptr<IUsbIoContext>(new AioContext(std::move(read_fd)));
 }
 
 IUsbIoContext::~IUsbIoContext() {}

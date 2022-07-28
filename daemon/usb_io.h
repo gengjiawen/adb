@@ -29,6 +29,7 @@
 #include <android-base/properties.h>
 #include <android-base/thread_annotations.h>
 #include <android-base/unique_fd.h>
+#include <liburing.h>
 
 #include "adb_unique_fd.h"
 #include "adb_utils.h"
@@ -51,13 +52,28 @@ static constexpr size_t kUsbReadSize = 4 * PAGE_SIZE;
 static constexpr size_t kUsbWriteQueueDepth = 8;
 static constexpr size_t kUsbWriteSize = 4 * PAGE_SIZE;
 
+struct IouringMetadata {
+    uint64_t id;
+    void* data;
+    size_t len;
+};
+
 template <class Payload>
 struct IoBlock {
     bool pending = false;
-    struct iocb control = {};
+    bool io_uring = false;
+    union {
+        struct iocb control = {};
+        struct IouringMetadata iou_data;
+    };
     Payload payload;
 
-    TransferId id() const { return TransferId::from_value(control.aio_data); }
+    TransferId id() const {
+      if (io_uring) {
+          return TransferId::from_value(iou_data.id);
+      }
+      return TransferId::from_value(control.aio_data);
+    }
 };
 
 using IoReadBlock = IoBlock<Block>;
@@ -66,7 +82,8 @@ using IoWriteBlock = IoBlock<std::shared_ptr<Block>>;
 class IUsbIoContext {
     public:
       virtual ~IUsbIoContext() = 0;
-      static std::unique_ptr<IUsbIoContext> Init(unique_fd read_fd, unique_fd write_fd);
+      static std::unique_ptr<IUsbIoContext> Init(unique_fd read_fd, unique_fd write_fd, bool io_uring);
+      //static std::unique_ptr<IUsbIoContext> Init_iou(unique_fd write_fd, bool io_uring);
       virtual bool SubmitReadRequests() = 0;
       virtual bool ProcessEvents(atransport* transport) = 0;
       virtual bool SubmitWrites() = 0;

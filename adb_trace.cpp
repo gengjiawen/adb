@@ -42,7 +42,12 @@ const char* adb_device_banner = "host";
 void AdbLogger(android::base::LogId id, android::base::LogSeverity severity,
                const char* tag, const char* file, unsigned int line,
                const char* message) {
+#if !ADB_HOST && defined(__ANDROID__)
+    android::base::KernelLogger(id, severity, tag, file, line, message);
+#else
     android::base::StderrLogger(id, severity, tag, file, line, message);
+#endif
+
 #if defined(_WIN32)
     // stderr can be buffered on Windows (and setvbuf doesn't seem to work), so explicitly flush.
     fflush(stderr);
@@ -51,8 +56,10 @@ void AdbLogger(android::base::LogId id, android::base::LogSeverity severity,
 #if !ADB_HOST && defined(__ANDROID__)
     // Only print logs of INFO or higher to logcat, so that `adb logcat` with adbd tracing on
     // doesn't result in exponential logging.
+    //static constexpr auto&& log_characters = "VDIWEF";
     if (severity >= android::base::INFO) {
         gLogdLogger(id, severity, tag, file, line, message);
+        //fprintf(stdout, "%c:%s\n", log_characters[severity], message);
     }
 #endif
 }
@@ -157,7 +164,8 @@ void adb_trace_init(char** argv) {
 #if !ADB_HOST
     // Don't open log file if no tracing, since this will block
     // the crypto unmount of /data
-    if (!get_trace_setting().empty()) {
+    //if (!get_trace_setting().empty()) {
+    if (1) {
         if (unix_isatty(STDOUT_FILENO) == 0) {
             start_device_log();
         }
@@ -175,7 +183,11 @@ void adb_trace_init(char** argv) {
     }
 #endif
 
-    android::base::InitLogging(argv, &AdbLogger);
+#if !ADB_HOST && defined(__ANDROID__)
+    android::base::InitLogging(argv, &android::base::KernelLogger);
+#else
+    //android::base::InitLogging(argv, &AdbLogger);
+#endif
 
 #if ADB_HOST && !defined(_WIN32)
     // Put $ANDROID_LOG_TAGS back so we can pass it to logcat.
