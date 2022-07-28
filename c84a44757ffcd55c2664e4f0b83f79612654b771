@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7678e76_0ce6a2e3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-07-28T20:00:56Z",
+      "side": 1,
+      "message": "there\u0027s something missing here, right? it\u0027s the _next_ adb command that fails without this patch?",
+      "revId": "c84a44757ffcd55c2664e4f0b83f79612654b771",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
