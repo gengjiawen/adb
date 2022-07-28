@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7aa02de7_bc6c88c8",
+        "filename": "adb.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-07-28T21:01:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5350ffe9_b06f8153",
+      "revId": "c09cea46be503cf87011c5f8320ecf8465b0a635",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "08ff33f8_0e7159d8",
