@@ -70,6 +70,24 @@
       "parentUuid": "639c9603_5c5c981b",
       "revId": "c84a44757ffcd55c2664e4f0b83f79612654b771",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "912cde1b_adc67eed",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-07-28T23:42:28Z",
+      "side": 1,
+      "message": "okay, lets replace \"pull 1GB file\" with \"\u003csomething that causes adb to crash\u003e\", since otherwise this comment isn\u0027t going to make sense to anyone once we\u0027ve fixed that bug.\n\n(i know _very_ large files [like \u003e\u003d size of ram] cause problems; we\u0027ve seen bug reports of that, but i\u0027ve never heard problems with something as small as 1GiB ... is this on a low-memory device?)",
+      "parentUuid": "6f8d819f_497bf165",
+      "revId": "c84a44757ffcd55c2664e4f0b83f79612654b771",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
