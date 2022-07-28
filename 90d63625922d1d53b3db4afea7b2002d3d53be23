@@ -46,6 +46,30 @@
       },
       "revId": "90d63625922d1d53b3db4afea7b2002d3d53be23",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0c5d227_a1f716a6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1764341
+      },
+      "writtenOn": "2022-07-28T19:22:37Z",
+      "side": 1,
+      "message": "Agree. about Bug ID requirement.\nAlthough look like Bug is needed just as suggested process for Qualcomm/third party side changes.  So creating it, and attaching it.\n\nUpdating TEST CASE in commit text.",
+      "parentUuid": "63492ca6_2c5fd770",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 40
+      },
+      "revId": "90d63625922d1d53b3db4afea7b2002d3d53be23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
