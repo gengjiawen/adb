@@ -34,6 +34,24 @@
       "parentUuid": "f7678e76_0ce6a2e3",
       "revId": "c84a44757ffcd55c2664e4f0b83f79612654b771",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "639c9603_5c5c981b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-07-28T22:15:44Z",
+      "side": 1,
+      "message": "\u003e It fails at adb pull 1GB file. so next adb reboot command won\u0027t work. and querying adb status adb devices fails.\n\nwait? you\u0027re telling me you can\u0027t pull a 1GiB file without issue?",
+      "parentUuid": "fc27bb97_f05b7fcd",
+      "revId": "c84a44757ffcd55c2664e4f0b83f79612654b771",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
