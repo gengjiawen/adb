@@ -152,6 +152,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cac34e6d_457ec86a",
+        "filename": "daemon/usb.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1764341
+      },
+      "writtenOn": "2022-07-28T00:30:34Z",
+      "side": 1,
+      "message": "nopes. Handlewrite() should able to get events for those write termination, and able to go through those requests.",
+      "parentUuid": "c53abb82_54565ace",
+      "revId": "f42c0c77d9661eef46b19ac6f40a41243d6a6a11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "617e8640_abe4a79f",
