@@ -22,6 +22,30 @@
       },
       "revId": "90d63625922d1d53b3db4afea7b2002d3d53be23",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63492ca6_2c5fd770",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-07-28T17:02:41Z",
+      "side": 1,
+      "message": "i wouldn\u0027t bother with that, because i don\u0027t think you have any extra information to write in that bug?\n\ni\u0027d just include the test repro steps you gave in the commit message (since that\u0027s the one thing that i know isn\u0027t in the commit message right now), and that should be everything?\n\n(and if there is something else you\u0027d put in a bug, put it in the commit message instead?)",
+      "parentUuid": "8522645e_aa87fd33",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 40
+      },
+      "revId": "90d63625922d1d53b3db4afea7b2002d3d53be23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
