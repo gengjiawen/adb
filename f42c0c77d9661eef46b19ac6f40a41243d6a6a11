@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7be3f65_f4794322",
+        "filename": "daemon/usb.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 1764341
+      },
+      "writtenOn": "2022-07-28T00:00:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0332b570_f208aa70",
+      "range": {
+        "startLine": 685,
+        "startChar": 8,
+        "endLine": 687,
+        "endChar": 9
+      },
+      "revId": "f42c0c77d9661eef46b19ac6f40a41243d6a6a11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3a9ba927_3dc8b0d3",
@@ -37,6 +61,24 @@
       "writtenOn": "2022-07-27T23:18:11Z",
       "side": 1,
       "message": "seems like this shouldn\u0027t be needed unless you\u0027re missing a lock? (and i think you already took the correct lock on L684 :-) )",
+      "revId": "f42c0c77d9661eef46b19ac6f40a41243d6a6a11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60020ce2_cfa6833b",
+        "filename": "daemon/usb.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 689,
+      "author": {
+        "id": 1764341
+      },
+      "writtenOn": "2022-07-28T00:00:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a9ba927_3dc8b0d3",
       "revId": "f42c0c77d9661eef46b19ac6f40a41243d6a6a11",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -75,6 +117,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfabcd34_861e631f",
+        "filename": "daemon/usb.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1764341
+      },
+      "writtenOn": "2022-07-28T00:00:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdf63e34_0c91447e",
+      "revId": "f42c0c77d9661eef46b19ac6f40a41243d6a6a11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c53abb82_54565ace",
@@ -109,6 +169,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e18986d_ecfb81ed",
+        "filename": "daemon/usb.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 698,
+      "author": {
+        "id": 1764341
+      },
+      "writtenOn": "2022-07-28T00:00:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "617e8640_abe4a79f",
+      "revId": "f42c0c77d9661eef46b19ac6f40a41243d6a6a11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a8b38c32_48f278e4",
@@ -122,6 +200,30 @@
       "writtenOn": "2022-07-27T23:18:11Z",
       "side": 1,
       "message": "(and then we just have `\u0026write_requests_[i].control` here and lose the single-use local.)",
+      "range": {
+        "startLine": 699,
+        "startChar": 46,
+        "endLine": 699,
+        "endChar": 52
+      },
+      "revId": "f42c0c77d9661eef46b19ac6f40a41243d6a6a11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00e0f964_38990a2b",
+        "filename": "daemon/usb.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 699,
+      "author": {
+        "id": 1764341
+      },
+      "writtenOn": "2022-07-28T00:00:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8b38c32_48f278e4",
       "range": {
         "startLine": 699,
         "startChar": 46,
