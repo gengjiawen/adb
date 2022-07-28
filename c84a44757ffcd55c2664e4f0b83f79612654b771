@@ -52,6 +52,24 @@
       "parentUuid": "fc27bb97_f05b7fcd",
       "revId": "c84a44757ffcd55c2664e4f0b83f79612654b771",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f8d819f_497bf165",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1764341
+      },
+      "writtenOn": "2022-07-28T23:35:43Z",
+      "side": 1,
+      "message": "It is hard to reproduce this issue, but when it happened this is being seen.",
+      "parentUuid": "639c9603_5c5c981b",
+      "revId": "c84a44757ffcd55c2664e4f0b83f79612654b771",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
