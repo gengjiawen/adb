@@ -124,6 +124,24 @@
       "parentUuid": "78194213_a92533c3",
       "revId": "c84a44757ffcd55c2664e4f0b83f79612654b771",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "806d7d63_28b3621d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1764341
+      },
+      "writtenOn": "2022-07-29T17:16:01Z",
+      "side": 1,
+      "message": "\u003e\u003e do you see this on many devices?\nYes. This is on and off issue seen across many devices in automation environment. \n\n\"\u003csomething that causes adb to disconnect at the USB transport level\u003e\"\nagree. yes. Hence commit description start with sentence as: If for some reason the USB transport is disrupted or a transfer fails,",
+      "parentUuid": "782f968f_fe641e00",
+      "revId": "c84a44757ffcd55c2664e4f0b83f79612654b771",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
