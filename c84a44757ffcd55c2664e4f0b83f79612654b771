@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a6d06e77_6b65c510",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-07-29T18:19:16Z",
+      "side": 1,
+      "message": "(now you\u0027ve made me look more closely at this first sentence ... why would a transfer fail _other_ than the usb transport being disrupted? and is \"pull 1GiB file, disconnect and reconnect usb cable\" a way to get into this state? or does that reset things cleanly via some other route?)",
+      "range": {
+        "startLine": 9,
+        "startChar": 50,
+        "endLine": 9,
+        "endChar": 69
+      },
+      "revId": "c84a44757ffcd55c2664e4f0b83f79612654b771",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f7678e76_0ce6a2e3",
         "filename": "/COMMIT_MSG",
         "patchSetId": 7
@@ -140,6 +163,24 @@
       "side": 1,
       "message": "\u003e\u003e do you see this on many devices?\nYes. This is on and off issue seen across many devices in automation environment. \n\n\"\u003csomething that causes adb to disconnect at the USB transport level\u003e\"\nagree. yes. Hence commit description start with sentence as: If for some reason the USB transport is disrupted or a transfer fails,",
       "parentUuid": "782f968f_fe641e00",
+      "revId": "c84a44757ffcd55c2664e4f0b83f79612654b771",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3dab314_e6b7a87a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-07-29T18:19:16Z",
+      "side": 1,
+      "message": "\u003e agree. yes. Hence commit description start with sentence as: If for some reason the USB transport is disrupted or a transfer fails,\n\nyeah, that part\u0027s fine. i just don\u0027t want to leave misleading text down here. (having been on Android for \u003e10 years already, i\u0027m pretty sure this code will still be around in another 10 years, and in 2032 someone\u0027s going to be wondering what we meant, and they won\u0027t be able to read this conversation [Android\u0027s switched code review systems twice in the time i\u0027ve been on Android], and you and i may well have moved on to other things, and even if we haven\u0027t, we probably won\u0027t remember this conversation :-) )\n\n(i think just clarifying that is fine for this CL, and we should get this workaround in, but i\u0027m still interested in \"This is on and off issue seen across many devices in automation environment\" --- happy to help try to chase that down separately later, because that sucks. i don\u0027t suppose you can switch to Thinkpad x13s on the host side, so it\u0027s qcom usb talking to qcom usb and we can remove some variables that way to try to get to the bottom of this?)",
+      "parentUuid": "806d7d63_28b3621d",
       "revId": "c84a44757ffcd55c2664e4f0b83f79612654b771",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
