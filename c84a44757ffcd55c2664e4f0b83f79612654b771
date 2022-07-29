@@ -183,6 +183,24 @@
       "parentUuid": "806d7d63_28b3621d",
       "revId": "c84a44757ffcd55c2664e4f0b83f79612654b771",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbcd2a8b_929de17c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1764341
+      },
+      "writtenOn": "2022-07-29T19:55:00Z",
+      "side": 1,
+      "message": "Nice suggestion. Need to look into that direction as you mentioned. Although it may not possible immediately.\n\nSaying this, there can be N reason for particular transport (here USB) encounter different set of errors. Agree, transport suppose to be error free as much as possible (in ideal world case). Although on development phase of product, there can be many iterations in which transport/USB link is getting stabilize with fine tuning of Controller and USB PHYs. As adbd is command and response protocol, it is susceptible to encounter this issue more often if transport is not clean.\n\nAs ADB is widely used for debugging during project/product development life cycle specifically with automation testing, it seems that it is needed to have some way of recovery mechanism without impacting adb protocol. Some automation test script does perform adb kill-server on seeing adb offline, and retrying next set of adb commands.",
+      "parentUuid": "f3dab314_e6b7a87a",
+      "revId": "c84a44757ffcd55c2664e4f0b83f79612654b771",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
