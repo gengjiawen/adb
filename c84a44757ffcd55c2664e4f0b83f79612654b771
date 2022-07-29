@@ -106,6 +106,24 @@
       "parentUuid": "912cde1b_adc67eed",
       "revId": "c84a44757ffcd55c2664e4f0b83f79612654b771",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "782f968f_fe641e00",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-07-29T16:21:36Z",
+      "side": 1,
+      "message": "\u003e To be honest size of file is not problem here. It depends on USB transport level error perhaps host side xhci getting some kind of error which is just terminating adbd server read here.\n\ndo you see this on many devices? we have a test specifically for this case because it\u0027s been problematic in the past, but i\u0027m not aware of any current bugs (beyond the \"file large enough that we get oom killed [which can be worked around by turning off compression]\").\n\n\u003e how about I adding something like this:\n\u003e adb pull \u003cbig size file\u003e -\u003e When it gets terminated due to USB transport level issue\n\nwell, the \"when\" still implies this is expected behavior... how about\n\n\"\u003csomething that causes adb to disconnect at the USB transport level\u003e\"\n\nthat seems like what i said before but with your correction that it\u0027s specifically usb transport?",
+      "parentUuid": "78194213_a92533c3",
+      "revId": "c84a44757ffcd55c2664e4f0b83f79612654b771",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
