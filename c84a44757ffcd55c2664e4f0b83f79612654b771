@@ -201,6 +201,24 @@
       "parentUuid": "f3dab314_e6b7a87a",
       "revId": "c84a44757ffcd55c2664e4f0b83f79612654b771",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac780b06_e770439c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-07-29T20:10:32Z",
+      "side": 1,
+      "message": "\u003e Saying this, there can be N reason for particular transport (here USB) encounter different set of errors.\n\nyeah, i think we\u0027re in agreement that this is a good change and should go in.\n\ni just don\u0027t want something that we know isn\u0027t strictly true (and isn\u0027t really the point) in the checkin message. i\u0027d have edited it myself to say \"\u003csomething that causes adb to disconnect at the USB transport level\u003e\" in place of the current \"adb pull 1GB file\", but i want you to confirm that that\u0027s correct, and _i\u0027m_ not missing something. and the easiest way for you to do that is to make the change yourself as a sign you think it\u0027s correct too :-)",
+      "parentUuid": "dbcd2a8b_929de17c",
+      "revId": "c84a44757ffcd55c2664e4f0b83f79612654b771",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
