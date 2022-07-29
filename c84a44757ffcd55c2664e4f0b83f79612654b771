@@ -88,6 +88,24 @@
       "parentUuid": "6f8d819f_497bf165",
       "revId": "c84a44757ffcd55c2664e4f0b83f79612654b771",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78194213_a92533c3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1764341
+      },
+      "writtenOn": "2022-07-29T00:50:42Z",
+      "side": 1,
+      "message": "To be honest size of file is not problem here. It depends on USB transport level error perhaps host side xhci getting some kind of error which is just terminating adbd server read here.\n\nhow about I adding something like this:\nadb pull \u003cbig size file\u003e -\u003e When it gets terminated due to USB transport level issue",
+      "parentUuid": "912cde1b_adc67eed",
+      "revId": "c84a44757ffcd55c2664e4f0b83f79612654b771",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
