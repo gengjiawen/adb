@@ -34,6 +34,24 @@
       "parentUuid": "f803e2c5_987b79d4",
       "revId": "45b7229e563225fa3a916c5edcf3ae3f23da5655",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "008fdd92_e90b34cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-08-05T20:23:37Z",
+      "side": 1,
+      "message": "\u003e otoh is it that important to maintin helpful error message for adb remount \u0026 disable-verity on user build? these are never supported nor advertised on user build, and had always been debug build utilities.\n\nwell, in general, yes: \"there are few more useful things we do than improve our error messages\".\n\nhelping every individual/company that hits a problem doesn\u0027t scale. tweaking the error message until people can help themselves does.\n\ni\u0027m a bit confused what you\u0027re telling me about `remount` --- you\u0027re saying that although it\u0027s not explicitly excluded here (so we _build_ it), it\u0027s not being installed on the device for some other reason (which is presumably a hack somewhere else that we can remove if we merge this?), and we already get a crappy error message? if that\u0027s the case, i\u0027ll trade you the cl that removes the hack that\u0027s currently preventing remount from being installed for +2 on this one, which seems like a cleaner way to avoid installing it (and, as you say, makes remount and set-verity-state consistent) :-)",
+      "parentUuid": "201e4bf8_c90d40e2",
+      "revId": "45b7229e563225fa3a916c5edcf3ae3f23da5655",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
