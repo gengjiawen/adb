@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f803e2c5_987b79d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-08-05T14:49:35Z",
+      "side": 1,
+      "message": "what kind of error message do we get in that case? i _think_ the reason we never did anything to \"optimize\" this is that we get sensible \"you can\u0027t do that\" errors currently, but i\u0027m guessing we\u0027d get worse \"file not found\" errors if we made this change?\n\nit\u0027s not clear to me that that (or having to _add_ code to give better error messages) is a good tradeoff?",
+      "revId": "45b7229e563225fa3a916c5edcf3ae3f23da5655",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
