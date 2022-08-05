@@ -16,6 +16,24 @@
       "message": "what kind of error message do we get in that case? i _think_ the reason we never did anything to \"optimize\" this is that we get sensible \"you can\u0027t do that\" errors currently, but i\u0027m guessing we\u0027d get worse \"file not found\" errors if we made this change?\n\nit\u0027s not clear to me that that (or having to _add_ code to give better error messages) is a good tradeoff?",
       "revId": "45b7229e563225fa3a916c5edcf3ae3f23da5655",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "201e4bf8_c90d40e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1337669
+      },
+      "writtenOn": "2022-08-05T16:41:42Z",
+      "side": 1,
+      "message": "hmm good point, I didn\u0027t give it that much thought tbh. I was just making disable-verity command behave more like the remount command. and yes \u0027adb remount\u0027 works exactly as you described, on -user build it just emits a \u0027cannot find remount executable\u0027 error message.\n\nThe goal of this cl is really to just configure set-vetity-state like remount. That we don\u0027t install it on -user build at all in order to set the expectations clear (that being we never want to allow remount and set-vetity-state on user build)\n\nyeah I agree the error msg is not friendly if we don\u0027t install this on user build, but right now we\u0027re shipping executables on -user build that only do one job, print \"not supported on user build\", which is kind of wasteful.\n\notoh is it that important to maintin helpful error message for adb remount \u0026 disable-verity on user build? these are never supported nor advertised on user build, and had always been debug build utilities.",
+      "parentUuid": "f803e2c5_987b79d4",
+      "revId": "45b7229e563225fa3a916c5edcf3ae3f23da5655",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
