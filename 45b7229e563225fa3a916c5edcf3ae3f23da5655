@@ -52,6 +52,24 @@
       "parentUuid": "201e4bf8_c90d40e2",
       "revId": "45b7229e563225fa3a916c5edcf3ae3f23da5655",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40a73be2_f0639c32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1337669
+      },
+      "writtenOn": "2022-08-06T07:11:09Z",
+      "side": 1,
+      "message": "it\u0027s not a hack, right now `remount` is installed with PRODUCT_PACKAGES_DEBUG in base_system.mk, it\u0027s one of the many ways to skip installing something on USER build. (see other CL in same topic)\nand yes executing `adb remount` with user build emits the dodo message right now:\n```\n\u003e adb -e remount   \n/system/bin/sh: remount: inaccessible or not found\n```\n\n`adb disable-verity` (which calls set-verity-state under the hood) OTOH produces subpar messages, it\u0027s suggesting user to try \"adb root\", which is not available on user build:\n```\n\u003e adb -e disable-verity\navb_user_verity.c:92: ERROR: Error loading footer from partition \u0027boot_a\u0027\nError getting verity state. Try adb root first?\n```\n\nHow about we teach adb/adbd to check if the binaries exist before executing?\n\nFor adbd, just stat(/system/bin/remount) before actually execve in to it.\nFor adb, we can use \"command -v remount\" to check the existence of the remount binary before actually executing it.",
+      "parentUuid": "008fdd92_e90b34cc",
+      "revId": "45b7229e563225fa3a916c5edcf3ae3f23da5655",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
