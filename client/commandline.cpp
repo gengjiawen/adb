@@ -1430,7 +1430,17 @@ const std::optional<FeatureSet>& adb_get_feature_set_or_die(void) {
 // same release.
 static int process_remount_or_verity_service(const int argc, const char** argv) {
     auto&& features = adb_get_feature_set_or_die();
-    if (CanUseFeature(*features, kFeatureRemountShell)) {
+    const bool can_use_remount_shell = CanUseFeature(*features, kFeatureRemountShell) &&
+                                       CanUseFeature(*features, kFeatureShell2);
+    if (can_use_remount_shell) {
+        std::vector<const char*> check_command = {"shell", "command", "-v", argv[0], ">/dev/null"};
+        if (adb_shell_noinput(check_command.size(), check_command.data()) != 0) {
+            fprintf(stderr,
+                    "error: %s: command not found, function requires adb root on debuggable "
+                    "build\n",
+                    argv[0]);
+            return 1;
+        }
         std::vector<const char*> args = {"shell"};
         args.insert(args.cend(), argv, argv + argc);
         return adb_shell_noinput(args.size(), args.data());
