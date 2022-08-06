@@ -161,6 +161,23 @@ static void spin_service(unique_fd fd) {
     return StartSubprocess(cmd, nullptr, SubprocessType::kRaw, SubprocessProtocol::kNone);
 }
 
+static unique_fd remount_or_verity_service(const std::string& command_pathname,
+                                           const std::string& args) {
+    struct stat st;
+    if (stat(command_pathname.c_str(), &st) != 0 || !S_ISREG(st.st_mode)) {
+        std::string msg = command_pathname +
+                          ": command not found, function requires adb root on debuggable build";
+        LOG(ERROR) << msg;
+        return ReportError(SubprocessProtocol::kNone, msg);
+    }
+    if (args.empty()) {
+        return StartSubprocess(command_pathname, nullptr, SubprocessType::kRaw,
+                               SubprocessProtocol::kNone);
+    }
+    return StartSubprocess(command_pathname + " " + args, nullptr, SubprocessType::kRaw,
+                           SubprocessProtocol::kNone);
+}
+
 struct ServiceSocket : public asocket {
     ServiceSocket() = delete;
     explicit ServiceSocket(atransport* transport) {
@@ -282,10 +299,6 @@ unique_fd daemon_service_to_fd(std::string_view name, atransport* transport) {
 #if defined(__ANDROID__)
     if (name.starts_with("framebuffer:")) {
         return create_service_thread("fb", framebuffer_service);
-    } else if (android::base::ConsumePrefix(&name, "remount:")) {
-        std::string cmd = "/system/bin/remount ";
-        cmd += name;
-        return StartSubprocess(cmd, nullptr, SubprocessType::kRaw, SubprocessProtocol::kNone);
     } else if (android::base::ConsumePrefix(&name, "reboot:")) {
         return reboot_device(std::string(name));
     } else if (name.starts_with("root:")) {
@@ -299,12 +312,12 @@ unique_fd daemon_service_to_fd(std::string_view name, atransport* transport) {
     } else if (name.starts_with("restore:")) {
         return StartSubprocess("/system/bin/bu restore", nullptr, SubprocessType::kRaw,
                                SubprocessProtocol::kNone);
+    } else if (android::base::ConsumePrefix(&name, "remount:")) {
+        return remount_or_verity_service("/system/bin/remount", std::string(name));
     } else if (name.starts_with("disable-verity:")) {
-        return StartSubprocess("/system/bin/disable-verity", nullptr, SubprocessType::kRaw,
-                               SubprocessProtocol::kNone);
+        return remount_or_verity_service("/system/bin/disable-verity", "");
     } else if (name.starts_with("enable-verity:")) {
-        return StartSubprocess("/system/bin/enable-verity", nullptr, SubprocessType::kRaw,
-                               SubprocessProtocol::kNone);
+        return remount_or_verity_service("/system/bin/enable-verity", "");
     } else if (android::base::ConsumePrefix(&name, "tcpip:")) {
         std::string str(name);
 
