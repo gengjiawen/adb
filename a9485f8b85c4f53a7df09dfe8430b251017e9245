@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f11c1d1_ffc4cb5e",
+        "filename": "client/incremental_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-08-07T18:37:58Z",
+      "side": 1,
+      "message": "const qualify?",
+      "range": {
+        "startLine": 53,
+        "startChar": 4,
+        "endLine": 53,
+        "endChar": 20
+      },
+      "revId": "a9485f8b85c4f53a7df09dfe8430b251017e9245",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
