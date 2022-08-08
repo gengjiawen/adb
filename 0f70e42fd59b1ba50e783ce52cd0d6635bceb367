@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fa8d07f_86d0b295",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-08-08T20:33:19Z",
+      "side": 1,
+      "message": "lgtm other than the comment",
+      "revId": "0f70e42fd59b1ba50e783ce52cd0d6635bceb367",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff4891ac_bd80768f",
+        "filename": "daemon/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-08-08T20:33:19Z",
+      "side": 1,
+      "message": "\"don\u0027t try again to avoid a restart loop\" more accurately describes what\u0027s actually happening here?",
+      "range": {
+        "startLine": 162,
+        "startChar": 48,
+        "endLine": 163,
+        "endChar": 32
+      },
+      "revId": "0f70e42fd59b1ba50e783ce52cd0d6635bceb367",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
