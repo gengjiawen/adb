@@ -70,6 +70,24 @@
       "parentUuid": "008fdd92_e90b34cc",
       "revId": "45b7229e563225fa3a916c5edcf3ae3f23da5655",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14e1cab3_e15c83cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-08-08T15:54:40Z",
+      "side": 1,
+      "message": "\u003e it\u0027s not a hack\n\ni\u0027d argue that anything with non-local effects like that is a hack :-) thanks for removing it!",
+      "parentUuid": "40a73be2_f0639c32",
+      "revId": "45b7229e563225fa3a916c5edcf3ae3f23da5655",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
