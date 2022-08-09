@@ -16,6 +16,24 @@
       "message": "thanks for looking at this, but i think you\u0027ve convinced me not to bother?\n\nif this causes confusion in future, i think maybe we\u0027ll just add a boilerplate error (and/or link to the docs) for _any_ failure from these commands, rather than try to be clever like this for something that _should_ never happen?\n\n(i know these commands aren\u0027t exactly performance critical, but doing extra work on each one does just seem like adding extra ways for them to fail... \"what if the shell\u0027s broken? now it\u0027s harder to get to where you can push a new shell\" kind of thing...)",
       "revId": "12a605757ca6f0abfe6c4a2bb981b05ac26fa96e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe045542_33051a1d",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1436,
+      "author": {
+        "id": 1337669
+      },
+      "writtenOn": "2022-08-09T15:26:05Z",
+      "side": 1,
+      "message": "fine for me either way, like you said these should only ever happen on some really obscure configuration.\n\n\u003e what if the shell\u0027s broken?\n\nyeah I just tried `adb root \u0026\u0026 adb remount \u0026\u0026 adb shell rm /system/bin/sh` to yeet the shell out of existence. It surprisingly worked as intended and brought down my adb connection to the device lol.",
+      "parentUuid": "a6d6488a_e0d024c2",
+      "revId": "12a605757ca6f0abfe6c4a2bb981b05ac26fa96e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
