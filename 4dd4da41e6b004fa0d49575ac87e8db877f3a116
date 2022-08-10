@@ -110,6 +110,30 @@
       },
       "revId": "4dd4da41e6b004fa0d49575ac87e8db877f3a116",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9936f867_8752243a",
+        "filename": "daemon/usb.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 689,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-08-10T19:17:53Z",
+      "side": 1,
+      "message": "Forgot that this question was addressed already - perhaps get rid of the last param(io_event*) if unused?",
+      "parentUuid": "5e0179e7_300d9c26",
+      "range": {
+        "startLine": 689,
+        "startChar": 16,
+        "endLine": 689,
+        "endChar": 25
+      },
+      "revId": "4dd4da41e6b004fa0d49575ac87e8db877f3a116",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
