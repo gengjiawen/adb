@@ -16,6 +16,24 @@
       "message": " can you please merge this change ?",
       "revId": "4dd4da41e6b004fa0d49575ac87e8db877f3a116",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4a8d479_5364647f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-08-10T18:00:54Z",
+      "side": 1,
+      "message": "not yet... you see that \"qualcomm-review\" under \"code-review\"? you need someone from the qcom side to approve your change before we can submit it. (i don\u0027t know who can give that, or how you get that, but jack will know if you don\u0027t --- he\u0027s had changes submitted in the past :-) )",
+      "parentUuid": "6a1ce14b_0dd430ed",
+      "revId": "4dd4da41e6b004fa0d49575ac87e8db877f3a116",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
