@@ -69,6 +69,24 @@
       "message": "Hi Vivek\n\ncan you please review change and provide QCOM side +1 on this change ?\n",
       "revId": "4dd4da41e6b004fa0d49575ac87e8db877f3a116",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db7a74a3_2d19b77f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1030767
+      },
+      "writtenOn": "2022-08-10T18:34:13Z",
+      "side": 1,
+      "message": "sorry I don\u0027t seem to be privileged enough to give the \"Qualcomm Review +1\". We\u0027ll need Vivek M.",
+      "parentUuid": "fdb22490_956af213",
+      "revId": "4dd4da41e6b004fa0d49575ac87e8db877f3a116",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
