@@ -52,6 +52,23 @@
       "parentUuid": "b4a8d479_5364647f",
       "revId": "4dd4da41e6b004fa0d49575ac87e8db877f3a116",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7447f8cf_e9501326",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1764341
+      },
+      "writtenOn": "2022-08-10T18:33:13Z",
+      "side": 1,
+      "message": "Hi Vivek\n\ncan you please review change and provide QCOM side +1 on this change ?\n",
+      "revId": "4dd4da41e6b004fa0d49575ac87e8db877f3a116",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
