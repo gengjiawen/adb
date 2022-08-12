@@ -16,6 +16,24 @@
       "message": "Deferring to enh@ since he had an open comment (sorry I missed it).",
       "revId": "26ab37edaaa6178631256e9d50613bc3a00fd066",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf459d58_5b2ac4ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-08-12T21:24:43Z",
+      "side": 1,
+      "message": "i think my main point is \"one source of truth, ideally markdown\". we shouldn\u0027t check in all three --- that way lies madness.\n\nchecking in the script to generate the others doesn\u0027t seem unreasonable though, but it should probably generate into /tmp or something?",
+      "parentUuid": "26f32b0b_17951a00",
+      "revId": "26ab37edaaa6178631256e9d50613bc3a00fd066",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
