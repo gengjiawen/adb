@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>adb.1</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+</head>
+<body>
+<title>
+ADB(1)
+</title>
+<h1 id="name">NAME</h1>
+<p><strong>adb</strong> — CLI Client for ADB (Android Debug Bridge) Server.</p>
+<h1 id="synopsis">SYNOPSIS</h1>
+<p><strong>adb</strong> [<em>GLOBAL_OPTIONS</em>] command [<em>COMMAND_OPTIONS</em>]</p>
+<h1 id="description">DESCRIPTION</h1>
+<p>Connects to the ADB Server via its smart socket interface. Allows to send requests, receive responses, and manage lifecycle.</p>
+<p>Tasks are performed via commands. Some commands are fulfilled directly by the server while others are forwarded toward the ADBD (ADB Daemon) running on the device.</p>
+<h1 id="global-options">GLOBAL OPTIONS:</h1>
+<dl>
+<dt><strong>-a</strong></dt>
+<dd>Listen on all network interfaces, not just localhost
+</dd>
+<dt><strong>-d</strong></dt>
+<dd>Use USB device (error if multiple devices connected)
+</dd>
+<dt><strong>-e</strong></dt>
+<dd>Use TCP/IP device (error if multiple TCP/IP devices available)
+</dd>
+<dt><strong>-s <em>SERIAL</em></strong></dt>
+<dd>Use device with given serial (overrides $ANDROID_SERIAL)
+</dd>
+<dt><strong>-t <em>ID</em></strong></dt>
+<dd>Use device with given transport id
+</dd>
+<dt><strong>-H</strong></dt>
+<dd>Name of adb server host [default=localhost]
+</dd>
+<dt><strong>-P</strong></dt>
+<dd>Port of adb server [default=5037]
+</dd>
+<dt><strong>-L <em>SOCKET</em></strong></dt>
+<dd>Listen on given socket for adb server [default=tcp:localhost:5037]
+</dd>
+<dt><strong>--one-device <em>SERIAL</em>|<em>USB</em></strong></dt>
+<dd>Server will only connect to one USB device, specified by a serial number or USB device address (only with ‘start-server’ or ‘server nodaemon’).
+</dd>
+<dt><strong>--exit-on-write-error</strong></dt>
+<dd>Exit if stdout is closed
+</dd>
+</dl>
+<h1 id="general-commands">GENERAL COMMANDS:</h1>
+<dl>
+<dt>devices [<strong>-l</strong>]</dt>
+<dd>List connected devices
+</dd>
+<dt><strong>-l</strong></dt>
+<dd>Use long output.
+</dd>
+<dt>help</dt>
+<dd>Show this help message
+</dd>
+<dt>version</dt>
+<dd>Show version num
+</dd>
+</dl>
+<h1 id="networking">NETWORKING</h1>
+<dl>
+<dt>connect <strong><em>HOST</em></strong>[:<strong><em>PORT</em></strong>]</dt>
+<dd>Connect to a device via TCP/IP [default <strong><em>PORT</em></strong>=5555].
+</dd>
+<dt>disconnect [<strong><em>HOST</em></strong>[:<strong><em>PORT</em></strong>]]</dt>
+<dd>Disconnect from given TCP/IP device [default <strong><em>PORT</em></strong>=5555], or all.
+</dd>
+<dt>pair <strong><em>HOST</em></strong>[:<strong><em>PORT</em></strong>] [<strong><em>PAIRING_CODE</em></strong>]</dt>
+<dd>Pair with a device for secure TCP/IP communication.
+</dd>
+<dt>forward <strong>--list</strong></dt>
+<dd>List all forward socket connections.
+</dd>
+<dt>forward [<strong>–no-rebind</strong>] <strong><em>LOCAL_REMOTE</em></strong></dt>
+<dd><p>Forward socket connection using one of the followings.</p>
+</dd>
+<dd><strong>tcp</strong>:<strong><em>PORT</em></strong> (local may be “tcp:0” to pick any open port).
+</dd>
+<dd><strong>localreserved</strong>:<strong><em>UNIX_DOMAIN_SOCKET_NAME</em></strong>.
+</dd>
+<dd><strong>localfilesystem</strong>:<strong><em>UNIX_DOMAIN_SOCKET_NAME</em></strong>
+</dd>
+<dd><strong>jdwp</strong>:<process pid> (remote only)
+</dd>
+<dd><strong>vsock</strong>:<strong><em>CID</em></strong>:<strong><em>PORT</em></strong> (remote only)
+</dd>
+<dd><strong>acceptfd</strong>:<strong><em>FD</em></strong> (listen only).
+</dd>
+<dt>forward <strong>--remove</strong> <strong><em>LOCAL</em></strong></dt>
+<dd>Remove specific forward socket connection.
+</dd>
+<dt>forward <strong>--remove-all</strong></dt>
+<dd>Remove all forward socket connections.
+</dd>
+<dt>reverse <strong>--list</strong></dt>
+<dd>List all reverse socket connections from device.
+</dd>
+</dl>
+<p>reverse [<strong>--no-rebind</strong>] <strong><em>REMOTE</em></strong> <strong><em>LOCAL</em></strong> </p>
+<div class="line-block">   Reverse socket connection using one of the following</div>
+<ul>
+<li><p>tcp:<strong><em>PORT</em></strong> (<strong><em>REMOTE</em></strong> may be “tcp:0” to pick any open port)</p></li>
+<li><p>localabstract:<strong><em>UNIX_DOMAIN_SOCKET_NAME</em></strong></p></li>
+<li><p>localreserved:<strong><em>UNIX_DOMAIN_SOCKET_NAME</em></strong></p></li>
+<li><p>localfilesystem:<strong><em>UNIX_DOMAIN_SOCKET_NAME</em></strong></p></li>
+</ul>
+<dl>
+<dt>reverse <strong>--remove</strong> <strong><em>REMOTE</em></strong></dt>
+<dd>Remove specific reverse socket connection.
+</dd>
+<dt>reverse <strong>--remove-all</strong></dt>
+<dd>Remove all reverse socket connections from device.
+</dd>
+<dt>mdns <strong><em>SUBCOMMAND</em></strong></dt>
+<dd>Perform mDNS subcommands.
+</dd>
+</dl>
+<ul>
+<li><p><strong>check</strong> Check if mdns discovery is available.</p></li>
+<li><p><strong>services</strong> List all discovered services.</p></li>
+</ul>
+<h1 id="file-transfer">FILE TRANSFER:</h1>
+<dl>
+<dt>push [<strong>–sync</strong>] [<strong>-z</strong> <strong><em>ALGORITHM</em></strong>] [<strong>-Z</strong>] <strong><em>LOCAL</em></strong>… <strong><em>REMOTE</em></strong></dt>
+<dd>Copy local files/directories to device.
+</dd>
+<dt><strong>–sync</strong></dt>
+<dd>Only push files that are newer on the host than the device.
+</dd>
+<dt><strong>-n</strong></dt>
+<dd><p>Dry run, push files to device without storing to the filesystem</p>
+<p>-z: enable compression with a specified algorithm (any/none/brotli/lz4/zstd) -Z: disable compression</p>
+</dd>
+</dl>
+<p>pull [-a] [-z ALGORITHM] [-Z] REMOTE… LOCAL copy files/dirs from device -a: preserve file timestamp and mode -z: enable compression with a specified algorithm (any/none/brotli/lz4/zstd) -Z: disable compression</p>
+<p>sync [-l] [-z ALGORITHM] [-Z] [all|data|odm|oem|product|system|system_ext|vendor] sync a local build from $ANDROID_PRODUCT_OUT to the device (default all) -n: dry run: push files to device without storing to the filesystem -l: list files that would be copied, but don’t copy them -z: enable compression with a specified algorithm (any/none/brotli/lz4/zstd) -Z: disable compression</p>
+<h1 id="shell">SHELL:</h1>
+<p>shell [-e ESCAPE] [-n] [-Tt] [-x] [COMMAND…] run remote shell command (interactive shell if no command given) -e: choose escape character, or “none”; default ‘~’ -n: don’t read from stdin -T: disable pty allocation -t: allocate a pty if on a tty (-tt: force pty allocation) -x: disable remote exit codes and stdout/stderr separation</p>
+<p>emu COMMAND run emulator console command</p>
+<h1 id="app-installation-see-also-adb-shell-cmd-package-help">APP INSTALLATION (SEE ALSO <code>ADB SHELL CMD PACKAGE HELP</code>):</h1>
+<p>install [-lrtsdg] [–instant] PACKAGE push a single package to the device and install it</p>
+<p>install-multiple [-lrtsdpg] [–instant] PACKAGE… push multiple APKs to the device for a single package and install them</p>
+<p>install-multi-package [-lrtsdpg] [–instant] PACKAGE… push one or more packages to the device and install them atomically -r: replace existing application -t: allow test packages -d: allow version code downgrade (debuggable packages only) -p: partial application install (install-multiple only) -g: grant all runtime permissions –abi ABI: override platform’s default ABI –instant: cause the app to be installed as an ephemeral install app –no-streaming: always push APK to device and invoke Package Manager as separate steps –streaming: force streaming APK directly into Package Manager –fastdeploy: use fast deploy –no-fastdeploy: prevent use of fast deploy –force-agent: force update of deployment agent when using fast deploy –date-check-agent: update deployment agent when local version is newer and using fast deploy –version-check-agent: update deployment agent when local version has different version code and using fast deploy –local-agent: locate agent files from local source build (instead of SDK location) (See also <code>adb shell pm help</code> for more options.)</p>
+<p>uninstall [-k] PACKAGE remove this app package from the device ‘-k’: keep the data and cache directories</p>
+<h1 id="debugging">DEBUGGING:</h1>
+<p>bugreport [PATH] write bugreport to given PATH [default=bugreport.zip]; if PATH is a directory, the bug report is saved in that directory. devices that don’t support zipped bug reports output to stdout. jdwp list pids of processes hosting a JDWP transport</p>
+<p>logcat show device log (logcat –help for more)</p>
+<h1 id="security">SECURITY:</h1>
+<p>disable-verity disable dm-verity checking on userdebug builds</p>
+<p>enable-verity re-enable dm-verity checking on userdebug builds</p>
+<p>keygen FILE generate adb public/private key; private key stored in FILE,</p>
+<h1 id="scripting">SCRIPTING:</h1>
+<p>wait-for[-TRANSPORT]-STATE… wait for device to be in a given state STATE: device, recovery, rescue, sideload, bootloader, or disconnect TRANSPORT: usb, local, or any [default=any]</p>
+<p>get-state print offline | bootloader | device</p>
+<p>get-serialno print <serial-number></p>
+<p>get-devpath print <device-path></p>
+<p>remount [-R] remount partitions read-write. if a reboot is required, -R will will automatically reboot the device.</p>
+<p>reboot [bootloader|recovery|sideload|sideload-auto-reboot] reboot the device; defaults to booting system image but supports bootloader and recovery too. sideload reboots into recovery and automatically starts sideload mode, sideload-auto-reboot is the same but reboots after sideloading.</p>
+<p>sideload OTAPACKAGE sideload the given full OTA package</p>
+<p>root restart adbd with root permissions</p>
+<p>unroot restart adbd without root permissions</p>
+<p>usb restart adbd listening on USB</p>
+<p>tcpip PORT restart adbd listening on TCP on PORT</p>
+<h1 id="internal-debugging">INTERNAL DEBUGGING:</h1>
+<dl>
+<dt>start-server</dt>
+<dd>Ensure that there is a server running.
+</dd>
+<dt>kill-server</dt>
+<dd>Kill the server if it is running.
+</dd>
+<dt>reconnect</dt>
+<dd>Kick connection from host side to force reconnect.
+</dd>
+<dt>reconnect device</dt>
+<dd>Kick connection from device side to force reconnect.
+</dd>
+<dt>reconnect offline</dt>
+<dd>Reset offline/unauthorized devices to force reconnect.
+</dd>
+</dl>
+<h1 id="usb">USB:</h1>
+<p>Only valid when running with libusb backend.</p>
+<dl>
+<dt>attach <em>SERIAL</em></dt>
+<dd>Attach a detached USB device.
+</dd>
+<dt>detach <em>SERIAL</em></dt>
+<dd>Detach from a USB device to allow use by other processes.
+</dd>
+</dl>
+<h1 id="environment-variables">ENVIRONMENT VARIABLES</h1>
+<p>ADB_TRACE: Comma-separated list of debug info to log: all,adb,sockets,packets,rwx,usb,sync,sysdeps,transport,jdwp</p>
+<p>ADB_VENDOR_KEYS: Colon-separated list of keys (files or directories)</p>
+<p>ANDROID_SERIAL: Serial number to connect to (see -s)</p>
+<p>ANDROID_LOG_TAGS: Tags to be used by logcat (see logcat –help)</p>
+<p>ADB_LOCAL_TRANSPORT_MAX_PORT: Max emulator scan port (default 5585, 16 emus)</p>
+<p>ADB_MDNS_AUTO_CONNECT: Comma-separated list of mdns services to allow auto-connect (default adb-tls-connect)</p>
+<h1 id="bugs">BUGS</h1>
+<p>See Issue Tracker: <a href="https://issuetracker.google.com/components/192795" class="uri">https://issuetracker.google.com/components/192795</a></p>
+<h1 id="authors">AUTHORS</h1>
+<p>See OWNERS file in ADB AOSP repo.</p>
+</body>
+</html>
