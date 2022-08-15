@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "87b50061_67f3fee8",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-08-15T22:47:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c9fa743_e1a1b58b",
+      "range": {
+        "startLine": 18,
+        "startChar": 59,
+        "endLine": 18,
+        "endChar": 124
+      },
+      "revId": "ad2936cee45287facd3048e5959c129ee54cda33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "789ceaa7_c2fd13fa",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb69ebf1_bf0d48e7",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-08-15T22:47:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "789ceaa7_c2fd13fa",
+      "range": {
+        "startLine": 20,
+        "startChar": 103,
+        "endLine": 20,
+        "endChar": 119
+      },
+      "revId": "ad2936cee45287facd3048e5959c129ee54cda33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "01d01114_33f02a42",
@@ -60,6 +108,30 @@
       "writtenOn": "2022-08-12T21:14:25Z",
       "side": 1,
       "message": "Nit: Miss a space?",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 5
+      },
+      "revId": "ad2936cee45287facd3048e5959c129ee54cda33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f4dd6ea_acd6a4af",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-08-15T22:47:35Z",
+      "side": 1,
+      "message": "Obsolete",
+      "parentUuid": "01d01114_33f02a42",
       "range": {
         "startLine": 52,
         "startChar": 0,
