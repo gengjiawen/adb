@@ -1043,7 +1043,8 @@ int network_loopback_client(int port, int type, std::string* error) {
 }
 
 // interface_address is INADDR_LOOPBACK or INADDR_ANY.
-static int _network_server(int port, int type, u_long interface_address, std::string* error) {
+static int _network_server(int port, int type, u_long interface_address, std::string* error,
+                           int* assigned_port) {
     struct sockaddr_in addr;
     SOCKET s;
     int n;
@@ -1095,6 +1096,14 @@ static int _network_server(int port, int type, u_long interface_address, std::st
         _socket_set_errno(err);
         return -1;
     }
+    socklen_t len = sizeof(addr);
+    const int ret = getsockname(s, reinterpret_cast<struct sockaddr*>(&addr), &len);
+    if (ret < 0) {
+        _socket_set_errno(WSAGetLastError());
+        return -1;
+    }
+    *assigned_port = ntohs((reinterpret_cast<struct sockaddr_in*>(&addr))->sin_port);
+
     if (type == SOCK_STREAM) {
         if (listen(s, SOMAXCONN) == SOCKET_ERROR) {
             const DWORD err = WSAGetLastError();
@@ -1115,13 +1124,14 @@ static int _network_server(int port, int type, u_long interface_address, std::st
     return fd;
 }
 
-int network_loopback_server(int port, int type, std::string* error, bool prefer_ipv4) {
+int network_loopback_server(int port, int type, std::string* error, bool prefer_ipv4,
+                            int* assigned_port) {
     // TODO implement IPv6 support on windows
-    return _network_server(port, type, INADDR_LOOPBACK, error);
+    return _network_server(port, type, INADDR_LOOPBACK, error, assigned_port);
 }
 
-int network_inaddr_any_server(int port, int type, std::string* error) {
-    return _network_server(port, type, INADDR_ANY, error);
+int network_inaddr_any_server(int port, int type, std::string* error, int* assigned_port) {
+    return _network_server(port, type, INADDR_ANY, error, assigned_port);
 }
 
 int network_connect(const std::string& host, int port, int type, int timeout, std::string* error) {
@@ -1348,7 +1358,8 @@ int adb_socketpair(int sv[2]) {
     int local_port = -1;
     std::string error;
 
-    server = network_loopback_server(0, SOCK_STREAM, &error, true);
+    int assigned_port;
+    server = network_loopback_server(0, SOCK_STREAM, &error, true, &assigned_port);
     if (server < 0) {
         D("adb_socketpair: failed to create server: %s", error.c_str());
         goto fail;

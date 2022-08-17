@@ -346,16 +346,17 @@ int socket_spec_listen(std::string_view spec, std::string* error, int* resolved_
         }
 
         int result;
+        int assigned_port;
 #if ADB_HOST
         if (hostname.empty() && gListenAll) {
 #else
         if (hostname.empty()) {
 #endif
-            result = network_inaddr_any_server(port, SOCK_STREAM, error);
+            result = network_inaddr_any_server(port, SOCK_STREAM, error, &assigned_port);
         } else if (tcp_host_is_local(hostname)) {
-            result = network_loopback_server(port, SOCK_STREAM, error, true);
+            result = network_loopback_server(port, SOCK_STREAM, error, true, &assigned_port);
         } else if (hostname == "::1") {
-            result = network_loopback_server(port, SOCK_STREAM, error, false);
+            result = network_loopback_server(port, SOCK_STREAM, error, false, &assigned_port);
         } else {
             // TODO: Implement me.
             *error = "listening on specified hostname currently unsupported";
