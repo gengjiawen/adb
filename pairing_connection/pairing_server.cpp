@@ -227,7 +227,8 @@ uint16_t PairingServerCtx::SetupServer() {
         return 0;
     }
 
-    server_fd_.reset(socket_inaddr_any_server(port_, SOCK_STREAM));
+    int assigned_port_dontcare;
+    server_fd_.reset(socket_inaddr_any_server(port_, SOCK_STREAM, &assigned_port_dontcare));
     if (server_fd_.get() == -1) {
         PLOG(ERROR) << "Failed to start pairing connection server";
         return 0;

@@ -89,7 +89,8 @@ bool TlsServer::Start() {
     };
 
     std::string err;
-    unique_fd fd(network_inaddr_any_server(port_, SOCK_STREAM, &err));
+    int assigned_port_dontcare;
+    unique_fd fd(network_inaddr_any_server(port_, SOCK_STREAM, &err, &assigned_port_dontcare));
     if (fd.get() == -1) {
         LOG(ERROR) << "Failed to start TLS server [" << err << "]";
         return false;

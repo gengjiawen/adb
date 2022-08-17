@@ -90,7 +90,8 @@ int network_loopback_client(int port, int type, std::string* error) {
     return rc;
 }
 
-static int _network_loopback_server(bool ipv6, int port, int type, std::string* error) {
+static int _network_loopback_server(bool ipv6, int port, int type, std::string* error,
+                                    int* assigned_port) {
     unique_fd s(socket(ipv6 ? AF_INET6 : AF_INET, type, 0));
     if (s == -1) {
         set_error(error);
@@ -109,6 +110,14 @@ static int _network_loopback_server(bool ipv6, int port, int type, std::string* 
         return -1;
     }
 
+    socklen_t len = sizeof(addr);
+    const int ret = getsockname(s.get(), static_cast<struct sockaddr*>(addr), &len);
+    if (ret < 0) {
+        set_error(error);
+        return -1;
+    }
+    *assigned_port = ntohs((reinterpret_cast<struct sockaddr_in*>(addr))->sin_port);
+
     if (type == SOCK_STREAM || type == SOCK_SEQPACKET) {
         if (listen(s.get(), SOMAXCONN) != 0) {
             set_error(error);
@@ -119,16 +128,17 @@ static int _network_loopback_server(bool ipv6, int port, int type, std::string* 
     return s.release();
 }
 
-int network_loopback_server(int port, int type, std::string* error, bool prefer_ipv4) {
+int network_loopback_server(int port, int type, std::string* error, bool prefer_ipv4,
+                            int* assigned_port) {
     int rc = -1;
     if (prefer_ipv4) {
-        rc = _network_loopback_server(false, port, type, error);
+        rc = _network_loopback_server(false, port, type, error, assigned_port);
     }
 
     // Only attempt to listen on IPv6 if IPv4 is unavailable or prefer_ipv4 is false
     // We don't want to start an IPv6 server if there's already an IPv4 one running.
     if (rc == -1 && (errno == EADDRNOTAVAIL || errno == EAFNOSUPPORT || !prefer_ipv4)) {
-        return _network_loopback_server(true, port, type, error);
+        return _network_loopback_server(true, port, type, error, assigned_port);
     }
     return rc;
 }
