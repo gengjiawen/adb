@@ -173,7 +173,7 @@ extern int unix_open(std::string_view path, int options, ...);
 int unix_isatty(borrowed_fd fd);
 #define  isatty  ___xxx_isatty
 
-int network_inaddr_any_server(int port, int type, std::string* error);
+int network_inaddr_any_server(int port, int type, std::string* error, int* assigned_port);
 
 inline int network_local_client(const char* name, int namespace_id, int type, std::string* error) {
     abort();
@@ -594,8 +594,8 @@ inline int _fd_set_error_str(int fd, std::string* error) {
     return fd;
 }
 
-inline int network_inaddr_any_server(int port, int type, std::string* error) {
-    return _fd_set_error_str(socket_inaddr_any_server(port, type), error);
+inline int network_inaddr_any_server(int port, int type, std::string* error, int* assigned_port) {
+    return _fd_set_error_str(socket_inaddr_any_server(port, type, assigned_port), error);
 }
 
 inline int network_local_client(const char* name, int namespace_id, int type, std::string* error) {

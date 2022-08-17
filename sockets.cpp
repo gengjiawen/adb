@@ -295,6 +295,9 @@ static void deferred_close(unique_fd fd) {
         if (event & FDE_READ) {
             ssize_t rc;
             char buf[BUFSIZ];
+            // read() returns 0 bytes/success (in the socket_test context),
+            // which is consistent with:
+            // "read from the fd until we hit EOF or an error..".
             while ((rc = adb_read(fde->fd.get(), buf, sizeof(buf))) > 0) {
                 continue;
             }
@@ -307,11 +310,12 @@ static void deferred_close(unique_fd fd) {
                 } else {
                     return;
                 }
+            } else if (rc == 0) {
+                LOG(INFO) << __func__;  // socket_test execution path (flaky failure)
             }
         } else if (event & FDE_TIMEOUT) {
             LOG(WARNING) << "timeout expired while flushing socket, closing";
         }
-
         // Either there was an error, we hit the end of the socket, or our timeout expired.
         fdevent_destroy(fde);
         delete socket_info;
@@ -325,9 +329,12 @@ static void deferred_close(unique_fd fd) {
     fdevent_add(fde, FDE_READ);
     fdevent_set_timeout(fde, 1s);
 }
-
 // be sure to hold the socket list lock when calling this
 static void local_socket_destroy(asocket* s) {
+    if (s->fde->fd.get() == -1) {
+        LOG(WARNING) << __func__;
+        return;
+    }
     int exit_on_close = s->exit_on_close;
 
     D("LS(%d): destroying fde.fd=%d", s->id, s->fd);

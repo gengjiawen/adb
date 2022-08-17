@@ -88,7 +88,7 @@ fdevent* fdevent_context::Create(unique_fd fd, std::variant<fd_func, fd_func2> f
 
 unique_fd fdevent_context::Destroy(fdevent* fde) {
     CheckMainThread();
-    if (!fde) {
+    if (!fde || fde->fd.get() == -1) {
         return {};
     }
 
