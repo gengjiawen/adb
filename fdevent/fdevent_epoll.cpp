@@ -49,9 +49,11 @@ fdevent_context_epoll::fdevent_context_epoll() {
     }
 
     this->interrupt_fd_ = std::move(interrupt_fd_dup);
-    fdevent* fde = this->Create(std::move(interrupt_fd), fdevent_interrupt, nullptr);
-    CHECK(fde != nullptr);
-    this->Add(fde, FDE_READ);
+    if (-1 != interrupt_fd.get()) {
+        fdevent* fde = this->Create(std::move(interrupt_fd), fdevent_interrupt, nullptr);
+        CHECK(fde != nullptr);
+        this->Add(fde, FDE_READ);
+    }
 }
 
 fdevent_context_epoll::~fdevent_context_epoll() {
@@ -84,7 +86,8 @@ void fdevent_context_epoll::Register(fdevent* fde) {
 }
 
 void fdevent_context_epoll::Unregister(fdevent* fde) {
-    if (epoll_ctl(epoll_fd_.get(), EPOLL_CTL_DEL, fde->fd.get(), nullptr) != 0) {
+    if (fde->fd.get() != -1 &&
+        epoll_ctl(epoll_fd_.get(), EPOLL_CTL_DEL, fde->fd.get(), nullptr) != 0) {
         PLOG(FATAL) << "failed to unregister fd " << fde->fd.get() << " with epoll";
     }
 }

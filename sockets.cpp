@@ -328,6 +328,9 @@ static void deferred_close(unique_fd fd) {
 
 // be sure to hold the socket list lock when calling this
 static void local_socket_destroy(asocket* s) {
+    if (s->fde->fd.get() == -1) {
+        return;
+    }
     int exit_on_close = s->exit_on_close;
 
     D("LS(%d): destroying fde.fd=%d", s->id, s->fd);
@@ -365,7 +368,9 @@ static void local_socket_close(asocket* s) {
     */
     if (s->closing || s->has_write_error || s->packet_queue.empty()) {
         int id = s->id;
-        local_socket_destroy(s);
+        if (-1 != id) {
+            local_socket_destroy(s);
+        }
         D("LS(%d): closed", id);
         return;
     }
