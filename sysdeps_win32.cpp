@@ -1095,6 +1095,7 @@ static int _network_server(int port, int type, u_long interface_address, std::st
         _socket_set_errno(err);
         return -1;
     }
+
     if (type == SOCK_STREAM) {
         if (listen(s, SOMAXCONN) == SOCKET_ERROR) {
             const DWORD err = WSAGetLastError();

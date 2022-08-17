@@ -109,11 +109,11 @@ static int _network_loopback_server(bool ipv6, int port, int type, std::string* 
         return -1;
     }
 
-    if (type == SOCK_STREAM || type == SOCK_SEQPACKET) {
-        if (listen(s.get(), SOMAXCONN) != 0) {
-            set_error(error);
-            return -1;
-        }
+    socklen_t len = sizeof(addr);
+    const int ret = getsockname(s.get(), static_cast<struct sockaddr*>(addr), &len);
+    if (ret < 0) {
+        set_error(error);
+        return -1;
     }
 
     return s.release();
