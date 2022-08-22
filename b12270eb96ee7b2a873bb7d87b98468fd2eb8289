@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "291f610a_8d0cc3de",
+        "filename": "daemon/adb_wifi.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-08-22T15:06:12Z",
+      "side": 1,
+      "message": "see comment on other CL. (but this in particular was a strong hint that this wasn\u0027t a good idea --- if most callers end up saying \"no thanks\", it\u0027s worth questioning the api :-) )\n\n((if you find yourself in this situation again in future, but in a case where the additional output argument is more defensible, my suggestion would be the normal C trick of accepting nullptr to mean \"don\u0027t care\".))",
+      "range": {
+        "startLine": 93,
+        "startChar": 70,
+        "endLine": 93,
+        "endChar": 92
+      },
+      "revId": "b12270eb96ee7b2a873bb7d87b98468fd2eb8289",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
