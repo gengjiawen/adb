@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a51177b7_ab841b1a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-08-22T10:34:44Z",
+      "side": 1,
+      "message": "Tot: $ out/host/linux-x86/nativetest64/adb_test/adb_test --gtest_filter\u003d\u0027*LocalSocketTest*\u0027 --gtest_break_on_failure --gtest_repeat\u003d-1\nRunning main() from external/googletest/googletest/src/gtest_main.cc\n\nRepeating all tests (iteration 1) . . .\n\nNote: Google Test filter \u003d *LocalSocketTest*\n[\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d] Running 6 tests from 1 test suite.\n[----------] Global test environment set-up.\n[----------] 6 tests from LocalSocketTest\n[ RUN      ] LocalSocketTest.smoke\nadb_test F 08-17 13:28:37 476946 476947 fdevent_epoll.cpp:88] failed to unregister fd -1 with epoll: Bad file descriptor\nAborted",
+      "parentUuid": "52ff1175_65c95bb4",
+      "revId": "9e0e5667b9fc825591409bcf566d8c00f86d4460",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7d195d1e_de058f7a",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-08-17T17:45:16Z",
       "side": 1,
       "message": "this seems unrelated to this change?",
+      "revId": "9e0e5667b9fc825591409bcf566d8c00f86d4460",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d5957f2_46f843b1",
+        "filename": "fdevent/fdevent.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-08-22T10:34:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d195d1e_de058f7a",
       "revId": "9e0e5667b9fc825591409bcf566d8c00f86d4460",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -52,6 +88,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f4fc337_91fc908a",
+        "filename": "fdevent/fdevent_epoll.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-08-22T10:34:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a66d5d14_2403fa27",
+      "revId": "9e0e5667b9fc825591409bcf566d8c00f86d4460",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "660d0ddf_fd5d61a8",
@@ -65,6 +119,24 @@
       "writtenOn": "2022-08-17T17:45:16Z",
       "side": 1,
       "message": "unrelated (and wouldn\u0027t FATAL with EBADF be the right behavior here anyway?)",
+      "revId": "9e0e5667b9fc825591409bcf566d8c00f86d4460",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f9d3075_3cc89a49",
+        "filename": "fdevent/fdevent_epoll.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-08-22T10:34:44Z",
+      "side": 1,
+      "message": "Done\nTot$ out/host/linux-x86/nativetest64/adb_test/adb_test --gtest_filter\u003d\u0027*LocalSocketTest*\u0027 --gtest_break_on_failure --gtest_repeat\u003d-1\nRunning main() from external/googletest/googletest/src/gtest_main.cc\n\nRepeating all tests (iteration 1) . . .\n\nNote: Google Test filter \u003d *LocalSocketTest*\n[\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d] Running 6 tests from 1 test suite.\n[----------] Global test environment set-up.\n[----------] 6 tests from LocalSocketTest\n[ RUN      ] LocalSocketTest.smoke\nadb_test F 08-17 13:28:37 476946 476947 fdevent_epoll.cpp:88] failed to unregister fd -1 with epoll: Bad file descriptor\nAborted",
+      "parentUuid": "660d0ddf_fd5d61a8",
       "revId": "9e0e5667b9fc825591409bcf566d8c00f86d4460",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -99,6 +171,24 @@
       "writtenOn": "2022-08-17T17:45:16Z",
       "side": 1,
       "message": "and the two things i\u0027m going to say here...",
+      "revId": "9e0e5667b9fc825591409bcf566d8c00f86d4460",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b9d0976_4704cc27",
+        "filename": "sockets.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-08-22T10:34:44Z",
+      "side": 1,
+      "message": "yes! I am a mind reader :)",
+      "parentUuid": "0cdcbd51_e5fa282d",
       "revId": "9e0e5667b9fc825591409bcf566d8c00f86d4460",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
