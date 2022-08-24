@@ -22,6 +22,30 @@
       },
       "revId": "b12270eb96ee7b2a873bb7d87b98468fd2eb8289",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2618e51_a4479af5",
+        "filename": "daemon/adb_wifi.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-08-24T18:11:53Z",
+      "side": 1,
+      "message": "Done - I can probably do even one better by specifying it as a (trailing) default arg (defaulting to nullptr)) - however, adb_getsockname() (which I saw after I made the original change, which. you also pointed me to) is a cleaner and less invasive solution.",
+      "parentUuid": "291f610a_8d0cc3de",
+      "range": {
+        "startLine": 93,
+        "startChar": 70,
+        "endLine": 93,
+        "endChar": 92
+      },
+      "revId": "b12270eb96ee7b2a873bb7d87b98468fd2eb8289",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

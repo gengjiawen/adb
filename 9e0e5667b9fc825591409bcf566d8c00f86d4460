@@ -160,6 +160,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a03de14d_4437d8fc",
+        "filename": "sockets.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-08-24T18:11:53Z",
+      "side": 1,
+      "message": "This is the one point that still shows fragility (BADFD) in the on the context of the smoke test. Keeping this comment open until we have a chance to discuss this further.",
+      "parentUuid": "2751c348_65b2442f",
+      "revId": "9e0e5667b9fc825591409bcf566d8c00f86d4460",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0cdcbd51_e5fa282d",
         "filename": "sockets.cpp",
         "patchSetId": 1
