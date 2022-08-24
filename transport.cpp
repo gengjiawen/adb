@@ -726,9 +726,22 @@ void update_transports() {
 
 #endif  // ADB_HOST
 
+// The transport listeners communicate with the transports list via fdevent. Structures tmsg is a
+// contained used as message unit, written to a pipe in order to to communicate the transport
+// (pointer) and the action to perform.
+//
+//     Transport listener         FDEVENT          Transports list
+//     --------------------------------------------------------------
+//     (&transport,action)   ->    tmsg     ->   (&transport, action)
+//
 struct tmsg {
     atransport* transport;
-    int action;
+
+    enum struct Action : int {
+        ADD,  // Add the transport to the transport list.
+        DEL,  // Remove the transport from transport list.
+    };
+    Action action;
 };
 
 static int transport_read_action(int fd, struct tmsg* m) {
@@ -791,7 +804,7 @@ static void transport_registration_func(int _fd, unsigned ev, void*) {
 
     t = m.transport;
 
-    if (m.action == 0) {
+    if (m.action == tmsg::Action::DEL) {
         D("transport: %s deleting", t->serial.c_str());
 
         {
@@ -888,7 +901,7 @@ void kick_all_transports_by_auth_key(std::string_view auth_key) {
 void register_transport(atransport* transport) {
     tmsg m;
     m.transport = transport;
-    m.action = 1;
+    m.action = tmsg::Action::ADD;
     D("transport: %s registered", transport->serial.c_str());
     if (transport_write_action(transport_registration_send, &m)) {
         PLOG(FATAL) << "cannot write transport registration socket";
@@ -898,7 +911,7 @@ void register_transport(atransport* transport) {
 static void remove_transport(atransport* transport) {
     tmsg m;
     m.transport = transport;
-    m.action = 0;
+    m.action = tmsg::Action::DEL;
     D("transport: %s removed", transport->serial.c_str());
     if (transport_write_action(transport_registration_send, &m)) {
         PLOG(FATAL) << "cannot write transport registration socket";
