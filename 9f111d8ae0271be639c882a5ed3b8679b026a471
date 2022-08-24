@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eeb55569_92e8b0fd",
+        "filename": "socket_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-08-24T18:19:53Z",
+      "side": 1,
+      "message": "don\u0027t forget to remove all the noise. (that\u0027s why i think it\u0027s probably easier to just make the small bind() change in a clean checkout.)",
+      "revId": "9f111d8ae0271be639c882a5ed3b8679b026a471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6db3f49f_fd042aa0",
+        "filename": "socket_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-08-24T18:19:53Z",
+      "side": 1,
+      "message": "(also known as `address.` :-) )",
+      "range": {
+        "startLine": 292,
+        "startChar": 36,
+        "endLine": 292,
+        "endChar": 87
+      },
+      "revId": "9f111d8ae0271be639c882a5ed3b8679b026a471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b35c6e12_f9589558",
+        "filename": "sysdeps/posix/network.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-08-24T18:19:53Z",
+      "side": 1,
+      "message": "no need for a local here.\n\nbut more importantly, note that you\u0027re not actually using `addr`...",
+      "range": {
+        "startLine": 113,
+        "startChar": 14,
+        "endLine": 113,
+        "endChar": 17
+      },
+      "revId": "9f111d8ae0271be639c882a5ed3b8679b026a471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
