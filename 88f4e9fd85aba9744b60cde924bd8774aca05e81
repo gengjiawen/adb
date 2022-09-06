@@ -83,6 +83,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0762a25_270577ab",
+        "filename": "socket_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1076798
+      },
+      "writtenOn": "2022-09-06T19:19:22Z",
+      "side": 1,
+      "message": "I don\u0027t think this is a double free, I think it\u0027s a bug in local_socket_flush_incoming where we immediately finish a deferred close when it successfully wrote any bytes, not when it completed.\n\nI think this bug has been there since I originally added deferred_close, I\u0027m not sure why it\u0027s reproducing at like \u003e50% for me now (maybe a kernel behavior change?)\n\nIn any case: https://android-review.googlesource.com/c/platform/packages/modules/adb/+/2208236",
+      "parentUuid": "ea63bf92_c2f77e59",
+      "revId": "88f4e9fd85aba9744b60cde924bd8774aca05e81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "39159789_c5b8123c",
