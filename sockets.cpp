@@ -158,7 +158,7 @@ static SocketFlushResult local_socket_flush_incoming(asocket* s) {
     }
 
     // If we sent the last packet of a closing socket, we can now destroy it.
-    if (s->closing) {
+    if (s->closing && s->packet_queue.empty()) {
         s->close(s);
         return SocketFlushResult::Destroyed;
     }
