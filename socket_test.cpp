@@ -125,6 +125,9 @@ static void CreateCloser(CloseWithPacketArg* arg) {
             data.resize(MAX_PAYLOAD);
             arg->bytes_written += data.size();
             int ret = s->enqueue(s, std::move(data));
+
+            // In the test context, a return value of 0
+            // implies that more data can be accepted.
             if (ret == 1) {
                 socket_filled = true;
                 break;
@@ -193,7 +196,11 @@ TEST_F(LocalSocketTest, read_from_closing_socket) {
     // Verify if we can read successfully.
     std::vector<char> buf(arg.bytes_written);
     ASSERT_NE(0u, arg.bytes_written);
+
+    // Flakiness fragility in read() due to a double deallocaction
+    // from the deferred_close()/local_socket_destroy() interaction.
     ASSERT_EQ(true, ReadFdExactly(socket_fd[0], buf.data(), buf.size()));
+
     ASSERT_EQ(0, adb_close(socket_fd[0]));
 
     WaitForFdeventLoop();
@@ -267,9 +274,10 @@ TEST_F(LocalSocketTest, flush_after_shutdown) {
 
 #if defined(__linux__)
 
-static void ClientThreadFunc() {
+static void ClientThreadFunc(const int& assigned_port) {
+    CHECK_GE(assigned_port, 0);
     std::string error;
-    int fd = network_loopback_client(5038, SOCK_STREAM, &error);
+    const int fd = network_loopback_client(assigned_port, SOCK_STREAM, &error);
     ASSERT_GE(fd, 0) << error;
     std::this_thread::sleep_for(1s);
     ASSERT_EQ(0, adb_close(fd));
@@ -278,12 +286,21 @@ static void ClientThreadFunc() {
 // This test checks if we can close sockets in CLOSE_WAIT state.
 TEST_F(LocalSocketTest, close_socket_in_CLOSE_WAIT_state) {
     std::string error;
-    int listen_fd = network_inaddr_any_server(5038, SOCK_STREAM, &error);
-    ASSERT_GE(listen_fd, 0);
+    // Allow the system to allocate an available resource.
+    const int listen_fd = network_inaddr_any_server(0, SOCK_STREAM, &error);
+    ASSERT_GE(listen_fd, 0);  // bind() should no longer flake/fail.
 
-    std::thread client_thread(ClientThreadFunc);
+    struct sockaddr_in address;
+    socklen_t address_len = sizeof(address);
+    const int ret =
+            adb_getsockname(listen_fd, reinterpret_cast<struct sockaddr*>(&address), &address_len);
+    ASSERT_EQ(ret, 0);
+    const int assigned_port = ntohs(address.sin_port);
+    ASSERT_GE(assigned_port, 0);
 
-    int accept_fd = adb_socket_accept(listen_fd, nullptr, nullptr);
+    std::thread client_thread(ClientThreadFunc, std::ref(assigned_port));
+    const int accept_fd = adb_socket_accept(listen_fd, nullptr, nullptr);
+
     ASSERT_GE(accept_fd, 0);
 
     PrepareThread();
