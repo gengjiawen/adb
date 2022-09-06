@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d9c4ac4_9a424fb3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-09-06T17:30:11Z",
+      "side": 1,
+      "message": "Posted a subset of the changes to minimally address the bind() failure: https://android-review.googlesource.com/c/platform/packages/modules/adb/+/2207975\nWill abandon this CL - thanks!",
+      "revId": "9f111d8ae0271be639c882a5ed3b8679b026a471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eeb55569_92e8b0fd",
