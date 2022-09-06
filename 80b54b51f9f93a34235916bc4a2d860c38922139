@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45724ec3_ffdb72bf",
+        "filename": "sockets.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-09-06T19:30:44Z",
+      "side": 1,
+      "message": "is this right, or should it be `!fd_full`? (that is: should we also just close if there\u0027s been a write error?)",
+      "range": {
+        "startLine": 161,
+        "startChar": 22,
+        "endLine": 161,
+        "endChar": 45
+      },
+      "revId": "80b54b51f9f93a34235916bc4a2d860c38922139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
