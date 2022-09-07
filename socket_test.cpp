@@ -174,7 +174,7 @@ TEST_F(LocalSocketTest, close_socket_with_packet) {
 }
 
 // This test checks if we can read packets from a closing local socket.
-TEST_F(LocalSocketTest, read_from_closing_socket) {
+TEST_F(LocalSocketTest, DISABLED_read_from_closing_socket) {
     int socket_fd[2];
     ASSERT_EQ(0, adb_socketpair(socket_fd));
     int cause_close_fd[2];
