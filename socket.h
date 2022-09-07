@@ -31,8 +31,24 @@
 class atransport;
 
 /* An asocket represents one half of a connection between a local and
- * remote entity.  A local asocket is bound to a file descriptor.  A
- * remote asocket is bound to the protocol engine.
+   remote entity.  A local asocket is bound to a file descriptor.  A
+   remote asocket is bound to the protocol engine.
+
+                                   ASOCKET(THIS)
+              ┌────────────────────────────────────────────────┐
+┌──┐ write(3) │  ┌─────┐                                       │
+│  │◄─────────┼──┤Queue├─────────────◄────────────┐            │
+│fd│          │  └─────┘                          ▲            │
+│  ├──────────►─────────────────┐                 │            │
+└──┘ read(3)  └─────────────────┼─────────────────┼────────────┘
+                       outgoing │                 │ incoming
+              ┌─────────────────▼─────────────────▲────────────┐  read(3)  ┌──┐
+              │                 │                 └────────────┼─────────◄─┤  │
+              │                 │                      ┌─────┐ │           │fd│
+              │                 └─────────────────────►│Queue├─┼─────────►─┤  │
+              │                                        └─────┘ │  write(3) └──┘
+              └────────────────────────────────────────────────┘
+                                 ASOCKET(PEER)
  */
 struct asocket {
     /* the unique identifier for this asocket
