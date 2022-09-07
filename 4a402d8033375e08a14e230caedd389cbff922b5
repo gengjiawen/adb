@@ -16,6 +16,24 @@
       "message": "How come our presubmit test did not catch this?\n \n`LocalSocketTest.read_from_closing_socket` was broken 100% of the time and no other CLs could go in.\n\nAlso thanks for the fix @jg, I finally figured out asocket internals this morning but you beat me to the fix!",
       "revId": "4a402d8033375e08a14e230caedd389cbff922b5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "685c27ec_911b8135",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-09-07T21:17:49Z",
+      "side": 1,
+      "message": "\u003e How come our presubmit test did not catch this?\n\nwe don\u0027t know.\n\nmy suspicion (and it sounds like jmgao\u0027s too) is that _we_ didn\u0027t break this (like he says --- this was incorrect the day it went in), but something else (kernel?) changed in the meantime that changed this from 5% flake (or whatever; i just made that up) to 75% flake.",
+      "parentUuid": "edf293b2_514b508c",
+      "revId": "4a402d8033375e08a14e230caedd389cbff922b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
