@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edf293b2_514b508c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-09-07T19:46:54Z",
+      "side": 1,
+      "message": "How come our presubmit test did not catch this?\n \n`LocalSocketTest.read_from_closing_socket` was broken 100% of the time and no other CLs could go in.\n\nAlso thanks for the fix @jg, I finally figured out asocket internals this morning but you beat me to the fix!",
+      "revId": "4a402d8033375e08a14e230caedd389cbff922b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
