@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2f48fc8_1d096446",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-09-07T07:21:33Z",
+      "side": 1,
+      "message": "Disabling flaky (read()) test temporarily.",
+      "revId": "e48559df75dc9711f9f86c5d637f4c0fde419f4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
