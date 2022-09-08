@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4958ae05_49819dc5",
+        "filename": "transport.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 737,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-09-08T16:46:42Z",
+      "side": 1,
+      "message": "Replace with a TODO(bug or ldap)?",
+      "range": {
+        "startLine": 737,
+        "startChar": 3,
+        "endLine": 737,
+        "endChar": 23
+      },
+      "revId": "edbb89342914bfdd9b54252ad08906df8e17d2a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff60f306_8ac8b243",
+        "filename": "transport.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 744,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-09-08T16:46:42Z",
+      "side": 1,
+      "message": "UNREGISTER sounds more appropriate? Also, would it be better to reduce it to a reg/unreg boolean?",
+      "range": {
+        "startLine": 744,
+        "startChar": 8,
+        "endLine": 744,
+        "endChar": 14
+      },
+      "revId": "edbb89342914bfdd9b54252ad08906df8e17d2a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
