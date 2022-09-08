@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95f54f47_80d9eb18",
+        "filename": "socket.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-09-08T15:12:35Z",
+      "side": 1,
+      "message": "what do \"outgoing\" and \"incoming\" represent here? (this isn\u0027t rhetorical --- i actually don\u0027t understand this stuff and do need this documentation.)\n\nthat is: \"_how_ does the data read from this asocket end up in the peer asocket\u0027s queue?\". it seems like `enqueue()` is the only relevant member function? so some code somewhere calls `read()` on one asocket\u0027s fd, and `enqueue()` on a different asocket? (is that always the asocket that\u0027s pointed to by the first asocket? [and thus this is probably a missing member function, worth another TODO?])",
+      "range": {
+        "startLine": 46,
+        "startChar": 23,
+        "endLine": 46,
+        "endChar": 31
+      },
+      "revId": "efe595235f64eea0deb56f7a559b9d11c0a04e6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f77fe98_7588cf18",
+        "filename": "socket.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-09-08T15:12:35Z",
+      "side": 1,
+      "message": "// TODO: move all the local socket fields together",
+      "revId": "efe595235f64eea0deb56f7a559b9d11c0a04e6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce90ff0e_efaefe4a",
+        "filename": "socket.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-09-08T15:12:35Z",
+      "side": 1,
+      "message": "lol at this \"half boolean\"",
+      "revId": "efe595235f64eea0deb56f7a559b9d11c0a04e6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fc9688e_9cdf3242",
+        "filename": "socket.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-09-08T15:12:35Z",
+      "side": 1,
+      "message": "(and probably move the generic fields up, to keep them together? subtype-specific fields down at the end?)",
+      "revId": "efe595235f64eea0deb56f7a559b9d11c0a04e6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
