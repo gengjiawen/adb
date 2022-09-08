@@ -52,6 +52,24 @@
       "parentUuid": "685c27ec_911b8135",
       "revId": "4a402d8033375e08a14e230caedd389cbff922b5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36513da8_477da2e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-09-08T04:56:14Z",
+      "side": 1,
+      "message": "(which could also have been a configuration change in a .rc file somewhere --- i know people have messed with those buffer sizes a lot in the past, often on a per-device basis.)",
+      "parentUuid": "209f9df1_fc7ba19a",
+      "revId": "4a402d8033375e08a14e230caedd389cbff922b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
