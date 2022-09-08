@@ -34,6 +34,24 @@
       "parentUuid": "edf293b2_514b508c",
       "revId": "4a402d8033375e08a14e230caedd389cbff922b5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "209f9df1_fc7ba19a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-09-08T00:33:34Z",
+      "side": 1,
+      "message": "A kernel change could explain the failure of `LocalSocketTest.read_from_closing_socket`.\n\nWhen I was tracing the failure, I noticed that `CreateCloser` filled the queue of a local socket with 1MiB chunks until the underlying fd buffer in the kernel was full. Anything in excess after `write(3)` blocked remained in the queue.\n\nIn the test, only one read(3) could run before `closing\u003d1` triggered (resulting in 300KiB to be returned and 700KiB remaining in the local socket queue).\n\nAll that to say that this could have been result of the kernel lowering the buffer associated with a pair of socket created with `socket_pair(3)` from 1MiB to 300 KiB.",
+      "parentUuid": "685c27ec_911b8135",
+      "revId": "4a402d8033375e08a14e230caedd389cbff922b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
