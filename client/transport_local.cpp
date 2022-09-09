@@ -178,6 +178,7 @@ static constexpr auto LOCAL_PORT_RETRY_INTERVAL = 1s;
 
 struct RetryPort {
     int port;
+    int console_port;
     uint32_t retry_count;
 };
 
@@ -210,8 +211,9 @@ static void client_socket_thread(std::string_view) {
         for (auto& port : ports) {
             VLOG(TRANSPORT) << "retry port " << port.port << ", last retry_count "
                             << port.retry_count;
-            if (local_connect(port.port)) {
-                VLOG(TRANSPORT) << "retry port " << port.port << " successfully";
+            std::string error;
+            if (local_connect_arbitrary_ports(port.console_port, port.port, &error) == 0) {
+                VLOG(TRANSPORT) << "retry port " << port.port << " successful";
                 continue;
             }
             if (--port.retry_count > 0) {
@@ -236,14 +238,15 @@ void local_init(const std::string& addr) {
 }
 
 struct EmulatorConnection : public FdConnection {
-    EmulatorConnection(unique_fd fd, int local_port)
-        : FdConnection(std::move(fd)), local_port_(local_port) {}
+    EmulatorConnection(unique_fd fd, int local_port, int console_port)
+        : FdConnection(std::move(fd)), local_port_(local_port), console_port_(console_port) {}
 
     ~EmulatorConnection() {
         VLOG(TRANSPORT) << "remote_close, local_port = " << local_port_;
         std::unique_lock<std::mutex> lock(retry_ports_lock);
         RetryPort port;
         port.port = local_port_;
+        port.console_port = console_port_;
         port.retry_count = LOCAL_PORT_RETRY_COUNT;
         retry_ports.push_back(port);
         retry_ports_cond.notify_one();
@@ -256,6 +259,7 @@ struct EmulatorConnection : public FdConnection {
     }
 
     int local_port_;
+    int console_port_;
 };
 
 /* Only call this function if you already hold local_transports_lock. */
@@ -281,6 +285,12 @@ std::string getEmulatorSerialString(int console_port) {
     return android::base::StringPrintf("emulator-%d", console_port);
 }
 
+static int getEmulatorConsolePort(std::string serial) {
+    int console_port = -1;
+    sscanf(serial.c_str(), "emulator-%d", &console_port);
+    return console_port;
+}
+
 int init_socket_transport(atransport* t, unique_fd fd, int adb_port, int local) {
     int fail = 0;
 
@@ -288,7 +298,14 @@ int init_socket_transport(atransport* t, unique_fd fd, int adb_port, int local) 
 
     // Emulator connection.
     if (local) {
-        auto emulator_connection = std::make_unique<EmulatorConnection>(std::move(fd), adb_port);
+        auto console_port = getEmulatorConsolePort(t->serial);
+        if (console_port < 0) {
+            D("failed to parse emulator console port from serial: %s", t->serial.c_str());
+            return -1;
+        }
+
+        auto emulator_connection = std::make_unique<EmulatorConnection>(
+                std::move(fd), adb_port, console_port);
         t->SetConnection(
                 std::make_unique<BlockingConnectionAdapter>(std::move(emulator_connection)));
         std::lock_guard<std::mutex> lock(local_transports_lock);
