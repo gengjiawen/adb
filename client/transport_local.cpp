@@ -51,6 +51,8 @@
 // Once emulators self-(re-)register, they'll have to avoid 5601 in their own way.
 static int adb_local_transport_max_port = DEFAULT_ADB_LOCAL_TRANSPORT_PORT + 16 * 2 - 1;
 
+static const int noConsolePort = -1;
+
 static std::mutex& local_transports_lock = *new std::mutex();
 
 static void adb_local_transport_max_port_env_override() {
@@ -178,6 +180,7 @@ static constexpr auto LOCAL_PORT_RETRY_INTERVAL = 1s;
 
 struct RetryPort {
     int port;
+    int console_port;
     uint32_t retry_count;
 };
 
@@ -208,9 +211,10 @@ static void client_socket_thread(std::string_view) {
         // Try connecting retry ports.
         std::vector<RetryPort> next_ports;
         for (auto& port : ports) {
+            std::string error;
             VLOG(TRANSPORT) << "retry port " << port.port << ", last retry_count "
                             << port.retry_count;
-            if (local_connect(port.port)) {
+            if (local_connect_arbitrary_ports(port.console_port, port.port, &error) == 0) {
                 VLOG(TRANSPORT) << "retry port " << port.port << " successfully";
                 continue;
             }
@@ -236,14 +240,15 @@ void local_init(const std::string& addr) {
 }
 
 struct EmulatorConnection : public FdConnection {
-    EmulatorConnection(unique_fd fd, int local_port)
-        : FdConnection(std::move(fd)), local_port_(local_port) {}
+    EmulatorConnection(unique_fd fd, int local_port, int console_port)
+        : FdConnection(std::move(fd)), local_port_(local_port), console_port_(console_port) {}
 
     ~EmulatorConnection() {
         VLOG(TRANSPORT) << "remote_close, local_port = " << local_port_;
         std::unique_lock<std::mutex> lock(retry_ports_lock);
         RetryPort port;
         port.port = local_port_;
+        port.console_port = (console_port_ != noConsolePort) ? console_port_ : local_port_ - 1;
         port.retry_count = LOCAL_PORT_RETRY_COUNT;
         retry_ports.push_back(port);
         retry_ports_cond.notify_one();
@@ -256,6 +261,7 @@ struct EmulatorConnection : public FdConnection {
     }
 
     int local_port_;
+    int console_port_;
 };
 
 /* Only call this function if you already hold local_transports_lock. */
@@ -281,6 +287,12 @@ std::string getEmulatorSerialString(int console_port) {
     return android::base::StringPrintf("emulator-%d", console_port);
 }
 
+static int getEmulatorConsolePort(std::string serial) {
+    int console_port;
+    return (sscanf(serial.c_str(), "emulator-%d", &console_port) == 1) ? console_port
+                                                                       : noConsolePort;
+}
+
 int init_socket_transport(atransport* t, unique_fd fd, int adb_port, int local) {
     int fail = 0;
 
@@ -288,7 +300,8 @@ int init_socket_transport(atransport* t, unique_fd fd, int adb_port, int local) 
 
     // Emulator connection.
     if (local) {
-        auto emulator_connection = std::make_unique<EmulatorConnection>(std::move(fd), adb_port);
+        auto emulator_connection = std::make_unique<EmulatorConnection>(
+                std::move(fd), adb_port, getEmulatorConsolePort(t->serial));
         t->SetConnection(
                 std::make_unique<BlockingConnectionAdapter>(std::move(emulator_connection)));
         std::lock_guard<std::mutex> lock(local_transports_lock);
