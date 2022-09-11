@@ -46,6 +46,30 @@
       },
       "revId": "08dda3da2e2b66381a0d4175d0ff6827bd8c2fc4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d6493b7_44542640",
+        "filename": "socket.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-09-11T00:10:47Z",
+      "side": 1,
+      "message": "Actually, I think the difference was 8 bytes (not 1 byte) - I wonder whether someone carefully laid out the fields in the past?",
+      "parentUuid": "cac0f1e8_1c771300",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 26
+      },
+      "revId": "08dda3da2e2b66381a0d4175d0ff6827bd8c2fc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
