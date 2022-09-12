@@ -22,6 +22,30 @@
       },
       "revId": "b34d62a1a4b72c36d49fe12f02daf82a0623a897",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee964cf3_2ab7cee7",
+        "filename": "socket.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-09-12T22:59:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdffa1a0_26be47fb",
+      "range": {
+        "startLine": 69,
+        "startChar": 19,
+        "endLine": 69,
+        "endChar": 20
+      },
+      "revId": "b34d62a1a4b72c36d49fe12f02daf82a0623a897",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
