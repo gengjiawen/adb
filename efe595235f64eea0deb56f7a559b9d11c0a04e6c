@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f66d10c8_d2d64f10",
+        "filename": "socket.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-09-12T16:58:19Z",
+      "side": 1,
+      "message": "1/ `outgoing` and `incoming` are hint to document methods found in the local_socket code. In method `local_socket_flush_outgoing` (https://cs.android.com/android/platform/superproject/+/master:packages/modules/adb/sockets.cpp;l\u003d176?q\u003dsockets.cpp), I found it disturbing to see calls to `read(3)` (for something outgoing I would have expected to see `write(3)`). The drawing tries to convey the idea that directions are asocket relative.\n\nFrom this perspective, it is correct to call something that is going to read from the fd and enqueue it in the peer to be `outgoing`.\n\n2/ I have added the `enqueue()` call to the drawing to show how data flows in the peer. \n\n3/ The \"some code somewhere\" is the fdevent handler that is installed when we create an asocket. In the case of a local_socket, it is ` local_socket_event_func` (https://cs.android.com/android/platform/superproject/+/master:packages/modules/adb/sockets.cpp;l\u003d382;drc\u003d4a402d8033375e08a14e230caedd389cbff922b5) (`local_socket_flush_outgoing` calls `read(2)` and then `peer-\u003eenqueue`). \n\nWhen we move to polymorphic classes (my next intended CL), I think this handler could become a static function in the local_socket translation unit, or a function in an anonymous namespace.",
+      "parentUuid": "95f54f47_80d9eb18",
+      "range": {
+        "startLine": 46,
+        "startChar": 23,
+        "endLine": 46,
+        "endChar": 31
+      },
+      "revId": "efe595235f64eea0deb56f7a559b9d11c0a04e6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3f77fe98_7588cf18",
@@ -54,6 +78,24 @@
       "writtenOn": "2022-09-08T15:12:35Z",
       "side": 1,
       "message": "// TODO: move all the local socket fields together",
+      "revId": "efe595235f64eea0deb56f7a559b9d11c0a04e6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4131ba4_c76272c8",
+        "filename": "socket.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-09-12T16:58:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f77fe98_7588cf18",
       "revId": "efe595235f64eea0deb56f7a559b9d11c0a04e6c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -75,6 +117,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa49625a_46abfa48",
+        "filename": "socket.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-09-12T16:58:19Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ce90ff0e_efaefe4a",
+      "revId": "efe595235f64eea0deb56f7a559b9d11c0a04e6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3fc9688e_9cdf3242",
@@ -88,6 +148,24 @@
       "writtenOn": "2022-09-08T15:12:35Z",
       "side": 1,
       "message": "(and probably move the generic fields up, to keep them together? subtype-specific fields down at the end?)",
+      "revId": "efe595235f64eea0deb56f7a559b9d11c0a04e6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dad8cab7_85506b66",
+        "filename": "socket.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-09-12T16:58:19Z",
+      "side": 1,
+      "message": "This is all going away in the next CL moving it all into polymorphic classes.",
+      "parentUuid": "3fc9688e_9cdf3242",
       "revId": "efe595235f64eea0deb56f7a559b9d11c0a04e6c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
