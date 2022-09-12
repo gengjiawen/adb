@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aeb365bf_40e5cb21",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-09-12T15:43:41Z",
+      "side": 1,
+      "message": "i should probably also clarify that all my comments are fine to fix later, or just add TODOs making it clear what we still _don\u0027t_ know. this cl is still a step in the right direction!",
+      "revId": "efe595235f64eea0deb56f7a559b9d11c0a04e6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "95f54f47_80d9eb18",
