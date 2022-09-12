@@ -65,9 +65,8 @@ struct asocket {
 
     /* flag: set when the socket's peer has closed
      * but packets are still queued for delivery
-     * TODO: This should be a boolean.
      */
-    int closing = 0;
+    bool closing = 0;
 
     // flag: set when the socket failed to write, so the socket will not wait to
     // write packets and close directly.
