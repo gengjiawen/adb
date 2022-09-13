@@ -34,6 +34,23 @@
       "parentUuid": "09ede28b_b5b32c41",
       "revId": "66057c97c856cc6a1d84ccc03405ceb9db87ba9d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32a3a892_7251fff8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-09-13T23:36:20Z",
+      "side": 1,
+      "message": "@branislav, can you elaborate on why 16 KiB is the best value to use? The commit message explains what the CL does but not why it does it (what problem does it solves).",
+      "revId": "66057c97c856cc6a1d84ccc03405ceb9db87ba9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
