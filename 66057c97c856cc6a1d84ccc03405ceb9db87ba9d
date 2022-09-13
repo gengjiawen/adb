@@ -16,6 +16,24 @@
       "message": "```\nTraceback (most recent call last):\n  File \"/tmp/Soong.python_r9hpo1e8/test_device.py\", line 44, in wrapper\n    if self.device.get_prop(\u0027ro.debuggable\u0027) !\u003d \u00271\u0027:\n  File \"/tmp/Soong.python_r9hpo1e8/adb/device.py\", line 514, in get_prop\n    output \u003d split_lines(self.shell([\u0027getprop\u0027, prop_name])[0])\n  File \"/tmp/Soong.python_r9hpo1e8/adb/device.py\", line 348, in shell\n    raise ShellError(cmd, stdout, stderr, exit_code)\nadb.device.ShellError: `[\u0027getprop\u0027, \u0027ro.debuggable\u0027]` exited with code 1\n```\n\nunrelated failure that looks like it was from aloro\u0027s recent work to make ro.debuggable inaccessible to non-root. i think we need to rewrite this from packages/modules/adb/test_device.py:\n```\ndef requires_root(func):\n    def wrapper(self, *args):\n        if self.device.get_prop(\u0027ro.debuggable\u0027) !\u003d \u00271\u0027:\n            raise unittest.SkipTest(\u0027requires rootable build\u0027)\n```\ni\u0027ll try to get round to that later today...",
       "revId": "66057c97c856cc6a1d84ccc03405ceb9db87ba9d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "655e562e_53fa18f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-09-13T19:25:44Z",
+      "side": 1,
+      "message": "huh. passing now? that\u0027s weird... maybe infrastructure error instead of an actual denial? let\u0027s sweep it under the carpet for now and see if it happens again...",
+      "parentUuid": "09ede28b_b5b32c41",
+      "revId": "66057c97c856cc6a1d84ccc03405ceb9db87ba9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
