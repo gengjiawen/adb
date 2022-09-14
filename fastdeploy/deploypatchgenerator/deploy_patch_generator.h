@@ -19,7 +19,7 @@
 #include <vector>
 
 #include "adb_unique_fd.h"
-#include "fastdeploy/proto/ApkEntry.pb.h"
+#include "proto/ApkEntry.pb.h"
 
 /**
  * This class is responsible for creating a patch that can be accepted by the deployagent. The

@@ -22,7 +22,7 @@
 
 #include <adb_unique_fd.h>
 
-#include "fastdeploy/proto/ApkEntry.pb.h"
+#include "proto/ApkEntry.pb.h"
 
 class ApkArchiveTester;
 
