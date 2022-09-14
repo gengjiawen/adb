@@ -22,6 +22,40 @@ package {
     default_applicable_licenses: ["packages_modules_adb_license"],
 }
 
+cc_library_host_static {
+    name: "libfastdeploy_host",
+    defaults: ["adb_defaults"],
+    srcs: [
+        "deploypatchgenerator/apk_archive.cpp",
+        "deploypatchgenerator/deploy_patch_generator.cpp",
+        "deploypatchgenerator/patch_utils.cpp",
+        "proto/ApkEntry.proto",
+    ],
+    static_libs: [
+        "libadb_host",
+        "libandroidfw",
+        "libbase",
+        "libcrypto",
+        "libcrypto_utils",
+        "libcutils",
+        "libdiagnose_usb",
+        "liblog",
+        "libmdnssd",
+        "libusb",
+        "libutils",
+        "libz",
+        "libziparchive",
+    ],
+    header_libs: ["adb_headers"],
+    target: {
+        windows: {
+            enabled: true,
+            shared_libs: ["AdbWinApi"],
+        },
+    },
+    proto: { export_proto_headers: true },
+}
+
 java_library {
     name: "deployagent_lib",
     sdk_version: "24",
@@ -32,17 +66,20 @@ java_library {
     proto: {
         type: "lite",
     },
+    host_supported: true,
 }
 
 java_binary {
     name: "deployagent",
+    main_class: "com.android.fastdeploy.DeployAgent",
     sdk_version: "24",
     static_libs: [
         "deployagent_lib",
     ],
     dex_preopt: {
         enabled: false,
-    }
+    },
+    host_supported: true,
 }
 
 android_test {
