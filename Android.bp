@@ -35,6 +35,12 @@ tidy_errors = [
     "bugprone-use-after-move",
 ]
 
+cc_library_headers {
+    name: "adb_headers",
+    export_include_dirs: ["."],
+    host_supported: true,
+}
+
 cc_defaults {
     name: "adb_defaults",
 
@@ -900,6 +906,7 @@ java_genrule {
     name: "bin2c_fastdeployagent",
     out: ["deployagent.inc"],
     srcs: [":deployagent"],
+    host_supported: true,
     cmd: "(echo 'unsigned char kDeployAgent[] = {' && xxd -i <$(in) && echo '};') > $(out)",
 }
 
@@ -910,41 +917,37 @@ genrule {
     cmd: "(echo 'unsigned char kDeployAgentScript[] = {' && xxd -i <$(in) && echo '};') > $(out)",
 }
 
-cc_library_host_static {
-    name: "libfastdeploy_host",
-    defaults: ["adb_defaults"],
-    srcs: [
-        "fastdeploy/deploypatchgenerator/apk_archive.cpp",
-        "fastdeploy/deploypatchgenerator/deploy_patch_generator.cpp",
-        "fastdeploy/deploypatchgenerator/patch_utils.cpp",
-        "fastdeploy/proto/ApkEntry.proto",
-    ],
-    static_libs: [
-        "libadb_host",
-        "libandroidfw",
-        "libbase",
-        "libcrypto",
-        "libcrypto_utils",
-        "libcutils",
-        "libdiagnose_usb",
-        "liblog",
-        "libmdnssd",
-        "libusb",
-        "libutils",
-        "libz",
-        "libziparchive",
-    ],
-    proto: {
-        type: "lite",
-        export_proto_headers: true,
-    },
-    target: {
-        windows: {
-            enabled: true,
-            shared_libs: ["AdbWinApi"],
-        },
-    },
-}
+// cc_library_host_static {
+//     name: "libfastdeploy_host",
+//     defaults: ["adb_defaults"],
+//     srcs: [
+//         "fastdeploy/deploypatchgenerator/apk_archive.cpp",
+//         "fastdeploy/deploypatchgenerator/deploy_patch_generator.cpp",
+//         "fastdeploy/deploypatchgenerator/patch_utils.cpp",
+//         "fastdeploy/proto/ApkEntry.proto",
+//     ],
+//     static_libs: [
+//         "libadb_host",
+//         "libandroidfw",
+//         "libbase",
+//         "libcrypto",
+//         "libcrypto_utils",
+//         "libcutils",
+//         "libdiagnose_usb",
+//         "liblog",
+//         "libmdnssd",
+//         "libusb",
+//         "libutils",
+//         "libz",
+//         "libziparchive",
+//     ],
+//     target: {
+//         windows: {
+//             enabled: true,
+//             shared_libs: ["AdbWinApi"],
+//         },
+//     },
+// }
 
 cc_test_host {
     name: "fastdeploy_test",

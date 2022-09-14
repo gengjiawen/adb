@@ -31,7 +31,7 @@
 #include "deployagentscript.inc"  // Generated include via build rule.
 #include "fastdeploy/deploypatchgenerator/deploy_patch_generator.h"
 #include "fastdeploy/deploypatchgenerator/patch_utils.h"
-#include "fastdeploy/proto/ApkEntry.pb.h"
+#include "../fastdeploy/proto/ApkEntry.pb.h"
 #include "fastdeploycallbacks.h"
 #include "sysdeps.h"
 
