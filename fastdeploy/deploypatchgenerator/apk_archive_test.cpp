@@ -39,7 +39,7 @@ class ApkArchiveTester {
 };
 
 TEST(ApkArchiveTest, TestApkArchiveSizes) {
-    ApkArchiveTester archiveTester("fastdeploy/testdata/sample.apk");
+    ApkArchiveTester archiveTester("fastdeploy_test.runfiles/__main__/packages/modules/adb/fastdeploy/testdata/sample.apk");
     EXPECT_TRUE(archiveTester.ready());
 
     ApkArchive::Location cdLoc = archiveTester.GetCDLocation();
@@ -55,7 +55,7 @@ TEST(ApkArchiveTest, TestApkArchiveSizes) {
 }
 
 TEST(ApkArchiveTest, TestApkArchiveDump) {
-    ApkArchiveTester archiveTester("fastdeploy/testdata/sample.apk");
+    ApkArchiveTester archiveTester("fastdeploy_test.runfiles/__main__/packages/modules/adb/fastdeploy/testdata/sample.apk");
     EXPECT_TRUE(archiveTester.ready());
 
     auto dump = archiveTester.ExtractMetadata();
@@ -64,7 +64,7 @@ TEST(ApkArchiveTest, TestApkArchiveDump) {
 }
 
 TEST(ApkArchiveTest, WrongApk) {
-    ApkArchiveTester archiveTester("fastdeploy/testdata/sample.cd");
+    ApkArchiveTester archiveTester("fastdeploy_test.runfiles/__main__/packages/modules/adb/fastdeploy/testdata/sample.apk");
     EXPECT_TRUE(archiveTester.ready());
 
     auto dump = archiveTester.ExtractMetadata();

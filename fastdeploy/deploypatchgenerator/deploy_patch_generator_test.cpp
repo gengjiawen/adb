@@ -29,7 +29,7 @@
 using namespace com::android::fastdeploy;
 
 static std::string GetTestFile(const std::string& name) {
-    return "fastdeploy/testdata/" + name;
+    return "fastdeploy_test.runfiles/__main__/packages/modules/adb/fastdeploy/testdata/" + name;
 }
 
 struct TestPatchGenerator : DeployPatchGenerator {

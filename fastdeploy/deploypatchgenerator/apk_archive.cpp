@@ -69,6 +69,9 @@ using com::android::fastdeploy::APKDump;
 ApkArchive::ApkArchive(const std::string& path) : path_(path), size_(0) {
     fd_.reset(adb_open(path_.c_str(), O_RDONLY));
     if (fd_ == -1) {
+        char resolved_path[PATH_MAX];
+        char * ret = realpath(path_.c_str(), resolved_path);
+        fprintf(stderr, "\n%s, %s, %s\n", resolved_path, path_.c_str(),ret);
         fprintf(stderr, "Unable to open file '%s'\n", path_.c_str());
         return;
     }
