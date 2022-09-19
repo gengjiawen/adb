@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a79ec1f_3e267059",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1480888
+      },
+      "writtenOn": "2022-09-19T17:15:33Z",
+      "side": 1,
+      "message": "+1 to \u0027why\u0027. We were using a blurb in other changes that IIRC explained the motivation for this change. Can\u0027t we reuse that?\n\nSee go/cl-descriptions.",
+      "parentUuid": "bbf37643_0a2ba6e2",
+      "revId": "0cc6f3c17544f72f121bd423ae26036576567357",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b00bb04f_5edd62fc",
