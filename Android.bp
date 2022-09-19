@@ -394,6 +394,10 @@ cc_test_host {
             shared_libs: ["AdbWinApi"],
         },
     },
+
+    test_options: {
+        tags: ["no-remote"],
+    }
 }
 
 cc_binary_host {
