@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbf37643_0a2ba6e2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-09-19T17:08:39Z",
+      "side": 1,
+      "message": "say \"why\" not \"what\" in comments.\n\ni didn\u0027t really learn anything from the bug either ... is this a temporary workaround? (in which case, add a link to the bug in the code?)",
+      "revId": "0cc6f3c17544f72f121bd423ae26036576567357",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b00bb04f_5edd62fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-09-19T17:08:39Z",
+      "side": 1,
+      "message": "w",
+      "revId": "0cc6f3c17544f72f121bd423ae26036576567357",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
