@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "05a5f12b_a2cc0391",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 25
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-09-19T20:52:03Z",
+      "side": 1,
+      "message": "The gitiles CL is taking longer than expected, I am going to submit as it and will convert to .txt or .atxt when it lands.",
+      "parentUuid": "31cf43dc_b5270e83",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 24
+      },
+      "revId": "46dd6c7fe3294456116042a253a5d751f9ded0b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c725a7cf_fe186195",
@@ -206,6 +230,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d960b0df_9f1d628f",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 25
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-09-19T20:52:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7e81ee93_686352d1",
+      "revId": "46dd6c7fe3294456116042a253a5d751f9ded0b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f8474479_9d2d8c74",
@@ -313,6 +355,24 @@
       "writtenOn": "2022-08-17T17:56:08Z",
       "side": 1,
       "message": "link to it?",
+      "revId": "46dd6c7fe3294456116042a253a5d751f9ded0b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dca2e707_7aba67ec",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 25
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-09-19T20:52:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47e197f6_4bb26d51",
       "revId": "46dd6c7fe3294456116042a253a5d751f9ded0b5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
