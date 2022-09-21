@@ -38,6 +38,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "2a0d9761_e1d09bf8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1933450
+      },
+      "writtenOn": "2022-09-21T11:43:55Z",
+      "side": 1,
+      "message": "Done. Added a new bug ID: 247985207. It temporary prevents the test from running into remote environment. Will figure out the root cause when get more time.",
+      "parentUuid": "4a79ec1f_3e267059",
+      "revId": "0cc6f3c17544f72f121bd423ae26036576567357",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b00bb04f_5edd62fc",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
