@@ -55,30 +55,10 @@ class atransport;
     Note that sockets can be peered regardless of their kind. A remote socket can be peered with
     a smart socket, a local socket can be peered with a remote socket and so on.
  */
-struct asocket {
-    /* the unique identifier for this asocket
-     */
+class asocket {
+  public:
+    // the unique identifier for this asocket
     unsigned id = 0;
-
-    // Start Local socket fields
-    // TODO: move all the local socket fields together
-
-    /* flag: set when the socket's peer has closed
-     * but packets are still queued for delivery
-     * TODO: This should be a boolean.
-     */
-    bool closing = false;
-
-    // flag: set when the socket failed to write, so the socket will not wait to
-    // write packets and close directly.
-    bool has_write_error = false;
-
-    /* flag: quit adbd when both ends close the
-     * local service socket
-     */
-    int exit_on_close = 0;
-
-    // End Local socket fields
 
     // the asocket we are connected to
     asocket* peer = nullptr;
@@ -89,50 +69,30 @@ struct asocket {
      * peer->ready() when we once again are ready to
      * receive data.
      */
-    int (*enqueue)(asocket* s, apacket::payload_type data) = nullptr;
+    virtual int enqueue(apacket::payload_type data) = 0;
 
     /* ready is called by the peer when it is ready for
      * us to send data via enqueue again
      */
-    void (*ready)(asocket* s) = nullptr;
+    virtual void ready() = 0;
 
     /* shutdown is called by the peer before it goes away.
      * the socket should not do any further calls on its peer.
      * Always followed by a call to close. Optional, i.e. can be NULL.
      */
-    void (*shutdown)(asocket* s) = nullptr;
+    virtual void shutdown() = 0;
 
     /* close is called by the peer when it has gone away.
      * we are not allowed to make any further calls on the
      * peer once our close method is called.
      */
-    void (*close)(asocket* s) = nullptr;
-
-    /* A socket is bound to atransport */
-    atransport* transport = nullptr;
+    virtual void close() = 0;
 
     size_t get_max_payload() const;
 
-    // TODO: Make asocket an actual class and use inheritance instead of having an ever-growing
-    //       struct with random use-specific fields stuffed into it.
-
-    // Start Local socket fields
-    fdevent* fde = nullptr;
-    int fd = -1;
-
-    // Queue of data that we've received from our peer, and are waiting to write into fd.
-    IOVector packet_queue;
-    // End Local socket fields
-
-    // The number of bytes that have been acknowledged by the other end if delayed_ack is available.
-    // This value can go negative: if we have a MAX_PAYLOAD's worth of bytes available to send,
-    // we'll send out a full packet.
-    std::optional<int64_t> available_send_bytes;
-
-    // Start Smart socket fields
-    // A temporary buffer used to hold a partially-read service string for smartsockets.
-    std::string smart_socket_data;
-    // End Smart socket fields
+  protected:
+    asocket(){};
+    virtual ~asocket(){};
 };
 
 asocket *find_local_socket(unsigned local_id, unsigned remote_id);
