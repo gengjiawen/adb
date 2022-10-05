@@ -29,6 +29,7 @@
 #include <algorithm>
 #include <chrono>
 #include <mutex>
+#include <optional>
 #include <string>
 #include <vector>
 
@@ -42,6 +43,7 @@
 #include "adb.h"
 #include "adb_io.h"
 #include "adb_utils.h"
+#include "socket.h"
 #include "transport.h"
 #include "types.h"
 
@@ -50,22 +52,23 @@ using namespace std::chrono_literals;
 static std::recursive_mutex& local_socket_list_lock = *new std::recursive_mutex();
 static unsigned local_socket_next_id = 1;
 
-static auto& local_socket_list = *new std::vector<asocket*>();
+class LocalSocket;
+static auto& local_socket_list = *new std::vector<LocalSocket*>();
 
 /* the the list of currently closing local sockets.
 ** these have no peer anymore, but still packets to
 ** write to their fd.
 */
-static auto& local_socket_closing_list = *new std::vector<asocket*>();
+static auto& local_socket_closing_list = *new std::vector<LocalSocket*>();
 
 // Parse the global list of sockets to find one with id |local_id|.
 // If |peer_id| is not 0, also check that it is connected to a peer
 // with id |peer_id|. Returns an asocket handle on success, NULL on failure.
-asocket* find_local_socket(unsigned local_id, unsigned peer_id) {
-    asocket* result = nullptr;
+LocalSocket* find_local_socket(unsigned local_id, unsigned peer_id) {
+    LocalSocket* result = nullptr;
 
     std::lock_guard<std::recursive_mutex> lock(local_socket_list_lock);
-    for (asocket* s : local_socket_list) {
+    for (LocalSocket* s : local_socket_list) {
         if (s->id != local_id) {
             continue;
         }
@@ -78,7 +81,7 @@ asocket* find_local_socket(unsigned local_id, unsigned peer_id) {
     return result;
 }
 
-void install_local_socket(asocket* s) {
+void install_local_socket(LocalSocket* s) {
     std::lock_guard<std::recursive_mutex> lock(local_socket_list_lock);
 
     s->id = local_socket_next_id++;
@@ -91,11 +94,12 @@ void install_local_socket(asocket* s) {
     local_socket_list.push_back(s);
 }
 
-void remove_socket(asocket* s) {
+void remove_socket(LocalSocket* s) {
     std::lock_guard<std::recursive_mutex> lock(local_socket_list_lock);
     for (auto list : { &local_socket_list, &local_socket_closing_list }) {
-        list->erase(std::remove_if(list->begin(), list->end(), [s](asocket* x) { return x == s; }),
-                    list->end());
+        list->erase(
+                std::remove_if(list->begin(), list->end(), [s](LocalSocket* x) { return x == s; }),
+                list->end());
     }
 }
 
@@ -105,33 +109,27 @@ void close_all_sockets(atransport* t) {
     */
     std::lock_guard<std::recursive_mutex> lock(local_socket_list_lock);
 restart:
-    for (asocket* s : local_socket_list) {
+    for (LocalSocket* s : local_socket_list) {
         if (s->transport == t || (s->peer && s->peer->transport == t)) {
-            s->close(s);
+            s->close();
             goto restart;
         }
     }
 }
 
-enum class SocketFlushResult {
-    Destroyed,
-    TryAgain,
-    Completed,
-};
-
-static SocketFlushResult local_socket_flush_incoming(asocket* s) {
-    D("LS(%u) %s: %zu bytes in queue", s->id, __func__, s->packet_queue.size());
+LocalSocket::SocketFlushResult LocalSocket::Flush_incoming() {
+    D("LS(%u) %s: %zu bytes in queue", id, __func__, packet_queue.size());
     uint32_t bytes_flushed = 0;
-    if (!s->packet_queue.empty()) {
-        std::vector<adb_iovec> iov = s->packet_queue.iovecs();
-        ssize_t rc = adb_writev(s->fd, iov.data(), iov.size());
-        D("LS(%u) %s: rc = %zd", s->id, __func__, rc);
+    if (!packet_queue.empty()) {
+        std::vector<adb_iovec> iov = packet_queue.iovecs();
+        ssize_t rc = adb_writev(fd, iov.data(), iov.size());
+        D("LS(%u) %s: rc = %zd", id, __func__, rc);
         if (rc > 0) {
             bytes_flushed = rc;
-            if (static_cast<size_t>(rc) == s->packet_queue.size()) {
-                s->packet_queue.clear();
+            if (static_cast<size_t>(rc) == packet_queue.size()) {
+                packet_queue.clear();
             } else {
-                s->packet_queue.drop_front(rc);
+                packet_queue.drop_front(rc);
             }
         } else if (rc == -1 && errno == EAGAIN) {
             // fd is full.
@@ -139,42 +137,42 @@ static SocketFlushResult local_socket_flush_incoming(asocket* s) {
             // rc == 0, probably.
             // The other side closed its read side of the fd, but it's possible that we can still
             // read from the socket. Give that a try before giving up.
-            s->has_write_error = true;
+            has_write_error = true;
         }
     }
 
-    bool fd_full = !s->packet_queue.empty() && !s->has_write_error;
-    if (s->transport && s->peer) {
-        if (s->available_send_bytes.has_value()) {
+    bool fd_full = !packet_queue.empty() && !has_write_error;
+    if (transport && peer) {
+        if (available_send_bytes.has_value()) {
             // Deferred acks are available.
-            send_ready(s->id, s->peer->id, s->transport, bytes_flushed);
+            send_ready(id, peer->id, transport, bytes_flushed);
         } else {
             // Deferred acks aren't available, we should ask for more data as long as we've made any
             // progress.
             if (bytes_flushed != 0) {
-                send_ready(s->id, s->peer->id, s->transport, 0);
+                send_ready(id, peer->id, transport, 0);
             }
         }
     }
 
     // If we sent the last packet of a closing socket, we can now destroy it.
-    if (s->closing && !fd_full) {
-        s->close(s);
+    if (closing && !fd_full) {
+        close();
         return SocketFlushResult::Destroyed;
     }
 
     if (fd_full) {
-        fdevent_add(s->fde, FDE_WRITE);
+        fdevent_add(fde, FDE_WRITE);
         return SocketFlushResult::TryAgain;
     } else {
-        fdevent_del(s->fde, FDE_WRITE);
+        fdevent_del(fde, FDE_WRITE);
         return SocketFlushResult::Completed;
     }
 }
 
 // Returns false if the socket has been closed and destroyed as a side-effect of this function.
-static bool local_socket_flush_outgoing(asocket* s) {
-    const size_t max_payload = s->get_max_payload();
+bool LocalSocket::Flush_outgoing() {
+    const size_t max_payload = get_max_payload();
     apacket::payload_type data;
     data.resize(max_payload);
     char* x = &data[0];
@@ -183,8 +181,8 @@ static bool local_socket_flush_outgoing(asocket* s) {
     int is_eof = 0;
 
     while (avail > 0) {
-        r = adb_read(s->fd, x, avail);
-        D("LS(%d): post adb_read(fd=%d,...) r=%d (errno=%d) avail=%zu", s->id, s->fd, r,
+        r = adb_read(fd, x, avail);
+        D("LS(%d): post adb_read(fd=%d,...) r=%d (errno=%d) avail=%zu", id, fd, r,
           r < 0 ? errno : 0, avail);
         if (r == -1) {
             if (errno == EAGAIN) {
@@ -200,21 +198,21 @@ static bool local_socket_flush_outgoing(asocket* s) {
         is_eof = 1;
         break;
     }
-    D("LS(%d): fd=%d post avail loop. r=%d is_eof=%d", s->id, s->fd, r, is_eof);
+    D("LS(%d): fd=%d post avail loop. r=%d is_eof=%d", id, fd, r, is_eof);
 
-    if (avail != max_payload && s->peer) {
+    if (avail != max_payload && peer) {
         data.resize(max_payload - avail);
 
         // s->peer->enqueue() may call s->close() and free s,
         // so save variables for debug printing below.
-        unsigned saved_id = s->id;
-        int saved_fd = s->fd;
+        unsigned saved_id = id;
+        int saved_fd = fd;
 
-        if (s->available_send_bytes) {
-            *s->available_send_bytes -= data.size();
+        if (available_send_bytes) {
+            *available_send_bytes -= data.size();
         }
 
-        r = s->peer->enqueue(s->peer, std::move(data));
+        r = peer->enqueue(std::move(data));
         D("LS(%u): fd=%d post peer->enqueue(). r=%d", saved_id, saved_fd, r);
 
         if (r < 0) {
@@ -228,14 +226,14 @@ static bool local_socket_flush_outgoing(asocket* s) {
         }
 
         if (r > 0) {
-            if (s->available_send_bytes) {
-                if (*s->available_send_bytes <= 0) {
+            if (available_send_bytes) {
+                if (*available_send_bytes <= 0) {
                     D("LS(%u): send buffer full (%" PRId64 ")", saved_id, *s->available_send_bytes);
-                    fdevent_del(s->fde, FDE_READ);
+                    fdevent_del(fde, FDE_READ);
                 }
             } else {
                 D("LS(%u): acks not deferred, blocking", saved_id);
-                fdevent_del(s->fde, FDE_READ);
+                fdevent_del(fde, FDE_READ);
             }
         }
     }
@@ -249,11 +247,11 @@ static bool local_socket_flush_outgoing(asocket* s) {
     return true;
 }
 
-static int local_socket_enqueue(asocket* s, apacket::payload_type data) {
-    D("LS(%d): enqueue %zu", s->id, data.size());
+int LocalSocket::enqueue(apacket::payload_type data) {
+    D("LS(%d): enqueue %zu", id, data.size());
 
-    s->packet_queue.append(std::move(data));
-    switch (local_socket_flush_incoming(s)) {
+    packet_queue.append(std::move(data));
+    switch (Flush_incoming()) {
         case SocketFlushResult::Destroyed:
             return -1;
 
@@ -267,10 +265,10 @@ static int local_socket_enqueue(asocket* s, apacket::payload_type data) {
     return !s->packet_queue.empty();
 }
 
-static void local_socket_ready(asocket* s) {
+void LocalSocket::ready() {
     /* far side is ready for data, pay attention to
        readable events */
-    fdevent_add(s->fde, FDE_READ);
+    fdevent_add(fde, FDE_READ);
 }
 
 struct ClosingSocket {
@@ -325,69 +323,66 @@ static void deferred_close(unique_fd fd) {
 }
 
 // be sure to hold the socket list lock when calling this
-static void local_socket_destroy(asocket* s) {
-    int exit_on_close = s->exit_on_close;
+void LocalSocket::Destroy() {
+    bool should_exit = exit_on_close;
+    D("LS(%d): destroying fde.fd=%d", id, fd);
 
-    D("LS(%d): destroying fde.fd=%d", s->id, s->fd);
+    deferred_close(fdevent_release(fde));
 
-    deferred_close(fdevent_release(s->fde));
+    remove_socket(this);
+    delete this;
 
-    remove_socket(s);
-    delete s;
-
-    if (exit_on_close) {
-        D("local_socket_destroy: exiting");
+    if (should_exit) {
+        D("LocalSocket::Destroy: exiting");
         exit(1);
     }
 }
 
-static void local_socket_close(asocket* s) {
-    D("entered local_socket_close. LS(%d) fd=%d", s->id, s->fd);
+void LocalSocket::close() {
+    D("entered local_socket_close. LS(%d) fd=%d", id, fd);
     std::lock_guard<std::recursive_mutex> lock(local_socket_list_lock);
     if (s->peer) {
-        D("LS(%d): closing peer. peer->id=%d peer->fd=%d", s->id, s->peer->id, s->peer->fd);
+        D("LS(%d): closing peer. peer->id=%d peer->fd=%d", id, peer->id, peer->fd);
         /* Note: it's important to call shutdown before disconnecting from
          * the peer, this ensures that remote sockets can still get the id
          * of the local socket they're connected to, to send a CLOSE()
          * protocol event. */
-        if (s->peer->shutdown) {
-            s->peer->shutdown(s->peer);
-        }
-        s->peer->peer = nullptr;
-        s->peer->close(s->peer);
-        s->peer = nullptr;
+        peer->shutdown();
+        peer->peer = nullptr;
+        peer->close();
+        peer = nullptr;
     }
 
     /* If we are already closing, or if there are no
     ** pending packets, destroy immediately
     */
-    if (s->closing || s->has_write_error || s->packet_queue.empty()) {
-        int id = s->id;
-        local_socket_destroy(s);
+    if (closing || has_write_error || packet_queue.empty()) {
+        int id = id;
+        Destroy();
         D("LS(%d): closed", id);
         return;
     }
 
     /* otherwise, put on the closing list
     */
-    D("LS(%d): closing", s->id);
-    s->closing = true;
-    fdevent_del(s->fde, FDE_READ);
-    remove_socket(s);
-    D("LS(%d): put on socket_closing_list fd=%d", s->id, s->fd);
-    local_socket_closing_list.push_back(s);
-    CHECK_EQ(FDE_WRITE, s->fde->state & FDE_WRITE);
+    D("LS(%d): closing", id);
+    closing = true;
+    fdevent_del(fde, FDE_READ);
+    remove_socket(this);
+    D("LS(%d): put on socket_closing_list fd=%d", id, fd);
+    local_socket_closing_list.push_back(this);
+    CHECK_EQ(FDE_WRITE, fde->state & FDE_WRITE);
 }
 
 static void local_socket_event_func(int fd, unsigned ev, void* _s) {
-    asocket* s = reinterpret_cast<asocket*>(_s);
+    LocalSocket* s = reinterpret_cast<LocalSocket*>(_s);
     D("LS(%d): event_func(fd=%d(==%d), ev=%04x)", s->id, s->fd, fd, ev);
 
     /* put the FDE_WRITE processing before the FDE_READ
     ** in order to simplify the code.
     */
     if (ev & FDE_WRITE) {
-        switch (local_socket_flush_incoming(s)) {
+        switch (s->Flush_incoming()) {
             case SocketFlushResult::Destroyed:
                 return;
 
@@ -415,7 +410,7 @@ static void local_socket_event_func(int fd, unsigned ev, void* _s) {
     }
 }
 
-void local_socket_ack(asocket* s, std::optional<int32_t> acked_bytes) {
+void local_socket_ack(LocalSocket* s, std::optional<int32_t> acked_bytes) {
     // acked_bytes can be negative!
     //
     // In the future, we can use this to preemptively supply backpressure, instead
@@ -441,14 +436,9 @@ void local_socket_ack(asocket* s, std::optional<int32_t> acked_bytes) {
     }
 }
 
-asocket* create_local_socket(unique_fd ufd) {
+LocalSocket* create_local_socket(unique_fd ufd) {
     int fd = ufd.release();
-    asocket* s = new asocket();
-    s->fd = fd;
-    s->enqueue = local_socket_enqueue;
-    s->ready = local_socket_ready;
-    s->shutdown = nullptr;
-    s->close = local_socket_close;
+    LocalSocket* s = new LocalSocket(fd);
     install_local_socket(s);
 
     s->fde = fdevent_create(fd, local_socket_event_func, s);
@@ -456,7 +446,7 @@ asocket* create_local_socket(unique_fd ufd) {
     return s;
 }
 
-asocket* create_local_service_socket(std::string_view name, atransport* transport) {
+LocalSocket* create_local_service_socket(std::string_view name, atransport* transport) {
 #if !ADB_HOST
     if (asocket* s = daemon_service_to_socket(name, transport); s) {
         return s;
@@ -468,7 +458,7 @@ asocket* create_local_service_socket(std::string_view name, atransport* transpor
     }
 
     int fd_value = fd.get();
-    asocket* s = create_local_socket(std::move(fd));
+    LocalSocket* s = create_local_socket(std::move(fd));
     s->transport = transport;
     LOG(VERBOSE) << "LS(" << s->id << "): bound to '" << name << "' via " << fd_value;
 
@@ -484,13 +474,13 @@ asocket* create_local_service_socket(std::string_view name, atransport* transpor
     return s;
 }
 
-static int remote_socket_enqueue(asocket* s, apacket::payload_type data) {
-    D("entered remote_socket_enqueue RS(%d) WRITE fd=%d peer.fd=%d", s->id, s->fd, s->peer->fd);
+int RemoteSocket::enqueue(apacket::payload_type data) {
+    D("entered remote_socket_enqueue RS(%d) WRITE fd=%d peer.fd=%d", id, fd, peer->fd);
     apacket* p = get_apacket();
 
     p->msg.command = A_WRTE;
-    p->msg.arg0 = s->peer->id;
-    p->msg.arg1 = s->id;
+    p->msg.arg0 = peer->id;
+    p->msg.arg1 = id;
 
     if (data.size() > MAX_PAYLOAD) {
         put_apacket(p);
@@ -500,41 +490,40 @@ static int remote_socket_enqueue(asocket* s, apacket::payload_type data) {
     p->payload = std::move(data);
     p->msg.data_length = p->payload.size();
 
-    send_packet(p, s->transport);
+    send_packet(p, transport);
     return 1;
 }
 
-static void remote_socket_ready(asocket* s) {
-    D("entered remote_socket_ready RS(%d) OKAY fd=%d peer.fd=%d", s->id, s->fd, s->peer->fd);
+void RemoteSocket::ready() {
+    D("entered RemoteSocket::Ready RS(%d) OKAY fd=%d peer.fd=%d", id, fd, peer->fd);
     apacket* p = get_apacket();
     p->msg.command = A_OKAY;
-    p->msg.arg0 = s->peer->id;
-    p->msg.arg1 = s->id;
-    send_packet(p, s->transport);
+    p->msg.arg0 = peer->id;
+    p->msg.arg1 = id;
+    send_packet(p, transport);
 }
 
-static void remote_socket_shutdown(asocket* s) {
-    D("entered remote_socket_shutdown RS(%d) CLOSE fd=%d peer->fd=%d", s->id, s->fd,
-      s->peer ? s->peer->fd : -1);
+void RemoteSocket::shutdown() {
+    D("entered RemoteSocket::shutdown RS(%d) CLOSE fd=%d peer->fd=%d", id, fd,
+      peer ? peer->fd : -1);
     apacket* p = get_apacket();
     p->msg.command = A_CLSE;
-    if (s->peer) {
-        p->msg.arg0 = s->peer->id;
+    if (peer) {
+        p->msg.arg0 = peer->id;
     }
-    p->msg.arg1 = s->id;
-    send_packet(p, s->transport);
+    p->msg.arg1 = id;
+    send_packet(p, transport);
 }
 
-static void remote_socket_close(asocket* s) {
-    if (s->peer) {
-        s->peer->peer = nullptr;
-        D("RS(%d) peer->close()ing peer->id=%d peer->fd=%d", s->id, s->peer->id, s->peer->fd);
-        s->peer->close(s->peer);
+void RemoteSocket::close() {
+    if (peer) {
+        peer->peer = nullptr;
+        D("RS(%d) peer->close()ing peer->id=%d peer->fd=%d", id, peer->id, peer->fd);
+        peer->close();
     }
-    D("entered remote_socket_close RS(%d) CLOSE fd=%d peer->fd=%d", s->id, s->fd,
-      s->peer ? s->peer->fd : -1);
-    D("RS(%d): closed", s->id);
-    delete s;
+    D("entered remote_socket_close RS(%d) CLOSE fd=%d peer->fd=%d", id, fd, peer ? peer->fd : -1);
+    D("RS(%d): closed", id);
+    delete this;
 }
 
 // Create a remote socket to exchange packets with a remote service through transport
@@ -545,12 +534,11 @@ asocket* create_remote_socket(unsigned id, atransport* t) {
     if (id == 0) {
         LOG(FATAL) << "invalid remote socket id (0)";
     }
-    asocket* s = new asocket();
-    s->id = id;
-    s->enqueue = remote_socket_enqueue;
-    s->ready = remote_socket_ready;
-    s->shutdown = remote_socket_shutdown;
-    s->close = remote_socket_close;
+    RemoteSocket* s = new RemoteSocket(id);
+    //    s->enqueue = remote_socket_enqueue;
+    //    s->ready = remote_socket_ready;
+    //    s->shutdown = remote_socket_shutdown;
+    //    s->close = remote_socket_close;
     s->transport = t;
 
     D("RS(%d): created", s->id);
@@ -897,7 +885,7 @@ static int smart_socket_enqueue(asocket* s, apacket::payload_type data) {
         s2->peer = s->peer;
         s->peer = nullptr;
         D("SS(%d): okay", s->id);
-        s->close(s);
+        s->close();
 
         /* initial state is "ready" */
         s2->ready(s2);

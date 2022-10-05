@@ -140,7 +140,7 @@ std::string to_string(ConnectionState state) {
     }
 }
 
-apacket* get_apacket(void) {
+apacket* RemoteSocket::get_apacket(void) {
     apacket* p = new apacket();
     if (p == nullptr) {
         LOG(FATAL) << "failed to allocate an apacket";
@@ -495,7 +495,7 @@ void handle_packet(apacket *p, atransport *t)
                        << t->serial_name();
         }
 #endif
-        asocket* s = create_local_service_socket(address, t);
+        LocalSocket* s = create_local_service_socket(address, t);
         if (s == nullptr) {
             send_close(0, p->msg.arg0, t);
             break;
@@ -515,13 +515,13 @@ void handle_packet(apacket *p, atransport *t)
             send_ready(s->id, s->peer->id, t, 0);
         }
 
-        s->ready(s);
+        s->ready();
         break;
     }
 
     case A_OKAY: /* READY(local-id, remote-id, "") */
         if (t->online && p->msg.arg0 != 0 && p->msg.arg1 != 0) {
-            asocket* s = find_local_socket(p->msg.arg1, 0);
+            LocalSocket* s = find_local_socket(p->msg.arg1, 0);
             if (s) {
                 std::optional<int32_t> acked_bytes;
                 if (p->payload.size() == sizeof(int32_t)) {
@@ -543,7 +543,7 @@ void handle_packet(apacket *p, atransport *t)
                     s->peer->peer = s;
 
                     local_socket_ack(s, acked_bytes);
-                    s->ready(s);
+                    s->ready();
                 } else if (s->peer->id == p->msg.arg0) {
                     /* Other READY messages must use the same local-id */
                     local_socket_ack(s, acked_bytes);
@@ -562,7 +562,7 @@ void handle_packet(apacket *p, atransport *t)
 
     case A_CLSE: /* CLOSE(local-id, remote-id, "") or CLOSE(0, remote-id, "") */
         if (t->online && p->msg.arg1 != 0) {
-            asocket* s = find_local_socket(p->msg.arg1, p->msg.arg0);
+            LocalSocket* s = find_local_socket(p->msg.arg1, p->msg.arg0);
             if (s) {
                 /* According to protocol.txt, p->msg.arg0 might be 0 to indicate
                  * a failed OPEN only. However, due to a bug in previous ADB
@@ -578,7 +578,7 @@ void handle_packet(apacket *p, atransport *t)
                     D("Invalid A_CLSE(0, %u) from transport %s, expected transport %s", p->msg.arg1,
                       t->serial.c_str(), s->peer->transport->serial.c_str());
                 } else {
-                    s->close(s);
+                    s->close();
                 }
             }
         }
@@ -586,9 +586,9 @@ void handle_packet(apacket *p, atransport *t)
 
     case A_WRTE: /* WRITE(local-id, remote-id, <data>) */
         if (t->online && p->msg.arg0 != 0 && p->msg.arg1 != 0) {
-            asocket* s = find_local_socket(p->msg.arg1, p->msg.arg0);
+            LocalSocket* s = find_local_socket(p->msg.arg1, p->msg.arg0);
             if (s) {
-                s->enqueue(s, std::move(p->payload));
+                s->enqueue(std::move(p->payload));
             }
         }
         break;
