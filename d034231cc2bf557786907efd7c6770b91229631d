@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65a75777_cf4ffa88",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-10-05T18:06:58Z",
+      "side": 1,
+      "message": "can you motivate this better? \"it works\" isn\u0027t really enough --- \"this enables a new use case that\u0027s worth the cost of supporting\" is the argument we\u0027re really looking for...",
+      "range": {
+        "startLine": 10,
+        "startChar": 16,
+        "endLine": 12,
+        "endChar": 69
+      },
+      "revId": "d034231cc2bf557786907efd7c6770b91229631d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce78aa57_5eb7376a",
+        "filename": "daemon/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-10-05T18:06:58Z",
+      "side": 1,
+      "message": "nit: `__ANDROID__` \u003d\u003e `__linux__` so you only need to check the latter.",
+      "revId": "d034231cc2bf557786907efd7c6770b91229631d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
