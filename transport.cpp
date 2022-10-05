@@ -603,12 +603,21 @@ static fdevent* transport_registration_fde;
  * number of client connections that want it through a single
  * live TCP connection
  */
-struct device_tracker {
-    asocket socket;
-    bool update_needed = false;
-    bool long_output = false;
+class device_tracker : public asocket {
+  public:
+    int enqueue(apacket::payload_type data) override;
+    void ready() override;
+    void shutdown() override;
+    void close() override;
+
+    int send(const std::string& string);
+
     device_tracker* next = nullptr;
+    bool long_output = false;
+    bool update_needed = false;
 };
+
+void device_tracker::shutdown() {}
 
 /* linked list of all device trackers */
 static device_tracker* device_tracker_list;
@@ -628,45 +637,38 @@ static void device_tracker_remove(device_tracker* tracker) {
     }
 }
 
-static void device_tracker_close(asocket* socket) {
-    device_tracker* tracker = (device_tracker*)socket;
-    asocket* peer = socket->peer;
-
-    D("device tracker %p removed", tracker);
+void device_tracker::close() {
+    D("device tracker %p removed", this);
     if (peer) {
         peer->peer = nullptr;
-        peer->close(peer);
+        peer->close();
     }
-    device_tracker_remove(tracker);
-    delete tracker;
+    device_tracker_remove(this);
+    delete this;
 }
 
-static int device_tracker_enqueue(asocket* socket, apacket::payload_type) {
+int device_tracker::enqueue(apacket::payload_type) {
     /* you can't read from a device tracker, close immediately */
-    device_tracker_close(socket);
+    close();
     return -1;
 }
 
-static int device_tracker_send(device_tracker* tracker, const std::string& string) {
-    asocket* peer = tracker->socket.peer;
-
+int device_tracker::send(const std::string& string) {
     apacket::payload_type data;
     data.resize(4 + string.size());
     char buf[5];
     snprintf(buf, sizeof(buf), "%04x", static_cast<int>(string.size()));
     memcpy(&data[0], buf, 4);
     memcpy(&data[4], string.data(), string.size());
-    return peer->enqueue(peer, std::move(data));
+    return peer->enqueue(std::move(data));
 }
 
-static void device_tracker_ready(asocket* socket) {
-    device_tracker* tracker = reinterpret_cast<device_tracker*>(socket);
-
+void device_tracker::ready() {
     // We want to send the device list when the tracker connects
     // for the first time, even if no update occurred.
-    if (tracker->update_needed) {
-        tracker->update_needed = false;
-        device_tracker_send(tracker, list_transports(tracker->long_output));
+    if (update_needed) {
+        update_needed = false;
+        send(list_transports(long_output));
     }
 }
 
@@ -676,16 +678,13 @@ asocket* create_device_tracker(bool long_output) {
 
     D("device tracker %p created", tracker);
 
-    tracker->socket.enqueue = device_tracker_enqueue;
-    tracker->socket.ready = device_tracker_ready;
-    tracker->socket.close = device_tracker_close;
     tracker->update_needed = true;
     tracker->long_output = long_output;
 
     tracker->next = device_tracker_list;
     device_tracker_list = tracker;
 
-    return &tracker->socket;
+    return tracker;
 }
 
 // Check if all of the USB transports are connected.
@@ -713,7 +712,7 @@ void update_transports() {
     while (tracker != nullptr) {
         device_tracker* next = tracker->next;
         // This may destroy the tracker if the connection is closed.
-        device_tracker_send(tracker, list_transports(tracker->long_output));
+        tracker->send(list_transports(tracker->long_output));
         tracker = next;
     }
 }

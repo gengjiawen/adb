@@ -101,7 +101,7 @@ static void listener_event_func(int _fd, unsigned ev, void* _l)
             return;
         }
 
-        asocket* s = create_local_socket(std::move(fd));
+        LocalSocket* s = create_local_socket(std::move(fd));
         if (s) {
             s->transport = listener->transport;
             connect_to_remote(s, listener->connect_to);
