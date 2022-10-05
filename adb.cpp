@@ -521,7 +521,7 @@ void handle_packet(apacket *p, atransport *t)
 
     case A_OKAY: /* READY(local-id, remote-id, "") */
         if (t->online && p->msg.arg0 != 0 && p->msg.arg1 != 0) {
-            asocket* s = find_local_socket(p->msg.arg1, 0);
+            LocalSocket* s = find_local_socket(p->msg.arg1, 0);
             if (s) {
                 std::optional<int32_t> acked_bytes;
                 if (p->payload.size() == sizeof(int32_t)) {
