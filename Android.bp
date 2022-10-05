@@ -742,6 +742,11 @@ cc_binary {
     ],
 
     target: {
+        linux: {
+            host_ldlibs: [
+                "-lsystemd", //sd_notify
+            ]
+        }
         recovery: {
             exclude_shared_libs: [
                 "libadb_pairing_auth",
