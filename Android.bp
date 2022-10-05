@@ -550,6 +550,12 @@ cc_library_static {
                 "daemon/watchdog.cpp",
             ]
         },
+        linux: {
+            srcs: [
+                "daemon/usb.cpp",
+                "daemon/usb_ffs.cpp",
+            ]
+        },
         recovery: {
             exclude_shared_libs: [
                 "libadb_pairing_auth",
