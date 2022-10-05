@@ -47,6 +47,8 @@
 
 #include <private/android_filesystem_config.h>
 #include "selinux/android.h"
+#elif defined(__linux__)
+#include <systemd/sd-daemon.h>
 #endif
 
 #include "adb.h"
@@ -301,6 +303,10 @@ int adbd_main(int server_port) {
     D("adbd_main(): pre init_jdwp()");
     init_jdwp();
     D("adbd_main(): post init_jdwp()");
+
+#if defined(__linux__) && !defined(__ANDROID__)
+    sd_notify(1, "READY=1");
+#endif
 
     D("Event loop starting");
     fdevent_loop();
