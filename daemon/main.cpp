@@ -252,7 +252,7 @@ int adbd_main(int server_port) {
 
     bool is_usb = false;
 
-#if defined(__ANDROID__)
+#if defined(__linux__)
     if (access(USB_FFS_ADB_EP0, F_OK) == 0) {
         // Listen on USB.
         usb_init();
