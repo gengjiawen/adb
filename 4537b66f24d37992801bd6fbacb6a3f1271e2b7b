@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66a43bad_60a8a68e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-10-05T18:08:52Z",
+      "side": 1,
+      "message": "again, we need more notification than this, especially to take an extra dependency.\n\na bigger question for us is: why would a linux _host_ be running adbd (as opposed to the client or server), and why should we support that configuration?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 29
+      },
+      "revId": "4537b66f24d37992801bd6fbacb6a3f1271e2b7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
