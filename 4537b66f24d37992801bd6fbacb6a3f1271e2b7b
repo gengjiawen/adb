@@ -22,6 +22,30 @@
       },
       "revId": "4537b66f24d37992801bd6fbacb6a3f1271e2b7b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8abff325_cbfb02ba",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1969736
+      },
+      "writtenOn": "2022-10-06T14:51:43Z",
+      "side": 1,
+      "message": "\u003e again, we need more notification than this, especially to take an extra dependency.\n\nUnderstood, I\u0027ve amended the commit message with more details about my use-case and the problem I\u0027m solving here.\n\n\u003e a bigger question for us is: why would a linux _host_ be running adbd (as opposed to the client or server), and why should we support that configuration?\n\nThis is actually about running adbd on a linux _device_ (the current real-world use-case being a project by an automotive OEM) and being able to manage it through USB. Linux _hosts_ don\u0027t need adbd indeed; if someone wanted to use it anyway, they should do so over the network and wouldn\u0027t even need this patch.\n\nHowever, for embedded systems running a non-Android Linux system, this can be useful as it helps automating the whole process of creating and activating the USB gadget configuration, as I mentioned in the (updated) commit message.",
+      "parentUuid": "66a43bad_60a8a68e",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 29
+      },
+      "revId": "4537b66f24d37992801bd6fbacb6a3f1271e2b7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
