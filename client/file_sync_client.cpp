@@ -811,6 +811,15 @@ class SyncConnection {
         while (!deferred_acknowledgements_.empty()) {
             bool should_block = read_all || deferred_acknowledgements_.size() >= max_deferred_acks;
 
+            auto tick = std::chrono::steady_clock::now();
+            usleep(15 * 1000);
+            auto tick2 = std::chrono::steady_clock::now();
+
+            if (should_block &&
+                std::chrono::duration_cast<std::chrono::milliseconds>(tick2 - tick).count() >= 10) {
+                LOG(INFO) << __PRETTY_FUNCTION__;
+                should_block = false;
+            }
             ssize_t rc = adb_poll(&pfd, 1, should_block ? -1 : 0);
             if (rc == 0) {
                 CHECK(!should_block);
@@ -1420,6 +1429,7 @@ static bool copy_local_dir_remote(SyncConnection& sc, std::string lpath, std::st
             if (list_only) {
                 sc.Println("would push: %s -> %s", ci.lpath.c_str(), ci.rpath.c_str());
             } else {
+                LOG(INFO) << __PRETTY_FUNCTION__;
                 if (!sync_send(sc, ci.lpath, ci.rpath, ci.time, ci.mode, false, compression,
                                dry_run)) {
                     return false;
