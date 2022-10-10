@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "501320d0_f46534fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-10-10T20:27:59Z",
+      "side": 1,
+      "message": "cferris already fixed this differently for the linux 6.0 header import...",
+      "revId": "c830c90995fc0877348e2ed9cdeccf9b739138d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
