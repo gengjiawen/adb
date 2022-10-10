@@ -1087,6 +1087,7 @@ static bool sync_send(SyncConnection& sc, const std::string& lpath, const std::s
             return false;
         }
     }
+    usleep(100 * 1000);
     return sc.ReadAcknowledgements(sync);
 }
 
