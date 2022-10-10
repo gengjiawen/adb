@@ -88,6 +88,24 @@
       "parentUuid": "f899ad13_cbbe8483",
       "revId": "c830c90995fc0877348e2ed9cdeccf9b739138d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7914796_4a10ea60",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1004136
+      },
+      "writtenOn": "2022-10-10T21:23:06Z",
+      "side": 1,
+      "message": "\u003e How does this fix the issue?\n\nIt avoids using flexible array members that are *not* at the end of the structure.\nThese members are replaced by pointers to dynamically allocated memory blocks.\n\n\u003e This cl just allocates the data structure without allocating any extra for the variable sized array at the end.\n\nAccording to the Linux kernel documentation, the array size is determined by \u0027number_of_packets\u0027 field, and it looks like it is always equal to 0. Thus the array length is 0. It can be easily changed in the future in the code if needed, unlike the current solution with the embedded structs.\n\n\nThis fix was proposed by Gustavo A. R. Silva, the author of the upstream Linux UAPI change.",
+      "parentUuid": "f6f5e8fd_1f590f96",
+      "revId": "c830c90995fc0877348e2ed9cdeccf9b739138d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
