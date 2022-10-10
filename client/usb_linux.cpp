@@ -71,8 +71,8 @@ struct usb_handle {
     unsigned zero_mask;
     unsigned writeable = 1;
 
-    usbdevfs_urb urb_in;
-    usbdevfs_urb urb_out;
+    usbdevfs_urb *urb_in;
+    usbdevfs_urb *urb_out;
 
     bool urb_in_busy = false;
     bool urb_out_busy = false;
@@ -303,7 +303,7 @@ static int usb_bulk_write(usb_handle* h, const void* data, int len) {
     std::unique_lock<std::mutex> lock(h->mutex);
     D("++ usb_bulk_write ++");
 
-    usbdevfs_urb* urb = &h->urb_out;
+    usbdevfs_urb* urb = h->urb_out;
     memset(urb, 0, sizeof(*urb));
     urb->type = USBDEVFS_URB_TYPE_BULK;
     urb->endpoint = h->ep_out;
@@ -342,7 +342,7 @@ static int usb_bulk_read(usb_handle* h, void* data, int len) {
     std::unique_lock<std::mutex> lock(h->mutex);
     D("++ usb_bulk_read ++");
 
-    usbdevfs_urb* urb = &h->urb_in;
+    usbdevfs_urb* urb = h->urb_in;
     memset(urb, 0, sizeof(*urb));
     urb->type = USBDEVFS_URB_TYPE_BULK;
     urb->endpoint = h->ep_in;
@@ -387,7 +387,7 @@ static int usb_bulk_read(usb_handle* h, void* data, int len) {
         }
         D("[ urb @%p status = %d, actual = %d ]", out, out->status, out->actual_length);
 
-        if (out == &h->urb_in) {
+        if (out == h->urb_in) {
             D("[ reap urb - IN complete ]");
             h->urb_in_busy = false;
             if (urb->status != 0) {
@@ -396,7 +396,7 @@ static int usb_bulk_read(usb_handle* h, void* data, int len) {
             }
             return urb->actual_length;
         }
-        if (out == &h->urb_out) {
+        if (out == h->urb_out) {
             D("[ reap urb - OUT compelete ]");
             h->urb_out_busy = false;
             h->cv.notify_all();
@@ -500,10 +500,10 @@ void usb_kick(usb_handle* h) {
             ** but this ensures that a reader blocked on REAPURB
             ** will get unblocked
             */
-            ioctl(h->fd, USBDEVFS_DISCARDURB, &h->urb_in);
-            ioctl(h->fd, USBDEVFS_DISCARDURB, &h->urb_out);
-            h->urb_in.status = -ENODEV;
-            h->urb_out.status = -ENODEV;
+            ioctl(h->fd, USBDEVFS_DISCARDURB, h->urb_in);
+            ioctl(h->fd, USBDEVFS_DISCARDURB, h->urb_out);
+            h->urb_in->status = -ENODEV;
+            h->urb_out->status = -ENODEV;
             h->urb_in_busy = false;
             h->urb_out_busy = false;
             h->cv.notify_all();
@@ -519,6 +519,8 @@ int usb_close(usb_handle* h) {
 
     D("-- usb close %p (fd = %d) --", h, h->fd);
 
+    delete h->urb_in;
+    delete h->urb_out;
     delete h;
 
     return 0;
@@ -572,6 +574,8 @@ static void register_device(const char* dev_name, const char* dev_path, unsigned
     usb->ep_out = ep_out;
     usb->zero_mask = zero_mask;
     usb->max_packet_size = max_packet_size;
+    usb->urb_in = new usbdevfs_urb;
+    usb->urb_out = new usbdevfs_urb;
 
     // Initialize mark so we don't get garbage collected after the device scan.
     usb->mark = true;
