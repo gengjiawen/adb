@@ -70,6 +70,24 @@
       "parentUuid": "4fd5e227_582017f8",
       "revId": "c830c90995fc0877348e2ed9cdeccf9b739138d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6f5e8fd_1f590f96",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1019050
+      },
+      "writtenOn": "2022-10-10T21:00:53Z",
+      "side": 1,
+      "message": "How does this fix the issue? The size of the structure doesn\u0027t change in this CL. My change disables the warning and explains why it isn\u0027t a problem.\n\nThis cl just allocates the data structure without allocating any extra for the variable sized array at the end.",
+      "parentUuid": "f899ad13_cbbe8483",
+      "revId": "c830c90995fc0877348e2ed9cdeccf9b739138d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
