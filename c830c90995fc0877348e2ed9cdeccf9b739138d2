@@ -52,6 +52,24 @@
       "parentUuid": "8eda85c1_788f7b8a",
       "revId": "c830c90995fc0877348e2ed9cdeccf9b739138d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f899ad13_cbbe8483",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1004136
+      },
+      "writtenOn": "2022-10-10T20:56:44Z",
+      "side": 1,
+      "message": "That CL disables compiler warnings. I propose to fix the underlying issue.",
+      "parentUuid": "4fd5e227_582017f8",
+      "revId": "c830c90995fc0877348e2ed9cdeccf9b739138d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
