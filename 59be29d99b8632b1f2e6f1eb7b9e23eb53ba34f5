@@ -16,6 +16,24 @@
       "message": "Aside: Is it possible for msg_bytes_left to be 0 here? (i.e. Can an ID_FAIL message have a msglen\u003d\u003d0?) I\u0027m guessing it doesn\u0027t happen in practice, but I think this code would have previously hung in that case.",
       "revId": "59be29d99b8632b1f2e6f1eb7b9e23eb53ba34f5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29f4f44f_991a3447",
+        "filename": "client/file_sync_client.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 859,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-10-11T22:33:20Z",
+      "side": 0,
+      "message": "I\u0027m not able to execute this code-path (even with the usleep() you proposed to force the hang featured in b/230428773). My instinct is to think that\u0027s OK to have a zero-length, since the CHECK_GE() implies so.",
+      "parentUuid": "e9e7537d_4e1def99",
+      "revId": "59be29d99b8632b1f2e6f1eb7b9e23eb53ba34f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
