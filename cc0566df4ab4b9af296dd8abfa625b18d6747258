@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e870ffe0_5c2c6755",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-10-11T18:12:35Z",
+      "side": 1,
+      "message": "yeah, any systemd dependency is an obvious \"no\"... both because it\u0027s untested/unused cruft (which is a mild negative, given how little code it is), but also because we don\u0027t want to punish our users by requiring yet another library dependency (which is a huge negative, given our plans to switch to distributing static adb binaries in future).",
+      "revId": "cc0566df4ab4b9af296dd8abfa625b18d6747258",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
