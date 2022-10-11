@@ -46,6 +46,30 @@
       },
       "revId": "4537b66f24d37992801bd6fbacb6a3f1271e2b7b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "737e50b5_449b7dac",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-10-11T17:02:41Z",
+      "side": 1,
+      "message": "I don\u0027t think this is a usecase we should support. The purpose of this tool (`adb`) is to facilitate communication with at least one Android device. The use case you describes features none. I suppose there are other ways/libs to configure USB gadget devices.\n\nMoreover, it is not a big CL but you have to factor in the resources necessary to maintain such a feature which would require special setup and testing.",
+      "parentUuid": "8abff325_cbfb02ba",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 29
+      },
+      "revId": "4537b66f24d37992801bd6fbacb6a3f1271e2b7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
