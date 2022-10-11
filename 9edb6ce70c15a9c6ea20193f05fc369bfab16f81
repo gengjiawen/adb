@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6932f917_2a378956",
+        "filename": "daemon/main.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-10-11T18:14:57Z",
+      "side": 0,
+      "message": "given that this is adb*d*\u0027s main() ... when is this ever built (by us) for non-`__ANDROID__`? why do we have any of these #ifs at all? (because if we _don\u0027t_ need them, i\u0027d +2 a change that removes them just as a general cleanup, and that would \"accidentally\" solve the submitter\u0027s problem!)",
+      "revId": "9edb6ce70c15a9c6ea20193f05fc369bfab16f81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
