@@ -800,41 +800,53 @@ class SyncConnection {
     }
 
     bool ReadAcknowledgements(bool read_all = false) {
+        auto& buf = acknowledgement_buffer_;
+
         // We need to read enough such that adbd's intermediate socket's write buffer can't be
         // full. The default buffer on Linux is 212992 bytes, but there's 576 bytes of bookkeeping
         // overhead per write. The worst case scenario is a continuous string of failures, since
         // each logical packet is divided into two writes. If our packet size if conservatively 512
         // bytes long, this leaves us with space for 128 responses.
         constexpr size_t max_deferred_acks = 128;
-        auto& buf = acknowledgement_buffer_;
         adb_pollfd pfd = {.fd = fd.get(), .events = POLLIN};
         while (!deferred_acknowledgements_.empty()) {
             bool should_block = read_all || deferred_acknowledgements_.size() >= max_deferred_acks;
 
-            ssize_t rc = adb_poll(&pfd, 1, should_block ? -1 : 0);
-            if (rc == 0) {
-                CHECK(!should_block);
-                return true;
-            }
+            enum class ReadStatus {
+                Success,
+                Failure,
+                TryAgain,
+            };
 
-            if (acknowledgement_buffer_.size() < sizeof(sync_status)) {
-                const ssize_t header_bytes_left = sizeof(sync_status) - buf.size();
-                ssize_t rc = adb_read(fd, buf.end(), header_bytes_left);
-                if (rc <= 0) {
-                    Error("failed to read copy response");
-                    return false;
+            auto read_until_amount = [&](size_t amount) -> ReadStatus {
+                while (buf.size() < amount) {
+                    if (!should_block) {
+                        ssize_t rc = adb_poll(&pfd, 1, 0);
+                        if (rc == 0) {
+                            return ReadStatus::TryAgain;
+                        }
+                    }
+                    const ssize_t bytes_left = amount - buf.size();
+                    ssize_t rc = adb_read(fd, buf.end(), bytes_left);
+                    if (rc <= 0) {
+                        Error("failed to read copy response");
+                        return ReadStatus::Failure;
+                    }
+                    buf.resize(buf.size() + rc);
+                    if (!should_block && buf.size() < amount) {
+                        return ReadStatus::TryAgain;
+                    }
                 }
+                return ReadStatus::Success;
+            };
 
-                buf.resize(buf.size() + rc);
-                if (rc != header_bytes_left) {
-                    // Early exit if we run out of data in the socket.
+            switch (read_until_amount(sizeof(sync_status))) {
+                case ReadStatus::TryAgain:
                     return true;
-                }
-
-                if (!should_block) {
-                    // We don't want to read again yet, because the socket might be empty.
-                    continue;
-                }
+                case ReadStatus::Failure:
+                    return false;
+                case ReadStatus::Success:
+                    break;
             }
 
             auto* hdr = reinterpret_cast<sync_status*>(buf.data());
@@ -854,29 +866,19 @@ class SyncConnection {
                 return false;
             }
 
-            const ssize_t msg_bytes_left = hdr->msglen + sizeof(sync_status) - buf.size();
-            CHECK_GE(msg_bytes_left, 0);
-            if (msg_bytes_left > 0) {
-                ssize_t rc = adb_read(fd, buf.end(), msg_bytes_left);
-                if (rc <= 0) {
-                    Error("failed to read copy failure message");
+            switch (read_until_amount(sizeof(sync_status) + hdr->msglen)) {
+                case ReadStatus::TryAgain:
+                    return true;
+                case ReadStatus::Failure:
                     return false;
-                }
-
-                buf.resize(buf.size() + rc);
-                if (rc != msg_bytes_left) {
-                    if (should_block) {
-                        continue;
-                    } else {
-                        return true;
-                    }
-                }
-
-                std::string msg(buf.begin() + sizeof(sync_status), buf.end());
-                ReportDeferredCopyFailure(msg);
-                buf.resize(0);
-                return false;
+                case ReadStatus::Success:
+                    break;
             }
+
+            std::string msg(buf.begin() + sizeof(sync_status), buf.end());
+            ReportDeferredCopyFailure(msg);
+            buf.resize(0);
+            return false;
         }
 
         return true;
