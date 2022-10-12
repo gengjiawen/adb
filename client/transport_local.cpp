@@ -49,7 +49,7 @@
 // but we search for emulators on ports [5554, 5555 + ADB_LOCAL_TRANSPORT_MAX].
 // Avoid stomping on their port by restricting the active scanning range.
 // Once emulators self-(re-)register, they'll have to avoid 5601 in their own way.
-static int adb_local_transport_max_port = DEFAULT_ADB_LOCAL_TRANSPORT_PORT + 16 * 2 - 1;
+static int adb_local_transport_max_port = DEFAULT_ADB_LOCAL_TRANSPORT_PORT + 64 * 2 - 1;
 
 static std::mutex& local_transports_lock = *new std::mutex();
 
