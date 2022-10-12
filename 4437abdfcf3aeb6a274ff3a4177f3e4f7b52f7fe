@@ -16,6 +16,24 @@
       "message": "i think we\u0027re trying to deprecate the whole port scanning mess, not make it worse... (plus there\u0027s already an environment variable as a workaround.)",
       "revId": "4437abdfcf3aeb6a274ff3a4177f3e4f7b52f7fe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d8e0fb1_89bbd1ff",
+        "filename": "client/transport_local.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-10-12T17:09:14Z",
+      "side": 1,
+      "message": "+1, please use `ADB_LOCAL_TRANSPORT_MAX_PORT`.",
+      "parentUuid": "20721dfa_80f86c0b",
+      "revId": "4437abdfcf3aeb6a274ff3a4177f3e4f7b52f7fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
