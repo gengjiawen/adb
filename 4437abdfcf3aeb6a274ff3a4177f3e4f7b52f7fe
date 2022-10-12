@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20721dfa_80f86c0b",
+        "filename": "client/transport_local.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-10-12T14:58:45Z",
+      "side": 1,
+      "message": "i think we\u0027re trying to deprecate the whole port scanning mess, not make it worse... (plus there\u0027s already an environment variable as a workaround.)",
+      "revId": "4437abdfcf3aeb6a274ff3a4177f3e4f7b52f7fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
