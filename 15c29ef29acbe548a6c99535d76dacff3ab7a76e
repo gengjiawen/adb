@@ -50,6 +50,24 @@
       "message": "Is a `.bat` also required for Windows users?",
       "revId": "15c29ef29acbe548a6c99535d76dacff3ab7a76e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "547fe506_ce164d4f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1960090
+      },
+      "writtenOn": "2022-10-14T18:22:50Z",
+      "side": 1,
+      "message": "`.bat` will be added during build process. Here: https://source.corp.google.com/aosp-master/build/soong/java/java.go;l\u003d1404-1406?q\u003djava.go\u0026sq\u003dpackage:%5Eaosp-master$",
+      "parentUuid": "0f105871_e40821ed",
+      "revId": "15c29ef29acbe548a6c99535d76dacff3ab7a76e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
