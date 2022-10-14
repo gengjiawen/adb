@@ -85,6 +85,24 @@
       "message": "more test flake...",
       "revId": "15c29ef29acbe548a6c99535d76dacff3ab7a76e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "773c5cff_a31868cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1960090
+      },
+      "writtenOn": "2022-10-14T21:43:41Z",
+      "side": 1,
+      "message": "I mark this as resolved for it\u0027s not related to this change.",
+      "parentUuid": "547fe506_ce164d4f",
+      "revId": "15c29ef29acbe548a6c99535d76dacff3ab7a76e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
