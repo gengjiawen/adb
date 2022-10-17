@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbe9401d_7f6ee7a1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-10-17T14:29:54Z",
+      "side": 1,
+      "message": "Adding missing tests for parse_tcp_socket_spec()",
+      "revId": "c6aa9d537c3d9b70be9e490a8b18700b113c5c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
