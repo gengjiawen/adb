@@ -39,6 +39,30 @@
       },
       "revId": "c6aa9d537c3d9b70be9e490a8b18700b113c5c47",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37be39dd_9d0bceaf",
+        "filename": "socket_spec_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-10-17T14:58:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f6509fe_b9d67c8a",
+      "range": {
+        "startLine": 106,
+        "startChar": 54,
+        "endLine": 106,
+        "endChar": 62
+      },
+      "revId": "c6aa9d537c3d9b70be9e490a8b18700b113c5c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
