@@ -16,6 +16,29 @@
       "message": "Adding missing tests for parse_tcp_socket_spec()",
       "revId": "c6aa9d537c3d9b70be9e490a8b18700b113c5c47",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f6509fe_b9d67c8a",
+        "filename": "socket_spec_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-10-17T14:39:24Z",
+      "side": 1,
+      "message": "success?",
+      "range": {
+        "startLine": 106,
+        "startChar": 54,
+        "endLine": 106,
+        "endChar": 62
+      },
+      "revId": "c6aa9d537c3d9b70be9e490a8b18700b113c5c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
