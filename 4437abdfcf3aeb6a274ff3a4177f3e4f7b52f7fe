@@ -52,6 +52,24 @@
       "parentUuid": "7d8e0fb1_89bbd1ff",
       "revId": "4437abdfcf3aeb6a274ff3a4177f3e4f7b52f7fe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40231937_008cc4af",
+        "filename": "client/transport_local.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-10-17T19:48:42Z",
+      "side": 1,
+      "message": "To build and test your changes:\n\n```\nsource build/envsetup.sh\nlunch 2\nm adb\nadb kill-server\nadb start-server\n```",
+      "parentUuid": "ae214059_72dae5de",
+      "revId": "4437abdfcf3aeb6a274ff3a4177f3e4f7b52f7fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
