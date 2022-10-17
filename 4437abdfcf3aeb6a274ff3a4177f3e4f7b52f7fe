@@ -34,6 +34,24 @@
       "parentUuid": "20721dfa_80f86c0b",
       "revId": "4437abdfcf3aeb6a274ff3a4177f3e4f7b52f7fe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae214059_72dae5de",
+        "filename": "client/transport_local.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1970810
+      },
+      "writtenOn": "2022-10-17T02:55:32Z",
+      "side": 1,
+      "message": "Hello I already tried to use the environment variable but it is still not working.\nI am using Ubuntu 20.04,\nin my .bash_profile file I have\nexport ADB_LOCAL_TRANSPORT_MAX_PORT\u003d6500\n\nBut  still it wont increase, it will read up to 17 devices only. \nI also tried to decrease the environment variable to  read only up to 5 devices, but it will still read 17 devices. \nI tried to purge adb and reinstall it, but to no avail my 18 and 19 devices is not being read.\n\nAlso, Is there a way I can recompile it my self?",
+      "parentUuid": "7d8e0fb1_89bbd1ff",
+      "revId": "4437abdfcf3aeb6a274ff3a4177f3e4f7b52f7fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
