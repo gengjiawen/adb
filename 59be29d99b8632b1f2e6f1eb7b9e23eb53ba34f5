@@ -34,6 +34,24 @@
       "parentUuid": "e9e7537d_4e1def99",
       "revId": "59be29d99b8632b1f2e6f1eb7b9e23eb53ba34f5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0f4792e_17ff70a7",
+        "filename": "client/file_sync_client.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 859,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-10-20T18:54:19Z",
+      "side": 0,
+      "message": "Got the problem scenario reproduced (with the usleep()), so this refactor LGTM (keeping your comment open - feel free to resolve)",
+      "parentUuid": "29f4f44f_991a3447",
+      "revId": "59be29d99b8632b1f2e6f1eb7b9e23eb53ba34f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
