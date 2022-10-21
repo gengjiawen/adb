@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8bc5847_7cb52768",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-10-21T21:51:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "871b1824_9870ea71",
+      "range": {
+        "startLine": 9,
+        "startChar": 12,
+        "endLine": 12,
+        "endChar": 56
+      },
+      "revId": "be03bcdffc93092754c063756229698446d2dd9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9675efa2_32397b2f",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-10-21T19:39:04Z",
       "side": 1,
       "message": "is this a useful comment in the code? if i was going to do anything i\u0027d probably just have a one line \"# debug.* properties are settable by non-root\" before L670? that\u0027s motivation enough, i think, and the history here is a distraction?",
+      "range": {
+        "startLine": 663,
+        "startChar": 0,
+        "endLine": 668,
+        "endChar": 15
+      },
+      "revId": "be03bcdffc93092754c063756229698446d2dd9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c3385f6_62d8311d",
+        "filename": "test_device.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-10-21T21:51:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9675efa2_32397b2f",
       "range": {
         "startLine": 663,
         "startChar": 0,

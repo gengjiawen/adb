@@ -16,6 +16,24 @@
       "message": "was the earlier claim that this requires root false?\n\nhave you tested this on a device where you\u0027ve run `adb unroot` to confirm it still works? (mentioning that you ran with `adb unroot` in the \"Test:\" section, since that\u0027s required to reproduce but not the default for most engineers, is probably a useful fact if so.)",
       "revId": "9ce5f732c79862e14ead27269673b8eeafac46e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d844c355_32c8c91a",
+        "filename": "test_device.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 1579,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-10-21T21:51:44Z",
+      "side": 0,
+      "message": "Done - I had already tested on both unroot (both tests succeeded), as well as:\nI was thinking that the real test would be against a production-grade device, on which I found that these tests get skipped (which may be WAI). Pl stay tuned (will keep this comment open until I get some clarification on that end).\n\n\u003e\u003ewas the earlier claim that this requires root false?\nIt appears so - again, needs some validation (since I recall seeing a failure under unroot, just want to eliminate any flakiness concerns).",
+      "parentUuid": "266fcc1a_c6b394d5",
+      "revId": "9ce5f732c79862e14ead27269673b8eeafac46e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
