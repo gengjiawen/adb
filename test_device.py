@@ -680,8 +680,9 @@ class SystemPropertiesTest(DeviceTest):
     def test_get_prop(self):
         self.assertEqual(self.device.get_prop('init.svc.adbd'), 'running')
 
-    @requires_root
-    def test_set_prop(self):
+    # @requires_root - see go/2022-hide-root-signals for context on why
+    # this test is disabled.
+    def disabled_test_set_prop(self):
         prop_name = 'foo.bar'
         self.device.shell(['setprop', prop_name, '""'])
 
