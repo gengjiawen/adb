@@ -34,6 +34,24 @@
       "parentUuid": "266fcc1a_c6b394d5",
       "revId": "9ce5f732c79862e14ead27269673b8eeafac46e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c915d011_7efb7af6",
+        "filename": "test_device.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 1579,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-10-21T22:47:28Z",
+      "side": 0,
+      "message": "Updated the desc with the test details.\nYes, the earlier claim looks questionable (perhaps an unrelated and lower-level change).",
+      "parentUuid": "d844c355_32c8c91a",
+      "revId": "9ce5f732c79862e14ead27269673b8eeafac46e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
