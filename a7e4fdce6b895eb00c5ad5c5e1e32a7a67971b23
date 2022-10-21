@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "18a0e8f6_59c75a62",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-10-21T18:58:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3db87828_5506e762",
+      "revId": "a7e4fdce6b895eb00c5ad5c5e1e32a7a67971b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "287d4941_8f56e0c4",
@@ -35,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9036e965_c952eab6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-10-21T18:58:13Z",
+      "side": 1,
+      "message": "Removed the link (extensive dogfood references in the hide-root-signals internal reference caused some bias - I *really* need to adapt completely to opensource).",
+      "parentUuid": "287d4941_8f56e0c4",
+      "revId": "a7e4fdce6b895eb00c5ad5c5e1e32a7a67971b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b632feea_8417e3bf",
@@ -48,6 +84,24 @@
       "writtenOn": "2022-10-21T15:15:58Z",
       "side": 1,
       "message": "i think we can _fix_ this test, in one of two different ways (both of which might be worthwhile).\n\n1. the test just wants to see if we can set a property and read the value back. it doesn\u0027t care what that property is. although you need root to set _arbitrary_ properties, the `debug.*` space is settable by non-root.\n\n2. _why_ can\u0027t you use @requires_root here? _what_ in go/2022-hide-root-signals causes that? (and, again: non-googlers can\u0027t follow that link, so any comment [code or commit] should mention the one pertinent fact, not rely on an inaccessible doc.) and what does that mean for @requires_root generally? are other uses of @requires_root affected? can you fix @requires_root?",
+      "revId": "a7e4fdce6b895eb00c5ad5c5e1e32a7a67971b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e43afd3_ad91403c",
+        "filename": "test_device.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 683,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-10-21T18:58:13Z",
+      "side": 1,
+      "message": "1. Done\n2. Added a comment with some relevant background, specifically wrt the property that caused the exception. Also, dealt with FramebufferTest (the other use of @requires_root()). Since the core of this function relies on ro.debuggable, there is nothing worth salvaging (IMO) - pl reopen this comment if you feel otherwise.",
+      "parentUuid": "b632feea_8417e3bf",
       "revId": "a7e4fdce6b895eb00c5ad5c5e1e32a7a67971b23",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
