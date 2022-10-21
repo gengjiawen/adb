@@ -16,6 +16,24 @@
       "message": "well, from _one_ of the two tests you\u0027ve touched. the other test didn\u0027t have one. that\u0027s probably a distinction worth making, especially since it contradicts an earlier commit message...",
       "revId": "7dc0aafe58c7c027709290f20331e8c2c7bc5c75",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af236de5_8f9a8d7c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-10-21T22:57:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d674b79_7b3298b4",
+      "revId": "7dc0aafe58c7c027709290f20331e8c2c7bc5c75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
