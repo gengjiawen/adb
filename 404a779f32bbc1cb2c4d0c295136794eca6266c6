@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e140ca0e_22561db3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-10-21T23:32:11Z",
+      "side": 1,
+      "message": "...and? (or did you mean to split the other unrelated change in this cl out into a separate cl and just haven\u0027t done it yet?)",
+      "revId": "404a779f32bbc1cb2c4d0c295136794eca6266c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
