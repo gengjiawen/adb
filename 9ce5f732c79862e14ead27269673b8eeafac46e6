@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "266fcc1a_c6b394d5",
+        "filename": "test_device.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 1579,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-10-21T19:39:04Z",
+      "side": 0,
+      "message": "was the earlier claim that this requires root false?\n\nhave you tested this on a device where you\u0027ve run `adb unroot` to confirm it still works? (mentioning that you ran with `adb unroot` in the \"Test:\" section, since that\u0027s required to reproduce but not the default for most engineers, is probably a useful fact if so.)",
+      "revId": "9ce5f732c79862e14ead27269673b8eeafac46e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
