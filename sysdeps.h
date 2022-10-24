@@ -106,7 +106,7 @@ extern int adb_pread(borrowed_fd fd, void* buf, int len, off64_t offset);
 extern int adb_write(borrowed_fd fd, const void* buf, int len);
 extern int adb_pwrite(borrowed_fd fd, const void* buf, int len, off64_t offset);
 extern int64_t adb_lseek(borrowed_fd fd, int64_t pos, int where);
-extern int adb_shutdown(borrowed_fd fd, int direction = SHUT_RDWR);
+extern int adb_shutdown(borrowed_fd fd, int direction = SD_BOTH);
 extern int adb_close(int fd);
 extern int adb_register_socket(SOCKET s);
 extern HANDLE adb_get_os_handle(borrowed_fd fd);
