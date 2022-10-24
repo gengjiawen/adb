@@ -1396,7 +1396,11 @@ static int adb_connect_command_bidirectional(const std::string& command) {
                 if (exit_on_end) {
                     exit(0);
                 } else {
+#ifdef _WIN32
+                    adb_shutdown(sink, SD_SEND);
+#else
                     adb_shutdown(sink, SHUT_WR);
+#endif
                 }
                 return;
             } else if (rc < 0) {

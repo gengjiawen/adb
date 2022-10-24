@@ -287,7 +287,12 @@ struct ClosingSocket {
 static void deferred_close(unique_fd fd) {
     // Shutdown the socket in the outgoing direction only, so that
     // we don't have the same problem on the opposite end.
+#ifdef _WIN32
+    adb_shutdown(fd.get(), SD_SEND);
+#else
     adb_shutdown(fd.get(), SHUT_WR);
+#endif
+
     auto callback = [](fdevent* fde, unsigned event, void* arg) {
         auto socket_info = static_cast<ClosingSocket*>(arg);
         if (event & FDE_READ) {
