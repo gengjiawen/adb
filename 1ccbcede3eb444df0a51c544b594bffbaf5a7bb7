@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd1dbb8b_2358df56",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1940,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-10-25T22:20:39Z",
+      "side": 1,
+      "message": "Should we be more explicit (src and dst)?",
+      "range": {
+        "startLine": 1940,
+        "startChar": 24,
+        "endLine": 1940,
+        "endChar": 51
+      },
+      "revId": "1ccbcede3eb444df0a51c544b594bffbaf5a7bb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
