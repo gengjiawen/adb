@@ -70,6 +70,24 @@
       "parentUuid": "3b499016_a9ea748e",
       "revId": "2f3719236dd8588af3971cd7902ddb5106631d1c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aad03068_3c91100d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1972022
+      },
+      "writtenOn": "2022-10-25T06:41:14Z",
+      "side": 1,
+      "message": "OK, now I understand the reason why soong did not get the error messages. The Android.bp file defines `_POSIX_SOURCE` macro. mingw-w64 added those unix-like flags for shutdown(2) in unistd.h as workaround, here https://github.com/mingw-w64/mingw-w64/commit/31a1d26f7ad061c658c096656b429fe977f77484. But Windows platform itself does not define/require `_POSIX_SOURCE` macro. So, there are two ways now.\n\n1. Use actual flags in shutdown() for native Windows platform and remove `_POSIX_SOURCE` workaround.\n2. Use the mingw-w64 workaround. In my humble opinion, this will not be the correct way to write the code.",
+      "parentUuid": "c0add41a_e64370cc",
+      "revId": "2f3719236dd8588af3971cd7902ddb5106631d1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
