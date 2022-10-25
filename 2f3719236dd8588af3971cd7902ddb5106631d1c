@@ -88,6 +88,24 @@
       "parentUuid": "c0add41a_e64370cc",
       "revId": "2f3719236dd8588af3971cd7902ddb5106631d1c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d45aad62_1db0053e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-10-25T15:49:13Z",
+      "side": 1,
+      "message": "we only support mingw. adb is already complicated enough needing to support that in addition to linux and macOS. there\u0027s no reason we\u0027d take on the extra work of supporting another windows variant that we don\u0027t build/test/ship/support ourselves (but it\u0027s open source, so you\u0027re free to do those things yourself of course).",
+      "parentUuid": "aad03068_3c91100d",
+      "revId": "2f3719236dd8588af3971cd7902ddb5106631d1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
