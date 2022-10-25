@@ -34,6 +34,24 @@
       "parentUuid": "00f603ec_fb016cbb",
       "revId": "2f3719236dd8588af3971cd7902ddb5106631d1c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b499016_a9ea748e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-10-25T04:55:02Z",
+      "side": 1,
+      "message": "adb for windows should not be compiled on Windows. It is to be cross-compiled on Linux via Soong. \n\n```\n$ source build/envsetup.sh\n$ lunch sdk-eng\n$ m -j32 adb\n$ find out -name \"adb.exe\"\nout/soong/.intermediates/packages/modules/adb/adb/windows_x86/adb.exe\nout/soong/.intermediates/packages/modules/adb/adb/windows_x86/unversioned/adb.exe\n```\nPlease explain how you are attempting to build and what are the error messages.",
+      "parentUuid": "c89ce7be_ed95f84d",
+      "revId": "2f3719236dd8588af3971cd7902ddb5106631d1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
