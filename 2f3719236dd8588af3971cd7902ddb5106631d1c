@@ -52,6 +52,24 @@
       "parentUuid": "c89ce7be_ed95f84d",
       "revId": "2f3719236dd8588af3971cd7902ddb5106631d1c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0add41a_e64370cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1972022
+      },
+      "writtenOn": "2022-10-25T05:14:46Z",
+      "side": 1,
+      "message": "I am using this project https://github.com/nmeum/android-tools/ to compile adb. The fix does not depend on build system or compiler. The SHUT_WR and SHUT_RDWR flags are for unix-like system. Those are only changed here. Even if the adb is cross compiled in Linux for Windows platform that toolchain will use Windows header winsock2.h instead of sys/socket.h. I have added the error message in commit message. Here is the second one\n\n```\nadb/sysdeps.h:109:57: error: \u0027SHUT_RDWR\u0027 was not declared in this scope\n  109 | extern int adb_shutdown(borrowed_fd fd, int direction \u003d SHUT_RDWR);\n      |                                                         ^~~~~~~~~\nadb/sockets.cpp:290:28: error: \u0027SHUT_WR\u0027 was not declared in this scope\n  290 |     adb_shutdown(fd.get(), SHUT_WR);\n      |                            ^~~~~~~\n```",
+      "parentUuid": "3b499016_a9ea748e",
+      "revId": "2f3719236dd8588af3971cd7902ddb5106631d1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
