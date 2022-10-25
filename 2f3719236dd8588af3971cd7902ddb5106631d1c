@@ -16,6 +16,24 @@
       "message": "it\u0027s unclear to me whether you\u0027re actually fixing a bug with the adb binaries _we_ distribute, or just trying to build with Visual Studio or whatever. we won\u0027t be taking changes for the latter, and we\u0027ll want a specific repro case for the failure (and code that doesn\u0027t break the Linux/macOS builds!) for the former.",
       "revId": "2f3719236dd8588af3971cd7902ddb5106631d1c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c89ce7be_ed95f84d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1972022
+      },
+      "writtenOn": "2022-10-25T04:15:43Z",
+      "side": 1,
+      "message": "I have been building adb in Linux and Windows platform. This fix is required to compile adb for Windows platform and does not depend on compiler toolchain or IDE. Without this change, adb is not even possible to compile for Windows. The documentation[1] for shutdown API in Windows mentions the proper flags.\n\n[1]: https://learn.microsoft.com/en-us/windows/win32/api/winsock/nf-winsock-shutdown",
+      "parentUuid": "00f603ec_fb016cbb",
+      "revId": "2f3719236dd8588af3971cd7902ddb5106631d1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
