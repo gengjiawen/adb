@@ -106,6 +106,24 @@
       "parentUuid": "aad03068_3c91100d",
       "revId": "2f3719236dd8588af3971cd7902ddb5106631d1c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0dd2c39f_0fe6697f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1972022
+      },
+      "writtenOn": "2022-10-25T18:50:54Z",
+      "side": 1,
+      "message": "I am also using same mingw toolchain but with cmake instead of soong. At first, I did not define `_POSIX_SOURCE` macro which is not so common in Windows environment. Fabian\u0027s comment helps me to look into the Android.bp file which defines that macro. So, this change is not so fatal now but it should be the actual fix for that `_POSIX_SOURCE` workaround.\n\nAnyway, it\u0027s alright. Thank you all for your time and review my patches.",
+      "parentUuid": "d45aad62_1db0053e",
+      "revId": "2f3719236dd8588af3971cd7902ddb5106631d1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
