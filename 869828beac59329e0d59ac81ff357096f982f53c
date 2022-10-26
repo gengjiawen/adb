@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d94895d9_85165c2b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-10-26T14:53:48Z",
+      "side": 1,
+      "message": "(use \u003climits.h\u003e instead of \u003cclimits\u003e --- the \u003cc*\u003e headers are subtly different from the \u003c*.h\u003e headers in ways most people don\u0027t understand, so unless you _need_ one of those differences [in which case a code comment should say what], just use the easier to understand headers.)",
+      "revId": "869828beac59329e0d59ac81ff357096f982f53c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
