@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "46dbf6a2_4eb7ebce",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1936,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-10-26T15:24:25Z",
+      "side": 1,
+      "message": "yeah, given that you\u0027re about to error exit anyway, it seems like a distraction.",
+      "parentUuid": "13823c5c_13d5b22f",
+      "revId": "e536ce42f8e0797f09ac350829a0853766102355",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3298b7f9_d77787a8",
         "filename": "client/commandline.cpp",
         "patchSetId": 4
