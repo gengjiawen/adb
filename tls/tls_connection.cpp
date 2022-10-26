@@ -17,6 +17,7 @@
 #include "adb/tls/tls_connection.h"
 
 #include <algorithm>
+#include <climits>
 #include <vector>
 
 #include <android-base/logging.h>
