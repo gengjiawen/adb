@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cc7cb85_1df4d954",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1936,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-10-26T04:28:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "cc4c6f56_32b85852",
+      "range": {
+        "startLine": 1936,
+        "startChar": 38,
+        "endLine": 1936,
+        "endChar": 40
+      },
+      "revId": "e80c5c7ae9c55843207918d3321e72aa394613cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d34d0f66_e7738f19",
@@ -37,6 +61,24 @@
       "writtenOn": "2022-10-25T22:52:01Z",
       "side": 1,
       "message": "if you\u0027re trying to exclude the impossible (via an assertion, which isn\u0027t super user friendly), have you considered just keeping the original `if` but changing the message to say `push requires source and destination` or `usage: adb push LOCAL... REMOTE`?",
+      "revId": "e80c5c7ae9c55843207918d3321e72aa394613cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4f4d65c_9da10a17",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1939,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-10-26T04:28:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d34d0f66_e7738f19",
       "revId": "e80c5c7ae9c55843207918d3321e72aa394613cc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
