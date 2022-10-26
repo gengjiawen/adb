@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27f9e381_b371b755",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1936,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-10-26T14:47:50Z",
+      "side": 1,
+      "message": "why is this still needed?",
+      "revId": "e536ce42f8e0797f09ac350829a0853766102355",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3298b7f9_d77787a8",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1937,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-10-26T14:47:50Z",
+      "side": 1,
+      "message": "avoid abbreviations (remember that most of our users won\u0027t be native english speakers)",
+      "range": {
+        "startLine": 1937,
+        "startChar": 65,
+        "endLine": 1937,
+        "endChar": 69
+      },
+      "revId": "e536ce42f8e0797f09ac350829a0853766102355",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
