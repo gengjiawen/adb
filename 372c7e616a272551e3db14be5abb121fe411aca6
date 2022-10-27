@@ -81,6 +81,30 @@
       },
       "revId": "372c7e616a272551e3db14be5abb121fe411aca6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7047c289_2900486e",
+        "filename": "sysdeps/uio.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-10-27T20:34:30Z",
+      "side": 1,
+      "message": "you could always add an extra static_assert using std::is_unsigned? https://en.cppreference.com/w/cpp/types/is_unsigned",
+      "parentUuid": "8b0913c2_6e9a9312",
+      "range": {
+        "startLine": 28,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 7
+      },
+      "revId": "372c7e616a272551e3db14be5abb121fe411aca6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
