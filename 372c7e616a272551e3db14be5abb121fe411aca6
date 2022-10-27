@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0cf9acf_09edc891",
+        "filename": "sysdeps/uio.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1972022
+      },
+      "writtenOn": "2022-10-27T19:56:49Z",
+      "side": 1,
+      "message": "Understood.",
+      "parentUuid": "d5c20cd2_38dabdae",
+      "revId": "372c7e616a272551e3db14be5abb121fe411aca6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1ec7f2cc_189b4834",
