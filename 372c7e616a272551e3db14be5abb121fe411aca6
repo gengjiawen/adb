@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5c20cd2_38dabdae",
+        "filename": "sysdeps/uio.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-10-27T19:48:57Z",
+      "side": 1,
+      "message": "no need to copy that into this file (given that we have the static assert).",
+      "revId": "372c7e616a272551e3db14be5abb121fe411aca6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ec7f2cc_189b4834",
+        "filename": "sysdeps/uio.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-10-27T19:48:57Z",
+      "side": 1,
+      "message": "this should be `unsigned`, presumably?",
+      "range": {
+        "startLine": 28,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 7
+      },
+      "revId": "372c7e616a272551e3db14be5abb121fe411aca6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
