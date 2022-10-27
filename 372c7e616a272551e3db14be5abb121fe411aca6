@@ -57,6 +57,30 @@
       },
       "revId": "372c7e616a272551e3db14be5abb121fe411aca6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b0913c2_6e9a9312",
+        "filename": "sysdeps/uio.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1972022
+      },
+      "writtenOn": "2022-10-27T19:57:48Z",
+      "side": 1,
+      "message": "Right. I was wondering why the CI checks did not caught the issue.",
+      "parentUuid": "1ec7f2cc_189b4834",
+      "range": {
+        "startLine": 28,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 7
+      },
+      "revId": "372c7e616a272551e3db14be5abb121fe411aca6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
