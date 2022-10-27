@@ -23,8 +23,9 @@
 #if defined(_WIN32)
 
 // Layout of this struct must match struct WSABUF (verified via static assert in sysdeps_win32.cpp)
+// ws2def.h: typedef struct _WSABUF { ULONG len; CHAR *buf; } WSABUF, *LPWSABUF;
 struct adb_iovec {
-    size_t iov_len;
+    int iov_len;
     void* iov_base;
 };
 
