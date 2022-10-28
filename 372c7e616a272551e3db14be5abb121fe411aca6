@@ -129,6 +129,30 @@
       },
       "revId": "372c7e616a272551e3db14be5abb121fe411aca6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31f4342c_31f74b70",
+        "filename": "sysdeps/uio.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-10-28T16:11:59Z",
+      "side": 1,
+      "message": "correct... we only ship 32-bit binaries, mainly because of the dll. it hasn\u0027t caused any trouble yet, and we don\u0027t have much Windows expertise, so no-one\u0027s likely to work on moving us over until/unless Windows starts to drop support for 32-bit...",
+      "parentUuid": "6d3bd9ca_e675dab5",
+      "range": {
+        "startLine": 28,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 7
+      },
+      "revId": "372c7e616a272551e3db14be5abb121fe411aca6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
