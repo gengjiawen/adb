@@ -105,6 +105,30 @@
       },
       "revId": "372c7e616a272551e3db14be5abb121fe411aca6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d3bd9ca_e675dab5",
+        "filename": "sysdeps/uio.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1972022
+      },
+      "writtenOn": "2022-10-28T03:51:46Z",
+      "side": 1,
+      "message": "I meant to ask why the CI in googleplex.com did not catch the size_t vs. int (8 vs. 4) issue. Does not it build for 64-bit systems?",
+      "parentUuid": "7047c289_2900486e",
+      "range": {
+        "startLine": 28,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 7
+      },
+      "revId": "372c7e616a272551e3db14be5abb121fe411aca6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
