@@ -22,6 +22,30 @@
       },
       "revId": "f3f9304f904d051a00692ac748c240ad7ede7192",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28467b3d_37392aaf",
+        "filename": "services.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2022-11-11T20:41:01Z",
+      "side": 1,
+      "message": "IIRC, connect_service() is a request from the adb client, so we actually want to block here. The problem is in the auto-connect code in transport_mdns.cpp, where the main thread is blocked while trying to connect.",
+      "parentUuid": "43cf835c_1a85c95e",
+      "range": {
+        "startLine": 143,
+        "startChar": 8,
+        "endLine": 143,
+        "endChar": 22
+      },
+      "revId": "f3f9304f904d051a00692ac748c240ad7ede7192",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
