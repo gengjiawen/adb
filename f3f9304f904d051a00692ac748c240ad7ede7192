@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43cf835c_1a85c95e",
+        "filename": "services.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-11-11T19:41:57Z",
+      "side": 1,
+      "message": "Are we moving the problem somewhere else because now `connect_service` will block while mDNS connection are happening?",
+      "range": {
+        "startLine": 143,
+        "startChar": 8,
+        "endLine": 143,
+        "endChar": 22
+      },
+      "revId": "f3f9304f904d051a00692ac748c240ad7ede7192",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
