@@ -34,6 +34,24 @@
       "parentUuid": "8201d94a_bae5ea84",
       "revId": "c8dd1e814df2eafcdd50e8fd7fde68cf6aa94d96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7935c47f_903bb93b",
+        "filename": "client/openscreen/adb_connect_helper.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1128973
+      },
+      "writtenOn": "2022-11-11T19:01:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40a8d954_ebcbb995",
+      "revId": "c8dd1e814df2eafcdd50e8fd7fde68cf6aa94d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
