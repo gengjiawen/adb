@@ -46,6 +46,30 @@
       },
       "revId": "f3f9304f904d051a00692ac748c240ad7ede7192",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94765dab_4a7a5b4f",
+        "filename": "services.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-11-12T02:53:41Z",
+      "side": 1,
+      "message": "Can we not use `create_service_thread` to run the mDNS\u0027s `connect_service` instead (the way `host_service_to_socket` does it?",
+      "parentUuid": "28467b3d_37392aaf",
+      "range": {
+        "startLine": 143,
+        "startChar": 8,
+        "endLine": 143,
+        "endChar": 22
+      },
+      "revId": "f3f9304f904d051a00692ac748c240ad7ede7192",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
