@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "089eb48f_e46a5add",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-11-14T16:21:10Z",
+      "side": 1,
+      "message": "yeah, looks like there was no reason in the git history for it to use WriteFdExactly. (there are also no other instances of using WriteFdExactly with stdout that we should fix.)",
+      "revId": "763ab7bb17e9c63b238222085e1e69552d978367",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
