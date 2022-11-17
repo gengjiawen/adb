@@ -106,6 +106,24 @@
       "parentUuid": "f6f5e8fd_1f590f96",
       "revId": "c830c90995fc0877348e2ed9cdeccf9b739138d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23ea5301_58e9b8f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1019050
+      },
+      "writtenOn": "2022-11-17T19:23:41Z",
+      "side": 1,
+      "message": "I would argue this doesn\u0027t fix anything, it hides the problem. The real issue is that a structure is being used which might write over the end.\n\nYou could argue that this solution is better for security, because a mistake would write directly over the structure which is likely on the stack somewhere. And the other one would write over allocated memory. I don\u0027t know which is better or worse, but I prefer not modifying the code as much as this change would.",
+      "parentUuid": "f7914796_4a10ea60",
+      "revId": "c830c90995fc0877348e2ed9cdeccf9b739138d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
