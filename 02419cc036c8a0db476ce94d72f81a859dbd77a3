@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "310ef988_e6492b9b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-11-21T16:43:38Z",
+      "side": 1,
+      "message": "nit: As a courtesy for people who don\u0027t have access to internal bugs, we could elaborate a bit on the commit body message. \n\n\"Switch to dynamic linking so improve test coverage metrics (statically linked tests are not properly detected)\".",
+      "revId": "02419cc036c8a0db476ce94d72f81a859dbd77a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
