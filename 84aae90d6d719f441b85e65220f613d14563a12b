@@ -105,6 +105,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "78a86511_6c96fe35",
+        "filename": "fdevent/fdevent_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-11-22T04:04:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8bbebe67_1b927d08",
+      "range": {
+        "startLine": 205,
+        "startChar": 70,
+        "endLine": 205,
+        "endChar": 75
+      },
+      "revId": "84aae90d6d719f441b85e65220f613d14563a12b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8fb7544b_4696bbab",
@@ -118,6 +142,30 @@
       "writtenOn": "2022-11-22T00:01:34Z",
       "side": 1,
       "message": "Should you create an assert function `assertPID_EQ_TID()` for clarity?",
+      "range": {
+        "startLine": 219,
+        "startChar": 8,
+        "endLine": 219,
+        "endChar": 94
+      },
+      "revId": "84aae90d6d719f441b85e65220f613d14563a12b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21702fdc_275a6dc3",
+        "filename": "fdevent/fdevent_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-11-22T04:04:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8fb7544b_4696bbab",
       "range": {
         "startLine": 219,
         "startChar": 8,
