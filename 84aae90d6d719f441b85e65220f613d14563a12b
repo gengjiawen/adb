@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "560ca001_d88202f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-11-22T00:00:34Z",
+      "side": 1,
+      "message": "Attempting to enhance some test clarify with some re-entrancy validation. Unsure whether the syscall() usage is portable, so your feedback would be valuable.\nPS: Other than this, I have been so far unable to reliably reproduce that timing-based flakiness. I do see it fail (where the secondary thread is not observed to execute at all), however it happens quite rarely.",
+      "revId": "84aae90d6d719f441b85e65220f613d14563a12b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
