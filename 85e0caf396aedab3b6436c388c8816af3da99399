@@ -139,6 +139,24 @@
       "message": "seems to have broken the tests:\n```\nCANNOT LINK EXECUTABLE \"/data/local/tmp/adb_pairing_connection_test/x86_64/adb_pairing_connection_test\": library \"libadb_crypto.so\" not found: needed by main executable\n```\n\nare these libraries otherwise only used statically?",
       "revId": "85e0caf396aedab3b6436c388c8816af3da99399",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77573d12_b12a493c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-11-28T21:41:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5c189ec_1d737646",
+      "revId": "85e0caf396aedab3b6436c388c8816af3da99399",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
