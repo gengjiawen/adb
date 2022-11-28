@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "380c5dac_32ff9801",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-11-28T19:24:02Z",
+      "side": 1,
+      "message": "\"necessary but not sufficient\" :-)\n\nthat\u0027s why we have presubmit --- to cover all the other cases that realistically no human is going to sit around and wait for (and, economically, nor should they!).",
+      "parentUuid": "fcb367d6_240bbcb2",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 21
+      },
+      "revId": "85e0caf396aedab3b6436c388c8816af3da99399",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4e95e4c5_eca24049",
