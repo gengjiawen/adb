@@ -34,6 +34,24 @@
       "parentUuid": "30f0ce05_d688dd2b",
       "revId": "5ea29d06f21f5d3947f5b78b6512c9d558b9a4c8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f38390c_78e078f2",
+        "filename": "socket_spec_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-11-28T21:48:50Z",
+      "side": 1,
+      "message": "yeah, this _decreases_ the focus because it\u0027s _literally the exact same test_ for _literally the exact same scenario_.\n\nhere we\u0027re testing one half of the return value (the bool) in one test, and the other half of the return value (the string) in another. that\u0027s not what the TOTT wanted :-)",
+      "parentUuid": "5bb1e903_d4d917a5",
+      "revId": "5ea29d06f21f5d3947f5b78b6512c9d558b9a4c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
