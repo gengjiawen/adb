@@ -1,6 +1,46 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ded4a92_37c0e6b3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-11-28T16:51:03Z",
+      "side": 1,
+      "message": "(note that it\u0027s customary _not_ to include the output --- it\u0027s kind of assumed you didn\u0027t run the tests, saw they failed, and wanted to submit anyway :-) )",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 21
+      },
+      "revId": "85e0caf396aedab3b6436c388c8816af3da99399",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e95e4c5_eca24049",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-11-28T16:51:03Z",
+      "side": 1,
+      "message": "signed-off-by is for when it\u0027s someone else\u0027s change... if you got this from someone else, you should put _their_ name here. if you didn\u0027t, again, it\u0027s kind of assumed that you approve of your own change, or you wouldn\u0027t have uploaded it :-)",
+      "revId": "85e0caf396aedab3b6436c388c8816af3da99399",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "6487daf8_70f7b062",
@@ -14,6 +54,23 @@
       "writtenOn": "2022-11-22T18:41:45Z",
       "side": 1,
       "message": "Moving enh@ to cc (since he\u0027s OOO for thanksgiving)",
+      "revId": "85e0caf396aedab3b6436c388c8816af3da99399",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5c189ec_1d737646",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-11-28T16:51:03Z",
+      "side": 1,
+      "message": "seems to have broken the tests:\n```\nCANNOT LINK EXECUTABLE \"/data/local/tmp/adb_pairing_connection_test/x86_64/adb_pairing_connection_test\": library \"libadb_crypto.so\" not found: needed by main executable\n```\n\nare these libraries otherwise only used statically?",
       "revId": "85e0caf396aedab3b6436c388c8816af3da99399",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
