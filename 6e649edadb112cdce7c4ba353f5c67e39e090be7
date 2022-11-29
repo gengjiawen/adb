@@ -1,5 +1,57 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "166c859b_9d408d49",
+        "filename": "fdevent/fdevent_test.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-11-29T01:11:22Z",
+      "side": 1,
+      "message": "try to avoid mess like this...",
+      "revId": "6e649edadb112cdce7c4ba353f5c67e39e090be7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8171a72_b49f26b6",
+        "filename": "fdevent/fdevent_test.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-11-29T01:11:22Z",
+      "side": 1,
+      "message": "in this specific case, just use libbase\u0027s GetThreadId() instead.",
+      "revId": "6e649edadb112cdce7c4ba353f5c67e39e090be7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3552c9e3_af5c323f",
+        "filename": "fdevent/fdevent_test.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-11-29T01:11:22Z",
+      "side": 1,
+      "message": "this could use an AssertMainThread() and AssertNotMainThread() instead of all this repetition...",
+      "revId": "6e649edadb112cdce7c4ba353f5c67e39e090be7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
