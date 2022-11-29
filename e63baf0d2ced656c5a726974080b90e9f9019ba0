@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4c4241a_ca6ea484",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-11-29T17:36:36Z",
+      "side": 1,
+      "message": "Earlier attempt (at switching from static linkage) had to be reverted (because some libraries were not found at the expected output directories, which was only obvious after a treehugger build failed): https://android-review.git.corp.google.com/c/platform/packages/modules/adb/+/2309247\nThis CL removes some dependencies - PTAL",
+      "revId": "e63baf0d2ced656c5a726974080b90e9f9019ba0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
