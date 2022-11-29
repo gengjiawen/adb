@@ -22,6 +22,30 @@
       },
       "revId": "fe93b47175fa735a3610a3c99d87ba945ed65347",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51a9aab0_79836eb5",
+        "filename": "pairing_connection/tests/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1353240
+      },
+      "writtenOn": "2022-11-29T03:03:20Z",
+      "side": 0,
+      "message": "Would you like to create a change for this? I am not sure how to do that.",
+      "parentUuid": "1ed0ac07_bab40ab4",
+      "range": {
+        "startLine": 45,
+        "startChar": 8,
+        "endLine": 45,
+        "endChar": 24
+      },
+      "revId": "fe93b47175fa735a3610a3c99d87ba945ed65347",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
