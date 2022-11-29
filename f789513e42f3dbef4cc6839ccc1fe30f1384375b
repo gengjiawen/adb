@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b7c4efe_02c04453",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-11-29T21:48:31Z",
+      "side": 1,
+      "message": "lol, i almost suggested that on the original code review, but assumed that because the compiler was silent, it didn\u0027t matter :-(",
+      "revId": "f789513e42f3dbef4cc6839ccc1fe30f1384375b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
