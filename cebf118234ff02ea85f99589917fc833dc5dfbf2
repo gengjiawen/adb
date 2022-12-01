@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2de39eb8_f828feae",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-12-01T22:00:57Z",
+      "side": 1,
+      "message": "lgtm, assuming you\u0027ve tested it on the macs you _do_ have...",
+      "revId": "cebf118234ff02ea85f99589917fc833dc5dfbf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
