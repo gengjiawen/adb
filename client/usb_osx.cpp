@@ -110,6 +110,15 @@ static void AndroidInterfaceAdded(io_iterator_t iterator);
 static std::unique_ptr<usb_handle> CheckInterface(IOUSBInterfaceInterface550** iface, UInt16 vendor,
                                                   UInt16 product);
 
+// Flag-guarded (using host env variable) feature that turns on
+// the ability to clear the device-side endpoint also before
+// starting. See public bug 37055927 for historical context.
+static bool clear_endpoints() {
+    static const char* env(getenv("ADB_OSX_USB_CLEAR_ENDPOINTS"));
+    static bool result = env && strcmp("1", env) == 0;
+    return result;
+}
+
 static bool FindUSBDevices() {
     // Create the matching dictionary to find the Android device's adb interface.
     CFMutableDictionaryRef matchingDict = IOServiceMatching(kIOUSBInterfaceClassName);
@@ -401,12 +410,18 @@ static std::unique_ptr<usb_handle> CheckInterface(IOUSBInterfaceInterface550** i
 
         if (kUSBIn == direction) {
             handle->bulkIn = endpoint;
-            if (!ClearPipeStallBothEnds(interface, handle->bulkIn)) goto err_get_pipe_props;
+
+            // If feature-enabled, clear both endpoints (including device-side).
+            if (clear_endpoints() && !ClearPipeStallBothEnds(interface, handle->bulkIn))
+                goto err_get_pipe_props;
         }
 
         if (kUSBOut == direction) {
             handle->bulkOut = endpoint;
-            if (!ClearPipeStallBothEnds(interface, handle->bulkOut)) goto err_get_pipe_props;
+
+            // If feature- enabled, clear both endpoints (including device-side).
+            if (clear_endpoints() && !ClearPipeStallBothEnds(interface, handle->bulkOut))
+                goto err_get_pipe_props;
         }
 
         if (maxBurst != 0)
