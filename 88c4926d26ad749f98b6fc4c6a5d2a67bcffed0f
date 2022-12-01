@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a8cfd4f_7b17f352",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-12-01T17:58:58Z",
+      "side": 1,
+      "message": "well, i thought we\u0027d already determined that wasn\u0027t possible, because no-one has that old hardware. (and we don\u0027t even know whether it was a hardware issue or a mac kernel issue?)\n\nso i think just \"test on what macs you have available\" is fine.\n\nand probably the more useful thing to say here is to copy \u0026 paste vsiva\u0027s repro steps from the bug?",
+      "revId": "88c4926d26ad749f98b6fc4c6a5d2a67bcffed0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c027f0dc_9434d357",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-12-01T17:58:58Z",
+      "side": 1,
+      "message": "otherwise lgtm.",
+      "revId": "88c4926d26ad749f98b6fc4c6a5d2a67bcffed0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bd048d1_39dfdc61",
+        "filename": "client/usb_osx.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-12-01T17:58:58Z",
+      "side": 1,
+      "message": "may as well give a publicly-usable link, if it\u0027s a public bug? (in the checkin comment too.)",
+      "range": {
+        "startLine": 115,
+        "startChar": 17,
+        "endLine": 115,
+        "endChar": 36
+      },
+      "revId": "88c4926d26ad749f98b6fc4c6a5d2a67bcffed0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "439c86cb_bb94bb95",
+        "filename": "client/usb_osx.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-12-01T17:58:58Z",
+      "side": 1,
+      "message": "aren\u0027t these the only two uses of ClearPipeStallBothEnds()? we could move the check and comment into there rather than copy \u0026 paste?",
+      "range": {
+        "startLine": 415,
+        "startChar": 16,
+        "endLine": 415,
+        "endChar": 33
+      },
+      "revId": "88c4926d26ad749f98b6fc4c6a5d2a67bcffed0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
