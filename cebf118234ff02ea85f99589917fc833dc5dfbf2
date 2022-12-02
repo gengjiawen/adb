@@ -16,6 +16,24 @@
       "message": "lgtm, assuming you\u0027ve tested it on the macs you _do_ have...",
       "revId": "cebf118234ff02ea85f99589917fc833dc5dfbf2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71ddec32_29978e28",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-12-02T16:32:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2de39eb8_f828feae",
+      "revId": "cebf118234ff02ea85f99589917fc833dc5dfbf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
