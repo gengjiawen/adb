@@ -29,7 +29,6 @@ apex_defaults {
     manifest: "apex_manifest.json",
     key: "com.android.adbd.key",
     certificate: ":com.android.adbd.certificate",
-    compressible: true,
 }
 
 apex {
