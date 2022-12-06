@@ -775,7 +775,8 @@ class Process {
 };
 
 Process adb_launch_process(std::string_view executable, std::vector<std::string> args,
-                           std::initializer_list<int> fds_to_inherit = {});
+                           std::initializer_list<int> fds_to_inherit = {}, int fd_stdin = -1,
+                           int fd_stdout = -1, int fd_stderr = -1);
 
 #endif /* !_WIN32 */
 
