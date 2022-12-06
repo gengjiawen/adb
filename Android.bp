@@ -288,11 +288,12 @@ cc_library_host_static {
             srcs: ["client/usb_osx.cpp"] + libadb_darwin_srcs,
         },
         not_windows: {
-            srcs: libadb_posix_srcs,
+            srcs: ["client/command_connection_unix.cpp"] + libadb_posix_srcs,
         },
         windows: {
             enabled: true,
             srcs: [
+                "client/command_connection_windows.cpp",
                 "client/usb_windows.cpp",
             ] + libadb_windows_srcs,
             shared_libs: ["AdbWinApi"],

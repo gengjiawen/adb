@@ -251,3 +251,22 @@ TEST(sysdeps_condition_variable, smoke) {
 
     thread.join();
 }
+
+#if !defined(_WIN32)
+TEST(sysdeps_launch_process, echo) {
+    int fds[2];
+    ASSERT_EQ(0, adb_socketpair(fds)) << strerror(errno);
+
+    // Launch `echo` with fds[0] as stdout.
+    auto child = adb_launch_process("/bin/sh", {"-c", "echo foo"}, {}, -1, fds[0]);
+    ASSERT_TRUE(child);
+    ASSERT_EQ(0, adb_close(fds[0]));
+
+    // `echo` will write "foo" to its stdout.
+    char buf[4] = {};
+    ASSERT_TRUE(ReadFdExactly(fds[1], buf, 3));
+    ASSERT_STREQ(buf, "foo");
+
+    child.wait();
+}
+#endif

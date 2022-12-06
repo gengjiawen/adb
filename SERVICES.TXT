@@ -12,6 +12,21 @@ host:kill
     ADB client detects that an obsolete server is running after an
     upgrade.
 
+host:connect:<remote>
+    Asks the ADB server to connect to the device specified by <remote>.
+    The format of <remote> is one of:
+        <address>[:<port>]            -> The same as tcp:<address>[:<port>]
+        tcp:<address>[:<port>]        -> TCP/IP. The default port is 5555.
+        vsock:<CID>:<port>            -> vsock.
+        localfilesystem:<path>        -> Named UNIX domain socket at the specified path.
+        emu:<console port>,<adb port> -> Connect to the specified emulator.
+        command:<command>             -> Connect using the specified command.
+            ADB will execute the command and perform IO through the stdin and
+            stdout of the command process.
+
+host:disconnect:<remote>
+    Asks the ADB server to disconnect from the device specified by <remote>.
+
 host:devices
 host:devices-l
     Ask to return the list of available Android devices and their

@@ -41,6 +41,10 @@
 #include "sysdeps.h"
 #include "transport.h"
 
+#if ADB_HOST
+#include "client/command_connection.h"
+#endif
+
 namespace {
 
 void service_bootstrap_func(std::string service_name, std::function<void(unique_fd)> func,
@@ -138,6 +142,8 @@ static void connect_service(unique_fd fd, std::string host) {
     std::string response;
     if (!strncmp(host.c_str(), "emu:", 4)) {
         connect_emulator(host.c_str() + 4, &response);
+    } else if (!strncmp(host.c_str(), "command:", 8)) {
+        connect_command(host.c_str() + 8, &response);
     } else {
         connect_device(host, &response);
     }
