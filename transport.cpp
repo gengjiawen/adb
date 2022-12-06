@@ -1492,13 +1492,14 @@ void close_usb_devices(bool reset) {
 }
 #endif
 
-bool register_socket_transport(unique_fd s, std::string serial, int port, int local,
-                               atransport::ReconnectCallback reconnect, bool use_tls, int* error) {
+bool register_socket_transport(std::unique_ptr<BlockingConnection> connection, std::string serial,
+                               int port, int local, atransport::ReconnectCallback reconnect,
+                               bool use_tls, int* error) {
     atransport* t = new atransport(std::move(reconnect), kCsOffline);
     t->use_tls = use_tls;
 
-    D("transport: %s init'ing for socket %d, on port %d", serial.c_str(), s.get(), port);
-    if (init_socket_transport(t, std::move(s), port, local) < 0) {
+    D("transport: %s init'ing for socket, on port %d", serial.c_str(), port);
+    if (init_socket_transport(t, std::move(connection), port, local) < 0) {
         delete t;
         if (error) *error = errno;
         return false;

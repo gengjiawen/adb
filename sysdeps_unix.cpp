@@ -66,7 +66,8 @@ static __inline__ void disable_close_on_exec(borrowed_fd fd) {
 }
 
 Process adb_launch_process(std::string_view executable, std::vector<std::string> args,
-                           std::initializer_list<int> fds_to_inherit) {
+                           std::vector<int> fds_to_inherit, int fd_stdin, int fd_stdout,
+                           int fd_stderr) {
     const auto pid = fork();
     if (pid != 0) {
         // parent, includes the case when failed to fork()
@@ -88,5 +89,23 @@ Process adb_launch_process(std::string_view executable, std::vector<std::string>
     for (auto fd : fds_to_inherit) {
         disable_close_on_exec(fd);
     }
+    const std::pair<int, int> kStdioFds[] = {
+            {fd_stdin, STDIN_FILENO},
+            {fd_stdout, STDOUT_FILENO},
+            {fd_stderr, STDERR_FILENO},
+    };
+    for (auto fd : kStdioFds) {
+        if (fd.first != -1) {
+            dup2(fd.first, fd.second);
+            disable_close_on_exec(fd.second);
+        }
+    }
     exit(execv(copies.front().data(), rawArgs.data()));
+}
+
+Process adb_launch_command_process(std::string_view command, std::vector<int> fds_to_inherit,
+                                   int fd_stdin, int fd_stdout, int fd_stderr) {
+    std::vector<std::string> args = {std::string("-c"), std::string(command)};
+    return adb_launch_process("/bin/sh", std::move(args), std::move(fds_to_inherit), fd_stdin,
+                              fd_stdout, fd_stderr);
 }

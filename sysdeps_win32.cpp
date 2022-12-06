@@ -3012,34 +3012,34 @@ void disable_inherit(borrowed_fd fd) {
     ::SetHandleInformation(h, HANDLE_FLAG_INHERIT, 0);
 }
 
-Process adb_launch_process(std::string_view executable, std::vector<std::string> args,
-                           std::initializer_list<int> fds_to_inherit) {
-    std::wstring wexe;
-    if (!android::base::UTF8ToWide(executable.data(), executable.size(), &wexe)) {
-        return Process();
-    }
-
-    std::wstring wargs = L"\"" + wexe + L"\"";
-    std::wstring warg;
-    for (auto arg : args) {
-        warg.clear();
-        if (!android::base::UTF8ToWide(arg.data(), arg.size(), &warg)) {
-            return Process();
-        }
-        wargs += L" \"";
-        wargs += warg;
-        wargs += L'\"';
-    }
-
+Process create_process(const wchar_t* application_name, wchar_t* command_line,
+                       std::vector<int> fds_to_inherit, int fd_stdin, int fd_stdout,
+                       int fd_stderr) {
     STARTUPINFOW sinfo = {sizeof(sinfo)};
     PROCESS_INFORMATION pinfo = {};
+
+    if (fd_stdin != -1 || fd_stdout != -1 || fd_stderr != -1) {
+        sinfo.dwFlags |= STARTF_USESTDHANDLES;
+        if (fd_stdin != -1) {
+            sinfo.hStdInput = adb_get_os_handle(fd_stdin);
+            fds_to_inherit.push_back(fd_stdin);
+        }
+        if (fd_stdout != -1) {
+            sinfo.hStdOutput = adb_get_os_handle(fd_stdout);
+            fds_to_inherit.push_back(fd_stdout);
+        }
+        if (fd_stderr != -1) {
+            sinfo.hStdError = adb_get_os_handle(fd_stderr);
+            fds_to_inherit.push_back(fd_stderr);
+        }
+    }
 
     // TODO: use the Vista+ API to pass the list of inherited handles explicitly;
     // see http://blogs.msdn.com/b/oldnewthing/archive/2011/12/16/10248328.aspx
     for (auto fd : fds_to_inherit) {
         enable_inherit(fd);
     }
-    const auto created = CreateProcessW(wexe.c_str(), wargs.data(),
+    const auto created = CreateProcessW(application_name, command_line,
                                         nullptr,                    // process attributes
                                         nullptr,                    // thread attributes
                                         fds_to_inherit.size() > 0,  // inherit any handles?
@@ -3058,6 +3058,40 @@ Process adb_launch_process(std::string_view executable, std::vector<std::string>
 
     ::CloseHandle(pinfo.hThread);
     return Process(pinfo.hProcess);
+}
+
+Process adb_launch_process(std::string_view executable, std::vector<std::string> args,
+                           std::vector<int> fds_to_inherit, int fd_stdin, int fd_stdout,
+                           int fd_stderr) {
+    std::wstring wexe;
+    if (!android::base::UTF8ToWide(executable.data(), executable.size(), &wexe)) {
+        return Process();
+    }
+
+    std::wstring wargs = L"\"" + wexe + L"\"";
+    std::wstring warg;
+    for (auto arg : args) {
+        warg.clear();
+        if (!android::base::UTF8ToWide(arg.data(), arg.size(), &warg)) {
+            return Process();
+        }
+        wargs += L" \"";
+        wargs += warg;
+        wargs += L'\"';
+    }
+    return create_process(wexe.c_str(), wargs.data(), std::move(fds_to_inherit), fd_stdin,
+                          fd_stdout, fd_stderr);
+}
+
+Process adb_launch_command_process(std::string_view command, std::vector<int> fds_to_inherit,
+                                   int fd_stdin, int fd_stdout, int fd_stderr) {
+    std::wstring command_line_wide;
+    if (!android::base::UTF8ToWide(command.data(), command.size(), &command_line_wide)) {
+        return Process();
+    }
+    // Pass nullptr as the application name to let CreateProcessW() searche for the executable file.
+    return create_process(nullptr, command_line_wide.data(), std::move(fds_to_inherit), fd_stdin,
+                          fd_stdout, fd_stderr);
 }
 
 // The SetThreadDescription API was brought in version 1607 of Windows 10.

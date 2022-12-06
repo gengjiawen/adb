@@ -251,3 +251,26 @@ TEST(sysdeps_condition_variable, smoke) {
 
     thread.join();
 }
+
+TEST(sysdeps_launch_command_process, smoke) {
+    int fds[2];
+    ASSERT_EQ(0, adb_socketpair(fds)) << strerror(errno);
+
+    // Launch `echo` with fds[0] as stdout.
+#if defined(_WIN32)
+    constexpr char kCommand[] = "cmd.exe /c echo foo";
+#else
+    constexpr char kCommand[] = "echo foo";
+#endif
+    auto child = adb_launch_command_process(kCommand, {}, -1, fds[0]);
+    ASSERT_TRUE(child);
+    ASSERT_EQ(0, adb_close(fds[0]));
+
+    // `echo` will write "foo" to its stdout.
+    char buf[4] = {};
+    ASSERT_TRUE(ReadFdExactly(fds[1], buf, 3));
+    ASSERT_STREQ(buf, "foo");
+
+    child.kill();
+    child.wait();
+}

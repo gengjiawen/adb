@@ -144,7 +144,7 @@ void TlsServer::OnFdEvent(int fd, unsigned ev) {
         disable_tcp_nagle(new_fd.get());
         std::string serial = android::base::StringPrintf("host-%d", new_fd.get());
         register_socket_transport(
-                std::move(new_fd), std::move(serial), port_, 1,
+                std::make_unique<FdConnection>(std::move(new_fd)), std::move(serial), port_, 1,
                 [](atransport*) { return ReconnectResult::Abort; }, true);
     }
 }
