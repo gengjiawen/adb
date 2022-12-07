@@ -1,0 +1,146 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7030b7aa_fb12abf4",
+        "filename": "Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2022-12-07T20:04:22Z",
+      "side": 1,
+      "message": "Try `per_testcase_directory: true` (maybe set in adb_defaults)",
+      "range": {
+        "startLine": 848,
+        "startChar": 0,
+        "endLine": 853,
+        "endChar": 6
+      },
+      "revId": "dfb6eb4303ca740bc2d4308d466f289c130003b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3e784e2_3c60a07c",
+        "filename": "Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 951,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2022-12-07T20:04:22Z",
+      "side": 1,
+      "message": "Library, doesn\u0027t need these.",
+      "revId": "dfb6eb4303ca740bc2d4308d466f289c130003b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ec04a41_970e67b6",
+        "filename": "crypto/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2022-12-07T20:04:22Z",
+      "side": 1,
+      "message": "\"second\" is not a valid `compile_multilib\u0027 value, but apparently the value inside `windows_x86_64` is unused.",
+      "revId": "dfb6eb4303ca740bc2d4308d466f289c130003b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51872ff4_e79623d2",
+        "filename": "crypto/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2022-12-07T20:04:22Z",
+      "side": 1,
+      "message": "The `windows` clause already applies this to both windows_x86 and windows_x86_64.",
+      "revId": "dfb6eb4303ca740bc2d4308d466f289c130003b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc211334_681231f5",
+        "filename": "crypto/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2022-12-07T20:04:22Z",
+      "side": 1,
+      "message": "Library, compile_multilib and suffix are unnecessary.",
+      "revId": "dfb6eb4303ca740bc2d4308d466f289c130003b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f89f8f23_6be7bbd9",
+        "filename": "crypto/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2022-12-07T20:04:22Z",
+      "side": 1,
+      "message": "Library, compile_multilib and suffix are unnecessary.",
+      "revId": "dfb6eb4303ca740bc2d4308d466f289c130003b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc9fae6a_9b0ceea1",
+        "filename": "pairing_connection/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2022-12-07T20:04:22Z",
+      "side": 1,
+      "message": "These are all libraries and don\u0027t need compile_multilib and suffix.",
+      "revId": "dfb6eb4303ca740bc2d4308d466f289c130003b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9de267a5_a545b0d1",
+        "filename": "tls/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2022-12-07T20:04:22Z",
+      "side": 1,
+      "message": "These are all libraries, compile_multilib and suffix are unnecessary.",
+      "revId": "dfb6eb4303ca740bc2d4308d466f289c130003b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

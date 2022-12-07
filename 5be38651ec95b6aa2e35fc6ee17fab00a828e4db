@@ -16,6 +16,24 @@
       "message": "i\u0027m surprised you need all these, but since someone who knows what they\u0027re talking about (ccross) will be along shortly, i\u0027ll just shut up. i realize i don\u0027t actually know much about the host, since i can\u0027t even remember 32-bit and 64-bit linux co-existing! (and stuff like \"gtests won\u0027t collide because they\u0027ll be in nativetest vs nativetest64\" doesn\u0027t apply for the host.)",
       "revId": "5be38651ec95b6aa2e35fc6ee17fab00a828e4db",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9aa5f45f_12a56af7",
+        "filename": "Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2022-12-07T20:04:22Z",
+      "side": 1,
+      "message": "You don\u0027t need these for libraries.  Libraries default to `compile_multilib: \"both\"`, binaries default to `compile_multilib: \"first\"`.  Static libraries aren\u0027t installed anywhere, so the suffix is unused.  Shared libraries are installed to `lib` for 32-bit and `lib64` for 64-bit, so the suffix is unnecessary.  The suffix is only needed for binaries, where both the 32-bit and 64-bit version are both installed to `bin` and would collide.  Tests _shouldn\u0027t_ need the suffix, but setting it may work around some problems.  I think `per_testcase_directory: true` should work for tests, and is the better solution if it works.",
+      "parentUuid": "19e203a9_b5826fea",
+      "revId": "5be38651ec95b6aa2e35fc6ee17fab00a828e4db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
