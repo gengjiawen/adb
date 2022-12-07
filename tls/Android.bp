@@ -22,6 +22,7 @@ package {
 }
 
 cc_defaults {
+    //Static libraries do not need: compile_multilib and suffix
     name: "libadb_tls_connection_defaults",
     cflags: [
         "-Wall",
@@ -30,15 +31,12 @@ cc_defaults {
         "-Werror",
     ],
 
-    compile_multilib: "both",
-
     srcs: [
         "adb_ca_list.cpp",
         "tls_connection.cpp",
     ],
     target: {
         windows: {
-            compile_multilib: "first",
             enabled: true,
         },
     },
@@ -61,6 +59,7 @@ cc_defaults {
 }
 
 cc_library {
+    //Static libraries do not need: compile_multilib and suffix
     name: "libadb_tls_connection",
     defaults: ["libadb_tls_connection_defaults"],
 
@@ -69,10 +68,23 @@ cc_library {
         "com.android.adbd",
         "test_com.android.adbd",
     ],
+   target: {
+        windows_x86: {
+            dist: {
+                dir: "libadb_tls_connection/windows/x86",
+            },
+        },
+        windows_x86_64: {
+            dist: {
+                dir: "libadb_tls_connection/windows/x86_64",
+            },
+        },
+    },
 }
 
 // For running atest (b/147158681)
 cc_library_static {
+    //Static libraries do not need: compile_multilib and suffix
     name: "libadb_tls_connection_static",
     defaults: ["libadb_tls_connection_defaults"],
 
