@@ -54,7 +54,6 @@ cc_defaults {
     cpp_std: "experimental",
 
     use_version_lib: true,
-    compile_multilib: "first",
 
     target: {
         darwin: {
@@ -107,6 +106,7 @@ cc_defaults {
     tidy: true,
     tidy_checks: tidy_errors,
     tidy_checks_as_errors: tidy_errors,
+    per_testcase_directory : true, // in lieu of specifying a suffix.
 }
 
 cc_defaults {
@@ -295,6 +295,8 @@ cc_library_host_static {
             srcs: [
                 "client/usb_windows.cpp",
             ] + libadb_windows_srcs,
+        },
+        windows_x86: {
             shared_libs: ["AdbWinApi"],
         },
     },
@@ -391,6 +393,8 @@ cc_test_host {
         windows: {
             enabled: true,
             ldflags: ["-municode"],
+        },
+        windows_x86: {
             shared_libs: ["AdbWinApi"],
         },
     },
@@ -477,6 +481,14 @@ cc_binary_host {
         ],
     },
 
+    compile_multilib: "both",
+    multilib: {
+        lib64: {
+            suffix: "64", // Both 32-bit and 64-bit versions are installed under /bin
+	    // so this suffix is needed to avoid collision.
+        },
+    },
+
     target: {
         darwin: {
             cflags: [
@@ -486,6 +498,8 @@ cc_binary_host {
         windows: {
             enabled: true,
             ldflags: ["-municode"],
+        },
+        windows_x86: {
             shared_libs: ["AdbWinApi"],
             required: [
                 "AdbWinUsbApi",
@@ -816,7 +830,8 @@ cc_binary {
 }
 
 cc_test {
-    name: "adbd_test",
+    name: "adbd_test", // Rely on per_testcase_directory property for cc_test instead
+    // of introducing a suffix.
 
     defaults: ["adbd_defaults", "libadbd_binary_dependencies"],
 
@@ -928,9 +943,15 @@ cc_library_host_static {
         type: "lite",
         export_proto_headers: true,
     },
+
+    // Static libraries are absorbed elsewhere so there is no
+    // need for a suffix.
+
     target: {
         windows: {
             enabled: true,
+        },
+        windows_x86: {
             shared_libs: ["AdbWinApi"],
         },
     },
@@ -973,6 +994,8 @@ cc_test_host {
     target: {
         windows: {
             enabled: true,
+        },
+        windows_x86: {
             shared_libs: ["AdbWinApi"],
         },
     },
