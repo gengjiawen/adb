@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccaaf234_9b9d52a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-12-07T17:22:30Z",
+      "side": 1,
+      "message": "Please note I have a diffbase CL: https://android-review.git.corp.google.com/c/platform/development/+/2332762",
+      "revId": "a14840bc535e1af0f304fe63d4f878d30a224e3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
