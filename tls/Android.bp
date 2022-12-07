@@ -31,6 +31,11 @@ cc_defaults {
     ],
 
     compile_multilib: "both",
+    multilib: {
+        lib64: {
+            suffix: "64",
+        },
+    },
 
     srcs: [
         "adb_ca_list.cpp",
@@ -38,7 +43,6 @@ cc_defaults {
     ],
     target: {
         windows: {
-            compile_multilib: "first",
             enabled: true,
         },
     },
@@ -63,18 +67,42 @@ cc_defaults {
 cc_library {
     name: "libadb_tls_connection",
     defaults: ["libadb_tls_connection_defaults"],
+    compile_multilib: "both",
+    multilib: {
+        lib64: {
+            suffix: "64",
+        },
+    },
 
     min_sdk_version: "30",
     apex_available: [
         "com.android.adbd",
         "test_com.android.adbd",
     ],
+   target: {
+        windows_x86: {
+            dist: {
+                dir: "libadb_tl_connection/windows/x86",
+            },
+        },
+        windows_x86_64: {
+            dist: {
+                dir: "libadb_tls_connection/windows/x86_64",
+            },
+        },
+    },
 }
 
 // For running atest (b/147158681)
 cc_library_static {
     name: "libadb_tls_connection_static",
     defaults: ["libadb_tls_connection_defaults"],
+    compile_multilib: "both",
+    multilib: {
+        lib64: {
+            suffix: "64",
+        },
+    },
 
     apex_available: [
         "//apex_available:platform",
