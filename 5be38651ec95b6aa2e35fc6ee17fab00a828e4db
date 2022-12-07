@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19e203a9_b5826fea",
+        "filename": "Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-12-07T17:28:46Z",
+      "side": 1,
+      "message": "i\u0027m surprised you need all these, but since someone who knows what they\u0027re talking about (ccross) will be along shortly, i\u0027ll just shut up. i realize i don\u0027t actually know much about the host, since i can\u0027t even remember 32-bit and 64-bit linux co-existing! (and stuff like \"gtests won\u0027t collide because they\u0027ll be in nativetest vs nativetest64\" doesn\u0027t apply for the host.)",
+      "revId": "5be38651ec95b6aa2e35fc6ee17fab00a828e4db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
