@@ -30,8 +30,6 @@ cc_defaults {
         "-Werror",
     ],
 
-    compile_multilib: "both",
-
     srcs: [
         "key.cpp",
         "rsa_2048_key.cpp",
@@ -40,8 +38,14 @@ cc_defaults {
 
     target: {
         windows: {
-            compile_multilib: "first",
             enabled: true,
+        },
+        windows_x86_64: {
+            compile_multilib: "second",
+            enabled: true,
+            dist: {
+                dir: "libadb_crypto_defaults/windows/x86_64",
+            },
         },
     },
 
@@ -69,6 +73,13 @@ cc_library {
     name: "libadb_crypto",
     defaults: ["libadb_crypto_defaults"],
 
+    compile_multilib: "both",
+    multilib: {
+        lib64: {
+            suffix: "64",
+        },
+    },
+
     min_sdk_version: "30",
     apex_available: [
         "com.android.adbd",
@@ -81,6 +92,12 @@ cc_library_static {
     name: "libadb_crypto_static",
     defaults: ["libadb_crypto_defaults"],
 
+    compile_multilib: "both",
+    multilib: {
+        lib64: {
+            suffix: "64",
+        },
+    },
     apex_available: [
         "//apex_available:platform",
     ],
