@@ -54,7 +54,6 @@ cc_defaults {
     cpp_std: "experimental",
 
     use_version_lib: true,
-    compile_multilib: "first",
 
     target: {
         darwin: {
@@ -280,6 +279,13 @@ cc_library_host_static {
 
     generated_headers: ["platform_tools_version"],
 
+    compile_multilib: "both",
+    multilib: {
+        lib64: {
+            suffix: "64",
+        },
+    },
+
     target: {
         linux: {
             srcs: ["client/usb_linux.cpp"] + libadb_linux_srcs,
@@ -477,6 +483,13 @@ cc_binary_host {
         ],
     },
 
+    compile_multilib: "both",
+    multilib: {
+        lib64: {
+            suffix: "64",
+        },
+    },
+ 
     target: {
         darwin: {
             cflags: [
@@ -832,6 +845,13 @@ cc_test {
 
     test_config: "adbd_test.xml",
 
+    compile_multilib: "both",
+    multilib: {
+        lib64: {
+            suffix: "64",
+        },
+    },
+
     target: {
         android: {
             srcs: [
@@ -928,6 +948,13 @@ cc_library_host_static {
         type: "lite",
         export_proto_headers: true,
     },
+    compile_multilib: "both",
+    multilib: {
+        lib64: {
+            suffix: "64",
+        },
+    },
+
     target: {
         windows: {
             enabled: true,

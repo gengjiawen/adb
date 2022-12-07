@@ -41,7 +41,6 @@ cc_defaults {
             version_script: "libadb_pairing_auth.map.txt",
         },
         windows: {
-            compile_multilib: "first",
             enabled: true,
         },
     },
