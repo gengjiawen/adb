@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0ed8baa7_dfc0d58b",
+        "filename": "client/transport_local.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-12-08T23:40:22Z",
+      "side": 1,
+      "message": "(the singular RetryInfo would be more grammatical in english.)",
+      "parentUuid": "c9ee535b_4dfa8678",
+      "range": {
+        "startLine": 179,
+        "startChar": 7,
+        "endLine": 179,
+        "endChar": 16
+      },
+      "revId": "3866b74ca35350dc1d53ef35d83ce0f9ee9338dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "69555dbc_fe56dcc5",
         "filename": "client/transport_local.cpp",
         "patchSetId": 1
@@ -66,6 +90,47 @@
         "endLine": 212,
         "endChar": 29
       },
+      "revId": "3866b74ca35350dc1d53ef35d83ce0f9ee9338dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e99a9329_c94beb54",
+        "filename": "client/transport_local.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-12-08T23:40:22Z",
+      "side": 1,
+      "message": "error :-)",
+      "parentUuid": "826ff2dd_b6948aa6",
+      "range": {
+        "startLine": 212,
+        "startChar": 24,
+        "endLine": 212,
+        "endChar": 29
+      },
+      "revId": "3866b74ca35350dc1d53ef35d83ce0f9ee9338dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4013b859_eb65e567",
+        "filename": "client/transport_local.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-12-08T23:40:22Z",
+      "side": 1,
+      "message": "and actually output the error here. that\u0027s why we hand it back :-)",
       "revId": "3866b74ca35350dc1d53ef35d83ce0f9ee9338dd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
