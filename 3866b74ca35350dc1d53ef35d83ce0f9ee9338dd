@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9ee535b_4dfa8678",
+        "filename": "client/transport_local.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-12-08T18:47:03Z",
+      "side": 1,
+      "message": "nit: RetryInfos",
+      "range": {
+        "startLine": 179,
+        "startChar": 7,
+        "endLine": 179,
+        "endChar": 16
+      },
+      "revId": "3866b74ca35350dc1d53ef35d83ce0f9ee9338dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69555dbc_fe56dcc5",
+        "filename": "client/transport_local.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-12-08T18:47:03Z",
+      "side": 1,
+      "message": "`console_port`",
+      "range": {
+        "startLine": 181,
+        "startChar": 8,
+        "endLine": 181,
+        "endChar": 15
+      },
+      "revId": "3866b74ca35350dc1d53ef35d83ce0f9ee9338dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "826ff2dd_b6948aa6",
+        "filename": "client/transport_local.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-12-08T18:47:03Z",
+      "side": 1,
+      "message": "`errors`",
+      "range": {
+        "startLine": 212,
+        "startChar": 24,
+        "endLine": 212,
+        "endChar": 29
+      },
+      "revId": "3866b74ca35350dc1d53ef35d83ce0f9ee9338dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6c6de42_9e3fbf5b",
+        "filename": "client/transport_local.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-12-08T18:47:03Z",
+      "side": 1,
+      "message": "`console_port`",
+      "range": {
+        "startLine": 289,
+        "startChar": 8,
+        "endLine": 289,
+        "endChar": 15
+      },
+      "revId": "3866b74ca35350dc1d53ef35d83ce0f9ee9338dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20b25be5_2ccb8b57",
+        "filename": "transport.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1499,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-12-08T18:47:03Z",
+      "side": 1,
+      "message": "This seems to be a refactor which is nice but would belong to another CL to preserve git history :).",
+      "range": {
+        "startLine": 1499,
+        "startChar": 0,
+        "endLine": 1499,
+        "endChar": 34
+      },
+      "revId": "3866b74ca35350dc1d53ef35d83ce0f9ee9338dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
