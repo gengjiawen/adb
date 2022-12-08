@@ -509,9 +509,9 @@ void unregister_usb_transport(usb_handle* usb);
 void connect_device(const std::string& address, std::string* response);
 
 /* cause new transports to be init'd and added to the list */
-bool register_socket_transport(unique_fd s, std::string serial, int port, int local,
-                               atransport::ReconnectCallback reconnect, bool use_tls,
-                               int* error = nullptr);
+bool register_socket_transport(std::unique_ptr<BlockingConnection> connection, std::string serial,
+                               int port, int local, atransport::ReconnectCallback reconnect,
+                               bool use_tls, int* error = nullptr);
 
 bool check_header(apacket* p, atransport* t);
 
