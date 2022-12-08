@@ -145,9 +145,6 @@ int launch_server(const std::string& socket_spec, const char* one_device);
 int adb_server_main(int is_daemon, const std::string& socket_spec, const char* one_device,
                     int ack_reply_fd);
 
-/* initialize a transport object's func pointers and state */
-int init_socket_transport(atransport* t, unique_fd s, int port, int local);
-
 std::string getEmulatorSerialString(int console_port);
 #if ADB_HOST
 atransport* find_emulator_transport_by_adb_port(int adb_port);

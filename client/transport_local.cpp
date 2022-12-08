@@ -114,13 +114,14 @@ void connect_device(const std::string& address, std::string* response) {
         // invoked if the atransport* has already been setup. This eventually
         // calls atransport->SetConnection() with a newly created Connection*
         // that will in turn send the CNXN packet.
-        return init_socket_transport(t, std::move(fd), port, 0) >= 0 ? ReconnectResult::Success
-                                                                     : ReconnectResult::Retry;
+        return init_socket_transport(t, std::make_unique<FdConnection>(std::move(fd)), port, 0) >= 0
+                       ? ReconnectResult::Success
+                       : ReconnectResult::Retry;
     };
 
     int error;
-    if (!register_socket_transport(std::move(fd), serial, port, 0, std::move(reconnect), false,
-                                   &error)) {
+    if (!register_socket_transport(std::make_unique<FdConnection>(std::move(fd)), serial, port, 0,
+                                   std::move(reconnect), false, &error)) {
         if (error == EALREADY) {
             *response = android::base::StringPrintf("already connected to %s", serial.c_str());
         } else if (error == EPERM) {
@@ -132,6 +133,43 @@ void connect_device(const std::string& address, std::string* response) {
         *response = android::base::StringPrintf("connected to %s", serial.c_str());
     }
 }
+
+// Retry the disconnected local port for 60 times, and sleep 1 second between two retries.
+static constexpr uint32_t LOCAL_PORT_RETRY_COUNT = 60;
+static constexpr auto LOCAL_PORT_RETRY_INTERVAL = 1s;
+
+struct RetryPort {
+    int port;
+    uint32_t retry_count;
+};
+
+// Retry emulators just kicked.
+static std::vector<RetryPort>& retry_ports = *new std::vector<RetryPort>;
+std::mutex& retry_ports_lock = *new std::mutex;
+std::condition_variable& retry_ports_cond = *new std::condition_variable;
+
+struct EmulatorConnection : public FdConnection {
+    EmulatorConnection(unique_fd fd, int local_port)
+        : FdConnection(std::move(fd)), local_port_(local_port) {}
+
+    ~EmulatorConnection() {
+        VLOG(TRANSPORT) << "remote_close, local_port = " << local_port_;
+        std::unique_lock<std::mutex> lock(retry_ports_lock);
+        RetryPort port;
+        port.port = local_port_;
+        port.retry_count = LOCAL_PORT_RETRY_COUNT;
+        retry_ports.push_back(port);
+        retry_ports_cond.notify_one();
+    }
+
+    void Close() override {
+        std::lock_guard<std::mutex> lock(local_transports_lock);
+        local_transports.erase(local_port_);
+        FdConnection::Close();
+    }
+
+    int local_port_;
+};
 
 int local_connect_arbitrary_ports(int console_port, int adb_port, std::string* error) {
     unique_fd fd;
@@ -156,7 +194,8 @@ int local_connect_arbitrary_ports(int console_port, int adb_port, std::string* e
         disable_tcp_nagle(fd.get());
         std::string serial = getEmulatorSerialString(console_port);
         if (register_socket_transport(
-                    std::move(fd), std::move(serial), adb_port, 1,
+                    std::make_unique<EmulatorConnection>(std::move(fd), adb_port),
+                    std::move(serial), adb_port, 1,
                     [](atransport*) { return ReconnectResult::Abort; }, false)) {
             return 0;
         }
@@ -171,20 +210,6 @@ static void PollAllLocalPortsForEmulator() {
         local_connect(port);  // Note, uses port and port-1, so '=max_port' is OK.
     }
 }
-
-// Retry the disconnected local port for 60 times, and sleep 1 second between two retries.
-static constexpr uint32_t LOCAL_PORT_RETRY_COUNT = 60;
-static constexpr auto LOCAL_PORT_RETRY_INTERVAL = 1s;
-
-struct RetryPort {
-    int port;
-    uint32_t retry_count;
-};
-
-// Retry emulators just kicked.
-static std::vector<RetryPort>& retry_ports = *new std::vector<RetryPort>;
-std::mutex& retry_ports_lock = *new std::mutex;
-std::condition_variable& retry_ports_cond = *new std::condition_variable;
 
 static void client_socket_thread(std::string_view) {
     adb_thread_setname("client_socket_thread");
@@ -235,29 +260,6 @@ void local_init(const std::string& addr) {
     adb_local_transport_max_port_env_override();
 }
 
-struct EmulatorConnection : public FdConnection {
-    EmulatorConnection(unique_fd fd, int local_port)
-        : FdConnection(std::move(fd)), local_port_(local_port) {}
-
-    ~EmulatorConnection() {
-        VLOG(TRANSPORT) << "remote_close, local_port = " << local_port_;
-        std::unique_lock<std::mutex> lock(retry_ports_lock);
-        RetryPort port;
-        port.port = local_port_;
-        port.retry_count = LOCAL_PORT_RETRY_COUNT;
-        retry_ports.push_back(port);
-        retry_ports_cond.notify_one();
-    }
-
-    void Close() override {
-        std::lock_guard<std::mutex> lock(local_transports_lock);
-        local_transports.erase(local_port_);
-        FdConnection::Close();
-    }
-
-    int local_port_;
-};
-
 /* Only call this function if you already hold local_transports_lock. */
 static atransport* find_emulator_transport_by_adb_port_locked(int adb_port)
         REQUIRES(local_transports_lock) {
@@ -281,16 +283,15 @@ std::string getEmulatorSerialString(int console_port) {
     return android::base::StringPrintf("emulator-%d", console_port);
 }
 
-int init_socket_transport(atransport* t, unique_fd fd, int adb_port, int local) {
+int init_socket_transport(atransport* t, std::unique_ptr<BlockingConnection> connection,
+                          int adb_port, int local) {
     int fail = 0;
 
     t->type = kTransportLocal;
+    t->SetConnection(std::make_unique<BlockingConnectionAdapter>(std::move(connection)));
 
     // Emulator connection.
     if (local) {
-        auto emulator_connection = std::make_unique<EmulatorConnection>(std::move(fd), adb_port);
-        t->SetConnection(
-                std::make_unique<BlockingConnectionAdapter>(std::move(emulator_connection)));
         std::lock_guard<std::mutex> lock(local_transports_lock);
         atransport* existing_transport = find_emulator_transport_by_adb_port_locked(adb_port);
         if (existing_transport != nullptr) {
@@ -299,12 +300,6 @@ int init_socket_transport(atransport* t, unique_fd fd, int adb_port, int local) 
         } else {
             local_transports[adb_port] = t;
         }
-
-        return fail;
     }
-
-    // Regular tcp connection.
-    auto fd_connection = std::make_unique<FdConnection>(std::move(fd));
-    t->SetConnection(std::make_unique<BlockingConnectionAdapter>(std::move(fd_connection)));
     return fail;
 }
