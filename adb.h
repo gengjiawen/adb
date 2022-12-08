@@ -146,7 +146,9 @@ int adb_server_main(int is_daemon, const std::string& socket_spec, const char* o
                     int ack_reply_fd);
 
 /* initialize a transport object's func pointers and state */
-int init_socket_transport(atransport* t, unique_fd s, int port, int local);
+struct BlockingConnection;
+int init_socket_transport(atransport* t, std::unique_ptr<BlockingConnection> connection, int port,
+                          int local);
 
 std::string getEmulatorSerialString(int console_port);
 #if ADB_HOST
