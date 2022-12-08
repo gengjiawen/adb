@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e306d4d_a992701d",
+        "filename": "services.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-12-08T18:13:27Z",
+      "side": 1,
+      "message": "I think we should move away from #define like that and use the linker/Android.bp instead to differentiate behavior by platforms.",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 19
+      },
+      "revId": "4eed765fdd7eef38329100e312c01e185721f109",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d61abef_c093c8ef",
+        "filename": "services.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-12-08T18:13:27Z",
+      "side": 1,
+      "message": "nit: Should we put this in a new file?",
+      "range": {
+        "startLine": 145,
+        "startChar": 7,
+        "endLine": 145,
+        "endChar": 24
+      },
+      "revId": "4eed765fdd7eef38329100e312c01e185721f109",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11badb01_28d08248",
+        "filename": "services.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-12-08T18:13:27Z",
+      "side": 1,
+      "message": "Update SERVICE.TXT and document what it does. How is this different from \"exec\" service?",
+      "range": {
+        "startLine": 212,
+        "startChar": 39,
+        "endLine": 212,
+        "endChar": 46
+      },
+      "revId": "4eed765fdd7eef38329100e312c01e185721f109",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
