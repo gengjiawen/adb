@@ -16,6 +16,52 @@
       "message": "Thank you for reviewing!\nPTAL",
       "revId": "c203c2a6047f0f7e63ef4dfcc859686b5399bd67",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b30411d_ae1451ea",
+        "filename": "client/transport_local.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-12-09T17:01:22Z",
+      "side": 1,
+      "message": "I suggest to move back this code where it was (and all other move locations) to reduce the mental effort to review this CL?",
+      "range": {
+        "startLine": 151,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 2
+      },
+      "revId": "c203c2a6047f0f7e63ef4dfcc859686b5399bd67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c269c58_a17120ad",
+        "filename": "client/transport_local.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-12-09T17:01:22Z",
+      "side": 1,
+      "message": "I see this was deleted in the header. If this is not needed elsewhere, we should make it `static`.",
+      "range": {
+        "startLine": 286,
+        "startChar": 4,
+        "endLine": 286,
+        "endChar": 25
+      },
+      "revId": "c203c2a6047f0f7e63ef4dfcc859686b5399bd67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
