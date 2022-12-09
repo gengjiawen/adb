@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "715f0d21_ab1795ba",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1069219
+      },
+      "writtenOn": "2022-12-09T03:16:52Z",
+      "side": 1,
+      "message": "oops, done.",
+      "parentUuid": "4d9460f6_0f2c5d7c",
+      "range": {
+        "startLine": 7,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 22
+      },
+      "revId": "bd4dcacce37ea9d033f60a58e582f36ff1049b06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "538de506_eedaecb6",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-12-08T18:17:48Z",
       "side": 1,
       "message": "nit: `include \"transport.h\"` ?",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 26
+      },
+      "revId": "bd4dcacce37ea9d033f60a58e582f36ff1049b06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2e0c3e0_5c7a4b1b",
+        "filename": "adb.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1069219
+      },
+      "writtenOn": "2022-12-09T03:16:52Z",
+      "side": 1,
+      "message": "adb.h cannot have `#include \"transport.h\"` because tranport.h includes adb.h.\n\nI\u0027ve moved this declaration to transport.h because I see no reason to have this in adb.h.\nIt\u0027s also consistent with init_usb_transport() being declared in transport.h.",
+      "parentUuid": "538de506_eedaecb6",
       "range": {
         "startLine": 149,
         "startChar": 0,
