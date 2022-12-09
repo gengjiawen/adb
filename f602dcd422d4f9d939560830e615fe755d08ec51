@@ -1,6 +1,52 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "32f54628_6b33c9a4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-12-09T17:01:29Z",
+      "side": 1,
+      "message": "nit: Add host:connect delegate via sub-command",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 30
+      },
+      "revId": "f602dcd422d4f9d939560830e615fe755d08ec51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78a1d7b5_9227b963",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-12-09T17:01:29Z",
+      "side": 1,
+      "message": "nit: \n\nThe new remote in `host:connect:\u003cremote\u003e` connects to `adbd` via a provided sub-command. \n\nAll IO are performed via stdin and stdout of the sub-command.",
+      "range": {
+        "startLine": 9,
+        "startChar": 8,
+        "endLine": 9,
+        "endChar": 34
+      },
+      "revId": "f602dcd422d4f9d939560830e615fe755d08ec51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "07a109fd_ae6dbc1f",
@@ -14,6 +60,98 @@
       "writtenOn": "2022-12-09T05:08:23Z",
       "side": 1,
       "message": "Thank you for reviewing!\nPTAL",
+      "revId": "f602dcd422d4f9d939560830e615fe755d08ec51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71001d2b_4b1adf43",
+        "filename": "client/command_connection.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-12-09T17:01:29Z",
+      "side": 1,
+      "message": "This runs on adb server so I don\u0027t think it should be in the `client` folder.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 1
+      },
+      "revId": "f602dcd422d4f9d939560830e615fe755d08ec51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dae33e02_f768a350",
+        "filename": "client/command_connection.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-12-09T17:01:29Z",
+      "side": 1,
+      "message": "This header method needs a command. I suggest:\n\n```\n// Handle remote connection in `host:connect:\u003cremote\u003e`. Connects to `adbd` via a provided sub-command. \n// All IO are performed via stdin and stdout of the sub-command.\n```",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 20
+      },
+      "revId": "f602dcd422d4f9d939560830e615fe755d08ec51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90c4c19f_c0a79128",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-12-09T17:01:29Z",
+      "side": 1,
+      "message": "Do you mean `ADB server`?",
+      "range": {
+        "startLine": 119,
+        "startChar": 20,
+        "endLine": 119,
+        "endChar": 23
+      },
+      "revId": "f602dcd422d4f9d939560830e615fe755d08ec51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4b4d323_13b49950",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-12-09T17:01:29Z",
+      "side": 1,
+      "message": "Sorry I did not catch this earlier. We intend to move away from this super verbose `--help` output to a man page. For now please also update `packages/modules/adb/docs/user/adb.1.md` with the same explanation.",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 53
+      },
       "revId": "f602dcd422d4f9d939560830e615fe755d08ec51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
