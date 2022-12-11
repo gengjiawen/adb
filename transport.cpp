@@ -1496,8 +1496,9 @@ bool register_socket_transport(unique_fd s, std::string serial, int port, int lo
                                atransport::ReconnectCallback reconnect, bool use_tls, int* error) {
     atransport* t = new atransport(std::move(reconnect), kCsOffline);
     t->use_tls = use_tls;
+    t->serial = std::move(serial);
 
-    D("transport: %s init'ing for socket %d, on port %d", serial.c_str(), s.get(), port);
+    D("transport: %s init'ing for socket %d, on port %d", t->serial.c_str(), s.get(), port);
     if (init_socket_transport(t, std::move(s), port, local) < 0) {
         delete t;
         if (error) *error = errno;
@@ -1506,7 +1507,7 @@ bool register_socket_transport(unique_fd s, std::string serial, int port, int lo
 
     std::unique_lock<std::recursive_mutex> lock(transport_lock);
     for (const auto& transport : pending_list) {
-        if (serial == transport->serial) {
+        if (t->serial == transport->serial) {
             VLOG(TRANSPORT) << "socket transport " << transport->serial
                             << " is already in pending_list and fails to register";
             delete t;
@@ -1516,7 +1517,7 @@ bool register_socket_transport(unique_fd s, std::string serial, int port, int lo
     }
 
     for (const auto& transport : transport_list) {
-        if (serial == transport->serial) {
+        if (t->serial == transport->serial) {
             VLOG(TRANSPORT) << "socket transport " << transport->serial
                             << " is already in transport_list and fails to register";
             delete t;
@@ -1525,7 +1526,6 @@ bool register_socket_transport(unique_fd s, std::string serial, int port, int lo
         }
     }
 
-    t->serial = std::move(serial);
     pending_list.push_front(t);
 
     lock.unlock();
