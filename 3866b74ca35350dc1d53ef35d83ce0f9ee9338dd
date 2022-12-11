@@ -71,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf9feb11_44f6a64f",
+        "filename": "client/transport_local.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1511237
+      },
+      "writtenOn": "2022-12-11T20:28:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69555dbc_fe56dcc5",
+      "range": {
+        "startLine": 181,
+        "startChar": 8,
+        "endLine": 181,
+        "endChar": 15
+      },
+      "revId": "3866b74ca35350dc1d53ef35d83ce0f9ee9338dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "826ff2dd_b6948aa6",
@@ -108,6 +132,30 @@
       "side": 1,
       "message": "error :-)",
       "parentUuid": "826ff2dd_b6948aa6",
+      "range": {
+        "startLine": 212,
+        "startChar": 24,
+        "endLine": 212,
+        "endChar": 29
+      },
+      "revId": "3866b74ca35350dc1d53ef35d83ce0f9ee9338dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f3cab6a_47bd11b1",
+        "filename": "client/transport_local.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1511237
+      },
+      "writtenOn": "2022-12-11T20:28:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e99a9329_c94beb54",
       "range": {
         "startLine": 212,
         "startChar": 24,
@@ -158,6 +206,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a1b6f00_3d3d6057",
+        "filename": "client/transport_local.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1511237
+      },
+      "writtenOn": "2022-12-11T20:28:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6c6de42_9e3fbf5b",
+      "range": {
+        "startLine": 289,
+        "startChar": 8,
+        "endLine": 289,
+        "endChar": 15
+      },
+      "revId": "3866b74ca35350dc1d53ef35d83ce0f9ee9338dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "20b25be5_2ccb8b57",
@@ -171,6 +243,30 @@
       "writtenOn": "2022-12-08T18:47:03Z",
       "side": 1,
       "message": "This seems to be a refactor which is nice but would belong to another CL to preserve git history :).",
+      "range": {
+        "startLine": 1499,
+        "startChar": 0,
+        "endLine": 1499,
+        "endChar": 34
+      },
+      "revId": "3866b74ca35350dc1d53ef35d83ce0f9ee9338dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90c440f2_c8995f51",
+        "filename": "transport.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1499,
+      "author": {
+        "id": 1511237
+      },
+      "writtenOn": "2022-12-11T20:28:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20b25be5_2ccb8b57",
       "range": {
         "startLine": 1499,
         "startChar": 0,

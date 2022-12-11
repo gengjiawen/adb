@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d632dbba_29c391ac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511237
+      },
+      "writtenOn": "2022-12-11T20:28:04Z",
+      "side": 1,
+      "message": "Renamed variables and moved changes for `transport.cpp` to another CR:\nhttps://android-review.googlesource.com/c/platform/packages/modules/adb/+/2337750",
+      "revId": "5ff145314cdf7d92822881ead2c3981264582520",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
