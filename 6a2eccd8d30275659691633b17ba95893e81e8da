@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e1d747c_9eb60926",
+        "filename": "transport.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1517,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-12-13T21:56:40Z",
+      "side": 1,
+      "message": "Nit: Can we consider refactor of lines 1509-1517 (parameterize std::list\u003c\u003e*) and reuse it for lines 1519-1527?",
+      "range": {
+        "startLine": 1509,
+        "startChar": 0,
+        "endLine": 1517,
+        "endChar": 5
+      },
+      "revId": "6a2eccd8d30275659691633b17ba95893e81e8da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
