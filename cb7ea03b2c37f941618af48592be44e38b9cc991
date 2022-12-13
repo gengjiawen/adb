@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f90dfcb_99db6aec",
+        "filename": "transport.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1528,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-12-13T21:43:40Z",
+      "side": 0,
+      "message": "\u003e\u003eallows to\n\u003e\u003eparse serial string in initialization function for socket transport\n\nUnsure about what problem(or bug) we are trying to resolve(by moving the assignment/move optimistically upto line #1499)?",
+      "range": {
+        "startLine": 1528,
+        "startChar": 3,
+        "endLine": 1528,
+        "endChar": 34
+      },
+      "revId": "cb7ea03b2c37f941618af48592be44e38b9cc991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
