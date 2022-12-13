@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "baf87a39_f058d95a",
+        "filename": "client/transport_local.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1511237
+      },
+      "writtenOn": "2022-12-13T19:26:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ed8baa7_dfc0d58b",
+      "range": {
+        "startLine": 179,
+        "startChar": 7,
+        "endLine": 179,
+        "endChar": 16
+      },
+      "revId": "3866b74ca35350dc1d53ef35d83ce0f9ee9338dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "69555dbc_fe56dcc5",
@@ -179,6 +203,24 @@
       "writtenOn": "2022-12-08T23:40:22Z",
       "side": 1,
       "message": "and actually output the error here. that\u0027s why we hand it back :-)",
+      "revId": "3866b74ca35350dc1d53ef35d83ce0f9ee9338dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16259284_a96bcb8c",
+        "filename": "client/transport_local.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1511237
+      },
+      "writtenOn": "2022-12-13T19:26:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4013b859_eb65e567",
       "revId": "3866b74ca35350dc1d53ef35d83ce0f9ee9338dd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
