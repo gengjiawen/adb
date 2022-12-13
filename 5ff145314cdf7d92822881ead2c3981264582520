@@ -16,6 +16,46 @@
       "message": "Renamed variables and moved changes for `transport.cpp` to another CR:\nhttps://android-review.googlesource.com/c/platform/packages/modules/adb/+/2337750",
       "revId": "5ff145314cdf7d92822881ead2c3981264582520",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2282da84_fcee2cdd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-12-13T21:36:58Z",
+      "side": 1,
+      "message": "+1 (I don\u0027t have +2 OWNERS power).",
+      "revId": "5ff145314cdf7d92822881ead2c3981264582520",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b40366a0_ceab84b7",
+        "filename": "client/transport_local.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-12-13T21:36:58Z",
+      "side": 1,
+      "message": "I see this value generated and consumed in different places.\n\nInstead of magic number `-1` can you use a constant `noConsolePort` ?",
+      "range": {
+        "startLine": 249,
+        "startChar": 46,
+        "endLine": 249,
+        "endChar": 48
+      },
+      "revId": "5ff145314cdf7d92822881ead2c3981264582520",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
