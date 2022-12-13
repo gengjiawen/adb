@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "859de822_cf1ea630",
+        "filename": "Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-12-13T18:25:25Z",
+      "side": 1,
+      "message": "This is a weird line (shared \u003d static). What do you think of renaming to `ADBD_TEST_LIBS`",
+      "range": {
+        "startLine": 863,
+        "startChar": 4,
+        "endLine": 863,
+        "endChar": 46
+      },
+      "revId": "d7e51f8c8d92a4cd36f7f242c383e9cf5f8d1e6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
