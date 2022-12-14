@@ -252,6 +252,7 @@ static void help() {
         " $ANDROID_LOG_TAGS        tags to be used by logcat (see logcat --help)\n"
         " $ADB_LOCAL_TRANSPORT_MAX_PORT max emulator scan port (default 5585, 16 emus)\n"
         " $ADB_MDNS_AUTO_CONNECT   comma-separated list of mdns services to allow auto-connect (default adb-tls-connect)\n"
+	" $ADB_DELAYED_ACK improve performance over high-latency medium. (1 is enabled, disabled by default)\n"
     );
     // clang-format on
 }
