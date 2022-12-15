@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "607e1916_94365f23",
+        "filename": "client/usb_osx.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-12-15T01:55:09Z",
+      "side": 0,
+      "message": "(this was actually the bug i couldn\u0027t find yesterday! because the types are all `char`, we\u0027re not getting useful output here. but, yeah, we don\u0027t log anything on linux, and this hasn\u0027t been a problem there, so \"fine by me\".)",
+      "revId": "763ab7bb17e9c63b238222085e1e69552d978367",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
