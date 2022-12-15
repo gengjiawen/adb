@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd3ea3c8_34d31da9",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-12-15T01:40:15Z",
+      "side": 1,
+      "message": "ignoring the tab, i don\u0027t think we should do this for the usual reason --- \"if you\u0027re not prepared to make it the default yet...\".",
+      "revId": "b8fbf3cde7ea843db612c01efd8160b981390c05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
