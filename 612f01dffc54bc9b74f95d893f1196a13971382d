@@ -46,6 +46,30 @@
       },
       "revId": "612f01dffc54bc9b74f95d893f1196a13971382d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dba9c0da_83e9a333",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-12-15T16:18:54Z",
+      "side": 1,
+      "message": "probably the one you\u0027re _more_ familiar with --- developer.android.com!\n\n(i guess if you only ever have documentation on one, you don\u0027t need shorthands for both like we do.)\n\nmy point was that _those_ sites can act as an extra layer of indirection, if you\u0027re worried about where the actual doc might end up. (tbh though, i think \"if the doc is at all useful, _other people_ will copy the direct link around anyway\". so \"not moving it\" is just something we\u0027ll have to bear in mind.)",
+      "parentUuid": "fe2ea440_f829fed5",
+      "range": {
+        "startLine": 255,
+        "startChar": 0,
+        "endLine": 255,
+        "endChar": 1
+      },
+      "revId": "612f01dffc54bc9b74f95d893f1196a13971382d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
