@@ -128,6 +128,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b7939af_8acb5dbb",
+        "filename": "client/command_connection.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-12-15T20:02:44Z",
+      "side": 1,
+      "message": "You are right. Please disregard.",
+      "parentUuid": "ac487295_038e531c",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 1
+      },
+      "revId": "f602dcd422d4f9d939560830e615fe755d08ec51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dae33e02_f768a350",
@@ -188,6 +212,30 @@
       "side": 1,
       "message": "That\u0027s correct, and after a bit of thought I started to think this may not be a good idea in terms of security.\nThis may allow security exploits by executing arbitrary commands requested by any process which can connect to ADB\u0027s TCP port.\n\nWhat is the security model of ADB?\nIf it\u0027s too risky, I\u0027ll abandon this CL and try a different approach.",
       "parentUuid": "90c4c19f_c0a79128",
+      "range": {
+        "startLine": 119,
+        "startChar": 20,
+        "endLine": 119,
+        "endChar": 23
+      },
+      "revId": "f602dcd422d4f9d939560830e615fe755d08ec51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd30b92b_ff0a4cd8",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-12-15T20:02:44Z",
+      "side": 1,
+      "message": "Can you details the vulnerability you are thinking of?",
+      "parentUuid": "4fab993c_6cbd8274",
       "range": {
         "startLine": 119,
         "startChar": 20,
