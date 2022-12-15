@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9acc8d28_21ec6c98",
+        "filename": "client/transport_local.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1069219
+      },
+      "writtenOn": "2022-12-15T07:22:25Z",
+      "side": 1,
+      "message": "This code is moved here because EmulatorConnection needs to be declared before local_connect_arbitrary_ports().\n\nAnother way to solve this is put EmulatorConnection class definition and method definitions separately:\n```\nstruct EmulatorConnection : public FdConnection {\n    EmulatorConnection(unique_fd fd, int local_port);\n    ~EmulatorConnection();\n    \n    void Close() override;\n\n    int local_port_;\n};\n\nint local_connect_arbitrary_ports(int console_port, int adb_port, std::string* error) {\n  ...\n}\n\nEmulatorConnection::EmulatorConnection(unique_fd fd, int local_port) {\n  ...\n}\n```\n\nPlease let me know if you have any preference.",
+      "parentUuid": "8b30411d_ae1451ea",
+      "range": {
+        "startLine": 151,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 2
+      },
+      "revId": "c203c2a6047f0f7e63ef4dfcc859686b5399bd67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3c269c58_a17120ad",
         "filename": "client/transport_local.cpp",
         "patchSetId": 3
