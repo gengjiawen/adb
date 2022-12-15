@@ -52,6 +52,24 @@
       "parentUuid": "b36b4a35_c2a7c4ba",
       "revId": "8b17e446ffece59c8cb42268fa1fddafa30ae7ac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5d108c8_11c1d0a4",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-12-15T01:07:58Z",
+      "side": 1,
+      "message": "I gave some thought about including the URL in the binary and I don\u0027t think this is a good idea to include it in `--help`. Once the binary ships, this is set in stone. And I am pretty sure this URL will somehow become obsolete. Either someone will move it or someone will make us move it because of architecture/build/whatever reasons. From the git history, `adb` has moved location several times already.\n\nI would prefer that we write a man page so good that it becomes the #1 result on Google search when you query `adb man` or `adb manual`.\n\nQuestion 1/ Which other project has improved \"discoverability elsewhere in the system\" via URL? And how has this URL resisted the assault of time (are they still 200 or 404)?\n\nQuestion 2/ You comment seems to indicate you don\u0027t want the doc in the command-line output but I often want to be able to see it here. Today I ran `adb --help | grep features` because I knew the command but could not remember the difference with `host-features`. There is value in having it in command-line and value in having it in the `.md`. \n\nIf the concern is to declutter the command-line output, I have a long term plan on breaking commands down in units. Once executed, users will have to type `adb features --help` to get syntax help and `adb --help` will only return a line per category followed on the same line by the accepted commands. This should relax their jaw :) !",
+      "parentUuid": "7ea7fb02_abb9027e",
+      "revId": "8b17e446ffece59c8cb42268fa1fddafa30ae7ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
