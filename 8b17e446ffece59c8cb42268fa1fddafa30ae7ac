@@ -70,6 +70,24 @@
       "parentUuid": "7ea7fb02_abb9027e",
       "revId": "8b17e446ffece59c8cb42268fa1fddafa30ae7ac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd497da8_45e31de7",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-12-15T01:42:57Z",
+      "side": 1,
+      "message": "\u003e Question 1/ Which other project has improved \"discoverability elsewhere in the system\" via URL? And how has this URL resisted the assault of time (are they still 200 or 404)?\n\nbionic, which hasn\u0027t moved. adb\u0027s quite rare in having moved, and that\u0027s because of mainline, and if there\u0027s any similar change in future, this is likely to be the least disruptive part of it!\n\n\u003e If the concern is to declutter the command-line output, I have a long term plan on breaking commands down in units. Once executed, users will have to type adb features --help to get syntax help and adb --help will only return a line per category followed on the same line by the accepted commands. This should relax their jaw :) !\n\nsure, that sounds like a good idea (and fits well with the general \"let\u0027s have some real, consistent argument parsing rather than the current ad hoc mess\") ... but let\u0027s fix that _first_!",
+      "parentUuid": "f5d108c8_11c1d0a4",
+      "revId": "8b17e446ffece59c8cb42268fa1fddafa30ae7ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
