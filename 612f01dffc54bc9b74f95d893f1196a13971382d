@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf4eba41_16e0e545",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-12-15T02:21:10Z",
+      "side": 1,
+      "message": "tabs.\n\n(btw, i did take your point about links... i don\u0027t think it would be unreasonable to link to s.a.c or d.a.c instead -- which get rearranged regularly, but which let you leave redirects -- and have _that_ link to the md file? i think either\u0027s fine by me though...)",
+      "range": {
+        "startLine": 255,
+        "startChar": 0,
+        "endLine": 255,
+        "endChar": 1
+      },
+      "revId": "612f01dffc54bc9b74f95d893f1196a13971382d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
