@@ -64,6 +64,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc937a47_479c878c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1069219
+      },
+      "writtenOn": "2022-12-15T07:32:08Z",
+      "side": 1,
+      "message": "Thank you for reviewing!\n\nI came up with a question regarding the security model of ADB.\nPlease see my commment in client/commandline.cpp.",
+      "revId": "f602dcd422d4f9d939560830e615fe755d08ec51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "71001d2b_4b1adf43",
@@ -77,6 +94,30 @@
       "writtenOn": "2022-12-09T17:01:29Z",
       "side": 1,
       "message": "This runs on adb server so I don\u0027t think it should be in the `client` folder.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 1
+      },
+      "revId": "f602dcd422d4f9d939560830e615fe755d08ec51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac487295_038e531c",
+        "filename": "client/command_connection.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1069219
+      },
+      "writtenOn": "2022-12-15T07:32:08Z",
+      "side": 1,
+      "message": "pacakges/modules/adb/README.md says the client and the server are contained in the same executable, and looking at Android.bp, libadb_host and adb are built using code under client/.\n\nIIUC client/ is where we put the server code (e.g. usb_linux.cpp)",
+      "parentUuid": "71001d2b_4b1adf43",
       "range": {
         "startLine": 1,
         "startChar": 0,
@@ -123,6 +164,30 @@
       "writtenOn": "2022-12-09T17:01:29Z",
       "side": 1,
       "message": "Do you mean `ADB server`?",
+      "range": {
+        "startLine": 119,
+        "startChar": 20,
+        "endLine": 119,
+        "endChar": 23
+      },
+      "revId": "f602dcd422d4f9d939560830e615fe755d08ec51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fab993c_6cbd8274",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1069219
+      },
+      "writtenOn": "2022-12-15T07:32:08Z",
+      "side": 1,
+      "message": "That\u0027s correct, and after a bit of thought I started to think this may not be a good idea in terms of security.\nThis may allow security exploits by executing arbitrary commands requested by any process which can connect to ADB\u0027s TCP port.\n\nWhat is the security model of ADB?\nIf it\u0027s too risky, I\u0027ll abandon this CL and try a different approach.",
+      "parentUuid": "90c4c19f_c0a79128",
       "range": {
         "startLine": 119,
         "startChar": 20,
