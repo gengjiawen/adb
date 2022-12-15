@@ -88,6 +88,24 @@
       "parentUuid": "f5d108c8_11c1d0a4",
       "revId": "8b17e446ffece59c8cb42268fa1fddafa30ae7ac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c29983a1_a2b48b26",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-12-15T02:17:04Z",
+      "side": 1,
+      "message": "Done in asop/2357382",
+      "parentUuid": "dd497da8_45e31de7",
+      "revId": "8b17e446ffece59c8cb42268fa1fddafa30ae7ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
