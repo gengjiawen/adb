@@ -16,6 +16,24 @@
       "message": "(this was actually the bug i couldn\u0027t find yesterday! because the types are all `char`, we\u0027re not getting useful output here. but, yeah, we don\u0027t log anything on linux, and this hasn\u0027t been a problem there, so \"fine by me\".)",
       "revId": "763ab7bb17e9c63b238222085e1e69552d978367",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ced8eca0_7d8a077a",
+        "filename": "client/usb_osx.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-12-15T02:18:14Z",
+      "side": 0,
+      "message": "yes, I figured this was what you meant (in retrospect).",
+      "parentUuid": "607e1916_94365f23",
+      "revId": "763ab7bb17e9c63b238222085e1e69552d978367",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
