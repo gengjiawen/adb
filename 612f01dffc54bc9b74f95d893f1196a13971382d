@@ -22,6 +22,30 @@
       },
       "revId": "612f01dffc54bc9b74f95d893f1196a13971382d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe2ea440_f829fed5",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-12-15T02:33:24Z",
+      "side": 1,
+      "message": "Done for tabs.\n\nI am not used to the `s.a.c` and `d.a.c` acronyms. I assume you mean `source.android.com` but I cannot figure out the other one.\n\nHow would be synchronize the source of truth,`.md`, and `s/d.a.c`?",
+      "parentUuid": "cf4eba41_16e0e545",
+      "range": {
+        "startLine": 255,
+        "startChar": 0,
+        "endLine": 255,
+        "endChar": 1
+      },
+      "revId": "612f01dffc54bc9b74f95d893f1196a13971382d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
