@@ -94,6 +94,30 @@
       },
       "revId": "612f01dffc54bc9b74f95d893f1196a13971382d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "805af4de_c98a2836",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-12-16T00:39:07Z",
+      "side": 1,
+      "message": "oh, i didn\u0027t mean we\u0027d have a \"direct redirect\" (in the sense of a url that just goes straight to gittiles) --- i meant something like https://developer.android.com/ndk/guides/simpleperf that links to the \"real\" docs in source control.\n\nbut to be clear, i only mention _any_ of this because _you_ were concerned --- personally i\u0027d just go with the direct url to gittiles until/unless that causes us problems. (we already don\u0027t support anything but the latest adb anyway, so having the docs link 404 is just another hint it\u0027s time to upgrade :-) )",
+      "parentUuid": "999db2c9_54e0dc7d",
+      "range": {
+        "startLine": 255,
+        "startChar": 0,
+        "endLine": 255,
+        "endChar": 1
+      },
+      "revId": "612f01dffc54bc9b74f95d893f1196a13971382d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
