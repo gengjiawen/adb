@@ -248,6 +248,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "794cfe74_a8f30077",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1069219
+      },
+      "writtenOn": "2022-12-16T10:41:59Z",
+      "side": 1,
+      "message": "What I\u0027m thinking of is:\n 1. User A and B share the same desktop computer.\n 2. User A starts an ADB server on the computer. It runs with User A\u0027s UID.\n 3. User B uses the same computer via SSH.\n 4. User B launches a process which connects to the ADB server\u0027s TCP port, and sends a command to the ADB server process. [ \u003c\u003d I\u0027m not sure if this is allowed in the current security model of ADB. Is it?]\n 5. The ADB server process executes the command requested by User B as User A. This allows User B to do anything as User A (e.g. browsing User A\u0027s private data, or performing network IO as User A).\n \nAnother possible exploit is:\n 1. User A starts an ADB server.\n 2. User A runs Chrome and for some reason accesses a malicious web site.\n 3. The malicious web site compromises the renderer process of Chrome using some kind of vulnerability in the JavaScript engine. Now the malicious web site can execute any code as the renderer process.\n 4. Chrome\u0027s renderer process runs in a sandbox, it cannot execute arbitrary commands even if compromised. However, it can connect to the ADB server\u0027s TCP port instead. [ \u003c\u003d Is this possible with the current security model of ADB?]\n 5. The malicious web site executes arbitrary command through the ADB server process to escape the sandbox.",
+      "parentUuid": "cd30b92b_ff0a4cd8",
+      "range": {
+        "startLine": 119,
+        "startChar": 20,
+        "endLine": 119,
+        "endChar": 23
+      },
+      "revId": "f602dcd422d4f9d939560830e615fe755d08ec51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e4b4d323_13b49950",
         "filename": "client/commandline.cpp",
         "patchSetId": 4
