@@ -49,11 +49,12 @@ static inline void* mempcpy(void* dst, const void* src, size_t n) {
 }
 #endif
 
-#ifdef _WIN32
-
-// Clang-only nullability specifiers
+#ifndef __clang__
 #define _Nonnull
 #define _Nullable
+#endif
+
+#ifdef _WIN32
 
 #include <ctype.h>
 #include <direct.h>
