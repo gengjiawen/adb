@@ -118,6 +118,30 @@
       },
       "revId": "612f01dffc54bc9b74f95d893f1196a13971382d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c9e968e_1775cc10",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-12-17T00:28:16Z",
+      "side": 1,
+      "message": "Gotcha. Will submit upon +2 as is.",
+      "parentUuid": "805af4de_c98a2836",
+      "range": {
+        "startLine": 255,
+        "startChar": 0,
+        "endLine": 255,
+        "endChar": 1
+      },
+      "revId": "612f01dffc54bc9b74f95d893f1196a13971382d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
