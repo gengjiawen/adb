@@ -35,6 +35,10 @@
 #define ADB_SECURE_SERVICE_VERSION 1
 #define ADB_SECURE_CLIENT_VERSION ADB_SECURE_SERVICE_VERSION
 
+#ifndef __clang__
+#define _Nonnull
+#endif
+
 constexpr int kADBTransportServiceRefIndex = 0;
 constexpr int kADBSecurePairingServiceRefIndex = 1;
 constexpr int kADBSecureConnectServiceRefIndex = 2;
