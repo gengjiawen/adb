@@ -396,19 +396,32 @@ static std::unique_ptr<usb_handle> CheckInterface(IOUSBInterfaceInterface550** i
 
     //* Iterate over the endpoints for this interface and find the first
     //* bulk in/out pipes available.  These will be our read/write pipes.
-    for (endpoint = 1; endpoint <= interfaceNumEndpoints; endpoint++) {
+    for (endpoint = 1; endpoint <= interfaceNumEndpoints; ++endpoint) {
         UInt8   transferType;
-        UInt16  maxPacketSize;
+        UInt16  maxPacketSize = 0;
         UInt8   interval;
+
+        // Attempt to retrieve the 'true' packet-size from supported interface.
+        kr = (*interface)
+                 ->GetEndpointProperties(interface, 0, endpoint,
+                    kUSBOut,
+                                       &transferType,
+                                       &maxPacketSize, &interval);
+        if (kr == kIOReturnSuccess) {
+            CHECK_NE(0, maxPacketSize);
+        }
+
+        UInt16  maxPacketSizeLegacy;
         UInt8   number;
         UInt8   direction;
         UInt8 maxBurst;
         UInt8 mult;
         UInt16 bytesPerInterval;
 
-        kr = (*interface)
-                 ->GetPipePropertiesV2(interface, endpoint, &direction, &number, &transferType,
-                                       &maxPacketSize, &interval, &maxBurst, &mult,
+        // Proceed with extracting the transfer direction, so we can fill in the 
+        // appropriate fields (bulkIn or bulkOut).
+        kr = (*interface)->GetPipePropertiesV2(interface, endpoint, &direction, &number, &transferType,
+                                       &maxPacketSizeLegacy, &interval, &maxBurst, &mult,
                                        &bytesPerInterval);
         if (kr != kIOReturnSuccess) {
             LOG(ERROR) << "FindDeviceInterface - could not get pipe properties: "
@@ -434,9 +447,11 @@ static std::unique_ptr<usb_handle> CheckInterface(IOUSBInterfaceInterface550** i
             }
         }
 
-        if (maxBurst != 0)
+        // Compute the packet-size, in case the system did not return the correct value.
+        if (maxPacketSize == 0 && maxBurst != 0) {
             // bMaxBurst is the number of additional packets in the burst.
-            maxPacketSize /= (maxBurst + 1);
+            maxPacketSize = maxPacketSizeLegacy / (maxBurst + 1);
+        }
 
         // mult is only relevant for isochronous endpoints.
         CHECK_EQ(0, mult);
