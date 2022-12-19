@@ -33,6 +33,24 @@
       "message": "The bug report comment # mentions that we may have similar issues in linux and windows. Did you get a chance to investigate these platforms are well?",
       "revId": "b50c0cb78cefbc13e63e4bdd62f8049598a3ce41",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca871756_fdab2bcf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-12-19T22:09:53Z",
+      "side": 1,
+      "message": "Although enh@ commented that we have similar logic (on other platforms), the actual issue appears to be isolated to interaction with the adb server running on OSX (specifically Big Sur, which I am yet to test on - my testing has been limited to Monterey.. so far).\nSee https://b.corp.google.com/issues/208675141#comment5",
+      "parentUuid": "12f678ff_917d4dcd",
+      "revId": "b50c0cb78cefbc13e63e4bdd62f8049598a3ce41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
