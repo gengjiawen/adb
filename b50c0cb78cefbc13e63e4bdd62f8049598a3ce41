@@ -16,6 +16,23 @@
       "message": "Will move enh@ to the reviewer list once he\u0027s back from vacation.",
       "revId": "b50c0cb78cefbc13e63e4bdd62f8049598a3ce41",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12f678ff_917d4dcd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-12-19T21:41:21Z",
+      "side": 1,
+      "message": "The bug report comment # mentions that we may have similar issues in linux and windows. Did you get a chance to investigate these platforms are well?",
+      "revId": "b50c0cb78cefbc13e63e4bdd62f8049598a3ce41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
