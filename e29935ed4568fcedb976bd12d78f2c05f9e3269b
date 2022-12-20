@@ -80,6 +80,30 @@
       },
       "revId": "e29935ed4568fcedb976bd12d78f2c05f9e3269b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1526d5d_b319b119",
+        "filename": "Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 822,
+      "author": {
+        "id": 1514900
+      },
+      "writtenOn": "2022-12-20T00:05:08Z",
+      "side": 1,
+      "message": "Yep let\u0027s merge this, feel free to follow up separately.",
+      "parentUuid": "71f9cd57_aeb0564e",
+      "range": {
+        "startLine": 822,
+        "startChar": 4,
+        "endLine": 822,
+        "endChar": 21
+      },
+      "revId": "e29935ed4568fcedb976bd12d78f2c05f9e3269b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
