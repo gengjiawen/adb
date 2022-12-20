@@ -76,6 +76,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "882a63bc_318fca5f",
+        "filename": "client/usb_osx.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-12-20T05:23:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "578969f8_ada63c5e",
+      "range": {
+        "startLine": 401,
+        "startChar": 16,
+        "endLine": 401,
+        "endChar": 29
+      },
+      "revId": "b50c0cb78cefbc13e63e4bdd62f8049598a3ce41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ad7a5708_22576873",
@@ -89,6 +113,30 @@
       "writtenOn": "2022-12-19T22:33:40Z",
       "side": 1,
       "message": "nit: pipePointMaxPacketSize",
+      "range": {
+        "startLine": 414,
+        "startChar": 16,
+        "endLine": 414,
+        "endChar": 35
+      },
+      "revId": "b50c0cb78cefbc13e63e4bdd62f8049598a3ce41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6947d57f_cf144c1f",
+        "filename": "client/usb_osx.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-12-20T05:23:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad7a5708_22576873",
       "range": {
         "startLine": 414,
         "startChar": 16,
