@@ -46,6 +46,7 @@
 #include <scoped_minijail.h>
 
 #include <private/android_filesystem_config.h>
+#include "daemon/jdwp_service.h"
 #include "selinux/android.h"
 #endif
 
