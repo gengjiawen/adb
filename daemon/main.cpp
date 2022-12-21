@@ -169,6 +169,8 @@ static void drop_privileges(int server_port) {
 }
 #endif
 
+#include "daemon/jdwp_service.h"
+
 static void setup_adb(const std::vector<std::string>& addrs) {
 #if defined(__ANDROID__)
     // Get the first valid port from addrs and setup mDNS.
