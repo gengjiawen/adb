@@ -22,6 +22,30 @@
       },
       "revId": "3331d8992a009a6a2549fa926056d5f1d1f4213a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8bcfbfe_ba8d2090",
+        "filename": "daemon/jdwp_service.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-12-28T00:27:07Z",
+      "side": 1,
+      "message": "Yes, we need it for asocket.",
+      "parentUuid": "8cf6851b_e9c2c75d",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 18
+      },
+      "revId": "3331d8992a009a6a2549fa926056d5f1d1f4213a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
