@@ -46,6 +46,30 @@
       },
       "revId": "3331d8992a009a6a2549fa926056d5f1d1f4213a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5200d73c_9628d10a",
+        "filename": "daemon/jdwp_service.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-12-28T01:42:55Z",
+      "side": 1,
+      "message": "Forward declaration would suffice (if at all, and applicable to both the header includes) - in the interest of compilation times.",
+      "parentUuid": "d8bcfbfe_ba8d2090",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 18
+      },
+      "revId": "3331d8992a009a6a2549fa926056d5f1d1f4213a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
