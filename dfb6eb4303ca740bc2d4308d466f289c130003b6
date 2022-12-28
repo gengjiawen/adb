@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2eee5d66_95a683bb",
+        "filename": "Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-12-28T21:31:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7030b7aa_fb12abf4",
+      "range": {
+        "startLine": 848,
+        "startChar": 0,
+        "endLine": 853,
+        "endChar": 6
+      },
+      "revId": "dfb6eb4303ca740bc2d4308d466f289c130003b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c3e784e2_3c60a07c",
@@ -37,6 +61,24 @@
       "writtenOn": "2022-12-07T20:04:22Z",
       "side": 1,
       "message": "Library, doesn\u0027t need these.",
+      "revId": "dfb6eb4303ca740bc2d4308d466f289c130003b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4a1b66e_8fa5d714",
+        "filename": "Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 951,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-12-28T21:31:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3e784e2_3c60a07c",
       "revId": "dfb6eb4303ca740bc2d4308d466f289c130003b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -58,6 +100,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e00734c_82daaf28",
+        "filename": "crypto/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-12-28T21:31:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ec04a41_970e67b6",
+      "revId": "dfb6eb4303ca740bc2d4308d466f289c130003b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "51872ff4_e79623d2",
@@ -71,6 +131,24 @@
       "writtenOn": "2022-12-07T20:04:22Z",
       "side": 1,
       "message": "The `windows` clause already applies this to both windows_x86 and windows_x86_64.",
+      "revId": "dfb6eb4303ca740bc2d4308d466f289c130003b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa9ef66d_32b917b3",
+        "filename": "crypto/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-12-28T21:31:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51872ff4_e79623d2",
       "revId": "dfb6eb4303ca740bc2d4308d466f289c130003b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -92,6 +170,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e3f37e3_b1d1c89c",
+        "filename": "crypto/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-12-28T21:31:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc211334_681231f5",
+      "revId": "dfb6eb4303ca740bc2d4308d466f289c130003b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f89f8f23_6be7bbd9",
@@ -105,6 +201,24 @@
       "writtenOn": "2022-12-07T20:04:22Z",
       "side": 1,
       "message": "Library, compile_multilib and suffix are unnecessary.",
+      "revId": "dfb6eb4303ca740bc2d4308d466f289c130003b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff4217ba_5f5d9100",
+        "filename": "crypto/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-12-28T21:31:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f89f8f23_6be7bbd9",
       "revId": "dfb6eb4303ca740bc2d4308d466f289c130003b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -126,6 +240,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "47c63834_47f7bbb5",
+        "filename": "pairing_connection/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-12-28T21:31:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc9fae6a_9b0ceea1",
+      "revId": "dfb6eb4303ca740bc2d4308d466f289c130003b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9de267a5_a545b0d1",
@@ -139,6 +271,24 @@
       "writtenOn": "2022-12-07T20:04:22Z",
       "side": 1,
       "message": "These are all libraries, compile_multilib and suffix are unnecessary.",
+      "revId": "dfb6eb4303ca740bc2d4308d466f289c130003b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "647b0fea_64e558ad",
+        "filename": "tls/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-12-28T21:31:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9de267a5_a545b0d1",
       "revId": "dfb6eb4303ca740bc2d4308d466f289c130003b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
