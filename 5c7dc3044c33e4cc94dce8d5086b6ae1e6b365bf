@@ -16,6 +16,24 @@
       "message": "You can\u0027t just replace `windows`-\u003e`windows_x86`, `enabled` and `srcs` still need to be in `windows` to apply to both x86 and x86_64.  Only `shared_libs` should move to a `windows_x86` clause.",
       "revId": "5c7dc3044c33e4cc94dce8d5086b6ae1e6b365bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60e8a77e_28e7442f",
+        "filename": "Android.bp",
+        "patchSetId": 11
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2022-12-29T07:17:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8644963_e20ac283",
+      "revId": "5c7dc3044c33e4cc94dce8d5086b6ae1e6b365bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
