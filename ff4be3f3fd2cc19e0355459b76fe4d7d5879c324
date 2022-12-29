@@ -94,6 +94,30 @@
       },
       "revId": "ff4be3f3fd2cc19e0355459b76fe4d7d5879c324",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "252f7eaf_4ce460e6",
+        "filename": "Android.bp",
+        "patchSetId": 12
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2022-12-29T23:13:02Z",
+      "side": 1,
+      "message": "That file is for AdbUsbApi.dll.  You\u0027ll probably need an `#ifdef` around it to only use it on x86, and then replace all the calls into AdbUsbApi.dll with whatever you\u0027ll be using instead on x86_64.  Or maybe move `usb_windows.cpp` into `srcs` only on `windows_x86`, and add a new `usb_windows64.cpp` in `srcs` on `windows_x86_64` to implement whatever the USB stack on windows 64 will be.",
+      "parentUuid": "ad095f43_f6720df5",
+      "range": {
+        "startLine": 501,
+        "startChar": 12,
+        "endLine": 503,
+        "endChar": 14
+      },
+      "revId": "ff4be3f3fd2cc19e0355459b76fe4d7d5879c324",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
