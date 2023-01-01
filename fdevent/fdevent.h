@@ -107,11 +107,15 @@ struct fdevent_context {
     // terminate_loop_ to determine whether to stop.
     virtual void Loop() = 0;
 
-    // Assert that the caller is either running on the context's main thread, or that there is no
-    // active main thread.
-    void CheckMainThread();
+    // Assert that the caller is executing on the event-thread (thread that
+    // invoked Loop()).
+    void CheckLooperThread() const;
 
-    // Queue an operation to be run on the main thread.
+    // If there is an active looper thread, assert that the current invocation
+    // is *not* on that context.
+    void CheckNotLooperThread() const;
+
+    // Queue an operation to be run on the looper thread.
     void Run(std::function<void()> fn);
 
     // Test-only functionality:
@@ -122,7 +126,7 @@ struct fdevent_context {
     // Interrupt the run loop.
     virtual void Interrupt() = 0;
 
-    std::optional<uint64_t> main_thread_id_ = std::nullopt;
+    std::optional<uint64_t> looper_thread_id_ = std::nullopt;
     std::atomic<bool> terminate_loop_ = false;
 
   protected:
@@ -146,14 +150,18 @@ void fdevent_add(fdevent *fde, unsigned events);
 void fdevent_del(fdevent *fde, unsigned events);
 void fdevent_set_timeout(fdevent* fde, std::optional<std::chrono::milliseconds> timeout);
 void fdevent_loop();
-void check_main_thread();
+void check_looper_thread();
+void check_not_looper_thread();
 
-// Queue an operation to run on the main thread.
-void fdevent_run_on_main_thread(std::function<void()> fn);
+// Queue an operation to run on the main/event thread.
+void fdevent_run_on_looper_thread(std::function<void()> fn);
 
 // The following functions are used only for tests.
 void fdevent_terminate_loop();
 size_t fdevent_installed_count();
 void fdevent_reset();
+
+void AssertMainThread();
+void AssertNotMainThread();
 
 #endif
