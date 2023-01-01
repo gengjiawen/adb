@@ -61,7 +61,9 @@ std::string dump_fde(const fdevent* fde) {
 }
 
 fdevent* fdevent_context::Create(unique_fd fd, std::variant<fd_func, fd_func2> func, void* arg) {
-    CheckMainThread();
+    CheckLooperThread();  // Caller is expected to already have initialized the
+                          // looper thread instance variable.
+
     CHECK_GE(fd.get(), 0);
 
     int fd_num = fd.get();
@@ -87,7 +89,8 @@ fdevent* fdevent_context::Create(unique_fd fd, std::variant<fd_func, fd_func2> f
 }
 
 unique_fd fdevent_context::Destroy(fdevent* fde) {
-    CheckMainThread();
+    CheckLooperThread();  // Caller thread is expected to have already
+                          // initialized the looper thread instance variable.
     if (!fde) {
         return {};
     }
@@ -113,7 +116,8 @@ void fdevent_context::Del(fdevent* fde, unsigned events) {
 }
 
 void fdevent_context::SetTimeout(fdevent* fde, std::optional<std::chrono::milliseconds> timeout) {
-    CheckMainThread();
+    CheckLooperThread();  // Caller thread is expected to have already
+                          // initialized the looper thread instance variable.
     fde->timeout = timeout;
     fde->last_active = std::chrono::steady_clock::now();
 }
@@ -121,7 +125,10 @@ void fdevent_context::SetTimeout(fdevent* fde, std::optional<std::chrono::millis
 std::optional<std::chrono::milliseconds> fdevent_context::CalculatePollDuration() {
     std::optional<std::chrono::milliseconds> result = std::nullopt;
     auto now = std::chrono::steady_clock::now();
-    CheckMainThread();
+
+    if (looper_thread_id_) {
+        CheckLooperThread();
+    }
 
     for (const auto& [fd, fde] : this->installed_fdevents_) {
         UNUSED(fd);
@@ -168,10 +175,12 @@ void fdevent_context::FlushRunQueue() {
     }
 }
 
-void fdevent_context::CheckMainThread() {
-    if (main_thread_id_) {
-        CHECK_EQ(*main_thread_id_, android::base::GetThreadId());
-    }
+void fdevent_context::CheckLooperThread() const {
+    CHECK_EQ(*looper_thread_id_, android::base::GetThreadId());
+}
+
+void fdevent_context::CheckNotLooperThread() const {
+    CHECK_NE(*looper_thread_id_, android::base::GetThreadId());
 }
 
 void fdevent_context::Run(std::function<void()> fn) {
@@ -239,7 +248,7 @@ void fdevent_set_timeout(fdevent* fde, std::optional<std::chrono::milliseconds> 
     fdevent_get_ambient()->SetTimeout(fde, timeout);
 }
 
-void fdevent_run_on_main_thread(std::function<void()> fn) {
+void fdevent_run_on_looper_thread(std::function<void()> fn) {
     fdevent_get_ambient()->Run(std::move(fn));
 }
 
@@ -247,8 +256,14 @@ void fdevent_loop() {
     fdevent_get_ambient()->Loop();
 }
 
-void check_main_thread() {
-    fdevent_get_ambient()->CheckMainThread();
+void check_looper_thread() {
+    if (fdevent_get_ambient()->looper_thread_id()) {
+        fdevent_get_ambient()->CheckLooperThread();
+    }
+}
+
+void check_not_looper_thread() {
+    fdevent_get_ambient()->CheckNotLooperThread();
 }
 
 void fdevent_terminate_loop() {
