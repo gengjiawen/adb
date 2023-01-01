@@ -16,11 +16,8 @@
 
 #include "fdevent.h"
 
+#include <android-base/threads.h>
 #include <gtest/gtest.h>
-
-#ifdef ADB_LINUX
-#include <sys/syscall.h>
-#endif
 
 #include <unistd.h>
 #include <chrono>
@@ -203,29 +200,31 @@ TEST_F(FdeventTest, run_on_main_thread) {
     }
 }
 
+// 'main' thread is: whatever thread invoked Loop().
+void AssertMainThread() {
+    CHECK_EQ(android::base::GetThreadId(), static_cast<uint64_t>(getpid()));
+}
+
+// See comment above for definition of the 'main' thread.
+void AssertNotMainThread() {
+    CHECK_NE(android::base::GetThreadId(), static_cast<uint64_t>(getpid()));
+}
+
 // Primary thread(initial invocation), secondary thread (subsequent
 // invocations).
 static std::function<void()> make_appender(std::vector<int>* vec, int invocation_id) {
-#ifdef ADB_LINUX
     // Validate reentrancy
     if (invocation_id == 0) {  // Primary thread
-        CHECK_EQ(static_cast<long int>(syscall(SYS_gettid)), static_cast<long int>(getpid()));
+        AssertMainThread();
     } else {  // Secondary thread
-        CHECK_NE(static_cast<long int>(syscall(SYS_gettid)), static_cast<long int>(getpid()));
+        AssertNotMainThread();
     }
-#endif
     return [vec, invocation_id]() {
-        check_main_thread();
+        AssertNotMainThread();
         if (invocation_id == 100) {
-#ifdef ADB_LINUX
-            CHECK_NE(static_cast<long int>(syscall(SYS_gettid)), static_cast<long int>(getpid()));
-#endif
             return;
         }
 
-#ifdef ADB_LINUX
-        CHECK_NE(static_cast<long int>(syscall(SYS_gettid)), static_cast<long int>(getpid()));
-#endif
         vec->push_back(invocation_id);
         fdevent_run_on_main_thread(make_appender(vec, invocation_id + 1));
 
@@ -237,9 +236,7 @@ TEST_F(FdeventTest, run_on_main_thread_reentrant) {
     std::vector<int> vec;
 
     PrepareThread();
-#ifdef ADB_LINUX
-    CHECK_EQ(static_cast<long int>(syscall(SYS_gettid)), static_cast<long int>(getpid()));
-#endif
+    AssertMainThread();
     fdevent_run_on_main_thread(make_appender(&vec, 0));
     TerminateThread();
     ASSERT_EQ(100u, vec.size());
