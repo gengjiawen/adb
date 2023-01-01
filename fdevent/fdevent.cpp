@@ -174,6 +174,12 @@ void fdevent_context::CheckMainThread() {
     }
 }
 
+void fdevent_context::CheckNotMainThread() {
+    if (main_thread_id_) {
+        CHECK_NE(*main_thread_id_, android::base::GetThreadId());
+    }
+}
+
 void fdevent_context::Run(std::function<void()> fn) {
     {
         std::lock_guard<std::mutex> lock(run_queue_mutex_);
@@ -249,6 +255,10 @@ void fdevent_loop() {
 
 void check_main_thread() {
     fdevent_get_ambient()->CheckMainThread();
+}
+
+void check_not_main_thread() {
+    fdevent_get_ambient()->CheckNotMainThread();
 }
 
 void fdevent_terminate_loop() {

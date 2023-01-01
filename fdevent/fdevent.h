@@ -111,6 +111,10 @@ struct fdevent_context {
     // active main thread.
     void CheckMainThread();
 
+    // If there is an active main thread, assert that the caller is *not* running in the context's
+    // main thread
+    void CheckNotMainThread();
+
     // Queue an operation to be run on the main thread.
     void Run(std::function<void()> fn);
 
@@ -147,6 +151,7 @@ void fdevent_del(fdevent *fde, unsigned events);
 void fdevent_set_timeout(fdevent* fde, std::optional<std::chrono::milliseconds> timeout);
 void fdevent_loop();
 void check_main_thread();
+void check_not_main_thread();
 
 // Queue an operation to run on the main thread.
 void fdevent_run_on_main_thread(std::function<void()> fn);
