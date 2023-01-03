@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6795aa8f_6d731e0b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-03T16:39:32Z",
+      "side": 1,
+      "message": "@enh@google.com Did not meant to merge this (prior to your review)! Please review, and I shall rework this (and add a WANT_LGTM next time).",
+      "revId": "659de54d38e08ea74b9a122b24221b58128f0ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
