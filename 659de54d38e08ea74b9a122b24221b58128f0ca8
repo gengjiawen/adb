@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "20c11c5d_efaebc41",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-03T23:53:01Z",
+      "side": 1,
+      "message": "(btw, it would have been a good idea to paste the URL into the bug, so the reporter who suggested this API could take a look...)",
+      "revId": "659de54d38e08ea74b9a122b24221b58128f0ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "faf4aefe_04dbad95",
@@ -49,6 +66,24 @@
       "side": 1,
       "message": "yes - for certain endpoint (index 0, IIRC) GetEndpointProperties() fails, so this filters out that scenario.",
       "parentUuid": "faf4aefe_04dbad95",
+      "revId": "659de54d38e08ea74b9a122b24221b58128f0ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ec26f8d_0918d1d0",
+        "filename": "client/usb_osx.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-03T23:53:01Z",
+      "side": 1,
+      "message": "but you\u0027re iterating from 1, not 0?",
+      "parentUuid": "11b96115_ebaf8da6",
       "revId": "659de54d38e08ea74b9a122b24221b58128f0ca8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
