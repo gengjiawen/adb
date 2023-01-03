@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47a23a77_6a6ba523",
+        "filename": "fdevent/fdevent.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-01-03T19:18:21Z",
+      "side": 1,
+      "message": "1/ Did `@enh` meant to create an assert instead `assertNotMainThread`? I am not sure we need augment the API when we could use `!CheckMainThread`. \n\n2/ I don\u0027t think `MainThread` is a good name. It should be `FDEventThread`.",
+      "range": {
+        "startLine": 116,
+        "startChar": 4,
+        "endLine": 116,
+        "endChar": 30
+      },
+      "revId": "0f7b1f9bae5bda435f6e142ae8d7d2b952ab4a08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
