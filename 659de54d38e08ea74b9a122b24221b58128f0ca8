@@ -33,6 +33,24 @@
       "message": "do you actually need this code with GetEndpointProperties()? did you see endPointMaxPacketSize \u003d\u003d 0 in practice?",
       "revId": "659de54d38e08ea74b9a122b24221b58128f0ca8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11b96115_ebaf8da6",
+        "filename": "client/usb_osx.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-03T23:51:39Z",
+      "side": 1,
+      "message": "yes - for certain endpoint (index 0, IIRC) GetEndpointProperties() fails, so this filters out that scenario.",
+      "parentUuid": "faf4aefe_04dbad95",
+      "revId": "659de54d38e08ea74b9a122b24221b58128f0ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
