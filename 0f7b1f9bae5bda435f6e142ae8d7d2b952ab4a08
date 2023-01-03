@@ -22,6 +22,30 @@
       },
       "revId": "0f7b1f9bae5bda435f6e142ae8d7d2b952ab4a08",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db515e5b_aeaa61da",
+        "filename": "fdevent/fdevent.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-03T21:59:32Z",
+      "side": 1,
+      "message": "yeah, since this is only needed in the test, i don\u0027t think we want new API. (though splitting CheckMainThread() into IsEventThread() and AssertEventThread() might be worthwhile.)\n\nit\u0027s unclear to me why these are member functions *and* free functions... ah, because there can be multiple fdevent_contexts, each on different threads. (!) is that a feature or a bug?\n\n(but, yeah, i wasn\u0027t planning on opening this whole can of worms in the original code review --- i literally just meant \"don\u0027t copy \u0026 paste this 10 times in the test; give the CHECK() a name in the test\"!)",
+      "parentUuid": "47a23a77_6a6ba523",
+      "range": {
+        "startLine": 116,
+        "startChar": 4,
+        "endLine": 116,
+        "endChar": 30
+      },
+      "revId": "0f7b1f9bae5bda435f6e142ae8d7d2b952ab4a08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
