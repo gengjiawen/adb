@@ -52,6 +52,24 @@
       "parentUuid": "895aa6c2_dcb67971",
       "revId": "2793e738bf1d21e7fe7a743e21b1c8235e3a9460",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46755085_3fba7a16",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-03T22:51:22Z",
+      "side": 1,
+      "message": "yes, but _that\u0027s_ the real bug here --- i\u0027d +2 a change that _removed_ that cruft :-)\n\n(it took us longer to move mingw builds over to clang than the rest of the platform. that #ifdef should really have been checking for _clang_, and should have been removed when we finally switched over.)",
+      "parentUuid": "a8c0662b_9ee0c19b",
+      "revId": "2793e738bf1d21e7fe7a743e21b1c8235e3a9460",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
