@@ -93,6 +93,30 @@
       },
       "revId": "0f7b1f9bae5bda435f6e142ae8d7d2b952ab4a08",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "780c91b6_7293b63c",
+        "filename": "fdevent/fdevent.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-04T02:10:03Z",
+      "side": 1,
+      "message": "\u003e https://source.corp.google.com/android/packages/modules/adb/fdevent/fdevent_epoll.cpp;l\u003d108 : I believe the entry into this Loop() is the primary thread (aka main thread, or the default thread on which the process runs). Am I missing something here?\n\nit\u0027s not though, right? it\u0027s \"whatever thread called Loop()\". and that\u0027s all this function checks:\n```\n        CHECK_EQ(*main_thread_id_, android::base::GetThreadId());\n```\nthat _may_ be the main thread, but it may not.\n\n(like i said in my comment, it also seems like you can have _multiple_ fd event threads running at the same time if you want!)",
+      "parentUuid": "6820da6d_7718b2de",
+      "range": {
+        "startLine": 116,
+        "startChar": 4,
+        "endLine": 116,
+        "endChar": 30
+      },
+      "revId": "0f7b1f9bae5bda435f6e142ae8d7d2b952ab4a08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
