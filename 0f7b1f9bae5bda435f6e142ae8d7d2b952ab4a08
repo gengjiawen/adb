@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea4a748c_0b230d52",
+        "filename": "fdevent/fdevent.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-04T02:06:26Z",
+      "side": 1,
+      "message": "\u003e\u003eI don\u0027t think MainThread is a good name. It should be FDEventThread.\nSwitch this to FDEventThread as well? (unsure about whether this sort of rework is warranted)",
+      "range": {
+        "startLine": 112,
+        "startChar": 14,
+        "endLine": 112,
+        "endChar": 24
+      },
+      "revId": "0f7b1f9bae5bda435f6e142ae8d7d2b952ab4a08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "47a23a77_6a6ba523",
@@ -38,6 +61,30 @@
       "side": 1,
       "message": "yeah, since this is only needed in the test, i don\u0027t think we want new API. (though splitting CheckMainThread() into IsEventThread() and AssertEventThread() might be worthwhile.)\n\nit\u0027s unclear to me why these are member functions *and* free functions... ah, because there can be multiple fdevent_contexts, each on different threads. (!) is that a feature or a bug?\n\n(but, yeah, i wasn\u0027t planning on opening this whole can of worms in the original code review --- i literally just meant \"don\u0027t copy \u0026 paste this 10 times in the test; give the CHECK() a name in the test\"!)",
       "parentUuid": "47a23a77_6a6ba523",
+      "range": {
+        "startLine": 116,
+        "startChar": 4,
+        "endLine": 116,
+        "endChar": 30
+      },
+      "revId": "0f7b1f9bae5bda435f6e142ae8d7d2b952ab4a08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6820da6d_7718b2de",
+        "filename": "fdevent/fdevent.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-04T02:06:26Z",
+      "side": 1,
+      "message": "\u003e\u003eI am not sure we need augment the API when we could use !CheckMainThread.\n\n!CheckMainThread() !\u003d CheckNotMainThread() :) excuse the pun (esp since the interface does not return a value - it just aborts under the offending condition). The latter necessarily fails-fast if it is invoked on the main thread, whereas CheckMainThread() fails-fast if it is invoked in a non-primary thread.\nPS: I think you probably meant \"implement one in terms of the other\" - which is fair. That said, I do think I misunderstood the comment from enh@ so I\u0027ll try to constrain the refactor to fdevent_test module - pl stay tuned.\n\n\u003e\u003eI don\u0027t think MainThread is a good name. It should be FDEventThread.\n\nhttps://source.corp.google.com/android/packages/modules/adb/fdevent/fdevent_epoll.cpp;l\u003d108 : I believe the entry into this Loop() is *the primary thread* (aka main thread, or the default thread on which the process runs). Am I missing something here?",
+      "parentUuid": "db515e5b_aeaa61da",
       "range": {
         "startLine": 116,
         "startChar": 4,
