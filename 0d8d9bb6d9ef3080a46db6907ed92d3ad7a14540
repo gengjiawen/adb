@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38259913_a131673d",
+        "filename": "fdevent/fdevent_test.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-05T15:41:48Z",
+      "side": 1,
+      "message": "enh@: this is now very weird, because you\u0027re asserting that this test is the \"main thread\" in the usual unix sense, but fdevent_run_on_main_thread() is actually running on a different thread (the fdevent looper thread created by PrepareThread()).\n\n Draft\nPatchset 1\n10:18 PM\n\nResponse: Turns out this specific invocation of fdevent_run_on_main_thread() is executing on the main thread already!",
+      "range": {
+        "startLine": 235,
+        "startChar": 4,
+        "endLine": 235,
+        "endChar": 23
+      },
+      "revId": "0d8d9bb6d9ef3080a46db6907ed92d3ad7a14540",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
