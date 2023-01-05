@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "eee7b143_dc1fa5a9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-05T20:32:16Z",
+      "side": 1,
+      "message": "i think this is just checkin comment habit to be getting into... don\u0027t link somewhere else, say something standalone --- use the typical git style where the first line is \"what exactly did i do?\" and the paragraph that follows is \"why did i do this?\".\n\n\"followup\" means nothing. this should presumably be \"Remove duplication.\" instead. (and that would be a special case where you can skip any later paragraphs because removing duplication doesn\u0027t need any extra justification :-) i guess \"Clean up style of $SHA.\" would have been fine too, but \"Remove duplication.\" is still better by the original rule --- \"clean up style\" just leaves you with the question \"what was wrong with the style?\", so we may as well go straight to the _answer_.)\n\ndon\u0027t make your reader think.\n\ndon\u0027t make your reader have to look stuff up.\n\ntrue for docs, true for code comments, true for checkin comments :-)",
+      "parentUuid": "0781470c_cb6f5cfa",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 99
+      },
+      "revId": "54a0eb16204e793c9490650bfd7f283ce94ac6d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "aff80ee9_5d7692d7",
         "filename": "transport.cpp",
         "patchSetId": 1
