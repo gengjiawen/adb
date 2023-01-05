@@ -117,6 +117,30 @@
       },
       "revId": "0f7b1f9bae5bda435f6e142ae8d7d2b952ab4a08",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48fc43d9_689b38ef",
+        "filename": "fdevent/fdevent.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-05T00:10:38Z",
+      "side": 1,
+      "message": "That\u0027s indeed true - I added a clarifying comment for this.",
+      "parentUuid": "780c91b6_7293b63c",
+      "range": {
+        "startLine": 116,
+        "startChar": 4,
+        "endLine": 116,
+        "endChar": 30
+      },
+      "revId": "0f7b1f9bae5bda435f6e142ae8d7d2b952ab4a08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
