@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4d94b0c_d789a7df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-05T07:08:42Z",
+      "side": 1,
+      "message": "Incorporating comments from the mistakenly forked https://android-review.git.corp.google.com/c/platform/packages/modules/adb/+/2374597 (I shall abandon that CL) - PTAL",
+      "revId": "936c1dce02a6132b54adbf9d8dfa2de973f2737b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
