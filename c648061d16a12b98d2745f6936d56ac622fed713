@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fcbeb04_b94ae4d6",
+        "filename": "fdevent/fdevent_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-05T00:14:13Z",
+      "side": 1,
+      "message": "just call these AssertLooperThread() and AssertNotLooperThread() and avoid the need for disclaimers in the comments? :-)",
+      "revId": "c648061d16a12b98d2745f6936d56ac622fed713",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cef30ff5_17b694a9",
+        "filename": "fdevent/fdevent_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-05T00:14:13Z",
+      "side": 1,
+      "message": "oh, wait, this _is_ actually a stronger guarantee. unlike the stuff in fdevent, this really _is_ an \"is this the main thread?\" check.\n\nso i think you can either lose the comments completely (but leave the code as-is), or -- if you really want to say something -- point out that this is a _stronger_ guarantee than the fdevent event one. (but i\u0027d probably _not_ do that, and aim to just improve the naming/implementation of fdevent instead?)",
+      "revId": "c648061d16a12b98d2745f6936d56ac622fed713",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec9b1cd1_88f37cb8",
+        "filename": "fdevent/fdevent_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-05T00:14:13Z",
+      "side": 1,
+      "message": "this is now very weird, because you\u0027re asserting that this test is the \"main thread\" in the usual unix sense, but fdevent_run_on_main_thread() is actually running on a *different* thread (the fdevent looper thread created by PrepareThread()).",
+      "revId": "c648061d16a12b98d2745f6936d56ac622fed713",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
