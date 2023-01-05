@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aff80ee9_5d7692d7",
+        "filename": "transport.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1500,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-05T19:15:16Z",
+      "side": 1,
+      "message": "pass the name of the list, so you can keep the better error message? (though why is this only a VLOG? is this expected in normal operation? if so, just drop the logging? if not, upgrade it to a regular error log? or a CHECK?)",
+      "range": {
+        "startLine": 1500,
+        "startChar": 44,
+        "endLine": 1500,
+        "endChar": 55
+      },
+      "revId": "54a0eb16204e793c9490650bfd7f283ce94ac6d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
