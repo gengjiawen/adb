@@ -1,6 +1,212 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "21a1b693_ce7804cb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-05T16:51:19Z",
+      "side": 1,
+      "message": "i\u0027d probably just be explicit here, and incorporate jmgao\u0027s explanation for how we ended up with the confusing names...\n\n```\nStop using \u0027main thread\u0027 when we mean \u0027thread that called Loop()\u0027.\n\nOriginally they were the same thing, but the code was refactored long\nago to allow any thread (or multiple threads!) to call Loop(), for unit\ntest purposes.\n```",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 127
+      },
+      "revId": "0d8d9bb6d9ef3080a46db6907ed92d3ad7a14540",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e66216b1_8fa8717f",
+        "filename": "fdevent/fdevent.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-05T16:51:19Z",
+      "side": 1,
+      "message": "\"Assert that the caller is executing on the thread that invoked Loop().\"\n\ndon\u0027t confuse things by seeming to talk about the main thread (which is nothing to do with this), or make people wonder what you mean by \"pseudo\" (when there\u0027s no reason to be talking about other threads in the first place).\n\nas for \"or that there is no active main (pseudo) thread\" --- _why_ do we need that, and can we remove it? it seems like a bug that we (presumably) have somewhere asserting that it\u0027s on the looper thread _before_ Loop has been called? (and even if there legitimately _is_ such a call site, i think the \"or Loop hasn\u0027t been called yet\" check belongs _there_, rather than making CheckLooperThread() not actually do what it says...)",
+      "range": {
+        "startLine": 110,
+        "startChar": 7,
+        "endLine": 112,
+        "endChar": 28
+      },
+      "revId": "0d8d9bb6d9ef3080a46db6907ed92d3ad7a14540",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa4f9279_cdb421eb",
+        "filename": "fdevent/fdevent.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-05T16:51:19Z",
+      "side": 1,
+      "message": "(same)",
+      "range": {
+        "startLine": 115,
+        "startChar": 29,
+        "endLine": 115,
+        "endChar": 40
+      },
+      "revId": "0d8d9bb6d9ef3080a46db6907ed92d3ad7a14540",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd7d927e_973288ab",
+        "filename": "fdevent/fdevent.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-05T16:51:19Z",
+      "side": 1,
+      "message": "(same)",
+      "range": {
+        "startLine": 119,
+        "startChar": 43,
+        "endLine": 119,
+        "endChar": 54
+      },
+      "revId": "0d8d9bb6d9ef3080a46db6907ed92d3ad7a14540",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1993a8c0_23015aef",
+        "filename": "fdevent/fdevent.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-05T16:51:19Z",
+      "side": 1,
+      "message": "why are these still here?",
+      "range": {
+        "startLine": 165,
+        "startChar": 0,
+        "endLine": 166,
+        "endChar": 27
+      },
+      "revId": "0d8d9bb6d9ef3080a46db6907ed92d3ad7a14540",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "868420ba_8c2030c5",
+        "filename": "fdevent/fdevent_test.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-05T16:51:19Z",
+      "side": 1,
+      "message": "why do you care? i think check_not_looper_thread() is sufficient here, right? this can just be deleted?",
+      "revId": "0d8d9bb6d9ef3080a46db6907ed92d3ad7a14540",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba5b019f_9343fec8",
+        "filename": "fdevent/fdevent_test.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-05T16:51:19Z",
+      "side": 1,
+      "message": "(likewise)",
+      "revId": "0d8d9bb6d9ef3080a46db6907ed92d3ad7a14540",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b53b895_32891841",
+        "filename": "fdevent/fdevent_test.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-05T16:51:19Z",
+      "side": 1,
+      "message": "(and here)",
+      "revId": "0d8d9bb6d9ef3080a46db6907ed92d3ad7a14540",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40a36b7b_24a55438",
+        "filename": "fdevent/fdevent_test.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-05T16:51:19Z",
+      "side": 1,
+      "message": "(and all through this function too. the test doesn\u0027t care that it\u0027s actually on the _main_ thread ... it just cares that it\u0027s not the looper thread.)",
+      "revId": "0d8d9bb6d9ef3080a46db6907ed92d3ad7a14540",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a451a4df_5b28766f",
+        "filename": "fdevent/fdevent_test.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-05T16:51:19Z",
+      "side": 1,
+      "message": "this comment is also adding negative value :-)\n\n(i\u0027d probably lose the \"primary\" and \"secondary\" comments above too, now you have the much better names for the assertions --- i think they say it all, but better, no? especially because \"secondary\" was always a lie --- the tests have _lots_ of threads, so it was always \"looper\" vs \"non-looper\".)",
+      "range": {
+        "startLine": 219,
+        "startChar": 31,
+        "endLine": 219,
+        "endChar": 55
+      },
+      "revId": "0d8d9bb6d9ef3080a46db6907ed92d3ad7a14540",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "38259913_a131673d",
