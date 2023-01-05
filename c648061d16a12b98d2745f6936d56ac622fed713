@@ -72,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0d522fd3_88f6b8df",
+        "filename": "fdevent/fdevent_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-05T01:04:55Z",
+      "side": 1,
+      "message": "Meant to say: \"That was the reason for my comment in https://android-review.git.corp.google.com/c/platform/packages/modules/adb/+/2373328 when using syscall() to enforce the strong guarantee\"",
+      "parentUuid": "9f962986_d7dbf129",
+      "revId": "c648061d16a12b98d2745f6936d56ac622fed713",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ec9b1cd1_88f37cb8",
         "filename": "fdevent/fdevent_test.cpp",
         "patchSetId": 1
