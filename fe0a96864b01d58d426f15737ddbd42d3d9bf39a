@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "317aa0b7_de2316c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-06T18:42:21Z",
+      "side": 1,
+      "message": "Also moved the optional\u003c\u003e check into call-sites.",
+      "revId": "fe0a96864b01d58d426f15737ddbd42d3d9bf39a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
