@@ -16,6 +16,52 @@
       "message": "Also moved the optional\u003c\u003e check into call-sites.",
       "revId": "fe0a96864b01d58d426f15737ddbd42d3d9bf39a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bb2b421_04debf9f",
+        "filename": "fdevent/fdevent.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-01-06T20:50:18Z",
+      "side": 1,
+      "message": "I am not sure what this (\"context of the execution\") means. I would just comment using `enh` summary in comment #1:\n\n`\"Assert that the caller is executing on the thread that invoked Loop().\"`",
+      "range": {
+        "startLine": 110,
+        "startChar": 46,
+        "endLine": 110,
+        "endChar": 74
+      },
+      "revId": "fe0a96864b01d58d426f15737ddbd42d3d9bf39a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3cfd546e_70dde6e4",
+        "filename": "fdevent/fdevent.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-01-06T20:50:18Z",
+      "side": 1,
+      "message": "// Assert that the called is *not* executing on the thread that invoked Loop().",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 41
+      },
+      "revId": "fe0a96864b01d58d426f15737ddbd42d3d9bf39a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
