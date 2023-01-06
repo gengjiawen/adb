@@ -284,6 +284,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca108563_ff58d2f6",
+        "filename": "fdevent/fdevent.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-06T22:07:59Z",
+      "side": 1,
+      "message": "Removed non-test usage of strong guarantee.",
+      "parentUuid": "e6230403_c418004a",
+      "range": {
+        "startLine": 165,
+        "startChar": 0,
+        "endLine": 166,
+        "endChar": 27
+      },
+      "revId": "0d8d9bb6d9ef3080a46db6907ed92d3ad7a14540",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "868420ba_8c2030c5",

@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c906d8d0_4d4d2e3c",
+        "filename": "fdevent/fdevent.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-06T22:07:59Z",
+      "side": 1,
+      "message": "Context means the execution environment of the thread.",
+      "parentUuid": "7bb2b421_04debf9f",
+      "range": {
+        "startLine": 110,
+        "startChar": 46,
+        "endLine": 110,
+        "endChar": 74
+      },
+      "revId": "fe0a96864b01d58d426f15737ddbd42d3d9bf39a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3cfd546e_70dde6e4",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-01-06T20:50:18Z",
       "side": 1,
       "message": "// Assert that the called is *not* executing on the thread that invoked Loop().",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 41
+      },
+      "revId": "fe0a96864b01d58d426f15737ddbd42d3d9bf39a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cfefae0_56314111",
+        "filename": "fdevent/fdevent.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-06T22:07:59Z",
+      "side": 1,
+      "message": "\"called is not executing..\" would be confusing.",
+      "parentUuid": "3cfd546e_70dde6e4",
       "range": {
         "startLine": 114,
         "startChar": 0,
