@@ -308,6 +308,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9548cccf_a2dded9a",
+        "filename": "fdevent/fdevent.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-06T22:44:48Z",
+      "side": 1,
+      "message": "yeah, that makes sense to me too --- if the new requirement is just that we\u0027re on the looper thread, that\u0027s all we should be checking for there too. (and if it\u0027s _not_, breaking it like this will let us find out, and then we\u0027ll be in a _much_ better place to understand and explain wtf is really going on here, and document and/or fix it as appropriate :-) )",
+      "parentUuid": "ca108563_ff58d2f6",
+      "range": {
+        "startLine": 165,
+        "startChar": 0,
+        "endLine": 166,
+        "endChar": 27
+      },
+      "revId": "0d8d9bb6d9ef3080a46db6907ed92d3ad7a14540",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "868420ba_8c2030c5",

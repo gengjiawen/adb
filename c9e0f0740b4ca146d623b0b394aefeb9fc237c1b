@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "627c0338_8a392e5a",
+        "filename": "fdevent/fdevent.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-06T22:44:48Z",
+      "side": 1,
+      "message": "why have you pulled all of these checks out? especially because you\u0027ve copy \u0026 pasted them into every call site as far as i can see.",
+      "revId": "c9e0f0740b4ca146d623b0b394aefeb9fc237c1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b69bd24_7e7510a2",
+        "filename": "fdevent/fdevent.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-06T22:44:48Z",
+      "side": 1,
+      "message": "for example: this is only called from a function that explicitly sets and clears the thread id on entry and exit. this should never be called without a valid looper.\n\ni think the high-level idea here with these assertions is to try to make the lifecycle more explicit (as well as checked), so these exceptions weaken that. which functions can _legitimately_ be called without a looper?",
+      "revId": "c9e0f0740b4ca146d623b0b394aefeb9fc237c1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46861467_22de501d",
+        "filename": "fdevent/fdevent.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-06T22:44:48Z",
+      "side": 1,
+      "message": "the asymmetry here is especially odd --- why does the member function require the *caller* to check, but the free function is *callee*-checked? again, that makes it harder for the reader to reason about what any of these assertions mean. (tbh, i\u0027d be tempted to not have *both* kinds of function for exactly that reason.)",
+      "revId": "c9e0f0740b4ca146d623b0b394aefeb9fc237c1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2e36ebe_c30711e0",
+        "filename": "fdevent/fdevent_test.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-06T22:44:48Z",
+      "side": 1,
+      "message": "you left these ones in?",
+      "revId": "c9e0f0740b4ca146d623b0b394aefeb9fc237c1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
