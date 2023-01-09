@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "270fe747_28a3ca66",
+        "filename": "client/main.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-01-09T19:20:29Z",
+      "side": 1,
+      "message": "nit: I would just name this `fdevent_run`.\n\n- It matches the underlying implementation `fdevent_context:Run`.\n- It is a shorter, easier to read, name. This CL makes the name longer.\n- It is obvious that to work with single threaded fd system, it has to run on its thread.\n- It does not carry the idea that if multiple fdevent instance exist, they all run on the same thread. They run on the thread fdevent is binded to.",
+      "range": {
+        "startLine": 221,
+        "startChar": 8,
+        "endLine": 221,
+        "endChar": 36
+      },
+      "revId": "51e87c0ba51bdc574dceb1dff97a31d765ec89d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
