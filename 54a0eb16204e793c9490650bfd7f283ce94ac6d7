@@ -93,6 +93,30 @@
       },
       "revId": "54a0eb16204e793c9490650bfd7f283ce94ac6d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6688ef48_032af75f",
+        "filename": "transport.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1500,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-11T05:50:38Z",
+      "side": 1,
+      "message": "Done\nIMO this does not qualify as an error log, since it can be easily forced by attempting a connect while already connected:\n$ adb connect  10.0.0.48\nconnected to 10.0.0.48:5555\n$ adb connect  10.0.0.48\nalready connected to 10.0.0.48:5555",
+      "parentUuid": "aff80ee9_5d7692d7",
+      "range": {
+        "startLine": 1500,
+        "startChar": 44,
+        "endLine": 1500,
+        "endChar": 55
+      },
+      "revId": "54a0eb16204e793c9490650bfd7f283ce94ac6d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
