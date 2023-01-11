@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d8e626f_2d195bf2",
+        "filename": "fdevent/fdevent.cpp",
+        "patchSetId": 23
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-11T02:13:38Z",
+      "side": 1,
+      "message": "This code has not changed from before. For both Create() and Destroy(), we were previously doing the check for looper_thread_id_ (previously known as main_thread_id_). From actual experimentation (with presubmits), it appears this can be loosened for SetTimeout() and CalculatePollDuration().",
+      "parentUuid": "6e9366ee_02f8e48d",
+      "revId": "5320193b636e4841b0a92ab3241e6c92a5113dd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5ea92bec_99d1f7a7",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-01-11T01:47:18Z",
       "side": 1,
       "message": "unused now?",
+      "revId": "5320193b636e4841b0a92ab3241e6c92a5113dd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fab1aff6_e9743e1f",
+        "filename": "fdevent/fdevent.h",
+        "patchSetId": 23
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-11T02:13:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ea92bec_99d1f7a7",
       "revId": "5320193b636e4841b0a92ab3241e6c92a5113dd3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -52,6 +88,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "26d70457_bf831778",
+        "filename": "fdevent/fdevent.h",
+        "patchSetId": 23
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-11T02:13:38Z",
+      "side": 1,
+      "message": "Non-member check_looper_thread() needs this accessor.",
+      "parentUuid": "3c5a57ba_552fb782",
+      "revId": "5320193b636e4841b0a92ab3241e6c92a5113dd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "181c4ec9_d42c7c66",
@@ -65,6 +119,24 @@
       "writtenOn": "2023-01-11T01:47:18Z",
       "side": 1,
       "message": "actually, because of _this_ we don\u0027t even need L204-206, right?",
+      "revId": "5320193b636e4841b0a92ab3241e6c92a5113dd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ff8f6cb_89e009f7",
+        "filename": "fdevent/fdevent_test.cpp",
+        "patchSetId": 23
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-11T02:13:38Z",
+      "side": 1,
+      "message": "It was confounding to me that the first invocation (id: 0) was different from the rest of the invocations. That\u0027s why I added lines #240-206. I figured this would avoid me having to guess at a future date.\nIf you\u0027d like me to remove these lines, please reopen this comment.",
+      "parentUuid": "181c4ec9_d42c7c66",
       "revId": "5320193b636e4841b0a92ab3241e6c92a5113dd3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
