@@ -72,6 +72,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "df78961b_f36d7845",
+        "filename": "fdevent/fdevent.cpp",
+        "patchSetId": 23
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-11T23:59:48Z",
+      "side": 1,
+      "message": "Deferring this for now, until we develop clear understanding of why Create() and Destroy() (and possibly fdevent_poll::Set()) needs the looper_thread_id initialized?",
+      "parentUuid": "919ce9ff_d915047b",
+      "revId": "5320193b636e4841b0a92ab3241e6c92a5113dd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5ea92bec_99d1f7a7",
@@ -192,6 +210,24 @@
       "side": 1,
       "message": "\u003e check_looper_thread() (previously known as check_main_thread()) existed earlier (commit #10, 2019-06-28). Internally it always did a check for looper_thread_id (previously known as main_thread_id - including in invocations for SetTimeout() and CalculatePollDuration(), which were bogus, as we found out).\n\nso why are you moving this out?\n\ni think maybe we have very different aims here? i think -- as i was saying yesterday with my \"testing on the toilet\" example -- we should only aim to document/enforce _necessary_ conditions. whereas i feel like you\u0027re trying to enforce the strictest condition? what value do you think there is to saying \"there must be a looper thread, and you must be on it [but there are many exceptions, so they\u0027ll all need access to otherwise private api and explicit checks]\" versus my weaker \"if there is a looper thread, you need to be on it\"?\n\nif we can\u0027t give a concrete reason, we should go with the simpler/weaker option _until/unless_ we have that reason. (at which point, we can write a nice clear comment explaining our motivation.)\n\nthe high-level goal here is \"better understanding this complex codebase\", and i think that exposing more private stuff and littering the code with `if`s that we can\u0027t actually motivate is making things _worse_ rather than better.",
       "parentUuid": "3690b648_de08d77f",
+      "revId": "5320193b636e4841b0a92ab3241e6c92a5113dd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c636a2f_c9a6a4f7",
+        "filename": "fdevent/fdevent.h",
+        "patchSetId": 23
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-11T23:59:48Z",
+      "side": 1,
+      "message": "Reduced the CL into a minimal (rename) activity (pending followup).",
+      "parentUuid": "0a804d0e_d123a4ae",
       "revId": "5320193b636e4841b0a92ab3241e6c92a5113dd3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },

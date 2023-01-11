@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4788fefd_2e2fff2b",
+        "filename": "fdevent/fdevent.cpp",
+        "patchSetId": 24
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-11T23:59:48Z",
+      "side": 1,
+      "message": "The internal check is not needed. Will address this in a followup.",
+      "range": {
+        "startLine": 122,
+        "startChar": 4,
+        "endLine": 122,
+        "endChar": 21
+      },
+      "revId": "1ee53e7f98f1da0288341492e3b11fa1b87c019e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b053678_b4f6a57b",
+        "filename": "fdevent/fdevent.cpp",
+        "patchSetId": 24
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-11T23:59:48Z",
+      "side": 1,
+      "message": "The internal check is not needed. Will address this in a followup.",
+      "range": {
+        "startLine": 132,
+        "startChar": 4,
+        "endLine": 132,
+        "endChar": 23
+      },
+      "revId": "1ee53e7f98f1da0288341492e3b11fa1b87c019e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
