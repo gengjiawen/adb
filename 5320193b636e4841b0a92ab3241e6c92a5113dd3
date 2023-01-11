@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "919ce9ff_d915047b",
+        "filename": "fdevent/fdevent.cpp",
+        "patchSetId": 23
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-11T18:54:46Z",
+      "side": 1,
+      "message": "However, CheckMainThread() internally does the check. I merely moved that if() check to the call-site (based on your earlier comment - reproduced below FYI).\n\u003e\u003eenh@: (and even if there legitimately is such a call site, i think the \"or Loop \u003e\u003ehasn\u0027t been called yet\" check belongs there, rather than making \u003e\u003eCheckLooperThread() not actually do what it says...\n\nRefactoring to the call-site was indeed a good move IMO, since we\u0027re now able to invoke at least SetTimeout() and CalculatePollDuration() *without* having to go through a spurious if(looper_thread_id) check. All this while we were doing that check for no reason.",
+      "parentUuid": "6af57850_898da55d",
+      "revId": "5320193b636e4841b0a92ab3241e6c92a5113dd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5ea92bec_99d1f7a7",
         "filename": "fdevent/fdevent.h",
         "patchSetId": 23
@@ -144,6 +162,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3690b648_de08d77f",
+        "filename": "fdevent/fdevent.h",
+        "patchSetId": 23
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-11T18:54:46Z",
+      "side": 1,
+      "message": "check_looper_thread() (previously known as check_main_thread()) existed earlier (commit #10, 2019-06-28). Internally it *always* did a check for looper_thread_id (previously known as main_thread_id - including in invocations for SetTimeout() and CalculatePollDuration(), which were bogus, as we found out).\nPS: There are 16 other non-member functions (that basically delegate to the member functions). If we need to refactor to eliminate (or at least minimize) those, my suggestion would be to engage on it as a dedicated follow-up CL (will discuss offline)",
+      "parentUuid": "b62d69dd_047fd23a",
+      "revId": "5320193b636e4841b0a92ab3241e6c92a5113dd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "181c4ec9_d42c7c66",
         "filename": "fdevent/fdevent_test.cpp",
         "patchSetId": 23
@@ -191,6 +227,24 @@
       "side": 1,
       "message": "personally i found the old if confusing because it distracted from _this_ check which is the real point of this test. but the new if isn\u0027t so bad, so i\u0027m fine either way.\n\ni think the question to ask yourself here is whether it would have been less confusing to you to have no if, but a comment here saying something like\n```\n// This lambda is always passed to fdevent_run_on_looper(), so should only ever run on the looper thread.\n```\n?",
       "parentUuid": "5ff8f6cb_89e009f7",
+      "revId": "5320193b636e4841b0a92ab3241e6c92a5113dd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ecda6838_e7c51df8",
+        "filename": "fdevent/fdevent_test.cpp",
+        "patchSetId": 23
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-11T18:54:46Z",
+      "side": 1,
+      "message": "Ack - I shall setup an offline sync so we can get past the other two open comments. Thanks!",
+      "parentUuid": "f540112b_173c9ec7",
       "revId": "5320193b636e4841b0a92ab3241e6c92a5113dd3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
