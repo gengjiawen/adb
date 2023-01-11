@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "082fe204_705a8f4c",
+        "filename": "fdevent/fdevent.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-11T01:39:42Z",
+      "side": 1,
+      "message": "Removed the if() from SetTimeout() and CalculatePollDuration().",
+      "parentUuid": "627c0338_8a392e5a",
+      "revId": "c9e0f0740b4ca146d623b0b394aefeb9fc237c1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7b69bd24_7e7510a2",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-01-06T22:44:48Z",
       "side": 1,
       "message": "for example: this is only called from a function that explicitly sets and clears the thread id on entry and exit. this should never be called without a valid looper.\n\ni think the high-level idea here with these assertions is to try to make the lifecycle more explicit (as well as checked), so these exceptions weaken that. which functions can _legitimately_ be called without a looper?",
+      "revId": "c9e0f0740b4ca146d623b0b394aefeb9fc237c1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5935f70_ff5a105b",
+        "filename": "fdevent/fdevent.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-11T01:39:42Z",
+      "side": 1,
+      "message": "It appears the lifecycle management functions (Create() and Destroy()) cannot be invoked without the pre-condition.",
+      "parentUuid": "7b69bd24_7e7510a2",
       "revId": "c9e0f0740b4ca146d623b0b394aefeb9fc237c1b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -52,6 +88,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b242c8c2_e772bbab",
+        "filename": "fdevent/fdevent.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-11T01:39:42Z",
+      "side": 1,
+      "message": "Removed check_not_looper_thread().",
+      "parentUuid": "46861467_22de501d",
+      "revId": "c9e0f0740b4ca146d623b0b394aefeb9fc237c1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d2e36ebe_c30711e0",
@@ -65,6 +119,24 @@
       "writtenOn": "2023-01-06T22:44:48Z",
       "side": 1,
       "message": "you left these ones in?",
+      "revId": "c9e0f0740b4ca146d623b0b394aefeb9fc237c1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c9401d9_1608ff5b",
+        "filename": "fdevent/fdevent_test.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-11T01:39:42Z",
+      "side": 1,
+      "message": "Figured the strong guarantee can serve as some sort of documentation.",
+      "parentUuid": "d2e36ebe_c30711e0",
       "revId": "c9e0f0740b4ca146d623b0b394aefeb9fc237c1b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
