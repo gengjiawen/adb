@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e9366ee_02f8e48d",
+        "filename": "fdevent/fdevent.cpp",
+        "patchSetId": 23
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-11T01:47:18Z",
+      "side": 1,
+      "message": "for these ones that still have the `if` --- does that really mean \"looper thread [if it exists]\" or actually just \"don\u0027t care\"? (and if so, _why_? i still don\u0027t get why this would be a condition.)",
+      "revId": "5320193b636e4841b0a92ab3241e6c92a5113dd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ea92bec_99d1f7a7",
+        "filename": "fdevent/fdevent.h",
+        "patchSetId": 23
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-11T01:47:18Z",
+      "side": 1,
+      "message": "unused now?",
+      "revId": "5320193b636e4841b0a92ab3241e6c92a5113dd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c5a57ba_552fb782",
+        "filename": "fdevent/fdevent.h",
+        "patchSetId": 23
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-11T01:47:18Z",
+      "side": 1,
+      "message": "who needs this? (seems suspicious.)",
+      "revId": "5320193b636e4841b0a92ab3241e6c92a5113dd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "181c4ec9_d42c7c66",
+        "filename": "fdevent/fdevent_test.cpp",
+        "patchSetId": 23
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-11T01:47:18Z",
+      "side": 1,
+      "message": "actually, because of _this_ we don\u0027t even need L204-206, right?",
+      "revId": "5320193b636e4841b0a92ab3241e6c92a5113dd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
