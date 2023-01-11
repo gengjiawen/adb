@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6af57850_898da55d",
+        "filename": "fdevent/fdevent.cpp",
+        "patchSetId": 23
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-11T18:15:25Z",
+      "side": 1,
+      "message": "well, it _has_ changed... the previous code -- what\u0027s checked in right now -- just unconditionally calls CheckMainThread() and didn\u0027t have any weird special case.\n\n(citation needed? https://source.corp.google.com/android/packages/modules/adb/fdevent/fdevent.cpp;l\u003d64?q\u003dfdevent_context::Create\u0026sq\u003dpackage:%5Eandroid$%20-file:prebuilts%2Fvndk%2F%20-file:prebuilts%2Fruntime%2F )",
+      "parentUuid": "7d8e626f_2d195bf2",
+      "revId": "5320193b636e4841b0a92ab3241e6c92a5113dd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5ea92bec_99d1f7a7",
         "filename": "fdevent/fdevent.h",
         "patchSetId": 23
@@ -108,6 +126,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b62d69dd_047fd23a",
+        "filename": "fdevent/fdevent.h",
+        "patchSetId": 23
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-11T18:15:25Z",
+      "side": 1,
+      "message": "again, that\u0027s a really bad code smell, no? as you\u0027ve seen, i\u0027m unconvinced by the non-members _in general_ but \"oh, and i need to expose more implementation details in order to be able to have those non-members _because_ they don\u0027t behave the same as the members\" --- that feels wrong on many levels, no?",
+      "parentUuid": "26d70457_bf831778",
+      "revId": "5320193b636e4841b0a92ab3241e6c92a5113dd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "181c4ec9_d42c7c66",
         "filename": "fdevent/fdevent_test.cpp",
         "patchSetId": 23
@@ -137,6 +173,24 @@
       "side": 1,
       "message": "It was confounding to me that the first invocation (id: 0) was different from the rest of the invocations. That\u0027s why I added lines #240-206. I figured this would avoid me having to guess at a future date.\nIf you\u0027d like me to remove these lines, please reopen this comment.",
       "parentUuid": "181c4ec9_d42c7c66",
+      "revId": "5320193b636e4841b0a92ab3241e6c92a5113dd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f540112b_173c9ec7",
+        "filename": "fdevent/fdevent_test.cpp",
+        "patchSetId": 23
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-11T18:15:25Z",
+      "side": 1,
+      "message": "personally i found the old if confusing because it distracted from _this_ check which is the real point of this test. but the new if isn\u0027t so bad, so i\u0027m fine either way.\n\ni think the question to ask yourself here is whether it would have been less confusing to you to have no if, but a comment here saying something like\n```\n// This lambda is always passed to fdevent_run_on_looper(), so should only ever run on the looper thread.\n```\n?",
+      "parentUuid": "5ff8f6cb_89e009f7",
       "revId": "5320193b636e4841b0a92ab3241e6c92a5113dd3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
