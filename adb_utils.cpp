@@ -54,6 +54,7 @@ static constexpr char kNullFileName[] = "NUL";
 static constexpr char kNullFileName[] = "/dev/null";
 #endif
 
+// Excluded from test considerations.
 void close_stdin() {
     int fd = unix_open(kNullFileName, O_RDONLY);
     if (fd == -1) {
