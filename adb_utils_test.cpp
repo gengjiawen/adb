@@ -59,6 +59,44 @@ TEST(adb_utils, directory_exists) {
 #endif
 }
 
+TEST(adb_utils, getcwd) {
+#if defined(_WIN32)
+  WCHAR temp_path[MAX_PATH];
+
+  const DWORD nchars = GetTempPathW(arraysize(temp_path), temp_path);
+  if (nchars >= arraysize(temp_path) || nchars == 0) {
+      // If string truncation or some other error.
+      LOG(FATAL) << "cannot retrieve temporary file path: "
+                 << android::base::SystemErrorCodeToString(GetLastError());
+  }
+
+  std::string temp_path_utf8;
+  if (!android::base::WideToUTF8(temp_path, &temp_path_utf8)) {
+      PLOG(FATAL) << "cannot convert temporary file path from UTF-16 to UTF-8";
+  }
+
+  EXPECT_EQ(chdir(temp_path_utf8.c_str()), 0);
+
+  // Validate that we landed well.
+  char* wd = getcwd(nullptr, 0);
+  EXPECT_NE(wd, nullptr);
+  free(wd);
+  EXPECT_EQ(std::string(wd) + "\\", std::string(temp_path_utf8.c_str()));
+#else
+  const char* tmp_dir = getenv("TMPDIR");
+  if (tmp_dir == nullptr) {
+      tmp_dir = "/tmp";
+  }
+
+  EXPECT_EQ(chdir(tmp_dir), 0);
+
+  std::string working_dir;
+  ASSERT_TRUE(getcwd(&working_dir));
+
+  EXPECT_EQ(working_dir, std::string(tmp_dir));
+#endif
+}
+
 #if defined(_WIN32)
 TEST(adb_utils, directory_exists_win32_symlink_junction) {
   char profiles_dir[MAX_PATH];
