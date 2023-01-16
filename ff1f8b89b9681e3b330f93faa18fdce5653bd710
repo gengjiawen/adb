@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3cb0737e_91d97595",
+        "filename": "fdevent/fdevent_test.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-16T20:59:24Z",
+      "side": 1,
+      "message": "Does this comment needs maintenance?",
+      "range": {
+        "startLine": 66,
+        "startChar": 7,
+        "endLine": 66,
+        "endChar": 36
+      },
+      "revId": "ff1f8b89b9681e3b330f93faa18fdce5653bd710",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
