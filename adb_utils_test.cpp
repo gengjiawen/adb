@@ -59,6 +59,38 @@ TEST(adb_utils, directory_exists) {
 #endif
 }
 
+TEST(adb_utils, getcwd) {
+  TemporaryDir temp_dir;
+#if defined(_WIN32)
+  char* wd = getcwd(nullptr, 0);
+  std::string working_dir(wd);
+  free(wd);
+
+  EXPECT_EQ(chdir(temp_dir.path), 0);
+
+  // Validate that we landed well.
+  char* landed_dir = getcwd(nullptr, 0);
+  EXPECT_NE(landed_dir, nullptr);
+
+  EXPECT_NE(std::string(landed_dir), working_dir);
+  EXPECT_EQ(std::string(landed_dir), std::string(temp_dir.path));
+
+  free(landed_dir);
+#else
+  std::string orig_dir;
+  ASSERT_TRUE(getcwd(&orig_dir));
+
+  ASSERT_EQ(chdir(temp_dir.path), 0);
+
+  std::string working_dir;
+  ASSERT_TRUE(getcwd(&working_dir));
+
+  EXPECT_NE(working_dir, orig_dir);
+
+  EXPECT_EQ(working_dir, std::string(temp_dir.path));
+#endif
+}
+
 #if defined(_WIN32)
 TEST(adb_utils, directory_exists_win32_symlink_junction) {
   char profiles_dir[MAX_PATH];
