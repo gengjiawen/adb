@@ -59,6 +59,19 @@ TEST(adb_utils, directory_exists) {
 #endif
 }
 
+TEST(adb_utils, getcwd) {
+  std::string working_dir("/foobar");
+#ifdef _WIN32
+  char* wd = getcwd(nullptr, 0);
+  EXPECT_NE(wd, nullptr);
+  working_dir = wd;
+  free(wd);
+#else
+  ASSERT_TRUE(getcwd(&working_dir));
+#endif
+  EXPECT_NE(working_dir, "/foobar");
+}
+
 #if defined(_WIN32)
 TEST(adb_utils, directory_exists_win32_symlink_junction) {
   char profiles_dir[MAX_PATH];
