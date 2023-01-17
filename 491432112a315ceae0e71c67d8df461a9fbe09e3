@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c76d11da_53317aaa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-01-17T19:23:28Z",
+      "side": 1,
+      "message": "Ideally this CL would have been broken down in two since it features a refactor and  new tests. That would have made the review easier.",
+      "revId": "491432112a315ceae0e71c67d8df461a9fbe09e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a0f1435_b8744c37",
+        "filename": "daemon/restart_service_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-01-17T19:23:28Z",
+      "side": 1,
+      "message": "Here and in all other file: 2023",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "491432112a315ceae0e71c67d8df461a9fbe09e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "caa64d98_5f41a6ba",
+        "filename": "daemon/restart_service_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-01-17T19:23:28Z",
+      "side": 1,
+      "message": "Here and all tests below:\n\n1/ Don\u0027t think we should introduce randomness in our tests, it has the potential to make them flaky.\n\n2/ `NULL` should be `nullptr`",
+      "range": {
+        "startLine": 46,
+        "startChar": 4,
+        "endLine": 46,
+        "endChar": 22
+      },
+      "revId": "491432112a315ceae0e71c67d8df461a9fbe09e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d91dea2_074d9b37",
+        "filename": "daemon/restart_service_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-01-17T19:23:28Z",
+      "side": 1,
+      "message": "Why do you run this in a `thread` instead of in the current thread?",
+      "range": {
+        "startLine": 60,
+        "startChar": 18,
+        "endLine": 60,
+        "endChar": 34
+      },
+      "revId": "491432112a315ceae0e71c67d8df461a9fbe09e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddb87a22_8b252e7d",
+        "filename": "daemon/test_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-01-17T19:23:28Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "491432112a315ceae0e71c67d8df461a9fbe09e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
