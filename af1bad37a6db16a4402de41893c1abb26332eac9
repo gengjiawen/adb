@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a77e2b63_a571b853",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-17T22:02:39Z",
+      "side": 1,
+      "message": "what is ASSERT_NO_FATAL_FAILURE() usefully testing here? that calling close_stdin() doesn\u0027t _crash_? how useful is that?\n\nwhen you\u0027re writing a test, you should be looking at what the function you\u0027re testing _does_, and trying to determine whether or not it actually did that thing.",
+      "parentUuid": "a63ba26f_bc4f16e4",
+      "revId": "af1bad37a6db16a4402de41893c1abb26332eac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f00165cb_0fc1f531",
         "filename": "adb_utils_test.cpp",
         "patchSetId": 1
@@ -73,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2a5e0c5a_2544d076",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-17T22:02:39Z",
+      "side": 1,
+      "message": "wrong link?",
+      "parentUuid": "fb35b017_46092371",
+      "revId": "af1bad37a6db16a4402de41893c1abb26332eac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4fa17ab5_2ce5c727",
         "filename": "adb_utils_test.cpp",
         "patchSetId": 1
@@ -102,6 +138,24 @@
       "side": 1,
       "message": "The intent was never to test the std::string but rather to 1.) validate pre-condition (namely the string is empty) 2.) execute the test 3.) validate post-condition (string is no longer empty).",
       "parentUuid": "4fa17ab5_2ce5c727",
+      "revId": "af1bad37a6db16a4402de41893c1abb26332eac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6063c306_43a38071",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-17T22:02:39Z",
+      "side": 1,
+      "message": "\u003e The intent was never to test the std::string but rather to 1.) validate pre-condition (namely the string is empty) 2.) execute the test 3.) validate post-condition (string is no longer empty).\n\nbut \"validating the precondition\" here _is_ \"testing std::string\" --- you\u0027re basically saying \"i don\u0027t trust std::string\u0027s default constructor to give me an empty string\", which is a _distraction_ from the job of this test. it\u0027s worth thinking of every line of code (or documentation) as a _cost_, right? it needs to be doing enough to be worth that cost. otherwise, it\u0027s just obfuscating. (it took me a while to realize what the actual meat of this test is -- \"check that there\u0027s a non-empty result\" -- because of the irrelevant noise.)",
+      "parentUuid": "d29cc0d5_5a27a63d",
       "revId": "af1bad37a6db16a4402de41893c1abb26332eac9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
