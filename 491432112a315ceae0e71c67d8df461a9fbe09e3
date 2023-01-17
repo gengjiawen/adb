@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a3cecab_22995982",
+        "filename": "daemon/restart_service_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-17T20:57:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a0f1435_b8744c37",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "491432112a315ceae0e71c67d8df461a9fbe09e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "caa64d98_5f41a6ba",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-01-17T19:23:28Z",
       "side": 1,
       "message": "Here and all tests below:\n\n1/ Don\u0027t think we should introduce randomness in our tests, it has the potential to make them flaky.\n\n2/ `NULL` should be `nullptr`",
+      "range": {
+        "startLine": 46,
+        "startChar": 4,
+        "endLine": 46,
+        "endChar": 22
+      },
+      "revId": "491432112a315ceae0e71c67d8df461a9fbe09e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c33ef430_95e68c3d",
+        "filename": "daemon/restart_service_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-17T20:57:10Z",
+      "side": 1,
+      "message": "\u003e\u003e1.) Don\u0027t think we should introduce randomness in our tests, it has the potential \u003e\u003eto make them flaky.\nWhy would pseudo-random numbers make the tests *less* flaky? (if flakiness is indeed a problem?).\nWhy would true-randomness worsen flakiness?\n(please re-open if there is clear correlation).\n2.) Done",
+      "parentUuid": "caa64d98_5f41a6ba",
       "range": {
         "startLine": 46,
         "startChar": 4,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac731647_a4f325e4",
+        "filename": "daemon/restart_service_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-17T20:57:10Z",
+      "side": 1,
+      "message": "Because WaitForProperty() is inherently asynchronous, AFAIU",
+      "parentUuid": "0d91dea2_074d9b37",
+      "range": {
+        "startLine": 60,
+        "startChar": 18,
+        "endLine": 60,
+        "endChar": 34
+      },
+      "revId": "491432112a315ceae0e71c67d8df461a9fbe09e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ddb87a22_8b252e7d",
@@ -100,6 +172,30 @@
       "writtenOn": "2023-01-17T19:23:28Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "491432112a315ceae0e71c67d8df461a9fbe09e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "217649dc_19837118",
+        "filename": "daemon/test_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-17T20:57:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ddb87a22_8b252e7d",
       "range": {
         "startLine": 2,
         "startChar": 17,
