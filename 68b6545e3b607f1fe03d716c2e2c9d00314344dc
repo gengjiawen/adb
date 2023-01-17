@@ -16,6 +16,24 @@
       "message": "Already sent you a CL for this: https://android-review.git.corp.google.com/c/platform/packages/modules/adb/+/2391092",
       "revId": "68b6545e3b607f1fe03d716c2e2c9d00314344dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbd4a7e7_c9400fb0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-17T20:31:41Z",
+      "side": 1,
+      "message": "I should have just sent you the CL (instead of also commenting on your merged CL) - oh well.\nPS: I had already sent you a CL by that time.",
+      "parentUuid": "a70e6f7d_38687dce",
+      "revId": "68b6545e3b607f1fe03d716c2e2c9d00314344dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
