@@ -183,6 +183,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7357f78_7ac428f0",
+        "filename": "daemon/restart_service_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-17T22:43:59Z",
+      "side": 1,
+      "message": "The test (as it is setup right now) demonstrates the service does not need to be blocking on the same thread. The service accomplishes the work off a separate thread. I feel it\u0027s simple enough to understand.",
+      "parentUuid": "d0dd7ed3_03d0f7d5",
+      "range": {
+        "startLine": 60,
+        "startChar": 18,
+        "endLine": 60,
+        "endChar": 34
+      },
+      "revId": "491432112a315ceae0e71c67d8df461a9fbe09e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ddb87a22_8b252e7d",
