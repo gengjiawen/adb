@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1cb9b11_baea41c7",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-17T16:54:13Z",
+      "side": 1,
+      "message": "i don\u0027t think we should write bogus tests like this... you\u0027re not actually testing any property of close_stdin() here. either test that it does what it\u0027s supposed to, or be honest about it not actually being testing.",
+      "revId": "af1bad37a6db16a4402de41893c1abb26332eac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f00165cb_0fc1f531",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-17T16:54:13Z",
+      "side": 1,
+      "message": "why? looks like this is available on Windows too?",
+      "revId": "af1bad37a6db16a4402de41893c1abb26332eac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fa17ab5_2ce5c727",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-17T16:54:13Z",
+      "side": 1,
+      "message": "there\u0027s no need to test std::string here... you can assume that works",
+      "revId": "af1bad37a6db16a4402de41893c1abb26332eac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d9ac876_a324c741",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-17T16:54:13Z",
+      "side": 1,
+      "message": "don\u0027t spam the log",
+      "revId": "af1bad37a6db16a4402de41893c1abb26332eac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e997c4f8_b66fdcb9",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-17T16:54:13Z",
+      "side": 1,
+      "message": "consider using TemporaryDirectory and chdir() so you know what the result should be.",
+      "revId": "af1bad37a6db16a4402de41893c1abb26332eac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
