@@ -16,6 +16,23 @@
       "message": "Is there something I can do to get this change merged?",
       "revId": "c165ac388542533e9bd71abe918b6a470e33c70a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "582d8360_42c53e71",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-01-17T19:04:33Z",
+      "side": 1,
+      "message": "Shaju or enh should be able to give an OWNERS +2.",
+      "revId": "c165ac388542533e9bd71abe918b6a470e33c70a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
