@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5064c53c_c0e0beea",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-17T22:04:32Z",
+      "side": 1,
+      "message": "(my higher level point was really \"we shouldn\u0027t just be juicing the numbers --- if we don\u0027t have a _real_ test that the function _works_, we\u0027re not helping anyone by lying to ourselves by turning the coverage number green\". that\u0027s just giving ourselves and others a false sense of security. for all we know [both before and after adding this test] this function might be _broken_. but at least with the coverage numbers red, it\u0027s clear we have no idea.)",
+      "parentUuid": "a77e2b63_a571b853",
+      "revId": "af1bad37a6db16a4402de41893c1abb26332eac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f00165cb_0fc1f531",
         "filename": "adb_utils_test.cpp",
         "patchSetId": 1
