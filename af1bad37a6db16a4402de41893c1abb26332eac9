@@ -72,6 +72,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "07086525_45dd7762",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-17T22:18:52Z",
+      "side": 1,
+      "message": "Assuming there are no alternate ways to test this, I\u0027m removing this test and entering an appropriate comment so we won\u0027t waste further time on this function.",
+      "parentUuid": "5064c53c_c0e0beea",
+      "revId": "af1bad37a6db16a4402de41893c1abb26332eac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f00165cb_0fc1f531",
@@ -121,6 +139,24 @@
       "side": 1,
       "message": "wrong link?",
       "parentUuid": "fb35b017_46092371",
+      "revId": "af1bad37a6db16a4402de41893c1abb26332eac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5303e60f_a3d5d26e",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-17T22:18:52Z",
+      "side": 1,
+      "message": "indeed :) correct citation here: https://source.corp.google.com/android-internal/packages/modules/adb/sysdeps.h;l\u003d398",
+      "parentUuid": "2a5e0c5a_2544d076",
       "revId": "af1bad37a6db16a4402de41893c1abb26332eac9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -178,6 +214,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "378d1fbd_6093dda5",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-17T22:18:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6063c306_43a38071",
+      "revId": "af1bad37a6db16a4402de41893c1abb26332eac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d9ac876_a324c741",
@@ -226,6 +280,24 @@
       "writtenOn": "2023-01-17T16:54:13Z",
       "side": 1,
       "message": "consider using TemporaryDirectory and chdir() so you know what the result should be.",
+      "revId": "af1bad37a6db16a4402de41893c1abb26332eac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "365955d4_bc48d001",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-17T22:18:52Z",
+      "side": 1,
+      "message": "I\u0027m just unsure whether the test process has access to a(n arbitrary) directory?\nAlso, didn\u0027t want to introduce complexity in creating and deleting directories.\nSo, I\u0027m removing the confusing line (#69) and replacing the ASSERT_FALSE() with a CHECK_NE().",
+      "parentUuid": "e997c4f8_b66fdcb9",
       "revId": "af1bad37a6db16a4402de41893c1abb26332eac9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
