@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a63ba26f_bc4f16e4",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-17T21:56:57Z",
+      "side": 1,
+      "message": "I was following the pattern from here: https://source.corp.google.com/android-internal/hardware/interfaces/graphics/mapper/2.0/vts/functional/VtsHalGraphicsMapperV2_0TargetTest.cpp;l\u003d44?q\u003dASSERT_NO_FATAL_FAILURE%20close\u0026sq\u003dpackage:android\u0026start\u003d11\n\nWhat would be an alternate way to exercise this path?",
+      "parentUuid": "d1cb9b11_baea41c7",
+      "revId": "af1bad37a6db16a4402de41893c1abb26332eac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f00165cb_0fc1f531",
         "filename": "adb_utils_test.cpp",
         "patchSetId": 1
@@ -31,6 +49,24 @@
       "writtenOn": "2023-01-17T16:54:13Z",
       "side": 1,
       "message": "why? looks like this is available on Windows too?",
+      "revId": "af1bad37a6db16a4402de41893c1abb26332eac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb35b017_46092371",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-17T21:56:57Z",
+      "side": 1,
+      "message": "It appears to be a windows-only feature.\ncitation: https://source.corp.google.com/android-internal/hardware/interfaces/graphics/mapper/2.0/vts/functional/VtsHalGraphicsMapperV2_0TargetTest.cpp;l\u003d44?q\u003dASSERT_NO_FATAL_FAILURE%20close\u0026sq\u003dpackage:android\u0026start\u003d11",
+      "parentUuid": "f00165cb_0fc1f531",
       "revId": "af1bad37a6db16a4402de41893c1abb26332eac9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -52,6 +88,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d29cc0d5_5a27a63d",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-17T21:56:57Z",
+      "side": 1,
+      "message": "The intent was never to test the std::string but rather to 1.) validate pre-condition (namely the string is empty) 2.) execute the test 3.) validate post-condition (string is no longer empty).",
+      "parentUuid": "4fa17ab5_2ce5c727",
+      "revId": "af1bad37a6db16a4402de41893c1abb26332eac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d9ac876_a324c741",
@@ -65,6 +119,24 @@
       "writtenOn": "2023-01-17T16:54:13Z",
       "side": 1,
       "message": "don\u0027t spam the log",
+      "revId": "af1bad37a6db16a4402de41893c1abb26332eac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4dea8cf3_959a4e38",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-17T21:56:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d9ac876_a324c741",
       "revId": "af1bad37a6db16a4402de41893c1abb26332eac9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
