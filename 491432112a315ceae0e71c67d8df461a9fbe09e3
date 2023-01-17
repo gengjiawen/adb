@@ -161,6 +161,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d0dd7ed3_03d0f7d5",
+        "filename": "daemon/restart_service_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-01-17T22:32:49Z",
+      "side": 1,
+      "message": "1/ I am not sure what you mean by \"asynchronous\". There is no callback involved.\n2/ The test creates a thread and wait for it to finish. So there is no concurrency involved.\n\nWhy not:\n\n```\nx \u003d getProperty(\"service.adb.tcp.port\")\nassert(x)\nrestart_tcp_service(...)\nx \u003d getProperty(\"service.adb.tcp.port\")\nassert(x)\n```\n\nOr are you saying that setProp/getProp are not atomic?",
+      "parentUuid": "ac731647_a4f325e4",
+      "range": {
+        "startLine": 60,
+        "startChar": 18,
+        "endLine": 60,
+        "endChar": 34
+      },
+      "revId": "491432112a315ceae0e71c67d8df461a9fbe09e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ddb87a22_8b252e7d",
         "filename": "daemon/test_utils.cpp",
         "patchSetId": 2
