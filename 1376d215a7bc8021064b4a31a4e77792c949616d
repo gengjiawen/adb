@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16399675_05392aad",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-01-17T20:20:43Z",
+      "side": 1,
+      "message": "Title is too long.\n\nAlso, I have worked on fixing this issue in aosp/2391093. Next time you comment on a past CL, please let me know you intend to address the issue to avoid both of us working on it.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 157
+      },
+      "revId": "1376d215a7bc8021064b4a31a4e77792c949616d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
