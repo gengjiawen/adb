@@ -209,6 +209,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "51626c83_ea3257e0",
+        "filename": "daemon/restart_service_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-01-17T23:15:04Z",
+      "side": 1,
+      "message": "I am not sure what we get out of testing that some code can run on another thread. We are not testing parrallelism or concurrency here, since we run code on a thread, wait for the result, and check the result on another thread.\n\nIf you still want to test this, I think it should be part of an explicit test that says \"TestRunningOnOtherThread\" or something like that. But the pattern where you run `restart_tcp_service` in another thread should not be part of `RestartTcpServiceValidPortSuccess`, `RestartTcpServiceInvalidPortFailure` or `RestartUsbServiceSuccess`. There is no point testing that over and over again.",
+      "parentUuid": "b7357f78_7ac428f0",
+      "range": {
+        "startLine": 60,
+        "startChar": 18,
+        "endLine": 60,
+        "endChar": 34
+      },
+      "revId": "491432112a315ceae0e71c67d8df461a9fbe09e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ddb87a22_8b252e7d",
         "filename": "daemon/test_utils.cpp",
         "patchSetId": 2
