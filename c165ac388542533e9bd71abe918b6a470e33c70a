@@ -153,6 +153,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "446fa9ae_013381d4",
+        "filename": "client/transport_local.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1076798
+      },
+      "writtenOn": "2023-01-18T01:24:32Z",
+      "side": 1,
+      "message": "Personally, I am not a fan of noConsolePort, because at first glance, I was expecting it to be assigned somewhere. If you go with this route, I would strongly suggest naming it kNoConsolePort (and switch it to be constexpr as well) to make it more clear that it\u0027s a compile-time constant.",
+      "parentUuid": "a20160a6_b567e9f0",
+      "range": {
+        "startLine": 251,
+        "startChar": 46,
+        "endLine": 251,
+        "endChar": 59
+      },
+      "revId": "c165ac388542533e9bd71abe918b6a470e33c70a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2737e069_e92bf7fb",
