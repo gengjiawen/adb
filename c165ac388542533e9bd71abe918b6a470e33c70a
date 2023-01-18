@@ -179,6 +179,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d0620ed8_348e5569",
+        "filename": "client/transport_local.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-18T01:49:25Z",
+      "side": 1,
+      "message": "yeah, +1 to https://google.github.io/styleguide/cppguide.html#Constant_Names\n\nbut, yeah, std::optional(int) would be the trendy way to say this.",
+      "parentUuid": "446fa9ae_013381d4",
+      "range": {
+        "startLine": 251,
+        "startChar": 46,
+        "endLine": 251,
+        "endChar": 59
+      },
+      "revId": "c165ac388542533e9bd71abe918b6a470e33c70a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2737e069_e92bf7fb",
         "filename": "client/transport_local.cpp",
         "patchSetId": 3
