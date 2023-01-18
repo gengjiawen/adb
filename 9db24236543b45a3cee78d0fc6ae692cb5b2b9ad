@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8527a9ef_f8a358a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511237
+      },
+      "writtenOn": "2023-01-18T14:17:46Z",
+      "side": 1,
+      "message": "Use `std::optional`, move `std::string error` line below and rebase on master.",
+      "revId": "9db24236543b45a3cee78d0fc6ae692cb5b2b9ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

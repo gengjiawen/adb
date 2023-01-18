@@ -58,6 +58,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bca70b7e_159e21c1",
+        "filename": "client/transport_local.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1511237
+      },
+      "writtenOn": "2023-01-18T14:17:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f919a9a4_3e4c4749",
+      "range": {
+        "startLine": 214,
+        "startChar": 12,
+        "endLine": 214,
+        "endChar": 30
+      },
+      "revId": "c165ac388542533e9bd71abe918b6a470e33c70a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b7ada9b3_1fa5e1e3",
@@ -225,6 +249,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7637f2e_ce39e0a8",
+        "filename": "client/transport_local.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1511237
+      },
+      "writtenOn": "2023-01-18T14:17:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "295e2ec0_ae08e45c",
+      "range": {
+        "startLine": 251,
+        "startChar": 46,
+        "endLine": 251,
+        "endChar": 59
+      },
+      "revId": "c165ac388542533e9bd71abe918b6a470e33c70a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2737e069_e92bf7fb",
@@ -262,6 +310,30 @@
       "side": 1,
       "message": "Same reason here.",
       "parentUuid": "2737e069_e92bf7fb",
+      "range": {
+        "startLine": 293,
+        "startChar": 73,
+        "endLine": 293,
+        "endChar": 86
+      },
+      "revId": "c165ac388542533e9bd71abe918b6a470e33c70a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdd73308_dc4e2817",
+        "filename": "client/transport_local.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1511237
+      },
+      "writtenOn": "2023-01-18T14:17:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a1c0436_4991b508",
       "range": {
         "startLine": 293,
         "startChar": 73,
