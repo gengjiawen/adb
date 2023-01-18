@@ -255,6 +255,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c437a3d_90e1bdcd",
+        "filename": "daemon/restart_service_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-18T05:22:39Z",
+      "side": 1,
+      "message": "As we discussed, I shall reduce this CL to a mechanical/minimal one. And follow up with a dependent one that address restart_service test coverage.",
+      "parentUuid": "f986d75f_b42288d2",
+      "range": {
+        "startLine": 60,
+        "startChar": 18,
+        "endLine": 60,
+        "endChar": 34
+      },
+      "revId": "491432112a315ceae0e71c67d8df461a9fbe09e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ddb87a22_8b252e7d",
