@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c34a023c_c39ba2f6",
+        "filename": "daemon/restart_service_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-01-20T23:19:03Z",
+      "side": 1,
+      "message": "It is an issue I mentioned in the other CL: It affect the ability to reproduce tests in the exact same condition. I don\u0027t think we should use `rand()` at all.",
+      "parentUuid": "32f84671_3109bb66",
+      "revId": "a5416867bccb98886674da8af9ea145f0686506f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "490e5e5f_40f2c8d8",
         "filename": "daemon/restart_service_test.cpp",
         "patchSetId": 2
