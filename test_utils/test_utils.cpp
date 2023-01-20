@@ -19,13 +19,14 @@
 #include <android-base/strings.h>
 #include <android-base/test_utils.h>
 
+#include <cutils/sockets.h>
 #include <gtest/gtest.h>
 
 #include "shell_protocol.h"
 #include "sysdeps.h"
 
 namespace test_utils {
-
+#if !ADB_HOST && defined(__ANDROID__)
 // Reads raw data from |fd| until it closes or errors.
 std::string ReadRaw(android::base::borrowed_fd fd) {
     char buffer[1024];
@@ -94,6 +95,29 @@ bool ExpectLinesEqual(const std::string& output, const std::vector<std::string>&
     }
     EXPECT_EQ(i, output_lines.size()) << "Found unmatched output lines";
     return true;
+}
+#endif
+
+// Relies on the device to allocate an available port, and
+// returns it to the caller.
+int GetUnassignedPort(int* fd) {
+    *fd = socket_inaddr_any_server(0, SOCK_STREAM);
+    EXPECT_NE(static_cast<cutils_socket_t>(*fd), INVALID_SOCKET);
+
+    sockaddr_storage ss;
+    socklen_t ss_size = sizeof(ss);
+    EXPECT_EQ(0, adb_getsockname(*fd, reinterpret_cast<sockaddr*>(&ss), &ss_size));
+    int port;
+    if (ss.ss_family == AF_INET) {
+        port = ntohs(reinterpret_cast<sockaddr_in*>(&ss)->sin_port);
+    } else {
+        port = ntohs(reinterpret_cast<sockaddr_in6*>(&ss)->sin6_port);
+    }
+    EXPECT_GT(port, 0);
+
+    // TODO (b/266498331): Address successful socket_close(*fd) as needed,
+    // in case the caller's aim is to identify the free port.
+    return port;
 }
 
 }  // namespace test_utils
