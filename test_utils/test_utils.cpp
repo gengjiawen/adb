@@ -19,13 +19,14 @@
 #include <android-base/strings.h>
 #include <android-base/test_utils.h>
 
+#include <cutils/sockets.h>
 #include <gtest/gtest.h>
 
 #include "shell_protocol.h"
 #include "sysdeps.h"
 
 namespace test_utils {
-
+#if !ADB_HOST && defined(__ANDROID__)
 // Reads raw data from |fd| until it closes or errors.
 std::string ReadRaw(android::base::borrowed_fd fd) {
     char buffer[1024];
@@ -94,6 +95,23 @@ bool ExpectLinesEqual(const std::string& output, const std::vector<std::string>&
     }
     EXPECT_EQ(i, output_lines.size()) << "Found unmatched output lines";
     return true;
+}
+#endif
+
+// Relies on the device to allocate an available port, and
+// returns it to the caller.
+// Existing client (LocalSocketTest) of this interface is
+// implemented only on Linux, hence using cutils.
+int GetUnassignedPort(int* fd) {
+    unique_fd ufd;
+    ufd.reset(socket_inaddr_any_server(0, SOCK_STREAM));
+    EXPECT_NE(static_cast<cutils_socket_t>(ufd.get()), INVALID_SOCKET);
+
+    const int port = socket_get_local_port(ufd.get());
+    EXPECT_GT(port, 0);
+
+    *fd = ufd.release();
+    return port;
 }
 
 }  // namespace test_utils

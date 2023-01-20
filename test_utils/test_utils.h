@@ -23,6 +23,7 @@
 
 namespace test_utils {
 
+#if !ADB_HOST && defined(__ANDROID__)
 // Reads raw data from |fd| until it closes or errors.
 std::string ReadRaw(android::base::borrowed_fd fd);
 
@@ -34,5 +35,10 @@ int ReadShellProtocol(android::base::borrowed_fd fd, std::string* stdout, std::s
 // Checks if each line in |lines| exists in the same order in |output|. Blank
 // lines in |output| are ignored for simplicity.
 bool ExpectLinesEqual(const std::string& output, const std::vector<std::string>& lines);
+
+#endif
+
+// Allows the device to allocate a port, which is returned to the caller.
+int GetUnassignedPort(int* fd);
 
 }  // namespace test_utils
