@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c27fa347_fdb45c20",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-20T16:07:29Z",
+      "side": 1,
+      "message": "so it sounds like the answer to \"why\" is \"because i can\", so i think the key missing word here then is \"unused\" --- \"Remove ununused libcrypto dependency.\"?\n\n(always assume someone will be reading your commit message because something\u0027s broken, and they\u0027re wondering whether it\u0027s the fault of this change...)",
+      "revId": "7cef4f0ca55b19deca831983e17edb73aa2265fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
