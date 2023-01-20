@@ -363,6 +363,7 @@ cc_test_host {
     defaults: ["adb_defaults"],
     srcs: libadb_test_srcs + [
         "client/mdns_utils_test.cpp",
+        "test_utils/test_utils.cpp",
     ],
 
     static_libs: [
@@ -833,7 +834,7 @@ cc_test {
         "daemon/services.cpp",
         "daemon/shell_service.cpp",
         "daemon/shell_service_test.cpp",
-        "daemon/test_utils.cpp",
+        "test_utils/test_utils.cpp",
         "shell_service_protocol.cpp",
         "shell_service_protocol_test.cpp",
         "mdns_test.cpp",
