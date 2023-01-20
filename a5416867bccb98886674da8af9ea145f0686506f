@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "12b93588_db97baeb",
+        "filename": "daemon/restart_service_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-20T21:01:41Z",
+      "side": 1,
+      "message": "No, I really meant to do true random (as opposed to pseudo random).",
+      "parentUuid": "7a839844_dd12cb17",
+      "revId": "a5416867bccb98886674da8af9ea145f0686506f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "490e5e5f_40f2c8d8",
@@ -48,6 +66,24 @@
       "writtenOn": "2023-01-20T18:17:44Z",
       "side": 1,
       "message": "can you not just pass 0 and get one assigned?",
+      "revId": "a5416867bccb98886674da8af9ea145f0686506f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76fb7898_e2521596",
+        "filename": "daemon/restart_service_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-20T21:01:41Z",
+      "side": 1,
+      "message": "The higher level abstraction returns \"invalid port\" if 0 is passed in.",
+      "parentUuid": "490e5e5f_40f2c8d8",
       "revId": "a5416867bccb98886674da8af9ea145f0686506f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
