@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebfa5114_2c9abca6",
+        "filename": "daemon/restart_service_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-20T18:17:44Z",
+      "side": 1,
+      "message": "\u003ctime.h\u003e --- avoid the \u003cc*\u003e headers (which are subtly different) unless you can say _why_ you need them. (and then say why in a code comment :-) )",
+      "revId": "a5416867bccb98886674da8af9ea145f0686506f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a839844_dd12cb17",
+        "filename": "daemon/restart_service_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-20T18:17:44Z",
+      "side": 1,
+      "message": "accidentally left in?",
+      "revId": "a5416867bccb98886674da8af9ea145f0686506f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "490e5e5f_40f2c8d8",
+        "filename": "daemon/restart_service_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-20T18:17:44Z",
+      "side": 1,
+      "message": "can you not just pass 0 and get one assigned?",
+      "revId": "a5416867bccb98886674da8af9ea145f0686506f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bfb486b_f5b3bda0",
+        "filename": "daemon/restart_service_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-20T18:17:44Z",
+      "side": 1,
+      "message": "shouldn\u0027t we check that there\u0027s actually something _on_ the port, rather than just checking for a log message?",
+      "revId": "a5416867bccb98886674da8af9ea145f0686506f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c30be98_105267db",
+        "filename": "daemon/restart_service_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-20T18:17:44Z",
+      "side": 1,
+      "message": "use the libbase system properties APIs --- they\u0027ll give you std::strings right away.",
+      "range": {
+        "startLine": 53,
+        "startChar": 4,
+        "endLine": 55,
+        "endChar": 55
+      },
+      "revId": "a5416867bccb98886674da8af9ea145f0686506f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
