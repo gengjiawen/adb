@@ -109,6 +109,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6e469616_6c8fac59",
+        "filename": "daemon/restart_service_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-20T23:25:06Z",
+      "side": 1,
+      "message": "\u003e The generated port (line #44) is assigned to a const int and is immutable.\n\nfor _one run_, but that\u0027s not how flakiness works --- like sanglardf says, flakiness is all about differences _between_ runs, and randomness always increases that, and the \"better\" your randomness is, the worse that gets.\n\nusually, port 0 is the best way out of this situation. if you can\u0027t do that (and it\u0027s probably worth checking whether you can just fix the callee?) then the least worst trick i\u0027ve seen is to write a function that uses port 0 to get a port allocated, closes that socket, and then assumes that port is going to stay free for the duration of your test run. either that, or you come up with a port that you have some reason to know is guaranteed to always be free (but i can\u0027t think of one).",
+      "parentUuid": "c34a023c_c39ba2f6",
+      "revId": "a5416867bccb98886674da8af9ea145f0686506f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "490e5e5f_40f2c8d8",
         "filename": "daemon/restart_service_test.cpp",
         "patchSetId": 2
