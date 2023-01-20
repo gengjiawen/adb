@@ -35,4 +35,7 @@ int ReadShellProtocol(android::base::borrowed_fd fd, std::string* stdout, std::s
 // lines in |output| are ignored for simplicity.
 bool ExpectLinesEqual(const std::string& output, const std::vector<std::string>& lines);
 
+// Allow the system to allocate a port, by passing in 0.
+int GetUnassignedPort();
+
 }  // namespace test_utils
