@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6df3a2a2_833ac675",
+        "filename": "daemon/restart_service_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-20T23:26:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebfa5114_2c9abca6",
+      "revId": "a5416867bccb98886674da8af9ea145f0686506f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7a839844_dd12cb17",
@@ -127,6 +145,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7e8853db_19800939",
+        "filename": "daemon/restart_service_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-20T23:26:46Z",
+      "side": 1,
+      "message": "The test param (const int port) is immutable. It\u0027s unclear to me how this would make it flaky.",
+      "parentUuid": "c34a023c_c39ba2f6",
+      "revId": "a5416867bccb98886674da8af9ea145f0686506f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "490e5e5f_40f2c8d8",
         "filename": "daemon/restart_service_test.cpp",
         "patchSetId": 2
@@ -177,6 +213,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd58bb5d_173e1902",
+        "filename": "daemon/restart_service_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-20T23:26:46Z",
+      "side": 1,
+      "message": "We are not checking for the log output (https://source.corp.google.com/android/packages/modules/adb/daemon/restart_service.cpp;l\u003d63), but rather the information that was transmitted across (https://source.corp.google.com/android/packages/modules/adb/daemon/restart_service.cpp;l\u003d65) - which is the last successful line executed.",
+      "parentUuid": "4bfb486b_f5b3bda0",
+      "revId": "a5416867bccb98886674da8af9ea145f0686506f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1c30be98_105267db",
@@ -190,6 +244,30 @@
       "writtenOn": "2023-01-20T18:17:44Z",
       "side": 1,
       "message": "use the libbase system properties APIs --- they\u0027ll give you std::strings right away.",
+      "range": {
+        "startLine": 53,
+        "startChar": 4,
+        "endLine": 55,
+        "endChar": 55
+      },
+      "revId": "a5416867bccb98886674da8af9ea145f0686506f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a9f2cec_b9691ff9",
+        "filename": "daemon/restart_service_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-20T23:26:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c30be98_105267db",
       "range": {
         "startLine": 53,
         "startChar": 4,
