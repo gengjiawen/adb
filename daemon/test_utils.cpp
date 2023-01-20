@@ -96,4 +96,25 @@ bool ExpectLinesEqual(const std::string& output, const std::vector<std::string>&
     return true;
 }
 
+// Relies on the device to allocate an available port, and
+// returns it to the caller.
+int GetUnassignedPort() {
+    const int server = socket_inaddr_any_server(0, SOCK_STREAM);
+    EXPECT_NE(server, INVALID_SOCKET);
+
+    sockaddr_storage ss;
+    socklen_t ss_size = sizeof(ss);
+    EXPECT_EQ(0, adb_getsockname(server, reinterpret_cast<sockaddr*>(&ss), &ss_size));
+    int port;
+    if (ss.ss_family == AF_INET) {
+        port = ntohs(reinterpret_cast<sockaddr_in*>(&ss)->sin_port);
+    } else {
+        port = ntohs(reinterpret_cast<sockaddr_in6*>(&ss)->sin6_port);
+    }
+    EXPECT_GT(port, 0);
+
+    EXPECT_EQ(0, socket_close(server));
+    return port;
+}
+
 }  // namespace test_utils
