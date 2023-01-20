@@ -16,6 +16,24 @@
       "message": "is this the right bug? there\u0027s nothing about this there... (and it\u0027s already marked fixed.)",
       "revId": "b0ad172abf7ba6351a73256fe6c13c86b444ac93",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9f2f291_767546b1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-20T04:00:19Z",
+      "side": 1,
+      "message": "This was the closest bug (without filing a new one), and the CL was a followup action item from: https://android-review.git.corp.google.com/c/platform/packages/modules/adb/+/2341863\nI went ahead and cleared out the Bug: field.",
+      "parentUuid": "b9816834_c965037f",
+      "revId": "b0ad172abf7ba6351a73256fe6c13c86b444ac93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
