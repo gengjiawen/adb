@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45c6b1d2_af8e007c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-22T15:34:12Z",
+      "side": 1,
+      "message": "Will send a followup CL for testing close_stdin().",
+      "revId": "7456cda443767753e6636a34dafc13c18a14e311",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
