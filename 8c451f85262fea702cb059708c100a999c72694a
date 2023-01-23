@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "54a60948_7b47d7e5",
+        "filename": "daemon/restart_service_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-23T17:15:09Z",
+      "side": 1,
+      "message": "I was following the existing blueprint (shell-service).\nGlad to gut it, however should I refactor out shell-service (as a followup CL) as well?",
+      "parentUuid": "02b2e9ad_208361c8",
+      "revId": "8c451f85262fea702cb059708c100a999c72694a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5242f465_61098b08",
         "filename": "daemon/restart_service_test.cpp",
         "patchSetId": 5
@@ -31,6 +49,30 @@
       "writtenOn": "2023-01-23T15:57:20Z",
       "side": 1,
       "message": "i think we can be more specific than this?",
+      "range": {
+        "startLine": 67,
+        "startChar": 4,
+        "endLine": 67,
+        "endChar": 13
+      },
+      "revId": "8c451f85262fea702cb059708c100a999c72694a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1693e344_a97abc93",
+        "filename": "daemon/restart_service_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-23T17:15:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5242f465_61098b08",
       "range": {
         "startLine": 67,
         "startChar": 4,
