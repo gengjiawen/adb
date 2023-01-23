@@ -240,6 +240,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4702f9f1_bc4fb94e",
+        "filename": "daemon/test_utils.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-23T18:00:38Z",
+      "side": 1,
+      "message": "What would you like me to do?\nOption 1.) Refactor out test_utils for use across multiple tests (possibly include some platform-specific code).\nOption 2.) Repurpose socket_get_local_port() for test use (as well).",
+      "parentUuid": "a9640df2_9555712d",
+      "range": {
+        "startLine": 105,
+        "startChar": 4,
+        "endLine": 113,
+        "endChar": 5
+      },
+      "revId": "8c451f85262fea702cb059708c100a999c72694a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a9700f1c_ecab0b2c",
         "filename": "daemon/test_utils.h",
         "patchSetId": 5
