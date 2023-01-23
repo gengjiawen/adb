@@ -198,6 +198,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a9640df2_9555712d",
+        "filename": "daemon/test_utils.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-23T17:24:19Z",
+      "side": 1,
+      "message": "eh, \"i have another test that needs to use this test helper\" isn\u0027t a difficult sell.\n\n(we also have this function already in libcutils [https://source.corp.google.com/android/system/core/libcutils/sockets.cpp;l\u003d34?q\u003dfile:libcutils%20ntohs\u0026sq\u003dpackage:%5Eandroid$%20-file:prebuilts%2Fvndk%2F%20-file:prebuilts%2Fruntime%2F] just unfortunately not in a way that supports Windows too, afaict.)",
+      "parentUuid": "ce8d0a75_3df11a89",
+      "range": {
+        "startLine": 105,
+        "startChar": 4,
+        "endLine": 113,
+        "endChar": 5
+      },
+      "revId": "8c451f85262fea702cb059708c100a999c72694a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a9700f1c_ecab0b2c",
         "filename": "daemon/test_utils.h",
         "patchSetId": 5
