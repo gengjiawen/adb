@@ -108,6 +108,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "279e41fc_81f27ad1",
+        "filename": "daemon/restart_service_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-23T19:03:05Z",
+      "side": 1,
+      "message": "\u003e I feel the usage of the instance variable command_fd_ (state maintained across different TEST() cases, which can technically run in parallel) is still a problem (but we can always address it from a YAGNI standpoint).\n\ni haven\u0027t looked closely, but i think that\u0027s why the member functions are member functions, no? because they\u0027re offering higher-level operations on the fd?\n\nbut specifically for the \"in parallel\" part, no, that\u0027s not how our parallelism works. and if you\u0027ve ever wondered, this is _why_ the flag is `isolated: true` rather than `parallel: true`. basically, if tests are being run in parallel, they\u0027re being run in different _processes_. (because it was our team that built the infrastructure, and because there\u0027s pretty much nothing we can safely test in another thread --- for libc in particular, almost all the API touches global state.)",
+      "parentUuid": "02fe5198_ed7746c5",
+      "revId": "8c451f85262fea702cb059708c100a999c72694a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5242f465_61098b08",
