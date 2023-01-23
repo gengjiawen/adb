@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "50494c56_0717b70c",
+        "filename": "daemon/restart_service_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-23T18:07:21Z",
+      "side": 1,
+      "message": "yeah, i suspect that was a typo/confusion between SetUpTestCase() and Setup()... doesn\u0027t make sense to have scoped that across _all_ the tests rather than per-test. the rest seems fine though?",
+      "parentUuid": "bf83d1ac_d40badd6",
+      "revId": "8c451f85262fea702cb059708c100a999c72694a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5242f465_61098b08",
         "filename": "daemon/restart_service_test.cpp",
         "patchSetId": 5
