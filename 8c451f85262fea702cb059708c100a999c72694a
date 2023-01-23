@@ -282,6 +282,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8a7c24e7_95d378c5",
+        "filename": "daemon/test_utils.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-23T18:11:08Z",
+      "side": 1,
+      "message": "2 seems hard?\n\noh, no, i hadn\u0027t realize that this test is already not really using the adb functions --- yeah, in that case, you can just delete this and call socket_get_local_port() directly, since you\u0027re already using socket_inaddr_any_server() and socket_close() rather than adb_* functions...",
+      "parentUuid": "4702f9f1_bc4fb94e",
+      "range": {
+        "startLine": 105,
+        "startChar": 4,
+        "endLine": 113,
+        "endChar": 5
+      },
+      "revId": "8c451f85262fea702cb059708c100a999c72694a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a9700f1c_ecab0b2c",
         "filename": "daemon/test_utils.h",
         "patchSetId": 5
