@@ -179,6 +179,42 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c74fb0a_5ad6c672",
+        "filename": "daemon/restart_service_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-23T05:35:33Z",
+      "side": 1,
+      "message": "Now using a function to get an unused port (which will still be randomly allocated but hopefully avoid any failure scenarios due to alternate usage).",
+      "parentUuid": "2ca8a9fd_201148fb",
+      "revId": "a5416867bccb98886674da8af9ea145f0686506f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "212a65d5_9cb799bf",
+        "filename": "daemon/restart_service_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-23T05:35:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ca8a9fd_201148fb",
+      "revId": "a5416867bccb98886674da8af9ea145f0686506f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "490e5e5f_40f2c8d8",
