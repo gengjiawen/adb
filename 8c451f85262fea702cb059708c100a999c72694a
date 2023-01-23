@@ -86,6 +86,47 @@
       },
       "revId": "8c451f85262fea702cb059708c100a999c72694a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9be72885_d9bc3e9c",
+        "filename": "daemon/test_utils.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-23T17:08:26Z",
+      "side": 1,
+      "message": "remember the blog post (https://publicobject.com/2023/01/08/small-or-mechanical/) --- we always want to make those kinds of changes _first_.\n\nno change is perfect, right, but each change should be moving us in a healthier direction. reducing rather than increasing debt.",
+      "parentUuid": "ca168c00_ace7caa0",
+      "range": {
+        "startLine": 105,
+        "startChar": 4,
+        "endLine": 113,
+        "endChar": 5
+      },
+      "revId": "8c451f85262fea702cb059708c100a999c72694a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9700f1c_ecab0b2c",
+        "filename": "daemon/test_utils.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-23T17:08:26Z",
+      "side": 1,
+      "message": "(fwiw, given that this is a _bad_ idea -- but also your least worst option until/unless we improve the API to be more conveniently testable -- i don\u0027t think we should automatically expose this so broadly. just hide it in the one _test.cpp that needs it for now, unless you already know of other tests that need this?)",
+      "revId": "8c451f85262fea702cb059708c100a999c72694a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
