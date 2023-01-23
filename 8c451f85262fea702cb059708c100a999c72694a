@@ -62,6 +62,30 @@
       },
       "revId": "8c451f85262fea702cb059708c100a999c72694a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca168c00_ace7caa0",
+        "filename": "daemon/test_utils.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-23T16:04:39Z",
+      "side": 1,
+      "message": "Will refactor this out in a followup CL (in the interest of keeping CLs limited in scope)/",
+      "parentUuid": "abae2a59_8d4c41b5",
+      "range": {
+        "startLine": 105,
+        "startChar": 4,
+        "endLine": 113,
+        "endChar": 5
+      },
+      "revId": "8c451f85262fea702cb059708c100a999c72694a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
