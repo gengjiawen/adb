@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4957c2c8_3fdfee65",
+        "filename": "daemon/restart_service_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-23T17:18:41Z",
+      "side": 1,
+      "message": "i don\u0027t think so ... that one\u0027s doing more. i\u0027ve only had a quick glance, but that one seems like it\u0027s probably actually useful? in particular, although i personally might just have static functions rather than member functions that don\u0027t [seem] to need to actually be members, the signal stuff is something that isn\u0027t otherwise naturally part of the test. that would be extra unrelated lines of boilerplate you\u0027d need to add to every test.\n\nthe difference here is that the unique_fd is just the natural way to write the test anyway --- we\u0027re calling a function that returns an fd, so _of course_ it goes into a unique_fd because that\u0027s the default holder for an fd. and we literally don\u0027t need to write anything else. job done!",
+      "parentUuid": "54a60948_7b47d7e5",
+      "revId": "8c451f85262fea702cb059708c100a999c72694a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5242f465_61098b08",
         "filename": "daemon/restart_service_test.cpp",
         "patchSetId": 5
