@@ -90,6 +90,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "02fe5198_ed7746c5",
+        "filename": "daemon/restart_service_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-23T18:20:43Z",
+      "side": 1,
+      "message": "I feel the usage of the instance variable command_fd_ (state maintained across different TEST() cases, which can technically run in parallel) is still a problem (but we can always address it from a YAGNI standpoint).\nI\u0027m resolving this comment since I got rid of the TEST_F() - pl reopen if there\u0027s any residual work in this area.",
+      "parentUuid": "50494c56_0717b70c",
+      "revId": "8c451f85262fea702cb059708c100a999c72694a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5242f465_61098b08",
