@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bf83d1ac_d40badd6",
+        "filename": "daemon/restart_service_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-23T17:57:16Z",
+      "side": 1,
+      "message": "Done\nPS: shell-service test appears to suffer from tech-debt (maintaining state across independent tests).\n\"Tests should be independent and repeatable. It\u0027s a pain to debug a test that succeeds or fails as a result of other tests. googletest isolates the tests by running each of them on a different object. When a test fails, googletest allows you to run it in isolation for quick debugging.\"\nRef: https://g3doc.corp.google.com/third_party/googletest/g3doc/primer.md?cl\u003dhead",
+      "parentUuid": "4957c2c8_3fdfee65",
+      "revId": "8c451f85262fea702cb059708c100a999c72694a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5242f465_61098b08",
         "filename": "daemon/restart_service_test.cpp",
         "patchSetId": 5
