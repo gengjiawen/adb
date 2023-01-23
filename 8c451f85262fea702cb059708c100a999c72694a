@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02b2e9ad_208361c8",
+        "filename": "daemon/restart_service_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-23T15:57:20Z",
+      "side": 1,
+      "message": "(a) you don\u0027t have to do this because it\u0027s already in your TearDown(), but...\n\n(b) i don\u0027t think that RestartServiceTest is buying us anything here. (as demonstrated by \"it confused even you, the author, at the time you added it\". that\u0027s not going to get any better over time/more authors!)\n\njust delete RestartServiceTest, have a unique_fd in each individual test, and stop calling reset() completely (since the whole point of unique_fd is \"i\u0027ll take care of that for you when i go out of scope\")?",
+      "revId": "8c451f85262fea702cb059708c100a999c72694a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5242f465_61098b08",
+        "filename": "daemon/restart_service_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-23T15:57:20Z",
+      "side": 1,
+      "message": "i think we can be more specific than this?",
+      "range": {
+        "startLine": 67,
+        "startChar": 4,
+        "endLine": 67,
+        "endChar": 13
+      },
+      "revId": "8c451f85262fea702cb059708c100a999c72694a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abae2a59_8d4c41b5",
+        "filename": "daemon/test_utils.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-23T15:57:20Z",
+      "side": 1,
+      "message": "don\u0027t we already have a couple of copies of this lying around?",
+      "range": {
+        "startLine": 105,
+        "startChar": 4,
+        "endLine": 113,
+        "endChar": 5
+      },
+      "revId": "8c451f85262fea702cb059708c100a999c72694a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
