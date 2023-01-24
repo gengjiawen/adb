@@ -366,6 +366,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fb4992d8_5f0f4527",
+        "filename": "daemon/test_utils.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-24T00:25:39Z",
+      "side": 1,
+      "message": "aye, but that\u0027s a *bug*, right? i think this code is *broken* on Win32 right now, because you\u0027re calling adb_getsockname() on a socket you got back from socket_inaddr_any_server(). adb will try to treat that int as a pointer and *boom*, no?",
+      "parentUuid": "baed898a_57dd8102",
+      "range": {
+        "startLine": 105,
+        "startChar": 4,
+        "endLine": 113,
+        "endChar": 5
+      },
+      "revId": "8c451f85262fea702cb059708c100a999c72694a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a9700f1c_ecab0b2c",
         "filename": "daemon/test_utils.h",
         "patchSetId": 5
