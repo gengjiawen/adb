@@ -390,6 +390,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f7c83acd_678b63c4",
+        "filename": "daemon/test_utils.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-24T01:48:19Z",
+      "side": 1,
+      "message": "I presume we are referring to the following line:\n EXPECT_EQ(0, adb_getsockname(server, reinterpret_cast\u003csockaddr*\u003e(\u0026ss), \u0026ss_size));\nadb_getsockname() internally converts the int (server, returned by socket_inaddr_any_server()) into a borrowed_fd\u003c\u003e object and calls fd.get() on that.\n\nPS: Hope I\u0027m not missing something here.",
+      "parentUuid": "fb4992d8_5f0f4527",
+      "range": {
+        "startLine": 105,
+        "startChar": 4,
+        "endLine": 113,
+        "endChar": 5
+      },
+      "revId": "8c451f85262fea702cb059708c100a999c72694a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a9700f1c_ecab0b2c",
         "filename": "daemon/test_utils.h",
         "patchSetId": 5
@@ -419,6 +443,24 @@
       "side": 1,
       "message": "It\u0027s needed by shell_service_test.cpp (in this CL), and will be needed by restart_service_test.cpp (in the followup CL).",
       "parentUuid": "a9700f1c_ecab0b2c",
+      "revId": "8c451f85262fea702cb059708c100a999c72694a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00fe794b_63c39fe3",
+        "filename": "daemon/test_utils.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-24T01:48:19Z",
+      "side": 1,
+      "message": "Meant to say: socket_test.cpp is also using it.",
+      "parentUuid": "8abff870_85ce5e8a",
       "revId": "8c451f85262fea702cb059708c100a999c72694a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
