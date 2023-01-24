@@ -340,6 +340,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "baed898a_57dd8102",
+        "filename": "daemon/test_utils.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-24T00:05:35Z",
+      "side": 1,
+      "message": "adb_getsockname() *is* being used (line #107 in test_utils.cpp), so socket_get_local_port(cutils_socket_t) from sockets.cpp (as it exists now) is not enough to return an available port (when passed in 0).",
+      "parentUuid": "8a7c24e7_95d378c5",
+      "range": {
+        "startLine": 105,
+        "startChar": 4,
+        "endLine": 113,
+        "endChar": 5
+      },
+      "revId": "8c451f85262fea702cb059708c100a999c72694a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a9700f1c_ecab0b2c",
@@ -353,6 +377,24 @@
       "writtenOn": "2023-01-23T17:08:26Z",
       "side": 1,
       "message": "(fwiw, given that this is a _bad_ idea -- but also your least worst option until/unless we improve the API to be more conveniently testable -- i don\u0027t think we should automatically expose this so broadly. just hide it in the one _test.cpp that needs it for now, unless you already know of other tests that need this?)",
+      "revId": "8c451f85262fea702cb059708c100a999c72694a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8abff870_85ce5e8a",
+        "filename": "daemon/test_utils.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-24T00:05:35Z",
+      "side": 1,
+      "message": "It\u0027s needed by shell_service_test.cpp (in this CL), and will be needed by restart_service_test.cpp (in the followup CL).",
+      "parentUuid": "a9700f1c_ecab0b2c",
       "revId": "8c451f85262fea702cb059708c100a999c72694a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
