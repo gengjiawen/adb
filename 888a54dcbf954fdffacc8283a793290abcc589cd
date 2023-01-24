@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b2dd358_b4562ff8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-24T16:30:53Z",
+      "side": 1,
+      "message": "we don\u0027t support gcc, but the specific case of obviously missing transitive includes still counts as a bug, so lgtm.\n\n(we prefer the \u003c....h\u003e files over the \u003cc...\u003e files because some of the latter are subtly different in ways that -- with the exception of std::byte -- i\u0027ve never seen anyone actually _want_ [and if they did, there should be a code comment].)",
+      "revId": "888a54dcbf954fdffacc8283a793290abcc589cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
