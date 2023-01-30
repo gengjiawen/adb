@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2f31e9f_c1ef575e",
+        "filename": "test_utils/test_utils.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-30T16:12:12Z",
+      "side": 1,
+      "message": "Done - will close out that bug when I call socket_close(*fd) from the call-site (in the followup CL that\u0027ll add restart service test).",
+      "parentUuid": "c20a43fc_e75705f9",
+      "revId": "0e81a373fd901114c3428d66dc96ddb8ef4db999",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "737f91ac_7105ac60",
@@ -65,6 +83,24 @@
       "writtenOn": "2023-01-30T15:38:29Z",
       "side": 1,
       "message": "it\u0027s more than that now. (and no-one should be passing in 0 to _this_ function, unless they want a SIGSEGV!)\n\nunique_fd?",
+      "revId": "0e81a373fd901114c3428d66dc96ddb8ef4db999",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5afef0c4_3d17e649",
+        "filename": "test_utils/test_utils.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-30T16:12:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3997e198_f8cec7e3",
       "revId": "0e81a373fd901114c3428d66dc96ddb8ef4db999",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
