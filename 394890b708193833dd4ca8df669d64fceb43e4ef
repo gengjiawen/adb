@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "248bcb8f_230f6702",
+        "filename": "Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-30T23:13:25Z",
+      "side": 1,
+      "message": "Almost missed your \"tab\" comment :)",
+      "parentUuid": "1e971a50_df944ce8",
+      "revId": "394890b708193833dd4ca8df669d64fceb43e4ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "97f35069_ce177cce",
