@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e971a50_df944ce8",
+        "filename": "Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-30T22:24:20Z",
+      "side": 1,
+      "message": "Resolving linkage to the interfaces (e.g. Read())used by one of the three test-specific functions is the purpose.\nYes, we can probably refactor another test-only library - hope it\u0027s ok to split that work out to a followup/separate CL.",
+      "parentUuid": "02577a61_d8df758e",
+      "revId": "394890b708193833dd4ca8df669d64fceb43e4ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "97f35069_ce177cce",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-01-30T16:59:55Z",
       "side": 1,
       "message": "unique_fd",
+      "revId": "394890b708193833dd4ca8df669d64fceb43e4ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da50fba6_cea7e108",
+        "filename": "test_utils/test_utils.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-30T22:24:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97f35069_ce177cce",
       "revId": "394890b708193833dd4ca8df669d64fceb43e4ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
