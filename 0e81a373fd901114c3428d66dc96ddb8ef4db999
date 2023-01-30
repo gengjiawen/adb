@@ -16,6 +16,57 @@
       "message": "Removed windows variant usage (as discussed).",
       "revId": "0e81a373fd901114c3428d66dc96ddb8ef4db999",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c20a43fc_e75705f9",
+        "filename": "test_utils/test_utils.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-30T15:38:29Z",
+      "side": 1,
+      "message": "no, (a) we shouldn\u0027t really support that, because that\u0027s adding flake to a test and (b) that\u0027s something the caller can already do anyway.",
+      "revId": "0e81a373fd901114c3428d66dc96ddb8ef4db999",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "737f91ac_7105ac60",
+        "filename": "test_utils/test_utils.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-30T15:38:29Z",
+      "side": 1,
+      "message": "why?",
+      "revId": "0e81a373fd901114c3428d66dc96ddb8ef4db999",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3997e198_f8cec7e3",
+        "filename": "test_utils/test_utils.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-30T15:38:29Z",
+      "side": 1,
+      "message": "it\u0027s more than that now. (and no-one should be passing in 0 to _this_ function, unless they want a SIGSEGV!)\n\nunique_fd?",
+      "revId": "0e81a373fd901114c3428d66dc96ddb8ef4db999",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
