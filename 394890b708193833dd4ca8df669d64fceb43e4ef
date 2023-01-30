@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "59bd76db_82b0d6b4",
+        "filename": "Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-30T23:16:28Z",
+      "side": 1,
+      "message": "seems like that should go into `libadb_test_srcs` then? because aiui right now you\u0027re manually adding this extra file to _both_ users of that list?",
+      "parentUuid": "1e971a50_df944ce8",
+      "revId": "394890b708193833dd4ca8df669d64fceb43e4ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "97f35069_ce177cce",
         "filename": "test_utils/test_utils.h",
         "patchSetId": 13
