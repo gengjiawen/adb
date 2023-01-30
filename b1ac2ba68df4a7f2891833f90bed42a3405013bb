@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed347799_6dc91792",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-30T15:59:44Z",
+      "side": 1,
+      "message": "why are you not using `TemporaryDir` (for the linux side too!) like we talked about?",
+      "revId": "b1ac2ba68df4a7f2891833f90bed42a3405013bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

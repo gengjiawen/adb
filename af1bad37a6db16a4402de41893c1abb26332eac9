@@ -300,6 +300,24 @@
       "parentUuid": "e997c4f8_b66fdcb9",
       "revId": "af1bad37a6db16a4402de41893c1abb26332eac9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72664028_b5ff5919",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-30T15:59:44Z",
+      "side": 1,
+      "message": "(this still isn\u0027t addressed in the latest patchset?)",
+      "parentUuid": "365955d4_bc48d001",
+      "revId": "af1bad37a6db16a4402de41893c1abb26332eac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
