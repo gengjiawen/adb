@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "cbfd3e97_728f81f2",
+        "filename": "/MERGE_LIST",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-31T19:28:50Z",
+      "side": 1,
+      "message": "yes, I hadn\u0027t done a sync.",
+      "parentUuid": "c342d646_eb02e254",
+      "revId": "9b34e26c2ba18e2998bcb9bcbd899df19ee948c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "146a3e10_73c81f00",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -48,6 +66,24 @@
       "writtenOn": "2023-01-31T19:01:12Z",
       "side": 1,
       "message": "why are you reverting the unique_fd usage?",
+      "revId": "9b34e26c2ba18e2998bcb9bcbd899df19ee948c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "680aec0f_b46d3ccf",
+        "filename": "test_utils/test_utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-31T19:28:50Z",
+      "side": 1,
+      "message": "GetUnassignedPort() returns two values: port number + associated fd (both are needed by socket_test, whereas restart_service_test does not care about the latter).\nBy dealing with raw int fd, we can avoid the extra overhead for the latter case (you might recall that was the way I originally set it up in the last CL).",
+      "parentUuid": "088bcf4a_b5e50fa5",
       "revId": "9b34e26c2ba18e2998bcb9bcbd899df19ee948c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
