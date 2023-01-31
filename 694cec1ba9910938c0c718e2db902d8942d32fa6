@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8a3a72a7_2ea7a095",
+        "filename": "/MERGE_LIST",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-31T21:19:49Z",
+      "side": 1,
+      "message": "What do you suggest I do? Should I a.) abandon this and send out another CL or b.) do something else (I don\u0027t see any need to merge manually, so far).",
+      "parentUuid": "621da212_64c41b61",
+      "revId": "694cec1ba9910938c0c718e2db902d8942d32fa6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e5544f7b_cea09903",
         "filename": "socket_test.cpp",
         "patchSetId": 3
@@ -31,6 +49,24 @@
       "writtenOn": "2023-01-31T20:28:16Z",
       "side": 1,
       "message": "that assertion is already in GetUnassignedPort() (which i think is a good idea --- test helpers _should_ just assert if they can\u0027t do their job, specifically so that callers can be simpler and to the point).",
+      "revId": "694cec1ba9910938c0c718e2db902d8942d32fa6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2202ba2c_0afb898e",
+        "filename": "socket_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-31T21:19:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5544f7b_cea09903",
       "revId": "694cec1ba9910938c0c718e2db902d8942d32fa6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -58,6 +94,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e440fd4_c6b840f8",
+        "filename": "test_utils/test_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-31T21:19:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0845cdb4_c26efa1e",
+      "range": {
+        "startLine": 101,
+        "startChar": 29,
+        "endLine": 101,
+        "endChar": 39
+      },
+      "revId": "694cec1ba9910938c0c718e2db902d8942d32fa6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "78bb7fb4_520509d5",
@@ -71,6 +131,24 @@
       "writtenOn": "2023-01-31T20:28:16Z",
       "side": 1,
       "message": "(actually, you don\u0027t even need `ufd`, right? you could just work directly on `fd`.)",
+      "revId": "694cec1ba9910938c0c718e2db902d8942d32fa6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fed8da4c_402ec756",
+        "filename": "test_utils/test_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-31T21:19:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78bb7fb4_520509d5",
       "revId": "694cec1ba9910938c0c718e2db902d8942d32fa6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
