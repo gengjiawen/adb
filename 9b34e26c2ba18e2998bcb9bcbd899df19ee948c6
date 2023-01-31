@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c342d646_eb02e254",
+        "filename": "/MERGE_LIST",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-31T19:01:12Z",
+      "side": 1,
+      "message": "what\u0027s going on here? git troubles again?",
+      "revId": "9b34e26c2ba18e2998bcb9bcbd899df19ee948c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "146a3e10_73c81f00",
@@ -14,6 +31,23 @@
       "writtenOn": "2023-01-31T18:04:33Z",
       "side": 1,
       "message": "CL #2(of 2) for enhancing restart_service coverage - PTAL",
+      "revId": "9b34e26c2ba18e2998bcb9bcbd899df19ee948c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "088bcf4a_b5e50fa5",
+        "filename": "test_utils/test_utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-31T19:01:12Z",
+      "side": 1,
+      "message": "why are you reverting the unique_fd usage?",
       "revId": "9b34e26c2ba18e2998bcb9bcbd899df19ee948c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
