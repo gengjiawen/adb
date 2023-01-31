@@ -336,6 +336,24 @@
       "parentUuid": "72664028_b5ff5919",
       "revId": "af1bad37a6db16a4402de41893c1abb26332eac9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "209de1bd_2682e002",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-31T03:22:51Z",
+      "side": 1,
+      "message": "good idea - done (I see that TemporaryDir has public access specifier to internal char[] data - will address this in a different CL).",
+      "parentUuid": "5e8c6e80_1dd40456",
+      "revId": "af1bad37a6db16a4402de41893c1abb26332eac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

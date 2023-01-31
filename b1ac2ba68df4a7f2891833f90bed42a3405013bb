@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a08ff6f4_2ea0437a",
+        "filename": "adb_utils.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-31T03:22:51Z",
+      "side": 1,
+      "message": "Done - will discuss next week about getting that test in (separately).",
+      "parentUuid": "2faecd10_17ed327d",
+      "revId": "b1ac2ba68df4a7f2891833f90bed42a3405013bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ed347799_6dc91792",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-01-30T15:59:44Z",
       "side": 1,
       "message": "why are you not using `TemporaryDir` (for the linux side too!) like we talked about?",
+      "revId": "b1ac2ba68df4a7f2891833f90bed42a3405013bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5c10d2d_dbe7502d",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-31T03:22:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed347799_6dc91792",
       "revId": "b1ac2ba68df4a7f2891833f90bed42a3405013bb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
