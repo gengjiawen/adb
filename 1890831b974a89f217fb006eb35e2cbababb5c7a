@@ -52,6 +52,24 @@
       "parentUuid": "407ab966_48e8dd4a",
       "revId": "1890831b974a89f217fb006eb35e2cbababb5c7a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29f655d4_471574ca",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-31T19:14:59Z",
+      "side": 1,
+      "message": "I *did* test it on Windows :) (after you highlighted how broken that is).\nPS: One action item is to opportunistically fix those legacy breakages (without introducing any regressions).\nPl stay tuned - I shall refactor this test out to two variants.",
+      "parentUuid": "4b56da02_50e1197e",
+      "revId": "1890831b974a89f217fb006eb35e2cbababb5c7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
