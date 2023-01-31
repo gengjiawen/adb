@@ -34,6 +34,24 @@
       "parentUuid": "c495a02b_8030b7be",
       "revId": "1890831b974a89f217fb006eb35e2cbababb5c7a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b56da02_50e1197e",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-31T18:59:26Z",
+      "side": 1,
+      "message": "yes. this test as-is makes no sense: it\u0027s unclear to the reader what\u0027s actually being tested, and it\u0027s genuinely inconsistent --- the code that\u0027s tested in the #else _is_ available on windows, so it should be tested as well.\n\nthe right way to do this is to separate these two distinct tests into two distinct test cases. (though like i say, personally if you haven\u0027t actually _run_ the test on windows, i wouldn\u0027t check it in. all you\u0027re confirming that way is \"does it compile?\", but we already know that from the std::string wrapper function.)",
+      "parentUuid": "407ab966_48e8dd4a",
+      "revId": "1890831b974a89f217fb006eb35e2cbababb5c7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
