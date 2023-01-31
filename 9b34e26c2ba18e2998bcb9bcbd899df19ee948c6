@@ -122,6 +122,24 @@
       "parentUuid": "81079dc2_470c7311",
       "revId": "9b34e26c2ba18e2998bcb9bcbd899df19ee948c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ca28b1c_a7bc31bf",
+        "filename": "test_utils/test_utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-31T20:14:30Z",
+      "side": 1,
+      "message": "micro-optimization removed :)",
+      "parentUuid": "3366c966_361986f6",
+      "revId": "9b34e26c2ba18e2998bcb9bcbd899df19ee948c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
