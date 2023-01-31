@@ -86,6 +86,24 @@
       "parentUuid": "088bcf4a_b5e50fa5",
       "revId": "9b34e26c2ba18e2998bcb9bcbd899df19ee948c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81079dc2_470c7311",
+        "filename": "test_utils/test_utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-31T19:36:02Z",
+      "side": 1,
+      "message": "ask yourself: \"is the current implementation of GetUnassignedPort() correct?\"\n\n(my claim would be that the best way to fix it is to put the unique_fd back in the API. this seems like an attempt at microoptimization that\u0027s introduced exactly the kind of bug that unique_fd is meant to avoid.)",
+      "parentUuid": "680aec0f_b46d3ccf",
+      "revId": "9b34e26c2ba18e2998bcb9bcbd899df19ee948c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
