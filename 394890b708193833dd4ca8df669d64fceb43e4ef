@@ -92,6 +92,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0e151fd7_4e3bac80",
+        "filename": "Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-31T00:55:34Z",
+      "side": 1,
+      "message": "well, you\u0027d need to _remove_ the manual addition from the _other_ place this variable is used, or, yes, you\u0027ll be trying to build it twice...",
+      "parentUuid": "07530b6c_5e5c7e01",
+      "revId": "394890b708193833dd4ca8df669d64fceb43e4ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "97f35069_ce177cce",
         "filename": "test_utils/test_utils.h",
         "patchSetId": 13
