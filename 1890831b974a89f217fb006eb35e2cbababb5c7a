@@ -16,6 +16,24 @@
       "message": "this is all still testing a completely different function from the #else side...",
       "revId": "1890831b974a89f217fb006eb35e2cbababb5c7a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "407ab966_48e8dd4a",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-31T18:29:36Z",
+      "side": 1,
+      "message": "Since our conversation last week, I figured I can still salvage _WIN32 test (given TemporaryDir abstracts out). Would you *still* like to completely gut out the #ifdef _WIN32 block? If so, should I refactor and rname the test appropriately (getcwd vs getcwd_win32)?",
+      "parentUuid": "c495a02b_8030b7be",
+      "revId": "1890831b974a89f217fb006eb35e2cbababb5c7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
