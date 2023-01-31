@@ -104,6 +104,24 @@
       "parentUuid": "680aec0f_b46d3ccf",
       "revId": "9b34e26c2ba18e2998bcb9bcbd899df19ee948c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3366c966_361986f6",
+        "filename": "test_utils/test_utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-01-31T19:39:57Z",
+      "side": 1,
+      "message": "(to be clear: by \"current\" in the socratic question above i mean \"the one in this patchset\". i think the checked-in one is fine.)",
+      "parentUuid": "81079dc2_470c7311",
+      "revId": "9b34e26c2ba18e2998bcb9bcbd899df19ee948c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
