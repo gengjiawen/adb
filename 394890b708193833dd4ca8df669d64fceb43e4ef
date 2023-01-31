@@ -72,6 +72,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "07530b6c_5e5c7e01",
+        "filename": "Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-31T00:50:37Z",
+      "side": 1,
+      "message": "Ran into this error: FAILED: ninja: out/soong/build.ninja:3519075: multiple rules generate out/soong/.intermediates/packages/modules/adb/adbd_test/android_ar\nm64_armv8-2a_cortex-a55/obj/packages/modules/adb/shell_service_protocol.o [-w dupbuild\u003derr]",
+      "parentUuid": "59bd76db_82b0d6b4",
+      "revId": "394890b708193833dd4ca8df669d64fceb43e4ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "97f35069_ce177cce",

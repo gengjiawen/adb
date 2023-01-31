@@ -16,6 +16,24 @@
       "message": "why this change?",
       "revId": "36339285d337611cfd09afa3bf9b16148800c76c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ded791f_462b54f6",
+        "filename": "test_utils/test_utils.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-01-31T00:50:37Z",
+      "side": 1,
+      "message": "For consistency\u0027s sake (ref: line #106). Pl reopen if you\u0027d like me to do that in a separate CL.",
+      "parentUuid": "707b348c_8b39aa00",
+      "revId": "36339285d337611cfd09afa3bf9b16148800c76c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
