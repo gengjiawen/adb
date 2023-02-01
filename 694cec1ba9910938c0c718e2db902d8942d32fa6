@@ -54,6 +54,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "950a307d_50b6addd",
+        "filename": "/MERGE_LIST",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-02-01T11:05:13Z",
+      "side": 1,
+      "message": "Abandoning this (cloned to: https://android-review.git.corp.google.com/c/platform/packages/modules/adb/+/2412394)",
+      "parentUuid": "76f8dfba_d12c92de",
+      "revId": "694cec1ba9910938c0c718e2db902d8942d32fa6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e5544f7b_cea09903",
