@@ -33,6 +33,39 @@
 #include <android-base/file.h>
 #include <android-base/macros.h>
 
+#if !defined(_WIN32)
+// Test for general purpose function getcwd().
+// Windows-specific variant is in sysdeps_win32_test.
+TEST(adb_utils, getcwd_gen) {
+    std::string orig_dir;
+    ASSERT_TRUE(getcwd(&orig_dir));
+
+    TemporaryDir temp_dir;
+    ASSERT_EQ(chdir(temp_dir.path), 0);
+
+    std::string working_dir;
+    ASSERT_TRUE(getcwd(&working_dir));
+
+    EXPECT_NE(working_dir, orig_dir);
+
+    EXPECT_EQ(working_dir, std::string(temp_dir.path));
+}
+
+TEST(adb_utils, set_file_block_mode) {
+    unique_fd fd(adb_open("/dev/null", O_RDWR | O_APPEND));
+    ASSERT_GE(fd, 0);
+    int flags = fcntl(fd.get(), F_GETFL, 0);
+    ASSERT_EQ(O_RDWR | O_APPEND, (flags & (O_RDWR | O_APPEND)));
+    ASSERT_TRUE(set_file_block_mode(fd, false));
+    int new_flags = fcntl(fd.get(), F_GETFL, 0);
+    ASSERT_EQ(flags | O_NONBLOCK, new_flags);
+    ASSERT_TRUE(set_file_block_mode(fd, true));
+    new_flags = fcntl(fd.get(), F_GETFL, 0);
+    ASSERT_EQ(flags, new_flags);
+}
+
+#endif
+
 #ifdef _WIN32
 static std::string subdir(const char* parent, const char* child) {
   std::string str(parent);
@@ -144,21 +177,6 @@ TEST(adb_utils, mkdirs) {
   ASSERT_EQ(0, chdir(td.path)) << strerror(errno);
   test_mkdirs(std::string("relative/subrel"));
 }
-
-#if !defined(_WIN32)
-TEST(adb_utils, set_file_block_mode) {
-    unique_fd fd(adb_open("/dev/null", O_RDWR | O_APPEND));
-    ASSERT_GE(fd, 0);
-    int flags = fcntl(fd.get(), F_GETFL, 0);
-    ASSERT_EQ(O_RDWR | O_APPEND, (flags & (O_RDWR | O_APPEND)));
-    ASSERT_TRUE(set_file_block_mode(fd, false));
-    int new_flags = fcntl(fd.get(), F_GETFL, 0);
-    ASSERT_EQ(flags | O_NONBLOCK, new_flags);
-    ASSERT_TRUE(set_file_block_mode(fd, true));
-    new_flags = fcntl(fd.get(), F_GETFL, 0);
-    ASSERT_EQ(flags, new_flags);
-}
-#endif
 
 TEST(adb_utils, test_forward_targets_are_valid) {
     std::string error;

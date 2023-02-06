@@ -235,6 +235,10 @@ libadb_windows_srcs = [
     "sysdeps/win32/stat.cpp",
 ]
 
+libadb_test_windows_srcs = [
+    "sysdeps_win32_test.cpp",
+]
+
 libadb_posix_srcs = [
     "sysdeps_unix.cpp",
     "sysdeps/posix/network.cpp",
@@ -392,6 +396,7 @@ cc_test_host {
     target: {
         windows: {
             enabled: true,
+	    srcs: libadb_test_windows_srcs,
             ldflags: ["-municode"],
             shared_libs: ["AdbWinApi"],
         },
@@ -831,6 +836,7 @@ cc_test {
 
     recovery_available: false,
     srcs: libadb_test_srcs + [
+        "adb_utils.cpp",
         "daemon/restart_service.cpp",
         "daemon/restart_service_test.cpp",
         "daemon/services.cpp",

@@ -18,6 +18,9 @@
 
 #include "sysdeps.h"
 
+#include <fcntl.h>
+#include <stdlib.h>
+
 #include <android-base/file.h>
 
 TEST(sysdeps_win32, adb_getenv) {
@@ -110,6 +113,26 @@ TEST(sysdeps_win32, unix_isatty) {
 
     // Make sure an invalid FD is handled correctly.
     EXPECT_EQ(0, unix_isatty(-1));
+}
+
+// Testing for the Windows-specific version of the
+// interface to return the current working directory.
+TEST(sysdeps_win32, adb_getcwd_win) {
+    char* wd = getcwd(nullptr, 0);
+    std::string working_dir(wd ? wd : "");
+    free(wd);
+
+    TemporaryDir temp_dir;
+    EXPECT_EQ(chdir(temp_dir.path), 0);
+
+    // Validate that we landed well.
+    char* landed_dir = getcwd(nullptr, 0);
+    EXPECT_NE(landed_dir, nullptr);
+
+    EXPECT_NE(std::string(landed_dir), working_dir);
+    EXPECT_EQ(std::string(landed_dir), std::string(temp_dir.path));
+
+    free(landed_dir);
 }
 
 void TestParseCompleteUTF8(const char* buf, const size_t buf_size,
