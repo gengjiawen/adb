@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4dbe93f0_9667b07d",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-02-06T16:11:08Z",
+      "side": 0,
+      "message": "don\u0027t move this for no reason --- that\u0027s just obscuring the git history.",
+      "revId": "ccdd7ffa26d951839ea206085d2e2dbb568de391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

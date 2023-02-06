@@ -1,0 +1,141 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de8de51e_27824436",
+        "filename": "Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-02-06T16:11:08Z",
+      "side": 1,
+      "message": "tab",
+      "revId": "b5e775a2fafef8af4de41ea625eca50a4e15146d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ab98f31_0e80b109",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-02-06T16:11:08Z",
+      "side": 1,
+      "message": "why? like i said, one of the reasons for separating these two tests is that -- the getcwd() std::string overload works _everywhere_.",
+      "revId": "b5e775a2fafef8af4de41ea625eca50a4e15146d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a072a5d6_e9938f71",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-02-06T16:11:08Z",
+      "side": 1,
+      "message": "(skip this and go straight to the next assertion for clarity? if you can\u0027t trust TemporaryDir to actually give you a new unique directory, you have much bigger problems...)",
+      "revId": "b5e775a2fafef8af4de41ea625eca50a4e15146d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f61b358_a8da8385",
+        "filename": "sysdeps_win32_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-02-06T16:11:08Z",
+      "side": 1,
+      "message": "probably slightly less unclear to call adb_getcwd() here (even though there\u0027s a #define so getcwd _is_ adb_getcwd(), that was non-obvious enough to confuse us already). i think *that\u0027s* the useful thing to write in the comment too. your current comment sounds like you\u0027re testing the win32 getcwd, which you\u0027re not.",
+      "range": {
+        "startLine": 121,
+        "startChar": 15,
+        "endLine": 121,
+        "endChar": 21
+      },
+      "revId": "b5e775a2fafef8af4de41ea625eca50a4e15146d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65bc9547_6b38f98e",
+        "filename": "sysdeps_win32_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-02-06T16:11:08Z",
+      "side": 1,
+      "message": "don\u0027t you want to assert that wd is non-null?",
+      "revId": "b5e775a2fafef8af4de41ea625eca50a4e15146d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49054b4c_82bdeb9d",
+        "filename": "sysdeps_win32_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-02-06T16:11:08Z",
+      "side": 1,
+      "message": "delete these two lines because they\u0027re beside the point and confusing?\n\nL133 is the _correct_ test, so what are these two weaker tests here for?",
+      "range": {
+        "startLine": 130,
+        "startChar": 4,
+        "endLine": 132,
+        "endChar": 52
+      },
+      "revId": "b5e775a2fafef8af4de41ea625eca50a4e15146d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6aad235d_86fb216e",
+        "filename": "sysdeps_win32_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-02-06T16:11:08Z",
+      "side": 1,
+      "message": "EXPECT_STREQ",
+      "range": {
+        "startLine": 133,
+        "startChar": 4,
+        "endLine": 133,
+        "endChar": 13
+      },
+      "revId": "b5e775a2fafef8af4de41ea625eca50a4e15146d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
