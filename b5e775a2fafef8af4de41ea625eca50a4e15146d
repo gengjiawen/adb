@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "415bec2f_c365752b",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-02-06T18:19:42Z",
+      "side": 1,
+      "message": "Looks like the Windows variant suffers from multiple problems, which is why I was forced to do this. The reason has to do with why there\u0027s already a #if !defined (_WIN32) around set_file_block_mode TEST(). Will discuss offline in detail.",
+      "parentUuid": "3ab98f31_0e80b109",
+      "revId": "b5e775a2fafef8af4de41ea625eca50a4e15146d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a072a5d6_e9938f71",
         "filename": "adb_utils_test.cpp",
         "patchSetId": 1
