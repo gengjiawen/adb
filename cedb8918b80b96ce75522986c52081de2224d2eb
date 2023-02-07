@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c106021_5ea4f8f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511237
+      },
+      "writtenOn": "2023-02-07T09:09:03Z",
+      "side": 1,
+      "message": "The parent change has been merged: \nhttps://android-review.googlesource.com/c/platform/packages/modules/adb/+/2337750\n\nThis CR was rebased to resolve merge conflict, please, take a look.",
+      "revId": "cedb8918b80b96ce75522986c52081de2224d2eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
