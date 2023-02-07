@@ -16,6 +16,29 @@
       "message": "The parent change has been merged: \nhttps://android-review.googlesource.com/c/platform/packages/modules/adb/+/2337750\n\nThis CR was rebased to resolve merge conflict, please, take a look.",
       "revId": "cedb8918b80b96ce75522986c52081de2224d2eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b598d68f_1cc0781c",
+        "filename": "client/transport_local.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-02-07T22:33:53Z",
+      "side": 1,
+      "message": "Nit: can we improve the log message to \"retry port $port successful\"?",
+      "range": {
+        "startLine": 216,
+        "startChar": 36,
+        "endLine": 216,
+        "endChar": 79
+      },
+      "revId": "cedb8918b80b96ce75522986c52081de2224d2eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
