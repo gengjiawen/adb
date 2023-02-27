@@ -33,6 +33,24 @@
       "message": "is this the right change? if the reporter is saying that the environment variable worked for them, doesn\u0027t that mean it\u0027s the _other_ change that should be reverted?",
       "revId": "ed6cc21044b1450dcf9c5ed3c31d63d8d3f9b25b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cc36b17_127e4fd4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-02-27T23:01:09Z",
+      "side": 1,
+      "message": "Between https://android-review.git.corp.google.com/c/platform/packages/modules/adb/+/2323082/3/client/usb_osx.cpp#332 and this revert, the reliable way of identification (since \u0027adb install\u0027 error does not reproduce on M1 or intel macbook) is to request logs from this user (for \nhttps://android.googlesource.com/platform/packages/modules/adb/+/refs/changes/51/2458951/3/client/usb_osx.cpp#414)",
+      "parentUuid": "8c405419_5686e3f7",
+      "revId": "ed6cc21044b1450dcf9c5ed3c31d63d8d3f9b25b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
