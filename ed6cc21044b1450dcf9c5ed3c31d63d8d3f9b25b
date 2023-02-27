@@ -51,6 +51,24 @@
       "parentUuid": "8c405419_5686e3f7",
       "revId": "ed6cc21044b1450dcf9c5ed3c31d63d8d3f9b25b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b17cd38e_c1d254f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-02-27T23:30:55Z",
+      "side": 1,
+      "message": "but why are you reverting this unrelated change?",
+      "parentUuid": "6cc36b17_127e4fd4",
+      "revId": "ed6cc21044b1450dcf9c5ed3c31d63d8d3f9b25b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
