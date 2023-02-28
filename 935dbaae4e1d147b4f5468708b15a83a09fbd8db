@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "caca5c50_eee96ebc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-02-28T18:06:10Z",
+      "side": 1,
+      "message": "Please elaborate both in the bug and in the commit message:\n\n- What is the problem being solved.\n- How is the problem being solved.",
+      "revId": "935dbaae4e1d147b4f5468708b15a83a09fbd8db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
