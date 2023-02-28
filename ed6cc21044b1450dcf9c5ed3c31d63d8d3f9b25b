@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae5b05c8_cb7a91bb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-02-28T00:05:28Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "32e57d8b_05e70725",
+      "revId": "ed6cc21044b1450dcf9c5ed3c31d63d8d3f9b25b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c405419_5686e3f7",
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "but why are you reverting this unrelated change?",
       "parentUuid": "6cc36b17_127e4fd4",
+      "revId": "ed6cc21044b1450dcf9c5ed3c31d63d8d3f9b25b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40fe9e08_5613dfeb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-02-28T00:05:28Z",
+      "side": 1,
+      "message": "Created revert for the bypass CL: https://android-review.git.corp.google.com/c/platform/packages/modules/adb/+/2458958",
+      "parentUuid": "b17cd38e_c1d254f7",
       "revId": "ed6cc21044b1450dcf9c5ed3c31d63d8d3f9b25b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
