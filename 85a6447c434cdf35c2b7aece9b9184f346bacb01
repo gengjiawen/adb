@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65504c2e_326c2304",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-02-28T00:30:36Z",
+      "side": 1,
+      "message": "we have no reason to think there\u0027s any disparity. we simply don\u0027t know whether there\u0027s a _software_ bug (because we haven\u0027t tested on different hardware) or a _hardware_ bug (because we haven\u0027t tested with different kernels on that hardware).\n\ni\u0027d remove this parenthetical and just say what we know: that we _don\u0027t_ know whether it\u0027s hardware or kernel.\n\n(and, since the bug reporter told us what hardware they\u0027re on, include both their hardware _and_ kernel, not just their kernel.)",
+      "range": {
+        "startLine": 11,
+        "startChar": 100,
+        "endLine": 11,
+        "endChar": 109
+      },
+      "revId": "85a6447c434cdf35c2b7aece9b9184f346bacb01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
