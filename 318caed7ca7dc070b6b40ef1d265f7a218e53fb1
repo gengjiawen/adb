@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4047f17_ddb0201a",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1241,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-03-01T21:18:56Z",
+      "side": 1,
+      "message": "nit, maybe: `[\u003cBU_ARGS\u003e ...]` instead?",
+      "range": {
+        "startLine": 1241,
+        "startChar": 48,
+        "endLine": 1241,
+        "endChar": 71
+      },
+      "revId": "318caed7ca7dc070b6b40ef1d265f7a218e53fb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbae47af_a1dca18a",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1258,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-03-01T21:18:56Z",
+      "side": 1,
+      "message": "nit: Maybe log it before it is escaped for legibility.",
+      "range": {
+        "startLine": 1258,
+        "startChar": 4,
+        "endLine": 1258,
+        "endChar": 60
+      },
+      "revId": "318caed7ca7dc070b6b40ef1d265f7a218e53fb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
