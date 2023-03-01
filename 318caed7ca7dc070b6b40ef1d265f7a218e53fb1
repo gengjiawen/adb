@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8a577330_4473fd3f",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1241,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-03-01T21:26:24Z",
+      "side": 1,
+      "message": "(prefer the usual GNU syntax of \"adb restore FILENAME [ARG]...\", which i think correctly represents that you can have an arbitrary number of arguments [or none], but the filename is mandatory?)",
+      "parentUuid": "e4047f17_ddb0201a",
+      "range": {
+        "startLine": 1241,
+        "startChar": 48,
+        "endLine": 1241,
+        "endChar": 71
+      },
+      "revId": "318caed7ca7dc070b6b40ef1d265f7a218e53fb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cbae47af_a1dca18a",
         "filename": "client/commandline.cpp",
         "patchSetId": 4
