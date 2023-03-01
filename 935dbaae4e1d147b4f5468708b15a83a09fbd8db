@@ -33,6 +33,24 @@
       "message": "Also, the documentation page should be updated:\n\nhttps://android.googlesource.com/platform/packages/modules/adb/+/refs/heads/master/docs/user/adb.1.md",
       "revId": "935dbaae4e1d147b4f5468708b15a83a09fbd8db",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "961557d6_815d9473",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1966950
+      },
+      "writtenOn": "2023-03-01T13:22:27Z",
+      "side": 1,
+      "message": "We\u0027ve deprecated this tool, and is only used in some CTS tests. See - aosp/958872.\nAdded a reason in the description for why this change is made.",
+      "parentUuid": "435d5e77_a7c4cc42",
+      "revId": "935dbaae4e1d147b4f5468708b15a83a09fbd8db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
