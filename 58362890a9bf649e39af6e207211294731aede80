@@ -16,6 +16,24 @@
       "message": "is _this_ why these tests never worked in presubmit? that would be awesome if we could get these into TEST_MAPPING...",
       "revId": "58362890a9bf649e39af6e207211294731aede80",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58428e31_bb03b2f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1903040
+      },
+      "writtenOn": "2023-03-14T00:46:08Z",
+      "side": 1,
+      "message": "Sorry I am not familiar with the tests, so I don\u0027t know. But we are adding dependencies explicitly like this, so that we can batch download files before tests start, instead of downloading them on the fly when tests need them.",
+      "parentUuid": "bb526344_1a911696",
+      "revId": "58362890a9bf649e39af6e207211294731aede80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
