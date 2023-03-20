@@ -93,14 +93,17 @@ static void DecrementActiveConnections() {
 #endif
 
 std::string adb_version() {
+    const std::string hostVersion = GetOSVersion();
+
     // Don't change the format of this --- it's parsed by ddmlib.
     return android::base::StringPrintf(
-        "Android Debug Bridge version %d.%d.%d\n"
-        "Version %s-%s\n"
-        "Installed as %s\n",
-        ADB_VERSION_MAJOR, ADB_VERSION_MINOR, ADB_SERVER_VERSION,
-        PLATFORM_TOOLS_VERSION, android::build::GetBuildNumber().c_str(),
-        android::base::GetExecutablePath().c_str());
+            "Android Debug Bridge version %d.%d.%d\n"
+            "Version %s-%s\n"
+            "Installed as %s\n"
+            "Running on %s\n",
+            ADB_VERSION_MAJOR, ADB_VERSION_MINOR, ADB_SERVER_VERSION, PLATFORM_TOOLS_VERSION,
+            android::build::GetBuildNumber().c_str(), android::base::GetExecutablePath().c_str(),
+            hostVersion.c_str());
 }
 
 uint32_t calculate_apacket_checksum(const apacket* p) {

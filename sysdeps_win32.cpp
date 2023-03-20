@@ -2353,6 +2353,31 @@ int unix_read_interruptible(borrowed_fd fd, void* buf, size_t len) {
 /**************************************************************************/
 /**************************************************************************/
 /*****                                                                *****/
+/*****      Versioning support                                        *****/
+/*****                                                                *****/
+/**************************************************************************/
+/**************************************************************************/
+std::string GetOSVersion() {
+    typedef FARPROC(WINAPI * RtlGetVersionPtr)(PRTL_OSVERSIONINFOW);
+    RtlGetVersionPtr RtlGetVersionInternal = reinterpret_cast<RtlGetVersionPtr>(
+            GetProcAddress(GetModuleHandleW(L"ntdll.dll"), "RtlGetVersion"));
+
+    if (!RtlGetVersionInternal) {
+        return "Could not get handle to RtlGetVersion in ntdll.dll";
+    }
+
+    OSVERSIONINFO version;
+    version.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
+
+    RtlGetVersionInternal(static_cast<PRTL_OSVERSIONINFOW>(&version));
+
+    return android::base::StringPrintf("Windows %lu.%lu.%lu", version.dwMajorVersion,
+                                       version.dwMinorVersion, version.dwBuildNumber);
+}
+
+/**************************************************************************/
+/**************************************************************************/
+/*****                                                                *****/
 /*****      Unicode support                                           *****/
 /*****                                                                *****/
 /**************************************************************************/

@@ -16,6 +16,10 @@
 
 #include "sysdeps.h"
 
+#include <sys/utsname.h>
+
+#include <android-base/stringprintf.h>
+
 bool set_tcp_keepalive(borrowed_fd fd, int interval_sec) {
     int enable = (interval_sec > 0);
     if (adb_setsockopt(fd, SOL_SOCKET, SO_KEEPALIVE, &enable, sizeof(enable))) {
@@ -89,4 +93,16 @@ Process adb_launch_process(std::string_view executable, std::vector<std::string>
         disable_close_on_exec(fd);
     }
     exit(execv(copies.front().data(), rawArgs.data()));
+}
+
+// For Unix variants (Linux, OSX), the underlying uname() system call
+// is utilized to extract out a version string comprising of:
+// 1.) OS system name (e.g. "Linux" or "Darwin"), OS system
+// 2.) release (e.g. "5.19.11"), and 3.) machine (e.g. "x86_64")
+// like: "Linux5.19.11-1rodete1-amd64(x86_64)"
+std::string GetOSVersion(void) {
+    utsname name;
+    uname(&name);
+
+    return android::base::StringPrintf("%s %s(%s)", name.sysname, name.release, name.machine);
 }
