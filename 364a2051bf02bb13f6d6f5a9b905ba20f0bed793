@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb551c3b_b8cf707d",
+        "filename": "adb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-03-20T18:46:45Z",
+      "side": 1,
+      "message": "Instead of leveraging the preprocessor, I would much prefer that we leverage the linker. Can we create a new file that gets compiled on a per project/platform basis?",
+      "range": {
+        "startLine": 96,
+        "startChar": 4,
+        "endLine": 96,
+        "endChar": 40
+      },
+      "revId": "364a2051bf02bb13f6d6f5a9b905ba20f0bed793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
