@@ -2353,6 +2353,40 @@ int unix_read_interruptible(borrowed_fd fd, void* buf, size_t len) {
 /**************************************************************************/
 /**************************************************************************/
 /*****                                                                *****/
+/*****      Versioning support                                        *****/
+/*****                                                                *****/
+/**************************************************************************/
+/**************************************************************************/
+
+// This implements support for extraction of versioning information using
+// the more robust RtlGetVersion() API (from ntdll.dll).
+// For Windows hosts, the underlying RtlGetVersionInternal() API
+// extracts out a version string that comprises: dwMajorVersion,
+// dwMinorVersion and dwBuildNumber.
+std::string GetOSVersion() {
+    typedef FARPROC(WINAPI * RtlGetVersionPtr)(PRTL_OSVERSIONINFOW);
+    RtlGetVersionPtr RtlGetVersionInternal = reinterpret_cast<RtlGetVersionPtr>(
+            GetProcAddress(GetModuleHandleW(L"ntdll.dll"), "RtlGetVersion"));
+
+    if (!RtlGetVersionInternal) {
+        LOG(ERROR) << "Could not get handle to RtlGetVersion in ntdll.dll";
+        return "";
+    }
+
+    OSVERSIONINFO version;
+    version.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
+
+    RtlGetVersionInternal(static_cast<PRTL_OSVERSIONINFOW>(&version));
+
+    std::string ver = android::base::StringPrintf("Windows %lu", version.dwMajorVersion);
+    ver += android::base::StringPrintf("%lu", version.dwMinorVersion);
+    ver += android::base::StringPrintf("%lu", version.dwBuildNumber);
+    return ver;
+}
+
+/**************************************************************************/
+/**************************************************************************/
+/*****                                                                *****/
 /*****      Unicode support                                           *****/
 /*****                                                                *****/
 /**************************************************************************/
