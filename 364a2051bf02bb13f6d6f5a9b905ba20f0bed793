@@ -45,6 +45,30 @@
       },
       "revId": "364a2051bf02bb13f6d6f5a9b905ba20f0bed793",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34dfde89_b1bb7539",
+        "filename": "adb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-03-20T19:56:11Z",
+      "side": 1,
+      "message": "I stayed away from sysdeps because of the mess it\u0027s already in :) but since you guys feel that\u0027s the way to go, will go that route - pl stay tuned.",
+      "parentUuid": "73f4dfab_e574ce51",
+      "range": {
+        "startLine": 124,
+        "startChar": 24,
+        "endLine": 124,
+        "endChar": 44
+      },
+      "revId": "364a2051bf02bb13f6d6f5a9b905ba20f0bed793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
