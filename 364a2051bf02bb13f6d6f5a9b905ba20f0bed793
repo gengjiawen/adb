@@ -69,6 +69,30 @@
       },
       "revId": "364a2051bf02bb13f6d6f5a9b905ba20f0bed793",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4a2e661_8b3312e2",
+        "filename": "adb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-03-20T21:02:43Z",
+      "side": 1,
+      "message": "\u003e I stayed away from sysdeps because of the mess it\u0027s already in :)\n\nwhat mess are you thinking of? it\u0027s arguably confusing that you have to know it exists (and always need to think about the fact that there are two variants), but i\u0027d argue that the alternatives (such as having #if in every file/call site) are far worse?\n\nit\u0027s not really different to how java or python or whatever work, except that you\u0027re implementing it here rather than getting it \"for free\" as a user of the language.",
+      "parentUuid": "34dfde89_b1bb7539",
+      "range": {
+        "startLine": 124,
+        "startChar": 24,
+        "endLine": 124,
+        "endChar": 44
+      },
+      "revId": "364a2051bf02bb13f6d6f5a9b905ba20f0bed793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
