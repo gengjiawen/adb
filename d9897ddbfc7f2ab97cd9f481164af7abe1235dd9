@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eca13798_f509fa23",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1241,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-03-20T16:28:25Z",
+      "side": 1,
+      "message": "pick one. either \"restore requires at least 1 argument\" (and let them type help) or \"usage: adb restore FILENAME [ARG]...\", to match other errors.",
+      "range": {
+        "startLine": 1240,
+        "startChar": 16,
+        "endLine": 1241,
+        "endChar": 55
+      },
+      "revId": "d9897ddbfc7f2ab97cd9f481164af7abe1235dd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
