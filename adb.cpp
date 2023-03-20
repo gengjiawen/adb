@@ -93,14 +93,47 @@ static void DecrementActiveConnections() {
 #endif
 
 std::string adb_version() {
+#if defined(ADB_HOST) && defined(_WIN32)
+    typedef FARPROC(WINAPI * RtlGetVersionPtr)(PRTL_OSVERSIONINFOW);
+    RtlGetVersionPtr RtlGetVersionInternal = reinterpret_cast<RtlGetVersionPtr>(
+            GetProcAddress(GetModuleHandleW(L"ntdll.dll"), "RtlGetVersion"));
+
+    if (!RtlGetVersionInternal) {
+        LOG(ERROR) << "Could not get handle to RtlGetVersion ntdlll.dll";
+
+        // Don't change the format of this --- it's parsed by ddmlib.
+        return android::base::StringPrintf(
+                "Android Debug Bridge version %d.%d.%d\n"
+                "Version %s-%s\n"
+                "Installed as %s\n",
+                ADB_VERSION_MAJOR, ADB_VERSION_MINOR, ADB_SERVER_VERSION, PLATFORM_TOOLS_VERSION,
+                android::build::GetBuildNumber().c_str(),
+                android::base::GetExecutablePath().c_str());
+    }
+
+    OSVERSIONINFO version;
+    version.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
+
+    RtlGetVersionInternal(static_cast<PRTL_OSVERSIONINFOW>(&version));
+
     // Don't change the format of this --- it's parsed by ddmlib.
     return android::base::StringPrintf(
-        "Android Debug Bridge version %d.%d.%d\n"
-        "Version %s-%s\n"
-        "Installed as %s\n",
-        ADB_VERSION_MAJOR, ADB_VERSION_MINOR, ADB_SERVER_VERSION,
-        PLATFORM_TOOLS_VERSION, android::build::GetBuildNumber().c_str(),
-        android::base::GetExecutablePath().c_str());
+            "Android Debug Bridge version %d.%d.%d\n"
+            "Version %s-%s\n"
+            "Installed as %s\n"
+            "Running on %lu.%lu version: %lu\n",
+            ADB_VERSION_MAJOR, ADB_VERSION_MINOR, ADB_SERVER_VERSION, PLATFORM_TOOLS_VERSION,
+            android::build::GetBuildNumber().c_str(), android::base::GetExecutablePath().c_str(),
+            version.dwMajorVersion, version.dwMinorVersion, version.dwBuildNumber);
+#else
+    // Don't change the format of this --- it's parsed by ddmlib.
+    return android::base::StringPrintf(
+            "Android Debug Bridge version %d.%d.%d\n"
+            "Version %s-%s\n"
+            "Installed as %s\n",
+            ADB_VERSION_MAJOR, ADB_VERSION_MINOR, ADB_SERVER_VERSION, PLATFORM_TOOLS_VERSION,
+            android::build::GetBuildNumber().c_str(), android::base::GetExecutablePath().c_str());
+#endif
 }
 
 uint32_t calculate_apacket_checksum(const apacket* p) {
