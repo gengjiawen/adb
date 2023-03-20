@@ -93,14 +93,27 @@ static void DecrementActiveConnections() {
 #endif
 
 std::string adb_version() {
+    // For Unix variants (Linux, OSX), the underlying uname() system call
+    // extracts OS system name (e.g. "Linux" or "Darwin"), OS system
+    // release (e.g. "5.19.11"), and OS version (e.g. "Debian 5.19.11")
+    // respectively.
+    // For Windows hosts, the underlying RtlGetVersionInternal() API
+    // extracts dwMajorVersion, dwMinorVersion and dwBuildNumber
+    // respectively.
+    std::string ver_0, ver_1, ver_2;
+    if (!GetOSVersionInfo(ver_0, ver_1, ver_2)) {
+        LOG(ERROR) << __func__ << ": GetOSVersionInfo() failed";
+    }
+
     // Don't change the format of this --- it's parsed by ddmlib.
     return android::base::StringPrintf(
-        "Android Debug Bridge version %d.%d.%d\n"
-        "Version %s-%s\n"
-        "Installed as %s\n",
-        ADB_VERSION_MAJOR, ADB_VERSION_MINOR, ADB_SERVER_VERSION,
-        PLATFORM_TOOLS_VERSION, android::build::GetBuildNumber().c_str(),
-        android::base::GetExecutablePath().c_str());
+            "Android Debug Bridge version %d.%d.%d\n"
+            "Version %s-%s\n"
+            "Installed as %s\n"
+            "Running on %s %s %s\n",
+            ADB_VERSION_MAJOR, ADB_VERSION_MINOR, ADB_SERVER_VERSION, PLATFORM_TOOLS_VERSION,
+            android::build::GetBuildNumber().c_str(), android::base::GetExecutablePath().c_str(),
+            ver_0.c_str(), ver_1.c_str(), ver_2.c_str());
 }
 
 uint32_t calculate_apacket_checksum(const apacket* p) {

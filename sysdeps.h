@@ -789,6 +789,15 @@ static inline void disable_tcp_nagle(borrowed_fd fd) {
 // configured to drop after 10 missed keepalives. Returns true on success.
 bool set_tcp_keepalive(borrowed_fd fd, int interval_sec);
 
+// For Unix variants (Linux, OSX), the underlying uname() system call
+// extracts OS system name (e.g. "Linux" or "Darwin"), OS system
+// release (e.g. "5.19.11"), and OS version (e.g. "Debian 5.19.11")
+// respectively.
+// For Windows hosts, the underlying RtlGetVersionInternal() API
+// extracts dwMajorVersion, dwMinorVersion and dwBuildNumber
+// respectively.
+extern bool GetOSVersionInfo(std::string&, std::string&, std::string&);
+
 #if defined(_WIN32)
 // Win32 defines ERROR, which we don't need, but which conflicts with google3 logging.
 #undef ERROR

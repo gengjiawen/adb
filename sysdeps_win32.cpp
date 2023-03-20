@@ -2353,6 +2353,40 @@ int unix_read_interruptible(borrowed_fd fd, void* buf, size_t len) {
 /**************************************************************************/
 /**************************************************************************/
 /*****                                                                *****/
+/*****      Versioning support                                        *****/
+/*****                                                                *****/
+/**************************************************************************/
+/**************************************************************************/
+
+// This implements support for extraction of versioning information using
+// the more robust RtlGetVersion() API (from ntdll.dll).
+// For Windows hosts, the underlying RtlGetVersionInternal() API
+// extracts dwMajorVersion, dwMinorVersion and dwBuildNumber
+// respectively.
+bool GetOSVersionInfo(std::string& majVer, std::string& minVer, std::string& build) {
+    typedef FARPROC(WINAPI * RtlGetVersionPtr)(PRTL_OSVERSIONINFOW);
+    RtlGetVersionPtr RtlGetVersionInternal = reinterpret_cast<RtlGetVersionPtr>(
+            GetProcAddress(GetModuleHandleW(L"ntdll.dll"), "RtlGetVersion"));
+
+    if (!RtlGetVersionInternal) {
+        LOG(ERROR) << "Could not get handle to RtlGetVersion in ntdll.dll";
+        return false;
+    }
+
+    OSVERSIONINFO version;
+    version.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
+
+    RtlGetVersionInternal(static_cast<PRTL_OSVERSIONINFOW>(&version));
+
+    majVer = android::base::StringPrintf("Windows %lu", version.dwMajorVersion);
+    minVer = android::base::StringPrintf("%lu", version.dwMinorVersion);
+    build = android::base::StringPrintf("%lu", version.dwBuildNumber);
+    return true;
+}
+
+/**************************************************************************/
+/**************************************************************************/
+/*****                                                                *****/
 /*****      Unicode support                                           *****/
 /*****                                                                *****/
 /**************************************************************************/

@@ -16,6 +16,8 @@
 
 #include "sysdeps.h"
 
+#include <sys/utsname.h>
+
 bool set_tcp_keepalive(borrowed_fd fd, int interval_sec) {
     int enable = (interval_sec > 0);
     if (adb_setsockopt(fd, SOL_SOCKET, SO_KEEPALIVE, &enable, sizeof(enable))) {
@@ -89,4 +91,26 @@ Process adb_launch_process(std::string_view executable, std::vector<std::string>
         disable_close_on_exec(fd);
     }
     exit(execv(copies.front().data(), rawArgs.data()));
+}
+
+/**************************************************************************/
+/**************************************************************************/
+/*****                                                                *****/
+/*****      Versioning support                                        *****/
+/*****                                                                *****/
+/**************************************************************************/
+/**************************************************************************/
+// For Unix variants (Linux, OSX), the underlying uname() system call
+// extracts OS system name (e.g. "Linux" or "Darwin"), OS system
+// release (e.g. "5.19.11"), and OS version (e.g. "Debian 5.19.11")
+// respectively.
+bool GetOSVersionInfo(std::string& os, std::string& rel, std::string& ver) {
+    utsname name;
+    if (0 != uname(&name)) {
+        return false;
+    }
+    os = name.sysname;
+    rel = name.release;
+    ver = name.version;
+    return true;
 }
