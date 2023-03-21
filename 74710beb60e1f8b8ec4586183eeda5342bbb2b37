@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a84d3eb6_2dc52566",
+        "filename": "adb.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-03-21T16:15:45Z",
+      "side": 1,
+      "message": "why would you return three strings? just return a string and let GetOsVersion decide what formatting makes sense for the OS.",
+      "revId": "74710beb60e1f8b8ec4586183eeda5342bbb2b37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "082f8156_d310e0f2",
+        "filename": "sysdeps.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 798,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-03-21T16:15:45Z",
+      "side": 1,
+      "message": "\"Returns a human-readable OS version.\"",
+      "range": {
+        "startLine": 792,
+        "startChar": 3,
+        "endLine": 798,
+        "endChar": 15
+      },
+      "revId": "74710beb60e1f8b8ec4586183eeda5342bbb2b37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0be00cf1_1cee3f28",
+        "filename": "sysdeps_unix.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-03-21T16:15:45Z",
+      "side": 1,
+      "message": "if you feel the need to do this, that\u0027s your gut telling you that you think this should be in a separate file. there\u0027s already a sysdeps/ directory ... you could put it there.\n\n(though given that i\u0027m not expecting any more \"versioning support\", if you do that, i\u0027d probably just call the file GetOsVersion.cpp.)",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 76
+      },
+      "revId": "74710beb60e1f8b8ec4586183eeda5342bbb2b37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e63aa3f_8c79791d",
+        "filename": "sysdeps_unix.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-03-21T16:15:45Z",
+      "side": 1,
+      "message": "(to be explicit: \"drop the Info\" here. it\u0027s adding nothing over \"Version\".)",
+      "range": {
+        "startLine": 107,
+        "startChar": 17,
+        "endLine": 107,
+        "endChar": 21
+      },
+      "revId": "74710beb60e1f8b8ec4586183eeda5342bbb2b37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "850b60ba_18994851",
+        "filename": "sysdeps_unix.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-03-21T16:15:45Z",
+      "side": 1,
+      "message": "(a) don\u0027t use backwards comparisons; they\u0027re pointless and confusing.\n(b) uname() can only fail if you give a bad address, and you\u0027re giving a stack address --- you can just assume this always succeeds.",
+      "revId": "74710beb60e1f8b8ec4586183eeda5342bbb2b37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
