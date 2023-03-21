@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "929ece80_24c8c1c7",
+        "filename": "sysdeps_unix.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-03-21T21:24:50Z",
+      "side": 1,
+      "message": "I was not documenting uname() at all, but rather specifying what individual fields were being consolidated into a resulting output format.\nI have updated the comment to make this clearer.",
+      "parentUuid": "bac23774_a4a9b29f",
+      "range": {
+        "startLine": 96,
+        "startChar": 3,
+        "endLine": 99,
+        "endChar": 67
+      },
+      "revId": "ff53484f888e7488c28c1c6546d4d127c5da858b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fb90118f_738dc5d3",
@@ -41,6 +65,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "610f5bd5_c2aad4e7",
+        "filename": "sysdeps_unix.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-03-21T21:24:50Z",
+      "side": 1,
+      "message": "As I mentioned earlier, I feel that uname() can fail due to any internal gethostname() failure. I was merely specifying that if there are DNS (or any such) underlying issues, error-handling is not being considered.\nHowever, I have removed this comment, under the assumption that the above consideration is not important.",
+      "parentUuid": "fb90118f_738dc5d3",
+      "revId": "ff53484f888e7488c28c1c6546d4d127c5da858b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "507a959e_36b62f7b",
@@ -54,6 +96,24 @@
       "writtenOn": "2023-03-21T19:12:13Z",
       "side": 1,
       "message": "StringPrintf please\n\n(you\u0027ve _still_ missed the spaces here...)",
+      "revId": "ff53484f888e7488c28c1c6546d4d127c5da858b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "703f2f0d_9683f5cb",
+        "filename": "sysdeps_unix.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-03-21T21:24:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "507a959e_36b62f7b",
       "revId": "ff53484f888e7488c28c1c6546d4d127c5da858b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -81,6 +141,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "827fdf3b_25e1d9a5",
+        "filename": "sysdeps_win32.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 2365,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-03-21T21:24:50Z",
+      "side": 1,
+      "message": "Normal version information retrieval (using the Windows SDK) would be using the GetVersionInfo() or GetVersionInfoEx() variants. A few days ago, we had a discussion (at the team sync) where this new (and improved?) internal version was proposed as the *reliable* way to extract out version information. I figured this is relevant in this context.\nHowever, I\u0027m OK with gutting this information out.",
+      "parentUuid": "af279fd1_800bc5ee",
+      "range": {
+        "startLine": 2361,
+        "startChar": 3,
+        "endLine": 2365,
+        "endChar": 36
+      },
+      "revId": "ff53484f888e7488c28c1c6546d4d127c5da858b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3a22994c_3c0dd2c4",
@@ -94,6 +178,30 @@
       "writtenOn": "2023-03-21T19:12:13Z",
       "side": 1,
       "message": "return *that* string rather than logging it?\n\nbut won\u0027t this already have crashed if GetModuleHandleW() returns null?",
+      "range": {
+        "startLine": 2372,
+        "startChar": 8,
+        "endLine": 2373,
+        "endChar": 18
+      },
+      "revId": "ff53484f888e7488c28c1c6546d4d127c5da858b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6f3ee19_f5eff88b",
+        "filename": "sysdeps_win32.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 2373,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-03-21T21:24:50Z",
+      "side": 1,
+      "message": "Done (although the error path output would look pretty nasty :) \n\u003e\u003ebut won\u0027t this already have crashed if GetModuleHandleW() returns null?\nntdll.dll is a system library and GetModuleHandleW() would be a no-fail.\nIt\u0027s possible (I guess) for legacy versions to not have the RtlGetVersion() implementation, and therefore GetProcAddress() can potentially fail. This would not be catastrophic, IMO.",
+      "parentUuid": "3a22994c_3c0dd2c4",
       "range": {
         "startLine": 2372,
         "startChar": 8,
