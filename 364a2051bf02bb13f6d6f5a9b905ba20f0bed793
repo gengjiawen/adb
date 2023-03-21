@@ -141,6 +141,30 @@
       },
       "revId": "364a2051bf02bb13f6d6f5a9b905ba20f0bed793",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e1a6006_68e59279",
+        "filename": "adb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-03-21T17:48:13Z",
+      "side": 1,
+      "message": "One problem I noticed (from my recollection): sysdeps_win32_test.cpp is entirely deadcode (as it stands right now).",
+      "parentUuid": "34bc2572_9aae9123",
+      "range": {
+        "startLine": 124,
+        "startChar": 24,
+        "endLine": 124,
+        "endChar": 44
+      },
+      "revId": "364a2051bf02bb13f6d6f5a9b905ba20f0bed793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
