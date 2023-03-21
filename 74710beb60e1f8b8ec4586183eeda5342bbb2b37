@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "27173f85_985f71fe",
+        "filename": "adb.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-03-21T17:33:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a84d3eb6_2dc52566",
+      "revId": "74710beb60e1f8b8ec4586183eeda5342bbb2b37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "082f8156_d310e0f2",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-03-21T16:15:45Z",
       "side": 1,
       "message": "\"Returns a human-readable OS version.\"",
+      "range": {
+        "startLine": 792,
+        "startChar": 3,
+        "endLine": 798,
+        "endChar": 15
+      },
+      "revId": "74710beb60e1f8b8ec4586183eeda5342bbb2b37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13ff7e34_33816225",
+        "filename": "sysdeps.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 798,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-03-21T17:33:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "082f8156_d310e0f2",
       "range": {
         "startLine": 792,
         "startChar": 3,
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6af2e8a5_51730ea4",
+        "filename": "sysdeps_unix.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-03-21T17:33:56Z",
+      "side": 1,
+      "message": "Was merely following the pattern in sysdeps_win32.cpp - removed the function header. And yes, I don\u0027t anticipate having to add any other/similar functionality atm.",
+      "parentUuid": "0be00cf1_1cee3f28",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 76
+      },
+      "revId": "74710beb60e1f8b8ec4586183eeda5342bbb2b37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7e63aa3f_8c79791d",
@@ -87,6 +153,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5af8658_d8606082",
+        "filename": "sysdeps_unix.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-03-21T17:33:56Z",
+      "side": 1,
+      "message": "Done - was merely following the norms from the underlying Windows API (GetOSVersionInfo() and the associated OSVERSIONINFOEX struct).",
+      "parentUuid": "7e63aa3f_8c79791d",
+      "range": {
+        "startLine": 107,
+        "startChar": 17,
+        "endLine": 107,
+        "endChar": 21
+      },
+      "revId": "74710beb60e1f8b8ec4586183eeda5342bbb2b37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "850b60ba_18994851",
@@ -100,6 +190,24 @@
       "writtenOn": "2023-03-21T16:15:45Z",
       "side": 1,
       "message": "(a) don\u0027t use backwards comparisons; they\u0027re pointless and confusing.\n(b) uname() can only fail if you give a bad address, and you\u0027re giving a stack address --- you can just assume this always succeeds.",
+      "revId": "74710beb60e1f8b8ec4586183eeda5342bbb2b37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47443154_e020d1d0",
+        "filename": "sysdeps_unix.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-03-21T17:33:56Z",
+      "side": 1,
+      "message": "Done and done (although I think gethostname() failure can be propagated up).",
+      "parentUuid": "850b60ba_18994851",
       "revId": "74710beb60e1f8b8ec4586183eeda5342bbb2b37",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }

@@ -117,6 +117,30 @@
       },
       "revId": "364a2051bf02bb13f6d6f5a9b905ba20f0bed793",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34bc2572_9aae9123",
+        "filename": "adb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-03-21T17:33:56Z",
+      "side": 1,
+      "message": "Acknowledged - I shall file (and work on, as time permits) bug(s?) on the issues I faced when attempting to add coverage to adb_utils (Ref: https://android-review.git.corp.google.com/c/platform/packages/modules/adb/+/2422360).",
+      "parentUuid": "e4a2e661_8b3312e2",
+      "range": {
+        "startLine": 124,
+        "startChar": 24,
+        "endLine": 124,
+        "endChar": 44
+      },
+      "revId": "364a2051bf02bb13f6d6f5a9b905ba20f0bed793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
