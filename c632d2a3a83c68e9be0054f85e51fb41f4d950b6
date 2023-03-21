@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62739c81_fbc361e1",
+        "filename": "sysdeps_unix.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-03-21T22:26:33Z",
+      "side": 1,
+      "message": "missing space here",
+      "range": {
+        "startLine": 102,
+        "startChar": 14,
+        "endLine": 102,
+        "endChar": 16
+      },
+      "revId": "c632d2a3a83c68e9be0054f85e51fb41f4d950b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a9346e8_a0c3be9b",
+        "filename": "sysdeps_unix.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-03-21T22:26:33Z",
+      "side": 1,
+      "message": "missing space here",
+      "range": {
+        "startLine": 107,
+        "startChar": 45,
+        "endLine": 107,
+        "endChar": 46
+      },
+      "revId": "c632d2a3a83c68e9be0054f85e51fb41f4d950b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
