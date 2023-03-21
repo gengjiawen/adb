@@ -1,0 +1,124 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bac23774_a4a9b29f",
+        "filename": "sysdeps_unix.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-03-21T19:12:13Z",
+      "side": 1,
+      "message": "don\u0027t tell me what uname(2) does --- i can look at https://man7.org/linux/man-pages/man2/uname.2.html for that. tell me what _you\u0027re_ doing. give me _your_ output format.",
+      "range": {
+        "startLine": 96,
+        "startChar": 3,
+        "endLine": 99,
+        "endChar": 67
+      },
+      "revId": "ff53484f888e7488c28c1c6546d4d127c5da858b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb90118f_738dc5d3",
+        "filename": "sysdeps_unix.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-03-21T19:12:13Z",
+      "side": 1,
+      "message": "what does this comment add? it\u0027s obvious from the next line that that\u0027s true? i wouldn\u0027t say anything but if you want to say something then -- as always -- \"say *why* not *what*\". so here, you\u0027d explain _why_ it\u0027s reasonable for us to assume this, not just that we\u0027re doing so. that doesn\u0027t help anyone, and is obvious from the next line.",
+      "revId": "ff53484f888e7488c28c1c6546d4d127c5da858b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "507a959e_36b62f7b",
+        "filename": "sysdeps_unix.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-03-21T19:12:13Z",
+      "side": 1,
+      "message": "StringPrintf please\n\n(you\u0027ve _still_ missed the spaces here...)",
+      "revId": "ff53484f888e7488c28c1c6546d4d127c5da858b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af279fd1_800bc5ee",
+        "filename": "sysdeps_win32.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 2365,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-03-21T19:12:13Z",
+      "side": 1,
+      "message": "what\u0027s useful here? this is all \"what\", with no \"why\".\n\ni\u0027d probably just delete this, but if you insist on saying something, personally i think the fact that (say) Windows 8 calls itself 6.2 is the most non-obvious thing?",
+      "range": {
+        "startLine": 2361,
+        "startChar": 3,
+        "endLine": 2365,
+        "endChar": 36
+      },
+      "revId": "ff53484f888e7488c28c1c6546d4d127c5da858b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a22994c_3c0dd2c4",
+        "filename": "sysdeps_win32.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 2373,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-03-21T19:12:13Z",
+      "side": 1,
+      "message": "return *that* string rather than logging it?\n\nbut won\u0027t this already have crashed if GetModuleHandleW() returns null?",
+      "range": {
+        "startLine": 2372,
+        "startChar": 8,
+        "endLine": 2373,
+        "endChar": 18
+      },
+      "revId": "ff53484f888e7488c28c1c6546d4d127c5da858b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "402b6b9a_5632787c",
+        "filename": "sysdeps_win32.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 2381,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-03-21T19:12:13Z",
+      "side": 1,
+      "message": "see: anyone can tell at a glance what this will look like :-)",
+      "revId": "ff53484f888e7488c28c1c6546d4d127c5da858b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
