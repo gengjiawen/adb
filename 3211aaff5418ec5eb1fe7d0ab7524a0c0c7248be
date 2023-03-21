@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb34c13d_5932a6ba",
+        "filename": "adb.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-03-21T18:54:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54fe0adf_814563b6",
+      "range": {
+        "startLine": 96,
+        "startChar": 4,
+        "endLine": 102,
+        "endChar": 20
+      },
+      "revId": "3211aaff5418ec5eb1fe7d0ab7524a0c0c7248be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7644d4ee_970f747f",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1126efd1_181de610",
+        "filename": "sysdeps_unix.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-03-21T18:54:06Z",
+      "side": 1,
+      "message": "Marking this resolved (replaced version with machine, for the PII reasons you mentioned offline).",
+      "parentUuid": "7644d4ee_970f747f",
+      "range": {
+        "startLine": 106,
+        "startChar": 4,
+        "endLine": 109,
+        "endChar": 15
+      },
+      "revId": "3211aaff5418ec5eb1fe7d0ab7524a0c0c7248be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ad332f46_6c83814f",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-03-21T17:48:11Z",
       "side": 1,
       "message": "again, if you\u0027d just used `return StringPrintf(...);` you wouldn\u0027t have made the mistake you\u0027ve made here.",
+      "range": {
+        "startLine": 2381,
+        "startChar": 4,
+        "endLine": 2384,
+        "endChar": 15
+      },
+      "revId": "3211aaff5418ec5eb1fe7d0ab7524a0c0c7248be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "047de7f6_2b0441f0",
+        "filename": "sysdeps_win32.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 2384,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-03-21T18:54:06Z",
+      "side": 1,
+      "message": "Marking this resolved (added \u0027.\u0027 delimiters).",
+      "parentUuid": "ad332f46_6c83814f",
       "range": {
         "startLine": 2381,
         "startChar": 4,
