@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebec89c0_fc1e119d",
+        "filename": "sysdeps_unix.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-03-22T00:32:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c52c1022_fe1c227d",
+      "range": {
+        "startLine": 96,
+        "startChar": 3,
+        "endLine": 99,
+        "endChar": 67
+      },
+      "revId": "ff53484f888e7488c28c1c6546d4d127c5da858b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fb90118f_738dc5d3",
@@ -121,6 +145,24 @@
       "side": 1,
       "message": "it\u0027s not _true_ --- there is no underlying gethostname(), nor any DNS (since you\u0027re asking the machine about _itself_). that name is just whatever was passed to sethostname() at some point.\n\nlook at the man page:\n```\nERRORS\n       EFAULT buf is not valid.\n```\n(or, if you don\u0027t trust the man page, look at the source: https://elixir.bootlin.com/linux/latest/source/kernel/sys.c#L1288)",
       "parentUuid": "610f5bd5_c2aad4e7",
+      "revId": "ff53484f888e7488c28c1c6546d4d127c5da858b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ec13b70_690ff6d6",
+        "filename": "sysdeps_unix.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-03-22T00:32:12Z",
+      "side": 1,
+      "message": "Thanks - I was (mistakenly) looking here: https://codebrowser.dev/glibc/glibc/posix/uname.c.html",
+      "parentUuid": "34f581c7_a9270694",
       "revId": "ff53484f888e7488c28c1c6546d4d127c5da858b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -231,6 +273,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa230e82_934d18d9",
+        "filename": "sysdeps_win32.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 2365,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-03-22T00:32:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "acadc64b_52c485ac",
+      "range": {
+        "startLine": 2361,
+        "startChar": 3,
+        "endLine": 2365,
+        "endChar": 36
+      },
+      "revId": "ff53484f888e7488c28c1c6546d4d127c5da858b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3a22994c_3c0dd2c4",
@@ -304,6 +370,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "6048eb4d_78ff3d46",
+        "filename": "sysdeps_win32.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 2373,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-03-22T00:32:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c9f3fd3_b914d4b3",
+      "range": {
+        "startLine": 2372,
+        "startChar": 8,
+        "endLine": 2373,
+        "endChar": 18
+      },
+      "revId": "ff53484f888e7488c28c1c6546d4d127c5da858b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "402b6b9a_5632787c",
         "filename": "sysdeps_win32.cpp",
         "patchSetId": 5
@@ -315,6 +405,24 @@
       "writtenOn": "2023-03-21T19:12:13Z",
       "side": 1,
       "message": "see: anyone can tell at a glance what this will look like :-)",
+      "revId": "ff53484f888e7488c28c1c6546d4d127c5da858b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b303dc6_cdba30f1",
+        "filename": "sysdeps_win32.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 2381,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-03-22T00:32:12Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "402b6b9a_5632787c",
       "revId": "ff53484f888e7488c28c1c6546d4d127c5da858b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
