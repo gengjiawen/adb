@@ -22,6 +22,30 @@
       },
       "revId": "376c8dd6018aa22a4f42b75e08c84fbefb616ac2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4f147c5_11c2e6ba",
+        "filename": "sysdeps_win32.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 2369,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-03-22T00:34:44Z",
+      "side": 1,
+      "message": "This was suggested by enh@ (as a delimiter to the error string that\u0027ll be somewhat harder to distinguish otherwise within the output).",
+      "parentUuid": "203abf73_4b3a5f55",
+      "range": {
+        "startLine": 2369,
+        "startChar": 16,
+        "endLine": 2369,
+        "endChar": 17
+      },
+      "revId": "376c8dd6018aa22a4f42b75e08c84fbefb616ac2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
