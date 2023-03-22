@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "203abf73_4b3a5f55",
+        "filename": "sysdeps_win32.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 2369,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-03-22T00:33:20Z",
+      "side": 1,
+      "message": "delete `\u003c` ?",
+      "range": {
+        "startLine": 2369,
+        "startChar": 16,
+        "endLine": 2369,
+        "endChar": 17
+      },
+      "revId": "376c8dd6018aa22a4f42b75e08c84fbefb616ac2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
