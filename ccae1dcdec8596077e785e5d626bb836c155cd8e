@@ -16,6 +16,24 @@
       "message": "serious question: \"why do you have the option if you don\u0027t want anyone to use it?\"\n\n(we never got the fastdeploy tests working in CI, and i never did understand why, since they worked locally. could this have been the reason?)",
       "revId": "ccae1dcdec8596077e785e5d626bb836c155cd8e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0926cab_6351eed7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121894
+      },
+      "writtenOn": "2023-04-04T16:50:52Z",
+      "side": 1,
+      "message": "some of this predates me... I am just in the process of cleaning some of those expectations.\n\nYou want me to take a look at running fastdeploy continuously ?",
+      "parentUuid": "3a5615ff_936b5532",
+      "revId": "ccae1dcdec8596077e785e5d626bb836c155cd8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
