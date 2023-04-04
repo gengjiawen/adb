@@ -34,6 +34,24 @@
       "parentUuid": "3a5615ff_936b5532",
       "revId": "ccae1dcdec8596077e785e5d626bb836c155cd8e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39fdf028_cbb7104f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-04-04T17:05:37Z",
+      "side": 1,
+      "message": "if you have time, that would be awesome. we looked a couple of years ago, but couldn\u0027t work out what was different between our local runs (which seemed fine) and the TEST_MAPPING runs.\n\nannoyingly it\u0027s been too long for me to remember _what_ the problem was, but there have been a few engprod folks making .bp/.xml cleanups lately, so maybe one or more of them have even just fixed the problem? i\u0027ve uploaded https://android-review.git.corp.google.com/c/platform/packages/modules/adb/+/2518539 and kicked it off, and hopefully it\u0027ll \"just work\"! (but if not, at least we\u0027ll have a specific failure to look at.)",
+      "parentUuid": "c0926cab_6351eed7",
+      "revId": "ccae1dcdec8596077e785e5d626bb836c155cd8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
