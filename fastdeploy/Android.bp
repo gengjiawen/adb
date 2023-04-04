@@ -74,6 +74,10 @@ android_test {
         "testdata/sample.cd",
     ],
 
+    test_suites: [
+        "general-tests",
+    ],
+
     optimize: {
         enabled: false,
     },
