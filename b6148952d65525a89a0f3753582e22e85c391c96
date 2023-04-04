@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1f0d0c1_46017eaf",
+        "filename": "fastdeploy/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1121894
+      },
+      "writtenOn": "2023-04-04T18:59:41Z",
+      "side": 1,
+      "message": "I am almost sure i can remove :FastDeployTests from FastDeployHostTests deps since it doesn\u0027t seem to use that apk. But we can try that as follow up",
+      "revId": "b6148952d65525a89a0f3753582e22e85c391c96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
