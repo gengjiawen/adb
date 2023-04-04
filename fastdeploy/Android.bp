@@ -77,6 +77,12 @@ android_test {
     optimize: {
         enabled: false,
     },
+
+    test_config: "FastDeployTests.xml",
+
+    test_suites: [
+        "general-tests",
+    ],
 }
 
 java_test_host {
@@ -96,4 +102,5 @@ java_test_host {
     test_suites: [
         "general-tests",
     ],
+    test_config: "FastDeployTests.xml",
 }

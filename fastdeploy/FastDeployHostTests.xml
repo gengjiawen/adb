@@ -16,24 +16,6 @@
   -->
 <configuration description="Runs Device Tests for FastDeploy.">
     <option name="test-suite-tag" value="FastDeployTests"/>
-
-    <target_preparer class="com.android.tradefed.targetprep.suite.SuiteApkInstaller">
-        <option name="cleanup-apks" value="true"/>
-        <option name="install-arg" value="-t"/>
-        <option name="test-file-name" value="FastDeployTests.apk"/>
-    </target_preparer>
-
-    <target_preparer class="com.android.tradefed.targetprep.PushFilePreparer">
-        <option name="cleanup" value="false" />
-        <option name="push-file" key="sample.apk" value="/data/local/tmp/FastDeployTests/sample.apk" />
-        <option name="push-file" key="sample.cd" value="/data/local/tmp/FastDeployTests/sample.cd" />
-    </target_preparer>
-
-    <test class="com.android.tradefed.testtype.AndroidJUnitTest">
-        <option name="package" value="com.android.fastdeploytests"/>
-        <option name="runner" value="androidx.test.runner.AndroidJUnitRunner"/>
-    </test>
-
     <test class="com.android.compatibility.common.tradefed.testtype.JarHostTest" >
         <option name="jar" value="FastDeployHostTests.jar" />
     </test>
