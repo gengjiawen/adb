@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "04b3664f_cfe18155",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-04-04T21:21:49Z",
+      "side": 1,
+      "message": "(http://b/128993828 was the original bug)",
+      "revId": "b6148952d65525a89a0f3753582e22e85c391c96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a1f0d0c1_46017eaf",
         "filename": "fastdeploy/Android.bp",
         "patchSetId": 3
