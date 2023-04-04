@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1b6ba4d_60ab9573",
+        "filename": "fastdeploy/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1121894
+      },
+      "writtenOn": "2023-04-04T21:18:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1f0d0c1_46017eaf",
+      "revId": "b6148952d65525a89a0f3753582e22e85c391c96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "38057781_f30c0a0d",
@@ -41,6 +59,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6979298_cd7608cc",
+        "filename": "fastdeploy/FastDeployHostTests.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1121894
+      },
+      "writtenOn": "2023-04-04T21:18:22Z",
+      "side": 1,
+      "message": "clarified into HostDriven, since it\u0027s a java test interacting with device from host-side.",
+      "parentUuid": "38057781_f30c0a0d",
+      "range": {
+        "startLine": 17,
+        "startChar": 33,
+        "endLine": 17,
+        "endChar": 39
+      },
+      "revId": "b6148952d65525a89a0f3753582e22e85c391c96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "68cfc92c_128276d4",
@@ -54,6 +96,30 @@
       "writtenOn": "2023-04-04T19:01:51Z",
       "side": 1,
       "message": "this doesn\u0027t need to be unique, and it\u0027s a feature to group the host tests with the device tests?",
+      "range": {
+        "startLine": 18,
+        "startChar": 41,
+        "endLine": 18,
+        "endChar": 56
+      },
+      "revId": "b6148952d65525a89a0f3753582e22e85c391c96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b14897b_0e802538",
+        "filename": "fastdeploy/FastDeployHostTests.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1121894
+      },
+      "writtenOn": "2023-04-04T21:18:22Z",
+      "side": 1,
+      "message": "it\u0027s not strictly needed. it helps in case we want to group tests together.\n\nin your case, they are both device-testing tests (as opposed to deviceless) so they could be grouped together with no problem like inside Test mapping.",
+      "parentUuid": "68cfc92c_128276d4",
       "range": {
         "startLine": 18,
         "startChar": 41,
