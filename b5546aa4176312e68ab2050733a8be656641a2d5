@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68853231_00b6d0c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121894
+      },
+      "writtenOn": "2023-04-04T23:04:58Z",
+      "side": 1,
+      "message": "boot test is unrelated... retrying",
+      "revId": "b5546aa4176312e68ab2050733a8be656641a2d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
