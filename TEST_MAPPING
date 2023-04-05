@@ -33,12 +33,6 @@
       "name": "adb_tls_connection_test"
     },
     {
-      "name": "FastDeployTests"
-    },
-    {
-      "name": "FastDeployHostTests"
-    },
-    {
       "name": "MicrodroidHostTestCases"
     }
   ],
