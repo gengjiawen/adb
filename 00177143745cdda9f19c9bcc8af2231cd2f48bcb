@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1987176b_7ae81542",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-04-11T18:28:53Z",
+      "side": 1,
+      "message": "(adb root/unroot works by _dropping_ from root -- https://source.corp.google.com/android/packages/modules/adb/daemon/main.cpp;l\u003d89;rcl\u003dac0108a069d42829ad53fd536c19a838c9d253aa -- so, yes, it makes sense that this says root.)",
+      "revId": "00177143745cdda9f19c9bcc8af2231cd2f48bcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
