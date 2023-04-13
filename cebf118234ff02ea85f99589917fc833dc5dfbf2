@@ -51,6 +51,23 @@
       "message": "https://issuetracker.google.com/270205252 ADB install not working on Android 9 with latest platform tools version 34.0.0",
       "revId": "cebf118234ff02ea85f99589917fc833dc5dfbf2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f1fdcdc_a9d9acbd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1873539
+      },
+      "writtenOn": "2023-04-13T07:20:36Z",
+      "side": 1,
+      "message": "Merged",
+      "revId": "cebf118234ff02ea85f99589917fc833dc5dfbf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
