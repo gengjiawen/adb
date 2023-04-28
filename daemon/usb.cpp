@@ -295,8 +295,8 @@ struct UsbFfsConnection : public Connection {
                                << sizeof(event) << ", got " << rc;
                 }
 
-                LOG(INFO) << "USB event: "
-                          << to_string(static_cast<usb_functionfs_event_type>(event.type));
+                LOG(DEBUG) << "USB event: "
+                           << to_string(static_cast<usb_functionfs_event_type>(event.type));
 
                 switch (event.type) {
                     case FUNCTIONFS_BIND:
