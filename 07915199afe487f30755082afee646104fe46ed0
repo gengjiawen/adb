@@ -16,6 +16,24 @@
       "message": "do we know _why_ samsung (and only samsung?) devices are spamming this?\n\ndo we have a missing cts test for \"you\u0027ve messed up your usb configuration\"?",
       "revId": "07915199afe487f30755082afee646104fe46ed0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52463771_c19fd76a",
+        "filename": "daemon/usb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-04-28T22:15:37Z",
+      "side": 1,
+      "message": "(or, coming at this from a different angle --- \"how many log messages do you see from this on other devices?\")",
+      "parentUuid": "3eff712c_1af0ab04",
+      "revId": "07915199afe487f30755082afee646104fe46ed0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
