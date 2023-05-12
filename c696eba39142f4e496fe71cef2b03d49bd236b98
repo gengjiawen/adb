@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "393334a4_8d3c761f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511237
+      },
+      "writtenOn": "2023-05-12T11:13:31Z",
+      "side": 1,
+      "message": "Actualize change: rebase on master and retest.",
+      "revId": "c696eba39142f4e496fe71cef2b03d49bd236b98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
