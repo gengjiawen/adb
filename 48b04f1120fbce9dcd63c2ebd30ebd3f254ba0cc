@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71c752b4_a53b7a8f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-05-15T17:32:02Z",
+      "side": 1,
+      "message": "(yeah, this seems fine to me based on the earlier \"this is strictly more accurate\" argument of this being a _linux_ feature rather than an _android_ feature.)",
+      "revId": "48b04f1120fbce9dcd63c2ebd30ebd3f254ba0cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
