@@ -16,6 +16,23 @@
       "message": "(yeah, this seems fine to me based on the earlier \"this is strictly more accurate\" argument of this being a _linux_ feature rather than an _android_ feature.)",
       "revId": "48b04f1120fbce9dcd63c2ebd30ebd3f254ba0cc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7dfbd511_c0a532bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-05-15T19:47:38Z",
+      "side": 1,
+      "message": "huh, seems like a legit build break:\n```\nld.lld: error: undefined symbol: usb_init()\n\u003e\u003e\u003e referenced by main.cpp:258 (packages/modules/adb/daemon/main.cpp:258)\n```\nbut i\u0027m surprised we\u0027re building adbd for the host?",
+      "revId": "48b04f1120fbce9dcd63c2ebd30ebd3f254ba0cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
