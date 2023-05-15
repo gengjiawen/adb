@@ -16,6 +16,24 @@
       "message": "given that this is adb*d*\u0027s main() ... when is this ever built (by us) for non-`__ANDROID__`? why do we have any of these #ifs at all? (because if we _don\u0027t_ need them, i\u0027d +2 a change that removes them just as a general cleanup, and that would \"accidentally\" solve the submitter\u0027s problem!)",
       "revId": "9edb6ce70c15a9c6ea20193f05fc369bfab16f81",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4768ef8e_e6647bb7",
+        "filename": "daemon/main.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1969736
+      },
+      "writtenOn": "2023-05-15T14:48:48Z",
+      "side": 0,
+      "message": "I don\u0027t know the reason for those #ifs, but they are definitely helpful for Linux distros (more specifically embedded and/or mobile-oriented ones) to be able to package and use adbd.\n\nI\u0027m aware this isn\u0027t a use-case you\u0027re supporting, but I\u0027d love it if we could keep this kind of status quo. As a matter of fact, I have another similar patch I\u0027d like to upstream, my hope being that both of those are trivial and harmless enough to still make it into your tree.",
+      "parentUuid": "6932f917_2a378956",
+      "revId": "9edb6ce70c15a9c6ea20193f05fc369bfab16f81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
