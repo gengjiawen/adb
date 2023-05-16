@@ -1,3 +1,5 @@
+<<<<<<< PATCH SET (6a44d5 Fix use-after-free in fdevent)
+=======
 /*
  * Copyright (C) 2006 The Android Open Source Project
  *
@@ -160,3 +162,4 @@ size_t fdevent_installed_count();
 void fdevent_reset();
 
 #endif
+>>>>>>> BASE      (fbc6d8 Add test showing calling unregistered event)
