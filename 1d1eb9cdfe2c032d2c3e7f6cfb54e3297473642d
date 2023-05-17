@@ -56,6 +56,30 @@
       },
       "revId": "1d1eb9cdfe2c032d2c3e7f6cfb54e3297473642d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4a96e46_acf94c51",
+        "filename": "Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-05-17T23:24:49Z",
+      "side": 1,
+      "message": "I *think* I\u0027ll be able to link correctly with this __ANDROID__ \u003d\u003e __linux__ switch (involves staging an unimplemented stub for the missing function).\nIf this is important, do lmk and I can share a patch (or publish it) - of course, I\u0027ll need to do some due-diligence testing first :)",
+      "parentUuid": "72f5444e_4c94364d",
+      "range": {
+        "startLine": 553,
+        "startChar": 8,
+        "endLine": 558,
+        "endChar": 10
+      },
+      "revId": "1d1eb9cdfe2c032d2c3e7f6cfb54e3297473642d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
