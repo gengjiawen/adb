@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "011dca88_25760113",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-05-17T18:56:45Z",
+      "side": 1,
+      "message": "Please add 1.) \u0027Test:\u0027 field (manual steps to validate this mode) 2.) \u0027Bug:\u0027 field (b/223010443?)",
+      "revId": "df01d68164c99a593b3dc82be531a141118b51a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f9ba756_fed84aef",
+        "filename": "client/adb_client.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-05-17T18:56:45Z",
+      "side": 1,
+      "message": "It might be more prudent to do the disk access last (since it appears you want to preserve the content of __adb_client_one_device, for the general case)?\nLike so: if (!one_device \u0026\u0026 __adb_serial \u0026\u0026 access(\"/etc/adb/one_device_required\", F_OK) \u003d\u003d 0)",
+      "range": {
+        "startLine": 266,
+        "startChar": 5,
+        "endLine": 266,
+        "endChar": 85
+      },
+      "revId": "df01d68164c99a593b3dc82be531a141118b51a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7c6ae95_4a66e03f",
+        "filename": "client/adb_client.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-05-17T18:56:45Z",
+      "side": 1,
+      "message": "Can we consolidate the file-path (also used in adb.cpp) to de-risk out-of-whack?",
+      "range": {
+        "startLine": 266,
+        "startChar": 12,
+        "endLine": 266,
+        "endChar": 42
+      },
+      "revId": "df01d68164c99a593b3dc82be531a141118b51a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66a2ee38_0417f6fc",
+        "filename": "client/adb_client.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-05-17T18:56:45Z",
+      "side": 1,
+      "message": "Please replace tab with spaces (or better yet, run clang-format on the newly added portions).",
+      "range": {
+        "startLine": 267,
+        "startChar": 0,
+        "endLine": 267,
+        "endChar": 1
+      },
+      "revId": "df01d68164c99a593b3dc82be531a141118b51a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
