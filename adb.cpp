@@ -1039,7 +1039,7 @@ int launch_server(const std::string& socket_spec, const char* one_device) {
         if (one_device) {
             child_argv.push_back("--one-device");
             child_argv.push_back(one_device);
-        } else if (access("/etc/adb/one_device_required", F_OK) == 0) {
+        } else if (access(ONE_DEVICE_REQUIRED_FILE, F_OK) == 0) {
             fprintf(stderr,
                     "adb: cannot start server: --one-device option is required for this system in "
                     "order to start adb.\n");

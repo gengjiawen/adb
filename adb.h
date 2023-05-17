@@ -39,6 +39,8 @@ constexpr size_t INITIAL_DELAYED_ACK_BYTES = 32 * 1024 * 1024;
 
 constexpr size_t LINUX_MAX_SOCKET_SIZE = 4194304;
 
+constexpr char ONE_DEVICE_REQUIRED_FILE[] = "/etc/adb/one_device_required";
+
 #define A_SYNC 0x434e5953
 #define A_CNXN 0x4e584e43
 #define A_OPEN 0x4e45504f
