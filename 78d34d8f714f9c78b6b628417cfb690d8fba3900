@@ -22,6 +22,30 @@
       },
       "revId": "78d34d8f714f9c78b6b628417cfb690d8fba3900",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c552202e_40f5b273",
+        "filename": "fdevent/fdevent.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2023-05-17T21:24:46Z",
+      "side": 1,
+      "message": "Yeah, if we need to support old clangs I\u0027ll update AOSP and internal with a constructor.",
+      "parentUuid": "ead6e18f_3495dd98",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 2
+      },
+      "revId": "78d34d8f714f9c78b6b628417cfb690d8fba3900",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
