@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ead6e18f_3495dd98",
+        "filename": "fdevent/fdevent.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-05-17T20:38:55Z",
+      "side": 1,
+      "message": "Depending on what version of clang needs to be supported, I trust we\u0027ll address this part.",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 2
+      },
+      "revId": "78d34d8f714f9c78b6b628417cfb690d8fba3900",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
