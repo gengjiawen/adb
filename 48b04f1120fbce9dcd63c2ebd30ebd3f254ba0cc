@@ -87,6 +87,24 @@
       "parentUuid": "9e8d27b1_46991f6d",
       "revId": "48b04f1120fbce9dcd63c2ebd30ebd3f254ba0cc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae1c01d3_d2e09eb7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1969736
+      },
+      "writtenOn": "2023-05-17T09:19:47Z",
+      "side": 1,
+      "message": "Ah, I guess that\u0027s because linux sources lack `daemon/usb.cpp` and `daemon/usb_ffs.cpp`, I\u0027ll push a fix in a minute",
+      "parentUuid": "03e09bf2_c931f824",
+      "revId": "48b04f1120fbce9dcd63c2ebd30ebd3f254ba0cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
