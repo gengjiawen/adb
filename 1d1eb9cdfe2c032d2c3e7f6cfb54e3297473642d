@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b7daec6_124b1021",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1969736
+      },
+      "writtenOn": "2023-05-17T09:41:57Z",
+      "side": 1,
+      "message": "Hopefully I got this right, not sure if e.g. the `android` target inherits from `linux` or not.",
+      "revId": "1d1eb9cdfe2c032d2c3e7f6cfb54e3297473642d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
