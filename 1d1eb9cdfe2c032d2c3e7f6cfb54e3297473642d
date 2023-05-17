@@ -33,6 +33,29 @@
       "message": "from the build failure, it looks like android does inherit from linux...\n```\n...uild-disk/src/android/master/out/soong/workspace/packages/modules/adb/BUILD.bazel:918:18: Label \u0027//packages/modules/adb:daemon/usb.cpp\u0027 is duplicated in the \u0027srcs\u0027 attribute of rule \u0027libadbd_core_cpp\u0027\n...-disk/src/android/master/out/soong/workspace/packages/modules/adb/BUILD.bazel:918:18: Label \u0027//packages/modules/adb:daemon/usb_ffs.cpp\u0027 is duplicated in the \u0027srcs\u0027 attribute of rule \u0027libadbd_core_cpp\u0027\n...uild-disk/src/android/master/out/soong/workspace/packages/modules/adb/BUILD.bazel:918:18: Label \u0027//packages/modules/adb:daemon/usb.cpp\u0027 is duplicated in the \u0027srcs_cpp\u0027 attribute of rule \u0027libadbd_core\u0027\n...-disk/src/android/master/out/soong/workspace/packages/modules/adb/BUILD.bazel:918:18: Label \u0027//packages/modules/adb:daemon/usb_ffs.cpp\u0027 is duplicated in the \u0027srcs_cpp\u0027 attribute of rule \u0027libadbd_core\u0027\n```",
       "revId": "1d1eb9cdfe2c032d2c3e7f6cfb54e3297473642d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72f5444e_4c94364d",
+        "filename": "Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-05-17T15:57:29Z",
+      "side": 1,
+      "message": "I\u0027m seeing a problem with multiple rules generating the usb obj file :(",
+      "range": {
+        "startLine": 553,
+        "startChar": 8,
+        "endLine": 558,
+        "endChar": 10
+      },
+      "revId": "1d1eb9cdfe2c032d2c3e7f6cfb54e3297473642d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
