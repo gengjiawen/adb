@@ -46,6 +46,30 @@
       },
       "revId": "78d34d8f714f9c78b6b628417cfb690d8fba3900",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b1b80d0_a0eab720",
+        "filename": "fdevent/fdevent.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-05-17T22:05:39Z",
+      "side": 1,
+      "message": "We\u0027re all good here :) Ref: https://keystone-qcom-review.git.corp.google.com/c/platform/packages/modules/adb/+/1396471",
+      "parentUuid": "c552202e_40f5b273",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 2
+      },
+      "revId": "78d34d8f714f9c78b6b628417cfb690d8fba3900",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
