@@ -80,6 +80,30 @@
       },
       "revId": "1d1eb9cdfe2c032d2c3e7f6cfb54e3297473642d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9c1736c_9dfcca12",
+        "filename": "Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-05-18T16:44:38Z",
+      "side": 1,
+      "message": "don\u0027t we just need to remove these two files from the android: clause, like the submitter said?",
+      "parentUuid": "d4a96e46_acf94c51",
+      "range": {
+        "startLine": 553,
+        "startChar": 8,
+        "endLine": 558,
+        "endChar": 10
+      },
+      "revId": "1d1eb9cdfe2c032d2c3e7f6cfb54e3297473642d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
