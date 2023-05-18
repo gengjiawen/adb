@@ -64,6 +64,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dedf402e_f0fd0c05",
+        "filename": "client/adb_client.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1988665
+      },
+      "writtenOn": "2023-05-18T17:09:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f9ba756_fed84aef",
+      "range": {
+        "startLine": 266,
+        "startChar": 5,
+        "endLine": 266,
+        "endChar": 85
+      },
+      "revId": "df01d68164c99a593b3dc82be531a141118b51a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93883108_7f2a6b37",
+        "filename": "client/adb_client.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1988665
+      },
+      "writtenOn": "2023-05-18T17:09:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7c6ae95_4a66e03f",
+      "range": {
+        "startLine": 266,
+        "startChar": 12,
+        "endLine": 266,
+        "endChar": 42
+      },
+      "revId": "df01d68164c99a593b3dc82be531a141118b51a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "66a2ee38_0417f6fc",
@@ -77,6 +125,30 @@
       "writtenOn": "2023-05-17T18:56:45Z",
       "side": 1,
       "message": "Please replace tab with spaces (or better yet, run clang-format on the newly added portions).",
+      "range": {
+        "startLine": 267,
+        "startChar": 0,
+        "endLine": 267,
+        "endChar": 1
+      },
+      "revId": "df01d68164c99a593b3dc82be531a141118b51a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf86e253_3e8b95be",
+        "filename": "client/adb_client.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1988665
+      },
+      "writtenOn": "2023-05-18T17:09:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66a2ee38_0417f6fc",
       "range": {
         "startLine": 267,
         "startChar": 0,
