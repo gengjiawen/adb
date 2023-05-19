@@ -86,6 +86,30 @@
       },
       "revId": "77a636bc1bf2f4f11a973c6f1d5fd542088c70cf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e953b623_37ee272d",
+        "filename": "adb.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-05-19T18:23:02Z",
+      "side": 1,
+      "message": "Yes this is what I meant.",
+      "parentUuid": "0c28c11b_a1196015",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 75
+      },
+      "revId": "77a636bc1bf2f4f11a973c6f1d5fd542088c70cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
