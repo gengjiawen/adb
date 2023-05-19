@@ -62,6 +62,30 @@
       },
       "revId": "77a636bc1bf2f4f11a973c6f1d5fd542088c70cf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c28c11b_a1196015",
+        "filename": "adb.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-05-19T18:16:45Z",
+      "side": 1,
+      "message": "\u003e\u003eusing name that describe what accessing this path indicates\n\n@sanglardf: In the interest of making this comment *actionable*, my suggestion is to also please link to an example in code-search (or point to an appropriate style guide/idiomatic recommendation?) Or better yet, outline a prototype of this function - I\u0027m guessing you probably mean that this (exposed) function should have a *static* char array inside it?",
+      "parentUuid": "55980138_87ae3245",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 75
+      },
+      "revId": "77a636bc1bf2f4f11a973c6f1d5fd542088c70cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
