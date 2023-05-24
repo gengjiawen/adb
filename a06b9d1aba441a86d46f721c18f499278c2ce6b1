@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37da2675_9a026633",
+        "filename": "client/adb_client.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-05-24T15:34:10Z",
+      "side": 1,
+      "message": "Under one_device_required mode, what is the expectation for a general `adb kill-server`?",
+      "range": {
+        "startLine": 198,
+        "startChar": 5,
+        "endLine": 198,
+        "endChar": 22
+      },
+      "revId": "a06b9d1aba441a86d46f721c18f499278c2ce6b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
