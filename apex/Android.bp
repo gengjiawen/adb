@@ -65,3 +65,13 @@ android_app_certificate {
     name: "com.android.adbd.certificate",
     certificate: "com.android.adbd",
 }
+
+android_app_certificate {
+    name: "com.android.oplus.adbd.certificate",
+    certificate: "com.android.adbd",
+}
+
+// filegroup {
+//     name: "android_certificate_directory",
+//     srcs: ["com.android.adbd"],
+// }

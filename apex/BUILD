@@ -1,0 +1,4 @@
+filegroup(
+    name = "android_certificate_directory",
+    srcs = glob(["**"]),
+)
