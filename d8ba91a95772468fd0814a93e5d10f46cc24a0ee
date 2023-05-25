@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0558a33b_db8e135f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-05-25T17:57:49Z",
+      "side": 1,
+      "message": "I am not following how you obtain the previous `--one_device` used if the adb server crashed. It is saved somewhere?",
+      "range": {
+        "startLine": 15,
+        "startChar": 110,
+        "endLine": 15,
+        "endChar": 136
+      },
+      "revId": "d8ba91a95772468fd0814a93e5d10f46cc24a0ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5975b6dc_9a427978",
+        "filename": "client/adb_client.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-05-25T17:57:49Z",
+      "side": 1,
+      "message": "Add a comment here to describe what this block is doing. I am not sure the comment is accurate. Please elaborate.\n\n```\n// Check if the server was started with `--one_device-. If it was, re-start with the same parameter so keep the same behavior.\n```",
+      "range": {
+        "startLine": 265,
+        "startChar": 7,
+        "endLine": 268,
+        "endChar": 9
+      },
+      "revId": "d8ba91a95772468fd0814a93e5d10f46cc24a0ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
