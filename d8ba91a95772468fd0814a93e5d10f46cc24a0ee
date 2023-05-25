@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "83bd6fdf_98368d10",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-05-25T21:02:33Z",
+      "side": 1,
+      "message": "Your bug description has a much better explanation than what I suggested, please use it instead.\n\n```\nProblem scenario:\n* An adb server has successfully started with the --on-device option.\n* The server crashes and/ or is killed.\n* The next command (if not start-server) will fail as it will attempt to re-launch the adb server without the --one-device option.\n```",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 24
+      },
+      "revId": "d8ba91a95772468fd0814a93e5d10f46cc24a0ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0558a33b_db8e135f",
         "filename": "/COMMIT_MSG",
         "patchSetId": 5
@@ -24,6 +47,53 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2e30b3f_4b087847",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-05-25T21:02:33Z",
+      "side": 1,
+      "message": "Please disregard this comment",
+      "parentUuid": "0558a33b_db8e135f",
+      "range": {
+        "startLine": 15,
+        "startChar": 110,
+        "endLine": 15,
+        "endChar": 136
+      },
+      "revId": "d8ba91a95772468fd0814a93e5d10f46cc24a0ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca0b706e_1cf40ff8",
+        "filename": "adb.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 779,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-05-25T21:02:33Z",
+      "side": 1,
+      "message": "nit: is_one_device_mandatory()",
+      "range": {
+        "startLine": 779,
+        "startChar": 5,
+        "endLine": 779,
+        "endChar": 32
+      },
+      "revId": "d8ba91a95772468fd0814a93e5d10f46cc24a0ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5975b6dc_9a427978",
@@ -37,6 +107,30 @@
       "writtenOn": "2023-05-25T17:57:49Z",
       "side": 1,
       "message": "Add a comment here to describe what this block is doing. I am not sure the comment is accurate. Please elaborate.\n\n```\n// Check if the server was started with `--one_device-. If it was, re-start with the same parameter so keep the same behavior.\n```",
+      "range": {
+        "startLine": 265,
+        "startChar": 7,
+        "endLine": 268,
+        "endChar": 9
+      },
+      "revId": "d8ba91a95772468fd0814a93e5d10f46cc24a0ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b51c8054_37e70268",
+        "filename": "client/adb_client.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-05-25T21:02:33Z",
+      "side": 1,
+      "message": "Scratch the comment above, I think I (finally) understand what is going on. Here is the comment I suggest:\n\n```\n// On a mandatory \"deviceone\" device, the server will not start without \"one_device\" parameter. If --one_device was not provided (__adb_client_one_device), we attempt to find the value from \"-S\" parameter (__adb_serial). \n```",
+      "parentUuid": "5975b6dc_9a427978",
       "range": {
         "startLine": 265,
         "startChar": 7,
