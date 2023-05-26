@@ -93,6 +93,30 @@
       },
       "revId": "a06b9d1aba441a86d46f721c18f499278c2ce6b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a15dcbdf_5857895e",
+        "filename": "client/adb_client.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-05-26T05:47:41Z",
+      "side": 1,
+      "message": "Reopening this thread:\n  - Did you get a chance to test `adb kill-server` (no other parameters) under one_device_required?\n  - If you get an error (see below), should we address it? Or choose to ignore it (and merely document that as an expectation since the very vast majority of users will not be engaging one_device_required mode)?\n  \u003e\u003e aosp-master-with-phones$ adb kill-server\n  \u003e\u003ecannot connect to daemon at tcp:5037: Connection refused",
+      "parentUuid": "e8132ece_97a3ad82",
+      "range": {
+        "startLine": 198,
+        "startChar": 5,
+        "endLine": 198,
+        "endChar": 22
+      },
+      "revId": "a06b9d1aba441a86d46f721c18f499278c2ce6b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
