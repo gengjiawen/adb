@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "50b68517_ffcea2a4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1988665
+      },
+      "writtenOn": "2023-05-26T17:39:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83bd6fdf_98368d10",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 24
+      },
+      "revId": "d8ba91a95772468fd0814a93e5d10f46cc24a0ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0558a33b_db8e135f",
@@ -94,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ba539a5_93623a11",
+        "filename": "adb.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 779,
+      "author": {
+        "id": 1988665
+      },
+      "writtenOn": "2023-05-26T17:39:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca0b706e_1cf40ff8",
+      "range": {
+        "startLine": 779,
+        "startChar": 5,
+        "endLine": 779,
+        "endChar": 32
+      },
+      "revId": "d8ba91a95772468fd0814a93e5d10f46cc24a0ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5975b6dc_9a427978",
@@ -131,6 +179,30 @@
       "side": 1,
       "message": "Scratch the comment above, I think I (finally) understand what is going on. Here is the comment I suggest:\n\n```\n// On a mandatory \"deviceone\" device, the server will not start without \"one_device\" parameter. If --one_device was not provided (__adb_client_one_device), we attempt to find the value from \"-S\" parameter (__adb_serial). \n```",
       "parentUuid": "5975b6dc_9a427978",
+      "range": {
+        "startLine": 265,
+        "startChar": 7,
+        "endLine": 268,
+        "endChar": 9
+      },
+      "revId": "d8ba91a95772468fd0814a93e5d10f46cc24a0ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c32cce3_b9cfb00b",
+        "filename": "client/adb_client.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1988665
+      },
+      "writtenOn": "2023-05-26T17:39:47Z",
+      "side": 1,
+      "message": "Done.\nThanks for the review!",
+      "parentUuid": "b51c8054_37e70268",
       "range": {
         "startLine": 265,
         "startChar": 7,
