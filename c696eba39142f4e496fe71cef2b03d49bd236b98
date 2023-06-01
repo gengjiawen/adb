@@ -16,6 +16,23 @@
       "message": "Actualize change: rebase on master and retest.",
       "revId": "c696eba39142f4e496fe71cef2b03d49bd236b98",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0964f65d_0ad14d47",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511237
+      },
+      "writtenOn": "2023-06-01T12:17:30Z",
+      "side": 1,
+      "message": "Is there anything else to be done to get this CR merged?",
+      "revId": "c696eba39142f4e496fe71cef2b03d49bd236b98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
