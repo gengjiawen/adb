@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56da4f24_16f858d5",
+        "filename": "daemon/jdwp_service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1415318
+      },
+      "writtenOn": "2023-06-02T08:34:00Z",
+      "side": 1,
+      "message": "can that happen? won\u0027t an exception be thrown in that case?",
+      "range": {
+        "startLine": 463,
+        "startChar": 0,
+        "endLine": 465,
+        "endChar": 5
+      },
+      "revId": "eff20e70dd7a284cd6a7a800e68f66386511eeaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edefb130_23971520",
+        "filename": "daemon/jdwp_service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1415318
+      },
+      "writtenOn": "2023-06-02T08:34:00Z",
+      "side": 1,
+      "message": "either inline or move it up and use instead of dereferencing t each time.",
+      "range": {
+        "startLine": 478,
+        "startChar": 4,
+        "endLine": 478,
+        "endChar": 30
+      },
+      "revId": "eff20e70dd7a284cd6a7a800e68f66386511eeaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
