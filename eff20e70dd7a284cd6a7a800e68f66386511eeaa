@@ -191,6 +191,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f105ade9_bb3524ae",
+        "filename": "daemon/jdwp_service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1076798
+      },
+      "writtenOn": "2023-06-02T20:08:06Z",
+      "side": 1,
+      "message": "\u003e Unsure what part is misleading -\n\nThe misleading part is the implication that this matters at all.\n\n\u003e Unsure when exactly the need for explicit initialization was rendered unnecessary?\n\nhttps://android-review.googlesource.com/c/platform/system/core/+/615948",
+      "parentUuid": "2235a62c_e11fdcb2",
+      "range": {
+        "startLine": 467,
+        "startChar": 4,
+        "endLine": 469,
+        "endChar": 6
+      },
+      "revId": "eff20e70dd7a284cd6a7a800e68f66386511eeaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "edefb130_23971520",
