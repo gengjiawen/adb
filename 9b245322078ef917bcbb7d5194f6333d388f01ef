@@ -22,6 +22,30 @@
       },
       "revId": "9b245322078ef917bcbb7d5194f6333d388f01ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e1603e3_495e1222",
+        "filename": "daemon/jdwp_service.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-06-02T21:24:36Z",
+      "side": 0,
+      "message": "Great point (I already looked for similar instances and fortunately didn\u0027t find any other fragility - yet :) \nOur particular case has to do with a combination of 1.) a memset() (it can be any other operations such as memcmp(), memcpy(), etc) that relies on a (flawed) offset computation PLUS 2.) the existence of a (non-virtual) struct (which happens to afford C++ default construction that correctly handles POD types) hierarchy.\nIn the case of other memset() usages (at least, the ones I looked over so far), the usage is safe IMO.\nThat said, I like your input about some sort of compile-time asserts - currently I have some vague ideas about adding a test module that can run on-device (e.g adbd_test) and will establish some ground truths based on the arch (getprop ro.product.cpu.abi) and POD type - pl stay tuned for a followup CL.",
+      "parentUuid": "3822189e_06735fe3",
+      "range": {
+        "startLine": 467,
+        "startChar": 4,
+        "endLine": 467,
+        "endChar": 10
+      },
+      "revId": "9b245322078ef917bcbb7d5194f6333d388f01ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
