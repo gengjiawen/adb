@@ -117,6 +117,30 @@
       },
       "revId": "237944fa6bdf5b834bca0b7a75dbba879c0363df",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d51c5ce6_50f7e6b5",
+        "filename": "daemon/jdwp_service.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1978766
+      },
+      "writtenOn": "2023-06-02T21:32:23Z",
+      "side": 1,
+      "message": "I wish clang-tidy had a check to warn on code using memset to initialize objects.",
+      "parentUuid": "ddc7de83_21263680",
+      "range": {
+        "startLine": 467,
+        "startChar": 0,
+        "endLine": 471,
+        "endChar": 7
+      },
+      "revId": "237944fa6bdf5b834bca0b7a75dbba879c0363df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
