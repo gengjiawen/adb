@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2156df6_7d394507",
+        "filename": "daemon/jdwp_service.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-06-02T20:25:33Z",
+      "side": 1,
+      "message": "https://b.corp.google.com/issues/245983885#comment47 is a good recap.\nWith the removal of the (spurious) memset, the correct TracerKind value would survive.",
+      "parentUuid": "74b66590_5aa96457",
+      "range": {
+        "startLine": 462,
+        "startChar": 4,
+        "endLine": 462,
+        "endChar": 32
+      },
+      "revId": "237944fa6bdf5b834bca0b7a75dbba879c0363df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "29d9c495_52134c14",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-06-02T20:09:55Z",
       "side": 1,
       "message": "Is this an appropriate comment? From https://b.corp.google.com/issues/245983885#comment47 it looks like we could just write:\n\n```\n// No need to memset, the memory is initialized by the constructor.\n```",
+      "range": {
+        "startLine": 467,
+        "startChar": 0,
+        "endLine": 471,
+        "endChar": 7
+      },
+      "revId": "237944fa6bdf5b834bca0b7a75dbba879c0363df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddc7de83_21263680",
+        "filename": "daemon/jdwp_service.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-06-02T20:25:33Z",
+      "side": 1,
+      "message": "I\u0027d rather not have future maintainers engage in potentially unreliable operations (like relying on offsets which are compiler dependent) that can subtly hide bugs (such as this one that\u0027s been hard to root-cause). Also, I\u0027d like to highlight the reason why it\u0027s non-reproducible on a regular Android device. The comment would serve to clarify these aspects (that caused additional trouble-shooting delays).",
+      "parentUuid": "29d9c495_52134c14",
       "range": {
         "startLine": 467,
         "startChar": 0,
