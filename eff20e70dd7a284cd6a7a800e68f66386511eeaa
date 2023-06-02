@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "18da89d4_d243d181",
+        "filename": "daemon/jdwp_service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-06-02T18:39:29Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "51eab1a1_c718cc9c",
+      "range": {
+        "startLine": 463,
+        "startChar": 0,
+        "endLine": 465,
+        "endChar": 5
+      },
+      "revId": "eff20e70dd7a284cd6a7a800e68f66386511eeaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "85220dcc_d2bef6e9",
@@ -133,6 +157,30 @@
       "side": 1,
       "message": "I\u0027d just delete this comment. This information is not useful, and also misleading (the non-misleading part would be something along the lines of \"asocket has free space on ILP32 at the end, so `memset(t, 0, sizeof(asocket))` will overwrite fields in derived classes\", but the useful part to know is that you don\u0027t need to initialize asocket manually anymore because it has a ctor that initializes everything)",
       "parentUuid": "1a6b70a6_7557ecd7",
+      "range": {
+        "startLine": 467,
+        "startChar": 4,
+        "endLine": 469,
+        "endChar": 6
+      },
+      "revId": "eff20e70dd7a284cd6a7a800e68f66386511eeaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2235a62c_e11fdcb2",
+        "filename": "daemon/jdwp_service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-06-02T18:39:29Z",
+      "side": 1,
+      "message": "Unsure what part is misleading - however I\u0027m removing the reference to the failure from the computation based on offsetof(), given my intent to add arch-specific tests (in a separate CL).\n\n\u003e\u003eyou don\u0027t need to initialize asocket manually anymore \n\nUnsure when exactly the need for explicit initialization was rendered unnecessary? (https://android-review.git.corp.google.com/c/platform/system/core/+/229923 was prior to mainline migration). AFAICS there was never the need for that memset().\nStrangely, reports indicate that this failure (Android TV only) started cropping up fairly recently (perhaps compilation flag changes and/or newer alignment strategies unearthed the problem).",
+      "parentUuid": "77bab873_3abdfb2b",
       "range": {
         "startLine": 467,
         "startChar": 4,
