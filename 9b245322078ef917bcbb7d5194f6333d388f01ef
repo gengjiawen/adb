@@ -94,6 +94,30 @@
       },
       "revId": "9b245322078ef917bcbb7d5194f6333d388f01ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e436231_a19bba0f",
+        "filename": "daemon/jdwp_service.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-06-02T22:00:21Z",
+      "side": 0,
+      "message": "Here, we\u0027re explicitly filling in that memory address with a pattern of specified characters - no? (https://source.corp.google.com/h/googleplex-android/platform/superproject/+/master:packages/modules/adb/types_test.cpp;l\u003d59)\n\nBTW, both is_standard_layout\u003c\u003e as well as is_pod\u003c\u003e do not apply (will sync up offline about how best to validate at compile-time.",
+      "parentUuid": "659a2b32_1e43eca8",
+      "range": {
+        "startLine": 467,
+        "startChar": 4,
+        "endLine": 467,
+        "endChar": 10
+      },
+      "revId": "9b245322078ef917bcbb7d5194f6333d388f01ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
