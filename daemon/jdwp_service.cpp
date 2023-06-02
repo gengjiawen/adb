@@ -27,6 +27,7 @@
 #include <sys/socket.h>
 #include <sys/un.h>
 #include <unistd.h>
+#include <cstddef>
 
 #include <list>
 #include <memory>
@@ -459,12 +460,13 @@ static int jdwp_tracker_enqueue(asocket* s, apacket::payload_type) {
 }
 
 static asocket* create_process_tracker_service_socket(TrackerKind kind) {
-    auto t = std::make_unique<JdwpTracker>(kind, true);
+    std::unique_ptr<JdwpTracker> t = std::make_unique<JdwpTracker>(kind, true);
     if (!t) {
         LOG(FATAL) << "failed to allocate JdwpTracker";
     }
 
-    memset(t.get(), 0, sizeof(asocket));
+    // Would have preferred to use typeid(), but then we'd need -frtti
+    static_assert(offsetof(JdwpTracker, kind) >= sizeof(asocket));
 
     install_local_socket(t.get());
     D("LS(%d): created new jdwp tracker service", t->id);
