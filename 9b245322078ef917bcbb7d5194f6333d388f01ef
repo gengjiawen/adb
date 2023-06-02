@@ -46,6 +46,30 @@
       },
       "revId": "9b245322078ef917bcbb7d5194f6333d388f01ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51e4598b_da00d345",
+        "filename": "daemon/jdwp_service.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1978766
+      },
+      "writtenOn": "2023-06-02T21:26:06Z",
+      "side": 0,
+      "message": "\u003e static_assert(std::is_standard_layout\u003cstructT\u003e::value);\n\nYeah we should probably add this to all structs that is using memset.\n\nIf we want to make sure that the object is initialized properly, maybe we can define custom constructors for these? Even C99 has a designated initializer(https://gcc.gnu.org/onlinedocs/gcc/Designated-Inits.html) so there is no need to have memset anymore.",
+      "parentUuid": "3822189e_06735fe3",
+      "range": {
+        "startLine": 467,
+        "startChar": 4,
+        "endLine": 467,
+        "endChar": 10
+      },
+      "revId": "9b245322078ef917bcbb7d5194f6333d388f01ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
