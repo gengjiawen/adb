@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74b66590_5aa96457",
+        "filename": "daemon/jdwp_service.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-06-02T20:09:55Z",
+      "side": 1,
+      "message": "Why is this change necessary?",
+      "range": {
+        "startLine": 462,
+        "startChar": 4,
+        "endLine": 462,
+        "endChar": 32
+      },
+      "revId": "237944fa6bdf5b834bca0b7a75dbba879c0363df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29d9c495_52134c14",
+        "filename": "daemon/jdwp_service.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-06-02T20:09:55Z",
+      "side": 1,
+      "message": "Is this an appropriate comment? From https://b.corp.google.com/issues/245983885#comment47 it looks like we could just write:\n\n```\n// No need to memset, the memory is initialized by the constructor.\n```",
+      "range": {
+        "startLine": 467,
+        "startChar": 0,
+        "endLine": 471,
+        "endChar": 7
+      },
+      "revId": "237944fa6bdf5b834bca0b7a75dbba879c0363df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
