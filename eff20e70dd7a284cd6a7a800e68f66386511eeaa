@@ -26,6 +26,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "85220dcc_d2bef6e9",
+        "filename": "daemon/jdwp_service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1415318
+      },
+      "writtenOn": "2023-06-02T12:00:13Z",
+      "side": 1,
+      "message": "this comment style is different from the rest of the folder.\n\neither use\n//\n//\n           \nor\n/*\n *\n */",
+      "range": {
+        "startLine": 467,
+        "startChar": 4,
+        "endLine": 469,
+        "endChar": 6
+      },
+      "revId": "eff20e70dd7a284cd6a7a800e68f66386511eeaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "edefb130_23971520",
         "filename": "daemon/jdwp_service.cpp",
         "patchSetId": 2
