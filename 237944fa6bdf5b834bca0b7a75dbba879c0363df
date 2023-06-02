@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "614d6c1e_2ecc94a5",
+        "filename": "daemon/jdwp_service.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-06-02T21:28:15Z",
+      "side": 1,
+      "message": "I see now that you\u0027re referring to my spelling out the type (instead of auto). \nIt\u0027s purely my personal preference (I feel it\u0027s far more readable to see the exact data type rather than a python/script like syntax).\nPS: I agree that auto is useful when the type spans multiple lines.",
+      "parentUuid": "a2156df6_7d394507",
+      "range": {
+        "startLine": 462,
+        "startChar": 4,
+        "endLine": 462,
+        "endChar": 32
+      },
+      "revId": "237944fa6bdf5b834bca0b7a75dbba879c0363df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "29d9c495_52134c14",
