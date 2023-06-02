@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b9d2e48_cf5ff957",
+        "filename": "daemon/jdwp_service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-06-02T17:45:53Z",
+      "side": 1,
+      "message": "Normally bad_alloc will be generated under such conditions. However, adbd is built lean (for various reasons, including minimal dependencies which is a requirement for bare-bones operation use-case such as flashing, minadbd, side-loading over bootloader, etc). Therefore exceptions (very useful for apps) are N/A (compiled without that option).",
+      "parentUuid": "56da4f24_16f858d5",
+      "range": {
+        "startLine": 463,
+        "startChar": 0,
+        "endLine": 465,
+        "endChar": 5
+      },
+      "revId": "eff20e70dd7a284cd6a7a800e68f66386511eeaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "85220dcc_d2bef6e9",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a6b70a6_7557ecd7",
+        "filename": "daemon/jdwp_service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-06-02T17:45:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85220dcc_d2bef6e9",
+      "range": {
+        "startLine": 467,
+        "startChar": 4,
+        "endLine": 469,
+        "endChar": 6
+      },
+      "revId": "eff20e70dd7a284cd6a7a800e68f66386511eeaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "edefb130_23971520",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-06-02T08:34:00Z",
       "side": 1,
       "message": "either inline or move it up and use instead of dereferencing t each time.",
+      "range": {
+        "startLine": 478,
+        "startChar": 4,
+        "endLine": 478,
+        "endChar": 30
+      },
+      "revId": "eff20e70dd7a284cd6a7a800e68f66386511eeaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed2bbb48_a9164dd4",
+        "filename": "daemon/jdwp_service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-06-02T17:45:53Z",
+      "side": 1,
+      "message": "IMO, this is a standard idiom (stash the address which needs to be returned, and then construct entry in-place without a copy). Dealing with the smart-pointer (t-\u003exxx) is safer (than raw pointer ops, due to ownership guarantees) and the retrieval of the raw pointer (line #478) is therefore delayed as late as possible (by design).\nPlease reopen if there\u0027re still concerns (or we can discuss offline).",
+      "parentUuid": "edefb130_23971520",
       "range": {
         "startLine": 478,
         "startChar": 4,
