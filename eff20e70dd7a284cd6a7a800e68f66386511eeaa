@@ -215,6 +215,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c87c4f1_0b6da200",
+        "filename": "daemon/jdwp_service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-06-02T20:39:37Z",
+      "side": 1,
+      "message": "It matters (IMO) because significant time was spent attempting to reproduce (given that I didn\u0027t have access to an ATV device :), and the differing results were confounding.\n\nhttps://android-review.googlesource.com/c/platform/system/core/+/615948 addresses the problem of leaking (by leveraging the existing constructor). However I think it was compiled as a C++ module *all along* - asocket() was in existence prior to this CL, the only difference was exactly how the compiler implemented the data initialization (whether it used an underlying memset() or a field-by-field init).\n\nI\u0027d be interested to hear your thoughts on why this bug stayed hidden so long (2018-2022)?",
+      "parentUuid": "f105ade9_bb3524ae",
+      "range": {
+        "startLine": 467,
+        "startChar": 4,
+        "endLine": 469,
+        "endChar": 6
+      },
+      "revId": "eff20e70dd7a284cd6a7a800e68f66386511eeaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "edefb130_23971520",
