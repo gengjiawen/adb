@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "51eab1a1_c718cc9c",
+        "filename": "daemon/jdwp_service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1076798
+      },
+      "writtenOn": "2023-06-02T18:00:19Z",
+      "side": 1,
+      "message": "-fno-exceptions just means that any time an exception is thrown, you get std::terminate instead: https://gcc.godbolt.org/z/eWfMc7Waa\n\nThis was a mistake I made when mechanically translating the C style code that was here already. (`t \u003d static_cast\u003c...\u003e(calloc(...)); if (!t) { ... }`)",
+      "parentUuid": "9b9d2e48_cf5ff957",
+      "range": {
+        "startLine": 463,
+        "startChar": 0,
+        "endLine": 465,
+        "endChar": 5
+      },
+      "revId": "eff20e70dd7a284cd6a7a800e68f66386511eeaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "85220dcc_d2bef6e9",
         "filename": "daemon/jdwp_service.cpp",
         "patchSetId": 2
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "85220dcc_d2bef6e9",
+      "range": {
+        "startLine": 467,
+        "startChar": 4,
+        "endLine": 469,
+        "endChar": 6
+      },
+      "revId": "eff20e70dd7a284cd6a7a800e68f66386511eeaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77bab873_3abdfb2b",
+        "filename": "daemon/jdwp_service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1076798
+      },
+      "writtenOn": "2023-06-02T18:00:19Z",
+      "side": 1,
+      "message": "I\u0027d just delete this comment. This information is not useful, and also misleading (the non-misleading part would be something along the lines of \"asocket has free space on ILP32 at the end, so `memset(t, 0, sizeof(asocket))` will overwrite fields in derived classes\", but the useful part to know is that you don\u0027t need to initialize asocket manually anymore because it has a ctor that initializes everything)",
+      "parentUuid": "1a6b70a6_7557ecd7",
       "range": {
         "startLine": 467,
         "startChar": 4,
