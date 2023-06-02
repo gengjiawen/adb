@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3822189e_06735fe3",
+        "filename": "daemon/jdwp_service.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1415318
+      },
+      "writtenOn": "2023-06-02T20:07:51Z",
+      "side": 0,
+      "message": "now we know that memset should not be used with non POD data structures.\n\nI see that there are a number memset usages across adb codebase. \nAlthough they might not trigger an immediate failure, but we should just rely on a default constructor for non-POD and maybe even POD types.\n\nSo I propose to revisit other memset cases and fix if needed.\nThere are 2 fix options:\n *. add the following type assert right before memset is performed:\n      static_assert(std::is_standard_layout\u003cstructT\u003e::value);\n      \n *. use in-place default constructor: new(ptr) structT;\n \n \n For example block struct in http://cs/h/googleplex-android/platform/superproject/+/master:packages/modules/adb/types_test.cpp?l\u003d33 contains unique_ptr that should be initialised via constructor and not memeset. We have to fix it as well.",
+      "range": {
+        "startLine": 467,
+        "startChar": 4,
+        "endLine": 467,
+        "endChar": 10
+      },
+      "revId": "9b245322078ef917bcbb7d5194f6333d388f01ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
