@@ -70,6 +70,30 @@
       },
       "revId": "9b245322078ef917bcbb7d5194f6333d388f01ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "659a2b32_1e43eca8",
+        "filename": "daemon/jdwp_service.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1415318
+      },
+      "writtenOn": "2023-06-02T21:40:56Z",
+      "side": 0,
+      "message": "This is the place you want to replace memset with something else: http://cs/h/googleplex-android/platform/superproject/+/master:packages/modules/adb/types_test.cpp?l\u003d33",
+      "parentUuid": "51e4598b_da00d345",
+      "range": {
+        "startLine": 467,
+        "startChar": 4,
+        "endLine": 467,
+        "endChar": 10
+      },
+      "revId": "9b245322078ef917bcbb7d5194f6333d388f01ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
