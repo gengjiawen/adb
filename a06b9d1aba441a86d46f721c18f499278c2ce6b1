@@ -141,6 +141,30 @@
       },
       "revId": "a06b9d1aba441a86d46f721c18f499278c2ce6b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "759ce936_a16fc23e",
+        "filename": "client/adb_client.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-06-06T15:42:20Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "0586908b_5268726e",
+      "range": {
+        "startLine": 198,
+        "startChar": 5,
+        "endLine": 198,
+        "endChar": 22
+      },
+      "revId": "a06b9d1aba441a86d46f721c18f499278c2ce6b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
