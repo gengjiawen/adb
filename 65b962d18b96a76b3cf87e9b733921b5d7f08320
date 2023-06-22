@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0ae9ac1_b1e9c0ae",
+        "filename": "adb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 886,
+      "author": {
+        "id": 1229339
+      },
+      "writtenOn": "2023-06-22T07:14:23Z",
+      "side": 1,
+      "message": "I decided to rewrite the cmdline generation code instead, and switched from snwprintf to UTF8ToWide. From sysdeps_win32.cpp, it looks like adb is using UTF-8 strings everywhere?",
+      "parentUuid": "ccf9165e_2bac1e79",
+      "revId": "65b962d18b96a76b3cf87e9b733921b5d7f08320",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3c0bfd43_9d6bbaa6",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-06-22T05:21:57Z",
       "side": 1,
       "message": "This looks sketchy to do inside a fork (although I think we\u0027re single-threaded here): move the vector initialization (or at least declare and reserve) to above the fork?",
+      "revId": "65b962d18b96a76b3cf87e9b733921b5d7f08320",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85090de6_1070aad9",
+        "filename": "adb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1043,
+      "author": {
+        "id": 1229339
+      },
+      "writtenOn": "2023-06-22T07:14:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c0bfd43_9d6bbaa6",
       "revId": "65b962d18b96a76b3cf87e9b733921b5d7f08320",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
