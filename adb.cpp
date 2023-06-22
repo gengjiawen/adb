@@ -57,6 +57,7 @@
 #include "adb_mdns.h"
 #include "adb_unique_fd.h"
 #include "adb_utils.h"
+#include "socket_spec.h"
 #include "sysdeps/chrono.h"
 #include "transport.h"
 
@@ -882,13 +883,14 @@ int launch_server(const std::string& socket_spec, const char* one_device) {
     }
 
     WCHAR args[4096];
+    const char* listen_all = gListenAll ? "-a" : "";
     if (one_device) {
         snwprintf(args, arraysize(args),
-                  L"adb -L %s fork-server server --reply-fd %d --one-device %s",
-                  socket_spec.c_str(), ack_write_as_int, one_device);
+                  L"adb -L %s %s fork-server server --reply-fd %d --one-device %s",
+                  socket_spec.c_str(), listen_all, ack_write_as_int, one_device);
     } else {
-        snwprintf(args, arraysize(args), L"adb -L %s fork-server server --reply-fd %d",
-                  socket_spec.c_str(), ack_write_as_int);
+        snwprintf(args, arraysize(args), L"adb -L %s %s fork-server server --reply-fd %d",
+                  socket_spec.c_str(), listen_all, ack_write_as_int);
     }
 
     PROCESS_INFORMATION   pinfo;
@@ -1038,8 +1040,14 @@ int launch_server(const std::string& socket_spec, const char* one_device) {
         char reply_fd[30];
         snprintf(reply_fd, sizeof(reply_fd), "%d", pipe_write.get());
         // child process
-        std::vector<const char*> child_argv = {
-                "adb", "-L", socket_spec.c_str(), "fork-server", "server", "--reply-fd", reply_fd};
+        std::vector<const char*> child_argv = {"adb", "-L", socket_spec.c_str()};
+        if (gListenAll) {
+            child_argv.push_back("-a");
+        }
+        child_argv.push_back("fork-server");
+        child_argv.push_back("server");
+        child_argv.push_back("--reply-fd");
+        child_argv.push_back(reply_fd);
         if (one_device) {
             child_argv.push_back("--one-device");
             child_argv.push_back(one_device);
