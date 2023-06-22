@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "827d1833_33848e8d",
+        "filename": "adb.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1041,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-06-22T15:29:34Z",
+      "side": 1,
+      "message": "just StringPrintf() or std::to_string() instead?",
+      "range": {
+        "startLine": 1041,
+        "startChar": 18,
+        "endLine": 1041,
+        "endChar": 20
+      },
+      "revId": "b1f3e51c258848d326b21d65e5bd1482cd1a908a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "92646f18_450c76e2",
         "filename": "adb.cpp",
         "patchSetId": 3
@@ -14,6 +37,24 @@
       "writtenOn": "2023-06-22T07:22:29Z",
       "side": 1,
       "message": "Should we add something here?... like `abort()` or `_exit(...)` with something?...",
+      "revId": "b1f3e51c258848d326b21d65e5bd1482cd1a908a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "895aa798_1f3ffdd0",
+        "filename": "adb.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1076,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-06-22T15:29:34Z",
+      "side": 1,
+      "message": "yeah, i believe _exit(127) is traditional.",
+      "parentUuid": "92646f18_450c76e2",
       "revId": "b1f3e51c258848d326b21d65e5bd1482cd1a908a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
