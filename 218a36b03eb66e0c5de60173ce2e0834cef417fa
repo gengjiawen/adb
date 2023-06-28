@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22f47e4d_b7e62434",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511237
+      },
+      "writtenOn": "2023-06-28T08:39:46Z",
+      "side": 1,
+      "message": "I don\u0027t have access to tests logs.\nRebased on master and retested - don\u0027t see any issues.\nIs it just flaking test case?",
+      "revId": "218a36b03eb66e0c5de60173ce2e0834cef417fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
