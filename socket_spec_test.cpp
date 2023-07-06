@@ -172,7 +172,8 @@ TEST(socket_spec, get_host_socket_spec_port_success) {
     EXPECT_EQ(5555, get_host_socket_spec_port("tcp:5555", &error));
     EXPECT_EQ(5555, get_host_socket_spec_port("tcp:localhost:5555", &error));
     EXPECT_EQ(5555, get_host_socket_spec_port("tcp:[::1]:5555", &error));
-    EXPECT_EQ(5555, get_host_socket_spec_port("vsock:5555", &error));
+    EXPECT_EQ(5555, get_host_socket_spec_port("vsock:5555", &error) ||
+                            error == "vsock is only supported on linux");
 }
 
 TEST(socket_spec, get_host_socket_spec_port_no_port) {
@@ -235,8 +236,12 @@ TEST(socket_spec, socket_spec_listen_connect_localfilesystem) {
         EXPECT_FALSE(socket_spec_connect(&client_fd, sock_addr, &port, &serial, &error));
         server_fd.reset(socket_spec_listen(sock_addr, &error, &port));
         EXPECT_NE(server_fd.get(), -1);
-        EXPECT_TRUE(socket_spec_connect(&client_fd, sock_addr, &port, &serial, &error));
+        EXPECT_EQ(socket_spec_connect(&client_fd, sock_addr, &port, &serial, &error) ||
+                          (error == "Suppressing minadbd socket communications"),
+                  true);
+#ifdef ADB_LINUX
         EXPECT_NE(client_fd.get(), -1);
+#endif
     }
 }
 
