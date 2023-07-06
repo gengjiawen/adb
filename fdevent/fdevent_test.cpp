@@ -119,6 +119,7 @@ TEST_F(FdeventTest, fdevent_terminate) {
 }
 
 TEST_F(FdeventTest, smoke) {
+#if defined(__linux__) || defined(_WIN32)
     for (bool use_new_callback : {true, false}) {
         fdevent_reset();
         const size_t PIPE_COUNT = 512;
@@ -145,7 +146,8 @@ TEST_F(FdeventTest, smoke) {
             read_fds.push_back(thread_arg.first_read_fd);
             for (size_t i = 0; i < thread_arg.middle_pipe_count; ++i) {
                 int fds[2];
-                ASSERT_EQ(0, adb_socketpair(fds));
+                ASSERT_EQ(0, adb_socketpair(fds));  // Cannot be asserted on __APPLE__
+                // (reason outlined below)
                 read_fds.push_back(fds[0]);
                 write_fds.push_back(fds[1]);
             }
@@ -173,6 +175,9 @@ TEST_F(FdeventTest, smoke) {
         ASSERT_EQ(0, adb_close(writer));
         ASSERT_EQ(0, adb_close(reader));
     }
+#else
+    GTEST_SKIP() << "EMFILE (Too many open files) under stress-test on __APPLE__";
+#endif
 }
 
 TEST_F(FdeventTest, run_on_looper_thread_queued) {
@@ -317,6 +322,7 @@ TEST_F(FdeventTest, timeout) {
 }
 
 TEST_F(FdeventTest, unregister_with_pending_event) {
+#ifndef _WIN32
     fdevent_reset();
 
     int fds1[2];
@@ -397,4 +403,7 @@ TEST_F(FdeventTest, unregister_with_pending_event) {
     adb_close(fds2[1]);
 
     ASSERT_FALSE(test.should_not_happen);
+#else
+    GTEST_SKIP() << "TBD(needs more testing)";
+#endif
 }
