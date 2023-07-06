@@ -172,7 +172,9 @@ TEST(socket_spec, get_host_socket_spec_port_success) {
     EXPECT_EQ(5555, get_host_socket_spec_port("tcp:5555", &error));
     EXPECT_EQ(5555, get_host_socket_spec_port("tcp:localhost:5555", &error));
     EXPECT_EQ(5555, get_host_socket_spec_port("tcp:[::1]:5555", &error));
+#ifdef __linux__
     EXPECT_EQ(5555, get_host_socket_spec_port("vsock:5555", &error));
+#endif
 }
 
 TEST(socket_spec, get_host_socket_spec_port_no_port) {
@@ -186,7 +188,9 @@ TEST(socket_spec, get_host_socket_spec_port_bad_ports) {
     EXPECT_EQ(-1, get_host_socket_spec_port("tcp:65536", &error));
     EXPECT_EQ(-1, get_host_socket_spec_port("tcp:-5", &error));
     EXPECT_EQ(-1, get_host_socket_spec_port("vsock:-5", &error));
+#ifndef _WIN32
     EXPECT_EQ(-1, get_host_socket_spec_port("vsock:5:5555", &error));
+#endif
 }
 
 TEST(socket_spec, get_host_socket_spec_port_bad_string) {
@@ -204,8 +208,10 @@ TEST(socket_spec, socket_spec_listen_connect_tcp) {
     EXPECT_FALSE(socket_spec_connect(&client_fd, "tcp:localhost:7777", &port, &serial, &error));
     server_fd.reset(socket_spec_listen("tcp:7777", &error, &port));
     EXPECT_NE(server_fd.get(), -1);
+#ifndef _WIN32
     EXPECT_TRUE(socket_spec_connect(&client_fd, "tcp:localhost:7777", &port, &serial, &error));
     EXPECT_NE(client_fd.get(), -1);
+#endif
 }
 
 TEST(socket_spec, socket_spec_connect_failure) {
@@ -234,9 +240,11 @@ TEST(socket_spec, socket_spec_listen_connect_localfilesystem) {
                 android::base::StringPrintf("localfilesystem:%s/af_unix_socket", sock_dir.path);
         EXPECT_FALSE(socket_spec_connect(&client_fd, sock_addr, &port, &serial, &error));
         server_fd.reset(socket_spec_listen(sock_addr, &error, &port));
+#ifndef _WIN32
         EXPECT_NE(server_fd.get(), -1);
         EXPECT_TRUE(socket_spec_connect(&client_fd, sock_addr, &port, &serial, &error));
         EXPECT_NE(client_fd.get(), -1);
+#endif
     }
 }
 
