@@ -167,7 +167,7 @@ TEST_F(sysdeps_poll, invalid_fd) {
     EXPECT_EQ(POLLNVAL, pfd[1].revents);
 }
 
-TEST_F(sysdeps_poll, duplicate_fd) {
+TEST_F(sysdeps_poll, duplicate_fd) {  // Remains broken on __APPLE__
     adb_pollfd pfd[2] = {};
     pfd[0].fd = fds[0];
     pfd[0].events = POLLRDNORM;
@@ -179,8 +179,12 @@ TEST_F(sysdeps_poll, duplicate_fd) {
 
     ASSERT_TRUE(WriteFdExactly(fds[1], "foo", 4));
 
-    EXPECT_EQ(2, adb_poll(pfd, 2, 100));
-    EXPECT_EQ(POLLRDNORM, pfd[0].revents);
+    EXPECT_EQ(2, adb_poll(pfd, 2, 100));  // On __APPLE__, only *one* fd is set.
+    // Like so: EXPECT_EQ(1, adb_poll(pfd, 2, 100));
+
+    EXPECT_EQ(POLLRDNORM, pfd[0].revents);  // On __APPLE__, it appears there is
+    // *no* data to be read (even for the single fd): EXPECT_EQ(0, pfd[0].revents);
+
     EXPECT_EQ(POLLRDNORM, pfd[1].revents);
 }
 
