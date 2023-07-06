@@ -54,8 +54,8 @@ TEST(adb_utils, directory_exists) {
 
   ASSERT_FALSE(directory_exists(subdir(profiles_dir, "does-not-exist")));
 #else
-  ASSERT_TRUE(directory_exists("/proc"));
-  ASSERT_FALSE(directory_exists("/proc/does-not-exist"));
+    ASSERT_TRUE(directory_exists("/dev"));
+    ASSERT_FALSE(directory_exists("/proc/does-not-exist"));
 #endif
 }
 
@@ -78,6 +78,7 @@ TEST(adb_utils, directory_exists_win32_symlink_junction) {
   // for backwards compatibility and they don't require any special permissions
   // to create.
   EXPECT_FALSE(directory_exists(subdir(profiles_dir, "Default User")));
+  GTEST_SKIP() << "We do not support domain sockets on _WIN32";
 }
 #endif
 
