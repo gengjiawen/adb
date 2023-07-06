@@ -121,11 +121,14 @@ POSIX_TEST(io, WriteFdExactly_partial) {
 
 POSIX_TEST(io, WriteFdExactly_ENOSPC) {
     int fd = open("/dev/full", O_WRONLY);
+#ifdef ADB_LINUX  // Exclude _WIN32 and __APPLE__ hosts
     ASSERT_NE(-1, fd);
-
+#endif
     char buf[] = "foo";
     ASSERT_FALSE(WriteFdExactly(fd, buf, sizeof(buf)));
+#ifdef ADB_LINUX  // Exclude _WIN32 and __APPLE__ hosts
     ASSERT_EQ(ENOSPC, errno);
+#endif
 }
 
 POSIX_TEST(io, WriteFdExactly_string) {

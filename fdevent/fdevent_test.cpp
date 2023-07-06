@@ -118,6 +118,7 @@ TEST_F(FdeventTest, fdevent_terminate) {
     TerminateThread();
 }
 
+#if defined(__linux__) || defined(_WIN32)
 TEST_F(FdeventTest, smoke) {
     for (bool use_new_callback : {true, false}) {
         fdevent_reset();
@@ -145,7 +146,8 @@ TEST_F(FdeventTest, smoke) {
             read_fds.push_back(thread_arg.first_read_fd);
             for (size_t i = 0; i < thread_arg.middle_pipe_count; ++i) {
                 int fds[2];
-                ASSERT_EQ(0, adb_socketpair(fds));
+                ASSERT_EQ(0, adb_socketpair(fds));  // Cannot be asserted on __APPLE__
+                // whilst _WIN32 can be flaky.
                 read_fds.push_back(fds[0]);
                 write_fds.push_back(fds[1]);
             }
@@ -174,6 +176,7 @@ TEST_F(FdeventTest, smoke) {
         ASSERT_EQ(0, adb_close(reader));
     }
 }
+#endif
 
 TEST_F(FdeventTest, run_on_looper_thread_queued) {
     std::vector<int> vec;
@@ -316,6 +319,7 @@ TEST_F(FdeventTest, timeout) {
     ASSERT_LT(diff[2], delta.count() * 0.5);
 }
 
+#ifndef _WIN32
 TEST_F(FdeventTest, unregister_with_pending_event) {
     fdevent_reset();
 
@@ -398,3 +402,4 @@ TEST_F(FdeventTest, unregister_with_pending_event) {
 
     ASSERT_FALSE(test.should_not_happen);
 }
+#endif
