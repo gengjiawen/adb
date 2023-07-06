@@ -16,6 +16,24 @@
       "message": "not the mac too? should this (and the line above) be `#if !defined(_WIN32)` instead? (because what you have here would allow the previous test to fail on Linux too, which also seems wrong?)",
       "revId": "100372308b3fb686005fb0903f2dce1dfe4ace68",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1d2e353_c5edad0a",
+        "filename": "socket_spec_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-07-06T23:54:46Z",
+      "side": 1,
+      "message": "Done - thanks for catching it (that was a cue for me to engage in some platform-specific testing 😊",
+      "parentUuid": "ff120a54_7e2c8e2d",
+      "revId": "100372308b3fb686005fb0903f2dce1dfe4ace68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
