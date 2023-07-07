@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b492562e_ec7730dd",
+        "filename": "transport.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 857,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-07-07T15:33:56Z",
+      "side": 1,
+      "message": "seems like there\u0027s a _lot_ of code in this file that\u0027s host-only? should it be in a transport_host.cpp instead?",
+      "revId": "36c8520873d5bd62e3a022bbed0e8832ce6f3047",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
