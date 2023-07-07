@@ -1,0 +1,318 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff1eda42_2076733d",
+        "filename": "adb_io_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-07-07T16:31:02Z",
+      "side": 1,
+      "message": "just `__linux__` is more typical\n\nas for the comment, you know what i\u0027m going to say: \"tell me _why_, not _what_\". i can _see_ you\u0027re excluding non-linux. i can\u0027t see why.\n\nbut the better way to do this is to use GTEST_SKIP(). if you look in bionic, you\u0027ll see the usual pattern is:\n```\nPOSIX_TEST(io, WriteFdExactly_ENOSPC) {\n#if __linux__\n  int fd...\n#else\n  GTEST_SKIP() \u003c\u003c \"no /dev/full\";\n#endif\n}\n```\nso (a) you disable the whole test, and (b) you explain why _in the test output_, to help anyone running the test (so they don\u0027t get a false sense of security).",
+      "range": {
+        "startLine": 124,
+        "startChar": 7,
+        "endLine": 124,
+        "endChar": 16
+      },
+      "revId": "80b02442a9e547117ef4a2c4b33819cc802ce707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6a73b1b_c425354b",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-07-07T16:31:02Z",
+      "side": 1,
+      "message": "or just `#else` and use something that _does_ exist on all the unixes. `/dev`?",
+      "range": {
+        "startLine": 56,
+        "startChar": 1,
+        "endLine": 56,
+        "endChar": 15
+      },
+      "revId": "80b02442a9e547117ef4a2c4b33819cc802ce707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46debf52_c25689c1",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-07-07T16:31:02Z",
+      "side": 1,
+      "message": "hmmm... is the change here that this is _not_ a symbolic link on the version of Windows you tested with?",
+      "range": {
+        "startLine": 71,
+        "startChar": 21,
+        "endLine": 71,
+        "endChar": 35
+      },
+      "revId": "80b02442a9e547117ef4a2c4b33819cc802ce707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8d2a8ba_2b2c09a5",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-07-07T16:31:02Z",
+      "side": 1,
+      "message": "(likewise?)",
+      "range": {
+        "startLine": 77,
+        "startChar": 23,
+        "endLine": 77,
+        "endChar": 32
+      },
+      "revId": "80b02442a9e547117ef4a2c4b33819cc802ce707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e603d3eb_2734f31c",
+        "filename": "fdevent/fdevent_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-07-07T16:31:02Z",
+      "side": 1,
+      "message": "(again, #if _inside_ the test, using the usual pattern i showed earlier.)",
+      "revId": "80b02442a9e547117ef4a2c4b33819cc802ce707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b77c25d1_87652823",
+        "filename": "fdevent/fdevent_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-07-07T16:31:02Z",
+      "side": 1,
+      "message": "\"tell me _why_, not _what_\" ... _especially_ when the claim is surprising, like this.",
+      "range": {
+        "startLine": 149,
+        "startChar": 55,
+        "endLine": 149,
+        "endChar": 86
+      },
+      "revId": "80b02442a9e547117ef4a2c4b33819cc802ce707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7156eb95_eafaa7bb",
+        "filename": "fdevent/fdevent_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-07-07T16:31:02Z",
+      "side": 1,
+      "message": "and yet you\u0027ve left this test enabled for windows? _why_ is it flaky? (what\u0027s the flake rate?)",
+      "range": {
+        "startLine": 150,
+        "startChar": 19,
+        "endLine": 150,
+        "endChar": 45
+      },
+      "revId": "80b02442a9e547117ef4a2c4b33819cc802ce707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bda31b3a_8e28b907",
+        "filename": "fdevent/fdevent_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-07-07T16:31:02Z",
+      "side": 1,
+      "message": "why?",
+      "revId": "80b02442a9e547117ef4a2c4b33819cc802ce707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e715dbae_cf74489e",
+        "filename": "socket_spec_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-07-07T16:31:02Z",
+      "side": 1,
+      "message": "why doesn\u0027t this ...",
+      "range": {
+        "startLine": 175,
+        "startChar": 7,
+        "endLine": 175,
+        "endChar": 16
+      },
+      "revId": "80b02442a9e547117ef4a2c4b33819cc802ce707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d548597c_56dcb60b",
+        "filename": "socket_spec_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-07-07T16:31:02Z",
+      "side": 1,
+      "message": "... match this?\n\n(and why isn\u0027t the line above this in the same #if?)",
+      "revId": "80b02442a9e547117ef4a2c4b33819cc802ce707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73cfa90e_43ec9270",
+        "filename": "socket_spec_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-07-07T16:31:02Z",
+      "side": 1,
+      "message": "why?",
+      "revId": "80b02442a9e547117ef4a2c4b33819cc802ce707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cb3ebc1_5677b09f",
+        "filename": "socket_spec_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-07-07T16:31:02Z",
+      "side": 1,
+      "message": "why?",
+      "revId": "80b02442a9e547117ef4a2c4b33819cc802ce707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5235e1c_d49b66da",
+        "filename": "socket_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-07-07T16:31:02Z",
+      "side": 1,
+      "message": "why?",
+      "revId": "80b02442a9e547117ef4a2c4b33819cc802ce707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30071815_c13863b1",
+        "filename": "sysdeps_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-07-07T16:31:02Z",
+      "side": 1,
+      "message": "why?",
+      "revId": "80b02442a9e547117ef4a2c4b33819cc802ce707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89adbdc1_7d146ac6",
+        "filename": "sysdeps_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-07-07T16:31:02Z",
+      "side": 1,
+      "message": "why?\n\n(socketpair() comes up a lot in this CL ... is adb_socketpair() broken on macOS? do we need to fix that?)",
+      "revId": "80b02442a9e547117ef4a2c4b33819cc802ce707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0eca7c80_c90b9910",
+        "filename": "sysdeps_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-07-07T16:31:02Z",
+      "side": 1,
+      "message": "i\u0027m assuming this is just a consequence of whatever already failed, which is a really good example of why the usual pattern is a good idea --- it doesn\u0027t leave you with these kinds of confusing \"half tests\" where it\u0027s not clear whether or not they actually test anything at all --- just a clear \"we skip this whole test because $REASON\".",
+      "revId": "80b02442a9e547117ef4a2c4b33819cc802ce707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
