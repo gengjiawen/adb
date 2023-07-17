@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "353e1ef3_cbee98b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-07-17T17:10:16Z",
+      "side": 1,
+      "message": "Still attempting to reproduce the problem (as described), FYI",
+      "revId": "2234c458f91ed3d80e524eea5ec6c86afa31f19a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

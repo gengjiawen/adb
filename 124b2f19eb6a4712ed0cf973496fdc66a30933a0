@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba4f1b85_2a710f3a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-07-17T17:10:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3dd4bb40_d4cfbda1",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 12
+      },
+      "revId": "124b2f19eb6a4712ed0cf973496fdc66a30933a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "940615a6_461a17fc",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-07-17T16:42:45Z",
       "side": 1,
       "message": "\"disrespects\" means something very different from \"doesn\u0027t respect\" :-) (\"ignores\" is probably better though --- always prefer simple words to fancy ones.)\n\nbut this isn\u0027t the important part of what i wrote on the bug --- the important part is the \"callers already can\u0027t rely on any atomicity because the Windows implementation just calls write() n times, and the only other alternative is to coalesce some of the blocks [by allocating and copying] which would defeat the whole purpose of this code, which is performance\" bit. that\u0027s what makes this a _correct_ fix (in the adb context) even though it wouldn\u0027t _generally_ be a correct fix for this kind of issue.",
+      "range": {
+        "startLine": 8,
+        "startChar": 30,
+        "endLine": 8,
+        "endChar": 41
+      },
+      "revId": "124b2f19eb6a4712ed0cf973496fdc66a30933a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "591ab383_c4956c91",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-07-17T17:10:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "940615a6_461a17fc",
       "range": {
         "startLine": 8,
         "startChar": 30,
