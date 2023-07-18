@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "491b6633_1597def9",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-07-18T22:50:09Z",
+      "side": 1,
+      "message": "\u003e the test name reads directory_exists\n\nsure, but it said `EXPECT_FALSE()` ... it\u0027s quite normal to have negative tests too. (otherwise, for example, `bool IsDir(const std::string\u0026 path) { return true; }` would pass the tests!)\n\ndid you check the git history?",
+      "parentUuid": "95a0ae16_de2567c4",
+      "range": {
+        "startLine": 74,
+        "startChar": 60,
+        "endLine": 74,
+        "endChar": 80
+      },
+      "revId": "707c3f79895b831b7f72be044331f1ae7ec206f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a62cd00a_808929d0",
         "filename": "fdevent/fdevent_test.cpp",
         "patchSetId": 6
