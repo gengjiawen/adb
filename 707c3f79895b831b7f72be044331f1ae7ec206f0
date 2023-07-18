@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "95a0ae16_de2567c4",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-07-18T22:30:36Z",
+      "side": 1,
+      "message": "\u003e\u003ewhat symlink above?\nWhatever is referred to in lines 71-73 (I\u0027m unfamiliar with the junction concept myself).\n\nIt\u0027s unclear to me why different junction(s) need to be picked? Because I\u0027m not sure whether this test *ever* succeeded, and if so when did it start failing (OS release, service pack release?). \nEspecially since the test name reads \"directory_exists\u003c\u003e\" (vs \"directory_does_not_exist\u003c\u003e\").\nI shall try to experiment with other non-directory objects - pl stay tuned (leaving this comment thread open).",
+      "parentUuid": "95f6b54d_0c60f15b",
+      "range": {
+        "startLine": 74,
+        "startChar": 60,
+        "endLine": 74,
+        "endChar": 80
+      },
+      "revId": "707c3f79895b831b7f72be044331f1ae7ec206f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a62cd00a_808929d0",
         "filename": "fdevent/fdevent_test.cpp",
         "patchSetId": 6
@@ -54,6 +78,30 @@
       "writtenOn": "2023-07-18T15:51:44Z",
       "side": 1,
       "message": "what resource is constrained?",
+      "range": {
+        "startLine": 407,
+        "startChar": 59,
+        "endLine": 407,
+        "endChar": 90
+      },
+      "revId": "707c3f79895b831b7f72be044331f1ae7ec206f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d0919b6_72b7794a",
+        "filename": "fdevent/fdevent_test.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-07-18T22:30:36Z",
+      "side": 1,
+      "message": "Dropped that part (in the interest of salvaging a completely broken test, deferring to skipping the test - in the interest of time).\nPS: Glad to open a bug to investigate the underlying root-cause for poll() failure on _WIN32, however I feel it should be a separate task(dependency).",
+      "parentUuid": "0a91a60b_29d1602c",
       "range": {
         "startLine": 407,
         "startChar": 59,
