@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95f6b54d_0c60f15b",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-07-18T15:51:44Z",
+      "side": 1,
+      "message": "what symlink above?\n\ni think the point of this test and the one on L81 were for \"not a directory\" cases --- so you want to find another symlink to use here, and another junction (whatever that is) for L81, if these are no longer symlinks/junctions?",
+      "range": {
+        "startLine": 74,
+        "startChar": 60,
+        "endLine": 74,
+        "endChar": 80
+      },
+      "revId": "707c3f79895b831b7f72be044331f1ae7ec206f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a62cd00a_808929d0",
+        "filename": "fdevent/fdevent_test.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-07-18T15:51:44Z",
+      "side": 1,
+      "message": "right, so that\u0027s a configuration error. is the _hard_ limit too low (i.e. \"can you just fix this with a `setrlimit(RLIMIT_NOFILE)`, or should you stop and tell people to fix their mac configuration [iirc there\u0027s some file that lets you increase this persistently, that we tell people to use for macs they\u0027re building on])?",
+      "revId": "707c3f79895b831b7f72be044331f1ae7ec206f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a91a60b_29d1602c",
+        "filename": "fdevent/fdevent_test.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-07-18T15:51:44Z",
+      "side": 1,
+      "message": "what resource is constrained?",
+      "range": {
+        "startLine": 407,
+        "startChar": 59,
+        "endLine": 407,
+        "endChar": 90
+      },
+      "revId": "707c3f79895b831b7f72be044331f1ae7ec206f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
