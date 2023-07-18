@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8224c1ba_55cca862",
+        "filename": "adb_io_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-07-18T08:09:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff1eda42_2076733d",
+      "range": {
+        "startLine": 124,
+        "startChar": 7,
+        "endLine": 124,
+        "endChar": 16
+      },
+      "revId": "80b02442a9e547117ef4a2c4b33819cc802ce707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c6a73b1b_c425354b",
@@ -54,6 +78,54 @@
       "writtenOn": "2023-07-07T16:31:02Z",
       "side": 1,
       "message": "or just `#else` and use something that _does_ exist on all the unixes. `/dev`?",
+      "range": {
+        "startLine": 56,
+        "startChar": 1,
+        "endLine": 56,
+        "endChar": 15
+      },
+      "revId": "80b02442a9e547117ef4a2c4b33819cc802ce707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3bb6afa_a8a487b9",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-07-18T08:09:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6a73b1b_c425354b",
+      "range": {
+        "startLine": 56,
+        "startChar": 1,
+        "endLine": 56,
+        "endChar": 15
+      },
+      "revId": "80b02442a9e547117ef4a2c4b33819cc802ce707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe8f00bc_a7906c29",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-07-18T08:09:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6a73b1b_c425354b",
       "range": {
         "startLine": 56,
         "startChar": 1,
@@ -87,6 +159,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0a317db_b29341aa",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-07-18T08:09:03Z",
+      "side": 1,
+      "message": "Done(turns out the comments are accurate, and it just needed the hide bits turned off).",
+      "parentUuid": "46debf52_c25689c1",
+      "range": {
+        "startLine": 71,
+        "startChar": 21,
+        "endLine": 71,
+        "endChar": 35
+      },
+      "revId": "80b02442a9e547117ef4a2c4b33819cc802ce707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e8d2a8ba_2b2c09a5",
@@ -100,6 +196,30 @@
       "writtenOn": "2023-07-07T16:31:02Z",
       "side": 1,
       "message": "(likewise?)",
+      "range": {
+        "startLine": 77,
+        "startChar": 23,
+        "endLine": 77,
+        "endChar": 32
+      },
+      "revId": "80b02442a9e547117ef4a2c4b33819cc802ce707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e13f29a3_9a8c132e",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-07-18T08:09:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8d2a8ba_2b2c09a5",
       "range": {
         "startLine": 77,
         "startChar": 23,
@@ -127,6 +247,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4397d2a_cbbc734e",
+        "filename": "fdevent/fdevent_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-07-18T08:09:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e603d3eb_2734f31c",
+      "revId": "80b02442a9e547117ef4a2c4b33819cc802ce707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b77c25d1_87652823",
@@ -150,6 +288,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "893362a8_d645729f",
+        "filename": "fdevent/fdevent_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-07-18T08:09:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b77c25d1_87652823",
+      "range": {
+        "startLine": 149,
+        "startChar": 55,
+        "endLine": 149,
+        "endChar": 86
+      },
+      "revId": "80b02442a9e547117ef4a2c4b33819cc802ce707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7156eb95_eafaa7bb",
@@ -163,6 +325,30 @@
       "writtenOn": "2023-07-07T16:31:02Z",
       "side": 1,
       "message": "and yet you\u0027ve left this test enabled for windows? _why_ is it flaky? (what\u0027s the flake rate?)",
+      "range": {
+        "startLine": 150,
+        "startChar": 19,
+        "endLine": 150,
+        "endChar": 45
+      },
+      "revId": "80b02442a9e547117ef4a2c4b33819cc802ce707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fca33c54_3512ae04",
+        "filename": "fdevent/fdevent_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-07-18T08:09:03Z",
+      "side": 1,
+      "message": "I\u0027ll let it run on Windows (and deal with it, if it fails - in a follow-up CL).",
+      "parentUuid": "7156eb95_eafaa7bb",
       "range": {
         "startLine": 150,
         "startChar": 19,
