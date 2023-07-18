@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a19e3b9_3fa968fd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-07-18T17:26:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da10a9d5_05588704",
+      "revId": "2234c458f91ed3d80e524eea5ec6c86afa31f19a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0053ad70_249fed01",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-07-17T19:50:36Z",
       "side": 1,
       "message": "this wouldn\u0027t be likely to involve realloc() --- by \"allocation and copying\" i meant \"sum the sizes in the iovec, allocate that much memory, and copy the vectors into the block\" (or at least a block for all the vectors that would hit the limit --- coalesce enough blocks that you stay under 1024).",
+      "range": {
+        "startLine": 9,
+        "startChar": 150,
+        "endLine": 9,
+        "endChar": 169
+      },
+      "revId": "2234c458f91ed3d80e524eea5ec6c86afa31f19a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eebb2644_5d033d4c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-07-18T17:26:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0053ad70_249fed01",
       "range": {
         "startLine": 9,
         "startChar": 150,
