@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "601b209e_4db85afd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-07-18T23:34:38Z",
+      "side": 1,
+      "message": "Didn\u0027t mean to get it auto-submitted (oh well, now we get a build to point to)",
+      "revId": "98bbf6337f37a58670b87a5b508947bb07842144",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
