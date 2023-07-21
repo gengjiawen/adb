@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "46897847_7bee7389",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-07-21T23:05:51Z",
+      "side": 1,
+      "message": "not _everything_ ... the distinction was meant to be that _logging_ is for exceptional stuff that everyone needs to know about, and _tracing_ was the super verbose \"i\u0027m actively debugging adbd right now\" stuff.",
+      "range": {
+        "startLine": 12,
+        "startChar": 50,
+        "endLine": 14,
+        "endChar": 8
+      },
+      "revId": "d9089d3f7f0a583450aecd8a20ad5619081f9ece",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "f9029640_bf5ca91d",
@@ -14,6 +37,23 @@
       "writtenOn": "2023-07-21T21:07:57Z",
       "side": 1,
       "message": "Can we please add a bug for all CLs so we can be more organized?",
+      "revId": "d9089d3f7f0a583450aecd8a20ad5619081f9ece",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7903f9b7_1ea6d441",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-07-21T23:05:51Z",
+      "side": 1,
+      "message": "_these_ changes seem clearly right though.",
       "revId": "d9089d3f7f0a583450aecd8a20ad5619081f9ece",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
