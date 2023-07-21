@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9029640_bf5ca91d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-07-21T21:07:57Z",
+      "side": 1,
+      "message": "Can we please add a bug for all CLs so we can be more organized?",
+      "revId": "d9089d3f7f0a583450aecd8a20ad5619081f9ece",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
