@@ -23,6 +23,8 @@
 /* IMPORTANT: if you change the following list, don't
  * forget to update the corresponding 'tags' table in
  * the adb_trace_init() function implemented in adb_trace.cpp.
+ *
+ * Also update doc/user/adb.1.md
  */
 enum AdbTrace {
     ADB = 0, /* 0x001 */
