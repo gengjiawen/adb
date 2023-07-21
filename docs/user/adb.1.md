@@ -358,8 +358,24 @@ detach **SERIAL**
 
 # ENVIRONMENT VARIABLES
 
-$ADB_TRACE  
-&nbsp;&nbsp;&nbsp;&nbsp;Comma-separated list of debug info to log: all,adb,sockets,packets,rwx,usb,sync,sysdeps,transport,jdwp.
+$ADB_TRACE : Comma-separated list of debug info to log.   
+```
+all  
+adb
+sockets
+packets
+rwx
+usb
+transport
+sync
+sysdeps
+jdwp
+services
+auth
+fdevent
+shell
+incremental
+```
 
 $ADB_VENDOR_KEYS  
 &nbsp;&nbsp;&nbsp;&nbsp;Colon-separated list of keys (files or directories).
