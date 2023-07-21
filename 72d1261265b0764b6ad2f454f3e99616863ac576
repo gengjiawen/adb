@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14d89fbb_37b43ccf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-07-21T23:07:46Z",
+      "side": 1,
+      "message": "what documentation?",
+      "range": {
+        "startLine": 9,
+        "startChar": 9,
+        "endLine": 10,
+        "endChar": 33
+      },
+      "revId": "72d1261265b0764b6ad2f454f3e99616863ac576",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1720983_48a993e2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-07-21T23:07:46Z",
+      "side": 1,
+      "message": "aye, but if folks are already using space... why not just split both? it would be unreasonable to have either a space _or_ a comma in a trace name, after all.",
+      "range": {
+        "startLine": 11,
+        "startChar": 65,
+        "endLine": 12,
+        "endChar": 30
+      },
+      "revId": "72d1261265b0764b6ad2f454f3e99616863ac576",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
