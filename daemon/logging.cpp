@@ -16,6 +16,7 @@
 
 #include "daemon/logging.h"
 
+#if defined(__ANDROID__)
 #include <mutex>
 #include <optional>
 #include <string_view>
@@ -25,7 +26,6 @@
 #include <android-base/strings.h>
 #include <android-base/thread_annotations.h>
 
-#if defined(__ANDROID__)
 struct LogStatus {
     bool enabled[static_cast<size_t>(adb::LogType::COUNT)];
 
