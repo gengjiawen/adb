@@ -767,14 +767,15 @@ void Subprocess::WaitForExit() {
             D("post waitpid (pid=%d) status=%04x", pid_, status);
             if (WIFSIGNALED(status)) {
                 exit_code = 0x80 | WTERMSIG(status);
-                ADB_LOG(Shell) << "subprocess " << pid_ << " killed by signal " << WTERMSIG(status);
+                ADBD_LOG(Shell) << "subprocess " << pid_ << " killed by signal "
+                                << WTERMSIG(status);
                 break;
             } else if (!WIFEXITED(status)) {
                 D("subprocess didn't exit");
                 break;
             } else if (WEXITSTATUS(status) >= 0) {
                 exit_code = WEXITSTATUS(status);
-                ADB_LOG(Shell) << "subprocess " << pid_ << " exited with status " << exit_code;
+                ADBD_LOG(Shell) << "subprocess " << pid_ << " exited with status " << exit_code;
                 break;
             }
         }

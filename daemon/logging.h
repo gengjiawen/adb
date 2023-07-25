@@ -18,6 +18,10 @@
 
 #include <android-base/logging.h>
 
+/*
+ * Logging facility for adbd. The severity filter is refreshed during runtime so there is not need
+ * to restart adbd to change the log level. Severity is set via debug.adbd.logging property.
+ */
 namespace adb {
 enum class LogType {
     Connection,
@@ -26,8 +30,8 @@ enum class LogType {
     COUNT,
 };
 
-bool is_logging_enabled(LogType type);
+bool is_adbd_logging_enabled(LogType type);
 
-#define ADB_LOG(type) ::adb::is_logging_enabled(::adb::LogType::type) && LOG(INFO)
+#define ADBD_LOG(type) ::adb::is_adbd_logging_enabled(::adb::LogType::type) && LOG(INFO)
 
 }  // namespace adb

@@ -72,7 +72,7 @@ static LogStatus GetLogStatus(android::base::CachedProperty* property,
 }
 
 namespace adb {
-bool is_logging_enabled(LogType type) {
+bool is_adbd_logging_enabled(LogType type) {
     std::lock_guard<std::mutex> lock(*log_mutex);
     return GetLogStatus(log_property.get(), &cached_log_status)[type] ||
            GetLogStatus(persist_log_property.get(), &cached_persist_log_status)[type];
@@ -82,7 +82,7 @@ bool is_logging_enabled(LogType type) {
 #else
 
 namespace adb {
-bool is_logging_enabled(LogType type) {
+bool is_adbd_logging_enabled(LogType type) {
     return false;
 }
 }  // namespace adb
