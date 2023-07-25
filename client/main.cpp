@@ -146,6 +146,7 @@ int adb_server_main(int is_daemon, const std::string& socket_spec, const char* o
         }
     } else {
         adb_notify_device_scan_complete();
+        D("USB scanning disabled by env variable ADB_USB");
     }
 
     if (!getenv("ADB_EMU") || strcmp(getenv("ADB_EMU"), "0") != 0) {
