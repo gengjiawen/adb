@@ -230,16 +230,40 @@ void mdns_cleanup() {
     }
 }
 
+bool GetDefaultBonjourUsage() {
+#if defined(__linux__)
+    return false;
+#else
+    return true;
+#endif
+}
+
 void init_mdns_transport_discovery(void) {
     // TODO(joshuaduong): Use openscreen discovery by default for all platforms.
     const char* mdns_osp = getenv("ADB_MDNS_OPENSCREEN");
     if (mdns_osp && strcmp(mdns_osp, "1") == 0) {
         LOG(INFO) << "Openscreen mdns discovery enabled";
+        g_using_bonjour = false;
         StartDiscovery();
-    } else {
-        // Original behavior is to use Bonjour client.
+        return;
+    }
+
+    const char* mdns_osp_bonjour = getenv("ADB_MDNS_BONJOUR");
+    if (mdns_osp_bonjour && strcmp(mdns_osp_bonjour, "1") == 0) {
+        LOG(INFO) << "Bonjour mdns discovery enabled";
         g_using_bonjour = true;
         g_adb_mdnsresponder_funcs = StartMdnsResponderDiscovery();
+        return;
+    }
+
+    // Default behavior is platform dependant.
+    g_using_bonjour = GetDefaultBonjourUsage();
+    if (g_using_bonjour) {
+        LOG(INFO) << "Bonjour mdns discovery enabled";
+        g_adb_mdnsresponder_funcs = StartMdnsResponderDiscovery();
+    } else {
+        LOG(INFO) << "Openscreen mdns discovery enabled";
+        StartDiscovery();
     }
 }
 

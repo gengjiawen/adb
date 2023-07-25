@@ -376,6 +376,9 @@ $ADB_LOCAL_TRANSPORT_MAX_PORT
 $ADB_MDNS_AUTO_CONNECT  
 &nbsp;&nbsp;&nbsp;&nbsp;Comma-separated list of mdns services to allow auto-connect (default adb-tls-connect).
 
+$ADB_MDNS_BONJOUR
+&nbsp;&nbsp;&nbsp;&nbsp;Force mdns back to Bonjour (1 = true)
+
 # BUGS
 
 See Issue Tracker: [here](https://issuetracker.google.com/issues/new?component=192795&template=1310483).
