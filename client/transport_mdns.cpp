@@ -16,6 +16,7 @@
 
 #define TRACE_TAG TRANSPORT
 
+bool GetDefaultBonjourUsage();
 #include "transport.h"
 
 #ifdef _WIN32
@@ -238,9 +239,16 @@ void init_mdns_transport_discovery(void) {
         StartDiscovery();
     } else {
         // Original behavior is to use Bonjour client.
-        g_using_bonjour = true;
+        g_using_bonjour = GetDefaultBonjourUsage();
         g_adb_mdnsresponder_funcs = StartMdnsResponderDiscovery();
     }
+}
+bool GetDefaultBonjourUsage() {
+#if defined(__linux__)
+    return false;
+#else
+    return true;
+#endif
 }
 
 bool adb_secure_connect_by_service_name(const std::string& instance_name) {
