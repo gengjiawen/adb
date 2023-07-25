@@ -16,6 +16,7 @@
 
 #define TRACE_TAG TRANSPORT
 
+bool GetDefaultBonjourUsage();
 #include "transport.h"
 
 #ifdef _WIN32
@@ -235,12 +236,30 @@ void init_mdns_transport_discovery(void) {
     const char* mdns_osp = getenv("ADB_MDNS_OPENSCREEN");
     if (mdns_osp && strcmp(mdns_osp, "1") == 0) {
         LOG(INFO) << "Openscreen mdns discovery enabled";
+        g_using_bonjour = false;
         StartDiscovery();
-    } else {
-        // Original behavior is to use Bonjour client.
-        g_using_bonjour = true;
-        g_adb_mdnsresponder_funcs = StartMdnsResponderDiscovery();
+        return;
     }
+
+    const char* mdns_osp_bonjour = getenv("ADB_MDNS_BONJOUR");
+    if (mdns_bonjour && strcmp(mdns_osp_bonjour, "1") == 0) {
+        LOG(INFO) << "Bonjour mdns discovery enabled";
+        g_using_bonjour = true;
+        StartDiscovery();
+        return;
+    }
+
+    // Default behavior is platform dependant.
+    g_using_bonjour = GetDefaultBonjourUsage();
+    g_adb_mdnsresponder_funcs = StartMdnsResponderDiscovery();
+}
+
+bool GetDefaultBonjourUsage() {
+#if defined(__linux__)
+    return false;
+#else
+    return true;
+#endif
 }
 
 bool adb_secure_connect_by_service_name(const std::string& instance_name) {
