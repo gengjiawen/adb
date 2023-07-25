@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fb79e0f_b53a3084",
+        "filename": "client/transport_mdns.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-07-25T15:05:29Z",
+      "side": 1,
+      "message": "don\u0027t add useless forward declarations, and especially not before the #includes. ()\n\njust _define_ the function in with the other functions (or, since it only has one caller, don\u0027t bother with a function at all).",
+      "revId": "8161ffa6c3f431316c0aefb0d32a05b47cd45ebb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38feba7b_31a10492",
+        "filename": "client/transport_mdns.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-07-25T15:05:29Z",
+      "side": 1,
+      "message": "why the difference between the environment variables and the default in terms of what happens next?",
+      "revId": "8161ffa6c3f431316c0aefb0d32a05b47cd45ebb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
