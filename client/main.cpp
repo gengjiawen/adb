@@ -150,6 +150,8 @@ int adb_server_main(int is_daemon, const std::string& socket_spec, const char* o
 
     if (!getenv("ADB_EMU") || strcmp(getenv("ADB_EMU"), "0") != 0) {
         local_init(android::base::StringPrintf("tcp:%d", DEFAULT_ADB_LOCAL_TRANSPORT_PORT));
+    } else {
+        D("Emulator port scanning disabled by env variable ADB_EMU");
     }
 
     std::string error;
