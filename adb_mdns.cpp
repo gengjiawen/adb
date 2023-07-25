@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#define TRACE_TAG TRANSPORT
+#define TRACE_TAG MDNS
 
 #include "adb_mdns.h"
 
@@ -129,7 +129,7 @@ bool adb_DNSServiceShouldAutoConnect(std::string_view reg_type, std::string_view
     // Ignore adb-EMULATOR* service names, as it interferes with the
     // emulator ports that are already connected.
     if (android::base::StartsWith(service_name, "adb-EMULATOR")) {
-        LOG(INFO) << "Ignoring emulator transport service [" << service_name << "]";
+        D("Ignoring emulator transport service [") << service_name << "]";
         return false;
     }
     return true;
