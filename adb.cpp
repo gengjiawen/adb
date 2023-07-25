@@ -98,7 +98,7 @@ std::string adb_version() {
             "Android Debug Bridge version %d.%d.%d\n"
             "Version %s-%s\n"
             "Installed as %s\n"
-            "Running on %s\n",
+            "Running on %s",
             ADB_VERSION_MAJOR, ADB_VERSION_MINOR, ADB_SERVER_VERSION, PLATFORM_TOOLS_VERSION,
             android::build::GetBuildNumber().c_str(), android::base::GetExecutablePath().c_str(),
             GetOSVersion().c_str());

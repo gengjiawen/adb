@@ -83,7 +83,7 @@ static std::string product_file(const std::string& file) {
 }
 
 static void help() {
-    fprintf(stdout, "%s\n", adb_version().c_str());
+    fprintf(stdout, "%s\n\n", adb_version().c_str());
     // clang-format off
     fprintf(stdout,
         "global options:\n"
@@ -2084,7 +2084,7 @@ int adb_commandline(int argc, const char** argv) {
         help();
         return 0;
     } else if (!strcmp(argv[0], "--version") || !strcmp(argv[0], "version")) {
-        fprintf(stdout, "%s", adb_version().c_str());
+        fprintf(stdout, "%s\n", adb_version().c_str());
         return 0;
     } else if (!strcmp(argv[0], "features")) {
         // Only list the features common to both the adb client and the device.
