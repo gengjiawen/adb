@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8c6e5a8d_9aab242e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-07-25T01:47:12Z",
+      "side": 1,
+      "message": "Indeed thank your for the correction. I think this can be expressed with a few logging functions to unify everything.\n\n- ERROR and WARNING cannot be filtered by the tracing mask.\n- However I think all DEBUG and INFO should go through the tracing mask so they can be discarded when studying/troubleshooting a particular system.\n\nI have edited the commit message accordingly.",
+      "parentUuid": "46897847_7bee7389",
+      "range": {
+        "startLine": 12,
+        "startChar": 50,
+        "endLine": 14,
+        "endChar": 8
+      },
+      "revId": "d9089d3f7f0a583450aecd8a20ad5619081f9ece",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "f9029640_bf5ca91d",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
