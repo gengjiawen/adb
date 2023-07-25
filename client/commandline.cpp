@@ -83,7 +83,6 @@ static std::string product_file(const std::string& file) {
 }
 
 static void help() {
-    fprintf(stdout, "%s\n", adb_version().c_str());
     // clang-format off
     fprintf(stdout,
         "global options:\n"
