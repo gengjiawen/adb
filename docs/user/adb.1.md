@@ -376,6 +376,9 @@ $ADB_LOCAL_TRANSPORT_MAX_PORT
 $ADB_MDNS_AUTO_CONNECT  
 &nbsp;&nbsp;&nbsp;&nbsp;Comma-separated list of mdns services to allow auto-connect (default adb-tls-connect).
 
+$ADB_MDNS
+&nbsp;&nbsp;&nbsp;&nbsp;If set to 0, disable mdNS discovery
+
 # BUGS
 
 See Issue Tracker: [here](https://issuetracker.google.com/issues/new?component=192795&template=1310483).
