@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5543ed97_2ee1d48e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-07-26T20:25:29Z",
+      "side": 1,
+      "message": "It is also mentioned here: https://cs.android.com/android/platform/superproject/+/master:packages/modules/adb/docs/user/adb.1.md\n\nWhat name you want to be used?",
+      "parentUuid": "9d9c3c6a_3393a25a",
+      "range": {
+        "startLine": 9,
+        "startChar": 9,
+        "endLine": 10,
+        "endChar": 33
+      },
+      "revId": "72d1261265b0764b6ad2f454f3e99616863ac576",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d1720983_48a993e2",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
