@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9d9c3c6a_3393a25a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-07-26T20:02:45Z",
+      "side": 1,
+      "message": "s/documentation/--help output/ then...",
+      "parentUuid": "3570a578_4e5a81d1",
+      "range": {
+        "startLine": 9,
+        "startChar": 9,
+        "endLine": 10,
+        "endChar": 33
+      },
+      "revId": "72d1261265b0764b6ad2f454f3e99616863ac576",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d1720983_48a993e2",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
