@@ -52,6 +52,24 @@
       "parentUuid": "b1483791_a0d2ef7b",
       "revId": "3e433d3454ff01e53728b7204e4265ab090e495a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b62dd48b_1bfca39e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-07-26T21:09:04Z",
+      "side": 1,
+      "message": "If neither of you are thrilled about this I am abandoning the CL. However I am surprised it makes the file harder to read. Opening it in CLion (and likely in most IDEs), `#if` are automatically folded. So when you open this file you see a clean:\n\n```\n/*\n * Copyright (C) 2020 The Android Open Source Project\n ...\n */\n\n#if defined(__ANDROID__)\n...\n#else\n\nnamespace adb {\nbool is_logging_enabled(LogType type) {\n    return false;\n}\n}  // namespace adb\n#endif\n```\n\nWhich I think look pretty neat.",
+      "parentUuid": "c72a7ff3_1be7d9bf",
+      "revId": "3e433d3454ff01e53728b7204e4265ab090e495a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
