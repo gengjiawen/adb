@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3570a578_4e5a81d1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-07-26T18:53:05Z",
+      "side": 1,
+      "message": "This one:\n\nhttps://cs.android.com/android/platform/superproject/main/+/refs/heads/main:packages/modules/adb/client/commandline.cpp;l\u003d247;drc\u003dced53d014f6885d8041f36706e31290d715e544a",
+      "parentUuid": "14d89fbb_37b43ccf",
+      "range": {
+        "startLine": 9,
+        "startChar": 9,
+        "endLine": 10,
+        "endChar": 33
+      },
+      "revId": "72d1261265b0764b6ad2f454f3e99616863ac576",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d1720983_48a993e2",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-07-21T23:07:46Z",
       "side": 1,
       "message": "aye, but if folks are already using space... why not just split both? it would be unreasonable to have either a space _or_ a comma in a trace name, after all.",
+      "range": {
+        "startLine": 11,
+        "startChar": 65,
+        "endLine": 12,
+        "endChar": 30
+      },
+      "revId": "72d1261265b0764b6ad2f454f3e99616863ac576",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d839ef15_155c0aa7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-07-26T18:53:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1720983_48a993e2",
       "range": {
         "startLine": 11,
         "startChar": 65,
