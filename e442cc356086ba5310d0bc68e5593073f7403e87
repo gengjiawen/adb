@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89de6282_b94d9db1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-07-28T15:18:58Z",
+      "side": 1,
+      "message": "in cases like this i usually say \"let me see your whole plan, so i believe the direction is attainable; otherwise this is just noise\".\n\nthough tbh, i\u0027m not sure i see the current situation as a bug. like i\u0027ve said before, \"the binary\" is the one thing we know people have. we\u0027re inherently never going to solve the \"the web doesn\u0027t accurately describe _my_ binary\" situation and (even though that\u0027s not a trivial problem to solve for --help either) --help is as good as we\u0027re going to get.\n\ni know you love man pages, but we\u0027re not building a .deb, and even if we were, what about macOS/Windows, where most of our users are?\n\nto me the wider project here still seems like a bad idea.\n\n(i think there\u0027s an _alternative_ argument here of \"--help and --version are two different things\". gnu tools generally agree [though i would point you at `tar --help` in reference to what i\u0027ve just been talking about], busybox/toybox consistently disagree [by virtue of \"one true main()\"], tools in between vary. even if we were starting again, i\u0027d say that one was hard to call. but given that we\u0027re not, i think it\u0027s pretty hard to defend changing the status quo here.)",
+      "range": {
+        "startLine": 9,
+        "startChar": 23,
+        "endLine": 10,
+        "endChar": 9
+      },
+      "revId": "e442cc356086ba5310d0bc68e5593073f7403e87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
