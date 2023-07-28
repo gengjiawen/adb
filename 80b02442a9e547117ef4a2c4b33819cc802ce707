@@ -527,6 +527,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a0cbe07_d982541f",
+        "filename": "socket_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-07-28T03:04:40Z",
+      "side": 1,
+      "message": "Done (addressed in patchset #15).",
+      "parentUuid": "c5235e1c_d49b66da",
+      "revId": "80b02442a9e547117ef4a2c4b33819cc802ce707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "30071815_c13863b1",
@@ -540,6 +558,24 @@
       "writtenOn": "2023-07-07T16:31:02Z",
       "side": 1,
       "message": "why?",
+      "revId": "80b02442a9e547117ef4a2c4b33819cc802ce707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "534fcdcf_f9ffc39a",
+        "filename": "sysdeps_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-07-28T03:04:40Z",
+      "side": 1,
+      "message": "Only one fd is set on the Mac. I can either 1.) treat this a follow-up action item (needing more investigation on this platform) or 2.) GTEST_SKIP() this test with an appropriate message (to followup).\nSince it\u0027s already broken, I feel that neither of these options are any worse.",
+      "parentUuid": "30071815_c13863b1",
       "revId": "80b02442a9e547117ef4a2c4b33819cc802ce707",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
