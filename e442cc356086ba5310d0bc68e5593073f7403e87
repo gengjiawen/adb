@@ -22,6 +22,30 @@
       },
       "revId": "e442cc356086ba5310d0bc68e5593073f7403e87",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab1deb40_7cf1d84c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-07-28T16:50:58Z",
+      "side": 1,
+      "message": "The plan was explained here https://docs.google.com/document/d/1nRzTdVLM4qo6DGjmW5OyrT5xUwcNhwmJOaaGkBz6x1c/edit?resourcekey\u003d0-SOG2DQRET0YTHmm6Z-QiEg, DOCUMENTATION (USERS)\n\n```\nStep 2: Use a git executable approach where --help only lists commands available. Details of the command flags only appear as command specific --help.\n```\n\nI thought you mentioned that `--help` was bloated a few times. I must have misunderstood what you meant.",
+      "parentUuid": "89de6282_b94d9db1",
+      "range": {
+        "startLine": 9,
+        "startChar": 23,
+        "endLine": 10,
+        "endChar": 9
+      },
+      "revId": "e442cc356086ba5310d0bc68e5593073f7403e87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
