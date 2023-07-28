@@ -46,6 +46,30 @@
       },
       "revId": "e442cc356086ba5310d0bc68e5593073f7403e87",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "146cf027_cd65c74f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-07-28T16:54:34Z",
+      "side": 1,
+      "message": "\u003e I thought you mentioned that --help was bloated a few times. I must have misunderstood what you meant.\n\nyeah, i may have been unclear --- my thinking is that `adb --help` should be pretty much standalone for a _user_. but all the \"weird shit\" we don\u0027t think they need/should be using (environment variables, protocol details, etc) belong elsewhere. (of course, that then means that \"is this really user-facing?\" comes up every time we add something to --help. but that\u0027s probably a useful discussion have, given that it\u0027s basically impossible to remove anything once advertised.)",
+      "parentUuid": "ab1deb40_7cf1d84c",
+      "range": {
+        "startLine": 9,
+        "startChar": 23,
+        "endLine": 10,
+        "endChar": 9
+      },
+      "revId": "e442cc356086ba5310d0bc68e5593073f7403e87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
