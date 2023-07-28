@@ -417,6 +417,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "230b10f9_75705317",
+        "filename": "socket_spec_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-07-28T02:47:42Z",
+      "side": 1,
+      "message": "Done (refactored).",
+      "parentUuid": "e715dbae_cf74489e",
+      "range": {
+        "startLine": 175,
+        "startChar": 7,
+        "endLine": 175,
+        "endChar": 16
+      },
+      "revId": "80b02442a9e547117ef4a2c4b33819cc802ce707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d548597c_56dcb60b",
@@ -430,6 +454,24 @@
       "writtenOn": "2023-07-07T16:31:02Z",
       "side": 1,
       "message": "... match this?\n\n(and why isn\u0027t the line above this in the same #if?)",
+      "revId": "80b02442a9e547117ef4a2c4b33819cc802ce707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3c8bd3f_02e4407e",
+        "filename": "socket_spec_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-07-28T02:47:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d548597c_56dcb60b",
       "revId": "80b02442a9e547117ef4a2c4b33819cc802ce707",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -519,6 +561,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac1e7956_d4b63d93",
+        "filename": "sysdeps_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-07-28T02:47:42Z",
+      "side": 1,
+      "message": "Done (oversight on my part, fixed in patchset #14).",
+      "parentUuid": "89adbdc1_7d146ac6",
+      "revId": "80b02442a9e547117ef4a2c4b33819cc802ce707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0eca7c80_c90b9910",
@@ -532,6 +592,24 @@
       "writtenOn": "2023-07-07T16:31:02Z",
       "side": 1,
       "message": "i\u0027m assuming this is just a consequence of whatever already failed, which is a really good example of why the usual pattern is a good idea --- it doesn\u0027t leave you with these kinds of confusing \"half tests\" where it\u0027s not clear whether or not they actually test anything at all --- just a clear \"we skip this whole test because $REASON\".",
+      "revId": "80b02442a9e547117ef4a2c4b33819cc802ce707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4069ecf5_91fbcbb8",
+        "filename": "sysdeps_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-07-28T02:47:42Z",
+      "side": 1,
+      "message": "Done (another oversight - fixed in patchset #14).",
+      "parentUuid": "0eca7c80_c90b9910",
       "revId": "80b02442a9e547117ef4a2c4b33819cc802ce707",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
