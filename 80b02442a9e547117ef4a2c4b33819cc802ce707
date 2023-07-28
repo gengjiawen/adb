@@ -493,6 +493,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a858e632_b08179d3",
+        "filename": "socket_spec_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-07-28T03:40:04Z",
+      "side": 1,
+      "message": "Done (patchset #16)",
+      "parentUuid": "73cfa90e_43ec9270",
+      "revId": "80b02442a9e547117ef4a2c4b33819cc802ce707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0cb3ebc1_5677b09f",
@@ -506,6 +524,24 @@
       "writtenOn": "2023-07-07T16:31:02Z",
       "side": 1,
       "message": "why?",
+      "revId": "80b02442a9e547117ef4a2c4b33819cc802ce707",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c06e759_f2ae4c33",
+        "filename": "socket_spec_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-07-28T03:40:04Z",
+      "side": 1,
+      "message": "I feel that \"localfilesystem:%s/af_unix_socket\"\"(line #240) will not be compatible and might need some rework for _WIN32. GTEST_SKIP() for now, since this test is already broken (hope it\u0027s ok to treat this as a followup task, since I expect it to be non-trivial, and perhaps even not worth the effort).",
+      "parentUuid": "0cb3ebc1_5677b09f",
       "revId": "80b02442a9e547117ef4a2c4b33819cc802ce707",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
