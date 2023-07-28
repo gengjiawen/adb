@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "824d495c_5c63fa9f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-07-28T19:33:36Z",
+      "side": 1,
+      "message": "Pl do not omit this field - unless you have another bug for this feel free to use b/208565890 (too often, there\u0027re CLs without a bug or design doc or at least a one-pager - and one\u0027s left wondering what the author was thinking).",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 7
+      },
+      "revId": "6e708289cc97e4e588fdeb10d84c9e582cc4a2ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
