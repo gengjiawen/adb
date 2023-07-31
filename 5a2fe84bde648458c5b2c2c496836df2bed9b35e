@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffbd7f98_265b2fd4",
+        "filename": "fdevent/fdevent_test.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-07-31T21:39:15Z",
+      "side": 1,
+      "message": "no, just leave this broken. GTEST_SKIP() is meant for \"expected failures\" like \"Windows doesn\u0027t have fork()\" or whatever, not \"there\u0027s something wrong here, and i don\u0027t know what it is yet\".",
+      "revId": "5a2fe84bde648458c5b2c2c496836df2bed9b35e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8108853_126d20cd",
+        "filename": "socket_spec_test.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-07-31T21:39:15Z",
+      "side": 1,
+      "message": "same comment as above about GTEST_SKIP... just leave this test broken until you\u0027ve looked into localfilesystem: and determined whether or not this test makes any sense on Windows.",
+      "revId": "5a2fe84bde648458c5b2c2c496836df2bed9b35e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
