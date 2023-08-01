@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a7a1f70_28670559",
+        "filename": "fdevent/fdevent_test.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-08-01T21:30:21Z",
+      "side": 1,
+      "message": "Done (removed the offending `may be` - but keeping the rest of the comment since the comment is useful when/if I pick this up again in 6 months).",
+      "parentUuid": "83d0958e_f2b90a70",
+      "range": {
+        "startLine": 331,
+        "startChar": 50,
+        "endLine": 331,
+        "endChar": 72
+      },
+      "revId": "9306c798c07a97afbe73da440deaf3c29a1a8de0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9453f10b_71357c50",
@@ -37,6 +61,24 @@
       "writtenOn": "2023-08-01T20:40:47Z",
       "side": 1,
       "message": "does that make any sense? https://source.corp.google.com/h/android/platform/superproject/main/+/main:packages/modules/adb/socket_spec.cpp;l\u003d75?q\u003dlocalfilesystem%20file:modules%2Fadb\u0026sq\u003drepo:android%2Fplatform%2Fsuperproject%2Fmain%20b:main%20-file:prebuilts%2Fvndk%2F%20-file:prebuilts%2Fruntime%2F",
+      "revId": "9306c798c07a97afbe73da440deaf3c29a1a8de0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0de962ae_75b8dbb1",
+        "filename": "socket_spec_test.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-08-01T21:30:21Z",
+      "side": 1,
+      "message": "Very interesting (thanks!) - ok if I deal with it in a followup CL? (in hind-sight it was probably not very smart on my end to try to tackle broken _WIN32 and broken __APPLE__ tests in the same CL).",
+      "parentUuid": "9453f10b_71357c50",
       "revId": "9306c798c07a97afbe73da440deaf3c29a1a8de0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c00018a4_26a6fa47",
+        "filename": "sysdeps_test.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-08-01T21:30:21Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "44316364_e9c121f7",
+      "range": {
+        "startLine": 170,
+        "startChar": 37,
+        "endLine": 170,
+        "endChar": 68
+      },
+      "revId": "9306c798c07a97afbe73da440deaf3c29a1a8de0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "da410085_46d85c95",
@@ -77,6 +143,30 @@
       "writtenOn": "2023-08-01T20:40:47Z",
       "side": 1,
       "message": "i don\u0027t think that\u0027s true? (or it\u0027s unclear what you\u0027re trying to say.)\n\nthat said, taking adb out of the equation entirely, this trivial test does produce different results on linux and macOS:\n```\n#include \u003csys/socket.h\u003e\n#include \u003cpoll.h\u003e\n#include \u003cstdio.h\u003e\n#include \u003cunistd.h\u003e\nint main() {\n int fds[2];\n printf(\"socketpair() %d\\n\", socketpair(AF_UNIX, SOCK_STREAM, 0, fds));\n printf(\"fds\u003d{%d,%d}\\n\", fds[0], fds[1]);\n struct pollfd pfd[2] \u003d {};\n pfd[0].fd \u003d fds[0];\n pfd[0].events \u003d POLLRDNORM;\n pfd[1].fd \u003d fds[0];\n pfd[1].events \u003d POLLRDNORM;\n printf(\"poll() %d\\n\", poll(pfd, 2, 0));\n printf(\"0.revents\u003d%x\\n\", pfd[0].revents);\n printf(\"1.revents\u003d%x\\n\", pfd[1].revents);\n printf(\"write() %zd\\n\", write(fds[1], \"foo\", 4));\n printf(\"poll() %d\\n\", poll(pfd, 2, 100));\n printf(\"0.revents\u003d%x\\n\", pfd[0].revents);\n printf(\"1.revents\u003d%x\\n\", pfd[1].revents);\n return 0;\n}\n```\nso the question here is \"what is this test actually for?\". the commit message doesn\u0027t say much, but it\u0027s obvious from the commit that it was actually about implementing socketpair()/poll() for Windows. _presumably_ as a \"what\u0027s the right behavior in this weird special case?\" test. but since linux and darwin disagree, it\u0027s not clear to me that it matters much which Windows chooses. (and, thus, it\u0027s not clear to me that there\u0027s much value to this test at all.)\n\ni get similar behavior with pipe() too. it looks like macOS distinguishes between the read and write ends? so i think this is a deliberate difference rather than a bug (though i couldn\u0027t be bothered to find a BSD vm to test there).\n\nso i think it\u0027s fine to either just remove this test (though probably in a separate cl if you want to go that way) or to GTEST_SKIP() (though \"macOS treats the two sockets as distinguishable\" does then beg the question of \"so what\u0027s the point of this test then?\").\n\n(the so-far-unstated assumption here of course is that nothing\u0027s depending on this behavior. but there\u0027s no sign from the original cl that that was the intention, and _it\u0027s already broken_ if so anyway, so i think that\u0027s fine.)",
+      "range": {
+        "startLine": 186,
+        "startChar": 29,
+        "endLine": 186,
+        "endChar": 51
+      },
+      "revId": "9306c798c07a97afbe73da440deaf3c29a1a8de0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96719d16_59d8c7e4",
+        "filename": "sysdeps_test.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-08-01T21:30:21Z",
+      "side": 1,
+      "message": "Done - resorting to a GTEST_SKIP() (my reasoning for the expectation is in the comment).",
+      "parentUuid": "da410085_46d85c95",
       "range": {
         "startLine": 186,
         "startChar": 29,

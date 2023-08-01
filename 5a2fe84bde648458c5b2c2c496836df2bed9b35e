@@ -54,6 +54,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fce5e5ee_a9c42135",
+        "filename": "fdevent/fdevent_test.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-08-01T21:30:21Z",
+      "side": 1,
+      "message": "That\u0027s what I observed (did not dig into how an unknown  _WIN32 specific failure in  poll() shows up downstream in a different module test) , since I\u0027d prefer dealing with this question in the distant future).\nIn any case, I\u0027m resolving this comment thread, since I made the code-change you wanted.",
+      "parentUuid": "3b06f00a_2ef243a7",
+      "revId": "5a2fe84bde648458c5b2c2c496836df2bed9b35e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e8108853_126d20cd",
