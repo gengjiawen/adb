@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3b06f00a_2ef243a7",
+        "filename": "fdevent/fdevent_test.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-08-01T20:40:47Z",
+      "side": 1,
+      "message": "\u003e Because this single failure (which admittedly we do not know the resolution for, at this time) manifests as a failure in socket_test (LocalSocketTest.flush_after_shutdown()).\n\nwhat do you mean? why does FdeventTest.unregister_with_pending_event cause trouble in LocalSocketTest.flush_after_shutdown?",
+      "parentUuid": "c9da20a0_f97904a7",
+      "revId": "5a2fe84bde648458c5b2c2c496836df2bed9b35e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e8108853_126d20cd",
         "filename": "socket_spec_test.cpp",
         "patchSetId": 16
