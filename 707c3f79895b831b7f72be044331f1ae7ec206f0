@@ -146,6 +146,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8b24aec2_0ffb684d",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-08-01T22:46:29Z",
+      "side": 1,
+      "message": "\u003e My point is: Given the name of this test, I find it strange that there are only negative tests (esp when we compare this test with the directory_exists() tests (lines #53 and 55).\n\nthere was a positive test too. i think the weird part was that it was copy \u0026 pasted from the above test, rather than just making the above test the unix test, and this test the windows test. (and that the unix test doesn\u0027t test symlinks.)\n\n\u003e https://source.corp.google.com/h/googleplex-android/platform/packages/modules/adb/+/c9ddd81c5649d5a4c2349691cb358d636c3cbb20 did not yield any additional information (perhaps because I\u0027m myself unaware of what junctions are, and how they differ from hard/soft links).\n\nfrom there\n```\n* Fix adb_utils directory_exists test for Windows. The test actually\nfails because directory_exists() is not aware of junctions or symlinks,\nbut I\u0027m not really sure if that is a bad thing (since these are rare on\nWindows to begin with).\n```\ntells you how these expectations ended up how they are --- and also that this test has failed since it was first committed.\n\n(i\u0027d be curious to know _which_ of these failed. i\u0027d assume the symlink one always succeeded because -- to match unix -- our windows implementation should be doing the equivalent of stat() rather than lstat(), and stat(\"symlink-to-dir\") should look like a directory. i\u0027ve no idea what a junction is, nor what to expect from one.)\n\nanyway, does your current Windows system have a junction you can test with? if not, just delete the junction thing. if it does, switch to that. (but, for similar reasons to the above, if we believe https://superuser.com/a/343079 then i think \"true\" is fine. but delete your \"Windows 10\" comment here, and just update the existing Windows 7 comment to say 10 instead.)",
+      "parentUuid": "29a3fdc7_98696252",
+      "range": {
+        "startLine": 74,
+        "startChar": 60,
+        "endLine": 74,
+        "endChar": 80
+      },
+      "revId": "707c3f79895b831b7f72be044331f1ae7ec206f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a62cd00a_808929d0",
         "filename": "fdevent/fdevent_test.cpp",
         "patchSetId": 6
