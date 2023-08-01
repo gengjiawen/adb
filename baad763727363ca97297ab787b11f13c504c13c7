@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a54a0f00_8745eeb9",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-08-01T23:57:31Z",
+      "side": 1,
+      "message": "wrong test",
+      "revId": "baad763727363ca97297ab787b11f13c504c13c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6a95bfb_6f7473d7",
+        "filename": "socket_spec_test.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-08-01T23:57:31Z",
+      "side": 1,
+      "message": "?",
+      "revId": "baad763727363ca97297ab787b11f13c504c13c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15bb354b_bfa93dbd",
+        "filename": "sysdeps_test.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-08-01T23:57:31Z",
+      "side": 1,
+      "message": "no, i meant just disable this whole test for macOS, or delete it.\n\nwhat you\u0027ve done here makes it a lot harder to read, but i\u0027m not sure what the upside is? effectively you have a test that says \"you can\u0027t assume anything\"?",
+      "revId": "baad763727363ca97297ab787b11f13c504c13c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
