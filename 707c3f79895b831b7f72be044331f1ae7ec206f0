@@ -168,6 +168,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f49bf16e_37f7edcb",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-08-01T23:52:13Z",
+      "side": 1,
+      "message": "Resolving this following our discussion.\nFollowup: Refactor the directory_exists() tests (if needed, rely on GTEST_SKIP()) with a dedicated _WIN32-specific followup CL.",
+      "parentUuid": "8b24aec2_0ffb684d",
+      "range": {
+        "startLine": 74,
+        "startChar": 60,
+        "endLine": 74,
+        "endChar": 80
+      },
+      "revId": "707c3f79895b831b7f72be044331f1ae7ec206f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a62cd00a_808929d0",
