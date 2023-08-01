@@ -83,6 +83,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b86afb5_513fb075",
+        "filename": "socket_spec_test.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-08-01T21:40:49Z",
+      "side": 1,
+      "message": "Filed b/294114575",
+      "parentUuid": "0de962ae_75b8dbb1",
+      "revId": "9306c798c07a97afbe73da440deaf3c29a1a8de0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "44316364_e9c121f7",
