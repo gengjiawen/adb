@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "90b9c6f0_a25032be",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-08-02T16:40:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce094977_5f40e25f",
+      "revId": "ef5b1a1f5af4f7f5e8529b5bf08a7dcab1d03532",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9e46d661_e20feb38",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-08-02T16:10:03Z",
       "side": 1,
       "message": "i still don\u0027t believe this. we shouldn\u0027t make claims like this that we can\u0027t substantiate.",
+      "range": {
+        "startLine": 330,
+        "startChar": 29,
+        "endLine": 331,
+        "endChar": 66
+      },
+      "revId": "ef5b1a1f5af4f7f5e8529b5bf08a7dcab1d03532",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e40f46d0_06d575ce",
+        "filename": "fdevent/fdevent_test.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-08-02T16:40:11Z",
+      "side": 1,
+      "message": "Done (Leaving the offending failure in, since it gives me some context next time I tackle this).",
+      "parentUuid": "9e46d661_e20feb38",
       "range": {
         "startLine": 330,
         "startChar": 29,
