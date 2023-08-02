@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce094977_5f40e25f",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-08-02T16:10:03Z",
+      "side": 1,
+      "message": "this isn\u0027t skipping anything.",
+      "revId": "ef5b1a1f5af4f7f5e8529b5bf08a7dcab1d03532",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e46d661_e20feb38",
+        "filename": "fdevent/fdevent_test.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-08-02T16:10:03Z",
+      "side": 1,
+      "message": "i still don\u0027t believe this. we shouldn\u0027t make claims like this that we can\u0027t substantiate.",
+      "range": {
+        "startLine": 330,
+        "startChar": 29,
+        "endLine": 331,
+        "endChar": 66
+      },
+      "revId": "ef5b1a1f5af4f7f5e8529b5bf08a7dcab1d03532",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
