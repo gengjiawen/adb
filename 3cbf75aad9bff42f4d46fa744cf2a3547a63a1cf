@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ac9ee18_7fe0dd2b",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-08-02T23:35:07Z",
+      "side": 1,
+      "message": "whitespace",
+      "range": {
+        "startLine": 57,
+        "startChar": 2,
+        "endLine": 57,
+        "endChar": 4
+      },
+      "revId": "3cbf75aad9bff42f4d46fa744cf2a3547a63a1cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
