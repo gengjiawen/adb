@@ -22,6 +22,30 @@
       },
       "revId": "3cbf75aad9bff42f4d46fa744cf2a3547a63a1cf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47d13b14_8add4e08",
+        "filename": "adb_utils_test.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-08-02T23:44:04Z",
+      "side": 1,
+      "message": "Unsure why this creeps in (lint introduced it).",
+      "parentUuid": "0ac9ee18_7fe0dd2b",
+      "range": {
+        "startLine": 57,
+        "startChar": 2,
+        "endLine": 57,
+        "endChar": 4
+      },
+      "revId": "3cbf75aad9bff42f4d46fa744cf2a3547a63a1cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
