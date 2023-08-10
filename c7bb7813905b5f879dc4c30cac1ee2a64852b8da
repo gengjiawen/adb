@@ -87,6 +87,24 @@
       "parentUuid": "415361ea_8530e133",
       "revId": "c7bb7813905b5f879dc4c30cac1ee2a64852b8da",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63c4a330_4db0cd0c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-08-10T21:42:16Z",
+      "side": 1,
+      "message": "yeah, my only complaint about the change as-is is that it\u0027s adding cruft we don\u0027t need, for build configurations we don\u0027t support. adding _more_ cruft only makes that worse.",
+      "parentUuid": "04036a95_746b87e4",
+      "revId": "c7bb7813905b5f879dc4c30cac1ee2a64852b8da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
