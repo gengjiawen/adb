@@ -69,6 +69,24 @@
       "parentUuid": "4e2b79e5_5afc4503",
       "revId": "c7bb7813905b5f879dc4c30cac1ee2a64852b8da",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04036a95_746b87e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2023-08-10T21:01:42Z",
+      "side": 1,
+      "message": "Not really, the constructor has no disadvantages in newer clang so there\u0027s no point adding more complexity to hide it.",
+      "parentUuid": "415361ea_8530e133",
+      "revId": "c7bb7813905b5f879dc4c30cac1ee2a64852b8da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
