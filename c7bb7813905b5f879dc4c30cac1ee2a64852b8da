@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "611aa509_4b4f1692",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-08-10T19:06:56Z",
+      "side": 1,
+      "message": "Unsure whether we want to be explicit and say \"inline\" - your call.",
+      "revId": "c7bb7813905b5f879dc4c30cac1ee2a64852b8da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
