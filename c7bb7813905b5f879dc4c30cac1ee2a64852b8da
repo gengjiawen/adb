@@ -33,6 +33,24 @@
       "message": "we don\u0027t want to just say \"use a newer compiler\"?",
       "revId": "c7bb7813905b5f879dc4c30cac1ee2a64852b8da",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e2b79e5_5afc4503",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2023-08-10T20:29:24Z",
+      "side": 1,
+      "message": "It\u0027s such a trivial change, and the change is already in keystone, I\u0027m inclined to just fix it to make it easier to build adb.",
+      "parentUuid": "8100bbc0_2e0991f3",
+      "revId": "c7bb7813905b5f879dc4c30cac1ee2a64852b8da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
