@@ -87,6 +87,24 @@
       "message": "This causes compiler error with clang 15. Could anyone suggest how to troubleshoot the issue? Full discussion can be found here https://github.com/nmeum/android-tools/pull/121",
       "revId": "78d34d8f714f9c78b6b628417cfb690d8fba3900",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "deb96183_2028354e",
+        "filename": "fdevent/fdevent_epoll.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1972022
+      },
+      "writtenOn": "2023-08-13T07:18:48Z",
+      "side": 1,
+      "message": "Fixed by https://android-review.googlesource.com/c/platform/packages/modules/adb/+/2703715",
+      "parentUuid": "4df9c905_50336f77",
+      "revId": "78d34d8f714f9c78b6b628417cfb690d8fba3900",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
