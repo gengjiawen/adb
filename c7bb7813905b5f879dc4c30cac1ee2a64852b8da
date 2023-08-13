@@ -105,6 +105,24 @@
       "parentUuid": "04036a95_746b87e4",
       "revId": "c7bb7813905b5f879dc4c30cac1ee2a64852b8da",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3afef268_3b24d363",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-08-13T15:30:22Z",
+      "side": 1,
+      "message": "Marking this resolved (for submission), since the consensus appears to be that this is a trivial change with no negative aspects.",
+      "parentUuid": "63c4a330_4db0cd0c",
+      "revId": "c7bb7813905b5f879dc4c30cac1ee2a64852b8da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
