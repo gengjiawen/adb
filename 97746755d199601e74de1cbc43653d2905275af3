@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "179a6261_1e899e93",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-08-16T16:34:50Z",
+      "side": 1,
+      "message": "Thanks for the cleanup - please add an entry for the \u0027Bug:\u0027 field (I\u0027d like to make it a practice to have a documented bug for each CL, which makes it easy for us to get context later on - if needed, add a \u0027Improve code hygiene\u0027 bug for this purpose we can re-use, going forward).",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 7
+      },
+      "revId": "97746755d199601e74de1cbc43653d2905275af3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
