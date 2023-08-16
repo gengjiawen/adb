@@ -500,6 +500,12 @@ class AdbUdpSocket : public UdpSocket {
             return;
         }
 
+        if (adb_setsockopt(fd_, SOL_SOCKET, SO_REUSEPORT, &reuse_addr, sizeof(reuse_addr)) == -1) {
+            OnError(Error::Code::kSocketOptionSettingFailure);
+            LOG(WARNING) << "Failed to set SO_REUSEADDR";
+            return;
+        }
+
         switch (local_endpoint_.address.version()) {
             case UdpSocket::Version::kV4: {
                 struct sockaddr_in address = {};
