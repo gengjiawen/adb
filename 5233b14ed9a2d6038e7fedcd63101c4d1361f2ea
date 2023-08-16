@@ -39,6 +39,24 @@
       "message": "this list is already in https://source.corp.google.com/h/android/platform/superproject/main/+/main:packages/modules/adb/client/commandline.cpp;l\u003d248?q\u003dADB_TRACE%20file:modules%2Fadb\u0026sq\u003drepo:android%2Fplatform%2Fsuperproject%2Fmain%20b:main%20-file:prebuilts%2Fvndk%2F%20-file:prebuilts%2Fruntime%2F and that should be the canonical source, no? (not least because it varies by adb version.)\n\na more interesting change would be to fix that so it\u0027s generated based on the actual map, rather than having yet another probably out of date copy of the list...",
       "revId": "5233b14ed9a2d6038e7fedcd63101c4d1361f2ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3ba2933_698ba371",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-08-16T16:18:05Z",
+      "side": 1,
+      "message": "I think we need to discuss in VC. I thought we agreed that the env variable from `--help` where going away toward `dosc/user.md` or `docs/dev.md`. This in order to have `--help` be git like. e.g.:\n\n```\n$ adb --help\ninstallation: isntall, install-multiple, ....\ndebug: \nfile-transfer: push, pull\n```\n\nThen you can get additional help on an individual command:\n\n```\n$ adb push --help\nUsage: push [--sync] [-z ALGORITHM] [-Z] LOCAL... REMOTE\n     copy local files/directories to device\n     --sync: only push files that are newer on the host than the device\n     -n: dry run: push files to device without storing to the filesystem\n     -z: enable compression with a specified algorithm (any/none/brotli/lz4/zstd)\n     -Z: disable compression\n\n```\n\nAre you saying you want to keep some env (which ones) in CLI `--help` output?",
+      "parentUuid": "d09eb9af_1656becc",
+      "revId": "5233b14ed9a2d6038e7fedcd63101c4d1361f2ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
