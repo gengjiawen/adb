@@ -81,6 +81,24 @@
       "parentUuid": "d09eb9af_1656becc",
       "revId": "5233b14ed9a2d6038e7fedcd63101c4d1361f2ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17f09208_e14735f7",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-08-16T23:09:34Z",
+      "side": 1,
+      "message": "\u003e This in order to have --help be git like.\n\ni actually don\u0027t remember anyone ever suggesting that specific idea[1], but i think my reaction is similar to most of the other ideas that involve major rewrites of the command-line parsing stuff --- \"i don\u0027t think it\u0027s very likely to actually happen\". everyone who\u0027s ever looked at it in the last 10 years (including me) has wanted to rewrite it, but it\u0027s fairly hard to justify the amount of time (and likely disruption) that reimplementing it would need. (it\u0027s not often you\u0027ll hear me say this, but \"if only this had been written in python, we\u0027d never have gotten into this mess\"!)\n\n\u003e Are you saying you want to keep some env (which ones) in CLI --help output?\n\ni think i\u0027m making an unrelated point --- whether we think there will be a grander refactoring or not, i think it\u0027s obvious that we should be \"dumping the strings from the map\" rather than maintaining hand-written lists in the code.\n\nif we put something in the docs, it should probably be more than just a list to be useful, right? docs are where you explain wtf \"adb\" means when asking adb to trace, for example :-) (but also the difference between packets and rwx, etc --- pretty much all of these are at least somewhat non-obvious!)\n\nbut if your question is \"shouldn\u0027t we remove this from the --help?\", \"probably not\" --- for me the very fact that \"the acceptable options vary depending on what version of adb you\u0027re running\" is a reason why --help is the best place to encode that. (insert my usual rant about \"wtf can\u0027t i ask clang what targets it was compiled with support for?!\" here.)\n\n___\n1. but, yes, there\u0027s much to like about that idea. at that point you can even think about just documenting _everything_ in the [many] --help[s] and not have much reason to want to hide any of it (other than obviously developer-only stuff like protocol details) in docs.",
+      "parentUuid": "f3ba2933_698ba371",
+      "revId": "5233b14ed9a2d6038e7fedcd63101c4d1361f2ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
