@@ -99,6 +99,24 @@
       "parentUuid": "f3ba2933_698ba371",
       "revId": "5233b14ed9a2d6038e7fedcd63101c4d1361f2ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86197be8_9f2713fb",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-08-17T18:39:20Z",
+      "side": 1,
+      "message": "The dispatcher arch and the CLI documentation were mentioned in this document a year ago.\n\nhttps://docs.google.com/document/d/1nRzTdVLM4qo6DGjmW5OyrT5xUwcNhwmJOaaGkBz6x1c/edit?resourcekey\u003d0-SOG2DQRET0YTHmm6Z-QiEg#bookmark\u003did.p4mat362vhkj, see Command Dispatcher/ Service Dispatcher, which you commented on.\n\nhttps://docs.google.com/document/d/1nRzTdVLM4qo6DGjmW5OyrT5xUwcNhwmJOaaGkBz6x1c/edit?resourcekey\u003d0-SOG2DQRET0YTHmm6Z-QiEg#bookmark\u003did.u8bunjqcj9e4 (see \n\n```\nUse a git executable approach where --help only lists commands available. Details of the command flags only appear as command specific --help.\n```",
+      "parentUuid": "17f09208_e14735f7",
+      "revId": "5233b14ed9a2d6038e7fedcd63101c4d1361f2ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
