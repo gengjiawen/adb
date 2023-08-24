@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c257fb5_10e2ca9b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-08-24T01:03:58Z",
+      "side": 1,
+      "message": "@williamhester: can we test this out in the lab environment? (tested against the wireless device, but have not tested against emu yet).",
+      "revId": "fb06df6bca7344b3b480d14bae456126a0f6df82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
