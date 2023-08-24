@@ -16,6 +16,29 @@
       "message": "@williamhester: can we test this out in the lab environment? (tested against the wireless device, but have not tested against emu yet).",
       "revId": "fb06df6bca7344b3b480d14bae456126a0f6df82",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d912acca_c6928feb",
+        "filename": "services.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-08-24T15:48:49Z",
+      "side": 1,
+      "message": "so you\u0027re saying that \"wifi device\" isn\u0027t \"usb\" (obviously) but also isn\u0027t \"tcp\"? that seems ... surprising. is IsTcpDevice() broken? or do we need a better name for IsTcpDevice()?",
+      "range": {
+        "startLine": 213,
+        "startChar": 56,
+        "endLine": 216,
+        "endChar": 64
+      },
+      "revId": "fb06df6bca7344b3b480d14bae456126a0f6df82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
