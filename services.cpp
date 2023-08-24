@@ -155,8 +155,8 @@ static void pair_service(unique_fd fd, std::string host, std::string password) {
         SendFail(fd,
                  response);  // Since the transport is being torn down, the
                              // response string will not reach the client-end
-                             // (TODO: at the moment), and instead consumes a
-                             // generic "protocol fault" error.
+                             // and instead consumes a generic error (e.g
+                             // "protocol fault").
     }
 }
 
@@ -220,11 +220,11 @@ static void wait_service(unique_fd fd, std::string serial, TransportId transport
             if (state == kCsOffline) {
                 // Special case for wait-for-disconnect:
                 // We want to wait for USB devices to completely disappear, but TCP devices can
-                // go into the offline state, since we automatically reconnect.
-                if (!t) {
-                    SendOkay(fd);
-                    return;
-                } else if (!t->GetUsbHandle()) {
+                // go into the offline state, since we automatically reconnect
+                // (disabling WiFi or disconnecting from the WiFi connection
+                // would trigger transition from `device` to `offline`).
+                if (!t) {  // If the transport is torn down (regardless of
+                    // whether it is USB or wireless), unblock.
                     SendOkay(fd);
                     return;
                 }
