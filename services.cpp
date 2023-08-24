@@ -149,7 +149,15 @@ static void connect_service(unique_fd fd, std::string host) {
 static void pair_service(unique_fd fd, std::string host, std::string password) {
     std::string response;
     adb_wifi_pair_device(host, password, response);
-    SendProtocolString(fd.get(), response);
+    if (android::base::StartsWith(response, "Successful")) {
+        SendProtocolString(fd.get(), response);
+    } else {
+        SendFail(fd,
+                 response);  // Since the transport is being torn down, the
+                             // response string will not reach the client-end
+                             // and instead consumes a generic error (e.g
+                             // "protocol fault").
+    }
 }
 
 static void wait_service(unique_fd fd, std::string serial, TransportId transport_id,
@@ -201,15 +209,22 @@ static void wait_service(unique_fd fd, std::string serial, TransportId transport
                 acquire_one_transport(transport_type, !serial.empty() ? serial.c_str() : nullptr,
                                       transport_id, &is_ambiguous, &error);
 
+        // If the target transport disconnect (to wait-for) is unclear, punt
+        // to the user for corrective action (e.g. specify `adb -s <>
+        // wait-for-disconnect`).
+        if (is_ambiguous) {
+            SendFail(fd, error);
+            return;
+        }
         for (const auto& state : states) {
             if (state == kCsOffline) {
                 // Special case for wait-for-disconnect:
                 // We want to wait for USB devices to completely disappear, but TCP devices can
-                // go into the offline state, since we automatically reconnect.
-                if (!t) {
-                    SendOkay(fd);
-                    return;
-                } else if (!t->GetUsbHandle()) {
+                // go into the offline state, since we automatically reconnect
+                // (disabling WiFi or disconnecting from the WiFi connection
+                // would trigger transition from `device` to `offline`).
+                if (!t) {  // If the transport is torn down (regardless of
+                    // whether it is USB or wireless), unblock.
                     SendOkay(fd);
                     return;
                 }
@@ -219,11 +234,6 @@ static void wait_service(unique_fd fd, std::string serial, TransportId transport
                     return;
                 }
             }
-        }
-
-        if (is_ambiguous) {
-            SendFail(fd, error);
-            return;
         }
 
         // Sleep before retrying.
