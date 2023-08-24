@@ -206,12 +206,16 @@ static void wait_service(unique_fd fd, std::string serial, TransportId transport
                 // Special case for wait-for-disconnect:
                 // We want to wait for USB devices to completely disappear, but TCP devices can
                 // go into the offline state, since we automatically reconnect.
-                if (!t) {
-                    SendOkay(fd);
-                    return;
-                } else if (!t->GetUsbHandle()) {
-                    SendOkay(fd);
-                    return;
+                if (!t) {  // If the transport is torn down (regardless of
+                    // whether it is USB or wireless), unblock.. as long
+                    // as there's clarity about the target transport.
+                    if (!is_ambiguous) {
+                        SendOkay(fd);
+                        return;
+                    } else {  //  Notify the user about what to do..and
+                              //  keep blocking.
+                        SendFail(fd, "ambiguous: -s needed.");
+                    }
                 }
             } else {
                 if (t && (state == kCsAny || state == t->GetConnectionState())) {
