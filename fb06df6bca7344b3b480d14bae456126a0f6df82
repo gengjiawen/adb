@@ -39,6 +39,30 @@
       },
       "revId": "fb06df6bca7344b3b480d14bae456126a0f6df82",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e442b9c_638200fe",
+        "filename": "services.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-08-25T07:17:42Z",
+      "side": 1,
+      "message": "The origin of the bug (`wait-for-disconnect` is a no-op for tcp/wifi device) is because there is_a transport but t-\u003eGetUsbHandle() appears not to be a good enough discriminator for when to return from wait_service(). By using the is_ambiguous flag, I feel that we can reliably distinguish the transports (including tcp/ip), and will force the user to supply the required information (to wait for). I have also updated the tests to include regression.\nPS: Apologies for the confusion around IsTcpDevice() - it was likely an error-prone run (hadn\u0027t run `adb kill-server` which likely caused some inconsistency).",
+      "parentUuid": "d912acca_c6928feb",
+      "range": {
+        "startLine": 213,
+        "startChar": 56,
+        "endLine": 216,
+        "endChar": 64
+      },
+      "revId": "fb06df6bca7344b3b480d14bae456126a0f6df82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
