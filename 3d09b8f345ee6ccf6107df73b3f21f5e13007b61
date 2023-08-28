@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "55a92494_a7624480",
+        "filename": "services.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-08-28T21:10:54Z",
+      "side": 1,
+      "message": "Made the comment more explicit.\nis_ambiguous() is set when there are two (or more) transports and there isn\u0027t enough information to warrant returning (from the wait_service() loop).\nBy dispatching a failure message (with an appropriate action-item on the part of the user - namely, specify the `-s` parameter), the expectation is that the user will address this ambiguity.",
+      "parentUuid": "26ba2c6a_2b892045",
+      "range": {
+        "startLine": 210,
+        "startChar": 65,
+        "endLine": 211,
+        "endChar": 41
+      },
+      "revId": "3d09b8f345ee6ccf6107df73b3f21f5e13007b61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a3dcdb43_b68507b7",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-08-28T19:23:53Z",
       "side": 1,
       "message": "is this always right and helpful? (because people are blindly going to do exactly that.)\n\ni\u0027m not sure what \"keep blocking\" means here?",
+      "range": {
+        "startLine": 217,
+        "startChar": 38,
+        "endLine": 217,
+        "endChar": 58
+      },
+      "revId": "3d09b8f345ee6ccf6107df73b3f21f5e13007b61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9e44cbf_cf31aa8f",
+        "filename": "services.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-08-28T21:10:54Z",
+      "side": 1,
+      "message": "AFAICS (pl see the Test: field that outlines the various test scenarios addressed), I have not observed an error (inconsistent) state.\n\nBy \u0027keep blocking\u0027, I mean: do not \u003cACK + return\u003e but stay in that while() loop in wait_service().",
+      "parentUuid": "a3dcdb43_b68507b7",
       "range": {
         "startLine": 217,
         "startChar": 38,
