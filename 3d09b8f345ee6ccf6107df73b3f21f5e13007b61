@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26ba2c6a_2b892045",
+        "filename": "services.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-08-28T19:23:53Z",
+      "side": 1,
+      "message": "don\u0027t say things that make people think \"what do you mean?\".\n\ni don\u0027t think this comment makes sense/adds any value. we can see from the code that \"clarity about\" means `!is_ambiguous`. what\u0027s not clear is _why_ this code is doing what it\u0027s doing.",
+      "range": {
+        "startLine": 210,
+        "startChar": 65,
+        "endLine": 211,
+        "endChar": 41
+      },
+      "revId": "3d09b8f345ee6ccf6107df73b3f21f5e13007b61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3dcdb43_b68507b7",
+        "filename": "services.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-08-28T19:23:53Z",
+      "side": 1,
+      "message": "is this always right and helpful? (because people are blindly going to do exactly that.)\n\ni\u0027m not sure what \"keep blocking\" means here?",
+      "range": {
+        "startLine": 217,
+        "startChar": 38,
+        "endLine": 217,
+        "endChar": 58
+      },
+      "revId": "3d09b8f345ee6ccf6107df73b3f21f5e13007b61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
