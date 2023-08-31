@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a27402e_bd8df685",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-08-31T02:20:54Z",
+      "side": 1,
+      "message": "At this time, I suspect a regressive behavior (whereas formerly the wireless device would go offline, this change causes the device to disappear entirely).\nMore testing TBD.\nNOTE: (still) relying on manual test steps (outined in the \u0027Test:\u0027 field), given the limitation in running any sort of test on the non-standard network environment - either hotspot or non-corp).",
+      "revId": "f4e82284d3486a342d129ddd73efe9a4f8398392",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
