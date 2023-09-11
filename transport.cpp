@@ -301,6 +301,8 @@ void BlockingConnectionAdapter::Start() {
         LOG(FATAL) << "BlockingConnectionAdapter(" << Serial() << "): started multiple times";
     }
 
+    LOG(INFO) << Serial() << ": Start(), StartReadThread1";
+
     StartReadThread();
 
     write_thread_ = std::thread([this]() {
@@ -334,6 +336,8 @@ void BlockingConnectionAdapter::StartReadThread() {
     read_thread_ = std::thread([this]() {
         LOG(INFO) << Serial() << ": read thread spawning";
         while (true) {
+            LOG(INFO) << Serial() << ": StartReadThread while begin";
+
             auto packet = std::make_unique<apacket>();
             if (!underlying_->Read(packet.get())) {
                 PLOG(INFO) << Serial() << ": read failed";
@@ -347,6 +351,8 @@ void BlockingConnectionAdapter::StartReadThread() {
 
             transport_->HandleRead(std::move(packet));
 
+            LOG(INFO) << Serial() << ": StartReadThread after HandleRead";
+
             // If we received the STLS packet, we are about to perform the TLS
             // handshake. So this read thread must stop and resume after the
             // handshake completes otherwise this will interfere in the process.
@@ -354,6 +360,7 @@ void BlockingConnectionAdapter::StartReadThread() {
                 LOG(INFO) << Serial() << ": Received STLS packet. Stopping read thread.";
                 return;
             }
+            LOG(INFO) << Serial() << ": StartReadThread while end";
         }
         std::call_once(this->error_flag_, [this]() { transport_->HandleError("read failed"); });
     });
@@ -365,6 +372,7 @@ bool BlockingConnectionAdapter::DoTlsHandshake(RSA* key, std::string* auth_key) 
         read_thread_.join();
     }
     bool success = this->underlying_->DoTlsHandshake(key, auth_key);
+    LOG(INFO) << Serial() << ": DoTlsHandshake, StartReadThread0";
     StartReadThread();
     return success;
 }
@@ -796,20 +804,25 @@ static bool usb_devices_start_detached() {
 //  Callback function that is consumed by the fdevent setup (initialization)
 //  from the contexts of both the client as well as adbd peers.
 static void transport_registration_func(int _fd, unsigned ev, void*) {
+    LOG(INFO) << serial_name() << ": transport_registration_func";
+
     tmsg m;
     atransport* t;
 
     if (!(ev & FDE_READ)) {
+        LOG(INFO) << serial_name() << ": return, not env";
         return;
     }
 
     if (transport_read_action(_fd, &m)) {
+        LOG(INFO) << serial_name() << ": cannot read transport registration socket";
         PLOG(FATAL) << "cannot read transport registration socket";
     }
 
     t = m.transport;
 
     if (m.action == tmsg::Action::UNREGISTER) {
+        LOG(INFO) << serial_name() << ": transport_registration_func tmsg::Action::UNREGISTER";
         D("transport: %s deleting", t->serial.c_str());
 
         {
@@ -825,6 +838,8 @@ static void transport_registration_func(int _fd, unsigned ev, void*) {
 
     /* don't create transport threads for inaccessible devices */
     if (t->GetConnectionState() != kCsNoPerm) {
+        LOG(INFO) << serial_name() << 
+        ": transport_registration_func GetConnectionState() != kCsNoPerm";
         t->connection()->SetTransport(t);
 
         if (t->type == kTransportUsb
@@ -835,6 +850,7 @@ static void transport_registration_func(int _fd, unsigned ev, void*) {
         ) {
             t->SetConnectionState(kCsDetached);
         } else {
+            LOG(INFO) << serial_name() << ": transport_registration_func before Start()";
             t->connection()->Start();
 #if ADB_HOST
             send_connect(t);
@@ -851,6 +867,7 @@ static void transport_registration_func(int _fd, unsigned ev, void*) {
         }
     }
 
+    LOG(INFO) << serial_name() << ": transport_registration_func before update_transports()";
     update_transports();
 }
 
@@ -861,6 +878,7 @@ void init_reconnect_handler(void) {
 #endif
 
 void init_transport_registration(void) {
+    LOG(INFO) << serial_name() << ": init_transport_registration";
     int s[2];
 
     if (adb_socketpair(s)) {
@@ -1234,7 +1252,10 @@ void atransport::SetConnection(std::shared_ptr<Connection> connection) {
 }
 
 bool atransport::HandleRead(std::unique_ptr<apacket> p) {
+    LOG(INFO) << serial_name() << ": HandleRead start";
+
     if (!check_header(p.get(), this)) {
+        LOG(INFO) << serial_name() << ": remote read: bad header, return";
         D("%s: remote read: bad header", serial.c_str());
         return false;
     }
@@ -1242,9 +1263,13 @@ bool atransport::HandleRead(std::unique_ptr<apacket> p) {
     VLOG(TRANSPORT) << dump_packet(serial.c_str(), "from remote", p.get());
     apacket* packet = p.release();
 
+    LOG(INFO) << serial_name() << ": in HandleRead, before handle_packet";
+
     // This needs to run on the looper thread since the associated fdevent
     // message pump exists in that context.
     fdevent_run_on_looper([packet, this]() { handle_packet(packet, this); });
+
+    LOG(INFO) << serial_name() << ": after handle_packet, end of HandleRead";
 
     return true;
 }
