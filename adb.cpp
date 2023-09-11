@@ -216,6 +216,8 @@ void print_packet(const char *label, apacket *p)
     default: tag = "????"; break;
     }
 
+    LOG(INFO) << ": print_packet(), tag: " << tag << ", label: " << label;
+
     fprintf(stderr, "%s: %s %08x %08x %04x \"",
             label, tag, p->msg.arg0, p->msg.arg1, p->msg.data_length);
     count = p->msg.data_length;
@@ -377,6 +379,8 @@ void parse_banner(const std::string& banner, atransport* t) {
 }
 
 static void handle_new_connection(atransport* t, apacket* p) {
+    LOG(INFO) << ": handle_new_connection()";
+
     handle_offline(t);
 
     t->update_version(p->msg.arg0, p->msg.arg1);
@@ -406,6 +410,8 @@ static void handle_new_connection(atransport* t, apacket* p) {
 
 void handle_packet(apacket *p, atransport *t)
 {
+    LOG(INFO) << ": handle_packet()";
+
     D("handle_packet() %c%c%c%c", ((char*) (&(p->msg.command)))[0],
             ((char*) (&(p->msg.command)))[1],
             ((char*) (&(p->msg.command)))[2],
