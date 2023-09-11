@@ -488,6 +488,7 @@ static int remote_socket_enqueue(asocket* s, apacket::payload_type data) {
     D("entered remote_socket_enqueue RS(%d) WRITE fd=%d peer.fd=%d", s->id, s->fd, s->peer->fd);
     apacket* p = get_apacket();
 
+    LOG(INFO) << ": remote_socket_enqueue, A_WRTE";
     p->msg.command = A_WRTE;
     p->msg.arg0 = s->peer->id;
     p->msg.arg1 = s->id;
@@ -507,6 +508,7 @@ static int remote_socket_enqueue(asocket* s, apacket::payload_type data) {
 static void remote_socket_ready(asocket* s) {
     D("entered remote_socket_ready RS(%d) OKAY fd=%d peer.fd=%d", s->id, s->fd, s->peer->fd);
     apacket* p = get_apacket();
+    LOG(INFO) << ": remote_socket_ready, A_OKAY";
     p->msg.command = A_OKAY;
     p->msg.arg0 = s->peer->id;
     p->msg.arg1 = s->id;
@@ -517,6 +519,7 @@ static void remote_socket_shutdown(asocket* s) {
     D("entered remote_socket_shutdown RS(%d) CLOSE fd=%d peer->fd=%d", s->id, s->fd,
       s->peer ? s->peer->fd : -1);
     apacket* p = get_apacket();
+    LOG(INFO) << ": remote_socket_shutdown, A_CLSE";
     p->msg.command = A_CLSE;
     if (s->peer) {
         p->msg.arg0 = s->peer->id;
@@ -567,6 +570,7 @@ void connect_to_remote(asocket* s, std::string_view destination) {
     D("Connect_to_remote call RS(%d) fd=%d", s->id, s->fd);
     apacket* p = get_apacket();
 
+    LOG(INFO) << ": connect_to_remote, A_OPEN, LS(" << s->id << ": connect(" << destination << ")";
     LOG(VERBOSE) << "LS(" << s->id << ": connect(" << destination << ")";
     p->msg.command = A_OPEN;
     p->msg.arg0 = s->id;
