@@ -377,6 +377,8 @@ void parse_banner(const std::string& banner, atransport* t) {
 }
 
 static void handle_new_connection(atransport* t, apacket* p) {
+    LOG(INFO) << ": handle_new_connection()";
+
     handle_offline(t);
 
     t->update_version(p->msg.arg0, p->msg.arg1);
@@ -406,10 +408,29 @@ static void handle_new_connection(atransport* t, apacket* p) {
 
 void handle_packet(apacket *p, atransport *t)
 {
+    LOG(INFO) << ": handle_packet()";
+
     D("handle_packet() %c%c%c%c", ((char*) (&(p->msg.command)))[0],
             ((char*) (&(p->msg.command)))[1],
             ((char*) (&(p->msg.command)))[2],
             ((char*) (&(p->msg.command)))[3]);
+
+    const char* tag;
+    switch(p->msg.command){
+    case A_SYNC: tag = "SYNC"; break;
+    case A_CNXN: tag = "CNXN" ; break;
+    case A_OPEN: tag = "OPEN"; break;
+    case A_OKAY: tag = "OKAY"; break;
+    case A_CLSE: tag = "CLSE"; break;
+    case A_WRTE: tag = "WRTE"; break;
+    case A_AUTH: tag = "AUTH"; break;
+    case A_STLS:
+        tag = "STLS";
+        break;
+    default: tag = "????"; break;
+    }
+    LOG(INFO) << ": print_packet(), tag: " << tag;
+
     print_packet("recv", p);
     CHECK_EQ(p->payload.size(), p->msg.data_length);
 
