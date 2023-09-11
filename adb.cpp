@@ -377,6 +377,8 @@ void parse_banner(const std::string& banner, atransport* t) {
 }
 
 static void handle_new_connection(atransport* t, apacket* p) {
+    LOG(INFO) << Serial() << ": handle_new_connection()";
+
     handle_offline(t);
 
     t->update_version(p->msg.arg0, p->msg.arg1);
@@ -406,6 +408,8 @@ static void handle_new_connection(atransport* t, apacket* p) {
 
 void handle_packet(apacket *p, atransport *t)
 {
+    LOG(INFO) << Serial() << ": handle_packet()";
+
     D("handle_packet() %c%c%c%c", ((char*) (&(p->msg.command)))[0],
             ((char*) (&(p->msg.command)))[1],
             ((char*) (&(p->msg.command)))[2],

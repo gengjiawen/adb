@@ -301,6 +301,8 @@ void BlockingConnectionAdapter::Start() {
         LOG(FATAL) << "BlockingConnectionAdapter(" << Serial() << "): started multiple times";
     }
 
+    LOG(INFO) << Serial() << ": Start(), StartReadThread1";
+
     StartReadThread();
 
     write_thread_ = std::thread([this]() {
@@ -365,6 +367,7 @@ bool BlockingConnectionAdapter::DoTlsHandshake(RSA* key, std::string* auth_key) 
         read_thread_.join();
     }
     bool success = this->underlying_->DoTlsHandshake(key, auth_key);
+    LOG(INFO) << Serial() << ": DoTlsHandshake, StartReadThread0";
     StartReadThread();
     return success;
 }
