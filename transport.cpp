@@ -301,6 +301,8 @@ void BlockingConnectionAdapter::Start() {
         LOG(FATAL) << "BlockingConnectionAdapter(" << Serial() << "): started multiple times";
     }
 
+    LOG(INFO) << Serial() << ": Start(), StartReadThread1";
+
     StartReadThread();
 
     write_thread_ = std::thread([this]() {
@@ -334,6 +336,8 @@ void BlockingConnectionAdapter::StartReadThread() {
     read_thread_ = std::thread([this]() {
         LOG(INFO) << Serial() << ": read thread spawning";
         while (true) {
+            LOG(INFO) << Serial() << ": StartReadThread while begin";
+
             auto packet = std::make_unique<apacket>();
             if (!underlying_->Read(packet.get())) {
                 PLOG(INFO) << Serial() << ": read failed";
@@ -347,6 +351,8 @@ void BlockingConnectionAdapter::StartReadThread() {
 
             transport_->HandleRead(std::move(packet));
 
+            LOG(INFO) << Serial() << ": StartReadThread after HandleRead";
+
             // If we received the STLS packet, we are about to perform the TLS
             // handshake. So this read thread must stop and resume after the
             // handshake completes otherwise this will interfere in the process.
@@ -354,6 +360,7 @@ void BlockingConnectionAdapter::StartReadThread() {
                 LOG(INFO) << Serial() << ": Received STLS packet. Stopping read thread.";
                 return;
             }
+            LOG(INFO) << Serial() << ": StartReadThread while end";
         }
         std::call_once(this->error_flag_, [this]() { transport_->HandleError("read failed"); });
     });
@@ -365,6 +372,7 @@ bool BlockingConnectionAdapter::DoTlsHandshake(RSA* key, std::string* auth_key) 
         read_thread_.join();
     }
     bool success = this->underlying_->DoTlsHandshake(key, auth_key);
+    LOG(INFO) << Serial() << ": DoTlsHandshake, StartReadThread0";
     StartReadThread();
     return success;
 }
@@ -1234,6 +1242,8 @@ void atransport::SetConnection(std::shared_ptr<Connection> connection) {
 }
 
 bool atransport::HandleRead(std::unique_ptr<apacket> p) {
+    LOG(INFO) << serial_name() << ": HandleRead start";
+
     if (!check_header(p.get(), this)) {
         D("%s: remote read: bad header", serial.c_str());
         return false;
@@ -1242,9 +1252,13 @@ bool atransport::HandleRead(std::unique_ptr<apacket> p) {
     VLOG(TRANSPORT) << dump_packet(serial.c_str(), "from remote", p.get());
     apacket* packet = p.release();
 
+    LOG(INFO) << serial_name() << ": in HandleRead, before handle_packet";
+
     // This needs to run on the looper thread since the associated fdevent
     // message pump exists in that context.
     fdevent_run_on_looper([packet, this]() { handle_packet(packet, this); });
+
+    LOG(INFO) << serial_name() << ": after handle_packet, end of HandleRead";
 
     return true;
 }
