@@ -39,6 +39,30 @@
       },
       "revId": "eb0d59dda447a5c1cc6f1a26d6631f10a943840d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f709514_0109082e",
+        "filename": "services.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-09-14T21:12:52Z",
+      "side": 1,
+      "message": "Done - but my serious concern is: in 6 months there will be no trace of remnant information that will assist me (or anyone else who would look at this code) to deduce that the second parameter for SendFail(fd, error) is a (silently failing) no-op. \nI\u0027m unsure about: 1.) what rework is needed to propagate the error string to the client-side end? 2.) whether it even makes any sense to do this rework, given the current error (\"protocol fault\") is good enough for most users to understand that the transport is not alive.\nTBH, I wonder whether adding a TODO in the low-level function (WriteFdExactly()) would be misplaced as well?",
+      "parentUuid": "c6c1fc1d_85be2c06",
+      "range": {
+        "startLine": 156,
+        "startChar": 28,
+        "endLine": 159,
+        "endChar": 50
+      },
+      "revId": "eb0d59dda447a5c1cc6f1a26d6631f10a943840d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
