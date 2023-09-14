@@ -22,6 +22,30 @@
       },
       "revId": "f78ea1a444c2220c831095ef11d2173220e4b0ae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a3e70dc_20222c97",
+        "filename": "services.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-09-14T20:00:17Z",
+      "side": 1,
+      "message": "I\u0027m unsure whether we\u0027re intentionally throwing away the error or it could be a case where we need to rework the transport to plumb this through (TBD) - hence the reason I added the TODO at the call-site (sorry it got merged - perhaps it was auto-merge set to on or my clumsiness.. I shall go ahead and remove the TODO in the other CL ()that touches this module).",
+      "parentUuid": "6605e3bb_c96d15bf",
+      "range": {
+        "startLine": 156,
+        "startChar": 28,
+        "endLine": 159,
+        "endChar": 63
+      },
+      "revId": "f78ea1a444c2220c831095ef11d2173220e4b0ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
