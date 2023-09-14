@@ -149,7 +149,16 @@ static void connect_service(unique_fd fd, std::string host) {
 static void pair_service(unique_fd fd, std::string host, std::string password) {
     std::string response;
     adb_wifi_pair_device(host, password, response);
-    SendProtocolString(fd.get(), response);
+    if (android::base::StartsWith(response, "Successful")) {
+        SendProtocolString(fd.get(), response);
+    } else {
+        SendFail(fd,
+                 response);  // This might as well be dont-care, since our objective is to
+                             // merely set the return code to non-zero (the response error
+                             // string will not reach the other end since the
+                             // transport is torn down, and the client receives a
+                             // generic "protocol fault" error).
+    }
 }
 
 static void wait_service(unique_fd fd, std::string serial, TransportId transport_id,
