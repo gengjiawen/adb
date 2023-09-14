@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6605e3bb_c96d15bf",
+        "filename": "services.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-09-14T17:06:13Z",
+      "side": 1,
+      "message": "this TODO is in the wrong place since it\u0027s not this code\u0027s fault... if you really want a comment, it should be in the code that\u0027s throwing away the error. there\u0027s no useful comment here, because _this_ code [after your code change :-) ] is correct.",
+      "range": {
+        "startLine": 156,
+        "startChar": 28,
+        "endLine": 159,
+        "endChar": 63
+      },
+      "revId": "f78ea1a444c2220c831095ef11d2173220e4b0ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
