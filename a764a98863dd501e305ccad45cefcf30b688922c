@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "149396ce_194d0d90",
+        "filename": "services.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-09-14T15:10:15Z",
+      "side": 1,
+      "message": "the code change looks good, but i\u0027d remove the comment --- just because the recipient _currently_ doesn\u0027t use the specific error message isn\u0027t a good reason not to send it. that\u0027s an existing bug at the layer above, not a reason to introduce a _new_ bug at this layer!\n\n\"always return the most detailed error information you have\".",
+      "range": {
+        "startLine": 156,
+        "startChar": 29,
+        "endLine": 160,
+        "endChar": 64
+      },
+      "revId": "a764a98863dd501e305ccad45cefcf30b688922c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
