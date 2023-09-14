@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e4c8770_82b16c02",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-09-14T20:45:48Z",
+      "side": 1,
+      "message": "Resolved merge conflicts. Also removed the TODO (action item wrt to your comment in https://android-review.git.corp.google.com/c/platform/packages/modules/adb/+/2751932).",
+      "revId": "eb0d59dda447a5c1cc6f1a26d6631f10a943840d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
