@@ -46,6 +46,30 @@
       },
       "revId": "f78ea1a444c2220c831095ef11d2173220e4b0ae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac4a6ee8_194b5b29",
+        "filename": "services.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-09-14T20:03:34Z",
+      "side": 1,
+      "message": "if we were intentionally throwing away the error, your _code_ change is wrong --- _that_ bug is what you\u0027ve just fixed :-)\n\nyour comment (aiui) is about the _detailed reason for the error_. the only way that `SendFail(fd, response)` would be wrong here is if there\u0027s a _better_ message you could return, or additional detail that can be provided at this level (std::string operator+ being our crappy equivalent of java chained exceptions for this).",
+      "parentUuid": "3a3e70dc_20222c97",
+      "range": {
+        "startLine": 156,
+        "startChar": 28,
+        "endLine": 159,
+        "endChar": 63
+      },
+      "revId": "f78ea1a444c2220c831095ef11d2173220e4b0ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
