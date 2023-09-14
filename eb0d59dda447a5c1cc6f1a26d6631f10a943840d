@@ -16,6 +16,29 @@
       "message": "Resolved merge conflicts. Also removed the TODO (action item wrt to your comment in https://android-review.git.corp.google.com/c/platform/packages/modules/adb/+/2751932).",
       "revId": "eb0d59dda447a5c1cc6f1a26d6631f10a943840d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6c1fc1d_85be2c06",
+        "filename": "services.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-09-14T20:55:23Z",
+      "side": 1,
+      "message": "this comment is in the wrong place. there is nothing this code can do about this, nor any change that could be made to this code, so the comment is just distracting noise. please remove the entire comment.\n\n(if you know why the failure isn\u0027t making its way all the way back to the client, you could add a TODO in _that_ code. but this comment makes no sense in this location.)",
+      "range": {
+        "startLine": 156,
+        "startChar": 28,
+        "endLine": 159,
+        "endChar": 50
+      },
+      "revId": "eb0d59dda447a5c1cc6f1a26d6631f10a943840d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
