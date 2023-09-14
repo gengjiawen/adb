@@ -63,6 +63,30 @@
       },
       "revId": "eb0d59dda447a5c1cc6f1a26d6631f10a943840d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d1e7fca_5a8cbd05",
+        "filename": "services.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-09-14T23:42:00Z",
+      "side": 1,
+      "message": "\u003e Done - but my serious concern is: in 6 months there will be no trace of remnant information that will assist me (or anyone else who would look at this code) to deduce that the second parameter for SendFail(fd, error) is a (silently failing) no-op.\n\nthat bug is not here.\n\nif you want to record that, record it in the place that\u0027s _causing_ that problem.\n\nif you don\u0027t know where that is, you can file a bug with the repro steps and come back to it.\n\n\u003e ... whether it even makes any sense to do this rework ...\n\nme neither. which is _another_ reason why this comment isn\u0027t useful --- leaving a comment (even in the right place!) is making a stronger claim than we can really make right now. (i\u0027d argue that \"protocol fault\" is definitely _not_ good enough, and it\u0027s a pretty constant cause of confusion and bogus bugs. but whether it\u0027s worth the [unknown amount of] work to fix that is a different question.)\n\n\u003e TBH, I wonder whether adding a TODO in the low-level function (WriteFdExactly()) would be misplaced as well?\n\nyes, for the same reason --- there\u0027s absolutely nothing _that_ function can do about the problem either.\n\nthe bug (aiui) is that the _protocol_ is broken, and closes the connection before reporting the error. none of the _writing_ code can do anything about that. it\u0027s literally already doing the right thing (passing the detail string here, writing it to the fd in SendFail()/WriteFdExactly()).",
+      "parentUuid": "8f709514_0109082e",
+      "range": {
+        "startLine": 156,
+        "startChar": 28,
+        "endLine": 159,
+        "endChar": 50
+      },
+      "revId": "eb0d59dda447a5c1cc6f1a26d6631f10a943840d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
