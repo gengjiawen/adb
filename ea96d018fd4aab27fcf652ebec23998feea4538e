@@ -1,6 +1,75 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "8dd59240_72873022",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-09-15T23:32:50Z",
+      "side": 1,
+      "message": "Need an empty line after the title",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 42
+      },
+      "revId": "ea96d018fd4aab27fcf652ebec23998feea4538e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5611f1cb_edff7265",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-09-15T23:32:50Z",
+      "side": 1,
+      "message": "Chosen for what?",
+      "range": {
+        "startLine": 8,
+        "startChar": 24,
+        "endLine": 8,
+        "endChar": 30
+      },
+      "revId": "ea96d018fd4aab27fcf652ebec23998feea4538e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49883d7b_193b6421",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-09-15T23:32:50Z",
+      "side": 1,
+      "message": "Sure, but what do you mean, what should be removed/changed?",
+      "range": {
+        "startLine": 10,
+        "startChar": 16,
+        "endLine": 10,
+        "endChar": 34
+      },
+      "revId": "ea96d018fd4aab27fcf652ebec23998feea4538e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "509477da_340036f0",
@@ -14,6 +83,47 @@
       "writtenOn": "2023-09-15T22:07:36Z",
       "side": 1,
       "message": "Why isn\u0027t this just an `#ifdef __APPLE__` in should_use_libusb?",
+      "revId": "ea96d018fd4aab27fcf652ebec23998feea4538e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10cb3c27_e3cb9786",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-09-15T23:32:50Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "509477da_340036f0",
+      "revId": "ea96d018fd4aab27fcf652ebec23998feea4538e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c73193f_bddec892",
+        "filename": "client/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-09-15T23:32:50Z",
+      "side": 1,
+      "message": "This is not a useful comment if we don\u0027t explain which cases.",
+      "range": {
+        "startLine": 133,
+        "startChar": 7,
+        "endLine": 133,
+        "endChar": 23
+      },
       "revId": "ea96d018fd4aab27fcf652ebec23998feea4538e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
