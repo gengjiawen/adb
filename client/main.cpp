@@ -129,6 +129,15 @@ int adb_server_main(int is_daemon, const std::string& socket_spec, const char* o
     }
 
     atexit(adb_server_cleanup);
+#if defined(__APPLE__)
+    // In certain cases, libusb is the more resilient option on
+    // OSX, however let the user override this setting.
+    if (-1 == setenv("ADB_LIBUSB", "1",
+                     0  // Do not overwrite, if the user wants control.
+                     )) {
+        LOG(FATAL) << __PRETTY_FUNCTION__ << " errno:" << errno;
+    }
+#endif
 
     init_transport_registration();
     init_reconnect_handler();
