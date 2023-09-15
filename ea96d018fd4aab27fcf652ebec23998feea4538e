@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "509477da_340036f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076798
+      },
+      "writtenOn": "2023-09-15T22:07:36Z",
+      "side": 1,
+      "message": "Why isn\u0027t this just an `#ifdef __APPLE__` in should_use_libusb?",
+      "revId": "ea96d018fd4aab27fcf652ebec23998feea4538e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
