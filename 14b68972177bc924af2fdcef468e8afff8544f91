@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74ce6318_76b4a14a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-09-15T00:06:52Z",
+      "side": 1,
+      "message": "Removed the removal-of-TODO-comment (pl stay tuned for a followup CL).",
+      "revId": "14b68972177bc924af2fdcef468e8afff8544f91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

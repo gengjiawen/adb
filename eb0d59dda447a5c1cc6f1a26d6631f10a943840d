@@ -87,6 +87,30 @@
       },
       "revId": "eb0d59dda447a5c1cc6f1a26d6631f10a943840d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2af3a77_b60e0d3f",
+        "filename": "services.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-09-15T00:06:52Z",
+      "side": 1,
+      "message": "Done - filed b/300534477 (with repro steps).\nPlease stay tuned for a (dedicated) followup CL where I shall remove the offending comment (in it\u0027s entirety). Hopefully I can try to fix this problem.",
+      "parentUuid": "9d1e7fca_5a8cbd05",
+      "range": {
+        "startLine": 156,
+        "startChar": 28,
+        "endLine": 159,
+        "endChar": 50
+      },
+      "revId": "eb0d59dda447a5c1cc6f1a26d6631f10a943840d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
