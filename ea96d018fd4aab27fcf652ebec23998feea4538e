@@ -177,6 +177,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b41c2ce_6027d4cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-09-16T01:26:52Z",
+      "side": 1,
+      "message": "1.) The way it is setup right now is to invoke setenv() during initialization, and not at the call-site (which is several layers deep in the transport stack, specifically transport_usb module). It makes better sense to assign this responsibility (pick libusb vs poll) at the higher-level, than do this at the transport_usb level. 2.) In terms of runtime, `adb attach`/`adb detach` would cause setenv() to be invoke over and over, whereas a single setenv() invocation is enough (during the course of the adb server lifetime).",
+      "parentUuid": "10cb3c27_e3cb9786",
+      "revId": "ea96d018fd4aab27fcf652ebec23998feea4538e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1c73193f_bddec892",
