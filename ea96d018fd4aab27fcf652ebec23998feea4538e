@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4142e1df_b011b8bd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-09-16T01:05:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8dd59240_72873022",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 42
+      },
+      "revId": "ea96d018fd4aab27fcf652ebec23998feea4538e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5611f1cb_edff7265",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbfcf4f8_bb22742c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-09-16T01:05:34Z",
+      "side": 1,
+      "message": "See line #135",
+      "parentUuid": "5611f1cb_edff7265",
+      "range": {
+        "startLine": 8,
+        "startChar": 24,
+        "endLine": 8,
+        "endChar": 30
+      },
+      "revId": "ea96d018fd4aab27fcf652ebec23998feea4538e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "49883d7b_193b6421",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-09-15T23:32:50Z",
       "side": 1,
       "message": "Sure, but what do you mean, what should be removed/changed?",
+      "range": {
+        "startLine": 10,
+        "startChar": 16,
+        "endLine": 10,
+        "endChar": 34
+      },
+      "revId": "ea96d018fd4aab27fcf652ebec23998feea4538e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79e2f539_7f07f2c5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-09-16T01:05:34Z",
+      "side": 1,
+      "message": "Once libusb is the default (for all three host platforms), then I\u0027ll reverse the logic (requiring ADB_LIBUSB\u003d0 to override libusb), at the very least.",
+      "parentUuid": "49883d7b_193b6421",
       "range": {
         "startLine": 10,
         "startChar": 16,
