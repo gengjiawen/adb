@@ -126,6 +126,30 @@
       },
       "revId": "ea96d018fd4aab27fcf652ebec23998feea4538e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00078630_045b883f",
+        "filename": "client/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-09-16T00:59:45Z",
+      "side": 1,
+      "message": "See the bug. The ingredient (kernel version, OS update) has not been pin-pointed.",
+      "parentUuid": "1c73193f_bddec892",
+      "range": {
+        "startLine": 133,
+        "startChar": 7,
+        "endLine": 133,
+        "endChar": 23
+      },
+      "revId": "ea96d018fd4aab27fcf652ebec23998feea4538e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
