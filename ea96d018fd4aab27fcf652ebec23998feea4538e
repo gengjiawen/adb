@@ -240,6 +240,30 @@
       },
       "revId": "ea96d018fd4aab27fcf652ebec23998feea4538e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbb19c5d_05465629",
+        "filename": "client/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-09-16T01:48:47Z",
+      "side": 1,
+      "message": "Glad to incorporate any suggestions, but please be specific about what you\u0027d like me to change.\nWe know that *some* subset of MacOS hosts are impacted, and we know that some of these users got past the block by switching to libusb. As far as we know, libusb is *not* used out in the wild and therefore we are unaware about the extent of any (unknown?) problems. Hence the reason for the amgiguity.",
+      "parentUuid": "00078630_045b883f",
+      "range": {
+        "startLine": 133,
+        "startChar": 7,
+        "endLine": 133,
+        "endChar": 23
+      },
+      "revId": "ea96d018fd4aab27fcf652ebec23998feea4538e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
