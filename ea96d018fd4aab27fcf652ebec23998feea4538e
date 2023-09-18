@@ -281,6 +281,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e6c58910_94447799",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-09-18T19:22:18Z",
+      "side": 1,
+      "message": "+1\n\nthere\u0027s no reason to call setenv() at all, so -- even if attach/detach was a performance hotspot (which it\u0027s not) -- the counterargument isn\u0027t relevant.\n\nthe usual \"reduce unnecessary coupling\" argument that sanglardf makes definitely wins here.",
+      "parentUuid": "acdff62f_c1de6225",
+      "revId": "ea96d018fd4aab27fcf652ebec23998feea4538e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1c73193f_bddec892",
         "filename": "client/main.cpp",
         "patchSetId": 1
@@ -364,6 +382,30 @@
       "side": 1,
       "message": "I don\u0027t think it is cool to force user to go git blame and have to read 84 comments in the bug to understand what is going on.\n\nIf you put a comment to explain what is going on in the next lines of code, it should be clean. This is vague. \n\nAfter spending 10mn reading the bug, I am still not sure what the issue is.\n\n- What is `ADB_OSX_USB_CLEARENDPOINTS`? I cannot find trace of it anywhere.\n- What is actually broken?",
       "parentUuid": "cbb19c5d_05465629",
+      "range": {
+        "startLine": 133,
+        "startChar": 7,
+        "endLine": 133,
+        "endChar": 23
+      },
+      "revId": "ea96d018fd4aab27fcf652ebec23998feea4538e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7e14c46_9533d323",
+        "filename": "client/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-09-18T19:22:18Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "89318bd0_af7be378",
       "range": {
         "startLine": 133,
         "startChar": 7,
