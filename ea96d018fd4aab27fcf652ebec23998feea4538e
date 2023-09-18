@@ -261,6 +261,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1ed6971_64edea04",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-09-18T19:22:07Z",
+      "side": 1,
+      "message": "As I explained before, I do not want to waste extra computing cycles to setenv() over and over again (every time a user runs `adb attach/detach`). The other reason (responsibility to set/unset libusb at a higher level rather than transport_usb itself is a secondary reason and introduced no more/less coupling).\nAnd I\u0027m unclear on what you mean by \"expecting the implementation to not change\" (will chat offline about this part).",
+      "parentUuid": "acdff62f_c1de6225",
+      "revId": "ea96d018fd4aab27fcf652ebec23998feea4538e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1c73193f_bddec892",
