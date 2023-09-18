@@ -317,6 +317,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2df123af_28b2f268",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-09-18T21:17:48Z",
+      "side": 1,
+      "message": "\"invasive\" usually means \"all over the place\", which this would not be. this is really just \"making an equally small change, just in the most localized place\".\n\nif you were going to have to pass a \"use libusb\" flag around through eight different functions in three different files --- _that_ would be an invasive change. but this is really just one line, and the question is just \"does the change happen in the only code that cares?\" vs \"does the change happen in unrelated code in an unrelated file?\".",
+      "parentUuid": "c01fcd97_ef6ad49c",
+      "revId": "ea96d018fd4aab27fcf652ebec23998feea4538e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1c73193f_bddec892",
         "filename": "client/main.cpp",
         "patchSetId": 1
@@ -448,6 +466,30 @@
       "side": 1,
       "message": "The key is that there is still no understanding on what the root-cause of the failure is (given the lack of information), however I shall remove that bit.",
       "parentUuid": "b7e14c46_9533d323",
+      "range": {
+        "startLine": 133,
+        "startChar": 7,
+        "endLine": 133,
+        "endChar": 23
+      },
+      "revId": "ea96d018fd4aab27fcf652ebec23998feea4538e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "179f51b7_a801c139",
+        "filename": "client/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-09-18T21:17:48Z",
+      "side": 1,
+      "message": "yeah, similar to \"if you\u0027ve nothing nice to say, don\u0027t say anything at all\", if you\u0027ve nothing concrete to say ... \n\n(unless you\u0027re _trying_ to start a centuries-long mystery along the lines of https://en.wikipedia.org/wiki/Fermat%27s_Last_Theorem )",
+      "parentUuid": "ea2d645b_e370a9ea",
       "range": {
         "startLine": 133,
         "startChar": 7,
