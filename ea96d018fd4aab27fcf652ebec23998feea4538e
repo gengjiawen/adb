@@ -299,6 +299,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c01fcd97_ef6ad49c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-09-18T20:16:19Z",
+      "side": 1,
+      "message": "\u003e\u003ethere\u0027s no reason to call setenv() at all,\nSo, I take it you\u0027re saying do more invasive changes (given we are still not quite convinced whether libusb would serve to worsen the problems or not?) in lieu of setenv() (which is minimal atm).\nPS: wrt coupling, I guess I can agree there is loose coupling (given there\u0027re no new compilation dependencies introduced).",
+      "parentUuid": "e6c58910_94447799",
+      "revId": "ea96d018fd4aab27fcf652ebec23998feea4538e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1c73193f_bddec892",
         "filename": "client/main.cpp",
         "patchSetId": 1
@@ -406,6 +424,30 @@
       "side": 1,
       "message": "+1",
       "parentUuid": "89318bd0_af7be378",
+      "range": {
+        "startLine": 133,
+        "startChar": 7,
+        "endLine": 133,
+        "endChar": 23
+      },
+      "revId": "ea96d018fd4aab27fcf652ebec23998feea4538e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea2d645b_e370a9ea",
+        "filename": "client/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-09-18T20:16:19Z",
+      "side": 1,
+      "message": "The key is that there is still no understanding on what the root-cause of the failure is (given the lack of information), however I shall remove that bit.",
+      "parentUuid": "b7e14c46_9533d323",
       "range": {
         "startLine": 133,
         "startChar": 7,
