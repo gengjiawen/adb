@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0bf9617f_a66733b8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-09-18T18:52:48Z",
+      "side": 1,
+      "message": "I don\u0027t think this comment provide much to the reader. It says \"I used setenv because it was better\". \n\nIf you are going to mention what else you considered then it makes sense, otherwise I would not mention it.",
+      "parentUuid": "fbfcf4f8_bb22742c",
+      "range": {
+        "startLine": 8,
+        "startChar": 24,
+        "endLine": 8,
+        "endChar": 30
+      },
+      "revId": "ea96d018fd4aab27fcf652ebec23998feea4538e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "49883d7b_193b6421",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "Once libusb is the default (for all three host platforms), then I\u0027ll reverse the logic (requiring ADB_LIBUSB\u003d0 to override libusb), at the very least.",
       "parentUuid": "49883d7b_193b6421",
+      "range": {
+        "startLine": 10,
+        "startChar": 16,
+        "endLine": 10,
+        "endChar": 34
+      },
+      "revId": "ea96d018fd4aab27fcf652ebec23998feea4538e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ee4a50b_6929d01c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-09-18T18:52:48Z",
+      "side": 1,
+      "message": "Add this explanation to the commit message.",
+      "parentUuid": "79e2f539_7f07f2c5",
       "range": {
         "startLine": 10,
         "startChar": 16,
@@ -197,6 +245,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "acdff62f_c1de6225",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-09-18T18:52:48Z",
+      "side": 1,
+      "message": "I disagree with this approach. There is a function `should_use_libusb` and it seems this should be the source of truth in case it is used elsewhere.\n\nHere you are creating a loose coupling by setting the env and expecting the implementation to not change.",
+      "parentUuid": "7b41c2ce_6027d4cb",
+      "revId": "ea96d018fd4aab27fcf652ebec23998feea4538e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1c73193f_bddec892",
         "filename": "client/main.cpp",
         "patchSetId": 1
@@ -256,6 +322,30 @@
       "side": 1,
       "message": "Glad to incorporate any suggestions, but please be specific about what you\u0027d like me to change.\nWe know that *some* subset of MacOS hosts are impacted, and we know that some of these users got past the block by switching to libusb. As far as we know, libusb is *not* used out in the wild and therefore we are unaware about the extent of any (unknown?) problems. Hence the reason for the amgiguity.",
       "parentUuid": "00078630_045b883f",
+      "range": {
+        "startLine": 133,
+        "startChar": 7,
+        "endLine": 133,
+        "endChar": 23
+      },
+      "revId": "ea96d018fd4aab27fcf652ebec23998feea4538e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89318bd0_af7be378",
+        "filename": "client/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-09-18T18:52:48Z",
+      "side": 1,
+      "message": "I don\u0027t think it is cool to force user to go git blame and have to read 84 comments in the bug to understand what is going on.\n\nIf you put a comment to explain what is going on in the next lines of code, it should be clean. This is vague. \n\nAfter spending 10mn reading the bug, I am still not sure what the issue is.\n\n- What is `ADB_OSX_USB_CLEARENDPOINTS`? I cannot find trace of it anywhere.\n- What is actually broken?",
+      "parentUuid": "cbb19c5d_05465629",
       "range": {
         "startLine": 133,
         "startChar": 7,
