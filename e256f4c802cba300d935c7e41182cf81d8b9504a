@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bbd5267_377add74",
+        "filename": "client/transport_usb.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-09-19T15:15:05Z",
+      "side": 1,
+      "message": "do we know that Studio (and other users?) do the equivalent of unset() rather than setting ADB_LIBUSB to 0 to mean \"no libusb\"?\n\ndon\u0027t we want something more like this:\n```\n  static bool enable \u003d []() {\n    bool on \u003d false;\n#if defined(__APPLE__)\n    on \u003d true;\n#endif\n    char* env \u003d getenv(\"ADB_LIBUSB\");\n    if (env) on \u003d (strcmp(env, \"1\") \u003d\u003d 0);\n  }();\n```\nthat preserves the \"you get what you ask for\" behavior, and just changes the default? (modulo \"i haven\u0027t finished my breakfast yet\" coding errors :-) )\n\n(this was a problem with setenv() too, but that had other problems, so i didn\u0027t bring it up there!)",
+      "revId": "e256f4c802cba300d935c7e41182cf81d8b9504a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
