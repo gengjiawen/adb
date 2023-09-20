@@ -141,6 +141,24 @@
       "parentUuid": "57238763_10e9f0f9",
       "revId": "a822c059657dca7f4c3a60c0545a785d0802ba9a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cab940b_f7463af8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-09-20T15:34:23Z",
+      "side": 1,
+      "message": "sorry, i meant \"...so Windows will be a lot harder than Linux\" (which changes the meaning of the sentence quite dramatically; it made sense in my head until you read it back to me :-) ).",
+      "parentUuid": "7bad486c_72c1bda5",
+      "revId": "a822c059657dca7f4c3a60c0545a785d0802ba9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
