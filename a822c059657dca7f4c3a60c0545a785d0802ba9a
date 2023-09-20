@@ -16,6 +16,41 @@
       "message": "Sidenote: I\u0027m not sure I understand the reasoning behind switching only OS X and not Linux to libusb. I don\u0027t remember why I didn\u0027t get around to switching the default, other than Windows being a problem (but I think it no longer is, now that everything older than Windows 10 is EOL).\n\nLooking at git history, I guess reimplementing the libusb client implementation in terms of the nonblocking API was one of the last things I did before leaving Google, so maybe I didn\u0027t want to launch and abandon it :-)",
       "revId": "a822c059657dca7f4c3a60c0545a785d0802ba9a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7b79a2a_ad52a971",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-09-20T06:51:12Z",
+      "side": 1,
+      "message": "r",
+      "revId": "a822c059657dca7f4c3a60c0545a785d0802ba9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ca926d1_1b9fdd5c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-09-20T06:51:12Z",
+      "side": 1,
+      "message": "Most of the problems (around usb transport) are reported from OSX (and Windows at a lesser scale). However, so far we feel this feature has not been used widely (yet), since I can\u0027t recall a single bug originating from the libusb run (on any platform). Switching to libusb default is the first step towards getting some much-needed exposure (esp on MacOS where we have some unresolved issues in the legacy poll implementation). Windows would be the next target (this would be more complex since there\u0027s an associated need to get rid of the dependency on the wrapper library). The test infrastructure failures (on linux) are due to extraneous issues (flaky tests, MH) IMO, however if there\u0027s a convincing reason to switch to libusb as the default for linux that can be a consideration (glad to chat more offline).",
+      "parentUuid": "0b224a85_2d85323b",
+      "revId": "a822c059657dca7f4c3a60c0545a785d0802ba9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
