@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e17297c_4c0c2e0b",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-09-20T19:54:08Z",
+      "side": 1,
+      "message": "i don\u0027t know what this is supposed to mean, and i suspect readers won\u0027t either.\n\ni think you just want something like \"adb has its own USB implementation but can also use libusb. Linux and Windows default to the adb implementation, macOS defaults to libusb. To override the default for your OS, set ADB_LIBUSB to \"1\" to enable libusb or \"0\" to enable the adb implementation.\"\n\n(and don\u0027t include the `export` example --- the others don\u0027t, and if we think that\u0027s useful, it should be factored out rather than repeated for every single variable.)\n\ni\u0027m a bit dubious about saying what OS defaults to what ... this is one of the fundamental issues with having docs outside the binary. is there a way to ask the binary what it\u0027s using? does it show up in `adb --version` or anything?",
+      "range": {
+        "startLine": 383,
+        "startChar": 50,
+        "endLine": 384,
+        "endChar": 47
+      },
+      "revId": "09f1371a53e3c1dda639a1c3651745410eed6ccb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
