@@ -69,6 +69,24 @@
       "parentUuid": "9ca926d1_1b9fdd5c",
       "revId": "a822c059657dca7f4c3a60c0545a785d0802ba9a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06c58ec8_fa48f4f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076798
+      },
+      "writtenOn": "2023-09-20T10:26:45Z",
+      "side": 1,
+      "message": "(also, being able to delete the blocking connections, BlockingConnectionAdapter to make that work, plus the fact that if MH, etc. are still using attach/detach, they\u0027re already opting into using libusb)",
+      "parentUuid": "eec500c9_d382bc9b",
+      "revId": "a822c059657dca7f4c3a60c0545a785d0802ba9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
