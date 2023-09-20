@@ -22,6 +22,30 @@
       },
       "revId": "09f1371a53e3c1dda639a1c3651745410eed6ccb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b22194c_98c2fb6f",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1076798
+      },
+      "writtenOn": "2023-09-20T19:56:34Z",
+      "side": 1,
+      "message": "\u003e is there a way to ask the binary what it\u0027s using?\n\nThe server reports libusb usage in `adb host-features`",
+      "parentUuid": "0e17297c_4c0c2e0b",
+      "range": {
+        "startLine": 383,
+        "startChar": 50,
+        "endLine": 384,
+        "endChar": 47
+      },
+      "revId": "09f1371a53e3c1dda639a1c3651745410eed6ccb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
