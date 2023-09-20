@@ -51,6 +51,24 @@
       "parentUuid": "0b224a85_2d85323b",
       "revId": "a822c059657dca7f4c3a60c0545a785d0802ba9a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eec500c9_d382bc9b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076798
+      },
+      "writtenOn": "2023-09-20T10:22:59Z",
+      "side": 1,
+      "message": "Well, yeah, linux is still a tiny percentage of the user base. The linux and mac libusb implementations should be identical (except for that hack to sleep for a bit to wait for the device node to become appropriately chowned/chmodded) because we\u0027re not linking against udev), so deleting the usb linux implementation in favor of a single unified linux/mac(/windows?) implementation is a compelling reason to switch linux over as well.\n\nThere are way more mac users than linux users (and linux users are going to more likely to read the documentation and understand how to set an environment variable): if libusb is good enough to inflict on all of your mac users, it ought to be good enough to set as the default for linux as well.",
+      "parentUuid": "9ca926d1_1b9fdd5c",
+      "revId": "a822c059657dca7f4c3a60c0545a785d0802ba9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
