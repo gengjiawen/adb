@@ -87,6 +87,24 @@
       "parentUuid": "eec500c9_d382bc9b",
       "revId": "a822c059657dca7f4c3a60c0545a785d0802ba9a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57238763_10e9f0f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-09-20T14:51:56Z",
+      "side": 1,
+      "message": "+1 to \"linux next, if this experiment goes well\" (which is what \"if libusb is actually used at scale\" in the commit message is trying to say), but i don\u0027t think upstream libusb has hotplug support even today?",
+      "parentUuid": "06c58ec8_fa48f4f7",
+      "revId": "a822c059657dca7f4c3a60c0545a785d0802ba9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
