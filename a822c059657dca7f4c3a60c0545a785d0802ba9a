@@ -123,6 +123,24 @@
       "parentUuid": "57238763_10e9f0f9",
       "revId": "a822c059657dca7f4c3a60c0545a785d0802ba9a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bad486c_72c1bda5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076798
+      },
+      "writtenOn": "2023-09-20T15:17:51Z",
+      "side": 1,
+      "message": "\u003e i don\u0027t think upstream libusb has hotplug support even today?\n\nIt does, but udev isn\u0027t ABI-stable so the libusb baked into adb uses netlink to listen for devices instead of waiting for udev to send out notifications, so adb races against udev\u0027s permission setting (and usually won the race to an inaccessible device, IIRC)\n\nhttps://android.googlesource.com/platform/packages/modules/adb/+/177e4be471536065e0c157eb8055f36e62c1bd92%5E%21/#F0 added a hack to use inotify to wait until it\u0027s accessible.",
+      "parentUuid": "57238763_10e9f0f9",
+      "revId": "a822c059657dca7f4c3a60c0545a785d0802ba9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
