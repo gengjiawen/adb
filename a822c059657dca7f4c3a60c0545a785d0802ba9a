@@ -105,6 +105,24 @@
       "parentUuid": "06c58ec8_fa48f4f7",
       "revId": "a822c059657dca7f4c3a60c0545a785d0802ba9a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92cd73ee_d9048ca8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-09-20T15:15:16Z",
+      "side": 1,
+      "message": "When one counts the scale infrastructure labs (tens of thousands of devices), the linux usage deserves more attention. Although I see signs of usage, I also see some counter examples (\"Adb failed to start daemon when libusb is enabled\" for which they disabled libusb) - definitely something worth re-opening/investigating (in the interest of the `single unified implementation` goal).",
+      "parentUuid": "57238763_10e9f0f9",
+      "revId": "a822c059657dca7f4c3a60c0545a785d0802ba9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
