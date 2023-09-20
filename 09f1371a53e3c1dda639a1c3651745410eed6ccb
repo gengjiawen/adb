@@ -46,6 +46,30 @@
       },
       "revId": "09f1371a53e3c1dda639a1c3651745410eed6ccb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e16f1607_f175db5f",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-09-20T20:43:18Z",
+      "side": 1,
+      "message": "ah, so how about\n\n\"adb has its own USB implementation but can also use libusb. Use `adb host-features` to see which is in use. To override the default for your OS, set ADB_LIBUSB to \"1\" to enable libusb or \"0\" to enable the adb implementation.\"\n\nthen? it has the advantage of being true currently, and it\u0027ll have the advantage of staying true for longer :-)",
+      "parentUuid": "1b22194c_98c2fb6f",
+      "range": {
+        "startLine": 383,
+        "startChar": 50,
+        "endLine": 384,
+        "endChar": 47
+      },
+      "revId": "09f1371a53e3c1dda639a1c3651745410eed6ccb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
