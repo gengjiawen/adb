@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "64ce677c_901ff6df",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-09-21T23:34:51Z",
+      "side": 1,
+      "message": "Good point - done (replaced `fortification` phrase).",
+      "parentUuid": "8b06da9e_dba7d98d",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 30
+      },
+      "revId": "25825ec6df7098cba45e2a8073f1215affa0d013",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "12b7dbad_09cd7568",
@@ -64,6 +88,48 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4aa2b1d_458d5a0c",
+        "filename": "client/adb_wifi.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-09-21T23:34:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b068c340_4a100cad",
+      "revId": "25825ec6df7098cba45e2a8073f1215affa0d013",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a0b2f55_eab9803d",
+        "filename": "client/adb_wifi.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-09-21T23:34:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12b7dbad_09cd7568",
+      "range": {
+        "startLine": 52,
+        "startChar": 16,
+        "endLine": 52,
+        "endChar": 87
+      },
+      "revId": "25825ec6df7098cba45e2a8073f1215affa0d013",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8bcd3fdf_26202c2e",
@@ -77,6 +143,24 @@
       "writtenOn": "2023-09-21T15:51:15Z",
       "side": 1,
       "message": "unrelated change?",
+      "revId": "25825ec6df7098cba45e2a8073f1215affa0d013",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3c6ff16_a1983e94",
+        "filename": "client/usb_osx.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-09-21T23:34:51Z",
+      "side": 1,
+      "message": "Done (will send a followup CL).",
+      "parentUuid": "8bcd3fdf_26202c2e",
       "revId": "25825ec6df7098cba45e2a8073f1215affa0d013",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
