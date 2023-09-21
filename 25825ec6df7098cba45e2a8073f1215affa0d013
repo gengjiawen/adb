@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12b7dbad_09cd7568",
+        "filename": "client/adb_wifi.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1415318
+      },
+      "writtenOn": "2023-09-21T15:04:47Z",
+      "side": 1,
+      "message": "static_assert(std::is_standard_layout\u003cstruct PeerInfo\u003e());",
+      "range": {
+        "startLine": 52,
+        "startChar": 16,
+        "endLine": 52,
+        "endChar": 87
+      },
+      "revId": "25825ec6df7098cba45e2a8073f1215affa0d013",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
