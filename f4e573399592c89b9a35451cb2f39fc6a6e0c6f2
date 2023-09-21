@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "776ed86e_7bd9ea13",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-09-21T23:43:02Z",
+      "side": 1,
+      "message": "(otherwise lgtm)",
+      "revId": "f4e573399592c89b9a35451cb2f39fc6a6e0c6f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd5a06b4_049db9b8",
+        "filename": "client/adb_wifi.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-09-21T23:43:02Z",
+      "side": 1,
+      "message": "this one\u0027s a bit weird... it\u0027s not _wrong_, but...\n\nnot sure how the others feel about this one?",
+      "revId": "f4e573399592c89b9a35451cb2f39fc6a6e0c6f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
