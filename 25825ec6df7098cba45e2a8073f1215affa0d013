@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8b06da9e_dba7d98d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-09-21T15:51:15Z",
+      "side": 1,
+      "message": "i think just \"Add static assertions\"... \"fortification\" sounds like `_FORTIFY_SOURCE`, which this isn\u0027t.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 30
+      },
+      "revId": "25825ec6df7098cba45e2a8073f1215affa0d013",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "12b7dbad_09cd7568",
         "filename": "client/adb_wifi.cpp",
         "patchSetId": 1
@@ -20,6 +43,23 @@
         "endLine": 52,
         "endChar": 87
       },
+      "revId": "25825ec6df7098cba45e2a8073f1215affa0d013",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bcd3fdf_26202c2e",
+        "filename": "client/usb_osx.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-09-21T15:51:15Z",
+      "side": 1,
+      "message": "unrelated change?",
       "revId": "25825ec6df7098cba45e2a8073f1215affa0d013",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
