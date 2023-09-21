@@ -49,6 +49,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b068c340_4a100cad",
+        "filename": "client/adb_wifi.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1978766
+      },
+      "writtenOn": "2023-09-21T16:49:37Z",
+      "side": 1,
+      "message": "nit: we done need `\u003d\u003d true`",
+      "revId": "25825ec6df7098cba45e2a8073f1215affa0d013",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8bcd3fdf_26202c2e",
         "filename": "client/usb_osx.cpp",
         "patchSetId": 1
