@@ -54,7 +54,7 @@ class BugreportStandardStreamsCallback : public StandardStreamsCallbackInterface
     }
 
     bool OnStdout(const char* buffer, size_t length) {
-        for (size_t i = 0; i < length; i++) {
+        for (size_t i = 0; i < length; ++i) {
             char c = buffer[i];
             if (c == '\n') {
                 ProcessLine(line_);
