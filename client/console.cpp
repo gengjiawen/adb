@@ -115,7 +115,7 @@ int adb_send_emulator_command(int argc, const char** argv, const char* serial) {
 
     std::string commands = adb_construct_auth_command();
 
-    for (int i = 1; i < argc; i++) {
+    for (int i = 1; i < argc; ++i) {
         commands.append(argv[i]);
         commands.push_back(i == argc - 1 ? '\n' : ' ');
     }

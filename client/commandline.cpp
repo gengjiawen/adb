@@ -1186,7 +1186,7 @@ static int backup(int argc, const char** argv) {
     const char* filename = "backup.ab";
 
     /* find, extract, and use any -f argument */
-    for (int i = 1; i < argc; i++) {
+    for (int i = 1; i < argc; ++i) {
         if (!strcmp("-f", argv[i])) {
             if (i == argc - 1) error_exit("backup -f passed with no filename");
             filename = argv[i+1];

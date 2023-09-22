@@ -263,7 +263,11 @@ AndroidInterfaceAdded(io_iterator_t iterator)
 
                 int langCount = (req.wLenDone - 2) / 2, lang;
 
+<<<<<<< PATCH SET (8a2a42 Code hygiene: following style-guide specs. Followup to https)
+                for (lang = 1; lang <= langCount; ++lang) {
+=======
                 for (lang = 1; lang <= langCount; lang++) {
+>>>>>>> BASE      (88c964 Merge "Device speed/maxSpeed retrieval + API" into main)
                     memset(buffer, 0, sizeof(buffer));
                     memset(&req, 0, sizeof(req));
 
@@ -282,8 +286,7 @@ AndroidInterfaceAdded(io_iterator_t iterator)
                         // skip first word, and copy the rest to the serial string,
                         // changing shorts to bytes.
                         count = (req.wLenDone - 1) / 2;
-                        for (i = 0; i < count; i++)
-                                serial[i] = buffer[i + 1];
+                        for (i = 0; i < count; ++i) serial[i] = buffer[i + 1];
                         serial[i] = 0;
                         break;
                     }

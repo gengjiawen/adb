@@ -184,7 +184,7 @@ static std::string get_package_name_from_apk(const char* apk_path) {
                 }
                 std::u16string element_name_string(element_name, element_name_length);
                 if (element_name_string == u"manifest") {
-                    for (size_t i = 0; i < tree.getAttributeCount(); i++) {
+                    for (size_t i = 0; i < tree.getAttributeCount(); ++i) {
                         size_t attribute_name_length;
                         const char16_t* attribute_name_text =
                                 tree.getAttributeName(i, &attribute_name_length);
@@ -305,7 +305,7 @@ unique_fd install_patch(int argc, const char** argv) {
     std::string argsString;
 
     bool rSwitchPresent = false;
-    for (int i = 0; i < argc; i++) {
+    for (int i = 0; i < argc; ++i) {
         argsString.append(argv[i]);
         argsString.append(" ");
         if (!strcmp(argv[i], "-r")) {

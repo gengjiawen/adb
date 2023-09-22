@@ -1431,7 +1431,7 @@ static bool copy_local_dir_remote(SyncConnection& sc, std::string lpath, std::st
                 }
             }
         } else {
-            skipped++;
+            ++skipped;
         }
     }
 
@@ -1654,7 +1654,7 @@ static bool copy_remote_dir_local(SyncConnection& sc, std::string rpath, std::st
                 return false;
             }
         } else {
-            skipped++;
+            ++skipped;
         }
     }
 
