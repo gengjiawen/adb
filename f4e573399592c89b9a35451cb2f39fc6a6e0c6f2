@@ -33,6 +33,24 @@
       "message": "this one\u0027s a bit weird... it\u0027s not _wrong_, but...\n\nnot sure how the others feel about this one?",
       "revId": "f4e573399592c89b9a35451cb2f39fc6a6e0c6f2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8b4c68d_58b2f75a",
+        "filename": "client/adb_wifi.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-09-22T00:38:58Z",
+      "side": 1,
+      "message": "My reasoning is: uint8_t is a typedef or a #define (used to be on certain unnamed OS?). To avoid anyone (re)defining it to be something else (say, a BigInteger-like class that has an overloaded (unsigned int) and \u003d\u003d()), this would be a safety net.\nPS: Glad to remove this line, in case you folks feel this is petty.",
+      "parentUuid": "cd5a06b4_049db9b8",
+      "revId": "f4e573399592c89b9a35451cb2f39fc6a6e0c6f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
