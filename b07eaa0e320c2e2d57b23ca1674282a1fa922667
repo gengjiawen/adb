@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03898e13_70c734d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-09-22T18:20:50Z",
+      "side": 1,
+      "message": "do the whitespace cleanup in a separate change, and then rebase this? it\u0027s unreadable atm...",
+      "revId": "b07eaa0e320c2e2d57b23ca1674282a1fa922667",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
