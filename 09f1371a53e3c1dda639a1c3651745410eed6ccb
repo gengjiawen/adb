@@ -70,6 +70,30 @@
       },
       "revId": "09f1371a53e3c1dda639a1c3651745410eed6ccb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8143ac6f_356eb983",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-09-22T00:11:26Z",
+      "side": 1,
+      "message": "Done.\n`adb devices -l` also extracts out this information.\nPS: Updating the verbiage thus glosses over the fact that the default is inconsistent across OSX (vs other platforms) - but perhaps that\u0027s only a transient problem (assuming libusb lives up to the promise). And most users never read documentation anyway 😊",
+      "parentUuid": "e16f1607_f175db5f",
+      "range": {
+        "startLine": 383,
+        "startChar": 50,
+        "endLine": 384,
+        "endChar": 47
+      },
+      "revId": "09f1371a53e3c1dda639a1c3651745410eed6ccb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
