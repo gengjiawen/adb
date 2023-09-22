@@ -110,7 +110,7 @@ static int uninstall_app_streamed(int argc, const char** argv) {
 static int uninstall_app_legacy(int argc, const char** argv) {
     /* if the user choose the -k option, we refuse to do it until devices are
        out with the option to uninstall the remaining data somehow (adb/ui) */
-    for (int i = 1; i < argc; i++) {
+    for (int i = 1; i < argc; ++i) {
         if (!strcmp(argv[i], "-k")) {
             printf("The -k option uninstalls the application while retaining the "
                    "data/cache.\n"
@@ -563,7 +563,7 @@ static int install_multiple_app_streamed(int argc, const char** argv) {
     std::vector<std::string> cmd_args = {install_cmd, "install-create", "-S",
                                          std::to_string(total_size)};
     cmd_args.reserve(first_apk + 4);
-    for (int i = 0; i < first_apk; i++) {
+    for (int i = 0; i < first_apk; ++i) {
         if (use_abb_exec) {
             cmd_args.push_back(argv[i]);
         } else {
@@ -601,7 +601,7 @@ static int install_multiple_app_streamed(int argc, const char** argv) {
 
     // Valid session, now stream the APKs
     bool success = true;
-    for (int i = first_apk; i < argc; i++) {
+    for (int i = first_apk; i < argc; ++i) {
         const char* file = argv[i];
         struct stat sb;
         if (stat(file, &sb) == -1) {
@@ -748,7 +748,7 @@ int install_multi_package(int argc, const char** argv) {
                                                        "--multi-package"};
 
     multi_package_cmd_args.reserve(first_package + 4);
-    for (int i = 1; i < first_package; i++) {
+    for (int i = 1; i < first_package; ++i) {
         if (use_abb_exec) {
             multi_package_cmd_args.push_back(argv[i]);
         } else {
@@ -795,7 +795,7 @@ int install_multi_package(int argc, const char** argv) {
     // Valid session, now create the individual sessions and stream the APKs
     int success = EXIT_FAILURE;
     std::vector<std::string> individual_cmd_args = {install_cmd, "install-create"};
-    for (int i = 1; i < first_package; i++) {
+    for (int i = 1; i < first_package; ++i) {
         if (use_abb_exec) {
             individual_cmd_args.push_back(argv[i]);
         } else {
@@ -818,7 +818,7 @@ int install_multi_package(int argc, const char** argv) {
             parent_session_id_str,
     };
 
-    for (int i = first_package; i < argc; i++) {
+    for (int i = first_package; i < argc; ++i) {
         const char* file = argv[i];
         char buf[BUFSIZ];
         {
@@ -931,11 +931,11 @@ finalize_multi_package_session:
         service_args.push_back(install_cmd);
         service_args.push_back("install-commit");
         // If successful, we need to forward args to install-commit
-        for (int i = 1; i < first_package - 1; i++) {
+        for (int i = 1; i < first_package - 1; ++i) {
             if (strcmp(argv[i], "--staged-ready-timeout") == 0) {
                 service_args.push_back(argv[i]);
                 service_args.push_back(argv[i + 1]);
-                i++;
+                ++i;
             }
         }
         service_args.push_back(parent_session_id_str);
@@ -964,7 +964,7 @@ finalize_multi_package_session:
 
     session_ids.push_back(parent_session_id);
     // try to abandon all remaining sessions
-    for (std::size_t i = 0; i < session_ids.size(); i++) {
+    for (std::size_t i = 0; i < session_ids.size(); ++i) {
         std::vector<std::string> service_args = {
                 install_cmd,
                 "install-abandon",
