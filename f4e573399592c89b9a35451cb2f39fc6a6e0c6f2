@@ -87,6 +87,24 @@
       "parentUuid": "61159640_3d9cc0b3",
       "revId": "f4e573399592c89b9a35451cb2f39fc6a6e0c6f2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e62c63cf_b1421853",
+        "filename": "client/adb_wifi.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1978766
+      },
+      "writtenOn": "2023-09-22T18:39:55Z",
+      "side": 1,
+      "message": "yeah this one isn\u0027t needed. if someone redefines uint8_t, we\u0027ll have much bigger problems. and if we are worried about it then we should check for it way early in the program IMO.",
+      "parentUuid": "dc6e043c_effb75f9",
+      "revId": "f4e573399592c89b9a35451cb2f39fc6a6e0c6f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
