@@ -105,6 +105,24 @@
       "parentUuid": "dc6e043c_effb75f9",
       "revId": "f4e573399592c89b9a35451cb2f39fc6a6e0c6f2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7232270f_c1dde5c1",
+        "filename": "client/adb_wifi.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1978766
+      },
+      "writtenOn": "2023-09-22T18:41:05Z",
+      "side": 1,
+      "message": "these types are defined by the standard: https://en.cppreference.com/w/c/types/integer",
+      "parentUuid": "e62c63cf_b1421853",
+      "revId": "f4e573399592c89b9a35451cb2f39fc6a6e0c6f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
