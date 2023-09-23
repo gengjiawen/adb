@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d257f4a8_7a2160c1",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-09-23T00:55:37Z",
+      "side": 1,
+      "message": "Done (although I feel that libusb is also an alternate USB implementation).",
+      "parentUuid": "176449cc_93bbbbb3",
+      "range": {
+        "startLine": 382,
+        "startChar": 32,
+        "endLine": 382,
+        "endChar": 53
+      },
+      "revId": "fb481d0378a27c9e259591a9f80a6b17455d5c80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2a77699d_e53382d3",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-09-22T18:53:56Z",
       "side": 1,
       "message": "how?\n\nthat is: \"what is the user looking for in each of the four (adb, libusb) * (devices, host-features) combinations?\". i think you mean \"if `adb devices -l` or `adb host-features` says \"libusb\", you\u0027re using libusb, otherwise you\u0027re using adb\u0027s own implementation\"?",
+      "range": {
+        "startLine": 383,
+        "startChar": 24,
+        "endLine": 384,
+        "endChar": 17
+      },
+      "revId": "fb481d0378a27c9e259591a9f80a6b17455d5c80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e16553f1_d4a224f0",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-09-23T00:55:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a77699d_e53382d3",
       "range": {
         "startLine": 383,
         "startChar": 24,
