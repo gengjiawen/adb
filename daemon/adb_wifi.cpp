@@ -127,15 +127,40 @@ void TlsServer::StaticOnFdEvent(int fd, unsigned ev, void* opaque) {
     server->OnFdEvent(fd, ev);
 }
 
+static bool is_addr_loopback(struct sockaddr* addr) {
+    if (addr->sa_family == AF_INET6) {
+        struct sockaddr_in6* addr6 = reinterpret_cast<struct sockaddr_in6*>(addr);
+        if (IN6_IS_ADDR_UNSPECIFIED(&addr6->sin6_addr) ||
+            IN6_IS_ADDR_LOOPBACK(&addr6->sin6_addr)) {
+            return true;
+        }
+        if (IN6_IS_ADDR_V4MAPPED(&addr6->sin6_addr)) {
+            return IN_LOOPBACK(ntohl(addr6->sin6_addr.s6_addr32[3]));
+        }
+    } else if (addr->sa_family == AF_INET) {
+        struct sockaddr_in* addr4 = reinterpret_cast<struct sockaddr_in*>(addr);
+        return IN_LOOPBACK(ntohl(addr4->sin_addr.s_addr));
+    }
+    return false;
+}
+
 void TlsServer::OnFdEvent(int fd, unsigned ev) {
     if ((ev & FDE_READ) == 0 || fd != fd_event_->fd.get()) {
         LOG(INFO) << __func__ << ": No read [ev=" << ev << " fd=" << fd << "]";
         return;
     }
 
-    unique_fd new_fd(adb_socket_accept(fd, nullptr, nullptr));
+    struct sockaddr_in6 addr_in6;
+    struct sockaddr* addr = reinterpret_cast<struct sockaddr*>(&addr_in6);
+    socklen_t size = sizeof(addr_in6);
+    unique_fd new_fd(adb_socket_accept(fd, addr, &size));
     if (new_fd >= 0) {
         LOG(INFO) << "New TLS connection [fd=" << new_fd.get() << "]";
+        if (is_addr_loopback(addr)) {
+            LOG(INFO) << "Rejecting WiFi connection from localhost";
+            return;
+        }
+
         close_on_exec(new_fd.get());
         disable_tcp_nagle(new_fd.get());
         std::string serial = android::base::StringPrintf("host-%d", new_fd.get());
