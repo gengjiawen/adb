@@ -16,6 +16,40 @@
       "message": "Followup CL to earlier merge.",
       "revId": "0d7379889655793d366cf2cc55d08a0359448aaa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a57bda01_7179f89b",
+        "filename": "client/adb_wifi.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-09-26T01:37:21Z",
+      "side": 1,
+      "message": "what does `static_assert(!std::is_pointer\u003cdecltype(p)\u003e());` say?\n\n(but then, why do you even have this second assert?)",
+      "revId": "0d7379889655793d366cf2cc55d08a0359448aaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a220e78_688440af",
+        "filename": "types_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-09-26T01:37:21Z",
+      "side": 1,
+      "message": "why this second assertion?",
+      "revId": "0d7379889655793d366cf2cc55d08a0359448aaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
