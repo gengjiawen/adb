@@ -16,6 +16,24 @@
       "message": "This is incorrect, \u0027foo\u0027 and \u0027foo\\0\u0027 are different abstract socket names annoyingly.",
       "revId": "e3d3abc86b807ab50b72bb1e30fcf9b7ec1a9490",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "151bd495_7ce1cb52",
+        "filename": "libs/adbconnection/include/adbconnection/common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1894651
+      },
+      "writtenOn": "2023-09-27T21:56:26Z",
+      "side": 1,
+      "message": "Oops, opened this tab and typed out this comment between PS1 and PS2",
+      "parentUuid": "843b9f53_f7726c16",
+      "revId": "e3d3abc86b807ab50b72bb1e30fcf9b7ec1a9490",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
