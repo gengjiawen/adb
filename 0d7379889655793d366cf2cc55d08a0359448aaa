@@ -53,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fa02e41_a45cb73d",
+        "filename": "client/adb_wifi.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-09-27T15:26:01Z",
+      "side": 1,
+      "message": "\u003e I\u0027m unsure what you mean (is_standard_layout\u003c\u003e() and is_pointer\u003c\u003e() are not mutually exclusive)\n\nno, quite the opposite --- is_standard_layout() on a pointer is always useless, because pointers are _always_ standard layout. with these kinds of things, you need to distinguish between the pointer and the thing pointed to. (but in this case, it doesn\u0027t matter anyway, so deletion is the right choice.)",
+      "parentUuid": "e3d90e76_12dc88dd",
+      "revId": "0d7379889655793d366cf2cc55d08a0359448aaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9a220e78_688440af",
