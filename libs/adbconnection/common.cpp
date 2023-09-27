@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 The Android Open Source Project
+ * Copyright (C) 2023 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,16 +14,21 @@
  * limitations under the License.
  */
 
-#pragma once
+#include "adbconnection/common.h"
 
-#include <sys/socket.h>
-#include <sys/types.h>
-
+#include <string>
 #include <tuple>
 
-#include <android-base/unique_fd.h>
+using namespace std::string_literals;
 
-#include "adbconnection/process_info.h"
+std::tuple<sockaddr_un, socklen_t> get_control_socket_addr() {
+  std::string kJdwpControlName = "\0jdwp-control"s;
+  assert(kJdwpControlName.size() <= sizeof(reinterpret_cast<sockaddr_un*>(0)->sun_path));
 
-// Note this is NOT an apex interface as it's linked only into adbd.
-void adbconnection_listen(void (*callback)(int fd, ProcessInfo process));
+  sockaddr_un addr = {};
+  addr.sun_family = AF_UNIX;
+  memcpy(addr.sun_path, kJdwpControlName.c_str(), kJdwpControlName.size());
+  socklen_t addrlen = offsetof(sockaddr_un, sun_path) + kJdwpControlName.size();
+
+  return {addr, addrlen};
+}
