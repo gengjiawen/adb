@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 The Android Open Source Project
+ * Copyright (C) 2023 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,13 +17,8 @@
 #pragma once
 
 #include <sys/socket.h>
-#include <sys/types.h>
+#include <sys/un.h>
 
 #include <tuple>
 
-#include <android-base/unique_fd.h>
-
-#include "adbconnection/process_info.h"
-
-// Note this is NOT an apex interface as it's linked only into adbd.
-void adbconnection_listen(void (*callback)(int fd, ProcessInfo process));
+std::tuple<sockaddr_un, socklen_t> get_control_socket_addr();
