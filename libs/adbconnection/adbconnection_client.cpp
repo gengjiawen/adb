@@ -30,11 +30,10 @@
 #include <android-base/properties.h>
 #include <android-base/unique_fd.h>
 
+#include "adbconnection/common.h"
 #include "adbconnection/process_info.h"
 
 using android::base::unique_fd;
-
-static constexpr char kJdwpControlName[] = "\0jdwp-control";
 
 struct AdbConnectionClientContext {
   unique_fd control_socket_;
@@ -152,8 +151,8 @@ AdbConnectionClientContext* adbconnection_client_new(
 
   sockaddr_un addr = {};
   addr.sun_family = AF_UNIX;
-  memcpy(addr.sun_path, kJdwpControlName, sizeof(kJdwpControlName));
-  size_t addr_len = offsetof(sockaddr_un, sun_path) + sizeof(kJdwpControlName) - 1;
+  memcpy(addr.sun_path, JDWP_CONTROL_NAME, JDWP_CONTROL_NAME_LEN);
+  size_t addr_len = offsetof(sockaddr_un, sun_path) + JDWP_CONTROL_NAME_LEN;
 
   int rc = connect(ctx->control_socket_.get(), reinterpret_cast<sockaddr*>(&addr), addr_len);
   if (rc != 0) {
