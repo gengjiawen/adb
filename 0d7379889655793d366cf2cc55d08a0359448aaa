@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3d90e76_12dc88dd",
+        "filename": "client/adb_wifi.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-09-27T00:37:48Z",
+      "side": 1,
+      "message": "I\u0027m unsure what you mean (is_standard_layout\u003c\u003e() and is_pointer\u003c\u003e() are *not* mutually exclusive), but I\u0027ll venture a guess: p (is_pointer\u003cdecltype(p)\u003e() should resolve to true) is a long and does not need validation with is_standard_layout\u003c\u003e, because a long is obviously standard layout.\nSo, I\u0027m removing that line.\nPS: Why did I add that line? (it was a line-for-line translation of \"static_assert(std::is_standard_layout\u003cstruct PairingResultWaiter\u003e());\" (which in hindsight was unnecessary).",
+      "parentUuid": "a57bda01_7179f89b",
+      "revId": "0d7379889655793d366cf2cc55d08a0359448aaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9a220e78_688440af",
@@ -48,6 +66,24 @@
       "writtenOn": "2023-09-26T01:37:21Z",
       "side": 1,
       "message": "why this second assertion?",
+      "revId": "0d7379889655793d366cf2cc55d08a0359448aaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "abb50ffa_1a4e1d6f",
+        "filename": "types_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-09-27T00:37:48Z",
+      "side": 1,
+      "message": "IOVector is the wrapper around the Block (that\u0027s itself a wrapper around a char arrray) - hence removing line #36).",
+      "parentUuid": "9a220e78_688440af",
       "revId": "0d7379889655793d366cf2cc55d08a0359448aaa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
