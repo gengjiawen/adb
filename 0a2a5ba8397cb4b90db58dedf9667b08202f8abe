@@ -16,6 +16,24 @@
       "message": "this isn\u0027t incorrect since the struct is zeroed and copying an extra \u0027\\0\u0027 won\u0027t hurt, but JDWP_CONTROL_NAME_LEN for consistency with the usage in server?",
       "revId": "0a2a5ba8397cb4b90db58dedf9667b08202f8abe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00d8b0be_91e99ade",
+        "filename": "libs/adbconnection/adbconnection_client.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-09-27T22:15:35Z",
+      "side": 1,
+      "message": "Sure. Done. For future CLs, can we start the review process once I mark it as +1 and add reviewers (this was a WIP which I uploaded to see the delta).",
+      "parentUuid": "0d01d089_05190759",
+      "revId": "0a2a5ba8397cb4b90db58dedf9667b08202f8abe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
