@@ -52,6 +52,24 @@
       "parentUuid": "00d8b0be_91e99ade",
       "revId": "0a2a5ba8397cb4b90db58dedf9667b08202f8abe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94cdac59_f9289419",
+        "filename": "libs/adbconnection/adbconnection_client.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-09-27T22:31:42Z",
+      "side": 1,
+      "message": "I guess this saves a click compared to my \"method\".\n\nThank you for the explanation, I\u0027ll do that in the future.",
+      "parentUuid": "82a924c0_983dc73c",
+      "revId": "0a2a5ba8397cb4b90db58dedf9667b08202f8abe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
