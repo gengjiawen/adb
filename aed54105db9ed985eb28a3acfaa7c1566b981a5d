@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8e0dc88d_f751a631",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-09-28T18:05:05Z",
+      "side": 1,
+      "message": "you need a blank line between the two.\n\n(look at other people\u0027s commit messages in `git log` if you\u0027re not sure what i mean. but basically \"you see how the row with the \"rebase\" button is a mess, containing too much text? keep editing until that only shows the first sentence :-) )",
+      "parentUuid": "12424ab0_5e7a6b98",
+      "revId": "aed54105db9ed985eb28a3acfaa7c1566b981a5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fdc0e8b6_8d071dad",
         "filename": "client/usb_linux.cpp",
         "patchSetId": 1
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "a.) \"Shorter comments, such as comments at the end of a line of code, can sometimes be less formal, but you should be consistent with your style.\"\nThat said, if your preference is to avoid short/end-of-line comments altogether, I\u0027m certainly willing to adopt it.\nb.) Two users imply that `Corsair` hubs *might* be a factor in this scenario. It\u0027s unclear whether other hubs are prone or not (and such level of testing is not scalable, obviously). This is the justification for the egregious terminology 😊\nIn any case, I\u0027m removing the qualifier.\nc.) Those bits are zero initialized (in my mind, that is what I meant by \"uninitialized\").",
       "parentUuid": "fdc0e8b6_8d071dad",
+      "revId": "aed54105db9ed985eb28a3acfaa7c1566b981a5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e1602f8_77ae1969",
+        "filename": "client/usb_linux.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-09-28T18:05:05Z",
+      "side": 1,
+      "message": "\u003e a.) \"Shorter comments, such as comments at the end of a line of code, can sometimes be less formal, but you should be consistent with your style.\"\n\na three-line comment does not count as a \"shorter comment\". obviously there\u0027s a commonly-used exception for comments short enough to fit on the end of a line, but even time you do this for a long comment, you make your long comment _longer_ and less readable.\n\n\u003e b.) Two users imply that Corsair hubs might be a factor in this scenario. It\u0027s unclear whether other hubs are prone or not (and such level of testing is not scalable, obviously). This is the justification for the egregious terminology 😊\n\nthe person who supplied this fix explicitly said:\n\"\"\"\nA corsair usb device results in a type and length of both 0, even though all processing in the code is correct. It has several good descriptors, eventually followed by a length and type of 0, before bufptr gets to the full descriptor length. Therefore, this code loops indefinitely, and plugging in new devices is never found.\n\"\"\"\n\n\u003e c.) Those bits are zero initialized (in my mind, that is what I meant by \"uninitialized\").\n\nthat\u0027s not what either of those words mean. \"zero initialized\" !\u003d \"we read the type byte and it happens to be zero\". \"zero initialized\" would be what happens _before_ that assignment (but isn\u0027t relevant at all here because the local variable isn\u0027t declared before it\u0027s assigned to). \"uninitialized\" would be the state of something that _isn\u0027t_ directly assigned in its declaration _and_ isn\u0027t zero-initialized. (which is not the case for our code, since we always use the clang flag to enforce zero-initialization of stack variables.)",
+      "parentUuid": "7cb08673_eb51f0e7",
       "revId": "aed54105db9ed985eb28a3acfaa7c1566b981a5d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
