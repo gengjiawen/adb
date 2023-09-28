@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eaceb509_ff7b4ac8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-09-28T15:55:00Z",
+      "side": 1,
+      "message": "remember that commit messages should have a single short sentence, followed by a paragraph like this. something like \"Fix handling of zero-length descriptors.\" would make sense.",
+      "revId": "aed54105db9ed985eb28a3acfaa7c1566b981a5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdc0e8b6_8d071dad",
+        "filename": "client/usb_linux.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-09-28T15:55:00Z",
+      "side": 1,
+      "message": "(a) please stop with this weird commenting style. if it\u0027s not in https://google.github.io/styleguide/cppguide.html#Comments, don\u0027t do it. (specifically here, a multi-line comment should start on its own line.)\n\n(b) please stop any time you\u0027re tempted to use vague words like \"certain\". just like last time, you\u0027re making a perfectly good comment worse. being vague here implies you have other examples (which you don\u0027t). it also misses the important fact you do know, that the only place you have seen this is with a Corsair hub (which you mention in the checkin comment anyway).\n\n(c) \"being uninitialized transiently\" doesn\u0027t make any sense, and isn\u0027t the problem here. the problem is that if we don\u0027t move bufptr forward (which we can\u0027t, because the length is allegedly zero) we\u0027ll just keep reading the _same_ descriptor over and over. nothing is uninitialized. we\u0027re just not making forward progress.\n\n```\n                } else if (length \u003d\u003d 0) {\n                    // Some Corsair USB hubs seen in the wild report a zero-length\n                    // descriptor (https://issuetracker.google.com/302212871).\n                    // If we don\u0027t give up here, we\u0027ll never make progress.\n                    D(\"interface descriptor has zero size for descriptor type: %d\", type);\n                    break;\n```",
+      "revId": "aed54105db9ed985eb28a3acfaa7c1566b981a5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
