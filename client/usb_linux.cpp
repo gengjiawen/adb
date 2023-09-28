@@ -295,6 +295,11 @@ static void find_usb_device(const std::string& base,
                                                  device->iSerialNumber, zero_mask, max_packet_size);
                         break;
                     }
+                } else if (length == 0) {  // Certain USB hubs (in the wild)
+                                           // might cause looping due to the descriptor type
+                                           // being uninitialized transiently (b/302212871).
+                    D("interface descriptor has zero size for descriptor type: %d", type);
+                    break;
                 } else {
                     bufptr += length;
                 }
