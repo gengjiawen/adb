@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "04c2317c_b21d04da",
+        "filename": "libs/adbconnection/adbconnection_server.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-10-03T22:00:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20c1f72a_d9f90d80",
+      "range": {
+        "startLine": 41,
+        "startChar": 2,
+        "endLine": 41,
+        "endChar": 78
+      },
+      "revId": "4c3b2dd95c64c7dc16187df351756972a1078e9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f0aef374_39653f09",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-10-03T21:24:19Z",
       "side": 1,
       "message": "Should this not be `static constexpr char` instead of a #define?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 42
+      },
+      "revId": "4c3b2dd95c64c7dc16187df351756972a1078e9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d30b052_f4dfe5ca",
+        "filename": "libs/adbconnection/include/adbconnection/common.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-10-03T22:00:11Z",
+      "side": 1,
+      "message": "I did not want to disturb too much how it was done but I can go the `constexpr` way. In this case, shouldn\u0027t it be `inline constexpr const char*` ?",
+      "parentUuid": "f0aef374_39653f09",
       "range": {
         "startLine": 21,
         "startChar": 0,
