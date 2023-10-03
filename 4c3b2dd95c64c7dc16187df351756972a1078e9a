@@ -16,6 +16,52 @@
       "message": "PTAL",
       "revId": "4c3b2dd95c64c7dc16187df351756972a1078e9a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20c1f72a_d9f90d80",
+        "filename": "libs/adbconnection/adbconnection_server.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-10-03T21:24:19Z",
+      "side": 1,
+      "message": "Pl move to line #48 (\"Place a function\u0027s variables in the narrowest scope possible, and initialize variables in the declaration.\")",
+      "range": {
+        "startLine": 41,
+        "startChar": 2,
+        "endLine": 41,
+        "endChar": 78
+      },
+      "revId": "4c3b2dd95c64c7dc16187df351756972a1078e9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0aef374_39653f09",
+        "filename": "libs/adbconnection/include/adbconnection/common.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-10-03T21:24:19Z",
+      "side": 1,
+      "message": "Should this not be `static constexpr char` instead of a #define?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 42
+      },
+      "revId": "4c3b2dd95c64c7dc16187df351756972a1078e9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
