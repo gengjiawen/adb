@@ -134,6 +134,30 @@
       },
       "revId": "4c3b2dd95c64c7dc16187df351756972a1078e9a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b0bd485_743663b4",
+        "filename": "libs/adbconnection/include/adbconnection/common.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-10-04T19:33:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ff461ba_da90908a",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 42
+      },
+      "revId": "4c3b2dd95c64c7dc16187df351756972a1078e9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

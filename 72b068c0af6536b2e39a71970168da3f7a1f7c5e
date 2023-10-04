@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d2f8133_5696d05d",
+        "filename": "libs/adbconnection/adbconnection_client.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-10-04T19:33:53Z",
+      "side": 1,
+      "message": "oooh... fancy :-)",
+      "revId": "72b068c0af6536b2e39a71970168da3f7a1f7c5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
