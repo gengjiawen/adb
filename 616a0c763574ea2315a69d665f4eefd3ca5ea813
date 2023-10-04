@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64e7bc3a_d36cc5bf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-10-04T23:27:34Z",
+      "side": 1,
+      "message": "(i\u0027m slightly amazed those files still exist in the dalvik/ directory, but they do!)",
+      "revId": "616a0c763574ea2315a69d665f4eefd3ca5ea813",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
