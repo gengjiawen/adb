@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2adca974_186e7a30",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-10-04T19:38:51Z",
+      "side": 1,
+      "message": "PTAL (cleaned up headers and lost +2).",
+      "revId": "d3d3e2b247b3f07e5663d9184f31c4c229e5f0b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
