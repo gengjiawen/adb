@@ -16,6 +16,23 @@
       "message": "PTAL (cleaned up headers and lost +2).",
       "revId": "d3d3e2b247b3f07e5663d9184f31c4c229e5f0b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a311377d_c2af7a0a",
+        "filename": "libs/adbconnection/common.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1076798
+      },
+      "writtenOn": "2023-10-04T20:06:29Z",
+      "side": 1,
+      "message": "nit: this isn\u0027t a constant (and should probably be string_view instead of string?)",
+      "revId": "d3d3e2b247b3f07e5663d9184f31c4c229e5f0b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
