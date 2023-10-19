@@ -52,6 +52,41 @@
       "parentUuid": "46795894_9cf68f2b",
       "revId": "aab86b3b22434453b3e6af646523b943b86530f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69dbcd30_4218df99",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-10-19T22:28:20Z",
+      "side": 1,
+      "message": "yeah, personally i find the current API confusing --- \u0026 is how you say \"it\u0027s always there\" and * is how you say \"it may be there\". taking a * but unconditionally dereferencing it is just annoying.\n\nthis is one of the google3 things i always thought was particularly stupid, but it looks like they\u0027ve fixed it (even to the extent of mentioning std::optional!):\n\"\"\"\nParameters are either inputs to the function, outputs from the function, or both. Non-optional input parameters should usually be values or const references, while non-optional output and input/output parameters should usually be references (which cannot be null). Generally, use std::optional to represent optional by-value inputs, and use a const pointer when the non-optional form would have used a reference. Use non-const pointers to represent optional outputs and optional input/output parameters.\n\"\"\"",
+      "parentUuid": "46320359_c0108144",
+      "revId": "aab86b3b22434453b3e6af646523b943b86530f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b0aba33_003c93fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-10-19T22:28:20Z",
+      "side": 1,
+      "message": "(this is fine for now though)",
+      "revId": "aab86b3b22434453b3e6af646523b943b86530f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
