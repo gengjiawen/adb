@@ -34,6 +34,24 @@
       "parentUuid": "550fd6a1_33e541b9",
       "revId": "aab86b3b22434453b3e6af646523b943b86530f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46320359_c0108144",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-10-19T22:01:35Z",
+      "side": 1,
+      "message": "If we must keep it as a pointer, I would rather not send `nullptr` down the pipeline. Even if we fix `LOG_ERR` to check for `nullptr` somebody may end up using the value anyway.\n\nTLDR: I would rather fix the pointer than fixe everywhere it is used. And I think the current fix is correct.",
+      "parentUuid": "46795894_9cf68f2b",
+      "revId": "aab86b3b22434453b3e6af646523b943b86530f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
