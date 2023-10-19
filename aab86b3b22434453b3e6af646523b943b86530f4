@@ -16,6 +16,24 @@
       "message": "I am considering changing `LibusbConnection` prototype to use reference (e.g.h `Attach(std::string*)` -\u003e `Attach(std::string\u0026)` to avoid these nullptr issue.\n\nLet me know if you are ok with this approach.",
       "revId": "aab86b3b22434453b3e6af646523b943b86530f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46795894_9cf68f2b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076798
+      },
+      "writtenOn": "2023-10-19T21:54:19Z",
+      "side": 1,
+      "message": "iirc google3 cpp style frowned upon non-ptr out parameters.\n\nAssuming that should remain, the proper fix would probably be to not assign to error if it\u0027s null?",
+      "parentUuid": "550fd6a1_33e541b9",
+      "revId": "aab86b3b22434453b3e6af646523b943b86530f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
