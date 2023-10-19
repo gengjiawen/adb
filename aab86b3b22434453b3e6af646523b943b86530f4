@@ -87,6 +87,24 @@
       "message": "(this is fine for now though)",
       "revId": "aab86b3b22434453b3e6af646523b943b86530f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57a34682_ea6cc0de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-10-19T22:30:03Z",
+      "side": 1,
+      "message": "oh, and for the specific question of \"which should it be here?\" --- although i have sympathy with \"sometimes callers don\u0027t need the detail of an error\", in this _specific_ case there\u0027s exactly this one caller :-) (i\u0027m amazed this hasn\u0027t caused more trouble in the past!)",
+      "parentUuid": "69dbcd30_4218df99",
+      "revId": "aab86b3b22434453b3e6af646523b943b86530f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
