@@ -34,6 +34,24 @@
       "parentUuid": "4b394d42_de1b4352",
       "revId": "1ee4dbe0607a1b3f1127ef060e3555e41ef40fdd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f4267a9_e9282c9f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-10-20T23:14:31Z",
+      "side": 1,
+      "message": "think yourself lucky you haven\u0027t spent enough time in recovery mode debugging failed OTAs then :-)",
+      "parentUuid": "ae6a4e7b_e32d1481",
+      "revId": "1ee4dbe0607a1b3f1127ef060e3555e41ef40fdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
