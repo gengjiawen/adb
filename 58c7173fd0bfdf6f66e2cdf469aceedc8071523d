@@ -22,6 +22,30 @@
       },
       "revId": "58c7173fd0bfdf6f66e2cdf469aceedc8071523d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a730f125_dc100de7",
+        "filename": "transport.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 910,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-10-20T14:58:14Z",
+      "side": 0,
+      "message": "it isn\u0027t relevant any more because the new code clearly calls fdevent_run_on_looper() (whereas it\u0027s not obvious at all that the old code actually did the right thing here, even with the comment).",
+      "parentUuid": "b6678f86_036e6400",
+      "range": {
+        "startLine": 910,
+        "startChar": 0,
+        "endLine": 910,
+        "endChar": 48
+      },
+      "revId": "58c7173fd0bfdf6f66e2cdf469aceedc8071523d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
