@@ -16,6 +16,24 @@
       "message": "you\u0027ll need to change adbd\u0027s evil twin too:\n```\nbootable/recovery/minadbd/minadbd.cpp:69:3: error: use of undeclared identifier \u0027init_transport_registration\u0027\n```",
       "revId": "1ee4dbe0607a1b3f1127ef060e3555e41ef40fdd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae6a4e7b_e32d1481",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-10-20T23:13:12Z",
+      "side": 1,
+      "message": "Wow. No idea this even existed!",
+      "parentUuid": "4b394d42_de1b4352",
+      "revId": "1ee4dbe0607a1b3f1127ef060e3555e41ef40fdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
