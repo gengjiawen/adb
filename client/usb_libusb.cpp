@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+#define TRACE_TAG USB
+
 #include "sysdeps.h"
 
 #include "client/usb.h"
@@ -324,7 +326,7 @@ struct LibusbConnection : public Connection {
     }
 
     bool Write(std::unique_ptr<apacket> packet) final {
-        LOG(DEBUG) << "USB write: " << dump_header(&packet->msg);
+        D("USB write: %s", dump_header(&packet->msg).c_str());
         Block header;
         header.resize(sizeof(packet->msg));
         memcpy(header.data(), &packet->msg, sizeof(packet->msg));
@@ -346,7 +348,7 @@ struct LibusbConnection : public Connection {
             // If the payload is a multiple of the endpoint packet size, we
             // need an explicit zero-sized transfer.
             if (should_perform_zero_transfer(payload_length, zero_mask_)) {
-                LOG(INFO) << "submitting zero transfer for payload length " << payload_length;
+                D("submitting zero transfer for payload length %zu", payload_length);
                 Block empty;
                 SubmitWrite(std::move(empty));
             }
@@ -370,7 +372,7 @@ struct LibusbConnection : public Connection {
         if (device_desc->bDeviceClass != LIBUSB_CLASS_PER_INTERFACE) {
             // Assume that all Android devices have the device class set to per interface.
             // TODO: Is this assumption valid?
-            LOG(VERBOSE) << "skipping device with incorrect class at " << device_address_;
+            D("skipping device with incorrect class at %s", device_address_.c_str());
             return false;
         }
 
@@ -400,8 +402,8 @@ struct LibusbConnection : public Connection {
             const libusb_interface_descriptor& interface_desc = interface.altsetting[0];
             if (!is_adb_interface(interface_desc.bInterfaceClass, interface_desc.bInterfaceSubClass,
                                   interface_desc.bInterfaceProtocol)) {
-                LOG(VERBOSE) << "skipping non-adb interface at " << device_address_
-                             << " (interface " << interface_num << ")";
+                D("skipping non-adb interface at %s (interface %zu", device_address_.c_str(),
+                  interface_num);
                 continue;
             }
 
@@ -413,8 +415,8 @@ struct LibusbConnection : public Connection {
                 continue;
             }
 
-            LOG(VERBOSE) << "found potential adb interface at " << device_address_ << " (interface "
-                         << interface_num << ")";
+            D("found potential adb interface at %s  (interface %zu)", device_address_.c_str(),
+              interface_num);
 
             bool found_in = false;
             bool found_out = false;
@@ -452,9 +454,9 @@ struct LibusbConnection : public Connection {
                 found_adb = true;
                 break;
             } else {
-                LOG(VERBOSE) << "rejecting potential adb interface at " << device_address_
-                             << "(interface " << interface_num << "): missing bulk endpoints "
-                             << "(found_in = " << found_in << ", found_out = " << found_out << ")";
+                D("rejecting potential adb interface at %s (interface %zu): missing bulk endpoints "
+                  "(found_in = %d, found_out  = %d)",
+                  device_address_.c_str(), interface_num, found_in, found_out);
             }
         }
 
@@ -525,9 +527,8 @@ struct LibusbConnection : public Connection {
 
         serial_ = GetSerial();
 
-        LOG(DEBUG) << "successfully opened adb device at " << device_address_ << ", "
-                   << StringPrintf("bulk_in = %#x, bulk_out = %#x", read_endpoint_,
-                                   write_endpoint_);
+        D("successfully opened adb device at %s, bulk_in = %#x, bulk_out = %#x",
+          device_address_.c_str(), read_endpoint_, write_endpoint_);
 
         // WARNING: this isn't released via RAII.
         rc = libusb_claim_interface(device_handle_.get(), interface_num_);
@@ -648,7 +649,7 @@ struct LibusbConnection : public Connection {
             return false;
         }
 
-        LOG(INFO) << "registered new usb device '" << serial_ << "'";
+        D("registered new usb device '%s'", serial_.c_str());
         std::lock_guard lock(read_mutex_);
         CreateRead(&header_read_, true);
         CreateRead(&payload_read_, false);
@@ -688,7 +689,7 @@ struct LibusbConnection : public Connection {
     }
 
     virtual void Reset() override final {
-        LOG(INFO) << "resetting " << transport_->serial_name();
+        D("resetting %s", transport_->serial_name().c_str());
         int rc = libusb_reset_device(device_handle_.get());
         if (rc == 0) {
             libusb_device* device = libusb_ref_device(device_.get());
@@ -724,14 +725,14 @@ struct LibusbConnection : public Connection {
 
         auto device_desc = connection->GetDeviceDescriptor();
         if (!device_desc) {
-            LOG(INFO) << "ignoring device " << connection->GetUsbDeviceAddress()
-                      << ": not an adb interface. (GetDeviceDescriptor)";
+            D("ignoring device %s : not an adb interface. (GetDeviceDescriptor)",
+              connection->GetUsbDeviceAddress().c_str());
             return {};
         }
 
         if (!connection->FindInterface(&device_desc.value())) {
-            LOG(INFO) << "ignoring device " << connection->GetUsbDeviceAddress()
-                      << ": not an adb interface. (FindInterface)";
+            D("ignoring device %s : not an adb interface. (FindInterface)",
+              connection->GetUsbDeviceAddress().c_str());
             return {};
         }
 
@@ -750,17 +751,17 @@ struct LibusbConnection : public Connection {
         // We need to open the device to get its serial on Windows and OS X.
         std::string error;
         if (!connection->OpenDevice(&error)) {
-            LOG(INFO) << "ignoring device " << connection->GetUsbDeviceAddress()
-                      << ": not an adb interface. (OpenDevice)";
+            D("ignoring device %s: not an adb interface. (OpenDevice)",
+              connection->GetUsbDeviceAddress().c_str());
             return {};
         }
         connection->serial_ = connection->GetSerial();
         connection->CloseDevice();
 #endif
         if (!transport_server_owns_device(connection->GetUsbDeviceAddress(), connection->serial_)) {
-            LOG(INFO) << "ignoring device " << connection->GetUsbDeviceAddress() << " serial "
-                      << connection->serial_ << ": this server owns '" << transport_get_one_device()
-                      << "'";
+            D("ignoring device %s serial %s: this servers owns %s",
+              connection->GetUsbDeviceAddress().c_str(), connection->serial_.c_str(),
+              transport_get_one_device());
             return {};
         }
 
@@ -802,7 +803,7 @@ static std::atomic<int> connecting_devices(0);
 
 static void process_device(libusb_device* device_raw) {
     std::string device_address = get_device_address(device_raw);
-    LOG(INFO) << "device connected: " << device_address;
+    D("device connected: %s", device_address.c_str());
 
     unique_device device(libusb_ref_device(device_raw));
     auto connection_opt = LibusbConnection::Create(std::move(device));
@@ -817,8 +818,8 @@ static void process_device(libusb_device* device_raw) {
         usb_handles.emplace(libusb_ref_device(device_raw), connection);
     }
 
-    LOG(INFO) << "constructed LibusbConnection for device " << connection->serial_ << " ("
-              << device_address << ")";
+    D("constructed LibusbConnection for device %s (%s)", connection->serial_.c_str(),
+      device_address.c_str());
 
     register_usb_transport(connection, connection->serial_.c_str(), device_address.c_str(), true);
 }
@@ -907,9 +908,9 @@ static void device_disconnected(libusb_device* device) {
             auto connection = connection_weak.lock();
             if (connection) {
                 connection->Stop();
-                LOG(INFO) << "libusb_hotplug: device disconnected: " << connection->serial_;
+                D("libusb_hotplug: device disconnected: %s", connection->serial_.c_str());
             } else {
-                LOG(INFO) << "libusb_hotplug: device disconnected: (destroyed)";
+                D("libusb_hotplug: device disconnected: (destroyed)");
             }
         });
         libusb_unref_device(device);
@@ -919,17 +920,17 @@ static void device_disconnected(libusb_device* device) {
 
 static auto& hotplug_queue = *new BlockingQueue<std::pair<libusb_hotplug_event, libusb_device*>>();
 static void hotplug_thread() {
-    LOG(INFO) << "libusb hotplug thread started";
+    D("libusb hotplug thread started");
     adb_thread_setname("libusb hotplug");
     while (true) {
         hotplug_queue.PopAll([](std::pair<libusb_hotplug_event, libusb_device*> pair) {
             libusb_hotplug_event event = pair.first;
             libusb_device* device = pair.second;
             if (event == LIBUSB_HOTPLUG_EVENT_DEVICE_ARRIVED) {
-                LOG(INFO) << "libusb hotplug: device arrived";
+                D("libusb hotplug: device arrived");
                 device_connected(device);
             } else if (event == LIBUSB_HOTPLUG_EVENT_DEVICE_LEFT) {
-                LOG(INFO) << "libusb hotplug: device left";
+                D("libusb hotplug: device left");
                 device_disconnected(device);
             } else {
                 LOG(WARNING) << "unknown libusb hotplug event: " << event;
@@ -955,7 +956,7 @@ static LIBUSB_CALL int hotplug_callback(libusb_context*, libusb_device* device,
 namespace libusb {
 
 void usb_init() {
-    LOG(DEBUG) << "initializing libusb...";
+    D("initializing libusb...");
     int rc = libusb_init(nullptr);
     if (rc != 0) {
         LOG(FATAL) << "failed to initialize libusb: " << libusb_error_name(rc);
