@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b19f3f76_2c7277dc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-10-20T04:04:12Z",
+      "side": 1,
+      "message": "avoids",
+      "range": {
+        "startLine": 14,
+        "startChar": 16,
+        "endLine": 14,
+        "endChar": 23
+      },
+      "revId": "4790fd3464a31931cc10fa69cc598c6f4945531f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efdaf2c7_994d3e98",
+        "filename": "transport.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 785,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-10-20T04:04:12Z",
+      "side": 1,
+      "message": "Might as well do it now?",
+      "range": {
+        "startLine": 785,
+        "startChar": 4,
+        "endLine": 785,
+        "endChar": 21
+      },
+      "revId": "4790fd3464a31931cc10fa69cc598c6f4945531f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
