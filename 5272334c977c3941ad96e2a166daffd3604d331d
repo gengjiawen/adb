@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c538136f_d7b642c0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-10-21T03:24:23Z",
+      "side": 1,
+      "message": "Also: Replace tMsg system *with* fdevent",
+      "range": {
+        "startLine": 7,
+        "startChar": 20,
+        "endLine": 7,
+        "endChar": 30
+      },
+      "revId": "5272334c977c3941ad96e2a166daffd3604d331d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
