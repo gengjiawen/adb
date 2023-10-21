@@ -567,7 +567,7 @@ void connect_to_remote(asocket* s, std::string_view destination) {
     D("Connect_to_remote call RS(%d) fd=%d", s->id, s->fd);
     apacket* p = get_apacket();
 
-    LOG(VERBOSE) << "LS(" << s->id << ": connect(" << destination << ")";
+    VLOG(SOCKETS) << "LS(" << s->id << ": connect(" << destination << ")";
     p->msg.command = A_OPEN;
     p->msg.arg0 = s->id;
 
@@ -820,6 +820,8 @@ static int smart_socket_enqueue(asocket* s, apacket::payload_type data) {
 
     service = std::string_view(s->smart_socket_data).substr(4);
 
+    VLOG(SERVICES) << "Service request: " << service << ")";
+
     // TODO: These should be handled in handle_host_request.
     if (android::base::ConsumePrefix(&service, "host-serial:")) {
         // serial number should follow "host:" and could be a host:port string.
@@ -857,7 +859,6 @@ static int smart_socket_enqueue(asocket* s, apacket::payload_type data) {
 
         switch (host_request_result) {
             case HostRequestResult::Handled:
-                LOG(VERBOSE) << "SS(" << s->id << "): handled host service '" << service << "'";
                 goto fail;
 
             case HostRequestResult::SwitchedTransport:
