@@ -46,6 +46,30 @@
       },
       "revId": "2e9dd8921485ec2324e954b6e386342ff530072a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "593907f9_8c53231a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-10-23T17:14:02Z",
+      "side": 1,
+      "message": "The other reason this repetition is good is because now I can filter out the service request:\n\n`ADB_TRACE\u003dall adb server nodaemon | grep \"Service request\"`",
+      "parentUuid": "5316fba7_3cb9eea8",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 62
+      },
+      "revId": "2e9dd8921485ec2324e954b6e386342ff530072a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
