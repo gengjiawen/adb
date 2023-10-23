@@ -70,6 +70,30 @@
       },
       "revId": "2e9dd8921485ec2324e954b6e386342ff530072a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9592918a_5979d626",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1076798
+      },
+      "writtenOn": "2023-10-23T17:19:04Z",
+      "side": 1,
+      "message": "You could just grep for sockets.cpp:823 instead, though?\n\nAlso, there\u0027s a spurious trailing \u0027)\u0027 in this output",
+      "parentUuid": "593907f9_8c53231a",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 62
+      },
+      "revId": "2e9dd8921485ec2324e954b6e386342ff530072a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
