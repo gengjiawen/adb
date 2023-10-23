@@ -16,6 +16,24 @@
       "message": "this seems like the wrong direction...\n\nyou know you can install a custom logger for libbase logging?",
       "revId": "48a00e3df197fdaffaa88e5d0f78493665e4b082",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c1b84fd_94f345a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-10-23T21:24:16Z",
+      "side": 1,
+      "message": "I don\u0027t understand your reply. All other usb systems (`usb_linux.cpp`, `usb_windows.cpp`, and `usb_osx.cpp`) use the trace system via `#define TRACE_TAG USB` and `D` macro.\n\n`usb_libusb.cpp` does not follow the same pattern. Are you suggesting the other systems are wrong?",
+      "parentUuid": "1359f75b_13f3c916",
+      "revId": "48a00e3df197fdaffaa88e5d0f78493665e4b082",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
