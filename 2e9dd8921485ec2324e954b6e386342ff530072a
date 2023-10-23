@@ -22,6 +22,30 @@
       },
       "revId": "2e9dd8921485ec2324e954b6e386342ff530072a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5316fba7_3cb9eea8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-10-23T17:00:11Z",
+      "side": 1,
+      "message": "I work with it everyday and I find this format **way** better to diagnose what a software is doing (e.g.: Studio) since everything is service based.\n\n\n- It is not more noisy. There are more lines because we now log all service requests (e.g: `host:transport:X`.\n- Dropping checkpoint is a good thing. Func entries like connect provide little for tracing. I would rather know what service is called instead of what function is called.\n- I see what you mean by repetition in `Service Request` prefix but when we add more trace to `SERVICE`, it will become relevant.",
+      "parentUuid": "bd49cd04_0a3e33b3",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 62
+      },
+      "revId": "2e9dd8921485ec2324e954b6e386342ff530072a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
