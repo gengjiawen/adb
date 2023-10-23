@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1359f75b_13f3c916",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-10-23T21:15:56Z",
+      "side": 1,
+      "message": "this seems like the wrong direction...\n\nyou know you can install a custom logger for libbase logging?",
+      "revId": "48a00e3df197fdaffaa88e5d0f78493665e4b082",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
