@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ce74255_67e70098",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-10-25T21:08:09Z",
+      "side": 1,
+      "message": "nit: No dot at end of topic",
+      "range": {
+        "startLine": 7,
+        "startChar": 25,
+        "endLine": 7,
+        "endChar": 26
+      },
+      "revId": "c3f466883f88b8a2f29ec2b7dc29d30e10e5b423",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "470f3428_3500f536",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-10-25T21:08:09Z",
+      "side": 1,
+      "message": "What problem does this CL fixes? Any bug reference?",
+      "revId": "c3f466883f88b8a2f29ec2b7dc29d30e10e5b423",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
