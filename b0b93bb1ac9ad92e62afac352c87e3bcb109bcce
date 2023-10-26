@@ -16,6 +16,24 @@
       "message": "(if it\u0027s any consolation, i have to remind myself of this too. i remember when 64KiB was the whole _address space_, let alone a single on-stack buffer!)",
       "revId": "b0b93bb1ac9ad92e62afac352c87e3bcb109bcce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "118e8c8e_4a090ce1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-10-26T23:43:33Z",
+      "side": 1,
+      "message": "Same on my dear Amstrad CPC 6128 :P",
+      "parentUuid": "ea1777ea_d830b68b",
+      "revId": "b0b93bb1ac9ad92e62afac352c87e3bcb109bcce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
