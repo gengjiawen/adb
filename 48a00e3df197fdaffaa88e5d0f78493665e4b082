@@ -52,6 +52,24 @@
       "parentUuid": "5c1b84fd_94f345a2",
       "revId": "48a00e3df197fdaffaa88e5d0f78493665e4b082",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a187e05_17063b8a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-10-26T21:48:45Z",
+      "side": 1,
+      "message": "Using `VLOG(USB)` on each line would be the same as `#define TRACE_TAG USB` and then using `D` on each line. So \"moving in the direct direction VLOG(USB)\" is exactly what this CL is doing.",
+      "parentUuid": "b87590b1_e9ccfc73",
+      "revId": "48a00e3df197fdaffaa88e5d0f78493665e4b082",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
