@@ -70,6 +70,24 @@
       "parentUuid": "b87590b1_e9ccfc73",
       "revId": "48a00e3df197fdaffaa88e5d0f78493665e4b082",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "634f94d0_4e4f92ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-10-26T21:57:04Z",
+      "side": 1,
+      "message": "sure, but my point was \"as long as we have two ways to write this, there will be confusion\". and since one is the underlying \"truth\"...\n\n(also the idea of a \"complete\" trace is inherently broken without a custom logger installed that redirects/\"tee\"s all logging to the trace. i don\u0027t see any positive value [and do seem some negative value] to continuing to pretend that there are two different systems here.)",
+      "parentUuid": "4a187e05_17063b8a",
+      "revId": "48a00e3df197fdaffaa88e5d0f78493665e4b082",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
