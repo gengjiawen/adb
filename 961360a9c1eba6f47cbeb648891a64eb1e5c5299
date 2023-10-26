@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e70b15f_4aca457f",
+        "filename": "client/mdnsresponder_client.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-10-26T23:07:30Z",
+      "side": 1,
+      "message": "dude, it\u0027s 2023 --- 64KiB is _not_ a lot.\n\n(s/65/64/, and s/mentiond/mention/ if you do keep this comment though!)",
+      "range": {
+        "startLine": 457,
+        "startChar": 42,
+        "endLine": 457,
+        "endChar": 56
+      },
+      "revId": "961360a9c1eba6f47cbeb648891a64eb1e5c5299",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
