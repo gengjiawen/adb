@@ -88,6 +88,24 @@
       "parentUuid": "4a187e05_17063b8a",
       "revId": "48a00e3df197fdaffaa88e5d0f78493665e4b082",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3099160_ac7c0725",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-10-26T22:04:50Z",
+      "side": 1,
+      "message": "Ok, I can change this CL to use VLOG directly then. Does that works for you?",
+      "parentUuid": "634f94d0_4e4f92ca",
+      "revId": "48a00e3df197fdaffaa88e5d0f78493665e4b082",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
