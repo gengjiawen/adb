@@ -106,6 +106,24 @@
       "parentUuid": "634f94d0_4e4f92ca",
       "revId": "48a00e3df197fdaffaa88e5d0f78493665e4b082",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15f6ccf1_1452cc0f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-10-26T22:33:22Z",
+      "side": 1,
+      "message": "at that point i have no opinion, because i don\u0027t know whether the current severities make any sense or not.\n\nthis is what i\u0027m really getting at with the custom logger: don\u0027t you _really_ want a logger that\u0027s working more like tee(1)? ah, it looks like we already have that: https://source.corp.google.com/h/android/platform/superproject/main/+/main:packages/modules/adb/adb_trace.cpp;l\u003d45;bpv\u003d0;bpt\u003d1\n\nso it\u0027s really just a question of \"are any of these logs useful outside of tracing?\". (but that\u0027s back to \"i don\u0027t have an opinion\"...)",
+      "parentUuid": "a3099160_ac7c0725",
+      "revId": "48a00e3df197fdaffaa88e5d0f78493665e4b082",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
