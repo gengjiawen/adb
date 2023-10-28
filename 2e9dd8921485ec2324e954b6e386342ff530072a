@@ -94,6 +94,30 @@
       },
       "revId": "2e9dd8921485ec2324e954b6e386342ff530072a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2819dc11_7a36c5a4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-10-28T00:16:21Z",
+      "side": 1,
+      "message": "\u003e\u003e You could just grep for sockets.cpp:823 instead, though?\n\nThis is not practical, I can remember to grep for `Service`. Now remembering `sockets:823` is harder. Not to mention the line will change with the code which mean I will have to run the server once. Find what is the line. And run it again.",
+      "parentUuid": "9592918a_5979d626",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 62
+      },
+      "revId": "2e9dd8921485ec2324e954b6e386342ff530072a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
