@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb154d8b_87ac4922",
+        "filename": "client/transport_usb.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-10-28T03:24:03Z",
+      "side": 0,
+      "message": "Isn\u0027t there a bionic version of adb (it\u0027s unclear what the purpose of that binary is)? Does this removal impact the code-size for that binary?",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 125,
+        "endChar": 19
+      },
+      "revId": "27da9ef398adc652eeae73ac1aad2f3d028bf440",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
