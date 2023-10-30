@@ -22,6 +22,30 @@
       },
       "revId": "27da9ef398adc652eeae73ac1aad2f3d028bf440",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9c9f917_0191ea35",
+        "filename": "client/transport_usb.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-10-30T14:45:28Z",
+      "side": 0,
+      "message": "if this build passed treehugger, \"obviously not\" :-)\n\n(there have been people who\u0027ve asked for it occasionally, and you could imagine an Android laptop with an Android phone connected, say, where this might be useful, but it\u0027s not a thing we\u0027ve shipped.)\n\nthat said, this wouldn\u0027t _break_ anything anyway, right? it would just mean that the on-device adb would be using the same code as the host adb?\n\ni was a bit confused by yabinc\u0027s code comment here, but luckily his commit message was clearer about the motivation here: \"To be safe, this patch doesn\u0027t change any logic on device\". so we have no reason to believe we need this at all.",
+      "parentUuid": "eb154d8b_87ac4922",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 125,
+        "endChar": 19
+      },
+      "revId": "27da9ef398adc652eeae73ac1aad2f3d028bf440",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
