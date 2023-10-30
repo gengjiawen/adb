@@ -16,6 +16,23 @@
       "message": "The trace command is quite convoluted though since I also need to redirect stderr to stdout before greping.\n\n```\nADB_TRACE\u003dservices adb server nodaemon 2\u003e\u00261 | grep \"service request\"\n```\n\nUsing\n\n```\nADB_TRACE\u003dservices adb server nodaemon\n``` \n\nwould have been much more convenient.",
       "revId": "6e386133c0d1dc97da7099cb7fa0983ed7c029e2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52426394_58415d64",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-10-30T17:31:47Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "6e386133c0d1dc97da7099cb7fa0983ed7c029e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
