@@ -46,6 +46,30 @@
       },
       "revId": "27da9ef398adc652eeae73ac1aad2f3d028bf440",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90bf5301_3765ee78",
+        "filename": "client/transport_usb.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-10-30T17:33:16Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "e9c9f917_0191ea35",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 125,
+        "endChar": 19
+      },
+      "revId": "27da9ef398adc652eeae73ac1aad2f3d028bf440",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
