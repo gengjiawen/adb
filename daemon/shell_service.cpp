@@ -282,6 +282,11 @@ bool Subprocess::ForkAndExec(std::string* error) {
         env["TERM"] = terminal_type_;
     }
 
+    // Force the shell and any forked processes from the shell to
+    // automatically enable the decay time for the native allocator
+    // to get the best performance from adb shell commands.
+    env["SET_DECAY_TIME_ENABLED"] = "1";
+
     std::vector<std::string> joined_env;
     for (const auto& it : env) {
         const char* key = it.first.c_str();
