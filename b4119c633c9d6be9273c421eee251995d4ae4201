@@ -16,6 +16,41 @@
       "message": "I think this only sets the environment variable for adb shell commands. If I\u0027m wrong, let me know.",
       "revId": "b4119c633c9d6be9273c421eee251995d4ae4201",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2981abf6_0d5abd9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-11-02T21:03:45Z",
+      "side": 1,
+      "message": "(yes. editing mkshrc would make it for _all_ shells, not just adb-forked shells. editing the init .rc files would make it for all _processes_, not just shells.)",
+      "parentUuid": "338d11cd_7cff885b",
+      "revId": "b4119c633c9d6be9273c421eee251995d4ae4201",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "503874de_573426cf",
+        "filename": "daemon/shell_service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-11-02T21:03:45Z",
+      "side": 1,
+      "message": "...but _why_?\n\n(or, to use more words: \"why is this the right default, given that it\u0027s the _opposite_ of the default for apps?\". doesn\u0027t this make things _more_ confusing for developers? especially because anyone who wants this behavior can trivially opt in by setting the environment variable themselves?)",
+      "revId": "b4119c633c9d6be9273c421eee251995d4ae4201",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
