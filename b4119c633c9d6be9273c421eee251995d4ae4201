@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "338d11cd_7cff885b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1019050
+      },
+      "writtenOn": "2023-11-02T19:50:24Z",
+      "side": 1,
+      "message": "I think this only sets the environment variable for adb shell commands. If I\u0027m wrong, let me know.",
+      "revId": "b4119c633c9d6be9273c421eee251995d4ae4201",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
