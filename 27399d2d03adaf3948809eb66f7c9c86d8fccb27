@@ -71,6 +71,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e07ff55_34944d8c",
+        "filename": "docs/user/trace.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-11-06T22:51:42Z",
+      "side": 1,
+      "message": "Done. Added a warning.",
+      "parentUuid": "966a13d8_0a31e185",
+      "revId": "27399d2d03adaf3948809eb66f7c9c86d8fccb27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a669423c_194c2d52",
@@ -379,6 +397,30 @@
       "side": 1,
       "message": "there\u0027s no better/quicker way for them to get there?",
       "parentUuid": "4f17a291_ecac5806",
+      "range": {
+        "startLine": 34,
+        "startChar": 64,
+        "endLine": 34,
+        "endChar": 67
+      },
+      "revId": "27399d2d03adaf3948809eb66f7c9c86d8fccb27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f47a063a_9ebb03d5",
+        "filename": "docs/user/trace.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-11-06T22:51:42Z",
+      "side": 1,
+      "message": "There is a \"search\" where you can type \"edit environment variable\" (here is how it works https://www.youtube.com/watch?v\u003dow2jROvxyH4) but I am unsure how reliable it is/will be. I added it anyway.",
+      "parentUuid": "9b0ef4c6_8a82dcc7",
       "range": {
         "startLine": 34,
         "startChar": 64,
