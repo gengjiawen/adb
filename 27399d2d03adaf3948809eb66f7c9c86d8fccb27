@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "966a13d8_0a31e185",
+        "filename": "docs/user/trace.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-11-06T22:36:01Z",
+      "side": 1,
+      "message": "i think i\u0027d just call that out --- that Studio users are going to want to make a global change (and may need to log out!), and warn them to clean up afterwards.",
+      "parentUuid": "37498353_ffa0cf8c",
+      "revId": "27399d2d03adaf3948809eb66f7c9c86d8fccb27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a669423c_194c2d52",
         "filename": "docs/user/trace.md",
         "patchSetId": 4
@@ -276,6 +294,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a24ccffd_58f2533e",
+        "filename": "docs/user/trace.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-11-06T22:36:01Z",
+      "side": 1,
+      "message": "yeah, iirc that\u0027s because uid doesn\u0027t make much sense on device, and pid can have conflicts (over time) for multiple users on the same host. (which is obviously a pretty questionable idea anyway, but we do our best to stop them from hurting each other!)",
+      "parentUuid": "ff8ba1e9_a067ea61",
+      "range": {
+        "startLine": 30,
+        "startChar": 20,
+        "endLine": 30,
+        "endChar": 23
+      },
+      "revId": "27399d2d03adaf3948809eb66f7c9c86d8fccb27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0108291d_f26b6c61",
@@ -313,6 +355,30 @@
       "side": 1,
       "message": "Because I assume Windows users are going to try to access the log with `Explorer` and ask where is `%TEMP%`.",
       "parentUuid": "0108291d_f26b6c61",
+      "range": {
+        "startLine": 34,
+        "startChar": 64,
+        "endLine": 34,
+        "endChar": 67
+      },
+      "revId": "27399d2d03adaf3948809eb66f7c9c86d8fccb27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b0ef4c6_8a82dcc7",
+        "filename": "docs/user/trace.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-11-06T22:36:01Z",
+      "side": 1,
+      "message": "there\u0027s no better/quicker way for them to get there?",
+      "parentUuid": "4f17a291_ecac5806",
       "range": {
         "startLine": 34,
         "startChar": 64,
