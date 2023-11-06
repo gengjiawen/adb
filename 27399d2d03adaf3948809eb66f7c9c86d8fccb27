@@ -1,0 +1,170 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7daeeba7_04e99f3e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-11-06T21:38:03Z",
+      "side": 1,
+      "message": "(i could have sworn we already did this, but i can\u0027t _find_ it, so it may as well not be done!)",
+      "revId": "27399d2d03adaf3948809eb66f7c9c86d8fccb27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3518e56e_1c819022",
+        "filename": "docs/user/trace.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-11-06T21:38:03Z",
+      "side": 1,
+      "message": "that\u0027s a bad idea, not least because now you need to log out/start a new shell before this takes effect.\n\nif you think it\u0027s useful to explain how to have always-on logging, i think that should be a separate section (clearly explaining that these are permanent changes).",
+      "revId": "27399d2d03adaf3948809eb66f7c9c86d8fccb27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a669423c_194c2d52",
+        "filename": "docs/user/trace.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-11-06T21:38:03Z",
+      "side": 1,
+      "message": "you can do the equivalent of `export ADB_TRACE\u003dall` on Windows too, can\u0027t you? https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/set_1",
+      "revId": "27399d2d03adaf3948809eb66f7c9c86d8fccb27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8dd035f_11711d69",
+        "filename": "docs/user/trace.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-11-06T21:38:03Z",
+      "side": 1,
+      "message": "Optionally",
+      "range": {
+        "startLine": 22,
+        "startChar": 55,
+        "endLine": 22,
+        "endChar": 65
+      },
+      "revId": "27399d2d03adaf3948809eb66f7c9c86d8fccb27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bb39cd8_77c676cf",
+        "filename": "docs/user/trace.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-11-06T21:38:03Z",
+      "side": 1,
+      "message": "macOS",
+      "range": {
+        "startLine": 27,
+        "startChar": 7,
+        "endLine": 27,
+        "endChar": 13
+      },
+      "revId": "27399d2d03adaf3948809eb66f7c9c86d8fccb27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "866eaf7e_a3cf7619",
+        "filename": "docs/user/trace.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-11-06T21:38:03Z",
+      "side": 1,
+      "message": "created",
+      "range": {
+        "startLine": 30,
+        "startChar": 4,
+        "endLine": 30,
+        "endChar": 10
+      },
+      "revId": "27399d2d03adaf3948809eb66f7c9c86d8fccb27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2be81999_f31ddb17",
+        "filename": "docs/user/trace.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-11-06T21:38:03Z",
+      "side": 1,
+      "message": "is that true? i thought it was _uid_?",
+      "range": {
+        "startLine": 30,
+        "startChar": 20,
+        "endLine": 30,
+        "endChar": 23
+      },
+      "revId": "27399d2d03adaf3948809eb66f7c9c86d8fccb27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0108291d_f26b6c61",
+        "filename": "docs/user/trace.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-11-06T21:38:03Z",
+      "side": 1,
+      "message": "i assume \"username\" is better recognized for Windows users. but is there any point saying this? isn\u0027t say `%TEMP%\\adb.log` more helpful? (can you type that into the Windows equivalent of a macOS Finder window? if not, what would you use there?)",
+      "range": {
+        "startLine": 34,
+        "startChar": 64,
+        "endLine": 34,
+        "endChar": 67
+      },
+      "revId": "27399d2d03adaf3948809eb66f7c9c86d8fccb27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
