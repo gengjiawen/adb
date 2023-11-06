@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "37498353_ffa0cf8c",
+        "filename": "docs/user/trace.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-11-06T22:06:15Z",
+      "side": 1,
+      "message": "I can be more explicit about the permanence of it and add section recommending to turn it off once users have gathered the trace.\n\nHow else do you suggest to enable tracing otherwise? Accounting for the fact that Studio requires special env variable and may kill/restart adb server when itself starts/ends.",
+      "parentUuid": "3518e56e_1c819022",
+      "revId": "27399d2d03adaf3948809eb66f7c9c86d8fccb27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a669423c_194c2d52",
         "filename": "docs/user/trace.md",
         "patchSetId": 4
@@ -48,6 +66,24 @@
       "writtenOn": "2023-11-06T21:38:03Z",
       "side": 1,
       "message": "you can do the equivalent of `export ADB_TRACE\u003dall` on Windows too, can\u0027t you? https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/set_1",
+      "revId": "27399d2d03adaf3948809eb66f7c9c86d8fccb27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b38ebb86_d71abf44",
+        "filename": "docs/user/trace.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-11-06T22:06:15Z",
+      "side": 1,
+      "message": "From my experience in the field, Windows users are more familiar with GUI workflow.",
+      "parentUuid": "a669423c_194c2d52",
       "revId": "27399d2d03adaf3948809eb66f7c9c86d8fccb27",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -75,6 +111,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "19fc8f3e_bd2da517",
+        "filename": "docs/user/trace.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-11-06T22:06:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8dd035f_11711d69",
+      "range": {
+        "startLine": 22,
+        "startChar": 55,
+        "endLine": 22,
+        "endChar": 65
+      },
+      "revId": "27399d2d03adaf3948809eb66f7c9c86d8fccb27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8bb39cd8_77c676cf",
@@ -88,6 +148,30 @@
       "writtenOn": "2023-11-06T21:38:03Z",
       "side": 1,
       "message": "macOS",
+      "range": {
+        "startLine": 27,
+        "startChar": 7,
+        "endLine": 27,
+        "endChar": 13
+      },
+      "revId": "27399d2d03adaf3948809eb66f7c9c86d8fccb27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b755f903_ad0887b0",
+        "filename": "docs/user/trace.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-11-06T22:06:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8bb39cd8_77c676cf",
       "range": {
         "startLine": 27,
         "startChar": 7,
@@ -144,6 +228,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "49da4a06_01e27ef7",
+        "filename": "docs/user/trace.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-11-06T22:06:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "866eaf7e_a3cf7619",
+      "range": {
+        "startLine": 30,
+        "startChar": 4,
+        "endLine": 30,
+        "endChar": 10
+      },
+      "revId": "27399d2d03adaf3948809eb66f7c9c86d8fccb27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff8ba1e9_a067ea61",
+        "filename": "docs/user/trace.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-11-06T22:06:15Z",
+      "side": 1,
+      "message": "Indeed. Only the daemon side uses `pid()` (https://cs.android.com/android/platform/superproject/main/+/main:packages/modules/adb/adb_trace.cpp;l\u003d73;drc\u003da3544297f9cdecd54aa02d9bb1c856c98900db0f). Weird.",
+      "parentUuid": "2be81999_f31ddb17",
+      "range": {
+        "startLine": 30,
+        "startChar": 20,
+        "endLine": 30,
+        "endChar": 23
+      },
+      "revId": "27399d2d03adaf3948809eb66f7c9c86d8fccb27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0108291d_f26b6c61",
@@ -157,6 +289,30 @@
       "writtenOn": "2023-11-06T21:38:03Z",
       "side": 1,
       "message": "i assume \"username\" is better recognized for Windows users. but is there any point saying this? isn\u0027t say `%TEMP%\\adb.log` more helpful? (can you type that into the Windows equivalent of a macOS Finder window? if not, what would you use there?)",
+      "range": {
+        "startLine": 34,
+        "startChar": 64,
+        "endLine": 34,
+        "endChar": 67
+      },
+      "revId": "27399d2d03adaf3948809eb66f7c9c86d8fccb27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f17a291_ecac5806",
+        "filename": "docs/user/trace.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-11-06T22:06:15Z",
+      "side": 1,
+      "message": "Because I assume Windows users are going to try to access the log with `Explorer` and ask where is `%TEMP%`.",
+      "parentUuid": "0108291d_f26b6c61",
       "range": {
         "startLine": 34,
         "startChar": 64,
