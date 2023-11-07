@@ -16,6 +16,23 @@
       "message": "friendly ping?",
       "revId": "4e29eca7c3aba8ea915da4b68e4b3d43ed15998a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2652fa5_198877c9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1305591
+      },
+      "writtenOn": "2023-11-07T17:55:33Z",
+      "side": 1,
+      "message": "Elliot, Shaju, ping?",
+      "revId": "4e29eca7c3aba8ea915da4b68e4b3d43ed15998a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
