@@ -16,6 +16,24 @@
       "message": "isn\u0027t this change just a worse version of https://android-review.git.corp.google.com/c/platform/packages/modules/adb/+/2755631 ?",
       "revId": "ebe14edab3b1ff1549fa842b5370249fe89893bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8f52c12_bafd1fc4",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-11-08T16:49:56Z",
+      "side": 1,
+      "message": "Was unsure whether it was worse or not :) since that was stuck in limbo for several weeks (and I was doing some pending doc cleanup).\nWill abandon (or repurpose) this one.",
+      "parentUuid": "1755f1f5_370ccc12",
+      "revId": "ebe14edab3b1ff1549fa842b5370249fe89893bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
