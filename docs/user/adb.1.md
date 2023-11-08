@@ -379,6 +379,9 @@ $ADB_MDNS_AUTO_CONNECT
 $ADB_MDNS_OPENSCREEN
 &nbsp;&nbsp;&nbsp;&nbsp;The default mDNS-SD backend is Bonjour (mdnsResponder). For machines where Bonjour is not installed, adb can spawn its own, embedded, mDNS-SD back end, openscreen. If set to "1", this env variable forces mDNS backend to openscreen.
 
+$ADB_LIBUSB
+&nbsp;&nbsp;&nbsp;&nbsp;If set to 1, force USB backend to libusb.
+
 # BUGS
 
 See Issue Tracker: [here](https://issuetracker.google.com/issues/new?component=192795&template=1310483).
