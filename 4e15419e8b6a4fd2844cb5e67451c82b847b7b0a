@@ -146,6 +146,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2dd0978f_825c461f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-11-08T20:40:15Z",
+      "side": 1,
+      "message": "What do you meanb by \"CL comment\" not belonging? You mean `e.g.: b/309190814`? Don\u0027t you think it gives a concreate example of why `trace.md` is useful?",
+      "parentUuid": "5ba77ed6_2909bf60",
+      "range": {
+        "startLine": 15,
+        "startChar": 5,
+        "endLine": 15,
+        "endChar": 7
+      },
+      "revId": "4e15419e8b6a4fd2844cb5e67451c82b847b7b0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "780ab4cb_cfe3c17a",
         "filename": "docs/user/trace.md",
         "patchSetId": 10
