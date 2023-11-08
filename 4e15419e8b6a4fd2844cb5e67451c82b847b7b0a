@@ -98,6 +98,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "856c742a_3c8672fc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-11-08T20:19:13Z",
+      "side": 1,
+      "message": "All other points have been addressed. Please let me know what you guys decide about this point.\n\nPersonnaly, I don\u0027t think creating a bug for this CL will help future SWEs. I will copy/paste exactly what is in the commit message and there is no \"bug history\" here.",
+      "parentUuid": "2308ab24_0999b818",
+      "range": {
+        "startLine": 15,
+        "startChar": 5,
+        "endLine": 15,
+        "endChar": 7
+      },
+      "revId": "4e15419e8b6a4fd2844cb5e67451c82b847b7b0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "780ab4cb_cfe3c17a",
         "filename": "docs/user/trace.md",
         "patchSetId": 10
@@ -109,6 +133,30 @@
       "writtenOn": "2023-11-08T19:24:58Z",
       "side": 1,
       "message": "adb",
+      "range": {
+        "startLine": 1,
+        "startChar": 16,
+        "endLine": 1,
+        "endChar": 19
+      },
+      "revId": "4e15419e8b6a4fd2844cb5e67451c82b847b7b0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bc3eb29_c024e48e",
+        "filename": "docs/user/trace.md",
+        "patchSetId": 10
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-11-08T20:19:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "780ab4cb_cfe3c17a",
       "range": {
         "startLine": 1,
         "startChar": 16,
@@ -142,6 +190,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce1e4bd7_b1179dab",
+        "filename": "docs/user/trace.md",
+        "patchSetId": 10
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-11-08T20:19:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0f4d1f2_39b01646",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 75
+      },
+      "revId": "4e15419e8b6a4fd2844cb5e67451c82b847b7b0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "92a93576_97b59473",
@@ -165,6 +237,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd789989_8d511c23",
+        "filename": "docs/user/trace.md",
+        "patchSetId": 10
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-11-08T20:19:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92a93576_97b59473",
+      "range": {
+        "startLine": 12,
+        "startChar": 30,
+        "endLine": 12,
+        "endChar": 36
+      },
+      "revId": "4e15419e8b6a4fd2844cb5e67451c82b847b7b0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "27f380ea_b41fdfed",
@@ -178,6 +274,30 @@
       "writtenOn": "2023-11-08T19:24:58Z",
       "side": 1,
       "message": "still not true :-)",
+      "range": {
+        "startLine": 35,
+        "startChar": 21,
+        "endLine": 35,
+        "endChar": 24
+      },
+      "revId": "4e15419e8b6a4fd2844cb5e67451c82b847b7b0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79aefb96_7274a760",
+        "filename": "docs/user/trace.md",
+        "patchSetId": 10
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-11-08T20:19:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27f380ea_b41fdfed",
       "range": {
         "startLine": 35,
         "startChar": 21,
