@@ -170,6 +170,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "38e1d44a_0ee08a33",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-11-08T20:46:47Z",
+      "side": 1,
+      "message": "\u003e PS: BTW, I never implied we need to file an empty bug 😊\n\nnot _literally_ empty, but \"empty\" in the https://en.wikipedia.org/wiki/Information_theory sense --- \"there\u0027s no new/extra information in the bug\".\n\n\u003e AFAIU: \"Any non-trivial details are best consolidated in a bug that\u0027s referenced in the commit message\"\n\nno, that\u0027s what you keep implying, and i keep disagreeing with. remember we\u0027re an open-source project, and _most_ people who work on Android _don\u0027t_ work for Google. it\u0027s also just less convenient. it\u0027s like the L1/L2/L3/ram cache hierarchy: clear code is L1, code comments L2, checkin comments L3, and bug databases is ram. it\u0027s orders of magnitude less accessible/useful there.\n\nthat\u0027s why i talked about the exceptions above, and they\u0027re mainly where \"the bug already exists\".\n\nno-one\u0027s saying there _shouldn\u0027t_ be a bug. but it just wastes everyone\u0027s time impact to create bugs for no reason. (including the time of the future SWE who wants more information, sees a bug, is actually a Googler so they can click on the bug, ... and finds that there\u0027s nothing there that isn\u0027t already in the commit message.)\n\nsometimes there just isn\u0027t anything more to say, and when there is, you should be working down the \"cache hierarchy\" rather than going straight to the _worst_ option.",
+      "parentUuid": "5ba77ed6_2909bf60",
+      "range": {
+        "startLine": 15,
+        "startChar": 5,
+        "endLine": 15,
+        "endChar": 7
+      },
+      "revId": "4e15419e8b6a4fd2844cb5e67451c82b847b7b0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "780ab4cb_cfe3c17a",
         "filename": "docs/user/trace.md",
         "patchSetId": 10
