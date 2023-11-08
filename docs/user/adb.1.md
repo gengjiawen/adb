@@ -388,7 +388,11 @@ $ADB_MDNS_OPENSCREEN
 &nbsp;&nbsp;&nbsp;&nbsp;The default mDNS-SD backend is Bonjour (mdnsResponder). For machines where Bonjour is not installed, adb can spawn its own, embedded, mDNS-SD back end, openscreen. If set to "1", this env variable forces mDNS backend to openscreen.
 
 $ADB_LIBUSB
+<<<<<<< PATCH SET (b13ea8 Updating doc with ADB_LIBUSB env var (default on MacOS).)
+&nbsp;&nbsp;&nbsp;&nbsp;If set to 1, force USB backend to libusb.
+=======
 &nbsp;&nbsp;&nbsp;&nbsp;ADB has its own USB backend implementation but can also employ libusb. use `adb devices -l` (`usb:` prefix is omitted for libusb)  or `adb host-features` (look for `libusb` in the output list) to identify which is in use. To override the default for your OS, set ADB_LIBUSB to "1" to enable libusb, or "0" to enable the ADB backend implementation.
+>>>>>>> BASE      (5190f7 Merge "adb: Fix compiler error due to SetThreadDescription n)
 
 # BUGS
 
