@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "47bb2c20_c5e709a0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-11-08T19:49:30Z",
+      "side": 1,
+      "message": "but this is a documentation change, and the bug that\u0027s already in the commit message is an _example_ where this would have been useful, not a bug that would be addressed in any by this change. i actually think it\u0027s clearer to have that where it is (with text explicitly saying that it\u0027s just an example) than to use the \"Bug:\" field.\n\ni don\u0027t think this change matters, but i disagree with the idea of setting a precedent for \"every change has a bug, _even if we have to file an otherwise empty one_\", which is just creating work for ourselves with no upside. we don\u0027t do this for any of the other code we own.\n\n(and that\u0027s why the repo upload hooks _do_ complain if you don\u0027t have a \"Test:\" line but not if you don\u0027t have a \"Bug:\" line.)",
+      "parentUuid": "2308ab24_0999b818",
+      "range": {
+        "startLine": 15,
+        "startChar": 5,
+        "endLine": 15,
+        "endChar": 7
+      },
+      "revId": "4e15419e8b6a4fd2844cb5e67451c82b847b7b0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "780ab4cb_cfe3c17a",
         "filename": "docs/user/trace.md",
         "patchSetId": 10
