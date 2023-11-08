@@ -33,6 +33,24 @@
       "message": "you\u0027re missing the variable name.\n\n(i think [in a separate change] we should lose all the `\u0026nbsp;` noise, because it\u0027s obviously making things too hard to read.)",
       "revId": "02a9048157f3eec6ddeb26a85bea2d333feb61bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1ce0a37_522363a8",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-11-08T16:44:55Z",
+      "side": 1,
+      "message": "done (missed the most important part :) \nPS: Will do a follow-up.",
+      "parentUuid": "e12c3228_012b1259",
+      "revId": "02a9048157f3eec6ddeb26a85bea2d333feb61bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
