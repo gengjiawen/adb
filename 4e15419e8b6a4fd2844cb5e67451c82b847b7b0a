@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2db9c540_aa7bb09a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-11-08T19:32:38Z",
+      "side": 1,
+      "message": "do we? that\u0027s true when there\u0027s a user who\u0027s submitted a bug report (whether public or internal), or there\u0027s already a bug with detailed discussion --- but what value does it add to _create_ a bug here?\n\neven if there was something useful to write in that bug, i\u0027d argue that would _still_ be a mistake --- improve the commit message instead!",
+      "parentUuid": "4a7d7877_f2a36011",
+      "range": {
+        "startLine": 15,
+        "startChar": 5,
+        "endLine": 15,
+        "endChar": 7
+      },
+      "revId": "4e15419e8b6a4fd2844cb5e67451c82b847b7b0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "780ab4cb_cfe3c17a",
         "filename": "docs/user/trace.md",
         "patchSetId": 10
