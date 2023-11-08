@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2308ab24_0999b818",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-11-08T19:43:57Z",
+      "side": 1,
+      "message": "Turns out there\u0027s a bug already mentioned in the commit message. Just formalizing it in the field is easy enough isn\u0027t it.\nPS: Too often do I run into legacy CLs that has a N/A against both `Bug:` and `Test:` and it is confounding to guess what the author had in mind at the time.",
+      "parentUuid": "2db9c540_aa7bb09a",
+      "range": {
+        "startLine": 15,
+        "startChar": 5,
+        "endLine": 15,
+        "endChar": 7
+      },
+      "revId": "4e15419e8b6a4fd2844cb5e67451c82b847b7b0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "780ab4cb_cfe3c17a",
         "filename": "docs/user/trace.md",
         "patchSetId": 10
