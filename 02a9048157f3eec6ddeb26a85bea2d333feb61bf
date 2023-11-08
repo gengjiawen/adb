@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2c6ac67_41f35d29",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-11-08T16:15:48Z",
+      "side": 1,
+      "message": "otherwise i think the wording is good now. (i don\u0027t think it\u0027s worth talking about the _different_ defaults for different OSes because (a) that\u0027s changed over time and (b) is basically a bug. though take that argument too far, and we don\u0027t document this at all because we\u0027re working to delete it anyway :-) )",
+      "revId": "02a9048157f3eec6ddeb26a85bea2d333feb61bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e12c3228_012b1259",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-11-08T16:15:48Z",
+      "side": 1,
+      "message": "you\u0027re missing the variable name.\n\n(i think [in a separate change] we should lose all the `\u0026nbsp;` noise, because it\u0027s obviously making things too hard to read.)",
+      "revId": "02a9048157f3eec6ddeb26a85bea2d333feb61bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
