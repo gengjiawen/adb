@@ -16,6 +16,24 @@
       "message": "As per Shaju request, updated to use `per-file`.",
       "revId": "54766fdef10e00389f2fa7a21a882e1e9c0f077b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2de8e9a4_98759b08",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-11-09T05:40:35Z",
+      "side": 1,
+      "message": "PTAL",
+      "parentUuid": "d32f72bf_65d64d04",
+      "revId": "54766fdef10e00389f2fa7a21a882e1e9c0f077b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
