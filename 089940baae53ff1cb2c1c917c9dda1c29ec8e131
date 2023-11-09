@@ -34,6 +34,29 @@
       "parentUuid": "ae9953b6_601f285f",
       "revId": "089940baae53ff1cb2c1c917c9dda1c29ec8e131",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b73ab818_501b6e8e",
+        "filename": "OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-11-09T01:44:09Z",
+      "side": 1,
+      "message": "As we discussed, please update to per-file specs - ty!",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 20
+      },
+      "revId": "089940baae53ff1cb2c1c917c9dda1c29ec8e131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
