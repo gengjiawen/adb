@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85a011c2_cb1e66ee",
+        "filename": "benchmark.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-11-14T22:02:03Z",
+      "side": 1,
+      "message": "IMO, the error scenario (and handling) is noise. Can we gut that?",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 3
+      },
+      "revId": "b5703f1e2717a04754ad0047525ab8aa425aa9ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c708ed94_5a7ba543",
+        "filename": "benchmark.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-11-14T22:02:03Z",
+      "side": 1,
+      "message": "Unsure whether we should specify this (I just ran this on a raven).",
+      "range": {
+        "startLine": 21,
+        "startChar": 15,
+        "endLine": 21,
+        "endChar": 23
+      },
+      "revId": "b5703f1e2717a04754ad0047525ab8aa425aa9ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83452333_3857bd67",
+        "filename": "benchmark.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-11-14T22:02:03Z",
+      "side": 1,
+      "message": "\"USB *or* wireless\" is more accurate?",
+      "range": {
+        "startLine": 21,
+        "startChar": 24,
+        "endLine": 21,
+        "endChar": 35
+      },
+      "revId": "b5703f1e2717a04754ad0047525ab8aa425aa9ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d24bd927_58dcc929",
+        "filename": "benchmark.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-11-14T22:02:03Z",
+      "side": 1,
+      "message": "Please fix this WARNING reported by Check Contents: Please remove the trailing whitespace.\n\nAnalyzer Description: Validates that changes do not have prohibited expressions in them.\nOwner: ayeaye-team@google.com\n\nPlease remove the trailing whitespace.",
+      "range": {
+        "startLine": 24,
+        "startChar": 23,
+        "endLine": 24,
+        "endChar": 24
+      },
+      "revId": "b5703f1e2717a04754ad0047525ab8aa425aa9ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
