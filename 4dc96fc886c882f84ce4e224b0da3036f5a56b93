@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a41a201b_da17da83",
+        "filename": "benchmark.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-11-14T22:21:51Z",
+      "side": 1,
+      "message": "given that there isn\u0027t a subdirectory for benchmarks, this should probably just be README.md (and the existing turd that\u0027s camping that name should either be renamed, or just made a section in a larger file).",
+      "revId": "4dc96fc886c882f84ce4e224b0da3036f5a56b93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cb69b6a_0b03c278",
+        "filename": "benchmark.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-11-14T22:21:51Z",
+      "side": 1,
+      "message": "this is wrong. similar documentation usually just starts with the relevant `m` command anyway.",
+      "revId": "4dc96fc886c882f84ce4e224b0da3036f5a56b93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "025c56ec_42d47910",
+        "filename": "benchmark.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-11-14T22:21:51Z",
+      "side": 1,
+      "message": "\"sets up\"\n\nbut the real fix here seems like fixing the error message to tell you to lunch? that\u0027s what most scripts do.",
+      "range": {
+        "startLine": 13,
+        "startChar": 71,
+        "endLine": 13,
+        "endChar": 77
+      },
+      "revId": "4dc96fc886c882f84ce4e224b0da3036f5a56b93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
