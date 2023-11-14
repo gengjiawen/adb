@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "670d01e0_3122222a",
+        "filename": "benchmark.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-11-14T23:48:08Z",
+      "side": 1,
+      "message": "I wrote that turd :) !\n\nAnyway, discussed offline with enh and agree to move the content of `benchmark.md` to the said turd.",
+      "parentUuid": "a41a201b_da17da83",
+      "revId": "4dc96fc886c882f84ce4e224b0da3036f5a56b93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7cb69b6a_0b03c278",
@@ -35,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e45975b1_58d9253d",
+        "filename": "benchmark.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-11-14T23:48:08Z",
+      "side": 1,
+      "message": "You can run the benchmarks again something that is not head. You can run it again adb from the SDK without building anything. \n\nThis is exactly what happened in my case. I ran into issues because I did not build anything. And running `m` should not be a requirement to use this tool.",
+      "parentUuid": "7cb69b6a_0b03c278",
+      "revId": "4dc96fc886c882f84ce4e224b0da3036f5a56b93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "025c56ec_42d47910",
@@ -48,6 +84,30 @@
       "writtenOn": "2023-11-14T22:21:51Z",
       "side": 1,
       "message": "\"sets up\"\n\nbut the real fix here seems like fixing the error message to tell you to lunch? that\u0027s what most scripts do.",
+      "range": {
+        "startLine": 13,
+        "startChar": 71,
+        "endLine": 13,
+        "endChar": 77
+      },
+      "revId": "4dc96fc886c882f84ce4e224b0da3036f5a56b93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "124cf518_eddc0f04",
+        "filename": "benchmark.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-11-14T23:48:08Z",
+      "side": 1,
+      "message": "Why not both? Are you ok with checking that `BUILD_ID` is set? There are other env variables that I know of created after `lunch` I could also use.\n\n```\nPLATFORM_VERSION_CODENAME\u003dUpsideDownCake\nPLATFORM_VERSION\u003dUpsideDownCake\nTARGET_PRODUCT\u003daosp_oriole\nTARGET_BUILD_VARIANT\u003deng\nTARGET_ARCH\u003darm64\nTARGET_ARCH_VARIANT\u003darmv8-2a\nTARGET_CPU_VARIANT\u003dcortex-a55\nTARGET_2ND_ARCH\u003darm\nTARGET_2ND_ARCH_VARIANT\u003darmv8-a\nTARGET_2ND_CPU_VARIANT\u003dgeneric\nHOST_OS\u003dlinux\nHOST_OS_EXTRA\u003dLinux-6.1.15-1rodete3-amd64-x86_64-Debian-GNU/Linux-rodete\nHOST_CROSS_OS\u003dwindows\nBUILD_ID\u003dAOSP.MASTER\nOUT_DIR\u003dout\n```\n\n\nsets up -\u003e DONE",
+      "parentUuid": "025c56ec_42d47910",
       "range": {
         "startLine": 13,
         "startChar": 71,
