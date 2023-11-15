@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb22ba50_cc213f87",
+        "filename": "benchmark.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-11-15T00:02:53Z",
+      "side": 1,
+      "message": "heh, i\u0027m sure i +2ed it too, because it was a step forwards from where we were _before_ that :-)\n\ni didn\u0027t mean to imply that i particularly hate _that file_ ... it\u0027s our overall end result that sucks: lots of files, most of which don\u0027t contain much, and most of which don\u0027t link to the others. (plus the duplication between README.md [which has the best pictures] and *.TXT [which have most of the text].)",
+      "parentUuid": "670d01e0_3122222a",
+      "revId": "4dc96fc886c882f84ce4e224b0da3036f5a56b93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7cb69b6a_0b03c278",
@@ -156,6 +174,30 @@
       "side": 1,
       "message": "Discussed offline. Recommended to use `ANDROID_BUILD_TOP`. Done in `benchmark_device.py`.",
       "parentUuid": "124cf518_eddc0f04",
+      "range": {
+        "startLine": 13,
+        "startChar": 71,
+        "endLine": 13,
+        "endChar": 77
+      },
+      "revId": "4dc96fc886c882f84ce4e224b0da3036f5a56b93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6737fc41_6b26cbf1",
+        "filename": "benchmark.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-11-15T00:02:53Z",
+      "side": 1,
+      "message": "ANDROID_BUILD_TOP is the most popular choice i\u0027ve seen for this.\n\nhttps://source.corp.google.com/search?q\u003dfile:py$%20ANDROID_BUILD_TOP%20lunch%20case:yes\u0026sq\u003drepo:android%2Fplatform%2Fsuperproject%2Fmain%20b:main%20-file:prebuilts%2Fvndk%2F%20-file:prebuilts%2Fruntime%2F\n\ni have no idea why. ccross probably knows, but i\u0027m not going to add him myself, because i\u0027m pretty sure i\u0027ve asked him before and i\u0027m embarrassed to have forgotten, so one of you two can ask if you want to know :-)",
+      "parentUuid": "32fc54bb_6a533ad8",
       "range": {
         "startLine": 13,
         "startChar": 71,
