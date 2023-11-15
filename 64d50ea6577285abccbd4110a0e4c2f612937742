@@ -98,6 +98,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "9c1fe5e2_045bebcb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-11-15T22:07:29Z",
+      "side": 1,
+      "message": "\u003e \"no news is good news\" \n\nThis makes no sense in this context. Which one is the bad news? The fact that the default was overwritten? Which one is the good news? Are you suggesting to output something only when the default socket is overwritten by something?\n\n\u003e go/greenlog-awareness\n\nThis link refers to logcat which is on the device. I am making a change to the client/server which run on the workstation.\n\n\u003e perhaps it makes sense for that layer (Studio env setup) to examine the state of the required env variable\n\nI cannot examine env variable states in other processes if user is using a \"user-managed\" adb server which is not started by Studio. These env variables can be different.",
+      "parentUuid": "ea65a56f_05374ab2",
+      "range": {
+        "startLine": 9,
+        "startChar": 36,
+        "endLine": 10,
+        "endChar": 47
+      },
+      "revId": "64d50ea6577285abccbd4110a0e4c2f612937742",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "fff00f4f_03874205",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 5
@@ -126,6 +150,30 @@
       "writtenOn": "2023-11-15T21:42:02Z",
       "side": 1,
       "message": "i don\u0027t think that\u0027s always the right word here? \"Using server socket\"?",
+      "range": {
+        "startLine": 1645,
+        "startChar": 24,
+        "endLine": 1645,
+        "endChar": 35
+      },
+      "revId": "64d50ea6577285abccbd4110a0e4c2f612937742",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "634df134_f7aced27",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1645,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-11-15T22:07:29Z",
+      "side": 1,
+      "message": "The server socket only speaks smart protocol. And the only place where smart socket is contacted is when the client binds to the server. \n\nFrom my understanding these two words mean the same unless you can provide me an example when it is not.\n\nThat being said, I don\u0027t want to argue about it for two days. So done.\n\nPS: I also chose this wording because `server_socket_str` can also contains the protocol and optionally the host name and we get output like that:\n\n```\ncommandline.cpp:1645 Using server socket: tcp:localhost:5037\n```\n\nwhich looks weird. I think \n\n```\ncommandline.cpp:1645 Using smartsocket \u0027tcp:5037\u0027\n```\n\nlooked way better.",
+      "parentUuid": "cab126e3_78b0a155",
       "range": {
         "startLine": 1645,
         "startChar": 24,
