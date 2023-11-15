@@ -146,6 +146,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "1c73eade_b2a652e4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-11-15T22:18:05Z",
+      "side": 1,
+      "message": "Bad news \u003d\u003d error (expected env var is not set)\nGood news \u003d\u003d everything else\n\n(Rhetorical) question: why don\u0027t we trace serial? (I would fully expect the user to own the set/unset of the associated env var).\n\nOf course the greenlog drive is on-device, however the philosophy is what I\u0027m referring to. More noise means harder effort to identify errors (and yes, I know I can use grep and otherwise filter).\n\nI\u0027m still unable to see a clear scenario that causes a problem that can be resolved by this CL, so I\u0027m in the \u0027meh\u0027 corner. If there\u0027s indeed a clear case, please add it to the Test: field.",
+      "parentUuid": "9c1fe5e2_045bebcb",
+      "range": {
+        "startLine": 9,
+        "startChar": 36,
+        "endLine": 10,
+        "endChar": 47
+      },
+      "revId": "64d50ea6577285abccbd4110a0e4c2f612937742",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "fff00f4f_03874205",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 5
