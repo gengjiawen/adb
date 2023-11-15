@@ -16,6 +16,24 @@
       "message": "\"the best documentation is not needing documentation\" :-)",
       "revId": "05398b39c5803ac7040106707af5c491e0a52d6b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91e4593e_431fb690",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-11-15T00:29:09Z",
+      "side": 1,
+      "message": "(don\u0027t get me wrong --- there is _some_ value in explicitly saying \"we have benchmarks\" since most projects _don\u0027t_, but, yes the current placeholder-ish[1] README.md doesn\u0027t really offer an obvious home for that yet.)\n\n___\n1. hopefully \"placeholder\" expresses my intended \"bad because unfinished\" more clearly (rather than \"bad because it should be deleted\" that i accidentally implied by being too lazy to find the right word earlier!)",
+      "parentUuid": "0760f7f6_d22e5e05",
+      "revId": "05398b39c5803ac7040106707af5c491e0a52d6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
