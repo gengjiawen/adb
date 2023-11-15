@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "56a79bf5_a75999f2",
+        "filename": "README.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-11-15T00:13:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca6238a7_91d7a3a1",
+      "revId": "37cd20a143e78d42cb80a35bbe32fef314269fb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3845a44f_96a88c1f",
@@ -48,6 +66,30 @@
       "writtenOn": "2023-11-15T00:07:13Z",
       "side": 1,
       "message": "Please remove (\"no need to state the obvious\").",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 3
+      },
+      "revId": "37cd20a143e78d42cb80a35bbe32fef314269fb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "273d1dad_f5abf528",
+        "filename": "README.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-11-15T00:13:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3845a44f_96a88c1f",
       "range": {
         "startLine": 96,
         "startChar": 0,
