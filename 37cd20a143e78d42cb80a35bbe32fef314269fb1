@@ -16,6 +16,29 @@
       "message": "this still isn\u0027t a valid lunch :-)\n\ni\u0027d just remove this and turn the next subheading into plain text? if you want to write something, write about any setup[1] the script can\u0027t handle, or how to tell it which device to use if multiple are connected, or stuff like that?\n\n(in fact, even just explicitly saying \"you don\u0027t need to run make\" is probably more useful, since all the other benchmarking i can think of _starts_ with make?)\n\n___\n1. \"set up\" is the verb, \"setup\" the noun. human languages are annoying :-)",
       "revId": "37cd20a143e78d42cb80a35bbe32fef314269fb1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3845a44f_96a88c1f",
+        "filename": "README.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-11-15T00:07:13Z",
+      "side": 1,
+      "message": "Please remove (\"no need to state the obvious\").",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 3
+      },
+      "revId": "37cd20a143e78d42cb80a35bbe32fef314269fb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
