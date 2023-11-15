@@ -194,6 +194,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "9b6ab995_ffe5e107",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-11-15T22:29:59Z",
+      "side": 1,
+      "message": "SGTM",
+      "parentUuid": "673b14e0_e4aaaa04",
+      "range": {
+        "startLine": 9,
+        "startChar": 36,
+        "endLine": 10,
+        "endChar": 47
+      },
+      "revId": "64d50ea6577285abccbd4110a0e4c2f612937742",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "fff00f4f_03874205",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 5
