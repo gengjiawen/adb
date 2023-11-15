@@ -1629,6 +1629,7 @@ int adb_commandline(int argc, const char** argv) {
                         server_port_str);
             }
         }
+        VLOG(ADB) << "Using smartsocket port:" << server_port;
 
         int rc;
         char* temp;
