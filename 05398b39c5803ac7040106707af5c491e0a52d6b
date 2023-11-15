@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0760f7f6_d22e5e05",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-11-15T00:25:26Z",
+      "side": 1,
+      "message": "\"the best documentation is not needing documentation\" :-)",
+      "revId": "05398b39c5803ac7040106707af5c491e0a52d6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
