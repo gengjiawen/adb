@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "95d5e2c1_c5f3ef4f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-11-15T21:44:34Z",
+      "side": 1,
+      "message": "\u003e Especially, in the context of tightening on log spam (go/greenlog-awareness).\n\nthis is a VLOG on the _host_, so you\u0027re only getting this if you specifically asked for it.\n\nmy only quibble is that the connection isn\u0027t necessarily a smartsocket. but showing which server we think we\u0027re going to try to talk to sgtm.",
+      "parentUuid": "ea65a56f_05374ab2",
+      "range": {
+        "startLine": 9,
+        "startChar": 36,
+        "endLine": 10,
+        "endChar": 47
+      },
+      "revId": "64d50ea6577285abccbd4110a0e4c2f612937742",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fff00f4f_03874205",
