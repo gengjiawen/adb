@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ba5c5ba5_edc9e412",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-11-15T21:17:37Z",
+      "side": 1,
+      "message": "It is an issue in my \"field\". I tried to help an user and I had no way to verify if `-P` was actually working or not.\n\nTurns out it wasn\u0027t because it was overwritten by an env variable and a trace would have saved a lot of time.",
+      "parentUuid": "d0521268_6dfe2806",
+      "range": {
+        "startLine": 9,
+        "startChar": 36,
+        "endLine": 10,
+        "endChar": 47
+      },
+      "revId": "64d50ea6577285abccbd4110a0e4c2f612937742",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "fff00f4f_03874205",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 5
