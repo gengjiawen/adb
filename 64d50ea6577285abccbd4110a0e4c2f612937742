@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea65a56f_05374ab2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-11-15T21:36:16Z",
+      "side": 1,
+      "message": "My point is: in terms of consistency you\u0027ll notice we follow \"no news is good news\". Otherwise there\u0027s no limit to the additional information we can surface since there are so many config options.\nEspecially, in the context of tightening on log spam (go/greenlog-awareness).\nPS:  If there are any specific cases (Studio needing to switch from 5037 default), perhaps it makes sense for that layer (Studio env setup) to examine the state of the required env variable?\nGlad to defer to enh@\u0027s viewpoint on this.",
+      "parentUuid": "ba5c5ba5_edc9e412",
+      "range": {
+        "startLine": 9,
+        "startChar": 36,
+        "endLine": 10,
+        "endChar": 47
+      },
+      "revId": "64d50ea6577285abccbd4110a0e4c2f612937742",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fff00f4f_03874205",
