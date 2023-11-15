@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3566c12_e4cee3aa",
+        "filename": "README.md",
+        "patchSetId": 12
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-11-15T00:04:00Z",
+      "side": 1,
+      "message": "Please remove since you\u0027ve already fixed the script.",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 0
+      },
+      "revId": "9cd96411ff727427d17ad59fc166cb5f906b3195",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
