@@ -87,6 +87,29 @@
       "message": "PTAL",
       "revId": "64d50ea6577285abccbd4110a0e4c2f612937742",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cab126e3_78b0a155",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1645,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-11-15T21:42:02Z",
+      "side": 1,
+      "message": "i don\u0027t think that\u0027s always the right word here? \"Using server socket\"?",
+      "range": {
+        "startLine": 1645,
+        "startChar": 24,
+        "endLine": 1645,
+        "endChar": 35
+      },
+      "revId": "64d50ea6577285abccbd4110a0e4c2f612937742",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
