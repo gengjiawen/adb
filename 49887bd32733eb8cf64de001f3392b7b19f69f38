@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8695da7b_fed9847c",
+        "filename": "README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-11-15T21:30:01Z",
+      "side": 1,
+      "message": "Please remove - we don\u0027t need to state the obvious, do we 😊",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 0
+      },
+      "revId": "49887bd32733eb8cf64de001f3392b7b19f69f38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3de72be5_1222b6e6",
+        "filename": "README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-11-15T21:30:01Z",
+      "side": 1,
+      "message": "Perhaps re-title to: \"Benchmark sample run for \u003cdevice\u003e, \u003ctransport\u003e\"?",
+      "range": {
+        "startLine": 100,
+        "startChar": 4,
+        "endLine": 100,
+        "endChar": 14
+      },
+      "revId": "49887bd32733eb8cf64de001f3392b7b19f69f38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
