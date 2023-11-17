@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "956f86b6_ef85ed73",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-11-17T23:07:53Z",
+      "side": 1,
+      "message": "Reverting (will send out a unit-test that accomplishes the same task: validation of various Windows/libusb versions).",
+      "revId": "90b0dcbe0c6cd7da27cd9393eca8c0eb606578ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
