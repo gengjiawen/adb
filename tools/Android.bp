@@ -66,3 +66,31 @@ cc_binary_host {
         ],
     },
 }
+
+cc_binary_host {
+    name: "adb_usbhotplug",
+    defaults: ["adb_defaults"],
+
+    srcs: [
+        "adb_usbhotplug.cpp",
+    ],
+
+    static_libs: [
+        "libbase",
+	"libgtest",
+        "libusb",
+    ],
+
+    stl: "libc++_static",
+
+    dist: {
+        targets: [
+            "sdk",
+        ],
+    },
+    target: {
+    windows: { enabled: true },
+    linux: { enabled: true },
+    darwin: { enabled: true }
+    }
+}
