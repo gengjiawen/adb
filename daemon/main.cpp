@@ -209,7 +209,10 @@ int adbd_main(int server_port) {
         // need for manual intervention(b/188703874).
 #else
         // If we're on userdebug/eng or the device is unlocked, permit no-authentication.
-        auth_required = android::base::GetBoolProperty("ro.adb.secure", false);
+        // Besides, we also bypass authorization on virtual devices to allow test automation
+        // on cuttlefish.
+        auth_required = android::base::GetBoolProperty("ro.adb.secure", false) &&
+                        !android::base::GetBoolProperty("ro.hardware.virtual_device", false);
 #endif
     }
 #endif
