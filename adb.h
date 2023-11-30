@@ -262,4 +262,4 @@ void adb_wait_for_device_initialization();
 void adb_set_reject_kill_server(bool reject);
 #endif
 
-void usb_init();
+int usb_init();

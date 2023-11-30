@@ -25,7 +25,7 @@
 
 struct usb_handle;
 
-void usb_init();
+int usb_init();
 void usb_cleanup();
 int usb_write(usb_handle* h, const void* data, int len);
 int usb_read(usb_handle* h, void* data, int len);
@@ -40,7 +40,7 @@ bool is_adb_interface(int usb_class, int usb_subclass, int usb_protocol);
 bool should_use_libusb();
 
 namespace libusb {
-void usb_init();
+int usb_init();
 }
 
 struct UsbConnection : public BlockingConnection {

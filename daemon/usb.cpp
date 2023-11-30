@@ -785,6 +785,7 @@ static void usb_ffs_open_thread() {
     }
 }
 
-void usb_init() {
+int usb_init() {
     std::thread(usb_ffs_open_thread).detach();
+    return 0;
 }
