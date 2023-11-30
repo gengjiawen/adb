@@ -101,7 +101,7 @@ static void help() {
         " --exit-on-write-error    exit if stdout is closed\n"
         "\n"
         "general commands:\n"
-        " devices [-l]             list connected devices (-l for long output)\n"
+        " devices [-l][-p]         list connected devices (-l long output, -p text protobuf)\n"
         " help                     show this help message\n"
         " version                  show version num\n"
         "\n"
@@ -1705,13 +1705,13 @@ int adb_commandline(int argc, const char** argv) {
         const char *listopt;
         if (argc < 2) {
             listopt = "";
-        } else if (argc == 2 && !strcmp(argv[1], "-l")) {
+        } else if (argc == 2 && (!strcmp(argv[1], "-l") || !strcmp(argv[1], "-p"))) {
             listopt = argv[1];
         } else {
-            error_exit("adb devices [-l]");
+            error_exit("usage: adb devices [-l][-p]");
         }
 
-        std::string query = android::base::StringPrintf("host:%s%s", argv[0], listopt);
+        std::string query = android::base::StringPrintf("host:devices%s", listopt);
         std::string error;
         if (!adb_check_server_version(&error)) {
             error_exit("failed to check server version: %s", error.c_str());
@@ -2060,7 +2060,7 @@ int adb_commandline(int argc, const char** argv) {
         return adb_connect_command("jdwp");
     } else if (!strcmp(argv[0], "track-jdwp")) {
         return adb_connect_command("track-jdwp");
-    } else if (!strcmp(argv[0], "track-app")) {
+    } else if (!strcmp(argv[0], "")) {
         auto&& features = adb_get_feature_set_or_die();
         if (!CanUseFeature(*features, kFeatureTrackApp)) {
             error_exit("track-app is not supported by the device");
@@ -2068,10 +2068,16 @@ int adb_commandline(int argc, const char** argv) {
         TrackAppStreamsCallback callback;
         return adb_connect_command("track-app", nullptr, &callback);
     } else if (!strcmp(argv[0], "track-devices")) {
-        if (argc > 2 || (argc == 2 && strcmp(argv[1], "-l"))) {
-            error_exit("usage: adb track-devices [-l]");
+        const char* listopt;
+        if (argc < 2) {
+            listopt = "";
+        } else if (argc == 2 && (!strcmp(argv[1], "-l") || !strcmp(argv[1], "-x"))) {
+            listopt = argv[1];
+        } else {
+            error_exit("usage: adb track-devices [-l][-x]");
         }
-        return adb_connect_command(argc == 2 ? "host:track-devices-l" : "host:track-devices");
+        std::string query = android::base::StringPrintf("host:track-devices%s", listopt);
+        return adb_connect_command(query);
     } else if (!strcmp(argv[0], "raw")) {
         if (argc != 2) {
             error_exit("usage: adb raw SERVICE");
