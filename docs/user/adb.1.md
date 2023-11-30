@@ -54,11 +54,14 @@ Tasks are performed via commands. Some commands are fulfilled directly by the se
 
 # GENERAL COMMANDS:
 
-devices [**-l**]  
+devices [**-l**][**-tp**]  
 &nbsp;&nbsp;&nbsp;&nbsp;List connected devices.  
 
 **-l**  
 &nbsp;&nbsp;&nbsp;&nbsp;Use long output.
+
+**-tp**  
+&nbsp;&nbsp;&nbsp;&nbsp;Use text protobuffer output.
 
 help  
 &nbsp;&nbsp;&nbsp;&nbsp;Show this help message.  
