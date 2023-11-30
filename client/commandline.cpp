@@ -101,7 +101,7 @@ static void help() {
         " --exit-on-write-error    exit if stdout is closed\n"
         "\n"
         "general commands:\n"
-        " devices [-l]             list connected devices (-l for long output)\n"
+        " devices [-l][-p]        list connected devices (-l for long output, -p for text protobuf)\n"
         " help                     show this help message\n"
         " version                  show version num\n"
         "\n"
@@ -1704,10 +1704,10 @@ int adb_commandline(int argc, const char** argv) {
         const char *listopt;
         if (argc < 2) {
             listopt = "";
-        } else if (argc == 2 && !strcmp(argv[1], "-l")) {
+        } else if (argc == 2 && (!strcmp(argv[1], "-l") || !strcmp(argv[1], "-p"))) {
             listopt = argv[1];
         } else {
-            error_exit("adb devices [-l]");
+            error_exit("adb devices [-l][-p]");
         }
 
         std::string query = android::base::StringPrintf("host:%s%s", argv[0], listopt);
@@ -2067,10 +2067,16 @@ int adb_commandline(int argc, const char** argv) {
         TrackAppStreamsCallback callback;
         return adb_connect_command("track-app", nullptr, &callback);
     } else if (!strcmp(argv[0], "track-devices")) {
-        if (argc > 2 || (argc == 2 && strcmp(argv[1], "-l"))) {
-            error_exit("usage: adb track-devices [-l]");
+        const char* listopt;
+        if (argc < 2) {
+            listopt = "";
+        } else if (argc == 2 && (!strcmp(argv[1], "-l") || !strcmp(argv[1], "-p"))) {
+            listopt = argv[1];
+        } else {
+            error_exit("usage: adb track-devices [-l][-p]");
         }
-        return adb_connect_command(argc == 2 ? "host:track-devices-l" : "host:track-devices");
+        std::string query = android::base::StringPrintf("host:%s%s", argv[0], listopt);
+        return adb_connect_command(query);
     } else if (!strcmp(argv[0], "raw")) {
         if (argc != 2) {
             error_exit("usage: adb raw SERVICE");

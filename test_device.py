@@ -1761,14 +1761,90 @@ class WindowsConsoleTest(DeviceTest):
                 console_output = read_screen(screen)
                 self.assertEqual(unicode_string, console_output)
 
+class DevicesListing(DeviceTest):
+    def test_devices(self):
+        proc = subprocess.Popen(['adb', 'devices'], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+        lines = list(map(lambda b: b.decode("utf-8"), proc.stdout.readlines()))
+        self.assertEqual(len(lines), 3)
+        line = lines[1]
+        self.assertFalse("{" in line)
+        self.assertFalse("}" in line)
+        self.assertTrue("device" in line)
+        self.assertFalse("product" in line)
+        self.assertFalse("transport" in line)
+
+    def test_devices_l(self):
+        proc = subprocess.Popen(['adb', 'devices', '-l'], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+        lines = list(map(lambda b: b.decode("utf-8"), proc.stdout.readlines()))
+        self.assertEqual(len(lines), 3)
+        line = lines[1]
+        self.assertFalse("{" in line)
+        self.assertFalse("}" in line)
+        self.assertTrue("device" in line)
+        self.assertTrue("product" in line)
+        self.assertTrue("transport" in line)
+
+    def test_devices_tp(self):
+        proc = subprocess.Popen(['adb', 'devices', '-p'], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+        out = proc.communicate()[0].decode("utf-8")
+        self.assertTrue("{" in out)
+        self.assertTrue("device" in out)
+        self.assertTrue("connection_type" in out)
+        self.assertTrue("negotiated_speed" in out)
+        self.assertTrue("max_speed" in out)
+        self.assertTrue("}" in out)
+
+    def test_track_devices(self):
+        proc = subprocess.Popen(['adb', 'track-devices'], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+        for line in proc.stdout:
+            line = line.decode("utf-8")
+            self.assertFalse("{" in line)
+            self.assertFalse("}" in line)
+            if ("device" in line):
+                self.assertTrue("device" in line)
+                self.assertFalse("product" in line)
+                self.assertFalse("transport" in line)
+                break
+
+    def test_track_devices_l(self):
+        proc = subprocess.Popen(['adb', 'track-devices', '-l'], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+        for line in proc.stdout:
+            line = line.decode("utf-8")
+            self.assertFalse("{" in line)
+            self.assertFalse("}" in line)
+            if ("device" in line):
+                self.assertTrue("device" in line)
+                self.assertTrue("product" in line)
+                self.assertTrue("transport" in line)
+                break
+
+    def test_track_devices_p(self):
+        proc = subprocess.Popen(['adb', 'track-devices', '-p'], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+        for line in proc.stdout:
+            line = line.decode("utf-8")
+            self.assertFalse("{" in line)
+            self.assertFalse("}" in line)
+            self.assertFalse("device" in line)
+            self.assertFalse("product" in line)
+            self.assertFalse("transport" in line)
+            break
 
 def main():
     random.seed(0)
-    if len(adb.get_devices()) > 0:
-        suite = unittest.TestLoader().loadTestsFromName(__name__)
-        unittest.TextTestRunner(verbosity=3).run(suite)
-    else:
+    if len(adb.get_devices()) == 0:
         print('Test suite must be run with attached devices')
+        return
+
+    # Run only specific test if given on command-line e.g:
+    # ./test_device.py ForwardReverseTest
+    # ./test_device.py ForwardReverseTest.test_forward_no_rebind
+    if len(sys.argv) == 2:
+        test_name = "." + sys.argv[1]
+    else:
+        test_name = ""
+
+    suite = unittest.TestLoader().loadTestsFromName("__main__" + test_name)
+    unittest.TextTestRunner(verbosity=3).run(suite)
 
 
 if __name__ == '__main__':
