@@ -878,8 +878,10 @@ static int smart_socket_enqueue(asocket* s, apacket::payload_type data) {
         // TODO: Convert to string_view.
         s2 = host_service_to_socket(service, serial, transport_id);
         if (s2 == nullptr) {
+            using namespace std::string_literals;
             LOG(VERBOSE) << "SS(" << s->id << "): couldn't create host service '" << service << "'";
-            SendFail(s->peer->fd, "unknown host service");
+            std::string msg = std::string("unknown host service '") + std::string(service) + "'";
+            SendFail(s->peer->fd, msg);
             goto fail;
         }
 
