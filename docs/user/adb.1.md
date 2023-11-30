@@ -54,11 +54,28 @@ Tasks are performed via commands. Some commands are fulfilled directly by the se
 
 # GENERAL COMMANDS:
 
-devices [**-l**]  
+devices [**-lp**]  
 &nbsp;&nbsp;&nbsp;&nbsp;List connected devices.  
 
 **-l**  
 &nbsp;&nbsp;&nbsp;&nbsp;Use long output.
+
+**-p**  
+&nbsp;&nbsp;&nbsp;&nbsp;Use text protobuf output. See: [devices.proto](../../proto/devices.proto) for details.
+```
+device {
+  serial: "14141FDF600081"
+  state: DEVICE
+  bus_address: "2-2.4.4"
+  product: "aosp_oriole"
+  model: "AOSP_on_Oriole"
+  device: "oriole"
+  connection_type: USB
+  negotiated_speed: 5000
+  max_speed: 5000
+}
+
+```
 
 help  
 &nbsp;&nbsp;&nbsp;&nbsp;Show this help message.  
