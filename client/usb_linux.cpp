@@ -631,7 +631,7 @@ static void device_poll_thread() {
     }
 }
 
-void usb_init() {
+int usb_init() {
     struct sigaction actions;
     memset(&actions, 0, sizeof(actions));
     sigemptyset(&actions.sa_mask);
@@ -640,6 +640,7 @@ void usb_init() {
     sigaction(SIGALRM, &actions, nullptr);
 
     std::thread(device_poll_thread).detach();
+    return 0;
 }
 
 void usb_cleanup() {}

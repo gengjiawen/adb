@@ -498,7 +498,7 @@ void usb_cleanup() NO_THREAD_SAFETY_ANALYSIS {
     close_usb_devices();
 }
 
-void usb_init() {
+int usb_init() {
     static bool initialized = false;
     if (!initialized) {
         usb_inited_flag = false;
@@ -513,6 +513,7 @@ void usb_init() {
         adb_notify_device_scan_complete();
         initialized = true;
     }
+    return 0;
 }
 
 int usb_write(usb_handle *handle, const void *buf, int len)

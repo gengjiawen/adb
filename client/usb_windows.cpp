@@ -105,7 +105,7 @@ static void kick_devices();
 static void device_poll_thread();
 
 /// Initializes this module
-void usb_init();
+int usb_init();
 
 /// Opens usb interface (device) by interface (device) name.
 usb_handle* do_usb_open(const wchar_t* interface_name);
@@ -248,9 +248,10 @@ static void _power_notification_thread() {
     D("Power notification thread exiting");
 }
 
-void usb_init() {
+int usb_init() {
     std::thread(device_poll_thread).detach();
     std::thread(_power_notification_thread).detach();
+    return 0;
 }
 
 void usb_cleanup() {}
