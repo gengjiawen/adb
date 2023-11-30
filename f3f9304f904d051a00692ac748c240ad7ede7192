@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a7301f5_6862648f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-11-30T16:42:25Z",
+      "side": 1,
+      "message": "Adding Fabien to this review.",
+      "revId": "f3f9304f904d051a00692ac748c240ad7ede7192",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "43cf835c_1a85c95e",
