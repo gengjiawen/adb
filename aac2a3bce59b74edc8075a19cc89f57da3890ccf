@@ -409,6 +409,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a2643033_fa4ab779",
+        "filename": "transport.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-12-01T22:26:57Z",
+      "side": 1,
+      "message": "maybe i need to see the enums you mean by \"libusb returns negotiated speed as an enum libusb_speed. And returns supported_speed as a bitfield of another enum libusb_supported_speed\"...\n\n```\nenum libusb_speed {\n\t/** The OS doesn\u0027t report or know the device speed. */\n\tLIBUSB_SPEED_UNKNOWN \u003d 0,\n\n\t/** The device is operating at low speed (1.5MBit/s). */\n\tLIBUSB_SPEED_LOW \u003d 1,\n\n\t/** The device is operating at full speed (12MBit/s). */\n\tLIBUSB_SPEED_FULL \u003d 2,\n\n\t/** The device is operating at high speed (480MBit/s). */\n\tLIBUSB_SPEED_HIGH \u003d 3,\n\n\t/** The device is operating at super speed (5000MBit/s). */\n\tLIBUSB_SPEED_SUPER \u003d 4,\n\n\t/** The device is operating at super speed plus (10000MBit/s). */\n\tLIBUSB_SPEED_SUPER_PLUS \u003d 5\n};\n```\n\n```\nenum libusb_supported_speed {\n\t/** Low speed operation supported (1.5MBit/s). */\n\tLIBUSB_LOW_SPEED_OPERATION \u003d (1 \u003c\u003c 0),\n\n\t/** Full speed operation supported (12MBit/s). */\n\tLIBUSB_FULL_SPEED_OPERATION \u003d (1 \u003c\u003c 1),\n\n\t/** High speed operation supported (480MBit/s). */\n\tLIBUSB_HIGH_SPEED_OPERATION \u003d (1 \u003c\u003c 2),\n\n\t/** Superspeed operation supported (5000MBit/s). */\n\tLIBUSB_SUPER_SPEED_OPERATION \u003d (1 \u003c\u003c 3)\n};\n```\n\ngiven that, i think i\u0027d prefer low/full/high/super/super-plus? everything else is an implementation detail that as jmgao (i think rightly) points out is more than a little questionable?\n\nmaybe it would help to see what we think the other end of this will look like?\n\nokay, reading your doc (sorry, i\u0027m still behind on email from _last_ week) it seems like you\u0027re only going to say things like \"USB2\" to the user anyway (which i think is the right option; like i said earlier, \"that\u0027s what\u0027s on their laptop/hub/cable\"), so i think just passing through the libusb api names (and not reading anything into their _values_) makes sense?",
+      "parentUuid": "a7fee0dd_97781079",
+      "revId": "aac2a3bce59b74edc8075a19cc89f57da3890ccf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ebc8ebf9_0f6ea612",
         "filename": "transport.h",
         "patchSetId": 3

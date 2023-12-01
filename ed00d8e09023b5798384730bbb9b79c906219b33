@@ -553,6 +553,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3c560c5_832a5656",
+        "filename": "services.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-12-01T22:26:57Z",
+      "side": 1,
+      "message": "/me wonders whether we should always offer both text and binary protobufs? i like text because i can read it, but i accept that tools are more likely to want binary. (and unfortunately we already offered a binary one, so we can\u0027t just switch to \"always text protobufs\" now.)",
+      "parentUuid": "758fb4bf_2f27286a",
+      "range": {
+        "startLine": 257,
+        "startChar": 37,
+        "endLine": 257,
+        "endChar": 45
+      },
+      "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f8691882_866a7cd8",
