@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "80ceb57c_f4b98b45",
+        "filename": "SERVICES.TXT",
+        "patchSetId": 7
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-12-01T21:12:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbba4153_230cd0b0",
+      "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3ec476d9_3adaf389",
@@ -35,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b758801d_783aa665",
+        "filename": "SERVICES.TXT",
+        "patchSetId": 7
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-12-01T21:12:40Z",
+      "side": 1,
+      "message": "Sorry :(. Thank you.",
+      "parentUuid": "3ec476d9_3adaf389",
+      "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a47f2975_4e678afd",
@@ -48,6 +84,30 @@
       "writtenOn": "2023-12-01T18:35:07Z",
       "side": 1,
       "message": "(everything else here seems to be output_type style?)",
+      "range": {
+        "startLine": 1329,
+        "startChar": 26,
+        "endLine": 1329,
+        "endChar": 36
+      },
+      "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec183e98_a5663a40",
+        "filename": "adb.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1329,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-12-01T21:12:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a47f2975_4e678afd",
       "range": {
         "startLine": 1329,
         "startChar": 26,
@@ -81,6 +141,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8edc4f27_72db5990",
+        "filename": "adb.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1333,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-12-01T21:12:40Z",
+      "side": 1,
+      "message": "OK with `s/TEXT/SHORT_TEXT/`.",
+      "parentUuid": "4fd30489_03ebde5a",
+      "range": {
+        "startLine": 1333,
+        "startChar": 25,
+        "endLine": 1333,
+        "endChar": 38
+      },
+      "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1024190f_b6abe155",
@@ -94,6 +178,30 @@
       "writtenOn": "2023-12-01T18:35:07Z",
       "side": 1,
       "message": "whitespace\n\n(POSIX and man pages would write this as `[-lp]` --- do we have existing precedent for this unusual form for short options?)",
+      "range": {
+        "startLine": 104,
+        "startChar": 34,
+        "endLine": 104,
+        "endChar": 38
+      },
+      "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9addf0b2_d3192b80",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-12-01T21:12:40Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "1024190f_b6abe155",
       "range": {
         "startLine": 104,
         "startChar": 34,
@@ -121,6 +229,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "03c21dd9_00481a17",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 2069,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-12-01T21:12:40Z",
+      "side": 1,
+      "message": "Agreed. But this is already a big CL. I would gladly refactor but in another CL.",
+      "parentUuid": "0ecdf09c_04d6a4e1",
+      "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4cbc3447_5c2e5422",
@@ -134,6 +260,24 @@
       "writtenOn": "2023-12-01T18:35:07Z",
       "side": 1,
       "message": "(yeah, these two functions are strengthening my \"can\u0027t we just use what libusb uses?\" conviction.)",
+      "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d05b12a_420148dd",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-12-01T21:12:40Z",
+      "side": 1,
+      "message": "Discussed in comments on transport.h:146",
+      "parentUuid": "4cbc3447_5c2e5422",
       "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -155,6 +299,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1265233_84087f34",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-12-01T21:12:40Z",
+      "side": 1,
+      "message": "Done with code suggestion.\n\nWRT error: What can we do if it fails? The failure is reported since the value will be set to `UNKNOWN`. I though you wanted to avoid too much logging. Let me know if you want it in `LOG_V` for now, marking as resolved.",
+      "parentUuid": "1db2802c_7ba5636a",
+      "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2f559bde_e4ae4137",
@@ -168,6 +330,24 @@
       "writtenOn": "2023-12-01T18:35:07Z",
       "side": 1,
       "message": "out of date (and see my earlier POSIX/man comment)",
+      "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71db2c40_9e35801e",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-12-01T21:12:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f559bde_e4ae4137",
       "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -189,6 +369,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1893600_398f31cf",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-12-01T21:12:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "311a8bf6_64b7791b",
+      "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5e342def_6af19443",
@@ -202,6 +400,24 @@
       "writtenOn": "2023-12-01T18:35:07Z",
       "side": 1,
       "message": "worth saying what that contains?",
+      "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f58a5909_27b5f789",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-12-01T21:12:40Z",
+      "side": 1,
+      "message": "Done. Added an example.",
+      "parentUuid": "5e342def_6af19443",
       "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -231,6 +447,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "70506ba4_ea44248b",
+        "filename": "services.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-12-01T21:12:40Z",
+      "side": 1,
+      "message": "I don\u0027t get it. The enum? Or the service name? What other file do you mean?",
+      "parentUuid": "ffa41a8a_0a21d3d3",
+      "range": {
+        "startLine": 257,
+        "startChar": 37,
+        "endLine": 257,
+        "endChar": 45
+      },
+      "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f8691882_866a7cd8",
         "filename": "sockets.cpp",
         "patchSetId": 7
@@ -242,6 +482,24 @@
       "writtenOn": "2023-12-01T18:35:07Z",
       "side": 1,
       "message": "StringPrintf() would be more idiomatic\n\n(but note that in cases where you really do want string concatenation for some reason, https://en.cppreference.com/w/cpp/string/basic_string/operator%22%22s is your friend.)",
+      "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e182e43_19d5124c",
+        "filename": "sockets.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 883,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-12-01T21:12:40Z",
+      "side": 1,
+      "message": "Neither of these play nicely with `string_view`. My understanding is that string_view are not necessarily null-terminated.\n\nThis rules out `StringPrintf`.\n\nAnd there is no concatenation operator between `string` and `string_view`. Although, it may come someday (https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2591r2.html).",
+      "parentUuid": "f8691882_866a7cd8",
       "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -263,6 +521,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "108e1ca2_8d7c75bd",
+        "filename": "transport.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1340,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-12-01T21:12:40Z",
+      "side": 1,
+      "message": "Not a bug since I was calling it with `outputType \u003d\u003d TEXT`. And the unit tests I wrote for this CL passed.\n\nRather a very bad name choice 😊!\n\nDone",
+      "parentUuid": "4a4dbcf6_95ffa1f8",
+      "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3d7effbd_5caa8d44",
@@ -276,6 +552,30 @@
       "writtenOn": "2023-12-01T18:35:07Z",
       "side": 1,
       "message": "unnecessary",
+      "range": {
+        "startLine": 1450,
+        "startChar": 8,
+        "endLine": 1452,
+        "endChar": 9
+      },
+      "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a383bb5f_96fa2d83",
+        "filename": "transport.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1452,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-12-01T21:12:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d7effbd_5caa8d44",
       "range": {
         "startLine": 1450,
         "startChar": 8,

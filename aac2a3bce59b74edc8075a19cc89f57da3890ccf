@@ -282,6 +282,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9be91a9d_17913b9f",
+        "filename": "proto/devices.proto",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-12-01T21:12:40Z",
+      "side": 1,
+      "message": "We issue it in `devices -l`. We don\u0027t call it anything.\n\n```\n$ adb devices -l\nList of devices attached\n14141FDF600081         device 2-2.4.4 product:aosp_oriole model:AOSP_on_Oriole device:oriole transport_id:1\n```\n\nHere the name would be `2-2.4.4`.\n\nDone, calling it `bus_address`.",
+      "parentUuid": "45222671_1884b8a9",
+      "revId": "aac2a3bce59b74edc8075a19cc89f57da3890ccf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a555eab8_5c36a1f5",
@@ -331,6 +349,24 @@
       "side": 1,
       "message": "given that the only use of this is diagnostics, coming up with something \"better\" seems like a classic case of \"now you have _two_ problems\".\n\ni think (a) the names should just match what the laptop/hub/cable will say, or what libusb calls them, and (b) the constants should just be auto-assigned by the machine so it doesn\u0027t look like we\u0027re implying anything with them?",
       "parentUuid": "152ac593_c5a9f575",
+      "revId": "aac2a3bce59b74edc8075a19cc89f57da3890ccf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b190d691_ef2895a4",
+        "filename": "transport.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-12-01T21:12:40Z",
+      "side": 1,
+      "message": "I want to unify the values/units. libusb returns negotiated speed as an enum `libusb_speed`. And returns supported_speed as a bitfield of another enum `libusb_supported_speed`.\n\nI would prefer us (adb) to do the work so consumers have an easier time (they can just have access to Mbps).",
+      "parentUuid": "c9981f9a_dd762bfa",
       "revId": "aac2a3bce59b74edc8075a19cc89f57da3890ccf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
