@@ -266,6 +266,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "45222671_1884b8a9",
+        "filename": "proto/devices.proto",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-12-01T19:53:32Z",
+      "side": 1,
+      "message": "(that sgtm in the absence of other precedent. that\u0027s certainly what i think lsusb calls it. don\u0027t we output this somewhere already? what do we call it there?)",
+      "parentUuid": "1aca5f1a_968d960a",
+      "revId": "aac2a3bce59b74edc8075a19cc89f57da3890ccf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a555eab8_5c36a1f5",
         "filename": "transport.h",
         "patchSetId": 3
