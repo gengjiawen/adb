@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe92ba54_b85a03fa",
+        "filename": "daemon/file_sync_service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-12-01T18:14:26Z",
+      "side": 1,
+      "message": "this is wrong",
+      "revId": "6041c1780438be4a5875a4f5d71b90070e933711",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "618e4456_f5b7df92",
+        "filename": "daemon/file_sync_service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-12-01T18:14:26Z",
+      "side": 1,
+      "message": "oh, actually i hadn\u0027t realized that this isn\u0027t actually an fchown() _failure_ --- it\u0027s \"fchown() didn\u0027t actually change anything\".\n\nis that the actual bug here? that we should just change this to not even try fchown() (or to ignore the failure) if `getuid() !\u003d 0`?",
+      "revId": "6041c1780438be4a5875a4f5d71b90070e933711",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62567658_02b3a853",
+        "filename": "daemon/file_sync_service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-12-01T18:14:26Z",
+      "side": 1,
+      "message": "i didn\u0027t notice before that one of your callers was bogus. given that there\u0027s actually only one use for this, just inline this back where it started.",
+      "revId": "6041c1780438be4a5875a4f5d71b90070e933711",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10d11e17_0f9fa45f",
+        "filename": "daemon/file_sync_service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-12-01T18:14:26Z",
+      "side": 1,
+      "message": "no, we have no reason to do this.",
+      "revId": "6041c1780438be4a5875a4f5d71b90070e933711",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
