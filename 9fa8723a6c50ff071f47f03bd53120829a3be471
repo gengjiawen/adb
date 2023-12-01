@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "921dfa96_a9fa6e95",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-12-01T23:59:02Z",
+      "side": 1,
+      "message": "Will do a followup for libcutils/fs_config()",
+      "parentUuid": "7a6aa93f_d50ba8ba",
+      "range": {
+        "startLine": 16,
+        "startChar": 89,
+        "endLine": 16,
+        "endChar": 96
+      },
+      "revId": "9fa8723a6c50ff071f47f03bd53120829a3be471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ab08e450_88542625",
@@ -37,6 +61,24 @@
       "writtenOn": "2023-12-01T19:52:27Z",
       "side": 1,
       "message": "well, you don\u0027t want to _fail_ in that case, do you? wasn\u0027t the complaint that we should _ignore_ this case, because it\u0027s fundamentally something that can\u0027t work?",
+      "revId": "9fa8723a6c50ff071f47f03bd53120829a3be471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a570e423_350c31f5",
+        "filename": "daemon/file_sync_service.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-12-01T23:59:02Z",
+      "side": 1,
+      "message": "As discussed, we\u0027ll tackle this question in a followup work.",
+      "parentUuid": "ab08e450_88542625",
       "revId": "9fa8723a6c50ff071f47f03bd53120829a3be471",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
