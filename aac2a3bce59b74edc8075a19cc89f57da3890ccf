@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75e15efa_0e1a6862",
+        "filename": "adb.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1332,
+      "author": {
+        "id": 1076798
+      },
+      "writtenOn": "2023-12-01T02:34:50Z",
+      "side": 1,
+      "message": "nit: else if",
+      "revId": "aac2a3bce59b74edc8075a19cc89f57da3890ccf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d98c6b6_fcaa3c8a",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1076798
+      },
+      "writtenOn": "2023-12-01T02:34:50Z",
+      "side": 1,
+      "message": "this should either be a --longopt or be a single character",
+      "revId": "aac2a3bce59b74edc8075a19cc89f57da3890ccf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d6069aa_be9b1812",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1076798
+      },
+      "writtenOn": "2023-12-01T02:34:50Z",
+      "side": 1,
+      "message": "seems weird that MaxSpeed can be less than the negotiated speed, but I guess it\u0027s probably academic for android devices (for now?)",
+      "revId": "aac2a3bce59b74edc8075a19cc89f57da3890ccf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf47fd19_15303a4d",
+        "filename": "proto/devices.proto",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1076798
+      },
+      "writtenOn": "2023-12-01T02:34:50Z",
+      "side": 1,
+      "message": "underscore name like the rest of this file?\n\nalso, make this ALLCAPS like the ConnectionType enumerators?",
+      "revId": "aac2a3bce59b74edc8075a19cc89f57da3890ccf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f083eedb_0c1fb5df",
+        "filename": "proto/devices.proto",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1076798
+      },
+      "writtenOn": "2023-12-01T02:34:50Z",
+      "side": 1,
+      "message": "whitespace\n```suggestion\n    UNKNOWN \u003d 0;\n```",
+      "revId": "aac2a3bce59b74edc8075a19cc89f57da3890ccf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4783f7d_7be1d41d",
+        "filename": "proto/devices.proto",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1076798
+      },
+      "writtenOn": "2023-12-01T02:34:50Z",
+      "side": 1,
+      "message": "device_path, to be consistent with the fully named connection_type, etc.?",
+      "revId": "aac2a3bce59b74edc8075a19cc89f57da3890ccf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "534da7ba_0bef5aae",
+        "filename": "proto/devices.proto",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1076798
+      },
+      "writtenOn": "2023-12-01T02:34:50Z",
+      "side": 1,
+      "message": "what does this field mean?",
+      "revId": "aac2a3bce59b74edc8075a19cc89f57da3890ccf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a555eab8_5c36a1f5",
+        "filename": "transport.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1076798
+      },
+      "writtenOn": "2023-12-01T02:34:50Z",
+      "side": 1,
+      "message": "I think these speeds don\u0027t actually match up with the real names, because USB speed names [are a dumpster fire](https://en.wikipedia.org/wiki/USB4#:~:text\u003dComparison%20of%20transfer%20modes)",
+      "revId": "aac2a3bce59b74edc8075a19cc89f57da3890ccf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebc8ebf9_0f6ea612",
+        "filename": "transport.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1076798
+      },
+      "writtenOn": "2023-12-01T02:34:50Z",
+      "side": 1,
+      "message": "nit: protobuf or protocol buffer",
+      "revId": "aac2a3bce59b74edc8075a19cc89f57da3890ccf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
