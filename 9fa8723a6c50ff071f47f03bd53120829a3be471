@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a6aa93f_d50ba8ba",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-12-01T19:46:03Z",
+      "side": 1,
+      "message": "Still something weird going on.",
+      "range": {
+        "startLine": 16,
+        "startChar": 89,
+        "endLine": 16,
+        "endChar": 96
+      },
+      "revId": "9fa8723a6c50ff071f47f03bd53120829a3be471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
