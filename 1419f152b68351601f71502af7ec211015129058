@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8465bdbc_66d03d6f",
+        "filename": "daemon/file_sync_service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-12-01T18:04:45Z",
+      "side": 1,
+      "message": "N/A (see thread below)",
+      "parentUuid": "4ea1f862_fbe0a551",
+      "range": {
+        "startLine": 347,
+        "startChar": 5,
+        "endLine": 347,
+        "endChar": 17
+      },
+      "revId": "1419f152b68351601f71502af7ec211015129058",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "302c71ba_3f315775",
@@ -37,6 +61,24 @@
       "writtenOn": "2023-12-01T15:25:04Z",
       "side": 1,
       "message": "why are you also logging this? we don\u0027t log any other errors like this.",
+      "revId": "1419f152b68351601f71502af7ec211015129058",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e0e3bd9_e748a396",
+        "filename": "daemon/file_sync_service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-12-01T18:04:45Z",
+      "side": 1,
+      "message": "If we had this in the device-logs, it would have been easy for the end-user to understand the dependency (root) faster.\n\n\u003e\u003eimprove the fchown() error message\nRef: https://b.corp.google.com/issues/171233429#comment10\n\nSwitched to VLOG().",
+      "parentUuid": "302c71ba_3f315775",
       "revId": "1419f152b68351601f71502af7ec211015129058",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -58,6 +100,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "28ce86d5_6e3d6b3d",
+        "filename": "daemon/file_sync_service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-12-01T18:04:45Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "235beb2b_9984fe5a",
+      "revId": "1419f152b68351601f71502af7ec211015129058",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9dc81f8b_68a371d6",
@@ -71,6 +131,24 @@
       "writtenOn": "2023-12-01T15:25:04Z",
       "side": 1,
       "message": "...and add\n```\nfchmod_fail:\n    SendSyncFailErrno(s, StringPrintf(\"fchown() failed for uid: %d gid: %d\", uid, gid));\n```\nbefore this line.",
+      "revId": "1419f152b68351601f71502af7ec211015129058",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "adcc32d1_8a942a6d",
+        "filename": "daemon/file_sync_service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-12-01T18:04:45Z",
+      "side": 1,
+      "message": "Against my personal dislike :) of adding to tech-debt (and making it harder to get rid of legacy goto jumps), I\u0027ll accept this suggestion (in the interest of getting this merged).\nAnd, I think you meant fchown_fail since fchmod() is only used to reset, and we don\u0027t care whether it succeeds of not.",
+      "parentUuid": "9dc81f8b_68a371d6",
       "revId": "1419f152b68351601f71502af7ec211015129058",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
