@@ -1,0 +1,289 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbba4153_230cd0b0",
+        "filename": "SERVICES.TXT",
+        "patchSetId": 7
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-12-01T18:35:07Z",
+      "side": 1,
+      "message": "definitely worth being clearer about the _content_ differences in this doc.",
+      "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ec476d9_3adaf389",
+        "filename": "SERVICES.TXT",
+        "patchSetId": 7
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-12-01T18:35:07Z",
+      "side": 1,
+      "message": "no it\u0027s not :-)",
+      "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a47f2975_4e678afd",
+        "filename": "adb.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1329,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-12-01T18:35:07Z",
+      "side": 1,
+      "message": "(everything else here seems to be output_type style?)",
+      "range": {
+        "startLine": 1329,
+        "startChar": 26,
+        "endLine": 1329,
+        "endChar": 36
+      },
+      "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fd30489_03ebde5a",
+        "filename": "adb.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1333,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-12-01T18:35:07Z",
+      "side": 1,
+      "message": "this actually gets you LONG_TEXT_PROTOBUF, no? (i\u0027d also be fine with FULL_TEXT_PROTOBUF or just PROTOBUF, or renaming the exiting TEXT to SHORT_TEXT. i just don\u0027t like the way this looks like it\u0027s a protobuf version of the short text form. the more i think about it, the more i like s/TEXT/SHORT_TEXT/!)",
+      "range": {
+        "startLine": 1333,
+        "startChar": 25,
+        "endLine": 1333,
+        "endChar": 38
+      },
+      "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1024190f_b6abe155",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-12-01T18:35:07Z",
+      "side": 1,
+      "message": "whitespace\n\n(POSIX and man pages would write this as `[-lp]` --- do we have existing precedent for this unusual form for short options?)",
+      "range": {
+        "startLine": 104,
+        "startChar": 34,
+        "endLine": 104,
+        "endChar": 38
+      },
+      "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ecdf09c_04d6a4e1",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 2069,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-12-01T18:35:07Z",
+      "side": 1,
+      "message": "if they\u0027re so similar (and meant to stay the same), should this case be merged with \"devices\"?",
+      "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4cbc3447_5c2e5422",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-12-01T18:35:07Z",
+      "side": 1,
+      "message": "(yeah, these two functions are strengthening my \"can\u0027t we just use what libusb uses?\" conviction.)",
+      "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1db2802c_7ba5636a",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-12-01T18:35:07Z",
+      "side": 1,
+      "message": "or `if (!libusb_get_bos_descriptor(device_handle_.get(), \u0026bos)) return;` and avoid a local we don\u0027t use and a level of indentation... (is there a reason you don\u0027t report failure if this fails?)",
+      "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f559bde_e4ae4137",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-12-01T18:35:07Z",
+      "side": 1,
+      "message": "out of date (and see my earlier POSIX/man comment)",
+      "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "311a8bf6_64b7791b",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-12-01T18:35:07Z",
+      "side": 1,
+      "message": "out of date",
+      "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e342def_6af19443",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-12-01T18:35:07Z",
+      "side": 1,
+      "message": "worth saying what that contains?",
+      "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffa41a8a_0a21d3d3",
+        "filename": "services.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-12-01T18:35:07Z",
+      "side": 1,
+      "message": "(these names should probably match the names in the other file...)",
+      "range": {
+        "startLine": 257,
+        "startChar": 37,
+        "endLine": 257,
+        "endChar": 45
+      },
+      "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8691882_866a7cd8",
+        "filename": "sockets.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 883,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-12-01T18:35:07Z",
+      "side": 1,
+      "message": "StringPrintf() would be more idiomatic\n\n(but note that in cases where you really do want string concatenation for some reason, https://en.cppreference.com/w/cpp/string/basic_string/operator%22%22s is your friend.)",
+      "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a4dbcf6_95ffa1f8",
+        "filename": "transport.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1340,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-12-01T18:35:07Z",
+      "side": 1,
+      "message": "bug?",
+      "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d7effbd_5caa8d44",
+        "filename": "transport.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1452,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-12-01T18:35:07Z",
+      "side": 1,
+      "message": "unnecessary",
+      "range": {
+        "startLine": 1450,
+        "startChar": 8,
+        "endLine": 1452,
+        "endChar": 9
+      },
+      "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
