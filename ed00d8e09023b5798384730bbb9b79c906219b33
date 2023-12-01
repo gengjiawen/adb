@@ -529,6 +529,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "758fb4bf_2f27286a",
+        "filename": "services.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-12-01T22:07:36Z",
+      "side": 1,
+      "message": "I assume you mean device-p issues TEXT_PROTOBUF whereas track-devices-p issues PROTOBUF. That is deliberate. \n\n- track-devices-p is meant for tools which will obviously want to see binary protobuf output. \n\n- devices-p is meant for CLI human reader. If I have any issues with this features, I can ask users to run this command and tell me what they see (you can\u0027t do that with protobuffer). I also found it very convenient to be able to do a rapid check with my configuration by running `adb devices -p` and check the speed visually.",
+      "parentUuid": "960ab7b3_326c1921",
+      "range": {
+        "startLine": 257,
+        "startChar": 37,
+        "endLine": 257,
+        "endChar": 45
+      },
+      "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f8691882_866a7cd8",

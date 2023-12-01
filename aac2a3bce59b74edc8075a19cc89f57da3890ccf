@@ -391,6 +391,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a7fee0dd_97781079",
+        "filename": "transport.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-12-01T22:07:36Z",
+      "side": 1,
+      "message": "Yes, I can have an `int` but that means I have to hard-code the value in both `ToConnectionSpeed` and `ExtractMaxSpeed`. Are you ok with that?",
+      "parentUuid": "0d069f73_bbef9c82",
+      "revId": "aac2a3bce59b74edc8075a19cc89f57da3890ccf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ebc8ebf9_0f6ea612",
         "filename": "transport.h",
         "patchSetId": 3
