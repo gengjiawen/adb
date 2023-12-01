@@ -373,6 +373,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0d069f73_bbef9c82",
+        "filename": "transport.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-12-01T21:59:53Z",
+      "side": 1,
+      "message": "so should we just have an int then? aiui jmgao\u0027s issue was \"this mapping isn\u0027t necessarily valid\". and i\u0027m assuming the speeds libusb is reporting are legit, so do we need _any_ names?",
+      "parentUuid": "b190d691_ef2895a4",
+      "revId": "aac2a3bce59b74edc8075a19cc89f57da3890ccf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ebc8ebf9_0f6ea612",
         "filename": "transport.h",
         "patchSetId": 3

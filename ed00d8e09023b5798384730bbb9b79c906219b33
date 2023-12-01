@@ -247,6 +247,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddf07ca0_6af656b1",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 2069,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-12-01T21:59:53Z",
+      "side": 1,
+      "message": "(fair enough.)",
+      "parentUuid": "03c21dd9_00481a17",
+      "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4cbc3447_5c2e5422",
@@ -313,6 +331,24 @@
       "side": 1,
       "message": "Done with code suggestion.\n\nWRT error: What can we do if it fails? The failure is reported since the value will be set to `UNKNOWN`. I though you wanted to avoid too much logging. Let me know if you want it in `LOG_V` for now, marking as resolved.",
       "parentUuid": "1db2802c_7ba5636a",
+      "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "386e97e9_03945be0",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-12-01T21:59:53Z",
+      "side": 1,
+      "message": "yeah, this seems \"fine unless proven otherwise\" --- i just wanted to check you\u0027d actually _thought_ about this, rather than forgotten to come back and write the `else`. (that\u0027s another reason why i prefer to \"return early\"; it makes my \"yeah, nothing else to do here then\" intention clearer. _and_ saves me a level of indentation :-) )",
+      "parentUuid": "d1265233_84087f34",
       "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -471,6 +507,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "960ab7b3_326c1921",
+        "filename": "services.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-12-01T21:59:53Z",
+      "side": 1,
+      "message": "the enum --- it\u0027s weird that it\u0027s TEXT_PROTOBUF in one file but PROTOBUF in another.",
+      "parentUuid": "70506ba4_ea44248b",
+      "range": {
+        "startLine": 257,
+        "startChar": 37,
+        "endLine": 257,
+        "endChar": 45
+      },
+      "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f8691882_866a7cd8",
         "filename": "sockets.cpp",
         "patchSetId": 7
@@ -500,6 +560,24 @@
       "side": 1,
       "message": "Neither of these play nicely with `string_view`. My understanding is that string_view are not necessarily null-terminated.\n\nThis rules out `StringPrintf`.\n\nAnd there is no concatenation operator between `string` and `string_view`. Although, it may come someday (https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2591r2.html).",
       "parentUuid": "f8691882_866a7cd8",
+      "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af469796_1523e5d2",
+        "filename": "sockets.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 883,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-12-01T21:59:53Z",
+      "side": 1,
+      "message": "ah, i didn\u0027t realize it was a std::string_view. in that case, i probably _would_ use \"\"s here!",
+      "parentUuid": "0e182e43_19d5124c",
       "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
