@@ -246,6 +246,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1aca5f1a_968d960a",
+        "filename": "proto/devices.proto",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1076798
+      },
+      "writtenOn": "2023-12-01T19:50:47Z",
+      "side": 1,
+      "message": "Maybe call this \"bus_address\" or something along those lines to make it clearer?",
+      "parentUuid": "5aa8bd7f_12d7d9a8",
+      "revId": "aac2a3bce59b74edc8075a19cc89f57da3890ccf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a555eab8_5c36a1f5",
