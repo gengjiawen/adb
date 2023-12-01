@@ -22,6 +22,23 @@
       },
       "revId": "9fa8723a6c50ff071f47f03bd53120829a3be471",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab08e450_88542625",
+        "filename": "daemon/file_sync_service.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-12-01T19:52:27Z",
+      "side": 1,
+      "message": "well, you don\u0027t want to _fail_ in that case, do you? wasn\u0027t the complaint that we should _ignore_ this case, because it\u0027s fundamentally something that can\u0027t work?",
+      "revId": "9fa8723a6c50ff071f47f03bd53120829a3be471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
