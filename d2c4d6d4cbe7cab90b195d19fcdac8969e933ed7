@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a80d22b9_7ca81dd0",
+        "filename": "daemon/file_sync_service.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-12-02T00:32:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a678e60_30db1861",
+      "range": {
+        "startLine": 376,
+        "startChar": 19,
+        "endLine": 376,
+        "endChar": 25
+      },
+      "revId": "d2c4d6d4cbe7cab90b195d19fcdac8969e933ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "00fe21dc_2474a390",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-12-01T23:58:09Z",
       "side": 1,
       "message": "speculation goes on the bug, not in the code...",
+      "range": {
+        "startLine": 378,
+        "startChar": 15,
+        "endLine": 379,
+        "endChar": 33
+      },
+      "revId": "d2c4d6d4cbe7cab90b195d19fcdac8969e933ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6491443_fbedf30b",
+        "filename": "daemon/file_sync_service.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-12-02T00:32:50Z",
+      "side": 1,
+      "message": "Resolved (removed the speculative implication).",
+      "parentUuid": "00fe21dc_2474a390",
       "range": {
         "startLine": 378,
         "startChar": 15,
