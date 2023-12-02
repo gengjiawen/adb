@@ -577,6 +577,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7b650eb_dea28ceb",
+        "filename": "services.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-12-02T03:07:24Z",
+      "side": 1,
+      "message": "Haha. I originally had both text and binary for both `device-` and `track-device`. And then I told myself, \"I bet enh will recommend to only add code that we actually use\", so I deleted it.\n\nSo my take on that is that, as you mentioned, tools will always want PROTOBUF (why would they want TEXT_PROTOBUF which is more verbose and use more bandwidth?). Likewise, when I run `adb device -p`, I always expect to be able to read it. I cannot imagine a time wanting to see binary PROTOBUF in my CLI output.",
+      "parentUuid": "e3c560c5_832a5656",
+      "range": {
+        "startLine": 257,
+        "startChar": 37,
+        "endLine": 257,
+        "endChar": 45
+      },
+      "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f8691882_866a7cd8",
