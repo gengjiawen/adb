@@ -33,6 +33,24 @@
       "message": "you accidentally left a bit?",
       "revId": "fde162245f5a1e57a957990d591764a0de691866",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35b03dd1_b90e7d29",
+        "filename": "daemon/file_sync_service.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-12-02T00:55:48Z",
+      "side": 1,
+      "message": "\u003e\u003eResolved (removed the speculative implication).\nIt was not accidental - but since you assumed otherwise (when you LGTM-ed) I\u0027m reverting that bit.",
+      "parentUuid": "336b1d77_c08e6567",
+      "revId": "fde162245f5a1e57a957990d591764a0de691866",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
