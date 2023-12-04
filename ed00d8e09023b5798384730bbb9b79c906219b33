@@ -603,6 +603,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8e72394e_3eef1fb1",
+        "filename": "services.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-12-04T22:25:23Z",
+      "side": 1,
+      "message": "ah, and _track-devices_ \"-p\" isn\u0027t actually exposed at the command-line --- you have to use the protocol directly for that.\n\nthat\u0027s less bad... i think my main concern was precedent, and getting into a position where the _command-line_ meaning of \"protobuf\" depends on the specific command.\n\nif this is the first command where we\u0027re adding a protobuf option, let\u0027s just go straight for --text-protobuf to reduce the chances of us painting ourselves into a weird corner for the future. because i actually can see a use for both --- i\u0027d certainly rather a new tool used the protobuf format than parsing any of the existing ones, for example. and i can imagine someone debugging wanting to translate binary protobuf output into text protobuf output. (i\u0027m assuming protobuf has its own command-line tool for that? which is maybe an argument for only ever outputting binary protobufs, and letting anyone wanting to debug stuff pipe into the protobuf tool? but that\u0027s presumably a PITA if you\u0027re testing on Windows...)",
+      "parentUuid": "a7b650eb_dea28ceb",
+      "range": {
+        "startLine": 257,
+        "startChar": 37,
+        "endLine": 257,
+        "endChar": 45
+      },
+      "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f8691882_866a7cd8",
         "filename": "sockets.cpp",
         "patchSetId": 7
