@@ -625,6 +625,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1363b48d_0eb7e527",
+        "filename": "services.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-12-05T22:51:06Z",
+      "side": 1,
+      "message": "Discussed offline",
+      "parentUuid": "8e72394e_3eef1fb1",
+      "range": {
+        "startLine": 257,
+        "startChar": 37,
+        "endLine": 257,
+        "endChar": 45
+      },
+      "revId": "ed00d8e09023b5798384730bbb9b79c906219b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f8691882_866a7cd8",
