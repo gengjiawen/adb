@@ -461,6 +461,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f182279a_40bae03f",
+        "filename": "transport.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1076798
+      },
+      "writtenOn": "2023-12-06T20:32:59Z",
+      "side": 1,
+      "message": "\u003e let the door open to implementing ethernet / wifi speed.\n\nThis seems like something that you\u0027re never going to need or want because the number is useless, and is going to very difficult to find. e.g. suppose I have a 10GbE connection, are you actually going to report 10Gbit for everything? What are you going to report for a connection to localhost? Or `adb tcpip 5555; adb forward tcp:5555 tcp:5555; adb connect localhost:5555`",
+      "parentUuid": "69e095a8_d454f50e",
+      "revId": "aac2a3bce59b74edc8075a19cc89f57da3890ccf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ebc8ebf9_0f6ea612",

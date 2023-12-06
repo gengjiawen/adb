@@ -34,6 +34,24 @@
       "parentUuid": "ba93c846_47c7cc6e",
       "revId": "1c6cdf4f1ea68cac35908f71c2f95d03457b6402",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "410c0a95_0ed8e85d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076798
+      },
+      "writtenOn": "2023-12-06T20:32:59Z",
+      "side": 1,
+      "message": "I think it\u0027d be less annoying if it wasn\u0027t obnoxiously long to type, e.g. `--proto[\u003dtext|binary]`, defaulting to text if you don\u0027t specify.\n\nOr just only support text? Do all of the important proto parsing libraries support text proto? If so, it\u0027s not like bandwidth or parsing speed for this actually matters to parse dozens of bytes every time a device connects/leaves.",
+      "parentUuid": "b3bcf44a_7c2570e2",
+      "revId": "1c6cdf4f1ea68cac35908f71c2f95d03457b6402",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
