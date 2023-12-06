@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba93c846_47c7cc6e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-12-06T18:29:14Z",
+      "side": 1,
+      "message": "i thought you were going to just do track-devices (since it\u0027s a superset of devices), but add both text and binary to it (binary for tools, text for debugging)?\n\ni\u0027m uncomfortable with the idea of \"whether you get text or binary depends on who you ask\", and i still think _all_ the protobuf choices should be longopts (\u0027--text-protobuf\u0027) because they\u0027re not worth burning precious shortopts (\u0027-p\u0027) on for something that will mainly be hard-coded in a tool and otherwise only used for occasional debugging.\n\n(if we were explicitly saying --text-protobuf and --binary-protobuf i\u0027d be a bit less bothered by the difference, since at least in that world we could add the missing one of each pair later without ending up in a bizarre situation in terms of what the exact option to do that is. but i still prefer the \"yagni\" option for devices... i\u0027m just not seeing the real-world use case, and even for your debugging case, i think you\u0027re better off with track-devices supporting both.)",
+      "revId": "1c6cdf4f1ea68cac35908f71c2f95d03457b6402",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
