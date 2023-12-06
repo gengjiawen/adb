@@ -16,6 +16,24 @@
       "message": "i thought you were going to just do track-devices (since it\u0027s a superset of devices), but add both text and binary to it (binary for tools, text for debugging)?\n\ni\u0027m uncomfortable with the idea of \"whether you get text or binary depends on who you ask\", and i still think _all_ the protobuf choices should be longopts (\u0027--text-protobuf\u0027) because they\u0027re not worth burning precious shortopts (\u0027-p\u0027) on for something that will mainly be hard-coded in a tool and otherwise only used for occasional debugging.\n\n(if we were explicitly saying --text-protobuf and --binary-protobuf i\u0027d be a bit less bothered by the difference, since at least in that world we could add the missing one of each pair later without ending up in a bizarre situation in terms of what the exact option to do that is. but i still prefer the \"yagni\" option for devices... i\u0027m just not seeing the real-world use case, and even for your debugging case, i think you\u0027re better off with track-devices supporting both.)",
       "revId": "1c6cdf4f1ea68cac35908f71c2f95d03457b6402",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3bcf44a_7c2570e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-12-06T19:50:42Z",
+      "side": 1,
+      "message": "1/ Having `devices -p` is convenient and easier to read than the `-l` output, not to mention it features more info. This is what I use all the time now that i have it. Having to resort to `track-devices -p` is annoying because I need to Control-C right after to get out. We need both.\n\nHowever I agree `-p` is confusing so I changed `-p` in `track-devices -p` to `track-devices -x` to avoid confusion with `devices -p`.\n\n2/ I agree that shortopts are precious but what are the criteria to assess when it is ok to burn one? Every CL author (me) is going to say it is useful and every reviewer (you) is going to say it is not useful enough. The `devices` commands has a single shortopt now, I think it is ok to add a second one. We are far from making a dent in the number of available ones. I don\u0027t mind having a longopts for `track-devices` since it is for tools but `devices` is meant to be used often and should have a shortopt (-p). Let me know if you really want `track-devices -x` to be `track-devices --binary-protobuf` instead.\n\n3/ I don\u0027t want to add commands/services unless there is an intended usage for it. Like `track-devices --protobuffer-text`: what tool is going to use that? Same with `devices --protobuffer-binary`. Nobody is going to use this either.",
+      "parentUuid": "ba93c846_47c7cc6e",
+      "revId": "1c6cdf4f1ea68cac35908f71c2f95d03457b6402",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
