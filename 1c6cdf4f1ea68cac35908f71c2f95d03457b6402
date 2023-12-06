@@ -52,6 +52,24 @@
       "parentUuid": "b3bcf44a_7c2570e2",
       "revId": "1c6cdf4f1ea68cac35908f71c2f95d03457b6402",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2f7a45d_6ae87756",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-12-06T22:58:52Z",
+      "side": 1,
+      "message": "\u003e However I agree -p is confusing so I changed -p in track-devices -p to track-devices -x to avoid confusion with devices -p.\n\nthat\u0027s far worse!\n\nyou\u0027re really not doing a good job of selling _any_ changes to devices... even a `--one-shot` option to track-devices is sounding less silly at the moment!\n\n\u003e 2/ I agree that shortopts are precious but what are the criteria to assess when it is ok to burn one?\n\nit\u0027s certainly a \"default no\" --- this combines with your \"Having devices -p is convenient and easier to read than the -l output, not to mention it features more info\" to lead into our usual git-like conversation about plumbing versus porcelain. it\u0027s like larry\u0027s \"toothbrush test\" ... does everyone need this every day? otherwise it\u0027s \"why does this have to be in adb?\". in particular: \"you can put whatever you like in your .bashrc\".\n\n\u003e Or just only support text? Do all of the important proto parsing libraries support text proto? If so, it\u0027s not like bandwidth or parsing speed for this actually matters to parse dozens of bytes every time a device connects/leaves.\n\nyeah, \"we only support text protobufs\" was one of my other suggestions: humans need it, and machines don\u0027t care (for the things we\u0027re talking about). and if/when we\u0027re doing other stuff with protobufs and _do_ care, the `--proto[\u003dtext|binary]` style gives us a nice ready-made escape hatch.\n\n(the fact that, when you think about it, text is the obvious default feels like more circumstantial evidence in favor of all text, all the time...)",
+      "parentUuid": "410c0a95_0ed8e85d",
+      "revId": "1c6cdf4f1ea68cac35908f71c2f95d03457b6402",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
