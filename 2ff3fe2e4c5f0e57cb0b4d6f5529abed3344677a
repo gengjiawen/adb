@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8faa4725_aea22c16",
+        "filename": "sysdeps/vm_sockets.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-12-07T01:40:05Z",
+      "side": 0,
+      "message": "Would we still need this?",
+      "range": {
+        "startLine": 46,
+        "startChar": 8,
+        "endLine": 46,
+        "endChar": 19
+      },
+      "revId": "2ff3fe2e4c5f0e57cb0b4d6f5529abed3344677a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
