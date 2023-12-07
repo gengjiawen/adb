@@ -22,6 +22,30 @@
       },
       "revId": "d690167dc3a1f78d80f63c532dc7a8e2bb43461c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "427ef97f_1501b0ad",
+        "filename": "socket_spec.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-12-07T15:32:30Z",
+      "side": 1,
+      "message": "no, since the musl work is stalled, i\u0027ve updated glibc: https://android-review.git.corp.google.com/c/platform/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.17-4.8/+/2860476",
+      "parentUuid": "ea7268cc_1b3fb0ed",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 29
+      },
+      "revId": "d690167dc3a1f78d80f63c532dc7a8e2bb43461c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
