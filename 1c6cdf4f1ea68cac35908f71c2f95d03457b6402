@@ -70,6 +70,24 @@
       "parentUuid": "410c0a95_0ed8e85d",
       "revId": "1c6cdf4f1ea68cac35908f71c2f95d03457b6402",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b1e805e_d04c4470",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-12-07T00:51:39Z",
+      "side": 1,
+      "message": "Done\n\n- adb devices is untouched.\n- adb track-devices has two new longopt (`--proto[-text|-binary]`).",
+      "parentUuid": "d2f7a45d_6ae87756",
+      "revId": "1c6cdf4f1ea68cac35908f71c2f95d03457b6402",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
