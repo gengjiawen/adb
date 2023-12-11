@@ -46,6 +46,30 @@
       },
       "revId": "f8bc0c6b83d33b551131517b9468947a362f6631",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a146df4_fa2e3617",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 969,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-12-11T23:55:19Z",
+      "side": 0,
+      "message": "I was referring to a test-only scenario (for usb_init()).\nPS: The test does not exist right now, since it\u0027s a work-in-progress. For all you know the test itself can do the registration and unregistration (without incurring a penalty in production runs).",
+      "parentUuid": "4e97ce80_7e458198",
+      "range": {
+        "startLine": 969,
+        "startChar": 67,
+        "endLine": 969,
+        "endChar": 82
+      },
+      "revId": "f8bc0c6b83d33b551131517b9468947a362f6631",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
