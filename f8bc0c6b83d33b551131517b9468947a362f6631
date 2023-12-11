@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f9a1a55_04c2352c",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 969,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-12-11T21:43:52Z",
+      "side": 0,
+      "message": "ok with this, for now - however, I\u0027d like to get some form of testing in-place (sooner than later) and at that point we\u0027ll likely need to rework this back (esp when we have a test for usb_init()).\nRef to work-in-progress CL: https://android-review.git.corp.google.com/c/platform/packages/modules/adb/+/2853234/1/client/libusb_test.cpp",
+      "range": {
+        "startLine": 969,
+        "startChar": 67,
+        "endLine": 969,
+        "endChar": 82
+      },
+      "revId": "f8bc0c6b83d33b551131517b9468947a362f6631",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
