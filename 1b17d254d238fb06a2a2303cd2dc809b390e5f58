@@ -33,6 +33,57 @@
       "message": "ping?",
       "revId": "1b17d254d238fb06a2a2303cd2dc809b390e5f58",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af83fe0c_20f0f7f0",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 26
+      },
+      "lineNbr": 2077,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-12-11T21:35:55Z",
+      "side": 1,
+      "message": "you didn\u0027t want the jmgao suggestion of --proto[\u003dtext|binary]? which admittedly would work better if we were actually using proper argument parsing rather than ad hoc.",
+      "revId": "1b17d254d238fb06a2a2303cd2dc809b390e5f58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d7fef4b_ce157c45",
+        "filename": "proto/devices.proto",
+        "patchSetId": 26
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-12-11T21:35:55Z",
+      "side": 1,
+      "message": "whitespace",
+      "revId": "1b17d254d238fb06a2a2303cd2dc809b390e5f58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91019013_60c974cd",
+        "filename": "transport.cpp",
+        "patchSetId": 26
+      },
+      "lineNbr": 1376,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-12-11T21:35:55Z",
+      "side": 1,
+      "message": "just lift this (and the return) out and share with the other branch?",
+      "revId": "1b17d254d238fb06a2a2303cd2dc809b390e5f58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
