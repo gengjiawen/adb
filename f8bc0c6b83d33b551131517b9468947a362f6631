@@ -22,6 +22,30 @@
       },
       "revId": "f8bc0c6b83d33b551131517b9468947a362f6631",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e97ce80_7e458198",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 969,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-12-11T23:45:40Z",
+      "side": 0,
+      "message": "why would we ever want to deregister the hotplug handler? even if we\u0027re exiting, what reason could we have for slowing down exit by doing unnecessary work?",
+      "parentUuid": "3f9a1a55_04c2352c",
+      "range": {
+        "startLine": 969,
+        "startChar": 67,
+        "endLine": 969,
+        "endChar": 82
+      },
+      "revId": "f8bc0c6b83d33b551131517b9468947a362f6631",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
