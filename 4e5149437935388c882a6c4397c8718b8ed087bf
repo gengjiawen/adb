@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf99334a_fba4dc0e",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-12-12T16:22:57Z",
+      "side": 1,
+      "message": "Please fix this WARNING reported by Check Contents: Please remove the trailing whitespace.\n\nAnalyzer Description: Validates that changes do not have prohibited expressions in them.\nOwner: ayeaye-team@google.com\n\nPlease remove the trailing whitespace.",
+      "range": {
+        "startLine": 361,
+        "startChar": 13,
+        "endLine": 361,
+        "endChar": 15
+      },
+      "revId": "4e5149437935388c882a6c4397c8718b8ed087bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7cc5cbf_86f09a0c",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-12-12T16:22:57Z",
+      "side": 1,
+      "message": "Please fix this WARNING reported by Check Contents: Please remove the trailing whitespace.\n\nAnalyzer Description: Validates that changes do not have prohibited expressions in them.\nOwner: ayeaye-team@google.com\n\nPlease remove the trailing whitespace.",
+      "range": {
+        "startLine": 361,
+        "startChar": 13,
+        "endLine": 361,
+        "endChar": 15
+      },
+      "revId": "4e5149437935388c882a6c4397c8718b8ed087bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
