@@ -94,6 +94,30 @@
       },
       "revId": "d274cd4e5def9e51f9af3a43faff0d821cdb2509",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2504392_33566b68",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-12-12T17:57:31Z",
+      "side": 0,
+      "message": "The formatting was modeled on the output of `man diff`, `man tar`, `man zip`, or `man git` where I saw the following pattern.\n\n```\n-FLAG\u003cCR\u003e\n\u003cTAB\u003eExplanation\n```\n\ne.g zip:\n\n```\n-h\n-?\n--help       \n    Display the zip help information (this also appears if zip is run with no arguments).\n\n```\n\ne.g: git\n```\n-h, --help\n    Prints the synopsis and a list of the most commonly used commands. If the option --all or -a is given then all available commands are printed. If a Git command is named this option will bring up\n           the manual page for that command.\n\n    Other options are available to control how the manual page is displayed. See git-help(1) for more information, because git --help ... is converted internally into git help ....\n\n```\n\nI thought it was a layout which made sense.",
+      "parentUuid": "97ab6178_30628bdc",
+      "range": {
+        "startLine": 24,
+        "startChar": 6,
+        "endLine": 24,
+        "endChar": 8
+      },
+      "revId": "d274cd4e5def9e51f9af3a43faff0d821cdb2509",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
