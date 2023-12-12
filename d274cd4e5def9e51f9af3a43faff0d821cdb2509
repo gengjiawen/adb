@@ -46,6 +46,30 @@
       },
       "revId": "d274cd4e5def9e51f9af3a43faff0d821cdb2509",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef2156ea_9d1d9c76",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-12-12T17:42:35Z",
+      "side": 0,
+      "message": "Without the CR, some sections of this page are a mess. Check out the part after `Forward socket connection using one of the followings`. Or `sync [-l]` section. `reboot` also looks horrible.\n\nBtw: This is the #1 result when you google \"adb man page\". If you want to abandon the man appearance, you should also change the title.",
+      "parentUuid": "880c4b55_c319dfc0",
+      "range": {
+        "startLine": 24,
+        "startChar": 6,
+        "endLine": 24,
+        "endChar": 8
+      },
+      "revId": "d274cd4e5def9e51f9af3a43faff0d821cdb2509",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
