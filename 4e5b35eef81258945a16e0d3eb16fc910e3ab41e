@@ -1,5 +1,29 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d122e5b5_538491ac",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-12-12T16:53:18Z",
+      "side": 1,
+      "message": "This line is too long. It should be less than 50 character)",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 111
+      },
+      "revId": "4e5b35eef81258945a16e0d3eb16fc910e3ab41e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {

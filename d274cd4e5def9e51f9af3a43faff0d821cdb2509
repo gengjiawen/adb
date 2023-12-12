@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "071819ea_d14321df",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-12-12T16:53:18Z",
+      "side": 0,
+      "message": "All these are needed. That is how you perform a carriage return. This is done this way to make it look like an actual man page.",
+      "range": {
+        "startLine": 24,
+        "startChar": 6,
+        "endLine": 24,
+        "endChar": 8
+      },
+      "revId": "d274cd4e5def9e51f9af3a43faff0d821cdb2509",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
