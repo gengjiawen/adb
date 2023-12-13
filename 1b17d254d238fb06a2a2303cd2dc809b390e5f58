@@ -52,6 +52,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f896cc4_e3103cff",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 26
+      },
+      "lineNbr": 2077,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-12-13T15:45:25Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "af83fe0c_20f0f7f0",
+      "revId": "1b17d254d238fb06a2a2303cd2dc809b390e5f58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7d7fef4b_ce157c45",
@@ -69,6 +87,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c4932a0_9730a82a",
+        "filename": "proto/devices.proto",
+        "patchSetId": 26
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-12-13T15:45:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d7fef4b_ce157c45",
+      "revId": "1b17d254d238fb06a2a2303cd2dc809b390e5f58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "91019013_60c974cd",
@@ -82,6 +118,24 @@
       "writtenOn": "2023-12-11T21:35:55Z",
       "side": 1,
       "message": "just lift this (and the return) out and share with the other branch?",
+      "revId": "1b17d254d238fb06a2a2303cd2dc809b390e5f58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aab620d9_16c1136f",
+        "filename": "transport.cpp",
+        "patchSetId": 26
+      },
+      "lineNbr": 1376,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-12-13T15:45:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91019013_60c974cd",
       "revId": "1b17d254d238fb06a2a2303cd2dc809b390e5f58",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
