@@ -3,6 +3,57 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "069a251b_c9203dbe",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-12-14T23:27:22Z",
+      "side": 1,
+      "message": "missing \\n before this group",
+      "revId": "4e5149437935388c882a6c4397c8718b8ed087bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88884fe0_b04b2ad5",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-12-14T23:27:22Z",
+      "side": 1,
+      "message": "|sort",
+      "revId": "4e5149437935388c882a6c4397c8718b8ed087bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "195254a8_5b16876b",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-12-14T23:27:22Z",
+      "side": 1,
+      "message": "(oops, looks like we missed a \\n here?)",
+      "revId": "4e5149437935388c882a6c4397c8718b8ed087bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bf99334a_fba4dc0e",
         "filename": "docs/user/adb.1.md",
         "patchSetId": 4
