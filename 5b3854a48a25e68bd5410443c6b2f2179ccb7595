@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "103aac29_29febce5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-12-14T21:01:34Z",
+      "side": 1,
+      "message": "nit: You need a blank line between the title and the description",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 96
+      },
+      "revId": "5b3854a48a25e68bd5410443c6b2f2179ccb7595",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
