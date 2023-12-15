@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b587d5bf_a935871f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-12-15T22:07:31Z",
+      "side": 1,
+      "message": "Discussed with enh@ and sanglardf@, and we\u0027re agreeable to relying on sanglardf@ to rework the documentation into a consistent form (all or nothing, either man page compatible or not). Please go ahead and send out a followup CL (including commandline refactor as needed) so that we\u0027ll come up with consistent and clear user-facing text. ty!",
+      "revId": "23c79f43a9f42d77f91bbf726326f73532236faa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
