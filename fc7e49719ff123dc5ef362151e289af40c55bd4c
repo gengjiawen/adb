@@ -33,6 +33,24 @@
       "message": "You have a +2 on it from `enh`, what is preventing the merge?",
       "revId": "fc7e49719ff123dc5ef362151e289af40c55bd4c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58ac995a_ab2f3bd6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076798
+      },
+      "writtenOn": "2023-12-20T20:46:19Z",
+      "side": 1,
+      "message": "Review-Enforcement\nStatus\nUNSATISFIED\nTwo Google employees must approve the change. Uploading the change or voting positively on Code-Review count as approval.",
+      "parentUuid": "b3ed3408_aa93970f",
+      "revId": "fc7e49719ff123dc5ef362151e289af40c55bd4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
