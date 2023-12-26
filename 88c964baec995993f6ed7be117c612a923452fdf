@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4e359a0_811cc147",
+        "filename": "SERVICES.TXT",
+        "patchSetId": 1
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-12-26T21:22:40Z",
+      "side": 0,
+      "message": "I feel that the original author\u0027s intent was that it was human-readable in the sense that it is decipherable (like in a debugger) without symbolization. In other words, a pure binary (an executable, or a shared library or DLL) cannot yield much useful information to a developer (e.g decorated names of functions) VS ADB protocol is entirely in binary format that can be 100% converted to text that literally tells you all you need to know (all you need is to pass it into the handy-dandy adb function).\nSo, can you please consider keeping around the \u0027human-readable\u0027 aspect? (ok with clarifying that it is *also* a binary form).",
+      "range": {
+        "startLine": 257,
+        "startChar": 4,
+        "endLine": 257,
+        "endChar": 18
+      },
+      "revId": "88c964baec995993f6ed7be117c612a923452fdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

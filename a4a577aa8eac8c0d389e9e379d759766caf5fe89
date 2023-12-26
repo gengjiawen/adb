@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdb27b9c_80c9d2d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-12-26T21:22:40Z",
+      "side": 1,
+      "message": "I have an additional suggestion for your kind consideration.",
+      "revId": "a4a577aa8eac8c0d389e9e379d759766caf5fe89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
