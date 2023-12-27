@@ -16,6 +16,29 @@
       "message": "ping",
       "revId": "ee11535d82c14cda4fed731c96a24dfbce925e9a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21b568b3_9718a15d",
+        "filename": "transport.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1368,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2023-12-27T20:01:13Z",
+      "side": 1,
+      "message": "Nit: can we order the setters in the order of the field number(s), so they say organized.",
+      "range": {
+        "startLine": 1367,
+        "startChar": 0,
+        "endLine": 1368,
+        "endChar": 77
+      },
+      "revId": "ee11535d82c14cda4fed731c96a24dfbce925e9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
