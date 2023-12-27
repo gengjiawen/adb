@@ -22,6 +22,30 @@
       },
       "revId": "88c964baec995993f6ed7be117c612a923452fdf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba36ec6d_9ffd85b7",
+        "filename": "SERVICES.TXT",
+        "patchSetId": 1
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-12-27T18:59:02Z",
+      "side": 0,
+      "message": "I **AM** the original author. I have a pretty good idea of the intent. `human-readable` means human can read and understand it. That is what `text-protobuf` is. The protocol buffer stream of bytes issued by `track-app` is not readable or understandable or decipherable by a human.\n\nI have no idea what you mean with the suggestion to rephrase by keeping both `human-readable` and `binary`. You seem to have a better idea of how this should be documented, I will abandon this CL so you can take care of it.",
+      "parentUuid": "a4e359a0_811cc147",
+      "range": {
+        "startLine": 257,
+        "startChar": 4,
+        "endLine": 257,
+        "endChar": 18
+      },
+      "revId": "88c964baec995993f6ed7be117c612a923452fdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
