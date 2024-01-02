@@ -16,6 +16,24 @@
       "message": "keep the correct name, but use #if so we only define this for mingw?",
       "revId": "abb06070fa82c88d616e8d2aebd8ed0172b8ae7d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f65fcb5_0361c306",
+        "filename": "sysdeps_win32.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3092,
+      "author": {
+        "id": 1972022
+      },
+      "writtenOn": "2024-01-02T17:45:52Z",
+      "side": 1,
+      "message": "This is a function pointer and not the actual function declaration. Would not this also cause an issue with Windows SDK \u003e\u003d 10.0.22621.0 and MSVC? SetThreadDescription is declared in mingw-w64 as similar way in Windows SDK.\n\nAlso, function pointer types are generally defined with different name than the actual function. For example, https://github.com/microsoft/terminal/blob/main/src/host/ft_host/OneCoreDelay.cpp",
+      "parentUuid": "61591a3f_db5c7277",
+      "revId": "abb06070fa82c88d616e8d2aebd8ed0172b8ae7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
