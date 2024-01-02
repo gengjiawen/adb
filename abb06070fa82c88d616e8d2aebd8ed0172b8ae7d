@@ -52,6 +52,24 @@
       "parentUuid": "9f65fcb5_0361c306",
       "revId": "abb06070fa82c88d616e8d2aebd8ed0172b8ae7d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a17e7342_ec610d43",
+        "filename": "sysdeps_win32.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3092,
+      "author": {
+        "id": 1972022
+      },
+      "writtenOn": "2024-01-02T20:34:40Z",
+      "side": 1,
+      "message": "Yes, that is also possible. By the way, msvc with newer SDK also produces same error.\n\n```\nerror C2365: \u0027SetThreadDescription\u0027: redefinition; previous definition was \u0027function\u0027\n```",
+      "parentUuid": "1fe1b629_8b6cec53",
+      "revId": "abb06070fa82c88d616e8d2aebd8ed0172b8ae7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
