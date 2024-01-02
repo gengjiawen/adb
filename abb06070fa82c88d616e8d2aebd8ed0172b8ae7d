@@ -34,6 +34,24 @@
       "parentUuid": "61591a3f_db5c7277",
       "revId": "abb06070fa82c88d616e8d2aebd8ed0172b8ae7d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fe1b629_8b6cec53",
+        "filename": "sysdeps_win32.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3092,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-01-02T18:43:21Z",
+      "side": 1,
+      "message": "Since it\u0027s only used once, can we just use a local (and sidestep the confusion, as highlighted by enh@)?\n   HRESULT(WINAPI *p)(HANDLE, PCWSTR) \u003d (HRESULT(WINAPI *)(HANDLE, PCWSTR))GetProcAddress(..);\n   if (p) { .. }",
+      "parentUuid": "9f65fcb5_0361c306",
+      "revId": "abb06070fa82c88d616e8d2aebd8ed0172b8ae7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
