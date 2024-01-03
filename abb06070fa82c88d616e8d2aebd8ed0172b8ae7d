@@ -106,6 +106,24 @@
       "parentUuid": "0de7e176_b781b07a",
       "revId": "abb06070fa82c88d616e8d2aebd8ed0172b8ae7d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db17032f_2edee43e",
+        "filename": "sysdeps_win32.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3092,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-01-03T18:43:10Z",
+      "side": 1,
+      "message": "LGTM",
+      "parentUuid": "0a364865_0146585c",
+      "revId": "abb06070fa82c88d616e8d2aebd8ed0172b8ae7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
