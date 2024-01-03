@@ -88,6 +88,24 @@
       "parentUuid": "a17e7342_ec610d43",
       "revId": "abb06070fa82c88d616e8d2aebd8ed0172b8ae7d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a364865_0146585c",
+        "filename": "sysdeps_win32.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3092,
+      "author": {
+        "id": 1972022
+      },
+      "writtenOn": "2024-01-03T16:32:07Z",
+      "side": 1,
+      "message": "I have added the requested change. Please review the new patch.",
+      "parentUuid": "0de7e176_b781b07a",
+      "revId": "abb06070fa82c88d616e8d2aebd8ed0172b8ae7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
