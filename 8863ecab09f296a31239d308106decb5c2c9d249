@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec2e53be_a538d5bb",
+        "filename": "sysdeps_win32.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3096,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-01-03T16:38:07Z",
+      "side": 1,
+      "message": "can\u0027t you keep the `auto` here to avoid repeating yourself? (although i\u0027m not personally a fan of `auto` in general, i\u0027ve always felt like this is the most defensible use of `auto` for that reason --- you\u0027ve already given the full type later on the very same line.)",
+      "range": {
+        "startLine": 3096,
+        "startChar": 4,
+        "endLine": 3096,
+        "endChar": 64
+      },
+      "revId": "8863ecab09f296a31239d308106decb5c2c9d249",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68762760_f8a84e84",
+        "filename": "sysdeps_win32.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3097,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-01-03T16:38:07Z",
+      "side": 1,
+      "message": "(normally i\u0027d say `WINAPI*` but since `WINAPI` is an _attribute_ rather than a type, this probably makes more sense as-is!)",
+      "range": {
+        "startLine": 3097,
+        "startChar": 33,
+        "endLine": 3097,
+        "endChar": 41
+      },
+      "revId": "8863ecab09f296a31239d308106decb5c2c9d249",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
