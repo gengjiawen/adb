@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c443d9d9_c9faf2c9",
+        "filename": "sysdeps_win32.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3096,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-01-03T16:51:42Z",
+      "side": 1,
+      "message": "My sentiment is similar to enh@\u0027s (about disliking auto in general, because it serves to obfuscate), however in this case it helps IMO(without obfuscation).",
+      "parentUuid": "ec2e53be_a538d5bb",
+      "range": {
+        "startLine": 3096,
+        "startChar": 4,
+        "endLine": 3096,
+        "endChar": 64
+      },
+      "revId": "8863ecab09f296a31239d308106decb5c2c9d249",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "68762760_f8a84e84",
