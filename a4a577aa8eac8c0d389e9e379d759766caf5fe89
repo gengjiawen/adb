@@ -39,6 +39,23 @@
       "message": "I have an additional suggestion for your kind consideration.",
       "revId": "a4a577aa8eac8c0d389e9e379d759766caf5fe89",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "088d9626_baa2a4b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-01-04T21:53:32Z",
+      "side": 1,
+      "message": "yeah, the current documentation is just factually incorrect, right? it\u0027s actually a binary protobuf, so we should say that. (if it _was_ a text protobuf, yes, \"text\" would have been more specific than \"human-readable\", but since it\u0027s genuinely binary, nothing but \"binary\" makes any sense...)",
+      "revId": "a4a577aa8eac8c0d389e9e379d759766caf5fe89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
