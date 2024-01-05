@@ -56,6 +56,30 @@
       },
       "revId": "4e29eca7c3aba8ea915da4b68e4b3d43ed15998a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6dfbc6ad_f20e361c",
+        "filename": "OWNERS",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1305591
+      },
+      "writtenOn": "2024-01-05T14:52:24Z",
+      "side": 1,
+      "message": "I don\u0027t think the current system support multiple components (how would it decide which one to send bugs to?). The proposed one seems to be a safer default?",
+      "parentUuid": "1a00b7e1_b9933c6a",
+      "range": {
+        "startLine": 1,
+        "startChar": 17,
+        "endLine": 1,
+        "endChar": 23
+      },
+      "revId": "4e29eca7c3aba8ea915da4b68e4b3d43ed15998a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
