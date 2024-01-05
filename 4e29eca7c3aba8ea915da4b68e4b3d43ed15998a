@@ -80,6 +80,30 @@
       },
       "revId": "4e29eca7c3aba8ea915da4b68e4b3d43ed15998a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53b1d0c3_729774e1",
+        "filename": "OWNERS",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-01-05T15:34:09Z",
+      "side": 1,
+      "message": "If that\u0027s the case, hope you\u0027re OK with me using 1352 (since this is the default bug consolidation area for *all* ADB issues, whereas 147471 is a subset of the field issues that impacts just Studio deployment).\nPlease reopen if my assumption is incorrect (also made some minor edits in the commit message).",
+      "parentUuid": "6dfbc6ad_f20e361c",
+      "range": {
+        "startLine": 1,
+        "startChar": 17,
+        "endLine": 1,
+        "endChar": 23
+      },
+      "revId": "4e29eca7c3aba8ea915da4b68e4b3d43ed15998a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
