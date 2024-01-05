@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "275936a4_1cca0035",
+        "filename": "client/openscreen/platform/udp_socket.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-01-05T00:35:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1bf62f2_a3afaff7",
+      "range": {
+        "startLine": 496,
+        "startChar": 18,
+        "endLine": 496,
+        "endChar": 28
+      },
+      "revId": "8a9bb44a7a3839b1c3d6aa80a9ad81995b5ba996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c6ac7e0d_58b6b0b6",
@@ -58,6 +82,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7dca8b0d_ee8f0339",
+        "filename": "client/openscreen/platform/udp_socket.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-01-05T00:35:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6ac7e0d_58b6b0b6",
+      "revId": "8a9bb44a7a3839b1c3d6aa80a9ad81995b5ba996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "92e332fb_14c6d364",
@@ -71,6 +113,30 @@
       "writtenOn": "2023-08-16T18:47:31Z",
       "side": 1,
       "message": "PORT",
+      "range": {
+        "startLine": 505,
+        "startChar": 43,
+        "endLine": 505,
+        "endChar": 55
+      },
+      "revId": "8a9bb44a7a3839b1c3d6aa80a9ad81995b5ba996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2237737_0fd992e5",
+        "filename": "client/openscreen/platform/udp_socket.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-01-05T00:35:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92e332fb_14c6d364",
       "range": {
         "startLine": 505,
         "startChar": 43,
