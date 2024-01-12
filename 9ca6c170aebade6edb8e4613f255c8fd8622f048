@@ -189,6 +189,24 @@
       "parentUuid": "0fc31516_fbff261b",
       "revId": "9ca6c170aebade6edb8e4613f255c8fd8622f048",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c52fb66a_207bb3b3",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1034,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-01-12T21:33:23Z",
+      "side": 1,
+      "message": "Resolving.",
+      "parentUuid": "41889f20_1ce6d111",
+      "revId": "9ca6c170aebade6edb8e4613f255c8fd8622f048",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
