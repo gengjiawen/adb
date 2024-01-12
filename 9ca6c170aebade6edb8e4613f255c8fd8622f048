@@ -75,6 +75,24 @@
       "parentUuid": "423d9c43_8093455e",
       "revId": "9ca6c170aebade6edb8e4613f255c8fd8622f048",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ecb5a7a_6072d887",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1034,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-01-12T18:07:43Z",
+      "side": 1,
+      "message": "I don\u0027t think we should try to guess why `libusb` failed to initialize. It is `libusb`\u0027s job to tell us what went wrong in their log. And they do. We get the message `\"could not find usbfs\"`. \n\n\nTesting for `!exists(\"\u003cdirectory\u003e\")` is an implementation detail. Right now `libusb` implementation is to check if `/dev/bus/usb` is there but they could change that. In their `udev` path for example (if we ever switch to that), they could just way for uevents and never check for `/dev/bus/usb` at startup. Or even in the current `netlink` path, they could remove the check altogether and fail upon `libusb_get_device_list()`. We cannot know.\n\nI think the simplest and less likely way to break fix is to change from `FATAL` to `WARNING` (please **LOG** that there was an issue!) and then return. And also remove all the comments trying to guess what is happening which are misleading.\n\n```\nif (rc !\u003d 0) {\n    LOG(WARNING) \u003c\u003c \"failed to initialize libusb: \" \u003c\u003c libusb_error_name(rc);\n    return;\n}\n```",
+      "parentUuid": "8e9b21f4_e91563d3",
+      "revId": "9ca6c170aebade6edb8e4613f255c8fd8622f048",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
