@@ -111,6 +111,24 @@
       "parentUuid": "1ecb5a7a_6072d887",
       "revId": "9ca6c170aebade6edb8e4613f255c8fd8622f048",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4682280_0a106f56",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1034,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-01-12T20:27:36Z",
+      "side": 1,
+      "message": "There are two ways we can surface the error message.\n\n1/ `LIBUSB_DEBUG\u003d4` will let us see `\"could not find usbfs\"` (https://github.com/libusb/libusb/blob/master/libusb/os/linux_usbfs.c#L373). That is how we got the message in https://b.corp.google.com/issues/318975562#comment12. This can be done either by user, or changing `config.h` in our `libusb` repo.\n\n2/ We could add a `char* libusb_get_last_error()` in libusb, upstream to get direct access to the error.\n\nTo unlock this CL, can we check it in (without the comments) and create a bug to improve the error message in libusb?",
+      "parentUuid": "f6d21e98_301bfa14",
+      "revId": "9ca6c170aebade6edb8e4613f255c8fd8622f048",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
