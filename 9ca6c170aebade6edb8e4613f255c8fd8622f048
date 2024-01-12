@@ -93,6 +93,24 @@
       "parentUuid": "8e9b21f4_e91563d3",
       "revId": "9ca6c170aebade6edb8e4613f255c8fd8622f048",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6d21e98_301bfa14",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1034,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-01-12T18:52:29Z",
+      "side": 1,
+      "message": "\u003e I don\u0027t think we should try to guess why libusb failed to initialize. It is libusb\u0027s job to tell us what went wrong in their log. And they do. We get the message \"could not find usbfs\".\n\noh, perfect! _where_ though? libusb_error_name() just gave LIBUSB_ERROR_OTHER on the bug, didn\u0027t it?\n\nbut i fully agree we should just use libusb\u0027s error if it\u0027s a good one.\nsee system/core/diagnose_usb/diagnose_usb.cpp for the other end of the spectrum where we had to write lots of code to give decent diagnostics. my only concern is that we have good enough diagnostics that we don\u0027t have to waste _human_ time; i\u0027d definitely rather that they came from libusb than us!",
+      "parentUuid": "1ecb5a7a_6072d887",
+      "revId": "9ca6c170aebade6edb8e4613f255c8fd8622f048",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
