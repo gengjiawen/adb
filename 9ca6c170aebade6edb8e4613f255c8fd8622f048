@@ -16,6 +16,24 @@
       "message": "don\u0027t write this kind of error messages --- this is a classic 1990s-era Windows of bad message[1], where you\u0027re _guessing_ something rather than _checking_ something. this is one reason why i suggested the alternative \"check for the directory and don\u0027t even call libusb_init() if it\u0027s not there\", since to provide a decent error here (given that libusb_init() seems to just return \"unknown failure\", judging by what we\u0027ve seen on the bug), we end up needing to do that anyway...\n\ni\u0027m also unconvinced that we want to ignore _all_ libusb failures?\n\n____\n1. at their worst, MS would list _multiple_ things. but anything in an error that\u0027s just a guess is bad, especially when it\u0027s something that the computer can check more easily than a human.",
       "revId": "9ca6c170aebade6edb8e4613f255c8fd8622f048",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "423d9c43_8093455e",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1034,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-01-12T16:53:52Z",
+      "side": 1,
+      "message": "I feel that this strategy is better because: When we upgrade to a contemporary version of libusb (ref: recent activity that supports\nhotplug behavior https://github.com/libusb/libusb/pull/1406, ultimately resulting in us standardizing on libusb as the sole back-end stack) we can just continue to use the standard libusb interface (libusb_init() in this case) to surface/handle errors (without duplicating the logic in application code). That way there\u0027s one place (libusb) that checks for such preconditions. Conversely, if we try to adjust for downstream (libusb errors) by doing those check(s) ourselves, it might potentially cause more duplicated work. For e.g today it\u0027s just the absence of /dev/bus/usb and /sys/bus/usb, however this could (potentially) change.\nI\u0027m unsure why you feel that I\u0027m \"guessing\" (since the verbiage is \"will not have\"). Clearly, the absence of these mounts is the reason why the folks who commented on the bug encountered the failure.\nWhile I agree that LIBUSB_ERROR_OTHER is a poor excuse for an error string, I feel that the `missing /dev/bus/usb` entries?` snippet might serve to save the end-user\u0027s time (doing a search for `failed to initialize libusb: LIBUSB_ERROR_OTHER\u0027, or an internal moma search yielding this bug). This is not incorrect, and yields more (relevant) information than the alternative (which is nil).\nAssuming you have any other strong reservations about the text of the string, what would you propose instead?",
+      "parentUuid": "df28bdea_6196078d",
+      "revId": "9ca6c170aebade6edb8e4613f255c8fd8622f048",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
