@@ -1028,8 +1028,12 @@ namespace libusb {
 void usb_init() {
     VLOG(USB) << "initializing libusb...";
     int rc = libusb_init(nullptr);
-    if (rc != 0) {
-        LOG(FATAL) << "failed to initialize libusb: " << libusb_error_name(rc);
+    if (rc != 0) {  // Cloud-hosted systems without a physical USB controller
+        // will not have /dev/bus/usb or /sys/dev/usb and typically
+        // they employ an alternate mode of hosting devices (e.g based on TCP)
+        LOG(WARNING) << "failed to initialize libusb (missing /dev/bus/usb entries?): "
+                     << libusb_error_name(rc);
+        return;
     }
 
     // Register the hotplug callback.
