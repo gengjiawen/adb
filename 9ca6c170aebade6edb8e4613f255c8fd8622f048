@@ -129,6 +129,24 @@
       "parentUuid": "f6d21e98_301bfa14",
       "revId": "9ca6c170aebade6edb8e4613f255c8fd8622f048",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fc31516_fbff261b",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1034,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-01-12T20:56:55Z",
+      "side": 1,
+      "message": "yeah, sgtm. (i do wonder \"should adb setenv() LIBUSB_DEBUG, or is it too verbose?\", but that can be in a separate change too, even if the answer is \"yes\".)",
+      "parentUuid": "f4682280_0a106f56",
+      "revId": "9ca6c170aebade6edb8e4613f255c8fd8622f048",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
