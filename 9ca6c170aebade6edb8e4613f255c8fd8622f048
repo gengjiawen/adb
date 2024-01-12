@@ -34,6 +34,24 @@
       "parentUuid": "df28bdea_6196078d",
       "revId": "9ca6c170aebade6edb8e4613f255c8fd8622f048",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e9b21f4_e91563d3",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1034,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-01-12T17:02:35Z",
+      "side": 1,
+      "message": "\u003e I feel that this strategy is better because: When we upgrade to a contemporary version of libusb (ref: recent activity that supports\nhotplug behavior https://github.com/libusb/libusb/pull/1406, ultimately resulting in us standardizing on libusb as the sole back-end stack) we can just continue to use the standard libusb interface (libusb_init() in this case) to surface/handle errors (without duplicating the logic in application code).\n\ni have no idea what you\u0027re talking about... i\u0027m saying that we should have:\n```\nif (!exists(\"\u003cdirectory\u003e\")) {\n  LOG(WARNING) \u003c\u003c \"not enabling USB because \u003cdirectory\u003e missing\";\n  return;\n}\n...rest of this function stays the same, calling libusb_init()\n```\n(like i said on the chat yesterday.)\n\n_one_ day we might change the FATAL, but right now -- while we don\u0027t know what problems we might have -- failing hard and visibly is a feature, because it means we get bug reports, which is the reason why we made libusb the default.\n\n\u003e I\u0027m unsure why you feel that I\u0027m \"guessing\" (since the verbiage is \"will not have\"). Clearly, the absence of these mounts is the reason why the folks who commented on the bug encountered the failure.\n\nthere\u0027s literally a `?` in your current error message, admitting that it\u0027s just a guess. any time you have a question mark in an error message, you should stop and think \"can the _machine_ answer that question instead?\". otherwise every time that error message appears, you\u0027re wasting some human\u0027s time, and probably your own too as you round-trip the bug saying \"did you check that?\".",
+      "parentUuid": "423d9c43_8093455e",
+      "revId": "9ca6c170aebade6edb8e4613f255c8fd8622f048",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
