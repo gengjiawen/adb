@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df28bdea_6196078d",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1034,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-01-12T16:15:34Z",
+      "side": 1,
+      "message": "don\u0027t write this kind of error messages --- this is a classic 1990s-era Windows of bad message[1], where you\u0027re _guessing_ something rather than _checking_ something. this is one reason why i suggested the alternative \"check for the directory and don\u0027t even call libusb_init() if it\u0027s not there\", since to provide a decent error here (given that libusb_init() seems to just return \"unknown failure\", judging by what we\u0027ve seen on the bug), we end up needing to do that anyway...\n\ni\u0027m also unconvinced that we want to ignore _all_ libusb failures?\n\n____\n1. at their worst, MS would list _multiple_ things. but anything in an error that\u0027s just a guess is bad, especially when it\u0027s something that the computer can check more easily than a human.",
+      "revId": "9ca6c170aebade6edb8e4613f255c8fd8622f048",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
