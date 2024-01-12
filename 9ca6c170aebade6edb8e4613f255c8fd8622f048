@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e5da0790_f1c2dcfd",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1033,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-01-12T17:25:57Z",
+      "side": 1,
+      "message": "(and remember what we\u0027ve talked about before with long comments... \"why am i writing this comment?\" \"because the code is weird and non-obvious\" \"does the code _have_ to be weird and non-obvious, or can we rewrite it so the _code_ tells us what\u0027s going on instead?\". that\u0027s another advantage of the `if (\u003cno usb\u003e) return;` approach. obviously in an ideal world libusb would have a \"no usb\" error code -- and that\u0027s the upstream bug i was talking in yesterday\u0027s meeting -- but that doesn\u0027t exist, so isn\u0027t an option.)",
+      "range": {
+        "startLine": 1031,
+        "startChar": 20,
+        "endLine": 1033,
+        "endChar": 78
+      },
+      "revId": "9ca6c170aebade6edb8e4613f255c8fd8622f048",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "df28bdea_6196078d",
         "filename": "client/usb_libusb.cpp",
         "patchSetId": 1
