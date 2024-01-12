@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "63972491_092c0b41",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-01-12T23:37:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6f9762a_a369dcc9",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 10
+      },
+      "revId": "2fa60c9e970d301eb2962e74aafa3ba73a770ab9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5dd216da_8732ac9a",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-01-12T23:22:41Z",
       "side": 1,
       "message": "Space needed between title and body.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 25
+      },
+      "revId": "2fa60c9e970d301eb2962e74aafa3ba73a770ab9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b17a548c_5bc06810",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-01-12T23:37:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5dd216da_8732ac9a",
       "range": {
         "startLine": 9,
         "startChar": 0,
@@ -77,6 +125,30 @@
       "writtenOn": "2024-01-12T23:20:35Z",
       "side": 1,
       "message": "remove this? i\u0027m not sure why this is here?",
+      "range": {
+        "startLine": 1032,
+        "startChar": 14,
+        "endLine": 1033,
+        "endChar": 29
+      },
+      "revId": "2fa60c9e970d301eb2962e74aafa3ba73a770ab9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a19b4cba_58af882a",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1033,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-01-12T23:37:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ede43840_c34fdf49",
       "range": {
         "startLine": 1032,
         "startChar": 14,
