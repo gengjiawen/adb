@@ -59,6 +59,9 @@ using ServicesUpdatedState = mdns::ServiceReceiver::ServicesUpdatedState;
 
 struct DiscoveryState;
 DiscoveryState* g_state = nullptr;
+
+[[clang::no_destroy]] std::optional<discovery::Config> g_discovery_config = std::nullopt;
+
 // TODO: remove once openscreen has bonjour client APIs.
 bool g_using_bonjour = false;
 AdbMdnsResponderFuncs g_adb_mdnsresponder_funcs;
@@ -153,6 +156,7 @@ std::optional<discovery::Config> GetConfigForAllInterfaces() {
 
 void StartDiscovery() {
     CHECK(!g_state);
+    CHECK(!g_discovery_config);
     g_state = new DiscoveryState();
     g_state->task_runner = std::make_unique<AdbOspTaskRunner>();
     g_state->reporting_client = std::make_unique<DiscoveryReportingClient>();
@@ -163,8 +167,9 @@ void StartDiscovery() {
             return;
         }
 
-        g_state->service = discovery::CreateDnsSdService(g_state->task_runner.get(),
-                                                         g_state->reporting_client.get(), *config);
+        g_discovery_config = config;
+        g_state->service = discovery::CreateDnsSdService(
+                g_state->task_runner.get(), g_state->reporting_client.get(), *g_discovery_config);
         // Register a receiver for each service type
         for (int i = 0; i < kNumADBDNSServices; ++i) {
             auto receiver = std::make_unique<ServiceReceiver>(
