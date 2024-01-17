@@ -92,6 +92,30 @@
       },
       "revId": "d98c568c63c233e68bd4e02dd427fbc215ee221e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9997f6dc_8f935c02",
+        "filename": "client/transport_mdns.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-01-17T05:59:48Z",
+      "side": 1,
+      "message": "Note that a `MdnsResponder` is also created in `MdnsServiceImpl` (https://cs.android.com/android/platform/superproject/main/+/main:external/openscreen/discovery/mdns/mdns_service_impl.cc;l\u003d84?q\u003dMdnsServiceImpl::MdnsServiceImpl) which also uses the config...and apparently hopes the `receiver_` (a `MdnsReceiver`) will have the same lifespan since it copies the address of `Config.network_info`.",
+      "parentUuid": "8f772f30_3901376c",
+      "range": {
+        "startLine": 171,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 98
+      },
+      "revId": "d98c568c63c233e68bd4e02dd427fbc215ee221e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
