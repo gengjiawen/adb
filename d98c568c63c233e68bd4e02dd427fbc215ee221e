@@ -68,6 +68,30 @@
       },
       "revId": "d98c568c63c233e68bd4e02dd427fbc215ee221e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f772f30_3901376c",
+        "filename": "client/transport_mdns.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-01-17T02:49:01Z",
+      "side": 1,
+      "message": "Scratch the ASAN idea. It won\u0027t help. We need to see where `Config.maximum_truncated_messages_per_query` goes from 8 to 0.",
+      "parentUuid": "ac598d59_597e73d4",
+      "range": {
+        "startLine": 171,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 98
+      },
+      "revId": "d98c568c63c233e68bd4e02dd427fbc215ee221e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
