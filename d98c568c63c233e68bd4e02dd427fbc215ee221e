@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "def50fa3_7df548bf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-01-17T00:00:33Z",
+      "side": 1,
+      "message": "We reference bugs via a field. Below `Test:`, add a `Bug:`. e.g.:\n\n```\nBug: b/294120933\n```",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 21
+      },
+      "revId": "d98c568c63c233e68bd4e02dd427fbc215ee221e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4a3a58c8_f42241cd",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -19,6 +42,29 @@
         "startChar": 6,
         "endLine": 15,
         "endChar": 12
+      },
+      "revId": "d98c568c63c233e68bd4e02dd427fbc215ee221e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac598d59_597e73d4",
+        "filename": "client/transport_mdns.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-01-17T00:00:33Z",
+      "side": 1,
+      "message": "I am not convinced this is the right fix. If I follow where the `config` parameter ends, I see:\n\nPassed to a ServiceDispatcher:\nhttps://cs.android.com/android/platform/superproject/+/master:external/openscreen/discovery/dnssd/impl/service_dispatcher.cc;l\u003d54?q\u003dCreateDnsSdService\n\nPassed to a ServiceInstance:\nhttps://cs.android.com/android/platform/superproject/+/master:external/openscreen/discovery/dnssd/impl/service_instance.cc;l\u003d21\n\nPassed to a MdndService::Create:\nhttps://cs.android.com/android/platform/superproject/+/master:external/openscreen/discovery/mdns/mdns_service_impl.cc;l\u003d19?q\u003dMdnsService::Create\u0026ss\u003dandroid%2Fplatform%2Fsuperproject\n\nPassed to a MdnsServiceImpl:\nhttps://cs.android.com/android/platform/superproject/+/master:external/openscreen/discovery/mdns/mdns_service_impl.cc;l\u003d28?q\u003dMdnsServiceImpl\u0026sq\u003d\u0026ss\u003dandroid%2Fplatform%2Fsuperproject\n\nUsed to create a MdnsReceived:\nhttps://cs.android.com/android/platform/superproject/+/master:external/openscreen/discovery/mdns/mdns_receiver.cc;l\u003d17\n\nFinally, there, it is `move`ed and should move all fields in `struct Config`. Can you build with ASAN and re-run your test so we get a better view of what was used after it had been destructed?",
+      "range": {
+        "startLine": 171,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 98
       },
       "revId": "d98c568c63c233e68bd4e02dd427fbc215ee221e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
