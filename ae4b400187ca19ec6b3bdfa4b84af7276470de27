@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6bd789d8_b6b7ef76",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-01-20T17:36:24Z",
+      "side": 1,
+      "message": "I agree - refactor sounded more large-scale 😊",
+      "parentUuid": "605281f1_d2ba7d58",
+      "revId": "ae4b400187ca19ec6b3bdfa4b84af7276470de27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "012ecc33_a0f6a069",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
