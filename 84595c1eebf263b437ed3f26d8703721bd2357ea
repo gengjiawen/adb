@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ee62d7f_daddd488",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-01-22T23:23:23Z",
+      "side": 1,
+      "message": "code comment here explaining where you got 255 from?\n\notherwise lgtm.",
+      "revId": "84595c1eebf263b437ed3f26d8703721bd2357ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
