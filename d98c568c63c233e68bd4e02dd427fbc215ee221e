@@ -49,6 +49,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7d0e69ff_166e7a20",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-01-22T17:51:09Z",
+      "side": 1,
+      "message": "To be clear, we highly value your contribution to aosp however it makes sense to confirm that 1.) the proposed solution addresses the problem experienced (at least  under a manual test scenario) 2.) static analysis/logic around the lifespan of the config.\nSo, please do respond in the CL or bug - ty!",
+      "parentUuid": "4a3a58c8_f42241cd",
+      "range": {
+        "startLine": 15,
+        "startChar": 6,
+        "endLine": 15,
+        "endChar": 12
+      },
+      "revId": "d98c568c63c233e68bd4e02dd427fbc215ee221e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ac598d59_597e73d4",
         "filename": "client/transport_mdns.cpp",
         "patchSetId": 1
