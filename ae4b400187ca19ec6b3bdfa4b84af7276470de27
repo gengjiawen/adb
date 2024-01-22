@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4582e61d_f3706257",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-01-22T21:17:23Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "6bd789d8_b6b7ef76",
+      "revId": "ae4b400187ca19ec6b3bdfa4b84af7276470de27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "012ecc33_a0f6a069",
@@ -49,6 +67,30 @@
       "writtenOn": "2024-01-20T17:33:55Z",
       "side": 1,
       "message": "unifies",
+      "range": {
+        "startLine": 10,
+        "startChar": 14,
+        "endLine": 10,
+        "endChar": 19
+      },
+      "revId": "ae4b400187ca19ec6b3bdfa4b84af7276470de27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d7771dd_a5f0e9a3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-01-22T21:17:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "012ecc33_a0f6a069",
       "range": {
         "startLine": 10,
         "startChar": 14,
@@ -95,6 +137,54 @@
       "writtenOn": "2024-01-20T17:33:55Z",
       "side": 1,
       "message": "Also, please move this (inline) function above line #46 (so it\u0027s more organized).",
+      "range": {
+        "startLine": 54,
+        "startChar": 3,
+        "endLine": 54,
+        "endChar": 72
+      },
+      "revId": "ae4b400187ca19ec6b3bdfa4b84af7276470de27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "019abd57_ddfbb39f",
+        "filename": "adb_listeners.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-01-22T21:17:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ca8dae0_71972bc5",
+      "range": {
+        "startLine": 54,
+        "startChar": 9,
+        "endLine": 54,
+        "endChar": 22
+      },
+      "revId": "ae4b400187ca19ec6b3bdfa4b84af7276470de27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d109b905_d39fe084",
+        "filename": "adb_listeners.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-01-22T21:17:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c6adae0_5303091d",
       "range": {
         "startLine": 54,
         "startChar": 3,
