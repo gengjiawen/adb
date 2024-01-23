@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "533272d8_637ffbac",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 3258455
+      },
+      "writtenOn": "2024-01-23T02:57:06Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "def50fa3_7df548bf",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 21
+      },
+      "revId": "d98c568c63c233e68bd4e02dd427fbc215ee221e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4a3a58c8_f42241cd",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -67,6 +91,47 @@
         "endLine": 15,
         "endChar": 12
       },
+      "revId": "d98c568c63c233e68bd4e02dd427fbc215ee221e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f36729d0_9211ca33",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 3258455
+      },
+      "writtenOn": "2024-01-23T02:57:06Z",
+      "side": 1,
+      "message": "I\u0027m still working on the issue but another priority has come up. I\u0027ll aim to have more progress in the coming week.\n\nI\u0027ve found a technique to replicate the issue: https://issuetracker.google.com/issues/294120933#comment6\n\nNext steps are run with ASAN and confirm the fix.",
+      "parentUuid": "7d0e69ff_166e7a20",
+      "range": {
+        "startLine": 15,
+        "startChar": 6,
+        "endLine": 15,
+        "endChar": 12
+      },
+      "revId": "d98c568c63c233e68bd4e02dd427fbc215ee221e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8595d7c0_732fd9ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3258455
+      },
+      "writtenOn": "2024-01-23T02:57:06Z",
+      "side": 1,
+      "message": "Sorry for radio silence, it turns out my responses were sitting in draft.",
       "revId": "d98c568c63c233e68bd4e02dd427fbc215ee221e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -132,6 +197,30 @@
       "side": 1,
       "message": "Note that a `MdnsResponder` is also created in `MdnsServiceImpl` (https://cs.android.com/android/platform/superproject/main/+/main:external/openscreen/discovery/mdns/mdns_service_impl.cc;l\u003d84?q\u003dMdnsServiceImpl::MdnsServiceImpl) which also uses the config...and apparently hopes the `receiver_` (a `MdnsReceiver`) will have the same lifespan since it copies the address of `Config.network_info`.",
       "parentUuid": "8f772f30_3901376c",
+      "range": {
+        "startLine": 171,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 98
+      },
+      "revId": "d98c568c63c233e68bd4e02dd427fbc215ee221e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac71f010_97f1a0fc",
+        "filename": "client/transport_mdns.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 3258455
+      },
+      "writtenOn": "2024-01-23T02:57:06Z",
+      "side": 1,
+      "message": "Good digging. Yes, I think the `MdnsResponder` holds the pre-move config reference, and then uses that to create the `TruncatedQuery` via `MdnsResponder::OnMessageReceived`.\n\n~~I\u0027m still new at the Android source code and am unsure how to run ASAN against it. Can you point me in the right direction?~~ (edit: found it)\n\nI\u0027ve collected a pcap of a triggering packet and will attempt to turn that into a repeatable test that I can share. This will allow me to better confirm that I have actually fixed it...",
+      "parentUuid": "9997f6dc_8f935c02",
       "range": {
         "startLine": 171,
         "startChar": 0,
