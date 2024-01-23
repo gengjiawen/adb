@@ -34,6 +34,24 @@
       "parentUuid": "9ee62d7f_daddd488",
       "revId": "84595c1eebf263b437ed3f26d8703721bd2357ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1487e9c0_ec0e0658",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-01-23T00:25:27Z",
+      "side": 1,
+      "message": "well, i know what it means because i read the bug before i saw the cl --- it\u0027s future enh and others i was worried about :-)\n\n(that is: \"because i [currently] know the answer, i don\u0027t think there\u0027s a good name for this, so a comment explaining whose style we\u0027re copying seems like the best option\".)",
+      "parentUuid": "2deb2b89_639305f5",
+      "revId": "84595c1eebf263b437ed3f26d8703721bd2357ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
