@@ -52,6 +52,24 @@
       "parentUuid": "2deb2b89_639305f5",
       "revId": "84595c1eebf263b437ed3f26d8703721bd2357ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eedeaf0c_3e65bdc6",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-01-23T00:44:38Z",
+      "side": 1,
+      "message": "I agree that a comment that documents \"consistency with ssh\" would serve for an LGTM.",
+      "parentUuid": "1487e9c0_ec0e0658",
+      "revId": "84595c1eebf263b437ed3f26d8703721bd2357ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
