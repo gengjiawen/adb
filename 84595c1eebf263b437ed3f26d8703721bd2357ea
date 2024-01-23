@@ -16,6 +16,24 @@
       "message": "code comment here explaining where you got 255 from?\n\notherwise lgtm.",
       "revId": "84595c1eebf263b437ed3f26d8703721bd2357ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2deb2b89_639305f5",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-01-23T00:15:59Z",
+      "side": 1,
+      "message": "nit: Maybe use a constant to give this value a meaning? As enh mentioned, I don\u0027t know what `255` means.",
+      "parentUuid": "9ee62d7f_daddd488",
+      "revId": "84595c1eebf263b437ed3f26d8703721bd2357ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
