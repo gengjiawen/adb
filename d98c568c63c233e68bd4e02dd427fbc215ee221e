@@ -145,6 +145,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "1996413c_d1b9da65",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 3258455
+      },
+      "writtenOn": "2024-01-29T00:34:46Z",
+      "side": 1,
+      "message": "Have now run the replication step against my patch and can confirm that it does fix the issue.\n\nVersion 34.0.5-10900879 -\u003e fails\nVersion 34.0.5-eng.daniel.20240123.134548 (no fix) -\u003e fails\nVersion 34.0.5-eng.daniel.20240129.103300 (with fix) -\u003e passes\n\nWas unable to obtain ASAN log of the failure because I ran out of RAM due to ninja file size. I used `sanitize: { address: true }`, is that the correct technique?",
+      "parentUuid": "f36729d0_9211ca33",
+      "range": {
+        "startLine": 15,
+        "startChar": 6,
+        "endLine": 15,
+        "endChar": 12
+      },
+      "revId": "d98c568c63c233e68bd4e02dd427fbc215ee221e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "8595d7c0_732fd9ea",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -245,6 +269,30 @@
       "side": 1,
       "message": "Good digging. Yes, I think the `MdnsResponder` holds the pre-move config reference, and then uses that to create the `TruncatedQuery` via `MdnsResponder::OnMessageReceived`.\n\n~~I\u0027m still new at the Android source code and am unsure how to run ASAN against it. Can you point me in the right direction?~~ (edit: found it)\n\nI\u0027ve collected a pcap of a triggering packet and will attempt to turn that into a repeatable test that I can share. This will allow me to better confirm that I have actually fixed it...",
       "parentUuid": "9997f6dc_8f935c02",
+      "range": {
+        "startLine": 171,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 98
+      },
+      "revId": "d98c568c63c233e68bd4e02dd427fbc215ee221e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fecbc04_16611ebb",
+        "filename": "client/transport_mdns.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 3258455
+      },
+      "writtenOn": "2024-01-29T00:34:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac71f010_97f1a0fc",
       "range": {
         "startLine": 171,
         "startChar": 0,

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f562022e_b508913a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3258455
+      },
+      "writtenOn": "2024-01-29T00:34:46Z",
+      "side": 1,
+      "message": "Have now documented repeatable steps to trigger the issue, and use this to confirm that the issue is fixed by this patch.",
+      "revId": "d165c6807526de93565c06b7d372225b6ec4b34b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
