@@ -167,6 +167,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3162344_d0de9db7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-01-31T21:59:32Z",
+      "side": 1,
+      "message": "You can go beyond the RAM limitation if you increase your swap size and use `-j1` when you build.\n\nCan you share your replication script?\n\nI am still not convinced this is the right right. This patch seems to move a variable from stack to static but that should not be needed because of the call to `std::move`. Something is off here.",
+      "parentUuid": "1996413c_d1b9da65",
+      "range": {
+        "startLine": 15,
+        "startChar": 6,
+        "endLine": 15,
+        "endChar": 12
+      },
+      "revId": "d98c568c63c233e68bd4e02dd427fbc215ee221e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8595d7c0_732fd9ea",
