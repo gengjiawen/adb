@@ -33,7 +33,7 @@
 static constexpr char kAdbWatchdogProperty[] = "persist.adb.watchdog";
 static constexpr char kTestHarnessProperty[] = "persist.sys.test_harness";
 
-static constexpr unsigned int kDefaultAdbWatchdogTimeoutSeconds = 600;
+static constexpr unsigned int kDefaultAdbWatchdogTimeoutSeconds = 1000;
 static unsigned int g_watchdog_timeout_seconds;
 
 static std::mutex g_watchdog_mutex [[clang::no_destroy]];
