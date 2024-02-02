@@ -16,6 +16,29 @@
       "message": "Have now documented repeatable steps to trigger the issue, and use this to confirm that the issue is fixed by this patch.",
       "revId": "d165c6807526de93565c06b7d372225b6ec4b34b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "608360e0_1b935550",
+        "filename": "client/transport_mdns.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-02-02T15:16:51Z",
+      "side": 1,
+      "message": "I\u0027m curious to see if your (previously failing) test case would succeed if you were to explicitly capture (a more scoped) config? Like so:\n  auto config \u003d GetConfigForAllInterfaces();\n  if (!config) {\n    return;\n  }\n  g_state-\u003etask_runner-\u003ePostTask([\u0026config ] ( ) {\n    g_state-\u003eservice \u003d discovery::CreateDnsSdService(\u003c\u003e, *config);\n    \u003c\u003e\n  } // end-scope of  lambda",
+      "range": {
+        "startLine": 164,
+        "startChar": 35,
+        "endLine": 164,
+        "endChar": 37
+      },
+      "revId": "d165c6807526de93565c06b7d372225b6ec4b34b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
