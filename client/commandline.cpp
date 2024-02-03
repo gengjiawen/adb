@@ -288,7 +288,8 @@ static void stdin_raw_restore() {
 #endif
 
 int read_and_dump_protocol(borrowed_fd fd, StandardStreamsCallbackInterface* callback) {
-    int exit_code = 0;
+    // OpenSSH returns 255 on unexpected disconnection.
+    int exit_code = 255;
     std::unique_ptr<ShellProtocol> protocol = std::make_unique<ShellProtocol>(fd);
     if (!protocol) {
       LOG(ERROR) << "failed to allocate memory for ShellProtocol object";
@@ -2068,10 +2069,22 @@ int adb_commandline(int argc, const char** argv) {
         TrackAppStreamsCallback callback;
         return adb_connect_command("track-app", nullptr, &callback);
     } else if (!strcmp(argv[0], "track-devices")) {
-        if (argc > 2 || (argc == 2 && strcmp(argv[1], "-l"))) {
-            error_exit("usage: adb track-devices [-l]");
+        const char* listopt;
+        if (argc < 2) {
+            listopt = "";
+        } else {
+            if (!strcmp(argv[1], "-l")) {
+                listopt = argv[1];
+            } else if (!strcmp(argv[1], "--proto-text")) {
+                listopt = "-proto-text";
+            } else if (!strcmp(argv[1], "--proto-binary")) {
+                listopt = "-proto-binary";
+            } else {
+                error_exit("usage: adb track-devices [-l][--proto-text][--proto-binary]");
+            }
         }
-        return adb_connect_command(argc == 2 ? "host:track-devices-l" : "host:track-devices");
+        std::string query = android::base::StringPrintf("host:track-devices%s", listopt);
+        return adb_connect_command(query);
     } else if (!strcmp(argv[0], "raw")) {
         if (argc != 2) {
             error_exit("usage: adb raw SERVICE");

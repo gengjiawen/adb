@@ -149,9 +149,9 @@ static SocketFlushResult local_socket_flush_incoming(asocket* s) {
             // Deferred acks are available.
             send_ready(s->id, s->peer->id, s->transport, bytes_flushed);
         } else {
-            // Deferred acks aren't available, we should ask for more data as long as we've made any
-            // progress.
-            if (bytes_flushed != 0) {
+            // Deferred acks aren't available, we should ask for more data as long as we have less
+            // than a full packet left in our queue.
+            if (bytes_flushed != 0 && s->packet_queue.size() < MAX_PAYLOAD) {
                 send_ready(s->id, s->peer->id, s->transport, 0);
             }
         }
@@ -879,7 +879,8 @@ static int smart_socket_enqueue(asocket* s, apacket::payload_type data) {
         s2 = host_service_to_socket(service, serial, transport_id);
         if (s2 == nullptr) {
             LOG(VERBOSE) << "SS(" << s->id << "): couldn't create host service '" << service << "'";
-            SendFail(s->peer->fd, "unknown host service");
+            std::string msg = std::string("unknown host service '") + std::string(service) + "'";
+            SendFail(s->peer->fd, msg);
             goto fail;
         }
 
