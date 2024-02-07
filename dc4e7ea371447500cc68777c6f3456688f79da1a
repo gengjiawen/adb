@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8834f417_3f6aed51",
+        "filename": "tools/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-02-07T23:01:12Z",
+      "side": 1,
+      "message": "ccross@ pointed out that we inherit all of this stuff, so I\u0027m gutting it down to bare min.",
+      "parentUuid": "35e9e86e_796ba2ec",
+      "range": {
+        "startLine": 30,
+        "startChar": 12,
+        "endLine": 41,
+        "endChar": 36
+      },
+      "revId": "dc4e7ea371447500cc68777c6f3456688f79da1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9fc4d41b_0957de2b",
@@ -37,6 +61,24 @@
       "writtenOn": "2024-02-07T21:38:36Z",
       "side": 1,
       "message": "unused?",
+      "revId": "dc4e7ea371447500cc68777c6f3456688f79da1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4b707f0_0692eec3",
+        "filename": "tools/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-02-07T23:01:12Z",
+      "side": 1,
+      "message": "Will need to pull in shlwapi libaries, but will add it in a later phase when I need to use that functionality.",
+      "parentUuid": "9fc4d41b_0957de2b",
       "revId": "dc4e7ea371447500cc68777c6f3456688f79da1a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -81,6 +123,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d56f3b7_f4217da1",
+        "filename": "tools/check_ms_os_desc.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-02-07T23:01:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15f2ab8f_3c361335",
+      "revId": "dc4e7ea371447500cc68777c6f3456688f79da1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "13f61285_3b4b4960",
@@ -94,6 +154,30 @@
       "writtenOn": "2024-02-07T21:38:36Z",
       "side": 1,
       "message": "1 is failure, not -1.",
+      "range": {
+        "startLine": 107,
+        "startChar": 13,
+        "endLine": 107,
+        "endChar": 15
+      },
+      "revId": "dc4e7ea371447500cc68777c6f3456688f79da1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "faa32458_d72758d1",
+        "filename": "tools/check_ms_os_desc.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-02-07T23:01:12Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "13f61285_3b4b4960",
       "range": {
         "startLine": 107,
         "startChar": 13,
