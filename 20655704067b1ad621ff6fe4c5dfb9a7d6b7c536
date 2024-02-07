@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f22dd57_f2085af7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-02-07T02:03:24Z",
+      "side": 1,
+      "message": "When attempting to use check_ms_os_desc utility, it appears that we do not even have a Windows target, so I\u0027m enabling that (as a starting point) - PTAL.",
+      "revId": "20655704067b1ad621ff6fe4c5dfb9a7d6b7c536",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
