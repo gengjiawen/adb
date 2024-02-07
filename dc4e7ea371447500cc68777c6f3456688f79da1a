@@ -106,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f756e53a_b0b754d1",
+        "filename": "tools/check_ms_os_desc.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-02-07T23:31:44Z",
+      "side": 1,
+      "message": "Done - ccross@ had highlighted the exact same thing earlier today :)\nI shall plan on doing a platform-specific gtest (or some such) as a followup that\u0027ll establish the os descriptor retrieval so that we\u0027ll know if any future updates (kernel, service pack) happen to break this.",
+      "parentUuid": "9a6da770_499ed196",
+      "range": {
+        "startLine": 76,
+        "startChar": 4,
+        "endLine": 84,
+        "endChar": 74
+      },
+      "revId": "dc4e7ea371447500cc68777c6f3456688f79da1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "15f2ab8f_3c361335",
