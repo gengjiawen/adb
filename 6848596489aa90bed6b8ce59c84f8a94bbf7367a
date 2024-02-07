@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2263e86_d9f9fdba",
+        "filename": "tools/check_ms_os_desc.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-02-07T23:10:30Z",
+      "side": 1,
+      "message": "(now you\u0027ve removed enough duplication that i can see all the other unrelated changes in this commit, move those out into a separate change too :-) )",
+      "revId": "6848596489aa90bed6b8ce59c84f8a94bbf7367a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0deb54da_9592c087",
+        "filename": "tools/check_ms_os_desc.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-02-07T23:10:30Z",
+      "side": 1,
+      "message": "(this one in particular is probably a bad idea, since it\u0027s not necessarily a string.)",
+      "revId": "6848596489aa90bed6b8ce59c84f8a94bbf7367a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17c459b6_d734b04c",
+        "filename": "tools/check_ms_os_desc.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-02-07T23:10:30Z",
+      "side": 1,
+      "message": "(this too probably shouldn\u0027t be a _character_.)",
+      "revId": "6848596489aa90bed6b8ce59c84f8a94bbf7367a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "457864e3_5ca8a79d",
+        "filename": "tools/check_ms_os_desc.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-02-07T23:10:30Z",
+      "side": 1,
+      "message": "(same thing i always say about numeric error codes: don\u0027t do that. looks like you want libusb_error_name()?)",
+      "revId": "6848596489aa90bed6b8ce59c84f8a94bbf7367a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c8f78db_f4d697f5",
+        "filename": "tools/check_ms_os_desc.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-02-07T23:10:30Z",
+      "side": 1,
+      "message": "%zd for ssize_t",
+      "range": {
+        "startLine": 237,
+        "startChar": 56,
+        "endLine": 237,
+        "endChar": 58
+      },
+      "revId": "6848596489aa90bed6b8ce59c84f8a94bbf7367a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
