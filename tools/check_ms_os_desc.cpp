@@ -14,9 +14,26 @@
  * limitations under the License.
  */
 
-#include <err.h>
 #include <stdio.h>
 #include <unistd.h>
+
+#ifndef _WIN32
+#include <err.h>
+#else
+#include <stdarg.h>
+
+#define err(code, msg)        \
+    do {                      \
+        fprintf(stderr, msg); \
+        exit(code);           \
+    } while (0);
+
+#define errx(code, msg, ...)               \
+    do {                                   \
+        fprintf(stderr, msg, __VA_ARGS__); \
+        exit(code);                        \
+    } while (0);
+#endif
 
 #include <optional>
 #include <string>
@@ -86,22 +103,22 @@ static std::optional<std::string> get_string_descriptor(libusb_device_handle* ha
 static void check_ms_os_desc_v1(libusb_device_handle* device_handle, const std::string& serial) {
     auto os_desc = get_descriptor(device_handle, 0x03, 0xEE, 0x12);
     if (!os_desc) {
-        errx(1, "failed to retrieve MS OS descriptor");
+        err(1, "failed to retrieve MS OS descriptor");
     }
 
     if (os_desc->size() != 0x12) {
-        errx(1, "os descriptor size mismatch");
+        err(1, "os descriptor size mismatch");
     }
 
     if (memcmp(os_desc->data() + 2, u"MSFT100\0", 14) != 0) {
-        errx(1, "os descriptor signature mismatch");
+        err(1, "os descriptor signature mismatch");
     }
 
     uint8_t vendor_code = (*os_desc)[16];
     uint8_t pad = (*os_desc)[17];
 
     if (pad != 0) {
-        errx(1, "os descriptor padding non-zero");
+        errx(1, "os descriptor padding non-zero: %hhu", pad);
     }
 
     std::vector<uint8_t> data;
@@ -140,7 +157,7 @@ static void check_ms_os_desc_v1(libusb_device_handle* device_handle, const std::
     };
 
     if (sizeof(ms_os_desc_v1_header) + hdr.bCount * sizeof(ms_os_desc_v1_function) != data.size()) {
-        errx(1, "MS OS v1 compat descriptor size mismatch");
+        err(1, "MS OS v1 compat descriptor size mismatch");
     }
 
     for (int i = 0; i < hdr.bCount; ++i) {
@@ -178,7 +195,7 @@ static void check_ms_os_desc_v2(libusb_device_handle* device_handle, const std::
         }
 
         if (desc->bLength < sizeof(*desc) + 16) {
-            errx(1, "received device capability descriptor not long enough to contain a UUID?");
+            err(1, "received device capability descriptor not long enough to contain a UUID?");
         }
 
         char uuid[16];
@@ -201,14 +218,15 @@ static void check_ms_os_desc_v2(libusb_device_handle* device_handle, const std::
 
 int main(int argc, char** argv) {
     libusb_context* ctx;
-    if (libusb_init(&ctx) != 0) {
-        errx(1, "failed to initialize libusb context");
+    int rc;
+    if ((rc = libusb_init(&ctx)) != 0) {
+        errx(1, "failed to initialize libusb context: %s", libusb_error_name(rc));
     }
 
     libusb_device** device_list = nullptr;
     ssize_t device_count = libusb_get_device_list(ctx, &device_list);
     if (device_count < 0) {
-        errx(1, "libusb_get_device_list failed");
+        errx(1, "libusb_get_device_list failed, count: %zd", device_count);
     }
 
     const char* expected_serial = getenv("ANDROID_SERIAL");
