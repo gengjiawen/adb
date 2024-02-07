@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0eab789d_73454847",
+        "filename": "tools/check_ms_os_desc.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-02-07T23:48:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2263e86_d9f9fdba",
+      "revId": "6848596489aa90bed6b8ce59c84f8a94bbf7367a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0deb54da_9592c087",
@@ -49,6 +67,24 @@
       "side": 1,
       "message": "Strangely, the compiler suggested it (pl stayed tuned - keeping this comment thread open).",
       "parentUuid": "0deb54da_9592c087",
+      "revId": "6848596489aa90bed6b8ce59c84f8a94bbf7367a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0e8c4e5_ffd21cd0",
+        "filename": "tools/check_ms_os_desc.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-02-07T23:48:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25ec46fc_4c87139c",
       "revId": "6848596489aa90bed6b8ce59c84f8a94bbf7367a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },

@@ -154,6 +154,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4d2c203_b3f8d5f1",
+        "filename": "tools/check_ms_os_desc.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-02-07T23:48:08Z",
+      "side": 1,
+      "message": "Since Windows is the fragile area we\u0027re trying to address (w.r.t USB, probably relying on libusb), I wonder how we\u0027ll run the CTS tests on that platform? I\u0027m guessing we can figure out a way to run this manually (will discuss more offline).",
+      "parentUuid": "fec9bc2a_0f319a9c",
+      "range": {
+        "startLine": 76,
+        "startChar": 4,
+        "endLine": 84,
+        "endChar": 74
+      },
+      "revId": "dc4e7ea371447500cc68777c6f3456688f79da1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "15f2ab8f_3c361335",
