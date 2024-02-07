@@ -24,6 +24,15 @@ package {
 cc_binary_host {
     name: "check_ms_os_desc",
 
+    target: {
+        windows: {
+            enabled: true,
+        },
+        darwin: {
+            enabled: true,
+        },
+    },
+
     defaults: ["adb_defaults"],
 
     srcs: [
@@ -66,3 +75,4 @@ cc_binary_host {
         ],
     },
 }
+
