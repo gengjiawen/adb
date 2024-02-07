@@ -34,6 +34,24 @@
       "parentUuid": "ea6e815f_2b4a24ca",
       "revId": "012bc3897ecd732f99be065622603fca3f62ddea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2baf05a7_bf63e90a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-02-07T17:15:39Z",
+      "side": 1,
+      "message": "\u003e Are the Bug and `Test\u0027 fields not needed? \n\nno, the bug field is not needed, because there\u0027s often no bug (and no point making one up).\n\n\u003e PS: In this case, I\u0027m unsure whether there\u0027s any more information to be added to the bug (other than using keywords like dead-code or no-op)\n\nyou _know_ there\u0027s no more information to add in this case. how do i know you know? because you didn\u0027t add any to the bug you filed!\n\n(and, as i\u0027ve said before --- if you _do_ have more [useful!] information, _put it in the commit message where everyone can see it_.)",
+      "parentUuid": "91eebf21_40060aa2",
+      "revId": "012bc3897ecd732f99be065622603fca3f62ddea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
