@@ -130,6 +130,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fec9bc2a_0f319a9c",
+        "filename": "tools/check_ms_os_desc.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-02-07T23:34:34Z",
+      "side": 1,
+      "message": "like i said in the meeting earlier, the CTS test already exists: cts/hostsidetests/adb/src/android/adb/cts/AdbHostTest.java\n\nthat\u0027s what this tool was written for.",
+      "parentUuid": "f756e53a_b0b754d1",
+      "range": {
+        "startLine": 76,
+        "startChar": 4,
+        "endLine": 84,
+        "endChar": 74
+      },
+      "revId": "dc4e7ea371447500cc68777c6f3456688f79da1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "15f2ab8f_3c361335",
