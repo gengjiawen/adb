@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35e9e86e_796ba2ec",
+        "filename": "tools/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-02-07T21:38:36Z",
+      "side": 1,
+      "message": "factor these windows cflags out and reuse them rather than duplicating them.",
+      "range": {
+        "startLine": 30,
+        "startChar": 12,
+        "endLine": 41,
+        "endChar": 36
+      },
+      "revId": "dc4e7ea371447500cc68777c6f3456688f79da1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fc4d41b_0957de2b",
+        "filename": "tools/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-02-07T21:38:36Z",
+      "side": 1,
+      "message": "unused?",
+      "revId": "dc4e7ea371447500cc68777c6f3456688f79da1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a6da770_499ed196",
+        "filename": "tools/check_ms_os_desc.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-02-07T21:38:36Z",
+      "side": 1,
+      "message": "this seems unrelated to the \"build for windows\" goal of this cl?",
+      "range": {
+        "startLine": 76,
+        "startChar": 4,
+        "endLine": 84,
+        "endChar": 74
+      },
+      "revId": "dc4e7ea371447500cc68777c6f3456688f79da1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15f2ab8f_3c361335",
+        "filename": "tools/check_ms_os_desc.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-02-07T21:38:36Z",
+      "side": 1,
+      "message": "implement errx() rather than duplicating loads of boilerplate and adding loads of #if cruft...",
+      "revId": "dc4e7ea371447500cc68777c6f3456688f79da1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13f61285_3b4b4960",
+        "filename": "tools/check_ms_os_desc.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-02-07T21:38:36Z",
+      "side": 1,
+      "message": "1 is failure, not -1.",
+      "range": {
+        "startLine": 107,
+        "startChar": 13,
+        "endLine": 107,
+        "endChar": 15
+      },
+      "revId": "dc4e7ea371447500cc68777c6f3456688f79da1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
