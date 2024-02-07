@@ -14,10 +14,16 @@
  * limitations under the License.
  */
 
+#ifndef _WIN32
 #include <err.h>
+#endif
+
 #include <stdio.h>
 #include <unistd.h>
 
+#include <algorithm>
+#include <iostream>
+#include <numeric>
 #include <optional>
 #include <string>
 #include <vector>
@@ -66,6 +72,16 @@ static std::optional<std::vector<uint8_t>> get_descriptor(libusb_device_handle* 
         return std::nullopt;
     }
     result.resize(rc);
+
+    std::vector<uint8_t> utf8arr(result.size());
+    std::vector<uint8_t>::iterator it = std::copy_if(result.begin(), result.end(), utf8arr.begin(),
+                                                     [](uint8_t code) { return isalnum(code); });
+    utf8arr.resize(std::distance(utf8arr.begin(), it));  // remove extra storage
+
+    std::string temp;
+    std::for_each(utf8arr.begin(), utf8arr.end(), [&temp](uint8_t& i) { temp += (char)(i); });
+
+    std::cout << __func__ << " descriptor: " << temp.c_str() << std::endl;
     return result;
 }
 
@@ -86,22 +102,42 @@ static std::optional<std::string> get_string_descriptor(libusb_device_handle* ha
 static void check_ms_os_desc_v1(libusb_device_handle* device_handle, const std::string& serial) {
     auto os_desc = get_descriptor(device_handle, 0x03, 0xEE, 0x12);
     if (!os_desc) {
+#ifdef _WIN32
+        fprintf(stderr, "Failed to retrieve MS OS descriptor");
+        exit(-1);
+#else
         errx(1, "failed to retrieve MS OS descriptor");
+#endif
     }
 
     if (os_desc->size() != 0x12) {
+#ifdef _WIN32
+        fprintf(stderr, "os descriptor size mismatch");
+        exit(-1);
+#else
         errx(1, "os descriptor size mismatch");
+#endif
     }
 
     if (memcmp(os_desc->data() + 2, u"MSFT100\0", 14) != 0) {
+#ifdef _WIN32
+        fprintf(stderr, "os descriptor signature mismatch");
+        exit(-1);
+#else
         errx(1, "os descriptor signature mismatch");
+#endif
     }
 
     uint8_t vendor_code = (*os_desc)[16];
     uint8_t pad = (*os_desc)[17];
 
     if (pad != 0) {
+#ifdef _WIN32
+        fprintf(stderr, "os descriptor padding non-zero");
+        exit(-1);
+#else
         errx(1, "os descriptor padding non-zero");
+#endif
     }
 
     std::vector<uint8_t> data;
@@ -109,7 +145,13 @@ static void check_ms_os_desc_v1(libusb_device_handle* device_handle, const std::
     int rc = libusb_control_transfer(device_handle, 0xC0, vendor_code, 0x00, 0x04, data.data(),
                                      data.size(), 0);
     if (rc != 0x10) {
+#ifdef _WIN32
+        fprintf(stderr, "failed to retrieve MS OS v1 compat descriptor header: %s",
+                libusb_error_name(rc));
+        exit(-1);
+#else
         errx(1, "failed to retrieve MS OS v1 compat descriptor header: %s", libusb_error_name(rc));
+#endif
     }
 
     struct __attribute__((packed)) ms_os_desc_v1_header {
@@ -128,7 +170,12 @@ static void check_ms_os_desc_v1(libusb_device_handle* device_handle, const std::
     rc = libusb_control_transfer(device_handle, 0xC0, vendor_code, 0x00, 0x04, data.data(),
                                  data.size(), 0);
     if (static_cast<size_t>(rc) != data.size()) {
+#ifdef _WIN32
+        fprintf(stderr, "failed to retrieve MS OS v1 compat descriptor: %s", libusb_error_name(rc));
+        exit(-1);
+#else
         errx(1, "failed to retrieve MS OS v1 compat descriptor: %s", libusb_error_name(rc));
+#endif
     }
 
     struct __attribute__((packed)) ms_os_desc_v1_function {
@@ -140,7 +187,12 @@ static void check_ms_os_desc_v1(libusb_device_handle* device_handle, const std::
     };
 
     if (sizeof(ms_os_desc_v1_header) + hdr.bCount * sizeof(ms_os_desc_v1_function) != data.size()) {
+#ifdef _WIN32
+        fprintf(stderr, "MS OS v1 compat descriptor size mismatch");
+        exit(-1);
+#else
         errx(1, "MS OS v1 compat descriptor size mismatch");
+#endif
     }
 
     for (int i = 0; i < hdr.bCount; ++i) {
@@ -153,7 +205,13 @@ static void check_ms_os_desc_v1(libusb_device_handle* device_handle, const std::
         }
     }
 
+#ifdef _WIN32
+    fprintf(stderr, "failed to find v1 MS OS descriptor specifying WinUSB for device %s",
+            serial.c_str());
+    exit(-1);
+#else
     errx(1, "failed to find v1 MS OS descriptor specifying WinUSB for device %s", serial.c_str());
+#endif
 }
 
 static void check_ms_os_desc_v2(libusb_device_handle* device_handle, const std::string& serial) {
@@ -168,7 +226,12 @@ static void check_ms_os_desc_v2(libusb_device_handle* device_handle, const std::
     for (size_t i = 0; i < bos->bNumDeviceCaps; ++i) {
         libusb_bos_dev_capability_descriptor* desc = bos->dev_capability[i];
         if (desc->bDescriptorType != LIBUSB_DT_DEVICE_CAPABILITY) {
+#ifdef _WIN32
+            fprintf(stderr, "invalid BOS descriptor type: %d", desc->bDescriptorType);
+            exit(-1);
+#else
             errx(1, "invalid BOS descriptor type: %d", desc->bDescriptorType);
+#endif
         }
 
         if (desc->bDevCapabilityType != 0x05 /* PLATFORM */) {
@@ -178,7 +241,13 @@ static void check_ms_os_desc_v2(libusb_device_handle* device_handle, const std::
         }
 
         if (desc->bLength < sizeof(*desc) + 16) {
+#ifdef _WIN32
+            fprintf(stderr,
+                    "received device capability descriptor not long enough to contain a UUID?");
+            exit(-1);
+#else
             errx(1, "received device capability descriptor not long enough to contain a UUID?");
+#endif
         }
 
         char uuid[16];
@@ -202,13 +271,23 @@ static void check_ms_os_desc_v2(libusb_device_handle* device_handle, const std::
 int main(int argc, char** argv) {
     libusb_context* ctx;
     if (libusb_init(&ctx) != 0) {
+#ifdef _WIN32
+        fprintf(stderr, "failed to initialize libusb context");
+        exit(-1);
+#else
         errx(1, "failed to initialize libusb context");
+#endif
     }
 
     libusb_device** device_list = nullptr;
     ssize_t device_count = libusb_get_device_list(ctx, &device_list);
     if (device_count < 0) {
+#ifdef _WIN32
+        fprintf(stderr, "libusb_get_device_list failed");
+        exit(-1);
+#else
         errx(1, "libusb_get_device_list failed");
+#endif
     }
 
     const char* expected_serial = getenv("ANDROID_SERIAL");
@@ -234,8 +313,14 @@ int main(int argc, char** argv) {
         std::optional<std::string> serial =
                 get_string_descriptor(device_handle, device_desc.iSerialNumber);
         if (!serial) {
+#ifdef _WIN32
+            fprintf(stderr, "failed to get serial for device %u:%u", libusb_get_bus_number(device),
+                    libusb_get_port_number(device));
+            exit(-1);
+#else
             errx(1, "failed to get serial for device %u:%u", libusb_get_bus_number(device),
                  libusb_get_port_number(device));
+#endif
         }
 
         if (expected_serial && *serial != expected_serial) {
@@ -258,7 +343,12 @@ int main(int argc, char** argv) {
     }
 
     if (expected_serial && !found) {
+#ifdef _WIN32
+        fprintf(stderr, "failed to find device with serial %s", expected_serial);
+        exit(-1);
+#else
         errx(1, "failed to find device with serial %s", expected_serial);
+#endif
     }
     return 0;
 }
