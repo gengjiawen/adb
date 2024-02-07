@@ -16,6 +16,24 @@
       "message": "this bug is unrelated to this change. please remove.",
       "revId": "755c5f7702e689e076b0fad03ca3c844a991673b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8159163b_09207a5e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-02-07T16:54:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06c1b83d_48127d34",
+      "revId": "755c5f7702e689e076b0fad03ca3c844a991673b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
