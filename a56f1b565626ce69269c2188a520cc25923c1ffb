@@ -16,6 +16,24 @@
       "message": "(a) these shouldn\u0027t be in the \"build on windows\" change.\n\n(b) these are all wrong anyway, no? err() would include errno, which isn\u0027t valid in most/any of these.\n\n(c) which makes me realize that your errx() macro is wrong too.\n\n(personally i hate these BSD functions --- they\u0027re just confusing. if we\u0027re going to have to reinvent the wheel for Windows anyway, we may as well use the GNU error() function and have macOS and Windows share our homebrew version. it\u0027s much easier to read and understand anyway.)\n\nbut\n\n(d) i\u0027ll be honest that i still haven\u0027t understood why you want to build this for Windows anyway --- what\u0027s the use case? this tests a property of the _device_, and it\u0027s way easier for us to test that from linux/macOS (and we already do in CTS).",
       "revId": "a56f1b565626ce69269c2188a520cc25923c1ffb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "555878e0_f0bc5960",
+        "filename": "tools/check_ms_os_desc.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-02-08T18:55:08Z",
+      "side": 1,
+      "message": "\u003e\u003e(a) these shouldn\u0027t be in the \"build on windows\" change.\ncheck_ms_os_desc was apparently created to meet a Windows 10 gap (ref: b/68993980), however it\u0027s unclear to me whether it was ever executed (or even targeted) Windows platforms. This CL is (partly) to address that gap.\n\n\u003e\u003e(b) these are all wrong anyway, no? err() would include errno, which isn\u0027t valid \u003e\u003ein most/any of these.\nSince this has apparently been wrong for the entire time, what\u0027s an alternative we can do?\n\n\u003e\u003e(c) which makes me realize that your errx() macro is wrong too.\nditto - I can use error() instead if that\u0027s acceptable.\n\n\u003e\u003e(personally i hate these BSD functions --- they\u0027re just confusing. if we\u0027re going \u003e\u003eto have to reinvent the wheel for Windows anyway, we may as well use the GNU \u003e\u003eerror() function and have macOS and Windows share our homebrew version. it\u0027s much \u003e\u003eeasier to read and understand anyway.)\n\u003e\u003ebut\n\u003e\u003e(d) i\u0027ll be honest that i still haven\u0027t understood why you want to build this for \u003e\u003eWindows anyway --- what\u0027s the use case? this tests a property of the device, and \u003e\u003eit\u0027s way easier for us to test that from linux/macOS (and we already do in CTS).\nPlease see my response for (a).\nAlso, wrt the plans outlined for libusb transition (go/64-bit-adb) I\u0027m able to identify the device hotplug (ref: https://googleplex-android-review.git.corp.google.com/c/platform/packages/modules/adb/+/26045562) in/out (specifically, on Windows which is the platform impacted by USB fragility). From that point on, the next problem to solve would be to get the device-id (using the low-level mechanism employed by check_ms_os_desc.cpp). I see this CL addressing three aspects 1.) use check_ms_os_desc.exe (on Windows) as a blackbox binary to characterize a platform, OS version (or service pack, kernel update). 2.) possibly refactor the core function into a function that can be usable by Plan B (or even Plan A). 3.) Once we switch over to libusb as the default for all platforms (including Windows, which is lagging atm), consider creating a host test (e.g adb_test) or test_device that can be used to establish the preconditions needed. This test can reuse the refactored function.",
+      "parentUuid": "d7c56dcd_f5fe00cf",
+      "revId": "a56f1b565626ce69269c2188a520cc25923c1ffb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
