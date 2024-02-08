@@ -34,6 +34,24 @@
       "parentUuid": "d7c56dcd_f5fe00cf",
       "revId": "a56f1b565626ce69269c2188a520cc25923c1ffb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bf0ebed_d8c8d974",
+        "filename": "tools/check_ms_os_desc.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-02-08T19:06:24Z",
+      "side": 1,
+      "message": "\u003e check_ms_os_desc was apparently created to meet a Windows 10 gap (ref: b/68993980), however it\u0027s unclear to me whether it was ever executed (or even targeted) Windows platforms. This CL is (partly) to address that gap.\n\nno, like i said in yesterday\u0027s meeting --- this is a _device_ thing. Windows _uses_ it. this tool is an implementation detail of the _CTS test_ that ensures that current _devices_ tell Windows what it needs to know.",
+      "parentUuid": "555878e0_f0bc5960",
+      "revId": "a56f1b565626ce69269c2188a520cc25923c1ffb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
