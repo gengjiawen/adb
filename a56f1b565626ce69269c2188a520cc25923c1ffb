@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7c56dcd_f5fe00cf",
+        "filename": "tools/check_ms_os_desc.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-02-08T17:30:29Z",
+      "side": 1,
+      "message": "(a) these shouldn\u0027t be in the \"build on windows\" change.\n\n(b) these are all wrong anyway, no? err() would include errno, which isn\u0027t valid in most/any of these.\n\n(c) which makes me realize that your errx() macro is wrong too.\n\n(personally i hate these BSD functions --- they\u0027re just confusing. if we\u0027re going to have to reinvent the wheel for Windows anyway, we may as well use the GNU error() function and have macOS and Windows share our homebrew version. it\u0027s much easier to read and understand anyway.)\n\nbut\n\n(d) i\u0027ll be honest that i still haven\u0027t understood why you want to build this for Windows anyway --- what\u0027s the use case? this tests a property of the _device_, and it\u0027s way easier for us to test that from linux/macOS (and we already do in CTS).",
+      "revId": "a56f1b565626ce69269c2188a520cc25923c1ffb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
