@@ -85,6 +85,24 @@
       "message": "Looks like we are using after free when we enable this feature (b/324442406)",
       "revId": "bd1f30085774660e01d83cb74e326d79d55062d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34209875_cb20090a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-02-08T20:02:29Z",
+      "side": 1,
+      "message": "I\u0027m assuming we do not encounter this when ADB_LIBUSB is turned off.",
+      "parentUuid": "dcfe13a2_0dae2e17",
+      "revId": "bd1f30085774660e01d83cb74e326d79d55062d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
