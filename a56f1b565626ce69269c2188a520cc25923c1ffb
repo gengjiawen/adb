@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d17b71eb_4de6f52e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-02-11T15:10:20Z",
+      "side": 1,
+      "message": "Closing this out, since CTS tests (that extract the descriptors from a linux client) do not have a dependency on the Windows binary.",
+      "revId": "a56f1b565626ce69269c2188a520cc25923c1ffb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d7c56dcd_f5fe00cf",
