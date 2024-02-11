@@ -237,8 +237,6 @@ class ResolvedService : public AsyncServiceRef {
         return adb_DNSServiceIndexByName(reg_type_.c_str());
     }
 
-    const std::string& host_target() const { return host_target_; }
-
     const std::string& service_name() const { return service_name_; }
 
     const std::string& reg_type() const { return reg_type_; }
@@ -266,7 +264,7 @@ class ResolvedService : public AsyncServiceRef {
     static void RemoveDNSService(const std::string& reg_type, const std::string& service_name);
 
   private:
-    int clientVersion_ = ADB_SECURE_CLIENT_VERSION;
+    const int clientVersion_ = ADB_SECURE_CLIENT_VERSION;
     std::string addr_format_;
     std::string service_name_;
     std::string reg_type_;
