@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44703e46_8a42d3ee",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-02-12T18:37:31Z",
+      "side": 1,
+      "message": "- Don\u0027t use a dot at end of title.\n- Title should be less than 50 characters.\n\nIf you have too much, title it `Code clean up` and put the info in the body.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 72
+      },
+      "revId": "e0b0421aad877f9bb6c5e6be2202a842118d505b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58e1529b_9b3bf4f3",
+        "filename": "client/mdnsresponder_client.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-02-12T18:37:31Z",
+      "side": 1,
+      "message": "If it is a const, it should start with `k`.\n\nWhy use a class member at all if it is a const? Why not use `ADB_SECURE_CLIENT_VERSION` ? It looks like it is only used in a `D` anyway.",
+      "range": {
+        "startLine": 267,
+        "startChar": 14,
+        "endLine": 267,
+        "endChar": 28
+      },
+      "revId": "e0b0421aad877f9bb6c5e6be2202a842118d505b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
