@@ -16,6 +16,24 @@
       "message": "Attempt to compile this code with system clang compiler ver 16.0.6 gives following error message:\n\n```\n/usr/bin/clang++ -DADB_HOST\u003d1 -DPROTOBUF_USE_DLLS -D_FILE_OFFSET_BITS\u003d64 -D_LARGEFILE64_SOURCE -I/home/anatol/sources/android-tools/build/vendor -I/home/anatol/sources/android-tools/vendor/core/include -I/home/anatol/sources/android-tools/vendor/libbase/include -I/home/anatol/sources/android-tools/vendor/adb -I/home/anatol/sources/android-tools/vendor/core/libcrypto_utils/include -I/home/anatol/sources/android-tools/vendor/boringssl/include -I/home/anatol/sources/android-tools/vendor/base/libs/androidfw/include -I/home/anatol/sources/android-tools/vendor/adb/crypto/include -I/home/anatol/sources/android-tools/vendor/adb/pairing_auth/include -I/home/anatol/sources/android-tools/vendor/adb/pairing_connection/include -I/home/anatol/sources/android-tools/vendor/adb/tls/include -I/home/anatol/sources/android-tools/vendor/core/libcutils/include -I/home/anatol/sources/android-tools/vendor/libziparchive/include -I/home/anatol/sources/android-tools/vendor/native/include -I/home/anatol/sources/android-tools/vendor/fmtlib/include -I/home/anatol/sources/android-tools/vendor/logging/liblog/include -I/home/anatol/sources/android-tools/vendor/core/diagnose_usb/include -I/home/anatol/sources/android-tools/vendor/libziparchive/incfs_support/include -isystem /usr/include/libusb-1.0 -O3 -DNDEBUG -std\u003dgnu++20 -Wno-attributes -MD -MT vendor/CMakeFiles/adb.dir/adb/types.cpp.o -MF vendor/CMakeFiles/adb.dir/adb/types.cpp.o.d -o vendor/CMakeFiles/adb.dir/adb/types.cpp.o -c /home/anatol/sources/android-tools/vendor/adb/types.cpp\nIn file included from /home/anatol/sources/android-tools/vendor/adb/types.cpp:17:\n/home/anatol/sources/android-tools/vendor/adb/types.h:235:13: error: static assertion failed due to requirement \u0027std::is_standard_layout\u003cBlock\u003e()\u0027\n            static_assert(std::is_standard_layout\u003cdecltype(result)\u003e());\n            ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/home/anatol/sources/android-tools/vendor/adb/types.cpp:190:47: note: in instantiation of function template specialization \u0027IOVector::coalesce\u003cBlock\u003e\u0027 requested here\n    return const_cast\u003cconst IOVector*\u003e(this)-\u003ecoalesce\u003c\u003e();\n                                              ^\n1 error generated.\n```\n\nGCC compiles this file fine.",
       "revId": "45720fdaea751c63081541b6c18ab512becd32a4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6379ae5e_c59faba6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-02-15T23:19:44Z",
+      "side": 1,
+      "message": "we don\u0027t support anything other than the prebuilt clang in the platform.",
+      "parentUuid": "14e3e0c5_bb6fb684",
+      "revId": "45720fdaea751c63081541b6c18ab512becd32a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
