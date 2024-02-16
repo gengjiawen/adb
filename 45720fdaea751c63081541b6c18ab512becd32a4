@@ -34,6 +34,24 @@
       "parentUuid": "14e3e0c5_bb6fb684",
       "revId": "45720fdaea751c63081541b6c18ab512becd32a4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1968f131_29616bca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1004136
+      },
+      "writtenOn": "2024-02-16T01:13:11Z",
+      "side": 1,
+      "message": "Hi Eliott, thank you for your reply!\n\nIt is fine if Android build has its own prebuilt binaries.\n\nThat is the reason why project like https://github.com/nmeum/android-tools/ exists and tries to adopt Android tools for system compilation environment.\n\nWe\u0027ve got this compilation error while rebasing to 34.0.5 https://github.com/nmeum/android-tools/pull/132 and we don\u0027t know what has caused it. Maybe you have pointers why the error happens and what solution you had to fix it on your side?",
+      "parentUuid": "6379ae5e_c59faba6",
+      "revId": "45720fdaea751c63081541b6c18ab512becd32a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
