@@ -1,5 +1,46 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed5bd638_016cb94a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-02-27T19:16:05Z",
+      "side": 1,
+      "message": "wrong bug?",
+      "revId": "ac561557369689f250bebe8982b77d55957ec2f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0db8a4ff_a202b8c6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-02-27T19:16:05Z",
+      "side": 1,
+      "message": "did this include adding/removing devices? don\u0027t we need either (a) the polling thread or (b) upstream hotplug support?",
+      "range": {
+        "startLine": 11,
+        "startChar": 18,
+        "endLine": 11,
+        "endChar": 41
+      },
+      "revId": "ac561557369689f250bebe8982b77d55957ec2f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
