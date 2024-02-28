@@ -70,6 +70,9 @@ using android::base::StringPrintf;
 
 static bool should_use_fs_config(const std::string& path) {
 #if defined(__ANDROID__)
+    if (android::base::StartsWith(path, "/tmp/")) {
+        return false;
+    }
     // TODO: use fs_config to configure permissions on /data too.
     return !android::base::StartsWith(path, "/data/");
 #else
