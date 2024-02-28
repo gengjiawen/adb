@@ -20,9 +20,9 @@
 
 void adbd_fs_config(const char* path, int dir, const char* target_out_path, uid_t* uid, gid_t* gid,
                     mode_t* mode, uint64_t* capabilities) {
-  unsigned uid_hack;
-  unsigned gid_hack;
-  unsigned mode_hack;
+  unsigned uid_hack = *uid;
+  unsigned gid_hack = *gid;
+  unsigned mode_hack = *mode;
   fs_config(path, dir, target_out_path, &uid_hack, &gid_hack, &mode_hack, capabilities);
   *uid = uid_hack;
   *gid = gid_hack;
