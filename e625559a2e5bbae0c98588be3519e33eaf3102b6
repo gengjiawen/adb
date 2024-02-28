@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f08318a_2d248498",
+        "filename": "daemon/file_sync_service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-02-28T16:24:11Z",
+      "side": 1,
+      "message": "+jiyong --- is there something adbd can use that\u0027s a legit treble-approved \"this is a partition with fs_config coverage\" test?\n\npcc: doesn\u0027t this change add a second instance of http://b/171233429?",
+      "revId": "e625559a2e5bbae0c98588be3519e33eaf3102b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
