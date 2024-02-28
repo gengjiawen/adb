@@ -16,6 +16,24 @@
       "message": "+jiyong --- is there something adbd can use that\u0027s a legit treble-approved \"this is a partition with fs_config coverage\" test?\n\npcc: doesn\u0027t this change add a second instance of http://b/171233429?",
       "revId": "e625559a2e5bbae0c98588be3519e33eaf3102b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bab811c_7f2a49ee",
+        "filename": "daemon/file_sync_service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1067098
+      },
+      "writtenOn": "2024-02-28T18:11:25Z",
+      "side": 1,
+      "message": "I guess technically b/171233429 exists with or without the patch (`adb push` to `tmp` didn\u0027t work as non-root), but at least now `adb push` to `/tmp` does.\n\nMaybe we should just skip the fs_config stuff if we are not root? I guess there\u0027s no way that we\u0027re going to be able to chown or set SELinux labels if we aren\u0027t root. It seems better to allow files to be uploaded with the \"wrong\" permissions than to not upload them at all. So then the body of this function should just be\n```\nreturn getuid() \u003d\u003d 0;\n```\nI can imagine this could have all kinds of consequences because we\u0027re all of a sudden chowning stuff in /data as root. So maybe this should be done in a followup after this change.",
+      "parentUuid": "3f08318a_2d248498",
+      "revId": "e625559a2e5bbae0c98588be3519e33eaf3102b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
