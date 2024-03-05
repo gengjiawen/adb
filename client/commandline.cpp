@@ -2093,6 +2093,9 @@ int adb_commandline(int argc, const char** argv) {
         if (!CanUseFeature(*features, kFeatureTrackApp)) {
             error_exit("track-app is not supported by the device");
         }
+        if (argc == 2 && !strcmp(argv[1], "--proto-binary")) {
+            return adb_connect_command("track-app");
+        }
         TrackAppStreamsCallback callback;
         return adb_connect_command("track-app", nullptr, &callback);
     } else if (!strcmp(argv[0], "track-devices")) {
