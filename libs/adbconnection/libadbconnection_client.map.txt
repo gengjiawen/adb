@@ -17,6 +17,14 @@
 LIBADBCONNECTION_CLIENT_1 {
   global:
     adbconnection_client_new; # apex
+
+    adbconnection_client_on_process_named; # apex
+    adbconnection_client_on_application_added; # apex
+    adbconnection_client_on_set_state; # apex
+    adbconnection_client_has_pending_update; # apex
+    adbconnection_client_on_user_id_known; # apex
+    adbconnection_client_send_update; # apex
+
     adbconnection_client_destroy; # apex
     adbconnection_client_pollfd; # apex
     adbconnection_client_receive_jdwp_fd; # apex

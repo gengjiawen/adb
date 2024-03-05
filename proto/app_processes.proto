@@ -26,6 +26,11 @@ message ProcessEntry {
     bool debuggable = 2;
     bool profileable = 3;
     string architecture = 4;
+    optional int64  user_id = 5;
+    optional int64  uid = 6;
+    optional string process_name = 7;
+    repeated string package_names = 8;
+    optional int32 state = 9;
 }
 
 message AppProcesses {
