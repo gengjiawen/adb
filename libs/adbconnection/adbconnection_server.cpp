@@ -29,9 +29,21 @@
 #include <android-base/unique_fd.h>
 
 #include "adbconnection/common.h"
-#include "adbconnection/process_info.h"
+#include "app_processes.pb.h"
 
 using android::base::unique_fd;
+
+ProcessInfo readProcessInfoFromSocket(int socket, uint32_t message_size) {
+  std::string proto;
+  proto.resize(message_size);
+  int rc = TEMP_FAILURE_RETRY(recv(socket, proto.data(), message_size, MSG_DONTWAIT));
+  if (rc != (int)message_size) {
+    LOG(ERROR) << "received data of incorrect size from JDWP client: read proto " << rc
+               << ", expected " << sizeof(message_size);
+  }
+
+  return ProcessInfo::parseProtobufString(proto);
+}
 
 // Listen for incoming jdwp clients forever.
 void adbconnection_listen(void (*callback)(int fd, ProcessInfo process)) {
@@ -99,13 +111,14 @@ void adbconnection_listen(void (*callback)(int fd, ProcessInfo process)) {
                      << ") in pending connections";
         }
 
-        ProcessInfo process;
-        int rc = TEMP_FAILURE_RETRY(recv(it->get(), &process, sizeof(process), MSG_DONTWAIT));
-        if (rc != sizeof(process)) {
-          LOG(ERROR) << "received data of incorrect size from JDWP client: read " << rc
-                     << ", expected " << sizeof(process);
+        uint32_t message_size = 0;
+        int rc = TEMP_FAILURE_RETRY(recv(it->get(), &message_size, sizeof(uint32_t), MSG_DONTWAIT));
+        if (rc != sizeof(uint32_t)) {
+          LOG(ERROR) << "received data of incorrect size from JDWP client: read size " << rc
+                     << ", expected " << sizeof(uint32_t);
         } else {
-          callback(it->release(), process);
+          ProcessInfo process_info = readProcessInfoFromSocket(it->get(), message_size);
+          callback(it->release(), process_info);
         }
 
         if (epoll_ctl(epfd.get(), EPOLL_CTL_DEL, event.data.fd, nullptr) != 0) {
