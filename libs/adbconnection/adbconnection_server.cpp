@@ -29,9 +29,30 @@
 #include <android-base/unique_fd.h>
 
 #include "adbconnection/common.h"
-#include "adbconnection/process_info.h"
+#include "app_processes.pb.h"
 
 using android::base::unique_fd;
+
+std::optional<ProcessInfo> readProcessInfoFromSocket(int socket) {
+  std::string proto;
+  proto.resize(MAX_APP_MESSAGE_LENGTH);
+  int rc = TEMP_FAILURE_RETRY(recv(socket, proto.data(), proto.length(), MSG_PEEK));
+  if (rc <= 0) {
+    LOG(ERROR) << "adbconnection_server: Unable to MSG_PEEK ProcessInfo recv buffer" << rc;
+    return {};
+  }
+
+  uint32_t message_size = rc;
+  proto.resize(message_size);
+  rc = TEMP_FAILURE_RETRY(recv(socket, proto.data(), message_size, 0));
+  if (rc != (int)message_size) {
+    LOG(ERROR) << "adbconnection_server: Unexpected ProcessInfo size  " << message_size
+               << " but got " << rc;
+    return {};
+  }
+
+  return ProcessInfo::parseProtobufString(proto);
+}
 
 // Listen for incoming jdwp clients forever.
 void adbconnection_listen(void (*callback)(int fd, ProcessInfo process)) {
@@ -99,13 +120,11 @@ void adbconnection_listen(void (*callback)(int fd, ProcessInfo process)) {
                      << ") in pending connections";
         }
 
-        ProcessInfo process;
-        int rc = TEMP_FAILURE_RETRY(recv(it->get(), &process, sizeof(process), MSG_DONTWAIT));
-        if (rc != sizeof(process)) {
-          LOG(ERROR) << "received data of incorrect size from JDWP client: read " << rc
-                     << ", expected " << sizeof(process);
+        auto process_info = readProcessInfoFromSocket(it->get());
+        if (process_info) {
+          callback(it->release(), *process_info);
         } else {
-          callback(it->release(), process);
+          PLOG(ERROR) << "Unable to read ProcessInfo from app startup";
         }
 
         if (epoll_ctl(epfd.get(), EPOLL_CTL_DEL, event.data.fd, nullptr) != 0) {

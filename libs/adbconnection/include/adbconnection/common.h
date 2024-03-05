@@ -16,9 +16,29 @@
 
 #pragma once
 
+#include "app_processes.pb.h"
+
 #include <sys/socket.h>
 #include <sys/un.h>
 
 #include <tuple>
+#include <unordered_set>
+
+struct ProcessInfo {
+  uint64_t pid;
+  bool debuggable;
+  bool profileable;
+  std::string architecture;  // ISA name, e.g., "arm64"
+  bool waiting_for_debugger = false;
+  uint64_t user_id = 0;
+  std::string process_name = "";
+  std::unordered_set<std::string> package_names;
+  int uid;
+
+  adb::proto::ProcessEntry toProtobuf() const;
+  static ProcessInfo parseProtobufString(const std::string& proto);
+};
+
+#define MAX_APP_MESSAGE_LENGTH 4096
 
 std::tuple<sockaddr_un, socklen_t> get_control_socket_addr();

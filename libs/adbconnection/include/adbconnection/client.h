@@ -51,6 +51,33 @@ struct AdbConnectionClientInfo {
 AdbConnectionClientContext* adbconnection_client_new(
     const AdbConnectionClientInfo* const* info_elems, size_t info_count);
 
+// Update the apex client with the new name of the process. Nothing is transferred to the server.
+// You need to call adbconnection_client_send_update to transmit the latest state to adbd
+void adbconnection_client_on_process_named(const char* process_name);
+
+// Update the apex client when a package name is added to the current process. Nothing is
+// transferred to the server. You need to call adbconnection_client_send_update to transmit the
+// latest state to adbd
+void adbconnection_client_on_application_added(const char* package_name);
+
+// Update the apex client when the app is waiting for debugger (or not). Nothing is
+// transferred to the server. You need to call adbconnection_client_send_update to transmit the
+// latest state to adbd
+void adbconnection_client_on_waiting_for_debugger(bool waiting);
+
+// Update the apex client when app process uid is known. This is not the value from getuid() but
+// rather the value massaged by Framework via PER_USER_RANGE and USER_SYSTEM. Nothing is transferred
+// to the server. You need to call adbconnection_client_send_update to transmit the latest state to
+// adbd
+void adbconnection_client_on_user_id_known(int uid);
+
+// Check if the client has something to send to the server. If it does,
+// adbconnection_client_send_update  should be called.
+bool adbconnection_client_has_pending_update();
+
+// Write the latest appinfo state so adbd receives it.
+void adbconnection_client_send_update(AdbConnectionClientContext* ctx);
+
 void adbconnection_client_destroy(AdbConnectionClientContext* ctx);
 
 // Get an fd which can be polled upon to detect when a jdwp socket is available.
