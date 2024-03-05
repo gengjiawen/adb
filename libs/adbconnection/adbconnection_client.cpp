@@ -23,17 +23,33 @@
 #include <sys/un.h>
 
 #include <memory>
+#include <mutex>
 #include <optional>
+#include <string>
+#include <vector>
 
 #include <android-base/cmsg.h>
 #include <android-base/logging.h>
 #include <android-base/properties.h>
+#include <android-base/thread_annotations.h>
 #include <android-base/unique_fd.h>
 
 #include "adbconnection/common.h"
-#include "adbconnection/process_info.h"
 
 using android::base::unique_fd;
+
+struct AppInfo {
+  std::mutex mutex;
+
+  // The state of the app process
+  ProcessInfo process GUARDED_BY(mutex);
+
+  // True if any of the ProcessInfo field have been modified since we last sent an update to the
+  // server.
+  bool has_pending_update GUARDED_BY(mutex) = false;
+};
+
+static auto& app_info = *new AppInfo();
 
 struct AdbConnectionClientContext {
   unique_fd control_socket_;
@@ -54,6 +70,40 @@ bool SocketPeerIsTrusted(int fd) {
   }
 
   return true;
+}
+
+static void send_app_info(AdbConnectionClientContext* ctx) {
+  std::lock_guard<std::mutex> lock(app_info.mutex);
+  if (!ctx) {
+    LOG(WARNING) << "Can't send app_info: No connection to adbd";
+    return;
+  }
+
+  if (!app_info.has_pending_update) {
+    LOG(WARNING) << "adbconnection_client: No pending updates";
+    return;
+  }
+
+  auto protobufProcess = app_info.process.toProtobuf();
+  std::string serialized_message;
+  if (!protobufProcess.SerializeToString(&serialized_message)) {
+    PLOG(ERROR) << "Unable to build ART -> ADBd message";
+    return;
+  }
+
+  if (serialized_message.size() > MAX_APP_MESSAGE_LENGTH) {
+    PLOG(ERROR) << "adbd appinfo message too big (> " << MAX_APP_MESSAGE_LENGTH << ")";
+    return;
+  }
+
+  ssize_t message_size = serialized_message.size();
+  ssize_t rc = TEMP_FAILURE_RETRY(
+      write(ctx->control_socket_.get(), serialized_message.data(), serialized_message.size()));
+  if (rc != message_size) {
+    PLOG(ERROR) << "failed to send app info to adbd";
+    return;
+  }
+  app_info.has_pending_update = false;
 }
 
 AdbConnectionClientContext* adbconnection_client_new(
@@ -168,13 +218,55 @@ AdbConnectionClientContext* adbconnection_client_new(
     return nullptr;
   }
 
-  ProcessInfo process(*pid, *debuggable, *profileable, *architecture);
-  rc = TEMP_FAILURE_RETRY(write(ctx->control_socket_.get(), &process, sizeof(process)));
-  if (rc != sizeof(process)) {
-    PLOG(ERROR) << "failed to send JDWP process info to adbd";
+  {
+    std::lock_guard<std::mutex> lock(app_info.mutex);
+    app_info.process.pid = *pid;
+    app_info.process.debuggable = *debuggable;
+    if (profileable) {
+      app_info.process.profileable = *profileable;
+    }
+    if (architecture) {
+      app_info.process.architecture = *architecture;
+    }
+    app_info.process.uid = getuid();
+    app_info.has_pending_update = true;
   }
+  send_app_info(ctx.get());
 
   return ctx.release();
+}
+
+void adbconnection_client_on_process_named(const char* process_name) {
+  std::lock_guard<std::mutex> lock(app_info.mutex);
+  app_info.process.process_name = process_name;
+  app_info.has_pending_update = true;
+}
+
+void adbconnection_client_on_application_added(const char* package_name) {
+  std::lock_guard<std::mutex> lock(app_info.mutex);
+  app_info.process.package_names.insert(package_name);
+  app_info.has_pending_update = true;
+}
+
+void adbconnection_client_on_waiting_for_debugger(bool waiting) {
+  std::lock_guard<std::mutex> lock(app_info.mutex);
+  app_info.process.waiting_for_debugger = waiting;
+  app_info.has_pending_update = true;
+}
+
+bool adbconnection_client_has_pending_update() {
+  std::lock_guard<std::mutex> lock(app_info.mutex);
+  return app_info.has_pending_update;
+}
+
+void adbconnection_client_on_user_id_known(int user_id) {
+  std::lock_guard<std::mutex> lock(app_info.mutex);
+  app_info.process.user_id = user_id;
+  app_info.has_pending_update = true;
+}
+
+void adbconnection_client_send_update(AdbConnectionClientContext* ctx) {
+  send_app_info(ctx);
 }
 
 void adbconnection_client_destroy(AdbConnectionClientContext* ctx) {
