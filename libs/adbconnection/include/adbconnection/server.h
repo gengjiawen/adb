@@ -18,9 +18,14 @@
 
 #include <sys/types.h>
 
+#include "common.h"
+
 #include <android-base/unique_fd.h>
 
-#include "adbconnection/process_info.h"
+#include <stdint.h>
+#include <string>
+#include <vector>
 
 // Note this is NOT an apex interface as it's linked only into adbd.
 void adbconnection_listen(void (*callback)(int fd, ProcessInfo process));
+ProcessInfo readProcessInfoFromSocket(int socket, uint32_t proto_size);
