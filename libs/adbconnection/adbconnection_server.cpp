@@ -29,9 +29,36 @@
 #include <android-base/unique_fd.h>
 
 #include "adbconnection/common.h"
-#include "adbconnection/process_info.h"
+#include "app_processes.pb.h"
 
 using android::base::unique_fd;
+
+ProcessInfo readProcessInfoFromSocket(int socket, uint32_t message_size) {
+  std::string proto;
+  proto.resize(message_size);
+  int rc = TEMP_FAILURE_RETRY(recv(socket, proto.data(), message_size, MSG_DONTWAIT));
+  if (rc != (int)message_size) {
+    LOG(ERROR) << "received data of incorrect size from JDWP client: read proto " << rc
+               << ", expected " << sizeof(message_size);
+  }
+
+  return ProcessInfo::parseProtobufString(proto);
+  //  adb::proto::ProcessEntry process_entry_proto;
+  //  process_entry_proto.ParseFromString(proto);
+  //
+  //  ProcessInfo process_info;
+  //  process_info.pid = process_entry_proto.pid();
+  //  process_info.uid = process_entry_proto.uid();
+  //  process_info.debuggable = process_entry_proto.debuggable();
+  //  process_info.profileable = process_entry_proto.profileable();
+  //  process_info.arch_name = process_entry_proto.architecture();
+  //  process_info.process_name = process_entry_proto.process_name();
+  //  for(int i = 0 ; i < process_entry_proto.package_names_size() ; i++) {
+  //    process_info.package_names.emplace_back(process_entry_proto.package_names(i));
+  //  }
+  //  process_info.state = process_entry_proto.state();
+  //  return process_info;
+}
 
 // Listen for incoming jdwp clients forever.
 void adbconnection_listen(void (*callback)(int fd, ProcessInfo process)) {
@@ -99,14 +126,16 @@ void adbconnection_listen(void (*callback)(int fd, ProcessInfo process)) {
                      << ") in pending connections";
         }
 
-        ProcessInfo process;
-        int rc = TEMP_FAILURE_RETRY(recv(it->get(), &process, sizeof(process), MSG_DONTWAIT));
-        if (rc != sizeof(process)) {
-          LOG(ERROR) << "received data of incorrect size from JDWP client: read " << rc
-                     << ", expected " << sizeof(process);
-        } else {
-          callback(it->release(), process);
+        uint32_t message_size = 0;
+        int rc = TEMP_FAILURE_RETRY(recv(it->get(), &message_size, sizeof(uint32_t), MSG_DONTWAIT));
+        if (rc != sizeof(uint32_t)) {
+          LOG(ERROR) << "received data of incorrect size from JDWP client: read size " << rc
+                     << ", expected " << sizeof(uint32_t);
         }
+
+        ProcessInfo process_info = readProcessInfoFromSocket(it->get(), message_size);
+
+        callback(it->release(), process_info);
 
         if (epoll_ctl(epfd.get(), EPOLL_CTL_DEL, event.data.fd, nullptr) != 0) {
           PLOG(FATAL) << "failed to delete fd " << event.data.fd << " from JDWP epoll fd";
