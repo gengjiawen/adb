@@ -892,6 +892,7 @@ python_test_host {
     name: "adb_integration_test_device",
     main: "test_device.py",
     srcs: [
+        "proto/app_processes.proto",
         "proto/devices.proto",
         "test_device.py",
     ],
@@ -907,6 +908,10 @@ python_test_host {
     test_options: {
         unit_test: false,
     },
+    data: [
+       "test_device_apks/adb1.apk",
+       "test_device_apks/adb2.apk",
+    ],
 }
 
 // Note: using pipe for xxd to control the variable name generated
