@@ -384,11 +384,16 @@ $ADB_LOCAL_TRANSPORT_MAX_PORT
 $ADB_MDNS_AUTO_CONNECT
 &nbsp;&nbsp;&nbsp;&nbsp;Comma-separated list of mdns services to allow auto-connect (default adb-tls-connect).
 
+<<<<<<< PATCH SET (711555 Document ADB_OSX_USB_CLEAR_ENDPOINTS env variable.)
+$ADB_OSX_USB_CLEAR_ENDPOINTS  
+&nbsp;&nbsp;&nbsp;&nbsp;Turn on the ability to clear device-side endpoint (MacOS).
+=======
 $ADB_MDNS_OPENSCREEN
 &nbsp;&nbsp;&nbsp;&nbsp;The default mDNS-SD backend is Bonjour (mdnsResponder). For machines where Bonjour is not installed, adb can spawn its own, embedded, mDNS-SD back end, openscreen. If set to "1", this env variable forces mDNS backend to openscreen.
 
 $ADB_LIBUSB
 &nbsp;&nbsp;&nbsp;&nbsp;ADB has its own USB backend implementation but can also employ libusb. use `adb devices -l` (`usb:` prefix is omitted for libusb)  or `adb host-features` (look for `libusb` in the output list) to identify which is in use. To override the default for your OS, set ADB_LIBUSB to "1" to enable libusb, or "0" to enable the ADB backend implementation.
+>>>>>>> BASE      (5e80f3 Merge "Revert "Defaulting to libusb for all hosts, including)
 
 # BUGS
 
