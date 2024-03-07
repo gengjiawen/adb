@@ -390,6 +390,9 @@ $ADB_MDNS_OPENSCREEN
 $ADB_LIBUSB
 &nbsp;&nbsp;&nbsp;&nbsp;ADB has its own USB backend implementation but can also employ libusb. use `adb devices -l` (`usb:` prefix is omitted for libusb)  or `adb host-features` (look for `libusb` in the output list) to identify which is in use. To override the default for your OS, set ADB_LIBUSB to "1" to enable libusb, or "0" to enable the ADB backend implementation.
 
+$ADB_OSX_USB_CLEAR_ENDPOINTS
+&nbsp;&nbsp;&nbsp;&nbsp;(macOS only, running ADB_LIBUSB=0) Allow the ability to clear both endpoints (send ENDPOINT_HALT) in order to address [device recognition problems](https://issuetracker.google.com/issue/37055927).
+
 # BUGS
 
 See Issue Tracker: [here](https://issuetracker.google.com/issues/new?component=192795&template=1310483).
