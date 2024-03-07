@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd0ee38e_eeb758db",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-03-07T18:16:31Z",
+      "side": 1,
+      "message": "This does not explain what this flag does. A better comment would be:\n\n(Macos only) Force clear both endpoints (send ENDPOINT_HALT) after claiming each ADB interface.\n```suggestion\n\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp; (Macos only) Force clear both endpoints (send ENDPOINT_HALT) after claiming each ADB interface.\n```",
+      "range": {
+        "startLine": 388,
+        "startChar": 24,
+        "endLine": 388,
+        "endChar": 82
+      },
+      "revId": "c573080169b3bffe9d1bb69ce5e338d78cf095c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
