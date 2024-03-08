@@ -70,6 +70,24 @@
       "parentUuid": "89ece1cf_2ab87ba8",
       "revId": "a3da1f56f413df9918e68fcae7baf861cda66c54",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db74156b_74476213",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-03-08T20:02:58Z",
+      "side": 1,
+      "message": "my question isn\u0027t about \"should we remove ADB_OSX_USB_CLEAR_ENDPOINTS now\" --- it\u0027s \"why are we doing anything at all when we\u0027re going to remove the whole backend?\". removing the environment variable would make no more sense than documenting it. i think we should just \"ignore\" the old backend until we remove the whole thing. i don\u0027t see any benefit to doing anything else?",
+      "parentUuid": "2a8dc131_db8e3ecd",
+      "revId": "a3da1f56f413df9918e68fcae7baf861cda66c54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
