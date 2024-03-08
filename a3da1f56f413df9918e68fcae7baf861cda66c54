@@ -106,6 +106,24 @@
       "parentUuid": "db74156b_74476213",
       "revId": "a3da1f56f413df9918e68fcae7baf861cda66c54",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0448308_0f527bb8",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-03-08T20:32:15Z",
+      "side": 1,
+      "message": "I think this CL should be abandoned altogether.",
+      "parentUuid": "454b95b8_353fe807",
+      "revId": "a3da1f56f413df9918e68fcae7baf861cda66c54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
