@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "df0ff752_5c75185b",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-03-08T05:32:04Z",
+      "side": 1,
+      "message": "I think we had a discussion about this before. I agree with enh@ that this is outdated and we should adhere to the linter instead.",
+      "parentUuid": "e69132fb_e053ee56",
+      "range": {
+        "startLine": 387,
+        "startChar": 28,
+        "endLine": 387,
+        "endChar": 30
+      },
+      "revId": "d97899c859775c93a21d26e1935933f2c6a2a904",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ebadd71a_59454827",
