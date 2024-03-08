@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d96e5d83_529358ca",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-03-08T00:21:38Z",
+      "side": 1,
+      "message": "Please fix this WARNING reported by Check Contents: Please remove the trailing whitespace.\n\nAnalyzer Description: Validates that changes do not have prohibited expressions in them.\nOwner: ayeaye-team@google.com\n\nPlease remove the trailing whitespace.",
+      "range": {
+        "startLine": 387,
+        "startChar": 28,
+        "endLine": 387,
+        "endChar": 30
+      },
+      "revId": "d97899c859775c93a21d26e1935933f2c6a2a904",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebadd71a_59454827",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-03-08T00:21:38Z",
+      "side": 1,
+      "message": "similar to the release nnotes cl, it\u0027s unclear what \"usb start\" means.\n\nand similar to the question that should always be in your mind for any kind of user documentation, not just release notes --- \"how do i [the user] know whether/when i want this?\". (\"is this actionable?\"...)\n\n...but do we even want to document this? it\u0027s an option for the non-libusb backend, which is no longer the default. (so if we _do_ document it, we need to explicitly state that at least!) but does anyone need this? won\u0027t we be back to _remove_ this soon anyway?",
+      "range": {
+        "startLine": 388,
+        "startChar": 136,
+        "endLine": 388,
+        "endChar": 145
+      },
+      "revId": "d97899c859775c93a21d26e1935933f2c6a2a904",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b157e751_99e221a7",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-03-08T00:21:38Z",
+      "side": 1,
+      "message": "macOS",
+      "range": {
+        "startLine": 388,
+        "startChar": 27,
+        "endLine": 388,
+        "endChar": 32
+      },
+      "revId": "d97899c859775c93a21d26e1935933f2c6a2a904",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
