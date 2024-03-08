@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dae04d0a_8b2dbe0f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1067098
+      },
+      "writtenOn": "2024-03-08T23:39:15Z",
+      "side": 1,
+      "message": "\u003e you mean do the uid check instead?\n\nYes.\n\n\u003e yeah, that sounded more convincing to me, and seems like it partially addresses http://b/171233429 too.\n\nOkay, I\u0027ll update the CL to do that.\n\n\u003e do we even need the /data hack if we have the uid check? no, right?\n\nCorrect, or at least I hope not. Hyrum\u0027s law means there\u0027s at least a chance that someone is depending on root not chowning in /data, but I guess we\u0027ll find out when we land the CL.",
+      "parentUuid": "68443e03_9532f1fd",
+      "revId": "e625559a2e5bbae0c98588be3519e33eaf3102b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3f08318a_2d248498",
         "filename": "daemon/file_sync_service.cpp",
         "patchSetId": 1
