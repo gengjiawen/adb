@@ -16,6 +16,24 @@
       "message": "wrong bug? that doesn\u0027t mention this environment variable?",
       "revId": "a3da1f56f413df9918e68fcae7baf861cda66c54",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0374456_f8b8b083",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-03-08T19:27:21Z",
+      "side": 1,
+      "message": "Based on discussions from the public bug: https://b.corp.google.com/issues/188778499#comment57\n\"The ClearFeature(Halt) requests from adb for Mac is a work-around for some bug on Mac from 2015 (b/37055927), maybe we can check if we still need them (flashstation has been working fine on Mac on its own, so we might not need that work-around anymore).\"\nAnd b/188778499 (internal bug): \"+1 to removing the workaround. Perhaps it can be flag guarded and opted out by default for a short period?\"",
+      "parentUuid": "4ab4d9c5_49b27259",
+      "revId": "a3da1f56f413df9918e68fcae7baf861cda66c54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
