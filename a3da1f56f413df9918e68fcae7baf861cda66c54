@@ -124,6 +124,24 @@
       "parentUuid": "454b95b8_353fe807",
       "revId": "a3da1f56f413df9918e68fcae7baf861cda66c54",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7468e123_55d6933f",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-03-08T20:51:10Z",
+      "side": 1,
+      "message": "Glad to abandon this, if you can explain why?\n- Is it because ADB_OSX_USB_CLEAR_ENDPOINTS does not somehow belong in the list of documented env variables in the man page: https://android.googlesource.com/platform/packages/modules/adb/+/refs/heads/master/docs/user/adb.1.md#environment-variables ?\n- If it makes sense to keep it as an undocumented env variable (pending removal of the backend, as enh@ suggested), I\u0027m cool with that (as long as it can be resurrected if the schedule slips due to, say libusb release delays). \nPS: tbh I\u0027m not sure whether we\u0027ll even be able to completely remove AdbWinApi and AdbWinUsbApi library deps (although the tech-debt removal plan currently assumes that to be a goal), mostly because of historical Windows fragility/risks. So, backend removal might not even be 100% viable (across hosts).",
+      "parentUuid": "a0448308_0f527bb8",
+      "revId": "a3da1f56f413df9918e68fcae7baf861cda66c54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
