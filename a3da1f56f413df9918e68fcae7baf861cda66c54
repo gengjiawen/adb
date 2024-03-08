@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ab4d9c5_49b27259",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-03-08T16:56:28Z",
+      "side": 1,
+      "message": "wrong bug? that doesn\u0027t mention this environment variable?",
+      "revId": "a3da1f56f413df9918e68fcae7baf861cda66c54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
