@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "11b1890f_8ec29bed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1067098
+      },
+      "writtenOn": "2024-03-08T22:30:40Z",
+      "side": 1,
+      "message": "enh: Ping? Do you think we should go straight to the \"don\u0027t bother to chown etc for shell user\"?",
+      "revId": "e625559a2e5bbae0c98588be3519e33eaf3102b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3f08318a_2d248498",
