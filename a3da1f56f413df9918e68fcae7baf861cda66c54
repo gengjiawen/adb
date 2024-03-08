@@ -34,6 +34,24 @@
       "parentUuid": "4ab4d9c5_49b27259",
       "revId": "a3da1f56f413df9918e68fcae7baf861cda66c54",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89ece1cf_2ab87ba8",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-03-08T19:43:35Z",
+      "side": 1,
+      "message": "so that\u0027s not directly helpful then.\n\nif i search the web for \"ADB_OSX_USB_CLEAR_ENDPOINTS\" i get https://issuetracker.google.com/270205252 instead.\n\n(but like i say --- is there any point documenting a so-far-undocumented feature in code that\u0027s no longer enabled by default, that we plan to remove? _that\u0027s_ why i feel the bar for having a clear explanation of \"why this matters\" is quite high here, and i don\u0027t see how [or when] the current text would help me.)",
+      "parentUuid": "f0374456_f8b8b083",
+      "revId": "a3da1f56f413df9918e68fcae7baf861cda66c54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
