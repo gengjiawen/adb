@@ -52,6 +52,24 @@
       "parentUuid": "f0374456_f8b8b083",
       "revId": "a3da1f56f413df9918e68fcae7baf861cda66c54",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a8dc131_db8e3ecd",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-03-08T19:54:40Z",
+      "side": 1,
+      "message": "That makes sense, updated the bug reference to be 270205252 instead.\nMarking this resolved, please reopen if you feel strongly that ADB_OSX_USB_CLEARENDPOINTS flag-guarding needs to be removed (personally, I feel we should keep it around until the USB rework is completed which I feel would be no earlier than almost end of the year).",
+      "parentUuid": "89ece1cf_2ab87ba8",
+      "revId": "a3da1f56f413df9918e68fcae7baf861cda66c54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
