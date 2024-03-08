@@ -142,6 +142,24 @@
       "parentUuid": "a0448308_0f527bb8",
       "revId": "a3da1f56f413df9918e68fcae7baf861cda66c54",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48e57ed9_f67510c8",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-03-08T20:52:23Z",
+      "side": 1,
+      "message": "\u003e So, should we just not document this (undocumented) setting in the meantime?\n\nlike i always ask: \"why?\" / \"who benefits?\" / \"what\u0027s the [positive] impact?\".\n\nit sounds like you don\u0027t have an answer to that, so this doesn\u0027t seem worth doing at all...\n\n\u003e If so, I shall put this CL in cold-storage until say, Q3-24.\n\ni don\u0027t think so --- if we\u0027ve reverted the libusb-for-macOS default by then, _that\u0027s_ what we should be working on. there\u0027s no world where we actually want to _keep_ this (only worlds where we might have to hang on to it slightly longer than anticipated).",
+      "parentUuid": "a0448308_0f527bb8",
+      "revId": "a3da1f56f413df9918e68fcae7baf861cda66c54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
