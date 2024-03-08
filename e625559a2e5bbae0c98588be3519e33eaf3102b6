@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "68443e03_9532f1fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-03-08T23:29:46Z",
+      "side": 1,
+      "message": "you mean do the uid check instead? yeah, that sounded more convincing to me, and seems like it partially addresses http://b/171233429 too.\n\ndo we even need the /data hack if we have the uid check? no, right?",
+      "parentUuid": "11b1890f_8ec29bed",
+      "revId": "e625559a2e5bbae0c98588be3519e33eaf3102b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3f08318a_2d248498",
         "filename": "daemon/file_sync_service.cpp",
         "patchSetId": 1
