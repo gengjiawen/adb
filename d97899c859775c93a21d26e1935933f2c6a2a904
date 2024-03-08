@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3655b42_ed626c4b",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-03-08T01:15:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d96e5d83_529358ca",
+      "range": {
+        "startLine": 387,
+        "startChar": 28,
+        "endLine": 387,
+        "endChar": 30
+      },
+      "revId": "d97899c859775c93a21d26e1935933f2c6a2a904",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ebadd71a_59454827",
@@ -60,6 +84,54 @@
       "writtenOn": "2024-03-08T00:21:38Z",
       "side": 1,
       "message": "macOS",
+      "range": {
+        "startLine": 388,
+        "startChar": 27,
+        "endLine": 388,
+        "endChar": 32
+      },
+      "revId": "d97899c859775c93a21d26e1935933f2c6a2a904",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7c24a24_1cfe0b4b",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-03-08T01:15:09Z",
+      "side": 1,
+      "message": "Replaced \"usb start\" with a more generic reference (\"initialization\").\nAdded a reference to the actual problem (device recognition), as well as a link to the public bug.\nGiven our plan is to remove the secondary path on the fall (earliest, and likely to go farther since de-risking/quality motivations in the face of complexity), I hope it\u0027s OK to keep this in (please re-open if you\u0027d rather not have it).",
+      "parentUuid": "ebadd71a_59454827",
+      "range": {
+        "startLine": 388,
+        "startChar": 136,
+        "endLine": 388,
+        "endChar": 145
+      },
+      "revId": "d97899c859775c93a21d26e1935933f2c6a2a904",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e84e8765_d36f9ad4",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-03-08T01:15:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b157e751_99e221a7",
       "range": {
         "startLine": 388,
         "startChar": 27,
