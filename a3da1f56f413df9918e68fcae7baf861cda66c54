@@ -88,6 +88,24 @@
       "parentUuid": "2a8dc131_db8e3ecd",
       "revId": "a3da1f56f413df9918e68fcae7baf861cda66c54",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "454b95b8_353fe807",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-03-08T20:27:35Z",
+      "side": 1,
+      "message": "Given the timeline of the (derisked) backend removal (go/platform-tools-usb-release-strategy), the earliest we will accomplish backend removal would be Q3-24 (and, there could be risk/delays even for that timeline).\nSo, should we just not document this (undocumented) setting in the meantime?\nIf so, I shall put this CL in cold-storage until say, Q3-24.",
+      "parentUuid": "db74156b_74476213",
+      "revId": "a3da1f56f413df9918e68fcae7baf861cda66c54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
