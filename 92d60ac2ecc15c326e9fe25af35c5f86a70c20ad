@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb431a91_afd132b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1067098
+      },
+      "writtenOn": "2024-03-09T01:43:29Z",
+      "side": 1,
+      "message": "BTW, nothing is using this \"adbd on the host\" stuff, right? Can we just delete it? https://r.android.com/881692 claims it was added for host-side testing, but I can\u0027t find any evidence of a host-side test suite existing.",
+      "revId": "92d60ac2ecc15c326e9fe25af35c5f86a70c20ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
