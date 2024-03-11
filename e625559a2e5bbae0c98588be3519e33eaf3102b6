@@ -105,6 +105,24 @@
       "parentUuid": "3f08318a_2d248498",
       "revId": "e625559a2e5bbae0c98588be3519e33eaf3102b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e599c886_4581b2b4",
+        "filename": "daemon/file_sync_service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-03-11T17:45:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7bab811c_7f2a49ee",
+      "revId": "e625559a2e5bbae0c98588be3519e33eaf3102b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
