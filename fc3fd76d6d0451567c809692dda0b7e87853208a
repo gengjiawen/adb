@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27458f2a_158fee09",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2024-03-12T06:40:41Z",
+      "side": 1,
+      "message": "See https://android-build.corp.google.com/abtd/run/L52600030002452324/ which shows that reverting this CL fixed the test breakage.",
+      "revId": "fc3fd76d6d0451567c809692dda0b7e87853208a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
