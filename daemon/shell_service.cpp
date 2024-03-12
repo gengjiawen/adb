@@ -282,6 +282,11 @@ bool Subprocess::ForkAndExec(std::string* error) {
         env["TERM"] = terminal_type_;
     }
 
+    // Tell malloc to use the default values that an application forked from
+    // the zygote will use. This will allow shell command to get the same
+    // performance as applications.
+    env["MALLOC_USE_APP_DEFAULTS"] = "1";
+
     std::vector<std::string> joined_env;
     for (const auto& it : env) {
         const char* key = it.first.c_str();
