@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "125455a7_2ee31e07",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2024-03-13T06:01:40Z",
+      "side": 1,
+      "message": "Where in your change is this part implemented? Is it \n\n```\n    if (!*mode) {\n        *mode \u003d pc-\u003emode;\n    }\n```\n?",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 69
+      },
+      "revId": "183522a9a4fda09a11f6bd6203c11a720b507450",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a998475d_c80d36e3",
