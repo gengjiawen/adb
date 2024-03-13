@@ -16,6 +16,23 @@
       "message": "I ran several of the tests that failed last time and didn\u0027t see any failures.",
       "revId": "183522a9a4fda09a11f6bd6203c11a720b507450",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e763a51_35a30310",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2024-03-13T06:00:08Z",
+      "side": 1,
+      "message": "Thank you. Let me re-run our test with these two patches. https://android-build.corp.google.com/builds/abtd/run/L82100030002483935",
+      "revId": "183522a9a4fda09a11f6bd6203c11a720b507450",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
