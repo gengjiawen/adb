@@ -74,6 +74,40 @@
       "parentUuid": "5e763a51_35a30310",
       "revId": "183522a9a4fda09a11f6bd6203c11a720b507450",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "155799d6_dc153f5b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-03-14T00:08:19Z",
+      "side": 1,
+      "message": "are we sure this is even the right direction? do we actually just want adb_fs_config() to have the getuid() check, and drop the \"should\" function?",
+      "revId": "183522a9a4fda09a11f6bd6203c11a720b507450",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7bd316b_5c2964f6",
+        "filename": "libs/libadbd_fs/adbd_fs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-03-14T00:08:19Z",
+      "side": 1,
+      "message": "if you\u0027re going to copy these back later, why not just call fs_config() directly with the original pointers and delete adbd_fs_config()?",
+      "revId": "183522a9a4fda09a11f6bd6203c11a720b507450",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
