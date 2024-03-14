@@ -95,6 +95,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ea87bb61_f7f3029f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1067098
+      },
+      "writtenOn": "2024-03-14T00:43:54Z",
+      "side": 1,
+      "message": "Yeah, that seems like a better way to go. I\u0027ll do that.",
+      "parentUuid": "155799d6_dc153f5b",
+      "revId": "183522a9a4fda09a11f6bd6203c11a720b507450",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c7bd316b_5c2964f6",
         "filename": "libs/libadbd_fs/adbd_fs.cpp",
         "patchSetId": 1
@@ -106,6 +124,24 @@
       "writtenOn": "2024-03-14T00:08:19Z",
       "side": 1,
       "message": "if you\u0027re going to copy these back later, why not just call fs_config() directly with the original pointers and delete adbd_fs_config()?",
+      "revId": "183522a9a4fda09a11f6bd6203c11a720b507450",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81c3b226_cb7f57e5",
+        "filename": "libs/libadbd_fs/adbd_fs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1067098
+      },
+      "writtenOn": "2024-03-14T00:43:54Z",
+      "side": 1,
+      "message": "I think the reason why these are copied is that the types are incompatible.",
+      "parentUuid": "c7bd316b_5c2964f6",
       "revId": "183522a9a4fda09a11f6bd6203c11a720b507450",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
