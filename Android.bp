@@ -202,6 +202,23 @@ library_linking_strategy_cc_defaults {
     },
 }
 
+soong_config_module_type {
+    name: "adbd_build_sysbin_fragment",
+    module_type: "cc_defaults",
+    config_namespace: "adb",
+    bool_variables: ["build_sysbin"],
+    properties: ["apex_available"],
+}
+
+adbd_build_sysbin_fragment {
+    name: "adbd_build_sysbin",
+    soong_config_variables: {
+        build_sysbin: {
+            apex_available: ["//apex_available:platform"],
+	},
+    },
+}
+
 // libadb
 // =========================================================
 // These files are compiled for both the host and the device.
@@ -718,7 +735,12 @@ cc_library {
 
 cc_binary {
     name: "adbd",
-    defaults: ["adbd_defaults", "host_adbd_supported", "libadbd_binary_dependencies"],
+    defaults: [
+        "adbd_defaults",
+        "host_adbd_supported",
+        "libadbd_binary_dependencies",
+        "adbd_build_sysbin",
+    ],
     recovery_available: true,
     min_sdk_version: "30",
     apex_available: ["com.android.adbd"],
