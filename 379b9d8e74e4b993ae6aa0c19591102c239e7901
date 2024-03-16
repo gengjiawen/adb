@@ -3,6 +3,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "004b3918_e2db51ac",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-03-16T15:39:10Z",
+      "side": 1,
+      "message": "Please include the specific location (e.g device/google/zuma/device.mk). This will help cursory test this CL.",
+      "range": {
+        "startLine": 14,
+        "startChar": 56,
+        "endLine": 14,
+        "endChar": 64
+      },
+      "revId": "379b9d8e74e4b993ae6aa0c19591102c239e7901",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4dea8f2b_170f2108",
+        "filename": "Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-03-16T15:39:10Z",
+      "side": 1,
+      "message": "Since we will have co-existence of /system/bin/adbd and /apex/com.android.adbd/bin \n   - do we need to consider whether these binaries can/need to be consistent with each other (although `ln -s` would be impossible given the sequence)?\n   - is this only applicable to user-debug and eng builds?",
+      "range": {
+        "startLine": 216,
+        "startChar": 8,
+        "endLine": 217,
+        "endChar": 26
+      },
+      "revId": "379b9d8e74e4b993ae6aa0c19591102c239e7901",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "16772e4a_fd3c4653",
         "filename": "Android.bp",
         "patchSetId": 5
