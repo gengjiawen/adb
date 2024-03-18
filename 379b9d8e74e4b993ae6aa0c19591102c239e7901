@@ -49,6 +49,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3e70e8be_382654a6",
+        "filename": "Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-03-18T15:19:46Z",
+      "side": 1,
+      "message": "yeah, that would be my worry here too. \"how do we prevent this from happening on real builds?\"\n\n+jiyong in case there\u0027s already a way to recognize in the build system those builds that are still in early bringup without apexd... (maybe there shouldn\u0027t be an _enable_ for this, but a _disable_ for something else?)\n\nor i susppose we could just have a CTS test to check you haven\u0027t accidentally done this.\n\nbut a \"i\u0027m in bringup\" BoardConfig.mk option sounds generally useful?",
+      "parentUuid": "4dea8f2b_170f2108",
+      "range": {
+        "startLine": 216,
+        "startChar": 8,
+        "endLine": 217,
+        "endChar": 26
+      },
+      "revId": "379b9d8e74e4b993ae6aa0c19591102c239e7901",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "16772e4a_fd3c4653",
         "filename": "Android.bp",
         "patchSetId": 5
