@@ -16,6 +16,24 @@
       "message": "i think the right fix for all of these is to use `#pragma clang poison foo` instead. that\u0027s the intention here (which is why we need _something_), but this code predates that better way of doing it.",
       "revId": "a0fe50d90dabfc22d8247d8f7ba56e74e39368b0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1fba748_6420f6ab",
+        "filename": "sysdeps.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1307979
+      },
+      "writtenOn": "2024-03-19T23:34:57Z",
+      "side": 1,
+      "message": "I tried this out - the poison pragma triggers an error for the identifier no matter in what context it appears, so it doesn\u0027t solve the original issue and also gives additional errors in absl/synchronization/mutex.h (which has `bool write` as a parameter) and in openssl/bio.h (which has a struct field named `write`).\n\n`#pragma clang poison ::write` gives \"error: can only poison identifier tokens\".\n\nNext, I tried a template that always gives an error when instantiated:\n\n```\ntemplate \u003ctypename... Args, typename T \u003d void\u003e\ninline ssize_t write(Args\u0026\u0026... args) {\n    static_assert(!std::is_same_v\u003cstd::void_t\u003cArgs...\u003e, T\u003e,\n                  \"write() not allowed\");\n    return 0;\n}\n```\n\nbut this doesn\u0027t work if the argument types match exactly - the standalone function takes precedence over the template and doesn\u0027t trigger the compilation error. Importing the template from another namespace also doesn\u0027t work (as expected).\n\n`#pragma clang attribute` combined with the `warning` attribute seemed promising, as this can be temporarily disabled with `#pragma clang diagnostic ignored -Wattribute-warning`, but I can only apply this to entire headers such as `\u003cunistd.h\u003e` - it marks functions like `dup2` and `access`. It also requires `sysdeps.h` to always be included first, which is currently not the case.\n\nThere\u0027s an \"interrupter\" library defined in frameworks base which uses `dlsym` to interpose these functions, but I don\u0027t think this would be supported on Windows:\nhttps://source.corp.google.com/h/android/platform/superproject/main/+/main:frameworks/base/cmds/interrupter/\n\nAny other ideas? Maybe we need to enforce this with the CheckContents linter?",
+      "parentUuid": "0db2e1f0_129ce233",
+      "revId": "a0fe50d90dabfc22d8247d8f7ba56e74e39368b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
