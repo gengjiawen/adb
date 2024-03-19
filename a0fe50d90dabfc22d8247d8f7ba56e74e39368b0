@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0db2e1f0_129ce233",
+        "filename": "sysdeps.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-03-19T22:30:53Z",
+      "side": 1,
+      "message": "i think the right fix for all of these is to use `#pragma clang poison foo` instead. that\u0027s the intention here (which is why we need _something_), but this code predates that better way of doing it.",
+      "revId": "a0fe50d90dabfc22d8247d8f7ba56e74e39368b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
