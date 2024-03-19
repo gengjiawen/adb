@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06f2c38c_2a465ffd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2001171
+      },
+      "writtenOn": "2024-03-19T02:17:28Z",
+      "side": 1,
+      "message": "I will hold off this patch as I found it\u0027s not that straight forward to add adbd as a system binary. I somehow installed it with m adbd \u0026\u0026 m, and it turns out it\u0027s not the proper way to install system binary per https://groups.google.com/a/google.com/g/soong-discuss/c/TRsDxzqR-QU/m/b-sfUvTIBAAJ. Then I tried to install it by adding adbd to PRODUCT_PACKAGE, but the build failed because stub libraries like libadb_pairing_connection can only exist either in platform or in apex but not both (context: b/277651159). I need more time to figure out the right solution, please feel free to leave comments and suggestions.",
+      "revId": "a19f4779992057f85b868d284c60290ace0691a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
