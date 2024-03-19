@@ -135,8 +135,7 @@ static inline int unix_read(borrowed_fd fd, void* buf, size_t len) {
 static inline int unix_write(borrowed_fd fd, const void* buf, size_t len) {
     return write(fd.get(), buf, len);
 }
-#undef   write
-#define  write  ___xxx_write
+// 'write' cannot be redefined, std::ostream::write is used in Protobuf
 
 #undef pwrite
 #define pwrite ___xxx_pwrite
@@ -545,8 +544,7 @@ static inline int adb_pwrite(int fd, const void* buf, size_t len, off64_t offset
 #endif
 }
 
-#undef   write
-#define  write  ___xxx_write
+// 'write' cannot be redefined, std::ostream::write is used in Protobuf
 #undef pwrite
 #define pwrite ___xxx_pwrite
 
