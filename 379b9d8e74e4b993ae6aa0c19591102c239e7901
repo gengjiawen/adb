@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c1828b76_88b82fb9",
+        "filename": "Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-03-20T15:17:38Z",
+      "side": 1,
+      "message": "i have no idea what i\u0027m talking about ... i mean \"whatever builds royluo is using that he\u0027s seen this problem\" :-)",
+      "parentUuid": "71f03d87_4f7e8fa7",
+      "range": {
+        "startLine": 216,
+        "startChar": 8,
+        "endLine": 217,
+        "endChar": 26
+      },
+      "revId": "379b9d8e74e4b993ae6aa0c19591102c239e7901",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "16772e4a_fd3c4653",
         "filename": "Android.bp",
         "patchSetId": 5
