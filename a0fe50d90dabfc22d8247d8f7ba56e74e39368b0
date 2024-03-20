@@ -52,6 +52,24 @@
       "parentUuid": "f1fba748_6420f6ab",
       "revId": "a0fe50d90dabfc22d8247d8f7ba56e74e39368b0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b63da1b_a81667ab",
+        "filename": "sysdeps.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1307979
+      },
+      "writtenOn": "2024-03-20T00:12:49Z",
+      "side": 1,
+      "message": "The header that mentions `write` is indirectly pulled in by the generated proto headers, which would be pretty difficult to encapsulate in separate files. This is the error I get locally:\n\n```\nIn file included from packages/modules/adb/client/adb_install.cpp:40:\nIn file included from packages/modules/adb/client/fastdeploy.h:21:\nIn file included from out/soong/.intermediates/packages/modules/adb/libfastdeploy_host/linux_glibc_x\n86_64_static/e560d7b19ebf7276b3e850d3d346dec8/gen/proto/packages/modules/adb/fastdeploy/proto/ApkEnt\nry.pb.h:24:\nIn file included from external/protobuf/src/google/protobuf/io/coded_stream.h:134:\nIn file included from external/abseil-cpp/absl/strings/cord.h:80:\nIn file included from external/abseil-cpp/absl/crc/internal/crc_cord_state.h:23:\nIn file included from external/abseil-cpp/absl/crc/crc32c.h:32:\nIn file included from external/abseil-cpp/absl/strings/str_format.h:83:\nIn file included from external/abseil-cpp/absl/strings/internal/str_format/arg.h:37:\nIn file included from external/abseil-cpp/absl/strings/internal/str_format/extension.h:27:\nexternal/abseil-cpp/absl/strings/internal/str_format/output.h:75:8: error: no member named \u0027___xxx_w\nrite\u0027 in \u0027std::basic_ostream\u003cchar\u003e\u0027\n   75 |   out-\u003ewrite(s.data(), static_cast\u003cstd::streamsize\u003e(s.size()));\n      |   ~~~  ^\npackages/modules/adb/sysdeps.h:549:17: note: expanded from macro \u0027write\u0027\n  549 | #define  write  ___xxx_write\n      |                 ^\n```\n\nI think a blocking lint check would be the least hacky solution - I\u0027ve added them for some internal projects before. WDYT?",
+      "parentUuid": "38db9b5b_205a9cdb",
+      "revId": "a0fe50d90dabfc22d8247d8f7ba56e74e39368b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
