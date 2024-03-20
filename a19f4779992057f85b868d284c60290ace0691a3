@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0aaa86a8_ecdecd15",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2024-03-20T06:57:14Z",
+      "side": 1,
+      "message": "An easier solution to this may be making the adb APEX as a boostrap APEX so that it gets activated very early.\n\nhttps://cs.android.com/android/platform/superproject/main/+/main:system/apex/apexd/apexd.cpp;drc\u003d370a8fa9f54549b573768af5a26994ab06ae1e02;l\u003d149",
+      "range": {
+        "startLine": 10,
+        "startChar": 12,
+        "endLine": 11,
+        "endChar": 61
+      },
+      "revId": "a19f4779992057f85b868d284c60290ace0691a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "06f2c38c_2a465ffd",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 6

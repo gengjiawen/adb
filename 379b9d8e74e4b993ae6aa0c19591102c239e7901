@@ -73,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "71f03d87_4f7e8fa7",
+        "filename": "Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2024-03-20T06:57:14Z",
+      "side": 1,
+      "message": "\u003e those builds that are still in early bringup without apexd\n\nI am guessing you are talking about flatten APEX where APEXes are flattened out directly on /system/apex and therefore no apexd is required/running. Flattened APEX was deprecated starting from V.",
+      "parentUuid": "3e70e8be_382654a6",
+      "range": {
+        "startLine": 216,
+        "startChar": 8,
+        "endLine": 217,
+        "endChar": 26
+      },
+      "revId": "379b9d8e74e4b993ae6aa0c19591102c239e7901",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "16772e4a_fd3c4653",
         "filename": "Android.bp",
         "patchSetId": 5
