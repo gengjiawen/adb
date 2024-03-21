@@ -69,6 +69,7 @@
 #include "services.h"
 #include "shell_protocol.h"
 #include "socket_spec.h"
+#include "tombstone.h"
 #include "sysdeps/chrono.h"
 
 DefaultStandardStreamsCallback DEFAULT_STANDARD_STREAMS_CALLBACK(nullptr, nullptr);
@@ -2090,6 +2091,8 @@ int adb_commandline(int argc, const char** argv) {
             error_exit("usage: adb raw SERVICE");
         }
         return adb_connect_command_bidirectional(argv[1]);
+    } else if (!strcmp(argv[0], "tombstone")) {
+        return adb_tombstone(argc, argv);
     }
 
     /* "adb /?" is a common idiom under Windows */
