@@ -378,45 +378,8 @@ struct LegacyProgressCallbacks : ProgressCallbacks {
 
 class SyncConnection {
   public:
-    SyncConnection(std::unique_ptr<ProgressCallbacks> pc)
-        : pc_(std::move(pc)), acknowledgement_buffer_(sizeof(sync_status) + SYNC_DATA_MAX) {
-        acknowledgement_buffer_.resize(0);
-        max = SYNC_DATA_MAX; // TODO: decide at runtime.
-
-        std::string error;
-        auto&& features = adb_get_feature_set(&error);
-        if (!features) {
-            pc_->Error("failed to get feature set: %s", error.c_str());
-        } else {
-            features_ = &*features;
-            have_stat_v2_ = CanUseFeature(*features, kFeatureStat2);
-            have_ls_v2_ = CanUseFeature(*features, kFeatureLs2);
-            have_sendrecv_v2_ = CanUseFeature(*features, kFeatureSendRecv2);
-            have_sendrecv_v2_brotli_ = CanUseFeature(*features, kFeatureSendRecv2Brotli);
-            have_sendrecv_v2_lz4_ = CanUseFeature(*features, kFeatureSendRecv2LZ4);
-            have_sendrecv_v2_zstd_ = CanUseFeature(*features, kFeatureSendRecv2Zstd);
-            have_sendrecv_v2_dry_run_send_ = CanUseFeature(*features, kFeatureSendRecv2DryRunSend);
-            std::string error;
-            fd.reset(adb_connect("sync:", &error));
-            if (fd < 0) {
-                pc_->Error("connect failed: %s", error.c_str());
-            }
-        }
-    }
-
-    ~SyncConnection() {
-        if (!IsValid()) return;
-
-        if (SendQuit()) {
-            // We sent a quit command, so the server should be doing orderly
-            // shutdown soon. But if we encountered an error while we were using
-            // the connection, the server might still be sending data (before
-            // doing orderly shutdown), in which case we won't wait for all of
-            // the data nor the coming orderly shutdown. In the common success
-            // case, this will wait for the server to do orderly shutdown.
-            ReadOrderlyShutdown(fd);
-        }
-    }
+    SyncConnection(std::unique_ptr<ProgressCallbacks> pc);
+    ~SyncConnection();
 
     bool HaveSendRecv2() const { return have_sendrecv_v2_; }
     bool HaveSendRecv2Brotli() const { return have_sendrecv_v2_brotli_; }
@@ -426,584 +389,33 @@ class SyncConnection {
 
     // Resolve a compression type which might be CompressionType::Any to a specific compression
     // algorithm.
-    CompressionType ResolveCompressionType(CompressionType compression) const {
-        if (compression == CompressionType::Any) {
-            if (HaveSendRecv2Zstd()) {
-                return CompressionType::Zstd;
-            } else if (HaveSendRecv2LZ4()) {
-                return CompressionType::LZ4;
-            } else if (HaveSendRecv2Brotli()) {
-                return CompressionType::Brotli;
-            }
-            return CompressionType::None;
-        }
-        return compression;
-    }
+    CompressionType ResolveCompressionType(CompressionType compression) const;
 
     const FeatureSet& Features() const { return *features_; }
 
     bool IsValid() { return fd >= 0; }
 
-    void RecordFileSent(std::string from, std::string to) {
-        pc_->RecordFilesTransferred(1);
-        deferred_acknowledgements_.emplace_back(std::move(from), std::move(to));
-    }
-
-    bool SendRequest(int id, const std::string& path) {
-        if (path.length() > 1024) {
-            pc_->Error("SendRequest failed: path too long: %zu", path.length());
-            errno = ENAMETOOLONG;
-            return false;
-        }
-
-        // Sending header and payload in a single write makes a noticeable
-        // difference to "adb sync" performance.
-        std::vector<char> buf(sizeof(SyncRequest) + path.length());
-        SyncRequest* req = reinterpret_cast<SyncRequest*>(&buf[0]);
-        req->id = id;
-        req->path_length = path.length();
-        char* data = reinterpret_cast<char*>(req + 1);
-        memcpy(data, path.data(), path.length());
-        return WriteFdExactly(fd, buf.data(), buf.size());
-    }
-
-    bool SendSend2(std::string_view path, mode_t mode, CompressionType compression, bool dry_run) {
-        if (path.length() > 1024) {
-            pc_->Error("SendRequest failed: path too long: %zu", path.length());
-            errno = ENAMETOOLONG;
-            return false;
-        }
-
-        Block buf;
-
-        SyncRequest req;
-        req.id = ID_SEND_V2;
-        req.path_length = path.length();
-
-        syncmsg msg;
-        msg.send_v2_setup.id = ID_SEND_V2;
-        msg.send_v2_setup.mode = mode;
-        msg.send_v2_setup.flags = 0;
-        switch (compression) {
-            case CompressionType::None:
-                break;
-
-            case CompressionType::Brotli:
-                msg.send_v2_setup.flags = kSyncFlagBrotli;
-                break;
-
-            case CompressionType::LZ4:
-                msg.send_v2_setup.flags = kSyncFlagLZ4;
-                break;
-
-            case CompressionType::Zstd:
-                msg.send_v2_setup.flags = kSyncFlagZstd;
-                break;
-
-            case CompressionType::Any:
-                LOG(FATAL) << "unexpected CompressionType::Any";
-        }
-
-        if (dry_run) {
-            msg.send_v2_setup.flags |= kSyncFlagDryRun;
-        }
-
-        buf.resize(sizeof(SyncRequest) + path.length() + sizeof(msg.send_v2_setup));
-
-        void* p = buf.data();
-
-        p = mempcpy(p, &req, sizeof(SyncRequest));
-        p = mempcpy(p, path.data(), path.length());
-        p = mempcpy(p, &msg.send_v2_setup, sizeof(msg.send_v2_setup));
-
-        return WriteFdExactly(fd, buf.data(), buf.size());
-    }
-
-    bool SendRecv2(const std::string& path, CompressionType compression) {
-        if (path.length() > 1024) {
-            pc_->Error("SendRequest failed: path too long: %zu", path.length());
-            errno = ENAMETOOLONG;
-            return false;
-        }
-
-        Block buf;
-
-        SyncRequest req;
-        req.id = ID_RECV_V2;
-        req.path_length = path.length();
-
-        syncmsg msg;
-        msg.recv_v2_setup.id = ID_RECV_V2;
-        msg.recv_v2_setup.flags = 0;
-        switch (compression) {
-            case CompressionType::None:
-                break;
-
-            case CompressionType::Brotli:
-                msg.recv_v2_setup.flags |= kSyncFlagBrotli;
-                break;
-
-            case CompressionType::LZ4:
-                msg.recv_v2_setup.flags |= kSyncFlagLZ4;
-                break;
-
-            case CompressionType::Zstd:
-                msg.recv_v2_setup.flags |= kSyncFlagZstd;
-                break;
-
-            case CompressionType::Any:
-                LOG(FATAL) << "unexpected CompressionType::Any";
-        }
-
-        buf.resize(sizeof(SyncRequest) + path.length() + sizeof(msg.recv_v2_setup));
-
-        void* p = buf.data();
-
-        p = mempcpy(p, &req, sizeof(SyncRequest));
-        p = mempcpy(p, path.data(), path.length());
-        p = mempcpy(p, &msg.recv_v2_setup, sizeof(msg.recv_v2_setup));
-
-        return WriteFdExactly(fd, buf.data(), buf.size());
-    }
-
-    bool SendStat(const std::string& path) {
-        if (!have_stat_v2_) {
-            errno = ENOTSUP;
-            return false;
-        }
-        return SendRequest(ID_STAT_V2, path);
-    }
-
-    bool SendLstat(const std::string& path) {
-        if (have_stat_v2_) {
-            return SendRequest(ID_LSTAT_V2, path);
-        } else {
-            return SendRequest(ID_LSTAT_V1, path);
-        }
-    }
-
-    bool FinishStat(struct stat* st) {
-        syncmsg msg;
-
-        memset(st, 0, sizeof(*st));
-        if (have_stat_v2_) {
-            if (!ReadFdExactly(fd.get(), &msg.stat_v2, sizeof(msg.stat_v2))) {
-                PLOG(FATAL) << "protocol fault: failed to read stat response";
-            }
-
-            if (msg.stat_v2.id != ID_LSTAT_V2 && msg.stat_v2.id != ID_STAT_V2) {
-                PLOG(FATAL) << "protocol fault: stat response has wrong message id: "
-                            << msg.stat_v2.id;
-            }
-
-            if (msg.stat_v2.error != 0) {
-                errno = errno_from_wire(msg.stat_v2.error);
-                return false;
-            }
-
-            st->st_dev = msg.stat_v2.dev;
-            st->st_ino = msg.stat_v2.ino;
-            st->st_mode = msg.stat_v2.mode;
-            st->st_nlink = msg.stat_v2.nlink;
-            st->st_uid = msg.stat_v2.uid;
-            st->st_gid = msg.stat_v2.gid;
-            st->st_size = msg.stat_v2.size;
-            st->st_atime = msg.stat_v2.atime;
-            st->st_mtime = msg.stat_v2.mtime;
-            st->st_ctime = msg.stat_v2.ctime;
-            return true;
-        } else {
-            if (!ReadFdExactly(fd.get(), &msg.stat_v1, sizeof(msg.stat_v1))) {
-                PLOG(FATAL) << "protocol fault: failed to read stat response";
-            }
-
-            if (msg.stat_v1.id != ID_LSTAT_V1) {
-                LOG(FATAL) << "protocol fault: stat response has wrong message id: "
-                           << msg.stat_v1.id;
-            }
-
-            if (msg.stat_v1.mode == 0 && msg.stat_v1.size == 0 && msg.stat_v1.mtime == 0) {
-                // There's no way for us to know what the error was.
-                errno = ENOPROTOOPT;
-                return false;
-            }
-
-            st->st_mode = msg.stat_v1.mode;
-            st->st_size = msg.stat_v1.size;
-            st->st_ctime = msg.stat_v1.mtime;
-            st->st_mtime = msg.stat_v1.mtime;
-        }
-
-        return true;
-    }
-
-    bool SendLs(const std::string& path) {
-        return SendRequest(have_ls_v2_ ? ID_LIST_V2 : ID_LIST_V1, path);
-    }
-
-  private:
-    template <bool v2>
-    static bool FinishLsImpl(borrowed_fd fd, const std::function<sync_ls_cb>& callback) {
-        using dent_type =
-                std::conditional_t<v2, decltype(syncmsg::dent_v2), decltype(syncmsg::dent_v1)>;
-
-        while (true) {
-            dent_type dent;
-            if (!ReadFdExactly(fd, &dent, sizeof(dent))) return false;
-
-            uint32_t expected_id = v2 ? ID_DENT_V2 : ID_DENT_V1;
-            if (dent.id == ID_DONE) return true;
-            if (dent.id != expected_id) return false;
-
-            // Maximum length of a file name excluding null terminator (NAME_MAX) on Linux is 255.
-            char buf[256];
-            size_t len = dent.namelen;
-            if (len > 255) return false;
-
-            if (!ReadFdExactly(fd, buf, len)) return false;
-            buf[len] = 0;
-            // Address the unlikely scenario wherein a
-            // compromised device/service might be able to
-            // traverse across directories on the host. Let's
-            // shut that door!
-            if (strchr(buf, '/')
-#if defined(_WIN32)
-                || strchr(buf, '\\')
-#endif
-            ) {
-                return false;
-            }
-            callback(dent.mode, dent.size, dent.mtime, buf);
-        }
-    }
-
-  public:
-    bool FinishLs(const std::function<sync_ls_cb>& callback) {
-        if (have_ls_v2_) {
-            return FinishLsImpl<true>(this->fd, callback);
-        } else {
-            return FinishLsImpl<false>(this->fd, callback);
-        }
-    }
-
-    // Sending header, payload, and footer in a single write makes a huge
-    // difference to "adb sync" performance.
+    void RecordFileSent(std::string from, std::string to);
+    bool SendRequest(int id, const std::string& path);
+    bool SendSend2(std::string_view path, mode_t mode, CompressionType compression, bool dry_run);
+    bool SendRecv2(const std::string& path, CompressionType compression);
+    bool SendStat(const std::string& path);
+    bool SendLstat(const std::string& path);
+    bool FinishStat(struct stat* st);
+    bool SendLs(const std::string& path);
+    bool FinishLs(const std::function<sync_ls_cb>& callback);
     bool SendSmallFile(const std::string& path, mode_t mode, const std::string& lpath,
                        const std::string& rpath, unsigned mtime, const char* data,
-                       size_t data_length, bool dry_run) {
-        if (dry_run) {
-            // We need to use send v2 for dry run.
-            return SendLargeFile(path, mode, lpath, rpath, mtime, CompressionType::None, dry_run);
-        }
-
-        std::string path_and_mode = android::base::StringPrintf("%s,%d", path.c_str(), mode);
-        if (path_and_mode.length() > 1024) {
-            pc_->Error("SendSmallFile failed: path too long: %zu", path_and_mode.length());
-            errno = ENAMETOOLONG;
-            return false;
-        }
-
-        std::vector<char> buf(sizeof(SyncRequest) + path_and_mode.length() + sizeof(SyncRequest) +
-                              data_length + sizeof(SyncRequest));
-        char* p = &buf[0];
-
-        SyncRequest* req_send = reinterpret_cast<SyncRequest*>(p);
-        req_send->id = ID_SEND_V1;
-        req_send->path_length = path_and_mode.length();
-        p += sizeof(SyncRequest);
-        memcpy(p, path_and_mode.data(), path_and_mode.size());
-        p += path_and_mode.length();
-
-        SyncRequest* req_data = reinterpret_cast<SyncRequest*>(p);
-        req_data->id = ID_DATA;
-        req_data->path_length = data_length;
-        p += sizeof(SyncRequest);
-        memcpy(p, data, data_length);
-        p += data_length;
-
-        SyncRequest* req_done = reinterpret_cast<SyncRequest*>(p);
-        req_done->id = ID_DONE;
-        req_done->path_length = mtime;
-        p += sizeof(SyncRequest);
-
-        WriteOrDie(lpath, rpath, &buf[0], (p - &buf[0]));
-
-        RecordFileSent(lpath, rpath);
-        pc_->RecordBytesTransferred(data_length);
-        pc_->ReportProgress(rpath, data_length, data_length);
-        return true;
-    }
-
+                       size_t data_length, bool dry_run);
     bool SendLargeFile(const std::string& path, mode_t mode, const std::string& lpath,
                        const std::string& rpath, unsigned mtime, CompressionType compression,
-                       bool dry_run) {
-        if (dry_run && !HaveSendRecv2DryRunSend()) {
-            pc_->Error("dry-run not supported by the device");
-            return false;
-        }
-
-        if (!HaveSendRecv2()) {
-            return SendLargeFileLegacy(path, mode, lpath, rpath, mtime);
-        }
-
-        compression = ResolveCompressionType(compression);
-
-        if (!SendSend2(path, mode, compression, dry_run)) {
-            pc_->Error("failed to send ID_SEND_V2 message '%s': %s", path.c_str(), strerror(errno));
-            return false;
-        }
-
-        struct stat st;
-        if (stat(lpath.c_str(), &st) == -1) {
-            pc_->Error("cannot stat '%s': %s", lpath.c_str(), strerror(errno));
-            return false;
-        }
-
-        uint64_t total_size = st.st_size;
-        uint64_t bytes_copied = 0;
-
-        unique_fd lfd(adb_open(lpath.c_str(), O_RDONLY | O_CLOEXEC));
-        if (lfd < 0) {
-            pc_->Error("opening '%s' locally failed: %s", lpath.c_str(), strerror(errno));
-            return false;
-        }
-
-        syncsendbuf sbuf;
-        sbuf.id = ID_DATA;
-
-        std::variant<std::monostate, NullEncoder, BrotliEncoder, LZ4Encoder, ZstdEncoder>
-                encoder_storage;
-        Encoder* encoder = nullptr;
-        switch (compression) {
-            case CompressionType::None:
-                encoder = &encoder_storage.emplace<NullEncoder>(SYNC_DATA_MAX);
-                break;
-
-            case CompressionType::Brotli:
-                encoder = &encoder_storage.emplace<BrotliEncoder>(SYNC_DATA_MAX);
-                break;
-
-            case CompressionType::LZ4:
-                encoder = &encoder_storage.emplace<LZ4Encoder>(SYNC_DATA_MAX);
-                break;
-
-            case CompressionType::Zstd:
-                encoder = &encoder_storage.emplace<ZstdEncoder>(SYNC_DATA_MAX);
-                break;
-
-            case CompressionType::Any:
-                LOG(FATAL) << "unexpected CompressionType::Any";
-        }
-
-        bool sending = true;
-        while (sending) {
-            Block input(SYNC_DATA_MAX);
-            int r = adb_read(lfd.get(), input.data(), input.size());
-            if (r < 0) {
-                pc_->Error("reading '%s' locally failed: %s", lpath.c_str(), strerror(errno));
-                return false;
-            }
-
-            if (r == 0) {
-                encoder->Finish();
-            } else {
-                input.resize(r);
-                encoder->Append(std::move(input));
-                pc_->RecordBytesTransferred(r);
-                bytes_copied += r;
-                pc_->ReportProgress(rpath, bytes_copied, total_size);
-            }
-
-            while (true) {
-                Block output;
-                EncodeResult result = encoder->Encode(&output);
-                if (result == EncodeResult::Error) {
-                    pc_->Error("compressing '%s' locally failed", lpath.c_str());
-                    return false;
-                }
-
-                if (!output.empty()) {
-                    sbuf.size = output.size();
-                    memcpy(sbuf.data, output.data(), output.size());
-                    WriteOrDie(lpath, rpath, &sbuf, sizeof(SyncRequest) + output.size());
-                }
-
-                if (result == EncodeResult::Done) {
-                    sending = false;
-                    break;
-                } else if (result == EncodeResult::NeedInput) {
-                    break;
-                } else if (result == EncodeResult::MoreOutput) {
-                    continue;
-                }
-            }
-        }
-
-        syncmsg msg;
-        msg.data.id = ID_DONE;
-        msg.data.size = mtime;
-        RecordFileSent(lpath, rpath);
-        return WriteOrDie(lpath, rpath, &msg.data, sizeof(msg.data));
-    }
-
+                       bool dry_run);
     bool SendLargeFileLegacy(const std::string& path, mode_t mode, const std::string& lpath,
-                             const std::string& rpath, unsigned mtime) {
-        std::string path_and_mode = android::base::StringPrintf("%s,%d", path.c_str(), mode);
-        if (!SendRequest(ID_SEND_V1, path_and_mode)) {
-            pc_->Error("failed to send ID_SEND_V1 message '%s': %s", path_and_mode.c_str(),
-                  strerror(errno));
-            return false;
-        }
-
-        struct stat st;
-        if (stat(lpath.c_str(), &st) == -1) {
-            pc_->Error("cannot stat '%s': %s", lpath.c_str(), strerror(errno));
-            return false;
-        }
-
-        uint64_t total_size = st.st_size;
-        uint64_t bytes_copied = 0;
-
-        unique_fd lfd(adb_open(lpath.c_str(), O_RDONLY | O_CLOEXEC));
-        if (lfd < 0) {
-            pc_->Error("opening '%s' locally failed: %s", lpath.c_str(), strerror(errno));
-            return false;
-        }
-
-        syncsendbuf sbuf;
-        sbuf.id = ID_DATA;
-
-        while (true) {
-            int bytes_read = adb_read(lfd, sbuf.data, max);
-            if (bytes_read == -1) {
-                pc_->Error("reading '%s' locally failed: %s", lpath.c_str(), strerror(errno));
-                return false;
-            } else if (bytes_read == 0) {
-                break;
-            }
-
-            sbuf.size = bytes_read;
-            WriteOrDie(lpath, rpath, &sbuf, sizeof(SyncRequest) + bytes_read);
-
-            pc_->RecordBytesTransferred(bytes_read);
-            bytes_copied += bytes_read;
-            pc_->ReportProgress(rpath, bytes_copied, total_size);
-        }
-
-        syncmsg msg;
-        msg.data.id = ID_DONE;
-        msg.data.size = mtime;
-        RecordFileSent(lpath, rpath);
-        return WriteOrDie(lpath, rpath, &msg.data, sizeof(msg.data));
-    }
-
-    bool ReportCopyFailure(const std::string& from, const std::string& to, const syncmsg& msg) {
-        std::vector<char> buf(msg.status.msglen + 1);
-        if (!ReadFdExactly(fd, &buf[0], msg.status.msglen)) {
-            pc_->Error("failed to copy '%s' to '%s'; failed to read reason (!): %s", from.c_str(),
-                  to.c_str(), strerror(errno));
-            return false;
-        }
-        buf[msg.status.msglen] = 0;
-        pc_->Error("failed to copy '%s' to '%s': remote %s", from.c_str(), to.c_str(), &buf[0]);
-        return false;
-    }
-
+                             const std::string& rpath, unsigned mtime);
+    bool ReportCopyFailure(const std::string& from, const std::string& to, const syncmsg& msg);
     void CopyDone() { deferred_acknowledgements_.pop_front(); }
-
-    void ReportDeferredCopyFailure(const std::string& msg) {
-        auto& [from, to] = deferred_acknowledgements_.front();
-        pc_->Error("failed to copy '%s' to '%s': remote %s", from.c_str(), to.c_str(), msg.c_str());
-        deferred_acknowledgements_.pop_front();
-    }
-
-    bool ReadAcknowledgements(bool read_all = false) {
-        // We need to read enough such that adbd's intermediate socket's write buffer can't be
-        // full. The default buffer on Linux is 212992 bytes, but there's 576 bytes of bookkeeping
-        // overhead per write. The worst case scenario is a continuous string of failures, since
-        // each logical packet is divided into two writes. If our packet size if conservatively 512
-        // bytes long, this leaves us with space for 128 responses.
-        constexpr size_t max_deferred_acks = 128;
-        auto& buf = acknowledgement_buffer_;
-        adb_pollfd pfd = {.fd = fd.get(), .events = POLLIN};
-        while (!deferred_acknowledgements_.empty()) {
-            bool should_block = read_all || deferred_acknowledgements_.size() >= max_deferred_acks;
-
-            enum class ReadStatus {
-                Success,
-                Failure,
-                TryLater,
-            };
-
-            // Read until the acknowledgement buffer has at least `amount` bytes in it (or there is
-            // an I/O error, or the socket has no data ready to read).
-            auto read_until_amount = [&](size_t amount) -> ReadStatus {
-                while (buf.size() < amount) {
-                    // The fd is blocking, so if we want to avoid blocking in this function, we must
-                    // poll first to verify that some data is available before trying to read it.
-                    if (!should_block) {
-                        ssize_t rc = adb_poll(&pfd, 1, 0);
-                        if (rc == 0) {
-                            return ReadStatus::TryLater;
-                        }
-                    }
-                    const ssize_t bytes_left = amount - buf.size();
-                    ssize_t rc = adb_read(fd, buf.end(), bytes_left);
-                    if (rc <= 0) {
-                        pc_->Error("failed to read copy response");
-                        return ReadStatus::Failure;
-                    }
-                    buf.resize(buf.size() + rc);
-                    if (!should_block && buf.size() < amount) {
-                        return ReadStatus::TryLater;
-                    }
-                }
-                return ReadStatus::Success;
-            };
-
-            switch (read_until_amount(sizeof(sync_status))) {
-                case ReadStatus::TryLater:
-                    return true;
-                case ReadStatus::Failure:
-                    return false;
-                case ReadStatus::Success:
-                    break;
-            }
-
-            auto* hdr = reinterpret_cast<sync_status*>(buf.data());
-            if (hdr->id == ID_OKAY) {
-                buf.resize(0);
-                if (hdr->msglen != 0) {
-                    pc_->Error("received ID_OKAY with msg_len (%" PRIu32 " != 0", hdr->msglen);
-                    return false;
-                }
-                CopyDone();
-                continue;
-            } else if (hdr->id != ID_FAIL) {
-                pc_->Error("unexpected response from daemon: id = %#" PRIx32, hdr->id);
-                return false;
-            } else if (hdr->msglen > SYNC_DATA_MAX) {
-                pc_->Error("too-long message length from daemon: msglen = %" PRIu32, hdr->msglen);
-                return false;
-            }
-
-            switch (read_until_amount(sizeof(sync_status) + hdr->msglen)) {
-                case ReadStatus::TryLater:
-                    return true;
-                case ReadStatus::Failure:
-                    return false;
-                case ReadStatus::Success:
-                    break;
-            }
-
-            std::string msg(buf.begin() + sizeof(sync_status), buf.end());
-            ReportDeferredCopyFailure(msg);
-            buf.resize(0);
-            return false;
-        }
-
-        return true;
-    }
+    void ReportDeferredCopyFailure(const std::string& msg);
+    bool ReadAcknowledgements(bool read_all = false);
 
     bool Recv(const char* rpath, const char* lpath, const char* name,
               uint64_t expected_size, CompressionType compression);
@@ -1026,38 +438,653 @@ class SyncConnection {
     bool have_sendrecv_v2_zstd_;
     bool have_sendrecv_v2_dry_run_send_;
 
-    bool SendQuit() {
-        return SendRequest(ID_QUIT, ""); // TODO: add a SendResponse?
-    }
-
+    bool SendQuit();
     bool WriteOrDie(const std::string& from, const std::string& to, const void* data,
-                    size_t data_length) {
-        if (!WriteFdExactly(fd, data, data_length)) {
-            if (errno == ECONNRESET) {
-                // Assume adbd told us why it was closing the connection, and
-                // try to read failure reason from adbd.
-                syncmsg msg;
-                if (!ReadFdExactly(fd, &msg.status, sizeof(msg.status))) {
-                    pc_->Error("failed to copy '%s' to '%s': no response: %s", from.c_str(), to.c_str(),
-                          strerror(errno));
-                } else if (msg.status.id != ID_FAIL) {
-                    pc_->Error("failed to copy '%s' to '%s': not ID_FAIL: %d", from.c_str(), to.c_str(),
-                          msg.status.id);
-                } else {
-                    ReportCopyFailure(from, to, msg);
-                }
-            } else {
-                pc_->Error("%zu-byte write failed: %s", data_length, strerror(errno));
-            }
-            _exit(1);
-        }
-        return true;
-    }
+                    size_t data_length);
 
     bool RecvV1(const char* rpath, const char* lpath, const char* name, uint64_t expected_size);
     bool RecvV2(const char* rpath, const char* lpath, const char* name, uint64_t expected_size,
                 CompressionType compression);
 };
+
+SyncConnection::SyncConnection(std::unique_ptr<ProgressCallbacks> pc)
+    : pc_(std::move(pc)), acknowledgement_buffer_(sizeof(sync_status) + SYNC_DATA_MAX) {
+    acknowledgement_buffer_.resize(0);
+    max = SYNC_DATA_MAX; // TODO: decide at runtime.
+
+    std::string error;
+    auto&& features = adb_get_feature_set(&error);
+    if (!features) {
+        pc_->Error("failed to get feature set: %s", error.c_str());
+    } else {
+        features_ = &*features;
+        have_stat_v2_ = CanUseFeature(*features, kFeatureStat2);
+        have_ls_v2_ = CanUseFeature(*features, kFeatureLs2);
+        have_sendrecv_v2_ = CanUseFeature(*features, kFeatureSendRecv2);
+        have_sendrecv_v2_brotli_ = CanUseFeature(*features, kFeatureSendRecv2Brotli);
+        have_sendrecv_v2_lz4_ = CanUseFeature(*features, kFeatureSendRecv2LZ4);
+        have_sendrecv_v2_zstd_ = CanUseFeature(*features, kFeatureSendRecv2Zstd);
+        have_sendrecv_v2_dry_run_send_ = CanUseFeature(*features, kFeatureSendRecv2DryRunSend);
+        std::string error;
+        fd.reset(adb_connect("sync:", &error));
+        if (fd < 0) {
+            pc_->Error("connect failed: %s", error.c_str());
+        }
+    }
+}
+
+SyncConnection::~SyncConnection() {
+    if (!IsValid()) return;
+
+    if (SendQuit()) {
+        // We sent a quit command, so the server should be doing orderly
+        // shutdown soon. But if we encountered an error while we were using
+        // the connection, the server might still be sending data (before
+        // doing orderly shutdown), in which case we won't wait for all of
+        // the data nor the coming orderly shutdown. In the common success
+        // case, this will wait for the server to do orderly shutdown.
+        ReadOrderlyShutdown(fd);
+    }
+}
+
+CompressionType SyncConnection::ResolveCompressionType(CompressionType compression) const {
+    if (compression == CompressionType::Any) {
+        if (HaveSendRecv2Zstd()) {
+            return CompressionType::Zstd;
+        } else if (HaveSendRecv2LZ4()) {
+            return CompressionType::LZ4;
+        } else if (HaveSendRecv2Brotli()) {
+            return CompressionType::Brotli;
+        }
+        return CompressionType::None;
+    }
+    return compression;
+}
+
+void SyncConnection::RecordFileSent(std::string from, std::string to) {
+    pc_->RecordFilesTransferred(1);
+    deferred_acknowledgements_.emplace_back(std::move(from), std::move(to));
+}
+
+bool SyncConnection::SendRequest(int id, const std::string& path) {
+    if (path.length() > 1024) {
+        pc_->Error("SendRequest failed: path too long: %zu", path.length());
+        errno = ENAMETOOLONG;
+        return false;
+    }
+
+    // Sending header and payload in a single write makes a noticeable
+    // difference to "adb sync" performance.
+    std::vector<char> buf(sizeof(SyncRequest) + path.length());
+    SyncRequest* req = reinterpret_cast<SyncRequest*>(&buf[0]);
+    req->id = id;
+    req->path_length = path.length();
+    char* data = reinterpret_cast<char*>(req + 1);
+    memcpy(data, path.data(), path.length());
+    return WriteFdExactly(fd, buf.data(), buf.size());
+}
+
+bool SyncConnection::SendSend2(std::string_view path, mode_t mode, CompressionType compression, bool dry_run) {
+    if (path.length() > 1024) {
+        pc_->Error("SendRequest failed: path too long: %zu", path.length());
+        errno = ENAMETOOLONG;
+        return false;
+    }
+
+    Block buf;
+
+    SyncRequest req;
+    req.id = ID_SEND_V2;
+    req.path_length = path.length();
+
+    syncmsg msg;
+    msg.send_v2_setup.id = ID_SEND_V2;
+    msg.send_v2_setup.mode = mode;
+    msg.send_v2_setup.flags = 0;
+    switch (compression) {
+        case CompressionType::None:
+            break;
+
+        case CompressionType::Brotli:
+            msg.send_v2_setup.flags = kSyncFlagBrotli;
+            break;
+
+        case CompressionType::LZ4:
+            msg.send_v2_setup.flags = kSyncFlagLZ4;
+            break;
+
+        case CompressionType::Zstd:
+            msg.send_v2_setup.flags = kSyncFlagZstd;
+            break;
+
+        case CompressionType::Any:
+            LOG(FATAL) << "unexpected CompressionType::Any";
+    }
+
+    if (dry_run) {
+        msg.send_v2_setup.flags |= kSyncFlagDryRun;
+    }
+
+    buf.resize(sizeof(SyncRequest) + path.length() + sizeof(msg.send_v2_setup));
+
+    void* p = buf.data();
+
+    p = mempcpy(p, &req, sizeof(SyncRequest));
+    p = mempcpy(p, path.data(), path.length());
+    p = mempcpy(p, &msg.send_v2_setup, sizeof(msg.send_v2_setup));
+
+    return WriteFdExactly(fd, buf.data(), buf.size());
+}
+
+bool SyncConnection::SendRecv2(const std::string& path, CompressionType compression) {
+    if (path.length() > 1024) {
+        pc_->Error("SendRequest failed: path too long: %zu", path.length());
+        errno = ENAMETOOLONG;
+        return false;
+    }
+
+    Block buf;
+
+    SyncRequest req;
+    req.id = ID_RECV_V2;
+    req.path_length = path.length();
+
+    syncmsg msg;
+    msg.recv_v2_setup.id = ID_RECV_V2;
+    msg.recv_v2_setup.flags = 0;
+    switch (compression) {
+        case CompressionType::None:
+            break;
+
+        case CompressionType::Brotli:
+            msg.recv_v2_setup.flags |= kSyncFlagBrotli;
+            break;
+
+        case CompressionType::LZ4:
+            msg.recv_v2_setup.flags |= kSyncFlagLZ4;
+            break;
+
+        case CompressionType::Zstd:
+            msg.recv_v2_setup.flags |= kSyncFlagZstd;
+            break;
+
+        case CompressionType::Any:
+            LOG(FATAL) << "unexpected CompressionType::Any";
+    }
+
+    buf.resize(sizeof(SyncRequest) + path.length() + sizeof(msg.recv_v2_setup));
+
+    void* p = buf.data();
+
+    p = mempcpy(p, &req, sizeof(SyncRequest));
+    p = mempcpy(p, path.data(), path.length());
+    p = mempcpy(p, &msg.recv_v2_setup, sizeof(msg.recv_v2_setup));
+
+    return WriteFdExactly(fd, buf.data(), buf.size());
+}
+
+bool SyncConnection::SendStat(const std::string& path) {
+    if (!have_stat_v2_) {
+        errno = ENOTSUP;
+        return false;
+    }
+    return SendRequest(ID_STAT_V2, path);
+}
+
+bool SyncConnection::SendLstat(const std::string& path) {
+    if (have_stat_v2_) {
+        return SendRequest(ID_LSTAT_V2, path);
+    } else {
+        return SendRequest(ID_LSTAT_V1, path);
+    }
+}
+
+bool SyncConnection::FinishStat(struct stat* st) {
+    syncmsg msg;
+
+    memset(st, 0, sizeof(*st));
+    if (have_stat_v2_) {
+        if (!ReadFdExactly(fd.get(), &msg.stat_v2, sizeof(msg.stat_v2))) {
+            PLOG(FATAL) << "protocol fault: failed to read stat response";
+        }
+
+        if (msg.stat_v2.id != ID_LSTAT_V2 && msg.stat_v2.id != ID_STAT_V2) {
+            PLOG(FATAL) << "protocol fault: stat response has wrong message id: "
+                        << msg.stat_v2.id;
+        }
+
+        if (msg.stat_v2.error != 0) {
+            errno = errno_from_wire(msg.stat_v2.error);
+            return false;
+        }
+
+        st->st_dev = msg.stat_v2.dev;
+        st->st_ino = msg.stat_v2.ino;
+        st->st_mode = msg.stat_v2.mode;
+        st->st_nlink = msg.stat_v2.nlink;
+        st->st_uid = msg.stat_v2.uid;
+        st->st_gid = msg.stat_v2.gid;
+        st->st_size = msg.stat_v2.size;
+        st->st_atime = msg.stat_v2.atime;
+        st->st_mtime = msg.stat_v2.mtime;
+        st->st_ctime = msg.stat_v2.ctime;
+        return true;
+    } else {
+        if (!ReadFdExactly(fd.get(), &msg.stat_v1, sizeof(msg.stat_v1))) {
+            PLOG(FATAL) << "protocol fault: failed to read stat response";
+        }
+
+        if (msg.stat_v1.id != ID_LSTAT_V1) {
+            LOG(FATAL) << "protocol fault: stat response has wrong message id: "
+                       << msg.stat_v1.id;
+        }
+
+        if (msg.stat_v1.mode == 0 && msg.stat_v1.size == 0 && msg.stat_v1.mtime == 0) {
+            // There's no way for us to know what the error was.
+            errno = ENOPROTOOPT;
+            return false;
+        }
+
+        st->st_mode = msg.stat_v1.mode;
+        st->st_size = msg.stat_v1.size;
+        st->st_ctime = msg.stat_v1.mtime;
+        st->st_mtime = msg.stat_v1.mtime;
+    }
+
+    return true;
+}
+
+bool SyncConnection::SendLs(const std::string& path) {
+    return SendRequest(have_ls_v2_ ? ID_LIST_V2 : ID_LIST_V1, path);
+}
+
+template <bool v2>
+static bool FinishLsImpl(borrowed_fd fd, const std::function<sync_ls_cb>& callback) {
+    using dent_type =
+            std::conditional_t<v2, decltype(syncmsg::dent_v2), decltype(syncmsg::dent_v1)>;
+
+    while (true) {
+        dent_type dent;
+        if (!ReadFdExactly(fd, &dent, sizeof(dent))) return false;
+
+        uint32_t expected_id = v2 ? ID_DENT_V2 : ID_DENT_V1;
+        if (dent.id == ID_DONE) return true;
+        if (dent.id != expected_id) return false;
+
+        // Maximum length of a file name excluding null terminator (NAME_MAX) on Linux is 255.
+        char buf[256];
+        size_t len = dent.namelen;
+        if (len > 255) return false;
+
+        if (!ReadFdExactly(fd, buf, len)) return false;
+        buf[len] = 0;
+        // Address the unlikely scenario wherein a
+        // compromised device/service might be able to
+        // traverse across directories on the host. Let's
+        // shut that door!
+        if (strchr(buf, '/')
+#if defined(_WIN32)
+            || strchr(buf, '\\')
+#endif
+        ) {
+            return false;
+        }
+        callback(dent.mode, dent.size, dent.mtime, buf);
+    }
+}
+
+bool SyncConnection::FinishLs(const std::function<sync_ls_cb>& callback) {
+    if (have_ls_v2_) {
+        return FinishLsImpl<true>(this->fd, callback);
+    } else {
+        return FinishLsImpl<false>(this->fd, callback);
+    }
+}
+
+// Sending header, payload, and footer in a single write makes a huge
+// difference to "adb sync" performance.
+bool SyncConnection::SendSmallFile(const std::string& path, mode_t mode, const std::string& lpath,
+                   const std::string& rpath, unsigned mtime, const char* data,
+                   size_t data_length, bool dry_run) {
+    if (dry_run) {
+        // We need to use send v2 for dry run.
+        return SendLargeFile(path, mode, lpath, rpath, mtime, CompressionType::None, dry_run);
+    }
+
+    std::string path_and_mode = android::base::StringPrintf("%s,%d", path.c_str(), mode);
+    if (path_and_mode.length() > 1024) {
+        pc_->Error("SendSmallFile failed: path too long: %zu", path_and_mode.length());
+        errno = ENAMETOOLONG;
+        return false;
+    }
+
+    std::vector<char> buf(sizeof(SyncRequest) + path_and_mode.length() + sizeof(SyncRequest) +
+                          data_length + sizeof(SyncRequest));
+    char* p = &buf[0];
+
+    SyncRequest* req_send = reinterpret_cast<SyncRequest*>(p);
+    req_send->id = ID_SEND_V1;
+    req_send->path_length = path_and_mode.length();
+    p += sizeof(SyncRequest);
+    memcpy(p, path_and_mode.data(), path_and_mode.size());
+    p += path_and_mode.length();
+
+    SyncRequest* req_data = reinterpret_cast<SyncRequest*>(p);
+    req_data->id = ID_DATA;
+    req_data->path_length = data_length;
+    p += sizeof(SyncRequest);
+    memcpy(p, data, data_length);
+    p += data_length;
+
+    SyncRequest* req_done = reinterpret_cast<SyncRequest*>(p);
+    req_done->id = ID_DONE;
+    req_done->path_length = mtime;
+    p += sizeof(SyncRequest);
+
+    WriteOrDie(lpath, rpath, &buf[0], (p - &buf[0]));
+
+    RecordFileSent(lpath, rpath);
+    pc_->RecordBytesTransferred(data_length);
+    pc_->ReportProgress(rpath, data_length, data_length);
+    return true;
+}
+
+bool SyncConnection::SendLargeFile(const std::string& path, mode_t mode, const std::string& lpath,
+                   const std::string& rpath, unsigned mtime, CompressionType compression,
+                   bool dry_run) {
+    if (dry_run && !HaveSendRecv2DryRunSend()) {
+        pc_->Error("dry-run not supported by the device");
+        return false;
+    }
+
+    if (!HaveSendRecv2()) {
+        return SendLargeFileLegacy(path, mode, lpath, rpath, mtime);
+    }
+
+    compression = ResolveCompressionType(compression);
+
+    if (!SendSend2(path, mode, compression, dry_run)) {
+        pc_->Error("failed to send ID_SEND_V2 message '%s': %s", path.c_str(), strerror(errno));
+        return false;
+    }
+
+    struct stat st;
+    if (stat(lpath.c_str(), &st) == -1) {
+        pc_->Error("cannot stat '%s': %s", lpath.c_str(), strerror(errno));
+        return false;
+    }
+
+    uint64_t total_size = st.st_size;
+    uint64_t bytes_copied = 0;
+
+    unique_fd lfd(adb_open(lpath.c_str(), O_RDONLY | O_CLOEXEC));
+    if (lfd < 0) {
+        pc_->Error("opening '%s' locally failed: %s", lpath.c_str(), strerror(errno));
+        return false;
+    }
+
+    syncsendbuf sbuf;
+    sbuf.id = ID_DATA;
+
+    std::variant<std::monostate, NullEncoder, BrotliEncoder, LZ4Encoder, ZstdEncoder>
+            encoder_storage;
+    Encoder* encoder = nullptr;
+    switch (compression) {
+        case CompressionType::None:
+            encoder = &encoder_storage.emplace<NullEncoder>(SYNC_DATA_MAX);
+            break;
+
+        case CompressionType::Brotli:
+            encoder = &encoder_storage.emplace<BrotliEncoder>(SYNC_DATA_MAX);
+            break;
+
+        case CompressionType::LZ4:
+            encoder = &encoder_storage.emplace<LZ4Encoder>(SYNC_DATA_MAX);
+            break;
+
+        case CompressionType::Zstd:
+            encoder = &encoder_storage.emplace<ZstdEncoder>(SYNC_DATA_MAX);
+            break;
+
+        case CompressionType::Any:
+            LOG(FATAL) << "unexpected CompressionType::Any";
+    }
+
+    bool sending = true;
+    while (sending) {
+        Block input(SYNC_DATA_MAX);
+        int r = adb_read(lfd.get(), input.data(), input.size());
+        if (r < 0) {
+            pc_->Error("reading '%s' locally failed: %s", lpath.c_str(), strerror(errno));
+            return false;
+        }
+
+        if (r == 0) {
+            encoder->Finish();
+        } else {
+            input.resize(r);
+            encoder->Append(std::move(input));
+            pc_->RecordBytesTransferred(r);
+            bytes_copied += r;
+            pc_->ReportProgress(rpath, bytes_copied, total_size);
+        }
+
+        while (true) {
+            Block output;
+            EncodeResult result = encoder->Encode(&output);
+            if (result == EncodeResult::Error) {
+                pc_->Error("compressing '%s' locally failed", lpath.c_str());
+                return false;
+            }
+
+            if (!output.empty()) {
+                sbuf.size = output.size();
+                memcpy(sbuf.data, output.data(), output.size());
+                WriteOrDie(lpath, rpath, &sbuf, sizeof(SyncRequest) + output.size());
+            }
+
+            if (result == EncodeResult::Done) {
+                sending = false;
+                break;
+            } else if (result == EncodeResult::NeedInput) {
+                break;
+            } else if (result == EncodeResult::MoreOutput) {
+                continue;
+            }
+        }
+    }
+
+    syncmsg msg;
+    msg.data.id = ID_DONE;
+    msg.data.size = mtime;
+    RecordFileSent(lpath, rpath);
+    return WriteOrDie(lpath, rpath, &msg.data, sizeof(msg.data));
+}
+
+bool SyncConnection::SendLargeFileLegacy(const std::string& path, mode_t mode, const std::string& lpath,
+                         const std::string& rpath, unsigned mtime) {
+    std::string path_and_mode = android::base::StringPrintf("%s,%d", path.c_str(), mode);
+    if (!SendRequest(ID_SEND_V1, path_and_mode)) {
+        pc_->Error("failed to send ID_SEND_V1 message '%s': %s", path_and_mode.c_str(),
+              strerror(errno));
+        return false;
+    }
+
+    struct stat st;
+    if (stat(lpath.c_str(), &st) == -1) {
+        pc_->Error("cannot stat '%s': %s", lpath.c_str(), strerror(errno));
+        return false;
+    }
+
+    uint64_t total_size = st.st_size;
+    uint64_t bytes_copied = 0;
+
+    unique_fd lfd(adb_open(lpath.c_str(), O_RDONLY | O_CLOEXEC));
+    if (lfd < 0) {
+        pc_->Error("opening '%s' locally failed: %s", lpath.c_str(), strerror(errno));
+        return false;
+    }
+
+    syncsendbuf sbuf;
+    sbuf.id = ID_DATA;
+
+    while (true) {
+        int bytes_read = adb_read(lfd, sbuf.data, max);
+        if (bytes_read == -1) {
+            pc_->Error("reading '%s' locally failed: %s", lpath.c_str(), strerror(errno));
+            return false;
+        } else if (bytes_read == 0) {
+            break;
+        }
+
+        sbuf.size = bytes_read;
+        WriteOrDie(lpath, rpath, &sbuf, sizeof(SyncRequest) + bytes_read);
+
+        pc_->RecordBytesTransferred(bytes_read);
+        bytes_copied += bytes_read;
+        pc_->ReportProgress(rpath, bytes_copied, total_size);
+    }
+
+    syncmsg msg;
+    msg.data.id = ID_DONE;
+    msg.data.size = mtime;
+    RecordFileSent(lpath, rpath);
+    return WriteOrDie(lpath, rpath, &msg.data, sizeof(msg.data));
+}
+
+bool SyncConnection::ReportCopyFailure(const std::string& from, const std::string& to, const syncmsg& msg) {
+    std::vector<char> buf(msg.status.msglen + 1);
+    if (!ReadFdExactly(fd, &buf[0], msg.status.msglen)) {
+        pc_->Error("failed to copy '%s' to '%s'; failed to read reason (!): %s", from.c_str(),
+              to.c_str(), strerror(errno));
+        return false;
+    }
+    buf[msg.status.msglen] = 0;
+    pc_->Error("failed to copy '%s' to '%s': remote %s", from.c_str(), to.c_str(), &buf[0]);
+    return false;
+}
+
+void SyncConnection::ReportDeferredCopyFailure(const std::string& msg) {
+    auto& [from, to] = deferred_acknowledgements_.front();
+    pc_->Error("failed to copy '%s' to '%s': remote %s", from.c_str(), to.c_str(), msg.c_str());
+    deferred_acknowledgements_.pop_front();
+}
+
+bool SyncConnection::ReadAcknowledgements(bool read_all) {
+    // We need to read enough such that adbd's intermediate socket's write buffer can't be
+    // full. The default buffer on Linux is 212992 bytes, but there's 576 bytes of bookkeeping
+    // overhead per write. The worst case scenario is a continuous string of failures, since
+    // each logical packet is divided into two writes. If our packet size if conservatively 512
+    // bytes long, this leaves us with space for 128 responses.
+    constexpr size_t max_deferred_acks = 128;
+    auto& buf = acknowledgement_buffer_;
+    adb_pollfd pfd = {.fd = fd.get(), .events = POLLIN};
+    while (!deferred_acknowledgements_.empty()) {
+        bool should_block = read_all || deferred_acknowledgements_.size() >= max_deferred_acks;
+
+        enum class ReadStatus {
+            Success,
+            Failure,
+            TryLater,
+        };
+
+        // Read until the acknowledgement buffer has at least `amount` bytes in it (or there is
+        // an I/O error, or the socket has no data ready to read).
+        auto read_until_amount = [&](size_t amount) -> ReadStatus {
+            while (buf.size() < amount) {
+                // The fd is blocking, so if we want to avoid blocking in this function, we must
+                // poll first to verify that some data is available before trying to read it.
+                if (!should_block) {
+                    ssize_t rc = adb_poll(&pfd, 1, 0);
+                    if (rc == 0) {
+                        return ReadStatus::TryLater;
+                    }
+                }
+                const ssize_t bytes_left = amount - buf.size();
+                ssize_t rc = adb_read(fd, buf.end(), bytes_left);
+                if (rc <= 0) {
+                    pc_->Error("failed to read copy response");
+                    return ReadStatus::Failure;
+                }
+                buf.resize(buf.size() + rc);
+                if (!should_block && buf.size() < amount) {
+                    return ReadStatus::TryLater;
+                }
+            }
+            return ReadStatus::Success;
+        };
+
+        switch (read_until_amount(sizeof(sync_status))) {
+            case ReadStatus::TryLater:
+                return true;
+            case ReadStatus::Failure:
+                return false;
+            case ReadStatus::Success:
+                break;
+        }
+
+        auto* hdr = reinterpret_cast<sync_status*>(buf.data());
+        if (hdr->id == ID_OKAY) {
+            buf.resize(0);
+            if (hdr->msglen != 0) {
+                pc_->Error("received ID_OKAY with msg_len (%" PRIu32 " != 0", hdr->msglen);
+                return false;
+            }
+            CopyDone();
+            continue;
+        } else if (hdr->id != ID_FAIL) {
+            pc_->Error("unexpected response from daemon: id = %#" PRIx32, hdr->id);
+            return false;
+        } else if (hdr->msglen > SYNC_DATA_MAX) {
+            pc_->Error("too-long message length from daemon: msglen = %" PRIu32, hdr->msglen);
+            return false;
+        }
+
+        switch (read_until_amount(sizeof(sync_status) + hdr->msglen)) {
+            case ReadStatus::TryLater:
+                return true;
+            case ReadStatus::Failure:
+                return false;
+            case ReadStatus::Success:
+                break;
+        }
+
+        std::string msg(buf.begin() + sizeof(sync_status), buf.end());
+        ReportDeferredCopyFailure(msg);
+        buf.resize(0);
+        return false;
+    }
+
+    return true;
+}
+
+bool SyncConnection::SendQuit() {
+    return SendRequest(ID_QUIT, ""); // TODO: add a SendResponse?
+}
+
+bool SyncConnection::WriteOrDie(const std::string& from, const std::string& to, const void* data,
+                size_t data_length) {
+    if (!WriteFdExactly(fd, data, data_length)) {
+        if (errno == ECONNRESET) {
+            // Assume adbd told us why it was closing the connection, and
+            // try to read failure reason from adbd.
+            syncmsg msg;
+            if (!ReadFdExactly(fd, &msg.status, sizeof(msg.status))) {
+                pc_->Error("failed to copy '%s' to '%s': no response: %s", from.c_str(), to.c_str(),
+                      strerror(errno));
+            } else if (msg.status.id != ID_FAIL) {
+                pc_->Error("failed to copy '%s' to '%s': not ID_FAIL: %d", from.c_str(), to.c_str(),
+                      msg.status.id);
+            } else {
+                ReportCopyFailure(from, to, msg);
+            }
+        } else {
+            pc_->Error("%zu-byte write failed: %s", data_length, strerror(errno));
+        }
+        _exit(1);
+    }
+    return true;
+}
 
 static bool sync_ls(SyncConnection& sc, const std::string& path,
                     const std::function<sync_ls_cb>& func) {
