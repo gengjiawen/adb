@@ -169,6 +169,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7c31301f_79b5851b",
+        "filename": "Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2024-03-21T06:59:36Z",
+      "side": 1,
+      "message": "You could define a bootconfig which controls the membership of the adbd apex to the bootstrap apexes. For example, if the bootloader sets `androidboot.early_adbd \u003d true` or `androidboot.apex.early_apexes \u003d com.android.adbd,com.android.foo` (name TBD), then apexd follows the instruction.\n\nWith this you don\u0027t need to rebuild Android for the bring up task, and you don\u0027t need to fork Android.",
+      "parentUuid": "1971e4f0_a714f99d",
+      "range": {
+        "startLine": 216,
+        "startChar": 8,
+        "endLine": 217,
+        "endChar": 26
+      },
+      "revId": "379b9d8e74e4b993ae6aa0c19591102c239e7901",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "16772e4a_fd3c4653",
         "filename": "Android.bp",
         "patchSetId": 5
