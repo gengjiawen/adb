@@ -1005,6 +1005,9 @@ class SyncConnection {
         return true;
     }
 
+    bool Recv(const char* rpath, const char* lpath, const char* name,
+              uint64_t expected_size, CompressionType compression);
+
     // TODO: add a char[max] buffer here, to replace syncsendbuf...
     unique_fd fd;
     size_t max;
@@ -1050,6 +1053,10 @@ class SyncConnection {
         }
         return true;
     }
+
+    bool RecvV1(const char* rpath, const char* lpath, const char* name, uint64_t expected_size);
+    bool RecvV2(const char* rpath, const char* lpath, const char* name, uint64_t expected_size,
+                CompressionType compression);
 };
 
 static bool sync_ls(SyncConnection& sc, const std::string& path,
@@ -1151,21 +1158,21 @@ static bool sync_send(SyncConnection& sc, const std::string& lpath, const std::s
     return sc.ReadAcknowledgements(sync);
 }
 
-static bool sync_recv_v1(SyncConnection& sc, const char* rpath, const char* lpath, const char* name,
-                         uint64_t expected_size) {
-    if (!sc.SendRequest(ID_RECV_V1, rpath)) return false;
+bool SyncConnection::RecvV1(const char* rpath, const char* lpath, const char* name,
+                            uint64_t expected_size) {
+    if (!SendRequest(ID_RECV_V1, rpath)) return false;
 
     adb_unlink(lpath);
     unique_fd lfd(adb_creat(lpath, 0644));
     if (lfd < 0) {
-        sc.pc_->Error("cannot create '%s': %s", lpath, strerror(errno));
+        pc_->Error("cannot create '%s': %s", lpath, strerror(errno));
         return false;
     }
 
     uint64_t bytes_copied = 0;
     while (true) {
         syncmsg msg;
-        if (!ReadFdExactly(sc.fd, &msg.data, sizeof(msg.data))) {
+        if (!ReadFdExactly(fd, &msg.data, sizeof(msg.data))) {
             adb_unlink(lpath);
             return false;
         }
@@ -1174,48 +1181,48 @@ static bool sync_recv_v1(SyncConnection& sc, const char* rpath, const char* lpat
 
         if (msg.data.id != ID_DATA) {
             adb_unlink(lpath);
-            sc.ReportCopyFailure(rpath, lpath, msg);
+            ReportCopyFailure(rpath, lpath, msg);
             return false;
         }
 
-        if (msg.data.size > sc.max) {
-            sc.pc_->Error("msg.data.size too large: %u (max %zu)", msg.data.size, sc.max);
+        if (msg.data.size > max) {
+            pc_->Error("msg.data.size too large: %u (max %zu)", msg.data.size, max);
             adb_unlink(lpath);
             return false;
         }
 
         char buffer[SYNC_DATA_MAX];
-        if (!ReadFdExactly(sc.fd, buffer, msg.data.size)) {
+        if (!ReadFdExactly(fd, buffer, msg.data.size)) {
             adb_unlink(lpath);
             return false;
         }
 
         if (!WriteFdExactly(lfd, buffer, msg.data.size)) {
-            sc.pc_->Error("cannot write '%s': %s", lpath, strerror(errno));
+            pc_->Error("cannot write '%s': %s", lpath, strerror(errno));
             adb_unlink(lpath);
             return false;
         }
 
         bytes_copied += msg.data.size;
 
-        sc.pc_->RecordBytesTransferred(msg.data.size);
-        sc.pc_->ReportProgress(name != nullptr ? name : rpath, bytes_copied, expected_size);
+        pc_->RecordBytesTransferred(msg.data.size);
+        pc_->ReportProgress(name != nullptr ? name : rpath, bytes_copied, expected_size);
     }
 
-    sc.pc_->RecordFilesTransferred(1);
+    pc_->RecordFilesTransferred(1);
     return true;
 }
 
-static bool sync_recv_v2(SyncConnection& sc, const char* rpath, const char* lpath, const char* name,
-                         uint64_t expected_size, CompressionType compression) {
-    compression = sc.ResolveCompressionType(compression);
+bool SyncConnection::RecvV2(const char* rpath, const char* lpath, const char* name,
+                            uint64_t expected_size, CompressionType compression) {
+    compression = ResolveCompressionType(compression);
 
-    if (!sc.SendRecv2(rpath, compression)) return false;
+    if (!SendRecv2(rpath, compression)) return false;
 
     adb_unlink(lpath);
     unique_fd lfd(adb_creat(lpath, 0644));
     if (lfd < 0) {
-        sc.pc_->Error("cannot create '%s': %s", lpath, strerror(errno));
+        pc_->Error("cannot create '%s': %s", lpath, strerror(errno));
         return false;
     }
 
@@ -1250,29 +1257,29 @@ static bool sync_recv_v2(SyncConnection& sc, const char* rpath, const char* lpat
 
     while (true) {
         syncmsg msg;
-        if (!ReadFdExactly(sc.fd, &msg.data, sizeof(msg.data))) {
+        if (!ReadFdExactly(fd, &msg.data, sizeof(msg.data))) {
             adb_unlink(lpath);
             return false;
         }
 
         if (msg.data.id == ID_DONE) {
             if (!decoder->Finish()) {
-                sc.pc_->Error("unexpected ID_DONE");
+                pc_->Error("unexpected ID_DONE");
                 return false;
             }
         } else if (msg.data.id != ID_DATA) {
             adb_unlink(lpath);
-            sc.ReportCopyFailure(rpath, lpath, msg);
+            ReportCopyFailure(rpath, lpath, msg);
             return false;
         } else {
-            if (msg.data.size > sc.max) {
-                sc.pc_->Error("msg.data.size too large: %u (max %zu)", msg.data.size, sc.max);
+            if (msg.data.size > max) {
+                pc_->Error("msg.data.size too large: %u (max %zu)", msg.data.size, max);
                 adb_unlink(lpath);
                 return false;
             }
 
             Block block(msg.data.size);
-            if (!ReadFdExactly(sc.fd, block.data(), msg.data.size)) {
+            if (!ReadFdExactly(fd, block.data(), msg.data.size)) {
                 adb_unlink(lpath);
                 return false;
             }
@@ -1284,29 +1291,29 @@ static bool sync_recv_v2(SyncConnection& sc, const char* rpath, const char* lpat
             DecodeResult result = decoder->Decode(&output);
 
             if (result == DecodeResult::Error) {
-                sc.pc_->Error("decompress failed");
+                pc_->Error("decompress failed");
                 adb_unlink(lpath);
                 return false;
             }
 
             if (!output.empty()) {
                 if (!WriteFdExactly(lfd, output.data(), output.size())) {
-                    sc.pc_->Error("cannot write '%s': %s", lpath, strerror(errno));
+                    pc_->Error("cannot write '%s': %s", lpath, strerror(errno));
                     adb_unlink(lpath);
                     return false;
                 }
             }
 
             bytes_copied += output.size();
-            sc.pc_->RecordBytesTransferred(output.size());
-            sc.pc_->ReportProgress(name != nullptr ? name : rpath, bytes_copied, expected_size);
+            pc_->RecordBytesTransferred(output.size());
+            pc_->ReportProgress(name != nullptr ? name : rpath, bytes_copied, expected_size);
 
             if (result == DecodeResult::NeedInput) {
                 break;
             } else if (result == DecodeResult::MoreOutput) {
                 continue;
             } else if (result == DecodeResult::Done) {
-                sc.pc_->RecordFilesTransferred(1);
+                pc_->RecordFilesTransferred(1);
                 return true;
             } else {
                 LOG(FATAL) << "invalid DecodeResult: " << static_cast<int>(result);
@@ -1315,12 +1322,12 @@ static bool sync_recv_v2(SyncConnection& sc, const char* rpath, const char* lpat
     }
 }
 
-static bool sync_recv(SyncConnection& sc, const char* rpath, const char* lpath, const char* name,
-                      uint64_t expected_size, CompressionType compression) {
-    if (sc.HaveSendRecv2()) {
-        return sync_recv_v2(sc, rpath, lpath, name, expected_size, compression);
+bool SyncConnection::Recv(const char* rpath, const char* lpath, const char* name,
+                          uint64_t expected_size, CompressionType compression) {
+    if (HaveSendRecv2()) {
+        return RecvV2(rpath, lpath, name, expected_size, compression);
     } else {
-        return sync_recv_v1(sc, rpath, lpath, name, expected_size);
+        return RecvV1(rpath, lpath, name, expected_size);
     }
 }
 
@@ -1702,7 +1709,7 @@ static bool copy_remote_dir_local(SyncConnection& sc, std::string rpath, std::st
                 continue;
             }
 
-            if (!sync_recv(sc, ci.rpath.c_str(), ci.lpath.c_str(), nullptr, ci.size, compression)) {
+            if (!sc.Recv(ci.rpath.c_str(), ci.lpath.c_str(), nullptr, ci.size, compression)) {
                 return false;
             }
 
@@ -1813,7 +1820,7 @@ bool do_sync_pull(const std::vector<const char*>& srcs, const char* dst, bool co
 
         sc.pc_->NewTransfer();
         sc.pc_->SetExpectedTotalBytes(src_st.st_size);
-        if (!sync_recv(sc, src_path, dst_path, name, src_st.st_size, compression)) {
+        if (!sc.Recv(src_path, dst_path, name, src_st.st_size, compression)) {
             success = false;
             continue;
         }
