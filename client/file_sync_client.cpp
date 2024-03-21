@@ -983,9 +983,8 @@ bool SyncConnection::WriteOrDie(const std::string& from, const std::string& to, 
     return true;
 }
 
-static bool sync_ls(SyncConnection& sc, const std::string& path,
-                    const std::function<sync_ls_cb>& func) {
-    return sc.SendLs(path) && sc.FinishLs(func);
+bool SyncConnection::Ls(const std::string& path, const std::function<sync_ls_cb>& func) {
+    return SendLs(path) && FinishLs(func);
 }
 
 static bool sync_stat(SyncConnection& sc, const std::string& path, struct stat* st) {
@@ -1259,7 +1258,7 @@ bool do_sync_ls(const char* path) {
     SyncConnection sc(std::make_unique<LegacyProgressCallbacks>());
     if (!sc.IsValid()) return false;
 
-    return sync_ls(sc, path, [](unsigned mode, uint64_t size, uint64_t time, const char* name) {
+    return sc.Ls(path, [](unsigned mode, uint64_t size, uint64_t time, const char* name) {
         printf("%08x %08" PRIx64 " %08" PRIx64 " %s\n", mode, size, time, name);
     });
 }
@@ -1558,7 +1557,7 @@ static bool remote_build_list(SyncConnection& sc, std::vector<copyinfo>* file_li
         }
     };
 
-    if (!sync_ls(sc, rpath, callback)) {
+    if (!sc.Ls(rpath, callback)) {
         return false;
     }
 
