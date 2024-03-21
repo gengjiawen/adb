@@ -69,6 +69,7 @@
 #include "services.h"
 #include "shell_protocol.h"
 #include "socket_spec.h"
+#include "tombstone.h"
 #include "sysdeps/chrono.h"
 
 DefaultStandardStreamsCallback DEFAULT_STANDARD_STREAMS_CALLBACK(nullptr, nullptr);
@@ -202,6 +203,9 @@ static void help() {
         "     devices that don't support zipped bug reports output to stdout.\n"
         " jdwp                     list pids of processes hosting a JDWP transport\n"
         " logcat                   show device log (logcat --help for more)\n"
+#ifndef _WIN32
+        " tombstone                download tombstones from the device (tombstone --help for more)\n"
+#endif
         "\n"
         "security:\n"
         " disable-verity           disable dm-verity checking on userdebug builds\n"
@@ -2090,6 +2094,10 @@ int adb_commandline(int argc, const char** argv) {
             error_exit("usage: adb raw SERVICE");
         }
         return adb_connect_command_bidirectional(argv[1]);
+#ifndef _WIN32
+    } else if (!strcmp(argv[0], "tombstone")) {
+        return adb_tombstone(argc, argv);
+#endif
     }
 
     /* "adb /?" is a common idiom under Windows */
