@@ -193,6 +193,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ee3cfeaa_21c97606",
+        "filename": "Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 2001171
+      },
+      "writtenOn": "2024-03-21T22:29:51Z",
+      "side": 1,
+      "message": "Gave it a try but encountered one issue: apexd assumes bootstrap apex packages are all uncompressed. Apart from that, this seems to work. Do you know why bootstrap apex can\u0027t be compressed? Adding an extra step to decompress the package in apexd seems like a straightforward solution, but I\u0027m not sure if I miss anything.",
+      "parentUuid": "7c31301f_79b5851b",
+      "range": {
+        "startLine": 216,
+        "startChar": 8,
+        "endLine": 217,
+        "endChar": 26
+      },
+      "revId": "379b9d8e74e4b993ae6aa0c19591102c239e7901",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "16772e4a_fd3c4653",
         "filename": "Android.bp",
         "patchSetId": 5
