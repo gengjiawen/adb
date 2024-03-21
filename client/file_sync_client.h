@@ -79,8 +79,7 @@ class SyncConnection {
     bool SendStat(const std::string& path);
     bool SendLstat(const std::string& path);
     bool FinishStat(struct stat* st);
-    bool SendLs(const std::string& path);
-    bool FinishLs(const std::function<sync_ls_cb>& callback);
+    bool Ls(const std::string& path, const std::function<sync_ls_cb>& callback);
     bool SendSmallFile(const std::string& path, mode_t mode, const std::string& lpath,
                        const std::string& rpath, unsigned mtime, const char* data,
                        size_t data_length, bool dry_run);
@@ -122,6 +121,9 @@ class SyncConnection {
     bool RecvV1(const char* rpath, const char* lpath, const char* name, uint64_t expected_size);
     bool RecvV2(const char* rpath, const char* lpath, const char* name, uint64_t expected_size,
                 CompressionType compression);
+
+    bool SendLs(const std::string& path);
+    bool FinishLs(const std::function<sync_ls_cb>& callback);
 };
 
 bool do_sync_ls(const char* path);
