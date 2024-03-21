@@ -121,6 +121,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e741cef2_f4778181",
+        "filename": "Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2024-03-21T06:23:16Z",
+      "side": 1,
+      "message": "I\u0027ve read the bug again, and it appears that he\u0027s not talking about flattened APEX. It is rather this question: \"how can I debug the system if it fails to boot before adbd is ready?\". \n\nMy answer to that question is \"make adbd apex as a bootstrap apex (at least during the early bring-up stage)\".\n\nOr, they can alternatively use the first-stage console [1], if all they need is a shell access.\n\n[1] https://cs.android.com/android/platform/superproject/main/+/main:system/core/init/first_stage_console.cpp;drc\u003db6b2afb6b3679275fc2876f0832996be35b75139;l\u003d117",
+      "parentUuid": "c1828b76_88b82fb9",
+      "range": {
+        "startLine": 216,
+        "startChar": 8,
+        "endLine": 217,
+        "endChar": 26
+      },
+      "revId": "379b9d8e74e4b993ae6aa0c19591102c239e7901",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "16772e4a_fd3c4653",
         "filename": "Android.bp",
         "patchSetId": 5
