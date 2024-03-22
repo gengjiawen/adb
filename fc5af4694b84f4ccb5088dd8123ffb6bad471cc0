@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e4359d0_e27407e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1067098
+      },
+      "writtenOn": "2024-03-22T01:59:15Z",
+      "side": 1,
+      "message": "I\u0027ll disable this command on Windows since it isn\u0027t much use without a platform checkout and we don\u0027t support building the platform on Windows.",
+      "revId": "fc5af4694b84f4ccb5088dd8123ffb6bad471cc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
