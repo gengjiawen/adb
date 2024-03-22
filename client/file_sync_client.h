@@ -84,6 +84,7 @@ class SyncConnection {
     bool SendLstat(const std::string& path);
     bool FinishStat(struct stat* st);
     bool Ls(const std::string& path, const std::function<sync_ls_cb>& callback);
+    bool Lstat(const std::string& path, struct stat* st);
     bool SendSmallFile(const std::string& path, mode_t mode, const std::string& lpath,
                        const std::string& rpath, unsigned mtime, const char* data,
                        size_t data_length, bool dry_run);

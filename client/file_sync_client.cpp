@@ -991,8 +991,8 @@ static bool sync_stat(SyncConnection& sc, const std::string& path, struct stat* 
     return sc.SendStat(path) && sc.FinishStat(st);
 }
 
-static bool sync_lstat(SyncConnection& sc, const std::string& path, struct stat* st) {
-    return sc.SendLstat(path) && sc.FinishStat(st);
+bool SyncConnection::Lstat(const std::string& path, struct stat* st) {
+    return SendLstat(path) && FinishStat(st);
 }
 
 static bool sync_stat_fallback(SyncConnection& sc, const std::string& path, struct stat* st) {
@@ -1005,7 +1005,7 @@ static bool sync_stat_fallback(SyncConnection& sc, const std::string& path, stru
     }
 
     // Try to emulate the parts we can when talking to older adbds.
-    bool lstat_result = sync_lstat(sc, path, st);
+    bool lstat_result = sc.Lstat(path, st);
     if (!lstat_result) {
         return false;
     }
@@ -1019,7 +1019,7 @@ static bool sync_stat_fallback(SyncConnection& sc, const std::string& path, stru
         struct stat tmp_st;
 
         st->st_mode &= ~S_IFMT;
-        if (sync_lstat(sc, dir_path, &tmp_st)) {
+        if (sc.Lstat(dir_path, &tmp_st)) {
             st->st_mode |= S_IFDIR;
         } else {
             st->st_mode |= S_IFREG;
@@ -1033,7 +1033,7 @@ static bool sync_send(SyncConnection& sc, const std::string& lpath, const std::s
                       bool dry_run) {
     if (sync) {
         struct stat st;
-        if (sync_lstat(sc, rpath, &st)) {
+        if (sc.Lstat(rpath, &st)) {
             if (st.st_mtime == static_cast<time_t>(mtime)) {
                 sc.pc_->RecordFilesSkipped(1);
                 return true;
