@@ -217,6 +217,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "04c138fc_c4937726",
+        "filename": "Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2024-03-22T00:35:10Z",
+      "side": 1,
+      "message": "Thanks for trying that!\n\nAPEX compression can be disabled at the product level. See [1]. I think it makes sense to disable it during the early bringup stage. The reason we don\u0027t (can\u0027t) support compressed apex for bootstrapping ones is because you need /data to decompress the apexes into. Sorry that I overlooked this when suggesting that. \n\nhttps://cs.android.com/android/platform/superproject/main/+/main:system/apex/docs/README.md;drc\u003d87ae5b5ff9b613878236ef825340dadbb9367c70;l\u003d575",
+      "parentUuid": "ee3cfeaa_21c97606",
+      "range": {
+        "startLine": 216,
+        "startChar": 8,
+        "endLine": 217,
+        "endChar": 26
+      },
+      "revId": "379b9d8e74e4b993ae6aa0c19591102c239e7901",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "16772e4a_fd3c4653",
         "filename": "Android.bp",
         "patchSetId": 5
