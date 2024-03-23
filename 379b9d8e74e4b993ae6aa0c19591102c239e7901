@@ -241,6 +241,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e3a5617a_de220b58",
+        "filename": "Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 2001171
+      },
+      "writtenOn": "2024-03-23T01:32:41Z",
+      "side": 1,
+      "message": "Thanks for the guidance and detailed explanation! I have a WIP CL http://ag/26682582 that\u0027s working in my setup, will spend some time polishing it before publishing it for wider review, but please feel free to leave comments.  \nThanks everyone again for all the inputs, appreciate it!",
+      "parentUuid": "04c138fc_c4937726",
+      "range": {
+        "startLine": 216,
+        "startChar": 8,
+        "endLine": 217,
+        "endChar": 26
+      },
+      "revId": "379b9d8e74e4b993ae6aa0c19591102c239e7901",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "16772e4a_fd3c4653",
         "filename": "Android.bp",
         "patchSetId": 5
