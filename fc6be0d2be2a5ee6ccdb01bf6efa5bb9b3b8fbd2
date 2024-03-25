@@ -22,6 +22,30 @@
       },
       "revId": "fc6be0d2be2a5ee6ccdb01bf6efa5bb9b3b8fbd2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7cd2490_0c1621e0",
+        "filename": "client/file_sync_client.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1067098
+      },
+      "writtenOn": "2024-03-25T20:42:55Z",
+      "side": 1,
+      "message": "If we force commands to reimplement wouldn\u0027t that \n1) create more boilerplate everywhere\n2) make it more likely that they will make a mistake (e.g. by copying the code here)?\n\nIt seems better for there to be \"default\" behavior and for that to be reasonable for the \"sync as an implementation detail\" use case, since if you\u0027re adding a new user of this then it\u0027s likely to be an implementation detail of something else.\n\nI added deleted copy constructor/assignment operator for this class as it is not meant to be copied.",
+      "parentUuid": "b9219cd8_af8bc237",
+      "range": {
+        "startLine": 269,
+        "startChar": 10,
+        "endLine": 269,
+        "endChar": 47
+      },
+      "revId": "fc6be0d2be2a5ee6ccdb01bf6efa5bb9b3b8fbd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
