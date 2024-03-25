@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9219cd8_af8bc237",
+        "filename": "client/file_sync_client.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-03-25T07:14:53Z",
+      "side": 1,
+      "message": "Somewhat naive question :) Can we consider making ProgressCallbacks abstract (with pure virtuals) and thereby force new commands to re-implement the behavior? (esp considering the existing mistakes you highlighted)\n\nAlso, do we need to consider copy construction and assignment semantics for callback objects? (I haven\u0027t patched and rebuilt this CL so this might be irrelevant as well - so please free to resolve this if it\u0027s N/A)",
+      "range": {
+        "startLine": 269,
+        "startChar": 10,
+        "endLine": 269,
+        "endChar": 47
+      },
+      "revId": "fc6be0d2be2a5ee6ccdb01bf6efa5bb9b3b8fbd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
