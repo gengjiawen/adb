@@ -16,6 +16,29 @@
       "message": "(yeah, this seems like how i should have written it in the first place...)",
       "revId": "f5008732c1329efd930c95d294f68a74bedd9581",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a504c4a_7c935278",
+        "filename": "client/file_sync_client.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-03-27T21:57:01Z",
+      "side": 1,
+      "message": "Since we\u0027d want legacy users to use the reasonable defaults, should we consider sealing it thus:\n`struct LegacyProgressCallbacks final : ProgressCallbacks {..`",
+      "range": {
+        "startLine": 275,
+        "startChar": 0,
+        "endLine": 275,
+        "endChar": 33
+      },
+      "revId": "f5008732c1329efd930c95d294f68a74bedd9581",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
