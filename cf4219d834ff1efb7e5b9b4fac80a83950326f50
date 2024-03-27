@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a63ddd3_e82b53e5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-03-27T00:18:33Z",
+      "side": 1,
+      "message": "Took the liberty of applying a linter fix (on the bp) - hope that didn\u0027t mess things up (please revert if I unintentionally did).",
+      "revId": "cf4219d834ff1efb7e5b9b4fac80a83950326f50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
