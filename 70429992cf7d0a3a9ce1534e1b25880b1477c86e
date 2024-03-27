@@ -62,6 +62,52 @@
       },
       "revId": "70429992cf7d0a3a9ce1534e1b25880b1477c86e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdd84e42_43f6f9a3",
+        "filename": "client/file_sync_client.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-03-27T22:52:34Z",
+      "side": 1,
+      "message": "Perhaps we can keep this private (as an internal helper)? (as enh@ mentioned this elsewhere)",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 78
+      },
+      "revId": "70429992cf7d0a3a9ce1534e1b25880b1477c86e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6957a627_67647be6",
+        "filename": "client/file_sync_client.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-03-27T22:52:34Z",
+      "side": 1,
+      "message": "Can we consider moving these below to `private`?",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 15
+      },
+      "revId": "70429992cf7d0a3a9ce1534e1b25880b1477c86e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
