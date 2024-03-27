@@ -46,6 +46,29 @@
       },
       "revId": "5fee7eba86f96eb6e6e33dcfdfc4e7154e9c1899",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5af49ab8_cc5f8041",
+        "filename": "client/file_sync_client.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-03-27T15:59:44Z",
+      "side": 1,
+      "message": "Is it possible to annotate the virtual overrides for readability purposes?\n`void Printf(const char* fmt, ...) override __attribute__((__format__(__printf__, 2, 3)))`",
+      "range": {
+        "startLine": 284,
+        "startChar": 4,
+        "endLine": 284,
+        "endChar": 83
+      },
+      "revId": "5fee7eba86f96eb6e6e33dcfdfc4e7154e9c1899",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
