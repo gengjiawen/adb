@@ -87,6 +87,24 @@
       "parentUuid": "c6e30494_a2be6a00",
       "revId": "cf4219d834ff1efb7e5b9b4fac80a83950326f50",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ec6cf6b_0ce95feb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1067098
+      },
+      "writtenOn": "2024-03-27T02:33:06Z",
+      "side": 1,
+      "message": "Maybe, but you could think of proto tombstones as something of an implementation detail of the proposed approach.\n\nI figure that one future direction could be to add compatibility for older devices (even those without proto tombstones) by monitoring `logcat -b crash` for text tombstones and turning that into files with textual matching of lines with stack frames for symbolization, similar to what `stack` does. Then it wouldn\u0027t make much sense for this to be part of `pbtombstone`.",
+      "parentUuid": "2830add7_d3df5ba7",
+      "revId": "cf4219d834ff1efb7e5b9b4fac80a83950326f50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
