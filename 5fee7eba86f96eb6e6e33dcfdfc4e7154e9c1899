@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b0672313_1874158b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-03-27T16:27:25Z",
+      "side": 1,
+      "message": "yeah, that sgtm. we have a lot of historical mistakes like this (it\u0027s pretty random whether any given command actually returns a meaningful exit status, for example), but we do _aim_ to behave right...",
+      "parentUuid": "658b89f4_8b2cfcc3",
+      "range": {
+        "startLine": 17,
+        "startChar": 26,
+        "endLine": 18,
+        "endChar": 17
+      },
+      "revId": "5fee7eba86f96eb6e6e33dcfdfc4e7154e9c1899",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5af49ab8_cc5f8041",
         "filename": "client/file_sync_client.cpp",
         "patchSetId": 2
