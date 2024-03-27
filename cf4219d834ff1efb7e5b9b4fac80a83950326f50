@@ -69,6 +69,24 @@
       "message": "(probably best to have the \"what should be built?\" conversation on the bug... i\u0027ve slowly been coming round to the idea of _a_ tombstone command, but i\u0027m not sure what that command should look like. i\u0027ve added the likely customers who sprang to mind, but add others if you can think of them...)",
       "revId": "cf4219d834ff1efb7e5b9b4fac80a83950326f50",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2830add7_d3df5ba7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076798
+      },
+      "writtenOn": "2024-03-27T02:02:05Z",
+      "side": 1,
+      "message": "Can we move that discussion to an aosp component? :-)\n\nThe fact that you can\u0027t use this on non-rooted older devices points me towards thinking that maybe this should just *be* pbtombstone, with extra flags that tell it to also pull from the device, since (I think?) you can get the tombstones off of a non-rooted device via bugreport.",
+      "parentUuid": "c6e30494_a2be6a00",
+      "revId": "cf4219d834ff1efb7e5b9b4fac80a83950326f50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
