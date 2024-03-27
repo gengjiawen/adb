@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1ea8395_3be29aa2",
+        "filename": "client/file_sync_client.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-03-27T01:39:51Z",
+      "side": 1,
+      "message": "shouldn\u0027t a lot of these be turning `private:` as you expose the higher-level operation?",
+      "revId": "258ae245e104a8e1ce8c98325dc2a3142e3cb11b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
