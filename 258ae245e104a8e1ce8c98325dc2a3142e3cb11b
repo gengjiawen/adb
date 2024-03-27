@@ -16,6 +16,29 @@
       "message": "shouldn\u0027t a lot of these be turning `private:` as you expose the higher-level operation?",
       "revId": "258ae245e104a8e1ce8c98325dc2a3142e3cb11b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e105e1cf_832ec9c0",
+        "filename": "client/file_sync_client.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-03-27T23:16:04Z",
+      "side": 1,
+      "message": "yes, this can be private (at least, for now :)",
+      "range": {
+        "startLine": 97,
+        "startChar": 9,
+        "endLine": 97,
+        "endChar": 17
+      },
+      "revId": "258ae245e104a8e1ce8c98325dc2a3142e3cb11b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
