@@ -52,6 +52,23 @@
       "parentUuid": "fc965138_4063cbd0",
       "revId": "cf4219d834ff1efb7e5b9b4fac80a83950326f50",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6e30494_a2be6a00",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-03-27T01:55:57Z",
+      "side": 1,
+      "message": "(probably best to have the \"what should be built?\" conversation on the bug... i\u0027ve slowly been coming round to the idea of _a_ tombstone command, but i\u0027m not sure what that command should look like. i\u0027ve added the likely customers who sprang to mind, but add others if you can think of them...)",
+      "revId": "cf4219d834ff1efb7e5b9b4fac80a83950326f50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
