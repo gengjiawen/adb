@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f12bd73_a3109c3e",
+        "filename": "client/file_sync_client.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-03-27T01:38:07Z",
+      "side": 1,
+      "message": "fix the orthography if we\u0027re making this more visible...",
+      "revId": "70429992cf7d0a3a9ce1534e1b25880b1477c86e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3120fe4_0c645d2b",
+        "filename": "client/file_sync_client.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-03-27T01:38:07Z",
+      "side": 1,
+      "message": "fix the orthography if we\u0027re making this more visible...",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 31,
+        "endChar": 8
+      },
+      "revId": "70429992cf7d0a3a9ce1534e1b25880b1477c86e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7aae7ed7_a013935c",
+        "filename": "client/file_sync_client.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-03-27T01:38:07Z",
+      "side": 1,
+      "message": "type\u0026",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 23
+      },
+      "revId": "70429992cf7d0a3a9ce1534e1b25880b1477c86e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
