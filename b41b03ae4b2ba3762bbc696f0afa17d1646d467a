@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8779d7bf_39bd23d5",
+        "filename": "client/file_sync_client.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-03-27T22:36:48Z",
+      "side": 1,
+      "message": "Nit: can we const-qualify this: `inline bool IsValid() const { return fd \u003e\u003d 0; }`",
+      "range": {
+        "startLine": 77,
+        "startChar": 17,
+        "endLine": 77,
+        "endChar": 19
+      },
+      "revId": "b41b03ae4b2ba3762bbc696f0afa17d1646d467a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
