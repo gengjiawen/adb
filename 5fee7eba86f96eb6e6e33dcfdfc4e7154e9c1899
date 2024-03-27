@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5953a61_7ddd3361",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-03-27T01:31:04Z",
+      "side": 1,
+      "message": "does it break something if we just fix that instead?",
+      "range": {
+        "startLine": 17,
+        "startChar": 26,
+        "endLine": 18,
+        "endChar": 17
+      },
+      "revId": "5fee7eba86f96eb6e6e33dcfdfc4e7154e9c1899",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
