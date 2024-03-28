@@ -22,6 +22,30 @@
       },
       "revId": "d44703d2bfac6cafb6bc69f5665867d4192f3b40",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c9748cd_87123477",
+        "filename": "test_device.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 1858,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-03-28T23:24:00Z",
+      "side": 1,
+      "message": "that doesn\u0027t help, but it doesn\u0027t seem to make any difference either... (and, yeah, if you can just choose on the command-line anyway...)",
+      "parentUuid": "e1e749ea_c39a0126",
+      "range": {
+        "startLine": 1858,
+        "startChar": 18,
+        "endLine": 1858,
+        "endChar": 29
+      },
+      "revId": "d44703d2bfac6cafb6bc69f5665867d4192f3b40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
