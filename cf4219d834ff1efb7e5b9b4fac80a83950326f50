@@ -105,6 +105,24 @@
       "parentUuid": "2830add7_d3df5ba7",
       "revId": "cf4219d834ff1efb7e5b9b4fac80a83950326f50",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d61f063b_1a3e3026",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-03-28T00:12:29Z",
+      "side": 1,
+      "message": "\u003e Can we move that discussion to an aosp component? :-)\n\nnot easily retroactively :-(\n\nit seems like everyone wants something different, and it\u0027s not clear that any of what anyone wants belongs in adb. i\u0027d definitely be interested in something that Studio would use, but i don\u0027t think their users even really know they\u0027re missing out on something to request that kind of functionality...",
+      "parentUuid": "6ec6cf6b_0ce95feb",
+      "revId": "cf4219d834ff1efb7e5b9b4fac80a83950326f50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
