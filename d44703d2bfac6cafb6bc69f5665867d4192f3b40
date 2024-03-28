@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1e749ea_c39a0126",
+        "filename": "test_device.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 1858,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2024-03-28T23:03:34Z",
+      "side": 1,
+      "message": "This is maybe part of the problem you\u0027re seeing. I think atest/tradefed is expecting `-vv`, and this is overriding that. I\u0027d drop this argument and just let the caller decide.",
+      "range": {
+        "startLine": 1858,
+        "startChar": 18,
+        "endLine": 1858,
+        "endChar": 29
+      },
+      "revId": "d44703d2bfac6cafb6bc69f5665867d4192f3b40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
