@@ -53,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa577f36_0389f85e",
+        "filename": "run-device-tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2024-03-29T20:41:42Z",
+      "side": 1,
+      "message": "Oh, right, because this isn\u0027t running in the same shell, so the functions aren\u0027t defined here.",
+      "parentUuid": "97b11345_e82ed981",
+      "revId": "5e165c3e0f0c7bdc3f0a78afd075f889e2e93f13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b39b3cf5_3d4e59eb",
@@ -90,6 +108,30 @@
       "side": 1,
       "message": "/usr/bin?\n\n(i know this is always x86_64 now, but one day we\u0027ll support other host architectures, and this will be one less thing to fix.)",
       "parentUuid": "b39b3cf5_3d4e59eb",
+      "range": {
+        "startLine": 4,
+        "startChar": 65,
+        "endLine": 4,
+        "endChar": 69
+      },
+      "revId": "5e165c3e0f0c7bdc3f0a78afd075f889e2e93f13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0763c4bc_2f7c2186",
+        "filename": "run-device-tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2024-03-29T20:41:42Z",
+      "side": 1,
+      "message": "Oh, I never knew about that one. I had tried `echo $(arch)` and found nothing 😊\n\nAndroid\u0027s sometimes goofy about naming architecture\u0027s so idk if this will actually be correct for future host architectures, but I guess that\u0027s a problem for later. Kind of surprised that lunch didn\u0027t populate something for this.",
+      "parentUuid": "33b85458_950d5efe",
       "range": {
         "startLine": 4,
         "startChar": 65,
