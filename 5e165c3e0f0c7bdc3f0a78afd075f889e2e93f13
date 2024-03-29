@@ -16,6 +16,46 @@
       "message": "thanks! (tested `-vv` with https://android-review.git.corp.google.com/c/platform/packages/modules/adb/+/3017396 applied)",
       "revId": "5e165c3e0f0c7bdc3f0a78afd075f889e2e93f13",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "089bdcc1_9e288025",
+        "filename": "run-device-tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2024-03-29T20:31:02Z",
+      "side": 1,
+      "message": "If you\u0027ve got `$ANDROID_BUILD_TOP`, you\u0027ve already sourced this.",
+      "revId": "5e165c3e0f0c7bdc3f0a78afd075f889e2e93f13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b39b3cf5_3d4e59eb",
+        "filename": "run-device-tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2024-03-29T20:31:02Z",
+      "side": 1,
+      "message": "Where\u0027s this come from?",
+      "range": {
+        "startLine": 4,
+        "startChar": 65,
+        "endLine": 4,
+        "endChar": 69
+      },
+      "revId": "5e165c3e0f0c7bdc3f0a78afd075f889e2e93f13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
