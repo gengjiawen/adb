@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54e07679_3e412c5e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-03-29T03:13:25Z",
+      "side": 1,
+      "message": "thanks! (tested `-vv` with https://android-review.git.corp.google.com/c/platform/packages/modules/adb/+/3017396 applied)",
+      "revId": "5e165c3e0f0c7bdc3f0a78afd075f889e2e93f13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
