@@ -123,6 +123,24 @@
       "parentUuid": "6ec6cf6b_0ce95feb",
       "revId": "cf4219d834ff1efb7e5b9b4fac80a83950326f50",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a920b640_7f8aa4d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1067098
+      },
+      "writtenOn": "2024-03-29T04:32:54Z",
+      "side": 1,
+      "message": "In the internal discussion we settled on adding this as a separate tool. The CL adding the tool is: https://r.android.com/3016596",
+      "parentUuid": "d61f063b_1a3e3026",
+      "revId": "cf4219d834ff1efb7e5b9b4fac80a83950326f50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
