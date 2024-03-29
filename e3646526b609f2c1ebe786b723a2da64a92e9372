@@ -90,6 +90,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e5bc9e3_49e422db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1067098
+      },
+      "writtenOn": "2024-03-29T20:55:50Z",
+      "side": 1,
+      "message": "I\u0027m not aware of any. I\u0027m not sure if that\u0027s an argument for following scp\u0027s progress output, though. Another consideration is bugreport. If I were invoking bugreport from another program I probably wouldn\u0027t want the progress updates, I would just want the path to the zip file. If we want to do \"the right thing\" for bugreport, that would probably mean \"write to stderr\". So we either make the destination conditional on whether it\u0027s bugreport or push/pull/sync or we just always write to stderr. If we think push/pull/sync destination doesn\u0027t matter, then I think we should go with the simplest option which would be to always write to stderr.\n\n(Re bugreport, ideally I could just do\n```\nreport\u003d\"$(adb bugreport)\"\n```\nand then expect the report path to be in $report. But the path is prefixed by \"Bug report copied to \" so that would need to be stripped first. I probably wouldn\u0027t have added the prefix; it doesn\u0027t help human users much since if we print a path on its own that would imply that that\u0027s where the bug report is.)",
+      "parentUuid": "00e4b722_0e5f35d4",
+      "revId": "e3646526b609f2c1ebe786b723a2da64a92e9372",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "61a43abd_dc5452dd",
