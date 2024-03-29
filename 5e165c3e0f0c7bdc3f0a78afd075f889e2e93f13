@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "97b11345_e82ed981",
+        "filename": "run-device-tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-03-29T20:34:29Z",
+      "side": 1,
+      "message": "yeah, but that only gives you the _variables_, not the functions, and the next line is going to use `mm`.",
+      "parentUuid": "089bdcc1_9e288025",
+      "revId": "5e165c3e0f0c7bdc3f0a78afd075f889e2e93f13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b39b3cf5_3d4e59eb",
         "filename": "run-device-tests.sh",
         "patchSetId": 1
@@ -48,6 +66,30 @@
       "writtenOn": "2024-03-29T20:31:02Z",
       "side": 1,
       "message": "Where\u0027s this come from?",
+      "range": {
+        "startLine": 4,
+        "startChar": 65,
+        "endLine": 4,
+        "endChar": 69
+      },
+      "revId": "5e165c3e0f0c7bdc3f0a78afd075f889e2e93f13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33b85458_950d5efe",
+        "filename": "run-device-tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-03-29T20:34:29Z",
+      "side": 1,
+      "message": "/usr/bin?\n\n(i know this is always x86_64 now, but one day we\u0027ll support other host architectures, and this will be one less thing to fix.)",
+      "parentUuid": "b39b3cf5_3d4e59eb",
       "range": {
         "startLine": 4,
         "startChar": 65,
