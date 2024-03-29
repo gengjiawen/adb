@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "35916e97_23b6cfcb",
+        "filename": "daemon/file_sync_service.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1067098
+      },
+      "writtenOn": "2024-03-29T19:10:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a501305_25f61746",
+      "range": {
+        "startLine": 112,
+        "startChar": 45,
+        "endLine": 112,
+        "endChar": 46
+      },
+      "revId": "100e6ec5c43030fbd25fd5f514657a1d21169c26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "655eaffb_e0f27961",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc3799c8_6aa0966a",
+        "filename": "daemon/file_sync_service.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1067098
+      },
+      "writtenOn": "2024-03-29T19:10:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "655eaffb_e0f27961",
+      "range": {
+        "startLine": 522,
+        "startChar": 41,
+        "endLine": 522,
+        "endChar": 42
+      },
+      "revId": "100e6ec5c43030fbd25fd5f514657a1d21169c26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f5a3b7c5_f342ac15",
@@ -60,6 +108,30 @@
       "writtenOn": "2024-03-29T17:54:09Z",
       "side": 1,
       "message": "is this S_IFMT?",
+      "range": {
+        "startLine": 32,
+        "startChar": 22,
+        "endLine": 32,
+        "endChar": 28
+      },
+      "revId": "100e6ec5c43030fbd25fd5f514657a1d21169c26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "852e05e8_514a33b2",
+        "filename": "libs/libadbd_fs/adbd_fs.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1067098
+      },
+      "writtenOn": "2024-03-29T19:10:14Z",
+      "side": 1,
+      "message": "I think that\u0027s the intent, but actually this is always going to be 0 because all callers are passing in something that is a subset of 0777. So I got rid of this part.",
+      "parentUuid": "f5a3b7c5_f342ac15",
       "range": {
         "startLine": 32,
         "startChar": 22,
