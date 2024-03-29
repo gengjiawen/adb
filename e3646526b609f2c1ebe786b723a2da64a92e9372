@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f08c19f6_ef90c57d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1067098
+      },
+      "writtenOn": "2024-03-29T17:24:50Z",
+      "side": 1,
+      "message": "I\u0027ve always considered it to work like this: stderr is for the user, and stdout is for other programs. Consider for example the behavior of a hypothetical `adb cat` which writes the contents of a file on the device to stdout while also printing progress updates. I would expect it to work similarly to `curl` which also writes progress to stderr.\n```\n\u003e curl https://example.com \u003e /tmp/p\n  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n100  1256  100  1256    0     0  10111      0 --:--:-- --:--:-- --:--:-- 10211\n```",
+      "parentUuid": "230cb592_36f20c55",
+      "revId": "e3646526b609f2c1ebe786b723a2da64a92e9372",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "61a43abd_dc5452dd",
