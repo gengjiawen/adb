@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "230cb592_36f20c55",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-03-29T15:23:34Z",
+      "side": 1,
+      "message": "+sanglardf in case Studio cares.\n\ni actually thought you meant _failure_ messages weren\u0027t going to stderr... for _progress_ messages i\u0027m less sure. most unix commands\u0027 verbose output goes to stdout, no?",
+      "revId": "e3646526b609f2c1ebe786b723a2da64a92e9372",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61a43abd_dc5452dd",
+        "filename": "client/line_printer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-03-29T15:23:34Z",
+      "side": 1,
+      "message": "this seems out of date given...",
+      "revId": "e3646526b609f2c1ebe786b723a2da64a92e9372",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb1d4cca_50d53685",
+        "filename": "client/line_printer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-03-29T15:23:34Z",
+      "side": 1,
+      "message": "...this?",
+      "revId": "e3646526b609f2c1ebe786b723a2da64a92e9372",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af2c0def_43105d96",
+        "filename": "client/line_printer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-03-29T15:23:34Z",
+      "side": 1,
+      "message": "Out()?",
+      "revId": "e3646526b609f2c1ebe786b723a2da64a92e9372",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92cf83b9_ff8dda6f",
+        "filename": "client/line_printer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-03-29T15:23:34Z",
+      "side": 1,
+      "message": "Out()?",
+      "revId": "e3646526b609f2c1ebe786b723a2da64a92e9372",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bad92fc_db7189d1",
+        "filename": "client/line_printer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-03-29T15:23:34Z",
+      "side": 1,
+      "message": "not needed if we\u0027re unbuffered?",
+      "revId": "e3646526b609f2c1ebe786b723a2da64a92e9372",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
