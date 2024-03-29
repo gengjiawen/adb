@@ -72,6 +72,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "00e4b722_0e5f35d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-03-29T19:41:45Z",
+      "side": 1,
+      "message": "what programs read the output from push/pull/sync?\n\nit occurred to me earlier that my Studio question is meaningless for this reason --- Studio is talking directly to the adb server, and if it wasn\u0027t, they\u0027d probably have asked for `-q` sooner.",
+      "parentUuid": "292656b3_7c7802ed",
+      "revId": "e3646526b609f2c1ebe786b723a2da64a92e9372",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "61a43abd_dc5452dd",
