@@ -27,6 +27,15 @@
 #include <usb100.h>
 #include <winerror.h>
 
+#include <assert.h>
+#include <libusb/libusb.h>
+
+#ifdef _WIN32
+#include <dbt.h>
+#include <initguid.h>
+#include <usbiodef.h>
+#endif
+
 #include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -166,6 +175,7 @@ int register_new_device(usb_handle* handle) {
     return 1;
 }
 
+// Based on aosp<>
 void device_poll_thread() {
     adb_thread_setname("Device Poll");
     D("Created device thread");
@@ -177,8 +187,55 @@ void device_poll_thread() {
     }
 }
 
-static LRESULT CALLBACK _power_window_proc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
+// USB hotplug implementation (poll-based): Piggy-backing usb notifications
+// atop the power notification (that employs an existing hidden message loop
+// that is repurposed for the polling.
+static LRESULT CALLBACK _notify_wnd_proc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
     switch (uMsg) {
+        case WM_DEVICECHANGE:
+            assert(0 == lParam);
+            if (wParam == DBT_DEVNODES_CHANGED) {  // Device was added or removed.
+                int rc = libusb_init(nullptr);     // For now, we shall not use a
+                                                   // context. If we need to
+                                                   // fallback to the polling
+                                                   // strategy (due to any
+                                                   // failures from
+                                                   // libusb_get_device_list()),
+                                                   // then it's likely we might
+                                                   // need to unload/shutdown
+                                                   // libusb with libusb_exit().
+                if (rc < 0) {
+                    LOG(WARNING) << __func__ << " " << __LINE__;
+                }
+
+                libusb_context* context(nullptr);
+                libusb_device** list;
+                ssize_t device_count = libusb_get_device_list(context, &list);
+                if (device_count < 0) {
+                    LOG(INFO) << __func__ << " no devices " << __LINE__;
+                }
+                for (ssize_t i = 0; i < device_count; ++i) {
+                    libusb_device* device(list[i]);
+                    struct libusb_device_descriptor dev;
+                    rc = libusb_get_device_descriptor(device, &dev);
+                    LOG(INFO) << device;
+
+                    if (rc < 0) {
+                        LOG(INFO) << __func__;
+                    } else {
+                        LOG(INFO) << __func__ << " vendor:" << dev.idVendor
+                                  << " product:" << dev.idProduct
+                                  << " bus#:" << libusb_get_bus_number(device)
+                                  << " address:" << libusb_get_device_address(device);
+                    }
+                }
+
+                libusb_free_device_list(list, 1);
+                libusb_exit(nullptr);
+            } else {
+                LOG(INFO) << __func__ << " default " << __LINE__;
+            }
+            break;
         case WM_POWERBROADCAST:
             switch (wParam) {
                 case PBT_APMRESUMEAUTOMATIC:
@@ -195,6 +252,20 @@ static LRESULT CALLBACK _power_window_proc(HWND hwnd, UINT uMsg, WPARAM wParam, 
     return DefWindowProcW(hwnd, uMsg, wParam, lParam);
 }
 
+struct usb_cb_t {  // Can consider adding tid to
+    // the state, in case we want to support adding
+    // a testcase that validates that there's no
+    // thread contention (all notifications can flow
+    // through the UI thread, whereas state management/validation
+    // should be done on a secondary thread (with an appropriate
+    // synchronization, of course).
+    HWND hwnd;
+    HDEVNOTIFY hNotify;
+    unsigned char className[255];
+};
+
+struct usb_cb_t usb_cb;
+
 static void _power_notification_thread() {
     // This uses a thread with its own window message pump to get power
     // notifications. If adb runs from a non-interactive service account, this
@@ -205,10 +276,12 @@ static void _power_notification_thread() {
     D("Created power notification thread");
     adb_thread_setname("Power Notifier");
 
-    // Window class names are process specific.
-    static const WCHAR kPowerNotificationWindowClassName[] = L"PowerNotificationWindow";
+    static const WCHAR kPowerNotificationWindowClassName[] =
+            L"PowerNotificationWindow";  // Keep this
+    // unchanged for now, just in case there's some weird use-case where the wndclass name is
+    // is used by any ADB drivers/infra.
 
-    // Get the HINSTANCE corresponding to the module that _power_window_proc
+    // Get the HINSTANCE corresponding to the module that _notify_wnd_proc
     // is in (the main module).
     const HINSTANCE instance = GetModuleHandleW(nullptr);
     if (!instance) {
@@ -220,7 +293,7 @@ static void _power_notification_thread() {
     WNDCLASSEXW wndclass;
     memset(&wndclass, 0, sizeof(wndclass));
     wndclass.cbSize = sizeof(wndclass);
-    wndclass.lpfnWndProc = _power_window_proc;
+    wndclass.lpfnWndProc = _notify_wnd_proc;
     wndclass.hInstance = instance;
     wndclass.lpszClassName = kPowerNotificationWindowClassName;
     if (!RegisterClassExW(&wndclass)) {
@@ -229,12 +302,31 @@ static void _power_notification_thread() {
     }
 
     if (!CreateWindowExW(WS_EX_NOACTIVATE, kPowerNotificationWindowClassName,
-                         L"ADB Power Notification Window", WS_POPUP, 0, 0, 0, 0, nullptr, nullptr,
+                         L"ADB Notification Window", WS_POPUP, 0, 0, 0, 0, nullptr, nullptr,
                          instance, nullptr)) {
         LOG(FATAL) << "CreateWindowExW failed: "
                    << android::base::SystemErrorCodeToString(GetLastError());
     }
 
+    // We need to also register for WM_DEVICECHANGE callback notifications when
+    // USB bulk devices arfe added and removed.
+    DEV_BROADCAST_DEVICEINTERFACE dbi;
+    const size_t dbi_size(sizeof(dbi));
+    LOG(INFO) << __func__ << " REGISTERING.. " << __LINE__;
+    memset(&dbi, 0, dbi_size);
+    dbi.dbcc_size = dbi_size;
+    dbi.dbcc_devicetype = DBT_DEVTYP_DEVICEINTERFACE;
+    dbi.dbcc_classguid = GUID_DEVINTERFACE_USB_DEVICE;
+
+    // Register for callback notifications when USB bulk devices are
+    // added/removed, w/o polling.
+    usb_cb.hNotify = RegisterDeviceNotification(usb_cb.hwnd, &dbi, DEVICE_NOTIFY_WINDOW_HANDLE);
+    if (!usb_cb.hNotify) {
+        LOG(WARNING) << __func__ << " RegisterDeviceNotification() failed";
+        DestroyWindow(usb_cb.hwnd);
+    } else {
+        LOG(INFO) << __func__ << " registered for device notification..";
+    }
     MSG msg;
     while (GetMessageW(&msg, nullptr, 0, 0)) {
         TranslateMessage(&msg);
@@ -245,8 +337,12 @@ static void _power_notification_thread() {
     // do that, but it might be possible for that to occur when logging off or
     // shutting down. Not a big deal since the whole process will be going away
     // soon anyway.
-    D("Power notification thread exiting");
+    D("ADB notification message loop thread exiting");
 }
+
+#ifdef _WIN32
+// $  i686-w64-mingw32-gcc-win32  test.c  -Iinclude   -o out.exe
+#endif
 
 void usb_init() {
     std::thread(device_poll_thread).detach();
