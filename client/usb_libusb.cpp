@@ -38,6 +38,17 @@
 
 #include <libusb/libusb.h>
 
+#ifdef _WIN32  // For debugging the context problem (if libusb_init() is
+               // invoked across threads):
+// #include <libusb/libusbi.h> // needs config.h from -I
+#endif
+
+#ifdef _WIN32
+#include <dbt.h>
+#include <initguid.h>
+#include <usbiodef.h>
+#endif
+
 #include <android-base/file.h>
 #include <android-base/logging.h>
 #include <android-base/stringprintf.h>
@@ -45,6 +56,9 @@
 #include <android-base/thread_annotations.h>
 
 #include "adb.h"
+#ifdef _WIN32
+#include "adb_trace.h"
+#endif
 #include "adb_utils.h"
 #include "fdevent/fdevent.h"
 #include "transfer_id.h"
@@ -54,6 +68,11 @@ using namespace std::chrono_literals;
 
 using android::base::ScopedLockAssertion;
 using android::base::StringPrintf;
+
+#ifdef _WIN32
+#define WM_DEVICELIST (WM_USER + 98)
+#define WM_DEVICECOUNT (WM_USER + 99)
+#endif
 
 #define LOG_ERR(out, fmt, ...)                                               \
     do {                                                                     \
@@ -952,7 +971,7 @@ static void device_connected(libusb_device* device) {
                 continue;
             }
         }
-
+  
         process_device(device);
         if (--connecting_devices == 0) {
             adb_notify_device_scan_complete();
@@ -1025,13 +1044,322 @@ static LIBUSB_CALL int hotplug_callback(libusb_context*, libusb_device* device,
 
 namespace libusb {
 
-void usb_init() {
-    VLOG(USB) << "initializing libusb...";
-    int rc = libusb_init(nullptr);
+constexpr uint16_t kUsbAccessoryVendorId = 0x18D1;
+constexpr uint16_t kUsbAccessoryAlternateVendorId = 0x04e8;
+
+// Product IDs for the devices in Android Accessory (AoA) mode.
+constexpr uint16_t kUsbAccessoryProductId = 0x2D00;
+constexpr uint16_t kUsbAccessoryAdbProductId = 0x2D01;
+
+// Product ID of a pixel family device in ADB mode is 0x4EEX.
+constexpr uint16_t kGenericNexusProductId = 0x4EE0;
+
+// Some Zuma Starcams have the following product ID after reboot.
+constexpr uint16_t kCrocusAlternateProductId = 0x6862;
+
+// USB accessory interface number
+constexpr int kStarcamUsbAccessInterface = 0;
+
+// End point for bulk reads.
+constexpr uint8_t kUsbEndpointBulkIn = 0x81;
+
+// End point for bulk writes.
+constexpr uint8_t kUsbEndpointBulkOut = 0x01;
+
+#ifdef _WIN32
+CRITICAL_SECTION cs;
+volatile unsigned short count;
+#endif
+libusb_context* context_saved;
+
+// Accessed only from the hidden window message loop thread
+std::set<std::string>& devices_hwnd = *new std::set<std::string>();
+
+// Accessed only from the libusb-dedicated polling thread
+std::set<std::string>& devices_poll = *new std::set<std::string>();
+
+// Retrieves serial number string from the device.
+std::string GetSerialNumber(libusb_device* device, libusb_device_handle* device_handle) {
+    libusb_device_descriptor device_desc;
+    int result = libusb_get_device_descriptor(device, &device_desc);
+    if (result != LIBUSB_SUCCESS) {
+        LOG(WARNING) << __func__ << " libusb_get_device_descriptor() failed!";
+        return "error";
+    }
+
+    // Taking in at most the first 31 characters of the serial number.
+    constexpr int kMaxSerialNumberLength = 32;
+    unsigned char temp_buffer[kMaxSerialNumberLength];
+    int string_len = libusb_get_string_descriptor_ascii(device_handle, device_desc.iSerialNumber,
+                                                        temp_buffer, sizeof(temp_buffer));
+    if (string_len <= 0) {
+        LOG(WARNING) << __func__ << " libusb_get_string_descriptor() failed!";
+        return "unable to read serial";
+    }
+
+    return std::string(reinterpret_cast<char*>(temp_buffer), static_cast<size_t>(string_len));
+}
+
+// Opens device handle, retrieves the serial number and closes the handle.
+// Use this method if the device handle is not already open to be able to read
+// serial number.
+// TBD: Needs to be constrained to be invoked on the libusb-dedicated thread
+// (power_notification_thread)
+std::string GetSerialNumber(libusb_device* device) {
+    libusb_device_handle* handle;
+    const int code = libusb_open(device, &handle);
+    if (code < 0) {
+        std::string err = libusb_strerror(static_cast<libusb_error>(code));
+        LOG(WARNING) << __func__ << "  " << err.c_str();  // Will return
+        // Access Denied (Insufficent permissions) from libusb if invoked on
+        // the wrong thread.
+        return err;
+    }
+    std::string serial_number = GetSerialNumber(device, handle);
+    libusb_close(handle);
+    return serial_number;
+}
+
+std::map<std::string, libusb_device*>* libusb_get_device_list_from_polling_thread() {
+    libusb_device** list;
+#ifdef _WIN32
+    EnterCriticalSection(&cs);
+#endif
+    libusb_context* context_ = context_saved;  // nullptr;
+#ifdef _WIN32
+    LeaveCriticalSection(&cs);
+#endif
+    int device_count = libusb_get_device_list(context_, &list);
+    std::map<std::string, libusb_device*>* m = new std::map<std::string, libusb_device*>();
+    for (int i = 0; i < device_count; ++i) {
+        libusb_device* device = list[i];
+        libusb_device_descriptor device_desc;
+        int result = libusb_get_device_descriptor(device, &device_desc);
+        if (result != LIBUSB_SUCCESS) {
+            LOG(ERROR) << "USB device found. Unable to read device descriptor. ";
+            continue;
+        }
+
+        uint16_t vendor_id = device_desc.idVendor;
+        uint16_t product_id = device_desc.idProduct;
+        if (vendor_id != kUsbAccessoryVendorId && vendor_id != kUsbAccessoryAlternateVendorId) {
+            continue;
+        }
+
+        // Ignore non-Pixel family devices.
+        if ((product_id & 0xFFF0) != kGenericNexusProductId &&
+            product_id != kUsbAccessoryProductId && product_id != kUsbAccessoryAdbProductId &&
+            product_id != kCrocusAlternateProductId) {
+            continue;
+        }
+
+        std::string serial_number =
+                GetSerialNumber(device);  // can yield 'Access denied (insufficient permissions)'
+
+        LOG(INFO) << __func__ << " map-size:" << m->size() << " push_back()" << serial_number;
+        (*m)[serial_number] = device;
+    }
+    return m;
+}
+
+std::string* libusb_get_device_str_from_polling_thread() {
+    libusb_device** list;
+#ifdef _WIN32
+    EnterCriticalSection(&cs);
+#endif
+    libusb_context* context_ = context_saved;
+#ifdef _WIN32
+    LeaveCriticalSection(&cs);
+#endif
+    int device_count = libusb_get_device_list(context_, &list);
+    for (int i = 0; i < device_count; ++i) {
+        libusb_device* device = list[i];
+        libusb_device_descriptor device_desc;
+        int result = libusb_get_device_descriptor(device, &device_desc);
+        if (result != LIBUSB_SUCCESS) {
+            LOG(ERROR) << "USB device found. Unable to read device descriptor. ";
+            continue;
+        }
+
+        uint16_t vendor_id = device_desc.idVendor;
+        uint16_t product_id = device_desc.idProduct;
+        if (vendor_id != kUsbAccessoryVendorId && vendor_id != kUsbAccessoryAlternateVendorId) {
+            continue;
+        }
+
+        // Ignore non-Pixel family devices.
+        if ((product_id & 0xFFF0) != kGenericNexusProductId &&
+            product_id != kUsbAccessoryProductId && product_id != kUsbAccessoryAdbProductId &&
+            product_id != kCrocusAlternateProductId) {
+            continue;
+        }
+
+        std::string serial_number = GetSerialNumber(device);
+
+        LOG(INFO) << __func__ << " " << serial_number;
+        return serial_number.size() ? new std::string(serial_number) : nullptr;
+        // TODO: free
+    }
+    return nullptr;
+}
+
+void libusb_handle_events_hwnd() {
+    libusb_device** list;
+#ifdef _WIN32
+    EnterCriticalSection(&cs);
+#endif
+    libusb_context* context_ = context_saved;
+#ifdef _WIN32
+    LeaveCriticalSection(&cs);
+#endif
+    int device_count = libusb_get_device_list(context_, &list);
+    for (int i = 0; i < device_count; ++i) {
+        libusb_device* device = list[i];
+        libusb_device_descriptor device_desc;
+        int result = libusb_get_device_descriptor(device, &device_desc);
+        if (result != LIBUSB_SUCCESS) {
+            LOG(ERROR) << "USB device found. Unable to read device descriptor. ";
+            continue;
+        }
+
+        uint16_t vendor_id = device_desc.idVendor;
+        uint16_t product_id = device_desc.idProduct;
+        if (vendor_id != kUsbAccessoryVendorId && vendor_id != kUsbAccessoryAlternateVendorId) {
+            continue;
+        }
+
+        // Ignore non-Pixel family devices.
+        if ((product_id & 0xFFF0) != kGenericNexusProductId &&
+            product_id != kUsbAccessoryProductId && product_id != kUsbAccessoryAdbProductId &&
+            product_id != kCrocusAlternateProductId) {
+            continue;
+        }
+
+        std::string serial_number = GetSerialNumber(device);
+
+        if (devices_hwnd.end() == devices_hwnd.find(serial_number)) {
+            devices_hwnd.insert(serial_number);
+        }
+    }
+}
+
+#ifdef _WIN32
+// USB hotplug: Piggy-backing usb notifications atop the existing
+// power notification (that employs an existing hidden window loop).
+static LRESULT CALLBACK _notify_wnd_proc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
+    switch (uMsg) {
+        case WM_DEVICECOUNT: {
+            std::map<std::string, libusb_device*>* m_from_polling_thread =
+                    (std::map<std::string, libusb_device*>*)(lParam);
+            if (m_from_polling_thread->size()) {
+                LOG(INFO) << __func__ << " hwnd: " << hwnd
+                          << " received m_from_polling_thread->size():"
+                          << m_from_polling_thread->size();
+                std::map<std::string, libusb_device*>::iterator
+                        iter = m_from_polling_thread->begin(),
+                        iter_end = m_from_polling_thread->end();
+                for (; iter_end != iter; ++iter) {
+                    LOG(INFO) << (*iter).first << ":" << (*iter).second;
+                }
+                delete m_from_polling_thread;
+            } else {
+                LOG(INFO) << __func__;
+            }
+        } break;
+        case WM_DEVICELIST: {
+            std::string* ser_from_polling_thread = (std::string*)(lParam);
+            if (ser_from_polling_thread) {
+                LOG(INFO) << __func__ << " " << ser_from_polling_thread->c_str();
+                delete ser_from_polling_thread;
+            } else {
+                LOG(INFO) << __func__;
+            }
+        } break;
+        case WM_DEVICECHANGE:
+            assert(0 == lParam);
+            if (wParam == DBT_DEVNODES_CHANGED) {  // Device was added or removed.
+
+                LOG(INFO) << __func__ << " DBT_DEVNODES_CHANGED (device added or removed) "
+                          << __LINE__;
+                libusb_context* context(nullptr);
+                EnterCriticalSection(&cs);
+                context = context_saved;
+                LeaveCriticalSection(&cs);
+
+                libusb_device** list;
+                ssize_t device_count = libusb_get_device_list(context, &list);
+                LOG(INFO) << __func__ << " device-count: " << device_count;
+                if (device_count < 0) {
+                    LOG(INFO) << __func__ << " no devices " << __LINE__;
+                }
+                for (ssize_t i = 0; i < device_count; ++i) {
+                    libusb_device* device(list[i]);
+                    struct libusb_device_descriptor dev;
+                    int rc = libusb_get_device_descriptor(device, &dev);
+
+                    if (rc < 0) {
+                        LOG(INFO) << __func__;
+                    }
+                    libusb_handle_events_hwnd();
+                }
+                LOG(INFO) << __func__ << " " << devices_hwnd.size();
+
+                // Advantage of a set<> is that it's already sorted, so there's
+                // no need to run sort() (for a vector<>) prior to using
+                // set_difference()
+                std::set<std::string>::iterator iter = devices_hwnd.begin(),
+                                                iter_end = devices_hwnd.end();
+                std::string msg;
+                for (; iter_end != iter; ++iter) {
+                    msg += *iter;
+                    msg += ",";
+                }
+                LOG(INFO) << __func__ << " " << msg.c_str();
+
+                libusb_free_device_list(list, 1);
+            } else {
+                LOG(INFO) << __func__ << " default " << __LINE__;
+            }
+            break;
+    }
+    return DefWindowProcW(hwnd, uMsg, wParam, lParam);
+}
+
+struct usb_cb_t {  // Can consider adding tid to
+    // the state, in case we want to support adding
+    // a testcase that validates that there's no
+    // thread contention (all notifications can flow
+    // through the UI thread, whereas state management/validation
+    // should be done on a secondary thread (with an appropriate
+    // synchronization, of course).
+    HWND hwnd;
+    HDEVNOTIFY hNotify;
+    unsigned char className[255];
+};
+
+struct usb_cb_t usb_cb;
+
+static void _power_notification_thread() {  // Invoke libusb functions ONLY from this thread!
+    // This uses a thread with its own window message pump to get power
+    // notifications. If adb runs from a non-interactive service account, this
+    // might not work (not sure). If that happens to not work, we could use
+    // heavyweight WMI APIs to get power notifications. But for the common case
+    // of a developer's interactive session, a window message pump is more
+    // appropriate.
+    // D("Created power notification thread");
+    LOG(INFO) << __func__ << " Created power notification thread";
+
+    libusb_context* context;
+    int rc = libusb_init(&context);
+    EnterCriticalSection(&cs);
+    context_saved = context;
+    LeaveCriticalSection(&cs);
     if (rc != 0) {
         LOG(WARNING) << "failed to initialize libusb: " << libusb_error_name(rc);
         return;
     }
+
+    adb_thread_setname("Power Notifier");
 
     // Register the hotplug callback.
     rc = libusb_hotplug_register_callback(
@@ -1042,16 +1370,252 @@ void usb_init() {
             LIBUSB_CLASS_PER_INTERFACE, hotplug_callback, nullptr, nullptr);
 
     if (rc != LIBUSB_SUCCESS) {
-        LOG(FATAL) << "failed to register libusb hotplug callback";
+        LOG(INFO) << __func__ << " failed to register libusb hotplug callback";
     }
-
+    // Moved to the message handler thread due to context conflict:
     // Spawn a thread for libusb_handle_events.
     std::thread([]() {
         adb_thread_setname("libusb");
         while (true) {
-            libusb_handle_events(nullptr);
+            HWND hwnd = FindWindow(L"PowerNotificationWindow", L"ADB Notification Window");
+            if (!hwnd) {
+                LOG(WARNING) << __func__ << " FindWindow() failed for Power Notification Window!";
+            } else {
+                LOG(INFO) << __func__ << " FindWindow() succeeded";
+            }
+
+            EnterCriticalSection(&cs);
+            // TODO: GetSerial() invoked form a non-libusb thread (any other thread
+            // than the power_window_proc) will result in
+            // Access Denied (Insufficient permissions) originating from libusb.
+            // This is potentially due to the disparity in the context (across)
+            // libusb_init() invoked from multiple contexts.
+            // One possible solution is to use SendMessage() to serialize to that thread.
+
+            // Will be freed on the other end
+            std::map<std::string, libusb_device*>* mdevices =
+                    libusb_get_device_list_from_polling_thread();
+            if (mdevices->size()) {  // Something changed!
+                LOG(INFO) << __func__ << " current snapshot has:" << mdevices->size();
+                LOG(INFO) << __func__ << " count:" << count;
+                if (mdevices->size() != count) {
+                    count = mdevices->size();
+                }
+            }
+            LeaveCriticalSection(&cs);
+
+            std::vector<std::string> vdevices_str;
+            EnterCriticalSection(&cs);
+            std::map<std::string, libusb_device*>::iterator it = mdevices->begin(),
+                                                            it_end = mdevices->end();
+            for (; it_end != it; ++it) {
+                vdevices_str.push_back((*it).first);
+            }
+            LeaveCriticalSection(&cs);
+
+            // Compare with our snapshot: devices_polling
+            std::sort(vdevices_str.begin(), vdevices_str.end());
+
+            std::vector<std::string> added;
+            std::set_difference(vdevices_str.begin(), vdevices_str.end(), devices_poll.begin(),
+                                devices_poll.end(), std::inserter(added, added.begin()));
+
+            std::vector<libusb_device*> new_devices;
+            if (added.size()) {
+                LOG(INFO) << __func__ << " " << added.size();
+                std::vector<std::string>::iterator iter = added.begin(), iter_end = added.end();
+                std::string msg;
+                for (; iter_end != iter; ++iter) {
+                    msg += *iter + " ";
+                    EnterCriticalSection(&cs);
+                    std::map<std::string, libusb_device*>::iterator f_it = mdevices->find(*iter);
+                    if (mdevices->end() != f_it) {
+                        LOG(INFO) << __func__ << " " << (*f_it).second;
+                        device_connected((*f_it).second);
+                    } else {
+                        LOG(INFO) << __func__;
+                    }
+                    LeaveCriticalSection(&cs);
+                }
+                LOG(INFO) << __func__ << " " << msg.c_str();
+            } else {
+                LOG(INFO) << __func__ << " Nothing new";
+            }
+            std::vector<std::string> removed;
+            std::set_difference(devices_poll.begin(), devices_poll.end(), vdevices_str.begin(),
+                                vdevices_str.end(), std::inserter(removed, removed.begin()));
+            if (removed.size()) {
+                LOG(INFO) << __func__ << " " << removed.size();
+                std::vector<std::string>::iterator iter = removed.begin(), iter_end = removed.end();
+                std::string msg;
+                for (; iter_end != iter; ++iter) {
+                    msg += *iter + " ";
+                    EnterCriticalSection(&cs);
+                    std::map<std::string, libusb_device*>::iterator f_it = mdevices->find(*iter);
+                    if (mdevices->end() != f_it) {
+                        LOG(INFO) << __func__ << " " << (*f_it).second;
+                        device_disconnected((*f_it).second);
+                    } else {
+                        LOG(INFO) << __func__;
+                    }
+                    LeaveCriticalSection(&cs);
+                }
+                LOG(INFO) << __func__ << " " << msg.c_str();
+            } else {
+                LOG(INFO) << __func__ << " Nothing removed";
+            }
+
+            // Now update the cache
+            devices_poll.clear();
+            std::vector<std::string>::iterator iter = vdevices_str.begin(),
+                                               iter_end = vdevices_str.end();
+            for (; iter_end != iter; ++iter) {
+                devices_poll.insert(*iter);
+            }
+            LOG(INFO) << __func__ << " " << devices_poll.size();
+
+            if (hwnd) {
+                LPARAM lParam = (LPARAM)mdevices;
+                LRESULT lresult = SendMessage(hwnd, WM_DEVICECOUNT, 0, lParam);
+
+                LOG(INFO) << "returning value from SendMessage(WM_DEVICECOUNT): " << lresult;
+            }
+
+            LOG(INFO) << "*************                                                         "
+                         "*** sleep()****************"
+                      << "                                                           "
+                      << "                                                           ";
+            std::this_thread::sleep_for(5s);
         }
     }).detach();
+
+    // Window class names are process specific.
+    static const WCHAR kPowerNotificationWindowClassName[] =
+            L"PowerNotificationWindow";  // Keep this
+    // unchanged for now, just in case there's some weird use-case where the wndclass name is
+    // is used by any ADB drivers/infra.
+
+    // Get the HINSTANCE corresponding to the module that _notify_wnd_proc
+    // is in (the main module).
+    const HINSTANCE instance = GetModuleHandleW(nullptr);
+    if (!instance) {
+        // This is such a common API call that this should never fail.
+        LOG(FATAL) << "GetModuleHandleW failed: "
+                   << android::base::SystemErrorCodeToString(GetLastError());
+    }
+
+    WNDCLASSEXW wndclass;
+    memset(&wndclass, 0, sizeof(wndclass));
+    wndclass.cbSize = sizeof(wndclass);
+    wndclass.lpfnWndProc = _notify_wnd_proc;
+    wndclass.hInstance = instance;
+    wndclass.lpszClassName = kPowerNotificationWindowClassName;
+    if (!RegisterClassExW(&wndclass)) {
+        LOG(FATAL) << "RegisterClassExW failed: "
+                   << android::base::SystemErrorCodeToString(GetLastError());
+    }
+
+    if (!CreateWindowExW(WS_EX_NOACTIVATE, kPowerNotificationWindowClassName,
+                         L"ADB Notification Window", WS_POPUP, 0, 0, 0, 0, nullptr, nullptr,
+                         instance, nullptr)) {
+        LOG(FATAL) << "CreateWindowExW failed: "
+                   << android::base::SystemErrorCodeToString(GetLastError());
+    }
+
+    // We need to also register for WM_DEVICECHANGE callback notifications when
+    // USB bulk devices arfe added and removed.
+    DEV_BROADCAST_DEVICEINTERFACE dbi;
+    const size_t dbi_size(sizeof(dbi));
+    // LOG(INFO) << __func__ << " REGISTERING.. " << __LINE__;
+    memset(&dbi, 0, dbi_size);
+    dbi.dbcc_size = dbi_size;
+    dbi.dbcc_devicetype = DBT_DEVTYP_DEVICEINTERFACE;
+    dbi.dbcc_classguid = GUID_DEVINTERFACE_USB_DEVICE;
+
+    // Plan-A part-1: Register for callback notifications when USB bulk devices
+    // are added & removed, without polling.
+    usb_cb.hNotify = RegisterDeviceNotification(usb_cb.hwnd, &dbi, DEVICE_NOTIFY_WINDOW_HANDLE);
+    if (!usb_cb.hNotify) {
+        LOG(INFO) << __func__ << " " << __LINE__;
+        DestroyWindow(usb_cb.hwnd);
+    } else {
+        LOG(INFO) << __func__ << " registered for WM_DEVICECHANGE";
+    }
+
+    MSG msg;
+    while (GetMessageW(&msg, nullptr, 0, 0)) {
+        TranslateMessage(&msg);
+        DispatchMessageW(&msg);
+    }
+
+    // GetMessageW() will return false if a quit message is posted. We don't
+    // do that, but it might be possible for that to occur when logging off or
+    // shutting down. Not a big deal since the whole process will be going away
+    // soon anyway.
+    // D("ADB notification message loop thread exiting");
+    LOG(INFO) << __func__ << " ADB notification message loop thread exiting";
+}
+// $  i686-w64-mingw32-gcc-win32  test.c  -Iinclude   -o out.exe
+#endif
+
+void usb_init() {
+    LOG(INFO) << __func__;
+
+    VLOG(USB) << "initializing libusb...";
+#ifdef _WIN32
+    LOG(INFO) << __func__;
+    if (!InitializeCriticalSectionAndSpinCount(&cs, 0x00000400)) {  // TODO: DeleteCriticalSection()
+        LOG(INFO) << __func__;
+    }
+    LOG(INFO) << __func__;
+#endif
+#ifdef _WIN32
+    EnterCriticalSection(&cs);
+    // stash context with the return value of libusb_init()
+    LeaveCriticalSection(&cs);
+#endif
+
+#ifdef _WIN32
+    LOG(INFO) << __func__
+              << " Spawning power_notification_thread which will do libusb heavy lift..";
+    std::thread(_power_notification_thread).detach();  // ok to call libusb_init() from
+                                                       // this thread, since the context
+                                                       // is shared and reference counted.
+                                                       // All invocations within the process
+                                                       // will share the same context.
+    LOG(INFO) << __func__
+              << " Invoke libusb functions only from the power_notification_thread spawned above!";
+#endif
+    LOG(INFO) << __func__;
+
+#ifndef _WIN32
+    libusb_context* context;
+    int rc = libusb_init(&context);
+    LOG(INFO) << __func__ << " CONTEXT:" << context;
+    // Register the hotplug callback.
+    rc = libusb_hotplug_register_callback(
+            nullptr,
+            static_cast<libusb_hotplug_event>(LIBUSB_HOTPLUG_EVENT_DEVICE_ARRIVED |
+                                              LIBUSB_HOTPLUG_EVENT_DEVICE_LEFT),
+            LIBUSB_HOTPLUG_ENUMERATE, LIBUSB_HOTPLUG_MATCH_ANY, LIBUSB_HOTPLUG_MATCH_ANY,
+            LIBUSB_CLASS_PER_INTERFACE, hotplug_callback, nullptr, nullptr);
+
+    if (rc != LIBUSB_SUCCESS) {
+        // LOG(FATAL) << "failed to register libusb hotplug callback";
+        LOG(INFO) << __func__ << " failed to register libusb hotplug callback";
+    }
+
+    // Spawn a thread for libusb_handle_events.
+    LOG(INFO) << __func__;
+    std::thread([]() {
+        LOG(INFO) << __func__;
+        adb_thread_setname("libusb");
+        LOG(INFO) << __func__;
+        while (true) {
+            std::this_thread::sleep_for(3s);
+        }
+    }).detach();
+#endif
 }
 
 }  // namespace libusb
