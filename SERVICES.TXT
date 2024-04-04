@@ -187,11 +187,12 @@ remount:
     This request may not succeed on certain builds which do not allow
     that.
 
-dev:<path>
+dev[,raw]:<path>
     Opens a device file and connects the client directly to it for
     read/write purposes. Useful for debugging, but may require special
     privileges and thus may not run on all devices. <path> is a full
-    path from the root of the filesystem.
+    path from the root of the filesystem. The raw option can be used
+    for opening a tty in raw mode.
 
 tcp:<port>
     Tries to connect to tcp port <port> on localhost.
