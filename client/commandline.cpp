@@ -119,6 +119,7 @@ static void help() {
         "       localreserved:<unix domain socket name>\n"
         "       localfilesystem:<unix domain socket name>\n"
         "       dev:<character device name>\n"
+        "       dev,raw:<character device name> (open device in raw mode)\n"
         "       jdwp:<process pid> (remote only)\n"
         "       vsock:<CID>:<port> (remote only)\n"
         "       acceptfd:<fd> (listen only)\n"

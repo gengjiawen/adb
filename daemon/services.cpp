@@ -28,6 +28,7 @@
 #include <sys/ioctl.h>
 #include <sys/socket.h>
 #include <sys/un.h>
+#include <termios.h>
 #include <unistd.h>
 
 #include <thread>
@@ -320,8 +321,33 @@ unique_fd daemon_service_to_fd(std::string_view name, atransport* transport) {
     }
 #endif
 
-    if (android::base::ConsumePrefix(&name, "dev:")) {
-        return unique_fd{unix_open(name, O_RDWR | O_CLOEXEC)};
+    if (android::base::ConsumePrefix(&name, "dev")) {
+      auto args_path = android::base::Split(std::string(name), ":");
+      if (args_path.size() < 2) {
+        return unique_fd{};
+      }
+
+      android::base::unique_fd fd(unix_open(args_path[1], O_RDWR | O_CLOEXEC));
+      if (fd == -1) {
+        return unique_fd{};
+      }
+
+      for (const std::string& arg : android::base::Split(args_path[0], ",")) {
+        if (arg == "raw") {
+          termios tattr;
+
+          if (tcgetattr(fd.get(), &tattr) == -1) {
+            return unique_fd{};
+          }
+
+          cfmakeraw(&tattr);
+          if (tcsetattr(fd.get(), TCSADRAIN, &tattr) == -1) {
+            return unique_fd{};
+          }
+        }
+      }
+
+      return fd;
     } else if (android::base::ConsumePrefix(&name, "jdwp:")) {
         pid_t pid;
         if (!ParseUint(&pid, name)) {
