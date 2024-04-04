@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71c24c53_d4bada58",
+        "filename": "SERVICES.TXT",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-04T17:16:30Z",
+      "side": 1,
+      "message": "since you\u0027re here, and `dev:` almost got removed in the past, could you add a motivating example for each variant to the docs here?",
+      "revId": "633cad54fbb994d35c3aa0b74de6876db2f1caff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0b2965f_275a2d27",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-04T17:16:30Z",
+      "side": 1,
+      "message": "probably better as two lines, so you can explain the difference?\n\n(dev is already missing from packages/modules/adb/docs/user/adb.1.md but we should probably fix that at the same time [see my later \"this almost got deleted because no-one knew what it was/who was using it\" story!])",
+      "revId": "633cad54fbb994d35c3aa0b74de6876db2f1caff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b24b9ee_944b1628",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2077,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-04T17:16:30Z",
+      "side": 1,
+      "message": "(you\u0027ll want something like this for your new feature too, so a new client doesn\u0027t confuse an old daemon...)",
+      "revId": "633cad54fbb994d35c3aa0b74de6876db2f1caff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe565309_a385b6be",
+        "filename": "daemon/services.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-04T17:16:30Z",
+      "side": 1,
+      "message": "unique_fd here instead",
+      "revId": "633cad54fbb994d35c3aa0b74de6876db2f1caff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "231a671f_b4aae086",
+        "filename": "daemon/services.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-04T17:16:30Z",
+      "side": 1,
+      "message": "add error checking? (or just explicitly have \"dev:\" and \"dev-raw:\"?)",
+      "revId": "633cad54fbb994d35c3aa0b74de6876db2f1caff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
