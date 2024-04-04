@@ -16,6 +16,7 @@
 
 #define TRACE_TAG ADB
 
+#include "client/adb_client.h"
 #include "adb_utils.h"
 #include "adb_unique_fd.h"
 
@@ -265,6 +266,17 @@ bool forward_targets_are_valid(const std::string& source, const std::string& des
         int port;
         if (!android::base::ParseInt(&dest[4], &port) || port <= 0) {
             *error = android::base::StringPrintf("Invalid destination port: '%s'", &dest[4]);
+            return false;
+        }
+    }
+
+    if (android::base::StartsWith(dest, "dev-raw:")) {
+        auto features = adb_get_feature_set(error);
+        if (!features) {
+            return false;
+        }
+        if (!CanUseFeature(*features, kFeatureDevRaw)) {
+            *error = "dev-raw is not supported by the device";
             return false;
         }
     }
