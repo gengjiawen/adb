@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec422998_0fe5f675",
+        "filename": "SERVICES.TXT",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1878680
+      },
+      "writtenOn": "2024-04-05T07:14:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71c24c53_d4bada58",
+      "revId": "633cad54fbb994d35c3aa0b74de6876db2f1caff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c0b2965f_275a2d27",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-04-04T17:16:30Z",
       "side": 1,
       "message": "probably better as two lines, so you can explain the difference?\n\n(dev is already missing from packages/modules/adb/docs/user/adb.1.md but we should probably fix that at the same time [see my later \"this almost got deleted because no-one knew what it was/who was using it\" story!])",
+      "revId": "633cad54fbb994d35c3aa0b74de6876db2f1caff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "207c81dc_3e803631",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1878680
+      },
+      "writtenOn": "2024-04-05T07:14:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0b2965f_275a2d27",
       "revId": "633cad54fbb994d35c3aa0b74de6876db2f1caff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -52,6 +88,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ec2f1aa_26607aa1",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2077,
+      "author": {
+        "id": 1878680
+      },
+      "writtenOn": "2024-04-05T07:14:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b24b9ee_944b1628",
+      "revId": "633cad54fbb994d35c3aa0b74de6876db2f1caff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fe565309_a385b6be",
@@ -69,6 +123,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0ed74d1_016c3b12",
+        "filename": "daemon/services.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1878680
+      },
+      "writtenOn": "2024-04-05T07:14:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe565309_a385b6be",
+      "revId": "633cad54fbb994d35c3aa0b74de6876db2f1caff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "231a671f_b4aae086",
@@ -82,6 +154,24 @@
       "writtenOn": "2024-04-04T17:16:30Z",
       "side": 1,
       "message": "add error checking? (or just explicitly have \"dev:\" and \"dev-raw:\"?)",
+      "revId": "633cad54fbb994d35c3aa0b74de6876db2f1caff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e9d5035_59c0d45b",
+        "filename": "daemon/services.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1878680
+      },
+      "writtenOn": "2024-04-05T07:14:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "231a671f_b4aae086",
       "revId": "633cad54fbb994d35c3aa0b74de6876db2f1caff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
