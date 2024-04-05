@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76f48875_ed0a8ad6",
+        "filename": "daemon/jdwp_service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-05T18:32:51Z",
+      "side": 1,
+      "message": "or just `maxPayload \u003d min(maxPayload, t-\u003eget_max_payload());`?",
+      "revId": "ed060c61eb2fccf81793edbe1e7958c9ce8d6ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d87a8077_4b154c74",
+        "filename": "daemon/jdwp_service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-05T18:32:51Z",
+      "side": 1,
+      "message": "do we expect to have so many trackers that it\u0027s actually worth doing this just once and sending the same result to all of them? or should we just move this inside a single size-process-enqueue loop, and potentially send a different result to each tracker? (seems like \"one of each kind of tracker\" is the realistic limit?)",
+      "revId": "ed060c61eb2fccf81793edbe1e7958c9ce8d6ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

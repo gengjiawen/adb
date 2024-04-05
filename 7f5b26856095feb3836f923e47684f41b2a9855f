@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb2f30e0_1ebf311d",
+        "filename": "daemon/jdwp_service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-05T18:32:51Z",
+      "side": 0,
+      "message": "1KiB/2KiB were just arbitrary then?",
+      "revId": "7f5b26856095feb3836f923e47684f41b2a9855f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
