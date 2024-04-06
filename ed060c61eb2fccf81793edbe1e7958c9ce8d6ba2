@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "28b56441_d0a78303",
+        "filename": "daemon/jdwp_service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-04-06T02:18:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76f48875_ed0a8ad6",
+      "revId": "ed060c61eb2fccf81793edbe1e7958c9ce8d6ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d87a8077_4b154c74",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-04-05T18:32:51Z",
       "side": 1,
       "message": "do we expect to have so many trackers that it\u0027s actually worth doing this just once and sending the same result to all of them? or should we just move this inside a single size-process-enqueue loop, and potentially send a different result to each tracker? (seems like \"one of each kind of tracker\" is the realistic limit?)",
+      "revId": "ed060c61eb2fccf81793edbe1e7958c9ce8d6ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0216b3e_ae6c0a89",
+        "filename": "daemon/jdwp_service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-04-06T02:18:56Z",
+      "side": 1,
+      "message": "It would be rare to have multiple trackers. Usually you have one per IDE and most of the time people have Studio or AswB or Visual Studio plugin running.\n\nOnly very old devices use `MAX_PAYLOAD_V1` and this is not the direction the data is going (this is going from adbd to adb server). All our users are using newer version of ADB on their workstation able to use `MAX_PAYLOAD` (1MiB). In the large majority of case, I expect it to be a win to create the payload only once.",
+      "parentUuid": "d87a8077_4b154c74",
       "revId": "ed060c61eb2fccf81793edbe1e7958c9ce8d6ba2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }

@@ -16,6 +16,24 @@
       "message": "1KiB/2KiB were just arbitrary then?",
       "revId": "7f5b26856095feb3836f923e47684f41b2a9855f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be7c7f32_26660dfc",
+        "filename": "daemon/jdwp_service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-04-06T02:18:56Z",
+      "side": 0,
+      "message": "Pre-2015 devices used 4KiB maxpayload (aosp/159800). Why here the limit was 1KiB (and 2KiB for protobuf which consumes less bandwidth), I have no idea.\n\nWhy did they decide to not break down the std::string if it is too big, and repeatedly call `t-\u003epeer-\u003eenqueue`, I have no idea. Could probably be a follow up fix.",
+      "parentUuid": "bb2f30e0_1ebf311d",
+      "revId": "7f5b26856095feb3836f923e47684f41b2a9855f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
