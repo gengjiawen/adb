@@ -125,6 +125,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f246d074_7c81ec3d",
+        "filename": "client/line_printer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1067098
+      },
+      "writtenOn": "2024-04-09T02:13:22Z",
+      "side": 1,
+      "message": "Yeah, this is now providing the implementation of fwrite. Updated.",
+      "parentUuid": "61a43abd_dc5452dd",
+      "revId": "e3646526b609f2c1ebe786b723a2da64a92e9372",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cb1d4cca_50d53685",
@@ -138,6 +156,24 @@
       "writtenOn": "2024-03-29T15:23:34Z",
       "side": 1,
       "message": "...this?",
+      "revId": "e3646526b609f2c1ebe786b723a2da64a92e9372",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a5a54f0_67ea4438",
+        "filename": "client/line_printer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1067098
+      },
+      "writtenOn": "2024-04-09T02:13:22Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "cb1d4cca_50d53685",
       "revId": "e3646526b609f2c1ebe786b723a2da64a92e9372",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -159,6 +195,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b3b5fc6_d75b0afc",
+        "filename": "client/line_printer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1067098
+      },
+      "writtenOn": "2024-04-09T02:13:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af2c0def_43105d96",
+      "revId": "e3646526b609f2c1ebe786b723a2da64a92e9372",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "92cf83b9_ff8dda6f",
@@ -176,6 +230,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d405a53_24eca1d9",
+        "filename": "client/line_printer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1067098
+      },
+      "writtenOn": "2024-04-09T02:13:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92cf83b9_ff8dda6f",
+      "revId": "e3646526b609f2c1ebe786b723a2da64a92e9372",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8bad92fc_db7189d1",
@@ -189,6 +261,24 @@
       "writtenOn": "2024-03-29T15:23:34Z",
       "side": 1,
       "message": "not needed if we\u0027re unbuffered?",
+      "revId": "e3646526b609f2c1ebe786b723a2da64a92e9372",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fffa996_257efae0",
+        "filename": "client/line_printer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1067098
+      },
+      "writtenOn": "2024-04-09T02:13:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8bad92fc_db7189d1",
       "revId": "e3646526b609f2c1ebe786b723a2da64a92e9372",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
