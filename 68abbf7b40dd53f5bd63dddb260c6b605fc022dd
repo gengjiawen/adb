@@ -16,6 +16,24 @@
       "message": "you need a `:` for it to recognize that there are two bugs here.\n\nthough actually i\u0027d drop the 329177896 bug, since it\u0027s a fastboot bug that led to the filing of the 333535981 adb bug (which itself refers to the fastboot bug anyway). it\u0027s confusing/distracting to link to the less relevant duplicate (especially as the _first_ bug linked to!).",
       "revId": "68abbf7b40dd53f5bd63dddb260c6b605fc022dd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f64445d_3a93d03f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1579231
+      },
+      "writtenOn": "2024-04-15T19:54:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5266ba96_f52a37ae",
+      "revId": "68abbf7b40dd53f5bd63dddb260c6b605fc022dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
