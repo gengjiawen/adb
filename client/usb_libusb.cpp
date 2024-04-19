@@ -38,6 +38,13 @@
 
 #include <libusb/libusb.h>
 
+#ifdef _WIN32
+#include <dbt.h>
+#include <initguid.h>
+#include <usbiodef.h>
+#include <windows.h>
+#endif
+
 #include <android-base/file.h>
 #include <android-base/logging.h>
 #include <android-base/stringprintf.h>
@@ -45,6 +52,9 @@
 #include <android-base/thread_annotations.h>
 
 #include "adb.h"
+#ifdef _WIN32
+#include "adb_trace.h"
+#endif
 #include "adb_utils.h"
 #include "fdevent/fdevent.h"
 #include "transfer_id.h"
@@ -54,6 +64,13 @@ using namespace std::chrono_literals;
 
 using android::base::ScopedLockAssertion;
 using android::base::StringPrintf;
+
+#ifdef _NEVER  // For now, suppress hotplug detection (for reviewer/readability sake)
+#ifdef _WIN32
+#define WM_DEVICELIST (WM_USER + 98)
+#define WM_DEVICECOUNT (WM_USER + 99)
+#endif
+#endif
 
 #define LOG_ERR(out, fmt, ...)                                               \
     do {                                                                     \
@@ -891,8 +908,143 @@ static void process_device(libusb_device* device_raw) {
     VLOG(USB) << "constructed LibusbConnection for device " << connection->serial_ << " ("
               << device_address << ")";
 
-    register_usb_transport(connection, connection->serial_.c_str(), device_address.c_str(), true);
+    register_usb_transport(connection, connection->serial_.c_str(), device_address.c_str(),
+                           true  // initially set to kCsOffline
+    );
 }
+
+#ifdef _WIN32  // Will move whatever is relevant over to sysdeps_win32
+typedef struct _SP_DEVICE_INTERFACE_DATA {
+    DWORD cbSize;
+    GUID InterfaceClassGuid;
+    DWORD Flags;
+    ULONG_PTR Reserved;
+} SP_DEVICE_INTERFACE_DATA, *PSP_DEVICE_INTERFACE_DATA;
+
+typedef struct _SP_DEVINFO_DATA {
+    DWORD cbSize;
+    GUID ClassGuid;
+    DWORD DevInst;
+    ULONG_PTR Reserved;
+} SP_DEVINFO_DATA, *PSP_DEVINFO_DATA;
+
+typedef PVOID HDEVINFO;
+#define DIGCF_DEVICEINTERFACE 0x00000010
+#define DIGCF_PRESENT 0x00000002
+
+typedef unsigned long DWORD;
+
+typedef HDEVINFO (*LPFNGCD)(LPGUID, PCWSTR, HWND, DWORD);
+
+typedef HDEVINFO WINAPI (*LPFNGC)(LPGUID, PCTSTR, HWND, DWORD);
+typedef BOOL(WINAPI* LPFNED)(HDEVINFO, PSP_DEVINFO_DATA, LPGUID, DWORD, PSP_DEVICE_INTERFACE_DATA);
+typedef BOOL(WINAPI* LPFNEDI)(HDEVINFO, DWORD, PSP_DEVINFO_DATA);
+typedef DWORD CONFIGRET;
+typedef DWORD DEVNODE, DEVINST;
+typedef DEVNODE *pDEVNODE, *PDEVINST;
+typedef DWORD (*LPFNGP)(PDEVINST, DEVINST, ULONG);
+typedef DWORD (*LPFNGDIW)(DEVINST, LPSTR, ULONG, ULONG);
+
+// Option 1: #include "cfgmgr32.h" would normally allow linkage (associated cfgmgr32.lib) with the
+// dynamically linked library cfgmgr32.dll - however MS-specific name mangling forces the need for a
+// stub DLL (link AdbWinApi.dll) that exports the following two extern C exports:
+//    - __dllexport__ unsigned long fh_for_serial(const std::string serial)
+//    - __dllexport__ void fh_for_serial(std::map<const std::string serial, unsigned long fh>&)
+// Option 2: Alternative would be to LoadLibrary()/GetProcAddress() however the signature/invocation
+// is very picky (partially done below) Option 3: If there's any way for mingw/soong to facilitate
+// build-time linkage, that would be *ideal* (at least for 64-bit config). windows_x86_64: {
+//    enabled: true,
+//     dist: {
+//       dir: "libadb_crypto_defaults/windows/x86_64",
+//     },
+//    host_ldlibs: [
+// error:
+// "windows_x86_64": host_ldlibs: Host library `-lcfgmgr32` not available
+//        "-lcfgmgr32",
+//   ],
+// },
+void get_usb_descriptors() {
+    HINSTANCE hDLL = LoadLibrary(L"setupapi.dll");
+    LPFNGC lpfngc;
+    LPFNGCD lpfngcd =
+            (LPFNGCD)GetProcAddress(GetModuleHandle(TEXT("setupapi.dll")), "SetupDiGetClassDevsW");
+    LPFNED lpfned = (LPFNED)GetProcAddress(GetModuleHandle(TEXT("setupapi.dll")),
+                                           "SetupDiEnumDeviceInterfaces");
+    LPFNEDI lpfnedi =
+            (LPFNEDI)GetProcAddress(GetModuleHandle(TEXT("setupapi.dll")), "SetupDiEnumDeviceInfo");
+    LPFNGP lpfngp = (LPFNGP)GetProcAddress(GetModuleHandle(TEXT("CfgMgr32.dll")), "CM_Get_Parent");
+    LPFNGDIW lpfngdi =
+            (LPFNGDIW)GetProcAddress(GetModuleHandle(TEXT("CfgMgr32.dll")), "CM_Get_Device_IDW");
+    if (hDLL) {
+        LOG(INFO) << __func__;
+        lpfngc = (LPFNGC)GetProcAddress(hDLL,
+#ifdef UNICODE
+                                        "SetupDiGetClassDevsW"
+#else
+                                        "SetupDiGetClassDevsA"
+#endif
+        );
+        if (!lpfngc) {
+            LOG(INFO) << __func__;
+            FreeLibrary(hDLL);
+            return;
+        } else if (!lpfngcd) {
+            LOG(INFO) << __func__;
+            FreeLibrary(hDLL);
+            return;
+        } else if (!lpfned) {
+            LOG(INFO) << __func__;
+            FreeLibrary(hDLL);
+            return;
+        } else if (!lpfnedi) {
+            LOG(INFO) << __func__;
+            FreeLibrary(hDLL);
+            return;
+        } else if (!lpfngp) {
+            LOG(INFO) << __func__;
+            FreeLibrary(hDLL);
+            return;
+        } else {
+            LOG(INFO) << __func__;
+        }
+
+        // Extract all USB devices present
+        HDEVINFO usbDeviceInfoSet = (*lpfngcd)(const_cast<LPGUID>(&GUID_CLASS_USB_DEVICE), NULL,
+                                               NULL, (DIGCF_PRESENT | DIGCF_DEVICEINTERFACE));
+
+        SP_DEVINFO_DATA deviceData;
+        deviceData.cbSize = sizeof(SP_DEVINFO_DATA);
+
+        for (int i = 0; (*lpfnedi)(usbDeviceInfoSet, i, &deviceData); i++) {
+            LOG(INFO) << __func__ << " " << deviceData.DevInst;
+
+            DEVINST parentDevInst = 0;
+            (*lpfngp)(&parentDevInst, deviceData.DevInst, 0);
+#define CR_SUCCESS 0
+            // if (ret != CR_SUCCESS) {
+            // LOG(INFO) << __func__ << " " << ret;
+            //  }
+            //  else {
+            //  LOG(INFO) << __func__;
+            //  }
+
+            // char deviceId[MAX_PATH];
+            //   (*lpfngdi)(parentDevInst, deviceId, MAX_PATH, 0);
+            //   std::wstring devIdWStr(deviceId);
+
+            // TODO: - convert deviceId to device path
+            //       - Open a handle to the device path
+            //       - extract associated port: SetupDiGetDeviceRegistryProperty()
+            //       - For ADB_test: issue an ioctl using DeviceIoControl()
+            //       - For ADB just return the HANDLE and/or port
+            //         (which will be passed into _fh_to_int()
+            LOG(INFO) << __func__;
+        }
+        LOG(INFO) << __func__;
+    }
+}
+
+#endif
 
 static void device_connected(libusb_device* device) {
 #if defined(__linux__)
@@ -952,7 +1104,7 @@ static void device_connected(libusb_device* device) {
                 continue;
             }
         }
-
+  
         process_device(device);
         if (--connecting_devices == 0) {
             adb_notify_device_scan_complete();
@@ -960,8 +1112,94 @@ static void device_connected(libusb_device* device) {
         libusb_unref_device(device);
     });
     thread.detach();
+#elif defined(_WIN32)
+    libusb_ref_device(device);
+    auto thread = std::thread([device]() {
+        // All of the following is N/A for Windows - we just
+        // need to do the following:
+        // - pass in the serial (extracted earlier by libusb) of the
+        //   interesting device (connected or disconnected)
+        // - invoke OS-specific get_usb_descriptors(serial) that will
+        //   return the associated FILEHANDLE of the Android device (on
+        //   which to listen to)
+        // - convert to fd: _fh_to_int()
+        // https://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/main:packages/modules/adb/sysdeps_win32.cpp;l=167
+        // - do the adb_poll() and adb_read() loop below
+        auto deadline = std::chrono::steady_clock::now() + 1s;
+        int inotify_init = 0;
+        unique_fd infd(inotify_init);
+        if (infd == -1) {
+            PLOG(FATAL) << "failed to create inotify fd";
+        }
+        get_usb_descriptors();
+        LOG(INFO) << __func__;
+        /*
+        // Register the watch first, and then check for accessibility, to avoid a race.
+        // We can't watch the device file itself, as that requires us to be able to access it.
+        if (inotify_add_watch(infd.get(), bus_path.c_str(), IN_ATTRIB) == -1) {
+            PLOG(ERROR) << "failed to register inotify watch on '" << bus_path
+                        << "', falling back to sleep";
+            std::this_thread::sleep_for(std::chrono::seconds(1));
+        } else {*/
+        adb_pollfd pfd = {.fd = infd.get(), .events = POLLIN, .revents = 0};
+
+        while (true) {  // access(device_path.c_str(), R_OK | W_OK) == -1) {
+            auto timeout = deadline - std::chrono::steady_clock::now();
+            if (timeout < 0s) {
+                break;
+            }
+            uint64_t ms = timeout / 1ms;
+
+            int rc = adb_poll(&pfd, 1, ms);
+            if (rc == -1) {
+                if (errno == EINTR) {
+                    continue;
+                } else {
+                    LOG(WARNING) << "timeout expired while waiting for device accessibility";
+                    break;
+                }
+            }
+
+            // This's all N/A - just including it for now to get stuff built.
+            struct inotify_event {
+                int wd;
+                uint32_t mask;
+                uint32_t cookie;
+                uint32_t len;
+                char name[];  // __flexarr;
+            };
+#define NAME_MAX 255
+            union {
+                struct inotify_event ev;
+                char bytes[sizeof(struct inotify_event) + NAME_MAX + 1];
+            } buf;
+
+            rc = adb_read(infd.get(), &buf, sizeof(buf));
+            if (rc == -1) {
+                break;
+            }
+
+            // We don't actually care about the data: we might get spurious events for
+            // other devices on the bus, but we'll double check in the loop condition.
+            continue;
+        }
+        //}
+
+        process_device(device);
+        if (connecting_devices == 0) {  // TODO: decrement connecting_devices
+            LOG(INFO) << __func__;
+            adb_notify_device_scan_complete();
+        }
+        LOG(INFO) << __func__;
+        libusb_unref_device(device);
+    });
+    LOG(INFO) << __func__;
+    thread.detach();
+    LOG(INFO) << __func__;
 #else
+    LOG(INFO) << __func__;
     process_device(device);
+    LOG(INFO) << __func__;
 #endif
 }
 
@@ -1008,7 +1246,6 @@ static void hotplug_thread() {
         });
     }
 }
-
 static LIBUSB_CALL int hotplug_callback(libusb_context*, libusb_device* device,
                                         libusb_hotplug_event event, void*) {
     // We're called with the libusb lock taken. Call these on a separate thread outside of this
@@ -1022,17 +1259,196 @@ static LIBUSB_CALL int hotplug_callback(libusb_context*, libusb_device* device,
     hotplug_queue.Push({event, device});
     return 0;
 }
-
 namespace libusb {
 
-void usb_init() {
-    VLOG(USB) << "initializing libusb...";
-    int rc = libusb_init(nullptr);
-    if (rc != 0) {
-        LOG(WARNING) << "failed to initialize libusb: " << libusb_error_name(rc);
-        return;
+constexpr uint16_t kUsbAccessoryVendorId = 0x18D1;
+constexpr uint16_t kUsbAccessoryAlternateVendorId = 0x04e8;
+
+// Product IDs for the devices in Android Accessory (AoA) mode.
+constexpr uint16_t kUsbAccessoryProductId = 0x2D00;
+constexpr uint16_t kUsbAccessoryAdbProductId = 0x2D01;
+
+// Product ID of a pixel family device in ADB mode is 0x4EEX.
+constexpr uint16_t kGenericNexusProductId = 0x4EE0;
+
+// Some Zuma Starcams have the following product ID after reboot.
+constexpr uint16_t kCrocusAlternateProductId = 0x6862;
+
+// USB accessory interface number
+constexpr int kStarcamUsbAccessInterface = 0;
+
+// End point for bulk reads.
+constexpr uint8_t kUsbEndpointBulkIn = 0x81;
+
+// End point for bulk writes.
+constexpr uint8_t kUsbEndpointBulkOut = 0x01;
+
+#ifdef _WIN32
+#include <mutex>
+CRITICAL_SECTION cs;
+volatile unsigned short count;
+
+std::set<std::string>& serial_set = *new std::set<std::string>();
+volatile bool bConnected = false;
+
+#endif
+libusb_context* context_saved;
+
+// Accessed only from the hidden window message loop thread
+std::set<std::string>& devices_hwnd = *new std::set<std::string>();
+
+// Accessed only from the libusb-dedicated polling thread
+std::set<std::string>& devices_poll = *new std::set<std::string>();
+
+// Retrieves serial number string from the device.
+std::string GetSerialNumber(libusb_device* device, libusb_device_handle* device_handle) {
+    LOG(INFO) << __func__;
+    libusb_device_descriptor device_desc;
+    int result = libusb_get_device_descriptor(device, &device_desc);
+    LOG(INFO) << __func__;
+    if (result != LIBUSB_SUCCESS) {
+        LOG(WARNING) << __func__ << " libusb_get_device_descriptor() failed!";
+        return "error";
     }
 
+    LOG(INFO) << __func__ << " result:" << result;
+    constexpr int kMaxSerialNumberLength = 256;
+    unsigned char temp_buffer[kMaxSerialNumberLength];
+    int string_len = 0;
+    string_len = libusb_get_string_descriptor_ascii(device_handle, device_desc.iSerialNumber,
+                                                    temp_buffer, sizeof(temp_buffer));
+    LOG(INFO) << __func__ << " " << string_len;
+    if (string_len <= 0) {
+        LOG(WARNING) << __func__ << " libusb_get_string_descriptor() failed!";
+        return "unable to read serial";
+    }
+    LOG(INFO) << __func__;
+
+    return std::string(reinterpret_cast<char*>(temp_buffer), static_cast<size_t>(string_len));
+}
+
+// Opens device handle, retrieves the serial number and closes the handle.
+// Use this method if the device handle is not already open to be able to read
+// serial number.
+// TBD: Needs to be constrained to be invoked on the libusb-dedicated thread
+// (power_notification_thread)
+std::string GetSerialNumber(libusb_device* device) {
+    LOG(INFO) << __func__;
+    libusb_device_handle* handle;
+    const int code = libusb_open(device, &handle);
+    LOG(INFO) << __func__;
+    if (code < 0) {
+        LOG(INFO) << __func__;
+        std::string err = libusb_strerror(static_cast<libusb_error>(code));
+        libusb_close(handle);
+        LOG(INFO) << __func__;
+        return "";
+    }
+    LOG(INFO) << __func__;
+    std::string serial_number = GetSerialNumber(device, handle);
+    LOG(INFO) << __func__;
+    libusb_close(handle);
+    return serial_number;
+}
+
+unsigned int libusb_get_device_serial_list_from_polling_thread(std::set<std::string>& devices) {
+    LOG(INFO) << __func__;
+    {
+        LOG(INFO) << __func__;
+        std::lock_guard<std::mutex> lock(usb_handles_mutex);
+        LOG(INFO) << __func__ << usb_handles.size();
+    }
+#ifdef _WIN32
+    if (bConnected) {
+        LOG(INFO) << __func__;
+        return 0;
+    }
+#endif
+    libusb_device** list;
+#ifdef _WIN32
+    EnterCriticalSection(&cs);
+#endif
+    libusb_context* context_ = context_saved;
+#ifdef _WIN32
+    LeaveCriticalSection(&cs);
+#endif
+    LOG(INFO) << __func__;
+    int device_count = libusb_get_device_list(context_, &list);
+    for (int i = 0; i < device_count; ++i) {
+        LOG(INFO) << __func__;
+        libusb_device* device = list[i];
+        libusb_device_descriptor device_desc;
+        int result = libusb_get_device_descriptor(device, &device_desc);
+        if (result != LIBUSB_SUCCESS) {
+            LOG(ERROR) << "USB device found. Unable to read device descriptor. ";
+            continue;
+        }
+
+        uint16_t vendor_id = device_desc.idVendor;
+        uint16_t product_id = device_desc.idProduct;
+        if (vendor_id != kUsbAccessoryVendorId && vendor_id != kUsbAccessoryAlternateVendorId) {
+            continue;
+        }
+
+        // Ignore non-Pixel family devices.
+        LOG(INFO) << __func__;
+        if ((product_id & 0xFFF0) != kGenericNexusProductId &&
+            product_id != kUsbAccessoryProductId && product_id != kUsbAccessoryAdbProductId &&
+            product_id != kCrocusAlternateProductId) {
+            continue;
+        }
+
+        std::string serial_number = GetSerialNumber(device);
+
+#ifdef _WIN32
+        LOG(INFO) << __func__ << " " << devices.size() << " push_back()" << serial_number;
+        std::set<std::string>::iterator it = serial_set.find(serial_number);
+        if (!bConnected && serial_set.end() == it) {  // Found a new one
+            LOG(INFO) << __func__ << " SERIAL:" << serial_number.c_str();
+            {
+                LOG(INFO) << __func__;
+                std::lock_guard<std::mutex> lock(usb_handles_mutex);
+                LOG(INFO) << __func__ << " " << usb_handles.size() << " " << connecting_devices;
+            }
+            device_connected(device);
+            {
+                LOG(INFO) << __func__;
+                std::lock_guard<std::mutex> lock(usb_handles_mutex);
+                ++connecting_devices;
+                LOG(INFO) << __func__ << " " << usb_handles.size() << " " << connecting_devices;
+            }
+            bConnected = true;
+            serial_set.insert(serial_number);
+        } else {
+            LOG(INFO) << __func__;
+        }
+#endif
+
+        devices.insert(serial_number);
+    }
+    LOG(INFO) << __func__;
+    return devices.size();
+}
+
+#ifdef _WIN32
+// USB hotplug: Piggy-backing usb notifications atop the existing
+// power notification (that employs an existing hidden window loop).
+
+// Removed to eliminate confusion (for initial review)
+
+// $  i686-w64-mingw32-gcc-win32  test.c  -Iinclude   -o out.exe
+#endif
+
+#ifdef _WIN32
+static void detect_usb_delta() {
+    {
+        LOG(INFO) << __func__;
+        std::lock_guard<std::mutex> lock(usb_handles_mutex);
+        LOG(INFO) << __func__ << " " << usb_handles.size() << " " << connecting_devices;
+    }
+
+    int rc = libusb_init(nullptr);
+    LOG(INFO) << __func__;
     // Register the hotplug callback.
     rc = libusb_hotplug_register_callback(
             nullptr,
@@ -1042,16 +1458,101 @@ void usb_init() {
             LIBUSB_CLASS_PER_INTERFACE, hotplug_callback, nullptr, nullptr);
 
     if (rc != LIBUSB_SUCCESS) {
-        LOG(FATAL) << "failed to register libusb hotplug callback";
+        LOG(INFO) << __func__ << " failed to register libusb hotplug callback";
+    }
+
+    // Will be freed on the other end
+    LOG(INFO) << __func__ << " OK";
+    std::set<std::string> devices;
+    unsigned int sz = libusb_get_device_serial_list_from_polling_thread(devices);
+    if (devices.size()) {  // Something changed!
+        LOG(INFO) << __func__ << " count:" << count;
+        if (devices.size() > count) {
+            count = devices.size();
+        }
+    }
+    LeaveCriticalSection(&cs);
+
+    // polling thread loop will invoke: adb_notify_device_scan_complete();
+
+    // Now update the cache
+    devices_poll.clear();
+}
+
+static void device_poll_thread() {
+    adb_thread_setname("device poll");
+    LOG(INFO) << __func__;
+    while (true) {
+        LOG(INFO) << __func__;
+        detect_usb_delta();
+        adb_notify_device_scan_complete();
+        // No kick needed on WIN32: kick_disconnected_devices();
+        std::this_thread::sleep_for(10s);
+    }
+}
+#endif
+
+void usb_init() {
+    LOG(INFO) << __func__;
+
+    VLOG(USB) << "initializing libusb...";
+#ifdef _WIN32
+    LOG(INFO) << __func__;
+    if (!InitializeCriticalSectionAndSpinCount(&cs, 0x00000400)) {  // TODO: DeleteCriticalSection()
+        LOG(INFO) << __func__;
+    }
+    LOG(INFO) << __func__;
+#endif
+#ifdef _WIN32
+    EnterCriticalSection(&cs);
+    // stash context with the return value of libusb_init()
+    LeaveCriticalSection(&cs);
+#endif
+
+#ifdef _WIN32
+    LOG(INFO) << __func__
+              << " Spawning power_notification_thread which will do libusb heavy lift..";
+    // HOTPLUG SUPPRESSED (to prevent reviewer/confusion)
+    // std::thread(_power_notification_thread).detach();  // ok to call libusb_init() from
+    // this thread, since the context
+    // is shared and reference counted.
+    // All invocations within the process
+    // will share the same context.
+    LOG(INFO) << __func__
+              << " Invoke libusb functions only from the power_notification_thread spawned above!";
+
+    std::thread(device_poll_thread).detach();
+#endif
+    LOG(INFO) << __func__;
+
+#ifndef _WIN32
+    libusb_context* context;
+    int rc = libusb_init(&context);
+    LOG(INFO) << __func__ << " CONTEXT:" << context;
+    // Register the hotplug callback.
+    rc = libusb_hotplug_register_callback(
+            nullptr,
+            static_cast<libusb_hotplug_event>(LIBUSB_HOTPLUG_EVENT_DEVICE_ARRIVED |
+                                              LIBUSB_HOTPLUG_EVENT_DEVICE_LEFT),
+            LIBUSB_HOTPLUG_ENUMERATE, LIBUSB_HOTPLUG_MATCH_ANY, LIBUSB_HOTPLUG_MATCH_ANY,
+            LIBUSB_CLASS_PER_INTERFACE, hotplug_callback, nullptr, nullptr);
+
+    if (rc != LIBUSB_SUCCESS) {
+        // LOG(FATAL) << "failed to register libusb hotplug callback";
+        LOG(INFO) << __func__ << " failed to register libusb hotplug callback";
     }
 
     // Spawn a thread for libusb_handle_events.
+    LOG(INFO) << __func__;
     std::thread([]() {
+        LOG(INFO) << __func__;
         adb_thread_setname("libusb");
+        LOG(INFO) << __func__;
         while (true) {
-            libusb_handle_events(nullptr);
+            std::this_thread::sleep_for(3s);
         }
     }).detach();
+#endif
 }
 
 }  // namespace libusb

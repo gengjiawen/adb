@@ -481,7 +481,10 @@ cc_binary_host {
             "win_sdk",
         ],
     },
-
+    // compile_multilib: "both",
+    // multilib: {
+    //  lib64: { suffix: "64" },
+    // },
     target: {
         darwin: {
             cflags: [
@@ -496,6 +499,18 @@ cc_binary_host {
                 "AdbWinUsbApi",
             ],
         },
+        // cfgmgr32.dll is 64-bit
+        // windows_x86_64: {
+        //    enabled: true,
+        //     dist: {
+        //       dir: "libadb_crypto_defaults/windows/x86_64",
+        //     },
+        //    host_ldlibs: [
+            // error:
+            // "windows_x86_64": host_ldlibs: Host library `-lcfgmgr32` not available
+        //        "-lcfgmgr32",
+        //   ],
+        // },
     },
 }
 
