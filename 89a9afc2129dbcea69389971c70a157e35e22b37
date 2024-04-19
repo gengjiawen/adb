@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "891a05c1_29a71167",
+        "filename": "daemon/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-19T16:15:47Z",
+      "side": 1,
+      "message": "explain why not?",
+      "revId": "89a9afc2129dbcea69389971c70a157e35e22b37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
