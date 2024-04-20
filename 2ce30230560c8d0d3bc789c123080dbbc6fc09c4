@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8aaac954_4accf836",
+        "filename": "libs/adbconnection/include/adbconnection/process_info.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-20T00:43:19Z",
+      "side": 0,
+      "message": "ah, you were just copying the existing implementation. still might be worth switching to an enum, since the wire format\u0027s changing anyway?",
+      "revId": "2ce30230560c8d0d3bc789c123080dbbc6fc09c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

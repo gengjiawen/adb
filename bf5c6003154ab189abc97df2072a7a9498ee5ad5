@@ -1,0 +1,422 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f14224a_4bb4bd8a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-20T00:43:19Z",
+      "side": 1,
+      "message": "what\u0027s in the apks? shouldn\u0027t we build them from source?",
+      "revId": "bf5c6003154ab189abc97df2072a7a9498ee5ad5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e8b0259_8a51d79d",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 2096,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-20T00:43:19Z",
+      "side": 1,
+      "message": "don\u0027t want a `--proto-text` for debugging, like track-devices?",
+      "revId": "bf5c6003154ab189abc97df2072a7a9498ee5ad5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d64f34f0_85745502",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 2098,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-20T00:43:19Z",
+      "side": 1,
+      "message": "else error_exit()?",
+      "revId": "bf5c6003154ab189abc97df2072a7a9498ee5ad5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53459567_1db4d5c3",
+        "filename": "libs/adbconnection/adbconnection_client.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-20T00:43:19Z",
+      "side": 1,
+      "message": "use the thread safety annotations to tell the compiler that?",
+      "revId": "bf5c6003154ab189abc97df2072a7a9498ee5ad5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd3e03ef_024c31f5",
+        "filename": "libs/adbconnection/adbconnection_client.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-20T00:43:19Z",
+      "side": 1,
+      "message": "fields have",
+      "range": {
+        "startLine": 47,
+        "startChar": 36,
+        "endLine": 47,
+        "endChar": 45
+      },
+      "revId": "bf5c6003154ab189abc97df2072a7a9498ee5ad5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00f83bf3_3d78f891",
+        "filename": "libs/adbconnection/adbconnection_client.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-20T00:43:19Z",
+      "side": 1,
+      "message": "if",
+      "range": {
+        "startLine": 47,
+        "startChar": 10,
+        "endLine": 47,
+        "endChar": 12
+      },
+      "revId": "bf5c6003154ab189abc97df2072a7a9498ee5ad5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0996fef_7f885d20",
+        "filename": "libs/adbconnection/adbconnection_client.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-20T00:43:19Z",
+      "side": 1,
+      "message": "`ssize_t`?",
+      "range": {
+        "startLine": 97,
+        "startChar": 2,
+        "endLine": 97,
+        "endChar": 5
+      },
+      "revId": "bf5c6003154ab189abc97df2072a7a9498ee5ad5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f649e0d1_76aa0be9",
+        "filename": "libs/adbconnection/adbconnection_client.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-20T00:43:19Z",
+      "side": 1,
+      "message": "(if you make `message_size` a `ssize_t`, you shouldn\u0027t need any cast.)",
+      "range": {
+        "startLine": 99,
+        "startChar": 12,
+        "endLine": 99,
+        "endChar": 17
+      },
+      "revId": "bf5c6003154ab189abc97df2072a7a9498ee5ad5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed2feb91_ebe8be83",
+        "filename": "libs/adbconnection/adbconnection_client.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-20T00:43:19Z",
+      "side": 1,
+      "message": "name_changed? (or is this really just something that happens once, taking the process from \"new, anonymous\" to \"named\"?)",
+      "range": {
+        "startLine": 236,
+        "startChar": 37,
+        "endLine": 236,
+        "endChar": 42
+      },
+      "revId": "bf5c6003154ab189abc97df2072a7a9498ee5ad5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b9b0469_ca702126",
+        "filename": "libs/adbconnection/adbconnection_client.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-20T00:43:19Z",
+      "side": 1,
+      "message": "what\u0027s the application/process distinction here?\n\n(or are these two really \"name set\" and \"package set\"?)",
+      "range": {
+        "startLine": 242,
+        "startChar": 29,
+        "endLine": 242,
+        "endChar": 40
+      },
+      "revId": "bf5c6003154ab189abc97df2072a7a9498ee5ad5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8409b90d_20b5d247",
+        "filename": "libs/adbconnection/adbconnection_client.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-20T00:43:19Z",
+      "side": 1,
+      "message": "multiple package names per process?",
+      "range": {
+        "startLine": 244,
+        "startChar": 19,
+        "endLine": 244,
+        "endChar": 32
+      },
+      "revId": "bf5c6003154ab189abc97df2072a7a9498ee5ad5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a66ef4b1_4cd978c3",
+        "filename": "libs/adbconnection/adbconnection_client.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-20T00:43:19Z",
+      "side": 1,
+      "message": "_changed? (since this takes an argument...)",
+      "range": {
+        "startLine": 248,
+        "startChar": 5,
+        "endLine": 248,
+        "endChar": 49
+      },
+      "revId": "bf5c6003154ab189abc97df2072a7a9498ee5ad5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8563cd6b_165057b2",
+        "filename": "libs/adbconnection/adbconnection_client.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-20T00:43:19Z",
+      "side": 1,
+      "message": "(yeah, i\u0027m wondering if these can all be more consistent by use of \"$FOO_set\"...)",
+      "range": {
+        "startLine": 259,
+        "startChar": 29,
+        "endLine": 259,
+        "endChar": 42
+      },
+      "revId": "bf5c6003154ab189abc97df2072a7a9498ee5ad5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77d2a284_b83209df",
+        "filename": "libs/adbconnection/adbconnection_server.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-20T00:43:19Z",
+      "side": 1,
+      "message": "usual `ssize_t` commentary...",
+      "range": {
+        "startLine": 39,
+        "startChar": 2,
+        "endLine": 39,
+        "endChar": 5
+      },
+      "revId": "bf5c6003154ab189abc97df2072a7a9498ee5ad5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50d120d0_8057c05c",
+        "filename": "libs/adbconnection/adbconnection_server.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-20T00:43:19Z",
+      "side": 1,
+      "message": "shouldn\u0027t _these_ be PLOG...",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 7
+      },
+      "revId": "bf5c6003154ab189abc97df2072a7a9498ee5ad5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74d6cb9d_48e572ad",
+        "filename": "libs/adbconnection/adbconnection_server.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-20T00:43:19Z",
+      "side": 1,
+      "message": "and this just LOG?",
+      "range": {
+        "startLine": 127,
+        "startChar": 10,
+        "endLine": 127,
+        "endChar": 14
+      },
+      "revId": "bf5c6003154ab189abc97df2072a7a9498ee5ad5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "861b95bc_71783da3",
+        "filename": "libs/adbconnection/include/adbconnection/client.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-20T00:43:19Z",
+      "side": 1,
+      "message": "isn\u0027t it? i thought the zygote did set the uid to the app uid? how does the per-app filesystem permission stuff work otherwise?",
+      "range": {
+        "startLine": 68,
+        "startChar": 84,
+        "endLine": 68,
+        "endChar": 92
+      },
+      "revId": "bf5c6003154ab189abc97df2072a7a9498ee5ad5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6df7ebeb_d9cd662d",
+        "filename": "libs/adbconnection/include/adbconnection/common.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-20T00:43:19Z",
+      "side": 1,
+      "message": "i wondered when looking at the proto definition whether this should be an enum... that you feel the need to give an example has me wondering again, especially if these aren\u0027t the typical Studio/NDK abi names...",
+      "revId": "bf5c6003154ab189abc97df2072a7a9498ee5ad5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7477e9ba_950bef1a",
+        "filename": "libs/adbconnection/libadbconnection_client.map.txt",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-20T00:43:19Z",
+      "side": 1,
+      "message": "i still haven\u0027t really understood why a caller would want this...",
+      "revId": "bf5c6003154ab189abc97df2072a7a9498ee5ad5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b2bad25_47c5ec22",
+        "filename": "libs/adbconnection/libadbconnection_client.map.txt",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-20T00:43:19Z",
+      "side": 1,
+      "message": "why not just have this be a cheap no-op if there\u0027s no update?",
+      "revId": "bf5c6003154ab189abc97df2072a7a9498ee5ad5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
