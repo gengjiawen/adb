@@ -16,6 +16,24 @@
       "message": "ah, you were just copying the existing implementation. still might be worth switching to an enum, since the wire format\u0027s changing anyway?",
       "revId": "2ce30230560c8d0d3bc789c123080dbbc6fc09c4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5718badc_a4965b2a",
+        "filename": "libs/adbconnection/include/adbconnection/process_info.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-04-25T19:25:13Z",
+      "side": 0,
+      "message": "I am reusing the proto used to output `track-app` to communicate between ART and ADBd (since it is the same set of info). Which means I can\u0027t change the type of this field. \n\nI don\u0027t think we should create a whole new proto message just for that. But if you really want it, I can create a new one.",
+      "parentUuid": "8aaac954_4accf836",
+      "revId": "2ce30230560c8d0d3bc789c123080dbbc6fc09c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
