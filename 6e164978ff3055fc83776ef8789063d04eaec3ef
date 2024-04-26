@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f85a83e0_3df73274",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-26T00:24:32Z",
+      "side": 1,
+      "message": "otherwise lgtm though...",
+      "revId": "6e164978ff3055fc83776ef8789063d04eaec3ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1ffe991_fa9fe5a6",
+        "filename": "libs/adbconnection/adbconnection_server.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-26T00:24:32Z",
+      "side": 1,
+      "message": "(double space here)",
+      "range": {
+        "startLine": 49,
+        "startChar": 69,
+        "endLine": 49,
+        "endChar": 71
+      },
+      "revId": "6e164978ff3055fc83776ef8789063d04eaec3ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4b66273_31b70d6c",
+        "filename": "libs/adbconnection/adbconnection_server.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-26T00:24:32Z",
+      "side": 1,
+      "message": "errno is only valid if rc \u003d\u003d -1.",
+      "revId": "6e164978ff3055fc83776ef8789063d04eaec3ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f41a95e4_11264720",
+        "filename": "libs/adbconnection/include/adbconnection/client.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-26T00:24:32Z",
+      "side": 1,
+      "message": "double space.\n\n(actually, since you _did_ document this function, i\u0027d put the bit about not wanting poll() to wake you when you have nothing to write here. give the high-level motivation rather for the api existing rather than the mechanistic explanation that\u0027s guessable from the function name anyway.)",
+      "range": {
+        "startLine": 75,
+        "startChar": 35,
+        "endLine": 75,
+        "endChar": 37
+      },
+      "revId": "6e164978ff3055fc83776ef8789063d04eaec3ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

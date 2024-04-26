@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7c36b964_1943b253",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 2096,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-26T00:24:32Z",
+      "side": 1,
+      "message": "add `--proto-text` as a synonym anyway, for consistency with track-devices?",
+      "parentUuid": "3585c8a6_c84bedab",
+      "revId": "bf5c6003154ab189abc97df2072a7a9498ee5ad5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d64f34f0_85745502",
         "filename": "client/commandline.cpp",
         "patchSetId": 6
@@ -102,6 +120,24 @@
       "side": 1,
       "message": "I don\u0027t think this should be an error. If we don\u0027t have the right parameters, we should fallback to regular `track-app` on line 2100.",
       "parentUuid": "d64f34f0_85745502",
+      "revId": "bf5c6003154ab189abc97df2072a7a9498ee5ad5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e225b5d_46dfcd1a",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 2098,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-26T00:24:32Z",
+      "side": 1,
+      "message": "definitely worth a comment though, since it _looks_ wrong.\n\ni\u0027m unconvinced though... `adb track-app --destroy-world monkeys on the loose` should really just be the same as `adb track-app`? (obviously, many of these other commands are wrong too, but \"when we\u0027re adding the first actual options\" seems like the point where we need to start actually paying attention :-) )",
+      "parentUuid": "316d7895_d74c7a2f",
       "revId": "bf5c6003154ab189abc97df2072a7a9498ee5ad5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -400,6 +436,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "081d9881_f40169d7",
+        "filename": "libs/adbconnection/adbconnection_client.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-26T00:24:32Z",
+      "side": 1,
+      "message": "(yes, i like those names much better... that was pretty much what i was suggesting with the comment you didn\u0027t understand, that i\u0027ll close now :-) )",
+      "parentUuid": "54d97896_2020dee1",
+      "range": {
+        "startLine": 236,
+        "startChar": 37,
+        "endLine": 236,
+        "endChar": 42
+      },
+      "revId": "bf5c6003154ab189abc97df2072a7a9498ee5ad5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7b9b0469_ca702126",
@@ -578,6 +638,30 @@
       "side": 1,
       "message": "Sorry, I don\u0027t get it. Can you elaborate?",
       "parentUuid": "8563cd6b_165057b2",
+      "range": {
+        "startLine": 259,
+        "startChar": 29,
+        "endLine": 259,
+        "endChar": 42
+      },
+      "revId": "bf5c6003154ab189abc97df2072a7a9498ee5ad5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b5911b3_644585eb",
+        "filename": "libs/adbconnection/adbconnection_client.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-26T00:24:32Z",
+      "side": 1,
+      "message": "\"what the other reviewer said more clearly, and you already did\" :-)",
+      "parentUuid": "33702c97_c20caf8a",
       "range": {
         "startLine": 259,
         "startChar": 29,
@@ -778,6 +862,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b2e16249_dc47df64",
+        "filename": "libs/adbconnection/include/adbconnection/client.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-26T00:24:32Z",
+      "side": 1,
+      "message": "don\u0027t tell me --- tell posterity in the comment :-)",
+      "parentUuid": "e61ad51f_79e6cf9e",
+      "range": {
+        "startLine": 68,
+        "startChar": 84,
+        "endLine": 68,
+        "endChar": 92
+      },
+      "revId": "bf5c6003154ab189abc97df2072a7a9498ee5ad5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6df7ebeb_d9cd662d",
         "filename": "libs/adbconnection/include/adbconnection/common.h",
         "patchSetId": 6
@@ -807,6 +915,24 @@
       "side": 1,
       "message": "Indeed, I am only adding to what was created four years ago (aosp/1228374).",
       "parentUuid": "6df7ebeb_d9cd662d",
+      "revId": "bf5c6003154ab189abc97df2072a7a9498ee5ad5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "068b5535_3c121b47",
+        "filename": "libs/adbconnection/include/adbconnection/common.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-26T00:24:32Z",
+      "side": 1,
+      "message": "ah, this comment probably makes more sense in the proto definition then?",
+      "parentUuid": "e5011be8_07f6aab7",
       "revId": "bf5c6003154ab189abc97df2072a7a9498ee5ad5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -846,6 +972,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc896c8d_d8e7a57e",
+        "filename": "libs/adbconnection/libadbconnection_client.map.txt",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-26T00:24:32Z",
+      "side": 1,
+      "message": "normally i\u0027d say we need to document the function ... but since this is an API that will only ever have one caller...",
+      "parentUuid": "a6f954a3_8e2ae36c",
+      "revId": "bf5c6003154ab189abc97df2072a7a9498ee5ad5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8b2bad25_47c5ec22",
@@ -877,6 +1021,24 @@
       "side": 1,
       "message": "If there is not update (`adbconnection_client_has_pending_update` returns false), then `adbconnection_client_send_update` should not be called by `art/adbconnection`. If they call it anyway, there is a check in `adbconnection_client_send_update` implementation which no-ops.",
       "parentUuid": "8b2bad25_47c5ec22",
+      "revId": "bf5c6003154ab189abc97df2072a7a9498ee5ad5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2296042_26529771",
+        "filename": "libs/adbconnection/libadbconnection_client.map.txt",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-26T00:24:32Z",
+      "side": 1,
+      "message": "i think \"we don\u0027t want to be woken by a writable socket if we have nothing to write\" is the most relevant explanation --- this explanation is backwards and doesn\u0027t tell me anything the function name doesn\u0027t. (in case you do decide to document the function anyway!)",
+      "parentUuid": "35a07cfd_6492c15b",
       "revId": "bf5c6003154ab189abc97df2072a7a9498ee5ad5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
