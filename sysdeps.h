@@ -31,12 +31,15 @@
 #include <string_view>
 #include <vector>
 
-// Include this before open/close/unlink are defined as macros below.
+// Include this before open/close/isatty/unlink are defined as macros below.
 #include <android-base/errors.h>
 #include <android-base/macros.h>
 #include <android-base/off64_t.h>
 #include <android-base/unique_fd.h>
 #include <android-base/utf8.h>
+#if __has_include(<print>)
+#include <print>
+#endif
 
 #include "adb_unique_fd.h"
 #include "sysdeps/errno.h"
@@ -784,6 +787,9 @@ static inline void disable_tcp_nagle(borrowed_fd fd) {
 // |interval_sec| to 0 to disable keepalives. If keepalives are enabled, the connection will be
 // configured to drop after 10 missed keepalives. Returns true on success.
 bool set_tcp_keepalive(borrowed_fd fd, int interval_sec);
+
+// Returns a human-readable OS version string.
+extern std::string GetOSVersion(void);
 
 #if defined(_WIN32)
 // Win32 defines ERROR, which we don't need, but which conflicts with google3 logging.

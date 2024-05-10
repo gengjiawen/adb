@@ -68,16 +68,6 @@ using android::base::Dirname;
 using android::base::Realpath;
 using android::base::StringPrintf;
 
-static bool should_use_fs_config(const std::string& path) {
-#if defined(__ANDROID__)
-    // TODO: use fs_config to configure permissions on /data too.
-    return !android::base::StartsWith(path, "/data/");
-#else
-    UNUSED(path);
-    return false;
-#endif
-}
-
 static bool update_capabilities(const char* path, uint64_t capabilities) {
 #if defined(__ANDROID__)
     if (capabilities == 0) {
@@ -119,9 +109,7 @@ static bool secure_mkdirs(const std::string& path) {
         }
         partial_path += path_component;
 
-        if (should_use_fs_config(partial_path)) {
-            adbd_fs_config(partial_path.c_str(), 1, nullptr, &uid, &gid, &mode, &capabilities);
-        }
+        adbd_fs_config(partial_path.c_str(), true, nullptr, &uid, &gid, &mode, &capabilities);
         if (adb_mkdir(partial_path.c_str(), mode) == -1) {
             if (errno != EEXIST) {
                 return false;
@@ -357,7 +345,7 @@ static bool handle_send_file(borrowed_fd s, const char* path, uint32_t* timestam
 
         if (fd < 0 && errno == ENOENT) {
             if (!secure_mkdirs(Dirname(path))) {
-                SendSyncFailErrno(s, "secure_mkdirs failed");
+                SendSyncFailErrno(s, "secure_mkdirs() failed");
                 goto fail;
             }
             fd.reset(adb_open_mode(path, O_WRONLY | O_CREAT | O_EXCL | O_CLOEXEC, mode));
@@ -374,10 +362,10 @@ static bool handle_send_file(borrowed_fd s, const char* path, uint32_t* timestam
                 std::string real_path;
 
                 // Only return failure if parent directory does not have S_ISGID bit set,
-                // if S_ISGID is set then file will inherit groupid from directory
+                // if S_ISGID is set then file will inherit groupid from directory.
                 if (!Realpath(path, &real_path) || lstat(Dirname(real_path).c_str(), &st) == -1 ||
                     (S_ISDIR(st.st_mode) && (st.st_mode & S_ISGID) == 0)) {
-                    SendSyncFailErrno(s, "fchown failed");
+                    SendSyncFailErrno(s, StringPrintf("fchown() failed uid: %d gid: %d", uid, gid));
                     goto fail;
                 }
             }
@@ -530,8 +518,8 @@ static bool send_impl(int s, const std::string& path, mode_t mode, CompressionTy
         uid_t uid = -1;
         gid_t gid = -1;
         uint64_t capabilities = 0;
-        if (should_use_fs_config(path) && !dry_run) {
-            adbd_fs_config(path.c_str(), 0, nullptr, &uid, &gid, &mode, &capabilities);
+        if (!dry_run) {
+            adbd_fs_config(path.c_str(), false, nullptr, &uid, &gid, &mode, &capabilities);
         }
 
         result = handle_send_file(s, path.c_str(), &timestamp, uid, gid, capabilities, mode,
@@ -589,8 +577,7 @@ static bool do_send_v2(int s, const std::string& path, std::vector<char>& buffer
     if (msg.send_v2_setup.flags & kSyncFlagBrotli) {
         msg.send_v2_setup.flags &= ~kSyncFlagBrotli;
         if (compression) {
-            SendSyncFail(s, android::base::StringPrintf("multiple compression flags received: %d",
-                                                        orig_flags));
+            SendSyncFail(s, StringPrintf("multiple compression flags received: %d", orig_flags));
             return false;
         }
         compression = CompressionType::Brotli;
@@ -598,8 +585,7 @@ static bool do_send_v2(int s, const std::string& path, std::vector<char>& buffer
     if (msg.send_v2_setup.flags & kSyncFlagLZ4) {
         msg.send_v2_setup.flags &= ~kSyncFlagLZ4;
         if (compression) {
-            SendSyncFail(s, android::base::StringPrintf("multiple compression flags received: %d",
-                                                        orig_flags));
+            SendSyncFail(s, StringPrintf("multiple compression flags received: %d", orig_flags));
             return false;
         }
         compression = CompressionType::LZ4;
@@ -607,8 +593,7 @@ static bool do_send_v2(int s, const std::string& path, std::vector<char>& buffer
     if (msg.send_v2_setup.flags & kSyncFlagZstd) {
         msg.send_v2_setup.flags &= ~kSyncFlagZstd;
         if (compression) {
-            SendSyncFail(s, android::base::StringPrintf("multiple compression flags received: %d",
-                                                        orig_flags));
+            SendSyncFail(s, StringPrintf("multiple compression flags received: %d", orig_flags));
             return false;
         }
         compression = CompressionType::Zstd;
@@ -619,7 +604,7 @@ static bool do_send_v2(int s, const std::string& path, std::vector<char>& buffer
     }
 
     if (msg.send_v2_setup.flags) {
-        SendSyncFail(s, android::base::StringPrintf("unknown flags: %d", msg.send_v2_setup.flags));
+        SendSyncFail(s, StringPrintf("unknown flags: %d", msg.send_v2_setup.flags));
         return false;
     }
 
@@ -739,8 +724,7 @@ static bool do_recv_v2(borrowed_fd s, const char* path, std::vector<char>& buffe
     if (msg.recv_v2_setup.flags & kSyncFlagBrotli) {
         msg.recv_v2_setup.flags &= ~kSyncFlagBrotli;
         if (compression) {
-            SendSyncFail(s, android::base::StringPrintf("multiple compression flags received: %d",
-                                                        orig_flags));
+            SendSyncFail(s, StringPrintf("multiple compression flags received: %d", orig_flags));
             return false;
         }
         compression = CompressionType::Brotli;
@@ -748,8 +732,7 @@ static bool do_recv_v2(borrowed_fd s, const char* path, std::vector<char>& buffe
     if (msg.recv_v2_setup.flags & kSyncFlagLZ4) {
         msg.recv_v2_setup.flags &= ~kSyncFlagLZ4;
         if (compression) {
-            SendSyncFail(s, android::base::StringPrintf("multiple compression flags received: %d",
-                                                        orig_flags));
+            SendSyncFail(s, StringPrintf("multiple compression flags received: %d", orig_flags));
             return false;
         }
         compression = CompressionType::LZ4;
@@ -757,15 +740,14 @@ static bool do_recv_v2(borrowed_fd s, const char* path, std::vector<char>& buffe
     if (msg.recv_v2_setup.flags & kSyncFlagZstd) {
         msg.recv_v2_setup.flags &= ~kSyncFlagZstd;
         if (compression) {
-            SendSyncFail(s, android::base::StringPrintf("multiple compression flags received: %d",
-                                                        orig_flags));
+            SendSyncFail(s, StringPrintf("multiple compression flags received: %d", orig_flags));
             return false;
         }
         compression = CompressionType::Zstd;
     }
 
     if (msg.recv_v2_setup.flags) {
-        SendSyncFail(s, android::base::StringPrintf("unknown flags: %d", msg.recv_v2_setup.flags));
+        SendSyncFail(s, StringPrintf("unknown flags: %d", msg.recv_v2_setup.flags));
         return false;
     }
 

@@ -68,9 +68,8 @@
 #include "incremental_server.h"
 #include "services.h"
 #include "shell_protocol.h"
+#include "socket_spec.h"
 #include "sysdeps/chrono.h"
-
-extern int gListenAll;
 
 DefaultStandardStreamsCallback DEFAULT_STANDARD_STREAMS_CALLBACK(nullptr, nullptr);
 
@@ -120,6 +119,7 @@ static void help() {
         "       localreserved:<unix domain socket name>\n"
         "       localfilesystem:<unix domain socket name>\n"
         "       dev:<character device name>\n"
+        "       dev-raw:<character device name> (open device in raw mode)\n"
         "       jdwp:<process pid> (remote only)\n"
         "       vsock:<CID>:<port> (remote only)\n"
         "       acceptfd:<fd> (listen only)\n"
@@ -140,21 +140,24 @@ static void help() {
         "file transfer:\n"
         " push [--sync] [-z ALGORITHM] [-Z] LOCAL... REMOTE\n"
         "     copy local files/directories to device\n"
-        "     --sync: only push files that are newer on the host than the device\n"
         "     -n: dry run: push files to device without storing to the filesystem\n"
-        "     -z: enable compression with a specified algorithm (any/none/brotli/lz4/zstd)\n"
+        "     -q: suppress progress messages\n"
         "     -Z: disable compression\n"
+        "     -z: enable compression with a specified algorithm (any/none/brotli/lz4/zstd)\n"
+        "     --sync: only push files that have different timestamps on the host than the device\n"
         " pull [-a] [-z ALGORITHM] [-Z] REMOTE... LOCAL\n"
         "     copy files/dirs from device\n"
         "     -a: preserve file timestamp and mode\n"
-        "     -z: enable compression with a specified algorithm (any/none/brotli/lz4/zstd)\n"
+        "     -q: suppress progress messages\n"
         "     -Z: disable compression\n"
+        "     -z: enable compression with a specified algorithm (any/none/brotli/lz4/zstd)\n"
         " sync [-l] [-z ALGORITHM] [-Z] [all|data|odm|oem|product|system|system_ext|vendor]\n"
         "     sync a local build from $ANDROID_PRODUCT_OUT to the device (default all)\n"
-        "     -n: dry run: push files to device without storing to the filesystem\n"
         "     -l: list files that would be copied, but don't copy them\n"
-        "     -z: enable compression with a specified algorithm (any/none/brotli/lz4/zstd)\n"
+        "     -n: dry run: push files to device without storing to the filesystem\n"
+        "     -q: suppress progress messages\n"
         "     -Z: disable compression\n"
+        "     -z: enable compression with a specified algorithm (any/none/brotli/lz4/zstd)\n"
         "\n"
         "shell:\n"
         " shell [-e ESCAPE] [-n] [-Tt] [-x] [COMMAND...]\n"
@@ -245,7 +248,7 @@ static void help() {
         ""
         "environment variables:\n"
         " $ADB_TRACE\n"
-        "     comma-separated list of debug info to log:\n"
+        "     comma/space separated list of debug info to log:\n"
         "     all,adb,sockets,packets,rwx,usb,sync,sysdeps,transport,jdwp\n"
         " $ADB_VENDOR_KEYS         colon-separated list of keys (files or directories)\n"
         " $ANDROID_SERIAL          serial number to connect to (see -s)\n"
@@ -253,7 +256,7 @@ static void help() {
         " $ADB_LOCAL_TRANSPORT_MAX_PORT max emulator scan port (default 5585, 16 emus)\n"
         " $ADB_MDNS_AUTO_CONNECT   comma-separated list of mdns services to allow auto-connect (default adb-tls-connect)\n"
         "\n"
-        "Online documentation: https://android.googlesource.com/platform/packages/modules/adb/+/refs/heads/master/docs/user/adb.1.md\n"
+        "Online documentation: https://android.googlesource.com/platform/packages/modules/adb/+/refs/heads/main/docs/user/adb.1.md\n"
         "\n"
     );
     // clang-format on
@@ -289,7 +292,8 @@ static void stdin_raw_restore() {
 #endif
 
 int read_and_dump_protocol(borrowed_fd fd, StandardStreamsCallbackInterface* callback) {
-    int exit_code = 0;
+    // OpenSSH returns 255 on unexpected disconnection.
+    int exit_code = 255;
     std::unique_ptr<ShellProtocol> protocol = std::make_unique<ShellProtocol>(fd);
     if (!protocol) {
       LOG(ERROR) << "failed to allocate memory for ShellProtocol object";
@@ -1235,7 +1239,9 @@ static int backup(int argc, const char** argv) {
 static int restore(int argc, const char** argv) {
     fprintf(stdout, "WARNING: adb restore is deprecated and may be removed in a future release\n");
 
-    if (argc != 2) error_exit("restore requires an argument");
+    if (argc < 2) {
+        error_exit("usage: adb restore FILENAME [ARG]...");
+    }
 
     const char* filename = argv[1];
     unique_fd tarFd(adb_open(filename, O_RDONLY));
@@ -1244,8 +1250,17 @@ static int restore(int argc, const char** argv) {
         return -1;
     }
 
+    std::string cmd = "restore:";
+    argc -= 2;
+    argv += 2;
+    while (argc-- > 0) {
+        cmd += " " + escape_arg(*argv++);
+    }
+
+    D("restore. filename=%s cmd=%s", filename, cmd.c_str());
+
     std::string error;
-    unique_fd fd(adb_connect("restore:", &error));
+    unique_fd fd(adb_connect(cmd, &error));
     if (fd < 0) {
         fprintf(stderr, "adb: unable to connect for restore: %s\n", error.c_str());
         return -1;
@@ -1291,7 +1306,7 @@ static CompressionType parse_compression_type(const std::string& str, bool allow
 }
 
 static void parse_push_pull_args(const char** arg, int narg, std::vector<const char*>* srcs,
-                                 const char** dst, bool* copy_attrs, bool* sync,
+                                 const char** dst, bool* copy_attrs, bool* sync, bool* quiet,
                                  CompressionType* compression, bool* dry_run) {
     *copy_attrs = false;
     if (const char* adb_compression = getenv("ADB_COMPRESSION")) {
@@ -1322,6 +1337,8 @@ static void parse_push_pull_args(const char** arg, int narg, std::vector<const c
                 if (sync != nullptr) {
                     *sync = true;
                 }
+            } else if (!strcmp(*arg, "-q")) {
+                *quiet = true;
             } else if (!strcmp(*arg, "--")) {
                 ignore_flags = true;
             } else {
@@ -1488,6 +1505,19 @@ static bool _is_valid_os_fd(int fd) {
     return true;
 }
 
+bool forward_dest_is_featured(const std::string& dest, std::string* error) {
+    auto features = adb_get_feature_set_or_die();
+
+    if (android::base::StartsWith(dest, "dev-raw:")) {
+        if (!CanUseFeature(*features, kFeatureDevRaw)) {
+            *error = "dev-raw is not supported by the device";
+            return false;
+        }
+    }
+
+    return true;
+}
+
 int adb_commandline(int argc, const char** argv) {
     bool no_daemon = false;
     bool is_daemon = false;
@@ -1547,6 +1577,7 @@ int adb_commandline(int argc, const char** argv) {
             if (isdigit(argv[0][2])) {
                 id = argv[0] + 2;
             } else {
+                if (argc < 2 || argv[0][2] != '\0') error_exit("-t requires an argument");
                 id = argv[1];
                 --argc;
                 ++argv;
@@ -1560,7 +1591,7 @@ int adb_commandline(int argc, const char** argv) {
         } else if (!strcmp(argv[0], "-e")) {
             transport_type = kTransportLocal;
         } else if (!strcmp(argv[0], "-a")) {
-            gListenAll = 1;
+            gListenAll = true;
         } else if (!strncmp(argv[0], "-H", 2)) {
             if (argv[0][2] == '\0') {
                 if (argc < 2) error_exit("-H requires an argument");
@@ -1631,6 +1662,7 @@ int adb_commandline(int argc, const char** argv) {
         }
         server_socket_str = temp;
     }
+    VLOG(ADB) << "Using server socket: " << server_socket_str;
 
     bool server_start =
             is_daemon || is_server || (argc > 0 && strcmp(argv[0], "start-server") == 0);
@@ -1869,13 +1901,15 @@ int adb_commandline(int argc, const char** argv) {
         } else if (strcmp(argv[0], "--no-rebind") == 0) {
             // forward --no-rebind <local> <remote>
             if (argc != 3) error_exit("--no-rebind takes two arguments");
-            if (forward_targets_are_valid(argv[1], argv[2], &error_message)) {
+            if (forward_targets_are_valid(argv[1], argv[2], &error_message) &&
+                forward_dest_is_featured(argv[2], &error_message)) {
                 cmd = std::string("forward:norebind:") + argv[1] + ";" + argv[2];
             }
         } else {
             // forward <local> <remote>
             if (argc != 2) error_exit("forward takes two arguments");
-            if (forward_targets_are_valid(argv[0], argv[1], &error_message)) {
+            if (forward_targets_are_valid(argv[0], argv[1], &error_message) &&
+                forward_dest_is_featured(argv[1], &error_message)) {
                 cmd = std::string("forward:") + argv[0] + ";" + argv[1];
             }
         }
@@ -1929,27 +1963,29 @@ int adb_commandline(int argc, const char** argv) {
         bool copy_attrs = false;
         bool sync = false;
         bool dry_run = false;
+        bool quiet = false;
         CompressionType compression = CompressionType::Any;
         std::vector<const char*> srcs;
         const char* dst = nullptr;
 
-        parse_push_pull_args(&argv[1], argc - 1, &srcs, &dst, &copy_attrs, &sync, &compression,
-                             &dry_run);
+        parse_push_pull_args(&argv[1], argc - 1, &srcs, &dst, &copy_attrs, &sync, &quiet,
+                             &compression, &dry_run);
         if (srcs.empty() || !dst) {
             error_exit("push requires <source> and <destination> arguments");
         }
 
-        return do_sync_push(srcs, dst, sync, compression, dry_run) ? 0 : 1;
+        return do_sync_push(srcs, dst, sync, compression, dry_run, quiet) ? 0 : 1;
     } else if (!strcmp(argv[0], "pull")) {
         bool copy_attrs = false;
+        bool quiet = false;
         CompressionType compression = CompressionType::None;
         std::vector<const char*> srcs;
         const char* dst = ".";
 
-        parse_push_pull_args(&argv[1], argc - 1, &srcs, &dst, &copy_attrs, nullptr, &compression,
-                             nullptr);
+        parse_push_pull_args(&argv[1], argc - 1, &srcs, &dst, &copy_attrs, nullptr, &quiet,
+                             &compression, nullptr);
         if (srcs.empty()) error_exit("pull requires an argument");
-        return do_sync_pull(srcs, dst, copy_attrs, compression) ? 0 : 1;
+        return do_sync_pull(srcs, dst, copy_attrs, compression, nullptr, quiet) ? 0 : 1;
     } else if (!strcmp(argv[0], "install")) {
         if (argc < 2) error_exit("install requires an argument");
         return install_app(argc, argv);
@@ -1966,6 +2002,7 @@ int adb_commandline(int argc, const char** argv) {
         std::string src;
         bool list_only = false;
         bool dry_run = false;
+        bool quiet = false;
         CompressionType compression = CompressionType::Any;
 
         if (const char* adb_compression = getenv("ADB_COMPRESSION"); adb_compression) {
@@ -1973,7 +2010,7 @@ int adb_commandline(int argc, const char** argv) {
         }
 
         int opt;
-        while ((opt = getopt(argc, const_cast<char**>(argv), "lnz:Z")) != -1) {
+        while ((opt = getopt(argc, const_cast<char**>(argv), "lnz:Zq")) != -1) {
             switch (opt) {
                 case 'l':
                     list_only = true;
@@ -1987,8 +2024,11 @@ int adb_commandline(int argc, const char** argv) {
                 case 'Z':
                     compression = CompressionType::None;
                     break;
+                case 'q':
+                    quiet = true;
+                    break;
                 default:
-                    error_exit("usage: adb sync [-l] [-n]  [-z ALGORITHM] [-Z] [PARTITION]");
+                    error_exit("usage: adb sync [-l] [-n]  [-z ALGORITHM] [-Z] [-q] [PARTITION]");
             }
         }
 
@@ -1997,7 +2037,7 @@ int adb_commandline(int argc, const char** argv) {
         } else if (optind + 1 == argc) {
             src = argv[optind];
         } else {
-            error_exit("usage: adb sync [-l] [-n] [-z ALGORITHM] [-Z] [PARTITION]");
+            error_exit("usage: adb sync [-l] [-n] [-z ALGORITHM] [-Z] [-q] [PARTITION]");
         }
 
         std::vector<std::string> partitions{"data",   "odm",        "oem",   "product",
@@ -2008,7 +2048,7 @@ int adb_commandline(int argc, const char** argv) {
                 std::string src_dir{product_file(partition)};
                 if (!directory_exists(src_dir)) continue;
                 found = true;
-                if (!do_sync_sync(src_dir, "/" + partition, list_only, compression, dry_run)) {
+                if (!do_sync_sync(src_dir, "/" + partition, list_only, compression, dry_run, quiet)) {
                     return 1;
                 }
             }
@@ -2056,10 +2096,22 @@ int adb_commandline(int argc, const char** argv) {
         TrackAppStreamsCallback callback;
         return adb_connect_command("track-app", nullptr, &callback);
     } else if (!strcmp(argv[0], "track-devices")) {
-        if (argc > 2 || (argc == 2 && strcmp(argv[1], "-l"))) {
-            error_exit("usage: adb track-devices [-l]");
+        const char* listopt;
+        if (argc < 2) {
+            listopt = "";
+        } else {
+            if (!strcmp(argv[1], "-l")) {
+                listopt = argv[1];
+            } else if (!strcmp(argv[1], "--proto-text")) {
+                listopt = "-proto-text";
+            } else if (!strcmp(argv[1], "--proto-binary")) {
+                listopt = "-proto-binary";
+            } else {
+                error_exit("usage: adb track-devices [-l][--proto-text][--proto-binary]");
+            }
         }
-        return adb_connect_command(argc == 2 ? "host:track-devices-l" : "host:track-devices");
+        std::string query = android::base::StringPrintf("host:track-devices%s", listopt);
+        return adb_connect_command(query);
     } else if (!strcmp(argv[0], "raw")) {
         if (argc != 2) {
             error_exit("usage: adb raw SERVICE");

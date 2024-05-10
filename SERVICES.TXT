@@ -21,12 +21,14 @@ host:devices-l
     the connection is closed
 
 host:track-devices
-    This is a variant of host:devices which doesn't close the
+host:track-devices-proto-binary
+host:track-devices-proto-text
+    These are variants of host:devices which doesn't close the
     connection. Instead, a new device list description is sent
     each time a device is added/removed or the state of a given
-    device changes (hex4 + content). This allows tools like DDMS
-    to track the state of connected devices in real-time without
-    polling the server repeatedly.
+    device changes.
+    Variant [-proto-binary] is binary protobuf format.
+    Variant [-proto-text] is text protobuf format.
 
 host:emulator:<port>
     This is a special query that is sent to the ADB server when a
@@ -189,7 +191,17 @@ dev:<path>
     Opens a device file and connects the client directly to it for
     read/write purposes. Useful for debugging, but may require special
     privileges and thus may not run on all devices. <path> is a full
-    path from the root of the filesystem.
+    path from the root of the filesystem. Besides debugging this is
+    useful for allowing test automation running on host (not Android
+    device) to directly interact with the device file when a
+    non-trivial protocol is needed and adb shell is not suitable. Use
+    cases: factory tests for device peripherals, emulated peripheral
+    control (cuttlefish) for test automation.
+
+dev-raw:<path>
+    Similar with dev:<path>, the only difference being that the device
+    is opened in raw tty mode. Useful when default tty settings
+    interferes with protocol that is used to control the device.
 
 tcp:<port>
     Tries to connect to tcp port <port> on localhost.
@@ -252,7 +264,7 @@ track-app:
     a new messeage is sent (this service never stops).
 
     Each message features a hex4 length prefix followed by a
-    human-readable protocol buffer. e.g.:
+    binary protocol buffer. e.g.:
 
     process {
       pid: 18595

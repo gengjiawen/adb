@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 The Android Open Source Project
+ * Copyright (C) 2023 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,11 +16,9 @@
 
 #pragma once
 
-#include <stdint.h>
-#include <sys/types.h>
+#include <sys/socket.h>
+#include <sys/un.h>
 
-extern "C" {
-// Thin wrapper around libcutils get_fs_config.
-void adbd_fs_config(const char* path, int dir, const char* target_out_path, uid_t* uid, gid_t* gid,
-                    mode_t* mode, uint64_t* capabilities);
-}
+#include <tuple>
+
+std::tuple<sockaddr_un, socklen_t> get_control_socket_addr();

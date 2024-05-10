@@ -2353,6 +2353,34 @@ int unix_read_interruptible(borrowed_fd fd, void* buf, size_t len) {
 /**************************************************************************/
 /**************************************************************************/
 /*****                                                                *****/
+/*****      Versioning support                                        *****/
+/*****                                                                *****/
+/**************************************************************************/
+/**************************************************************************/
+std::string GetOSVersion() {
+    // We also considered GetVersionInfoEx(), however the internal
+    // API below is preferable since Windows-8 (and above) returns
+    // the manifest windows data (as opposed to the actual version info).
+    typedef FARPROC(WINAPI * RtlGetVersionPtr)(PRTL_OSVERSIONINFOW);
+    RtlGetVersionPtr RtlGetVersionInternal = reinterpret_cast<RtlGetVersionPtr>(
+            GetProcAddress(GetModuleHandleW(L"ntdll.dll"), "RtlGetVersion"));
+
+    if (!RtlGetVersionInternal) {
+        return "<Could not get handle to RtlGetVersion in ntdll.dll>";
+    }
+
+    OSVERSIONINFO version;
+    version.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
+
+    RtlGetVersionInternal(static_cast<PRTL_OSVERSIONINFOW>(&version));
+
+    return android::base::StringPrintf("Windows %lu.%lu.%lu", version.dwMajorVersion,
+                                       version.dwMinorVersion, version.dwBuildNumber);
+}
+
+/**************************************************************************/
+/**************************************************************************/
+/*****                                                                *****/
 /*****      Unicode support                                           *****/
 /*****                                                                *****/
 /**************************************************************************/
@@ -3061,13 +3089,11 @@ Process adb_launch_process(std::string_view executable, std::vector<std::string>
 }
 
 // The SetThreadDescription API was brought in version 1607 of Windows 10.
-typedef HRESULT(WINAPI* SetThreadDescription)(HANDLE hThread, PCWSTR lpThreadDescription);
-
 // Based on PlatformThread::SetName() from
 // https://cs.chromium.org/chromium/src/base/threading/platform_thread_win.cc
 int adb_thread_setname(const std::string& name) {
     // The SetThreadDescription API works even if no debugger is attached.
-    auto set_thread_description_func = reinterpret_cast<SetThreadDescription>(
+    auto set_thread_description_func = reinterpret_cast<HRESULT(WINAPI *)(HANDLE, PCWSTR)>(
             ::GetProcAddress(::GetModuleHandleW(L"Kernel32.dll"), "SetThreadDescription"));
     if (set_thread_description_func) {
         std::wstring name_wide;

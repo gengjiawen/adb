@@ -119,6 +119,15 @@ TEST_F(FdeventTest, fdevent_terminate) {
 }
 
 TEST_F(FdeventTest, smoke) {
+#ifdef __APPLE__  // on __APPLE__, we will encounter "Too many open files" (EMFILE), so
+    // tweak the resource ceiling.
+    struct rlimit limit;
+    ASSERT_EQ(getrlimit(RLIMIT_NOFILE, &limit), 0);
+
+    limit.rlim_cur = OPEN_MAX;
+
+    ASSERT_EQ(setrlimit(RLIMIT_NOFILE, &limit), 0);
+#endif
     for (bool use_new_callback : {true, false}) {
         fdevent_reset();
         const size_t PIPE_COUNT = 512;
@@ -314,4 +323,91 @@ TEST_F(FdeventTest, timeout) {
     ASSERT_LT(diff[0], delta.count() * 0.5);
     ASSERT_LT(diff[1], delta.count() * 0.5);
     ASSERT_LT(diff[2], delta.count() * 0.5);
+}
+
+TEST_F(FdeventTest, unregister_with_pending_event) {  // Remains broken on _WIN32
+    // since poll() (Loop()/fdevent_poll.cpp) fails with `Invalid areg` causing
+    // a hang on Windows 10.
+    // Ref: [ FAILED ] LocalSocketTest.flush_after_shutdown
+
+    fdevent_reset();
+
+    int fds1[2];
+    int fds2[2];
+    ASSERT_EQ(0, adb_socketpair(fds1));
+    ASSERT_EQ(0, adb_socketpair(fds2));
+
+    struct Test {
+        fdevent* fde1;
+        fdevent* fde2;
+        bool should_not_happen;
+    };
+    Test test{};
+
+    test.fde1 = fdevent_create(
+            fds1[0],
+            [](fdevent* fde, unsigned events, void* arg) {
+                auto test = static_cast<Test*>(arg);
+                // Unregister fde2 from inside the fde1 event
+                fdevent_destroy(test->fde2);
+                // Unregister fde1 so it doesn't get called again
+                fdevent_destroy(test->fde1);
+            },
+            &test);
+
+    test.fde2 = fdevent_create(
+            fds2[0],
+            [](fdevent* fde, unsigned events, void* arg) {
+                auto test = static_cast<Test*>(arg);
+                test->should_not_happen = true;
+            },
+            &test);
+
+    fdevent_add(test.fde1, FDE_READ | FDE_ERROR);
+    fdevent_add(test.fde2, FDE_READ | FDE_ERROR);
+
+    PrepareThread();
+    WaitForFdeventLoop();
+
+    std::mutex m;
+    std::condition_variable cv;
+    bool main_thread_latch = false;
+    bool looper_thread_latch = false;
+
+    fdevent_run_on_looper([&]() {
+        std::unique_lock lk(m);
+        // Notify the main thread that the looper is in this lambda
+        main_thread_latch = true;
+        cv.notify_one();
+        // Pause the looper to ensure both events occur in the same epoll_wait
+        cv.wait(lk, [&] { return looper_thread_latch; });
+    });
+
+    // Wait for the looper thread to pause to ensure it is not in epoll_wait
+    {
+        std::unique_lock lk(m);
+        cv.wait(lk, [&] { return main_thread_latch; });
+    }
+
+    // Write to one end of the sockets to trigger events on the other ends
+    adb_write(fds1[1], "a", 1);
+    adb_write(fds2[1], "a", 1);
+
+    // Unpause the looper thread to let it loop back into epoll_wait, which should return
+    // both fde1 and fde2.
+    {
+        std::lock_guard lk(m);
+        looper_thread_latch = true;
+    }
+    cv.notify_one();
+
+    WaitForFdeventLoop();
+    TerminateThread();
+
+    adb_close(fds1[0]);
+    adb_close(fds1[1]);
+    adb_close(fds2[0]);
+    adb_close(fds2[1]);
+
+    ASSERT_FALSE(test.should_not_happen);
 }

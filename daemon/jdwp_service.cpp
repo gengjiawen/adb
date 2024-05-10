@@ -182,6 +182,11 @@ struct JdwpProcess {
     ProcessInfo process;
     fdevent* fde = nullptr;
 
+    // When a jdwp:<PID> request arrives, we create a socketpair and immediately
+    // return one end to the requester. The other end is "staged" in this queue.
+    // The next time @jdwp-control becomes FDE_WRITE, we send the back() fd (it is
+    // received on the other end of @jdwp-control by ART) and pop it. This queue
+    // should almost always be empty if ART reads() from @jdwp-control properly.
     std::vector<unique_fd> out_fds;
 };
 
@@ -400,9 +405,15 @@ struct JdwpTracker : public asocket {
 static auto& _jdwp_trackers = *new std::vector<std::unique_ptr<JdwpTracker>>();
 
 static void process_list_updated(TrackerKind kind) {
+    // Find out the max payload we can output.
+    // We start with the max the protocol can handle (hex4).
+    size_t maxPayload = UINT16_MAX;
+    for (auto& t : _jdwp_trackers) {
+        maxPayload = std::min(maxPayload, t->get_max_payload());
+    }
+
     std::string data;
-    const int kMaxLength = kind == TrackerKind::kJdwp ? 1024 : 2048;
-    data.resize(kMaxLength);
+    data.resize(maxPayload);
     data.resize(process_list_msg(kind, &data[0], data.size()));
 
     for (auto& t : _jdwp_trackers) {
@@ -459,12 +470,16 @@ static int jdwp_tracker_enqueue(asocket* s, apacket::payload_type) {
 }
 
 static asocket* create_process_tracker_service_socket(TrackerKind kind) {
-    auto t = std::make_unique<JdwpTracker>(kind, true);
+    std::unique_ptr<JdwpTracker> t = std::make_unique<JdwpTracker>(kind, true);
     if (!t) {
         LOG(FATAL) << "failed to allocate JdwpTracker";
     }
 
-    memset(t.get(), 0, sizeof(asocket));
+    /* Object layout (with an inheritance hierarchy) varies across arch (e.g
+     * armv7a/Android TV vs aarch64), so no assumptions can be made about
+     * accessing fields based on offsets (e.g memset(t.get(), 0, sizeof(asocket))
+     * might clobber an unintended memory location).
+     */
 
     install_local_socket(t.get());
     D("LS(%d): created new jdwp tracker service", t->id);
