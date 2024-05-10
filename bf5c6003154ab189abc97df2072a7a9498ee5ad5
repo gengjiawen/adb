@@ -89,6 +89,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b718c50b_00884d51",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 2096,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-05-10T01:44:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c36b964_1943b253",
+      "revId": "bf5c6003154ab189abc97df2072a7a9498ee5ad5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d64f34f0_85745502",
@@ -138,6 +156,24 @@
       "side": 1,
       "message": "definitely worth a comment though, since it _looks_ wrong.\n\ni\u0027m unconvinced though... `adb track-app --destroy-world monkeys on the loose` should really just be the same as `adb track-app`? (obviously, many of these other commands are wrong too, but \"when we\u0027re adding the first actual options\" seems like the point where we need to start actually paying attention :-) )",
       "parentUuid": "316d7895_d74c7a2f",
+      "revId": "bf5c6003154ab189abc97df2072a7a9498ee5ad5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6342449f_d0f10331",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 2098,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-05-10T01:44:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e225b5d_46dfcd1a",
       "revId": "bf5c6003154ab189abc97df2072a7a9498ee5ad5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -884,6 +920,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae34b310_69a13688",
+        "filename": "libs/adbconnection/include/adbconnection/client.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-05-10T01:44:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b2e16249_dc47df64",
+      "range": {
+        "startLine": 68,
+        "startChar": 84,
+        "endLine": 68,
+        "endChar": 92
+      },
+      "revId": "bf5c6003154ab189abc97df2072a7a9498ee5ad5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6df7ebeb_d9cd662d",
@@ -933,6 +993,24 @@
       "side": 1,
       "message": "ah, this comment probably makes more sense in the proto definition then?",
       "parentUuid": "e5011be8_07f6aab7",
+      "revId": "bf5c6003154ab189abc97df2072a7a9498ee5ad5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de6d7bc3_d1a47e39",
+        "filename": "libs/adbconnection/include/adbconnection/common.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-05-10T01:44:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "068b5535_3c121b47",
       "revId": "bf5c6003154ab189abc97df2072a7a9498ee5ad5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
