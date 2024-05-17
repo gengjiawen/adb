@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6612ee0_6c66d11f",
+        "filename": "libs/adbconnection/adbconnection_client.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-05-17T23:28:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2bbbe2e1_0852cc6e",
+      "range": {
+        "startLine": 47,
+        "startChar": 36,
+        "endLine": 47,
+        "endChar": 41
+      },
+      "revId": "b554e4eaf7b37ddd568579d063ee3768d47bf8f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3e441286_abf7fd93",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-05-17T19:11:38Z",
       "side": 1,
       "message": "adbd\n\n(does protobuf actually set errno, or should this be LOG?)",
+      "range": {
+        "startLine": 90,
+        "startChar": 43,
+        "endLine": 90,
+        "endChar": 47
+      },
+      "revId": "b554e4eaf7b37ddd568579d063ee3768d47bf8f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0a4833e_d48decff",
+        "filename": "libs/adbconnection/adbconnection_client.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-05-17T23:28:30Z",
+      "side": 1,
+      "message": "Done - adbd\nDone Made it a log.",
+      "parentUuid": "3e441286_abf7fd93",
       "range": {
         "startLine": 90,
         "startChar": 43,
@@ -64,6 +112,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a8357de_24551c47",
+        "filename": "libs/adbconnection/adbconnection_client.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-05-17T23:28:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "892d028b_beed4bd4",
+      "revId": "b554e4eaf7b37ddd568579d063ee3768d47bf8f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a495c3e3_8240bd5e",
@@ -77,6 +143,30 @@
       "writtenOn": "2024-05-17T19:11:38Z",
       "side": 1,
       "message": "\"on\"?",
+      "range": {
+        "startLine": 56,
+        "startChar": 52,
+        "endLine": 56,
+        "endChar": 54
+      },
+      "revId": "b554e4eaf7b37ddd568579d063ee3768d47bf8f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15895553_0376674b",
+        "filename": "libs/adbconnection/adbconnection_server.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-05-17T23:28:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a495c3e3_8240bd5e",
       "range": {
         "startLine": 56,
         "startChar": 52,
@@ -110,6 +200,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2492c1c_6a689f4f",
+        "filename": "libs/adbconnection/include/adbconnection/client.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-05-17T23:28:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca37963d_27ce5715",
+      "range": {
+        "startLine": 55,
+        "startChar": 85,
+        "endLine": 55,
+        "endChar": 89
+      },
+      "revId": "b554e4eaf7b37ddd568579d063ee3768d47bf8f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "789f748f_5963e96d",
@@ -133,6 +247,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "318a20e2_e93e6c81",
+        "filename": "libs/adbconnection/include/adbconnection/client.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-05-17T23:28:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "789f748f_5963e96d",
+      "range": {
+        "startLine": 74,
+        "startChar": 57,
+        "endLine": 74,
+        "endChar": 61
+      },
+      "revId": "b554e4eaf7b37ddd568579d063ee3768d47bf8f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7b6c2bc3_05050d88",
@@ -146,6 +284,30 @@
       "writtenOn": "2024-05-17T19:11:38Z",
       "side": 1,
       "message": "an",
+      "range": {
+        "startLine": 75,
+        "startChar": 3,
+        "endLine": 75,
+        "endChar": 6
+      },
+      "revId": "b554e4eaf7b37ddd568579d063ee3768d47bf8f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91d9b2f1_5c8df334",
+        "filename": "libs/adbconnection/include/adbconnection/client.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-05-17T23:28:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b6c2bc3_05050d88",
       "range": {
         "startLine": 75,
         "startChar": 3,
@@ -181,6 +343,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0f4c8ded_499afc9d",
+        "filename": "libs/adbconnection/libadbconnection_client.map.txt",
+        "patchSetId": 19
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-05-17T23:28:30Z",
+      "side": 1,
+      "message": "I don\u0027t know. I will find out.",
+      "parentUuid": "4b25311f_2380384b",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 25
+      },
+      "revId": "b554e4eaf7b37ddd568579d063ee3768d47bf8f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f4565490_fde2d33e",
         "filename": "test_device.py",
         "patchSetId": 19
@@ -192,6 +378,24 @@
       "writtenOn": "2024-05-17T19:11:38Z",
       "side": 1,
       "message": "i didn\u0027t see where in the _code_ this feature is disabled?",
+      "revId": "b554e4eaf7b37ddd568579d063ee3768d47bf8f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7585ccd7_6be7a76b",
+        "filename": "test_device.py",
+        "patchSetId": 19
+      },
+      "lineNbr": 1853,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-05-17T23:28:30Z",
+      "side": 1,
+      "message": "It is not enable in the Framework CL (it is behind a flag).",
+      "parentUuid": "f4565490_fde2d33e",
       "revId": "b554e4eaf7b37ddd568579d063ee3768d47bf8f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
