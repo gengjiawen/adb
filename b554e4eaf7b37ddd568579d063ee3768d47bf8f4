@@ -365,6 +365,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c188e8cd_d2230393",
+        "filename": "libs/adbconnection/libadbconnection_client.map.txt",
+        "patchSetId": 19
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-05-17T23:38:57Z",
+      "side": 1,
+      "message": "From jiyong@google.com:\n\n\"That\u0027s not needed. Symbol version is mostly to make it possible to have two different implementations of the same symbol in case you can\u0027t help but making a backwards incompatible change.\"",
+      "parentUuid": "0f4c8ded_499afc9d",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 25
+      },
+      "revId": "b554e4eaf7b37ddd568579d063ee3768d47bf8f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f4565490_fde2d33e",
