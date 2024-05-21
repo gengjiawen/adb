@@ -83,6 +83,37 @@ using unique_device_handle = std::unique_ptr<libusb_device_handle, DeviceHandleD
 
 static void process_device(libusb_device* device_raw);
 
+// For in-house hotplug, we maintain a list of last known devices. There is no need for a mutex
+// because we always access it from libusb even thread.
+static std::unordered_map<uint64_t, libusb_device*> in_house_hotplug_known_devices
+        [[clang::no_destroy]];
+
+// For in-house hotplug, we generate a unique identified based on device invariants vendor,
+// product (adb vs mtp...), the USB port, and the address (the location in the USB chain). On
+// Windows, the address is always incremented, even if the same device is unplugged and plugged
+// immediately.
+static uint64_t get_key_for_device(libusb_device* dev) {
+    libusb_device_descriptor desc;
+    auto result = libusb_get_device_descriptor(dev, &desc);
+    if (result != LIBUSB_SUCCESS) {
+        LOG(WARNING) << "Unable to retrieve device descriptor error:" << libusb_error_name(result);
+        return 0;
+    }
+    uint64_t vendor = desc.idVendor;
+    uint64_t product = desc.idProduct;
+    uint64_t port = libusb_get_port_number(dev);
+    uint64_t address = libusb_get_device_address(dev);
+    uint64_t key = vendor << 32 | product << 16 | port << 8 | address;
+    return key;
+}
+
+// How long to wait between in-house device scan
+static auto inhouse_scan_delay_s = 2;
+
+// Last time in-house hotplug scanned devices
+static auto last_inhouse_scan_time =
+        std::chrono::steady_clock::now() - std::chrono::seconds(inhouse_scan_delay_s);
+
 static std::string get_device_address(libusb_device* device) {
     uint8_t ports[7];
     int port_count = libusb_get_port_numbers(device, ports, 7);
@@ -128,7 +159,9 @@ struct LibusbConnection : public Connection {
     };
 
     explicit LibusbConnection(unique_device device)
-        : device_(std::move(device)), device_address_(get_device_address(device_.get())) {}
+        : device_(std::move(device)),
+          device_address_(get_device_address(device_.get())),
+          key_(get_key_for_device(device_.get())) {}
 
     ~LibusbConnection() { Stop(); }
 
@@ -162,9 +195,26 @@ struct LibusbConnection : public Connection {
         return false;
     }
 
+    // When a Windows machine goes to sleep it powers off all its USB host controllers to save
+    // energy. When the machine awakens, it powers them up which causes all the endpoints
+    // to be closed (which generates a read/write failure leading to us Close()ing the device). The
+    // USB device also briefly goes away and comes back with the exact same properties (including
+    // address). This makes in-house hotplug miss device reconnection upon wakeup. To solve that
+    // we remove ourselves from the set of known devices.
+    static void remove_from_inhouse_hotplug(uint64_t key) {
+        if (libusb_has_capability(LIBUSB_CAP_HAS_HOTPLUG)) {
+            return;
+        }
+        in_house_hotplug_known_devices.erase(key);
+    }
+
     static void LIBUSB_CALL header_read_cb(libusb_transfer* transfer) {
         auto read_block = static_cast<ReadBlock*>(transfer->user_data);
         auto self = read_block->self;
+
+        if (transfer->status != LIBUSB_TRANSFER_COMPLETED) {
+            remove_from_inhouse_hotplug(self->key_);
+        }
 
         std::lock_guard<std::mutex> lock(self->read_mutex_);
         CHECK_EQ(read_block, &self->header_read_);
@@ -217,6 +267,10 @@ struct LibusbConnection : public Connection {
         auto self = read_block->self;
         std::lock_guard<std::mutex> lock(self->read_mutex_);
 
+        if (transfer->status != LIBUSB_TRANSFER_COMPLETED) {
+            remove_from_inhouse_hotplug(self->key_);
+        }
+
         if (self->MaybeCleanup(&self->payload_read_)) {
             return;
         }
@@ -266,6 +320,7 @@ struct LibusbConnection : public Connection {
         }
 
         if (!succeeded && !self->detached_) {
+            remove_from_inhouse_hotplug(self->key_);
             self->OnError("libusb write failed");
         }
     }
@@ -868,6 +923,9 @@ struct LibusbConnection : public Connection {
     std::string device_address_;
     std::string serial_ = "<unknown>";
 
+    // In-house hotplug unique session identifier into in_house_hotplug_known_devices
+    uint64_t key_;
+
     uint32_t interface_num_;
     uint8_t write_endpoint_;
     uint8_t read_endpoint_;
@@ -880,7 +938,7 @@ struct LibusbConnection : public Connection {
 
     std::mutex write_mutex_;
     std::unordered_map<TransferId, std::unique_ptr<WriteBlock>> writes_ GUARDED_BY(write_mutex_);
-    std::atomic<size_t> next_write_id_ = 0;
+    std::atomic<size_t> next_write_id_ GUARDED_BY(write_mutex_) = 0;
 
     std::once_flag error_flag_;
     std::atomic<bool> terminated_ = false;
@@ -1052,6 +1110,56 @@ static LIBUSB_CALL int hotplug_callback(libusb_context*, libusb_device* device,
 
 namespace libusb {
 
+static void inhouse_hotplug_scan() {
+    // If libusb_handle_events_timeout_completed did not timeout, this can be called very often
+    // We limit the rate at which we scan for devices. If not enough time has elapsed, we return
+    // early.
+    auto elapsed_since_last_scan =
+            std::chrono::duration_cast<std::chrono::seconds>(std::chrono::steady_clock::now() -
+                                                             last_inhouse_scan_time)
+                    .count();
+    if (elapsed_since_last_scan < inhouse_scan_delay_s) {
+        return;
+    }
+    last_inhouse_scan_time = std::chrono::steady_clock::now();
+
+    // First retrieve all connected devices and detect new ones.
+    libusb_device** devs = nullptr;
+    libusb_get_device_list(nullptr, &devs);
+    std::unordered_map<uint64_t, libusb_device*> current_devices;
+    for (size_t i = 0; devs[i] != nullptr; i++) {
+        libusb_device* dev = devs[i];
+        auto key = get_key_for_device(dev);
+        if (!in_house_hotplug_known_devices.contains(key) && !current_devices.contains(key)) {
+            hotplug_callback(nullptr, dev, LIBUSB_HOTPLUG_EVENT_DEVICE_ARRIVED, nullptr);
+        }
+        current_devices[key] = dev;
+    }
+
+    // Handle disconnected devices
+    for (const auto& [key, dev] : in_house_hotplug_known_devices) {
+        if (!current_devices.contains(key)) {
+            hotplug_callback(nullptr, dev, LIBUSB_HOTPLUG_EVENT_DEVICE_LEFT, nullptr);
+        }
+    }
+    in_house_hotplug_known_devices = std::move(current_devices);
+    libusb_free_device_list(devs, 0);
+}
+
+static void register_libusb_hotplug() {
+    // Register the hotplug callback.
+    int rc = libusb_hotplug_register_callback(
+            nullptr,
+            static_cast<libusb_hotplug_event>(LIBUSB_HOTPLUG_EVENT_DEVICE_ARRIVED |
+                                              LIBUSB_HOTPLUG_EVENT_DEVICE_LEFT),
+            LIBUSB_HOTPLUG_ENUMERATE, LIBUSB_HOTPLUG_MATCH_ANY, LIBUSB_HOTPLUG_MATCH_ANY,
+            LIBUSB_CLASS_PER_INTERFACE, hotplug_callback, nullptr, nullptr);
+
+    if (rc != LIBUSB_SUCCESS) {
+        LOG(FATAL) << "failed to register libusb hotplug callback: " << libusb_error_name(rc);
+    }
+}
+
 void usb_init() {
     VLOG(USB) << "initializing libusb...";
     int rc = libusb_init(nullptr);
@@ -1060,23 +1168,26 @@ void usb_init() {
         return;
     }
 
-    // Register the hotplug callback.
-    rc = libusb_hotplug_register_callback(
-            nullptr,
-            static_cast<libusb_hotplug_event>(LIBUSB_HOTPLUG_EVENT_DEVICE_ARRIVED |
-                                              LIBUSB_HOTPLUG_EVENT_DEVICE_LEFT),
-            LIBUSB_HOTPLUG_ENUMERATE, LIBUSB_HOTPLUG_MATCH_ANY, LIBUSB_HOTPLUG_MATCH_ANY,
-            LIBUSB_CLASS_PER_INTERFACE, hotplug_callback, nullptr, nullptr);
-
-    if (rc != LIBUSB_SUCCESS) {
-        LOG(FATAL) << "failed to register libusb hotplug callback";
+    if (libusb_has_capability(LIBUSB_CAP_HAS_HOTPLUG)) {
+        LOG(WARNING) << "Using libusb hotplug";
+        register_libusb_hotplug();
     }
 
     // Spawn a thread for libusb_handle_events.
     std::thread([]() {
         adb_thread_setname("libusb");
-        while (true) {
-            libusb_handle_events(nullptr);
+
+        if (libusb_has_capability(LIBUSB_CAP_HAS_HOTPLUG)) {
+            while (true) {
+                libusb_handle_events(nullptr);
+            }
+        } else {
+            struct timeval tv = {inhouse_scan_delay_s, 0};
+            int completed = 0;
+            while (true) {
+                libusb_handle_events_timeout_completed(nullptr, &tv, &completed);
+                inhouse_hotplug_scan();
+            }
         }
     }).detach();
 }
