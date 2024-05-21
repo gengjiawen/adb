@@ -75,6 +75,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "144ce58c_cc639331",
+        "filename": "libs/adbconnection/include/adbconnection/common.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2024-05-21T21:37:32Z",
+      "side": 1,
+      "message": "Discussed over IM. This is common code used by both the client and server, but not actually a part of the API. The alternative would be copy/pasting it into both sides of that, which is messy and doesn\u0027t actually protect any better anyway.\n\nIt\u0027s also pre-existing so /shrug.",
+      "parentUuid": "b14c75fe_0d58f179",
+      "revId": "f38e88a04ef23db3385a4eb43f40c3d9f8d82831",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d9780c0a_9f8c8bfe",
@@ -88,6 +106,24 @@
       "writtenOn": "2024-05-21T21:03:29Z",
       "side": 1,
       "message": "C++ in stable APIs must be inline (no C++ ABI)",
+      "revId": "f38e88a04ef23db3385a4eb43f40c3d9f8d82831",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d418cb5b_87f5bf8e",
+        "filename": "libs/adbconnection/include/adbconnection/common.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2024-05-21T21:37:32Z",
+      "side": 1,
+      "message": "Not a new problem, since `get_control_socket_addr()` below does the same. None of these are a part of the ABI.",
+      "parentUuid": "d9780c0a_9f8c8bfe",
       "revId": "f38e88a04ef23db3385a4eb43f40c3d9f8d82831",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
