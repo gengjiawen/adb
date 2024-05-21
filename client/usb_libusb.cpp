@@ -1025,16 +1025,61 @@ static LIBUSB_CALL int hotplug_callback(libusb_context*, libusb_device* device,
 
 namespace libusb {
 
-void usb_init() {
-    VLOG(USB) << "initializing libusb...";
-    int rc = libusb_init(nullptr);
-    if (rc != 0) {
-        LOG(WARNING) << "failed to initialize libusb: " << libusb_error_name(rc);
-        return;
-    }
+// For in-house hotplug, we generate an unique identified based on device invariant (vendor,
+// product), the USB port, and the address (the location in the USB chain). Note that on Windows,
+// the address is always incremented, even if the same device is unplugged an re-plugged
+// immediately.
+static uint64_t get_key_for(uint64_t vendor, uint64_t product, uint64_t port, uint64_t address) {
+    return vendor << 32 | product << 16 | port << 8 | address;
+}
 
+// For in-house hotplug, we spawn a thread which periodically calls libusb_get_device_list and
+// calls the callback which would have normally been called.
+static void start_inhouse_hotplug_thread() {
+    std::thread([]() {
+        std::unordered_map<uint64_t, libusb_device*> known_devices;
+        while (true) {
+            // First retrieve all connected devices and detect new ones.
+            libusb_device** devs = nullptr;
+            libusb_get_device_list(nullptr, &devs);
+            std::unordered_map<uint64_t, libusb_device*> current_devices;
+            for (size_t i = 0; devs[i] != nullptr; i++) {
+                libusb_device* dev = devs[i];
+                libusb_device_descriptor desc;
+                auto result = libusb_get_device_descriptor(dev, &desc);
+                if (result != LIBUSB_SUCCESS) {
+                    LOG(WARNING) << "Unable to retrieve device descriptor for device.";
+                    continue;
+                }
+                uint16_t vendor = desc.idVendor;
+                uint16_t product = desc.idProduct;
+                uint8_t port = libusb_get_port_number(dev);
+                uint8_t address = libusb_get_device_address(dev);
+                uint64_t key = get_key_for(vendor, product, port, address);
+                current_devices[key] = dev;
+
+                if (known_devices.count(key) == 0) {
+                    hotplug_callback(nullptr, dev, LIBUSB_HOTPLUG_EVENT_DEVICE_ARRIVED, nullptr);
+                }
+            }
+
+            // Handle disconnected devices
+            for (const auto& [key, dev] : known_devices) {
+                if (current_devices.count(key) == 0) {
+                    hotplug_callback(nullptr, dev, LIBUSB_HOTPLUG_EVENT_DEVICE_LEFT, nullptr);
+                }
+            }
+            known_devices = std::move(current_devices);
+
+            using namespace std::chrono_literals;
+            std::this_thread::sleep_for(2s);
+        }
+    }).detach();
+}
+
+static void register_libusb_hotplug() {
     // Register the hotplug callback.
-    rc = libusb_hotplug_register_callback(
+    int rc = libusb_hotplug_register_callback(
             nullptr,
             static_cast<libusb_hotplug_event>(LIBUSB_HOTPLUG_EVENT_DEVICE_ARRIVED |
                                               LIBUSB_HOTPLUG_EVENT_DEVICE_LEFT),
@@ -1043,6 +1088,21 @@ void usb_init() {
 
     if (rc != LIBUSB_SUCCESS) {
         LOG(FATAL) << "failed to register libusb hotplug callback";
+    }
+}
+
+void usb_init() {
+    VLOG(USB) << "initializing libusb...";
+    int rc = libusb_init(nullptr);
+    if (rc != 0) {
+        LOG(WARNING) << "failed to initialize libusb: " << libusb_error_name(rc);
+        return;
+    }
+
+    if (libusb_has_capability(LIBUSB_CAP_HAS_HOTPLUG)) {
+        register_libusb_hotplug();
+    } else {
+        start_inhouse_hotplug_thread();
     }
 
     // Spawn a thread for libusb_handle_events.
