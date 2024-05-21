@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a063dfff_08914869",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-05-21T21:04:23Z",
+      "side": 1,
+      "message": "its",
+      "range": {
+        "startLine": 555,
+        "startChar": 77,
+        "endLine": 555,
+        "endChar": 79
+      },
+      "revId": "caac220dca220912c7071a8b3070de1ec41f99a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
