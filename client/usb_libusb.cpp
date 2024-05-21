@@ -83,6 +83,28 @@ using unique_device_handle = std::unique_ptr<libusb_device_handle, DeviceHandleD
 
 static void process_device(libusb_device* device_raw);
 
+static std::mutex& known_devices_lock = *new std::mutex();
+static std::unordered_map<uint64_t, libusb_device*> known_devices [[clang::no_destroy]]
+GUARDED_BY(known_devices_lock);
+// For in-house hotplug, we generate an unique identified based on device invariant (vendor,
+// product), the USB port, and the address (the location in the USB chain). Note that on Windows,
+// the address is always incremented, even if the same device is unplugged and re-plugged
+// immediately.
+static uint64_t get_key_for_device(libusb_device* dev) {
+    libusb_device_descriptor desc;
+    auto result = libusb_get_device_descriptor(dev, &desc);
+    if (result != LIBUSB_SUCCESS) {
+        LOG(WARNING) << "Unable to retrieve device descriptor error:" << result;
+        return 0;
+    }
+    uint64_t vendor = desc.idVendor;
+    uint64_t product = desc.idProduct;
+    uint64_t port = libusb_get_port_number(dev);
+    uint64_t address = libusb_get_device_address(dev);
+    uint64_t key = vendor << 32 | product << 16 | port << 8 | address;
+    return key;
+}
+
 static std::string get_device_address(libusb_device* device) {
     uint8_t ports[7];
     int port_count = libusb_get_port_numbers(device, ports, 7);
@@ -128,7 +150,9 @@ struct LibusbConnection : public Connection {
     };
 
     explicit LibusbConnection(unique_device device)
-        : device_(std::move(device)), device_address_(get_device_address(device_.get())) {}
+        : device_(std::move(device)),
+          device_address_(get_device_address(device_.get())),
+          key_(get_key_for_device(device_.get())) {}
 
     ~LibusbConnection() { Stop(); }
 
@@ -165,6 +189,10 @@ struct LibusbConnection : public Connection {
     static void LIBUSB_CALL header_read_cb(libusb_transfer* transfer) {
         auto read_block = static_cast<ReadBlock*>(transfer->user_data);
         auto self = read_block->self;
+
+        if (transfer->status != LIBUSB_TRANSFER_COMPLETED) {
+            remove_from_inhouse_hotplug(self->key_);
+        }
 
         std::lock_guard<std::mutex> lock(self->read_mutex_);
         CHECK_EQ(read_block, &self->header_read_);
@@ -212,10 +240,28 @@ struct LibusbConnection : public Connection {
         }
     }
 
+    // When Windows machine go to sleep it powers off all its USB Host controller to save
+    // energy. When the machines awaken, it powers them up which cause all the endpoints
+    // to reset (which generate a read/write failure leading to us Close()ing the device). The
+    // USB device briefly goes away and comes back with the exact same properties (including
+    // address). This makes in-house hot-plug miss devices reconnection upon wakeup. To solve that
+    // problems, we remove ourselves from the list of know devices when read/write fails.
+    static void remove_from_inhouse_hotplug(uint64_t key) {
+        if (libusb_has_capability(LIBUSB_CAP_HAS_HOTPLUG)) {
+            return;
+        }
+        std::lock_guard<std::mutex> lock(known_devices_lock);
+        known_devices.erase(key);
+    }
+
     static void LIBUSB_CALL payload_read_cb(libusb_transfer* transfer) {
         auto read_block = static_cast<ReadBlock*>(transfer->user_data);
         auto self = read_block->self;
         std::lock_guard<std::mutex> lock(self->read_mutex_);
+
+        if (transfer->status != LIBUSB_TRANSFER_COMPLETED) {
+            remove_from_inhouse_hotplug(self->key_);
+        }
 
         if (self->MaybeCleanup(&self->payload_read_)) {
             return;
@@ -266,6 +312,7 @@ struct LibusbConnection : public Connection {
         }
 
         if (!succeeded && !self->detached_) {
+            remove_from_inhouse_hotplug(self->key_);
             self->OnError("libusb write failed");
         }
     }
@@ -867,6 +914,7 @@ struct LibusbConnection : public Connection {
     unique_device_handle device_handle_;
     std::string device_address_;
     std::string serial_ = "<unknown>";
+    uint64_t key_;
 
     uint32_t interface_num_;
     uint8_t write_endpoint_;
@@ -880,7 +928,7 @@ struct LibusbConnection : public Connection {
 
     std::mutex write_mutex_;
     std::unordered_map<TransferId, std::unique_ptr<WriteBlock>> writes_ GUARDED_BY(write_mutex_);
-    std::atomic<size_t> next_write_id_ = 0;
+    std::atomic<size_t> next_write_id_ GUARDED_BY(write_mutex_) = 0;
 
     std::once_flag error_flag_;
     std::atomic<bool> terminated_ = false;
@@ -1052,16 +1100,48 @@ static LIBUSB_CALL int hotplug_callback(libusb_context*, libusb_device* device,
 
 namespace libusb {
 
-void usb_init() {
-    VLOG(USB) << "initializing libusb...";
-    int rc = libusb_init(nullptr);
-    if (rc != 0) {
-        LOG(WARNING) << "failed to initialize libusb: " << libusb_error_name(rc);
-        return;
+static void inhouse_hotplug_scan() {
+    std::lock_guard<std::mutex> lock(known_devices_lock);
+
+    // First retrieve all connected devices and detect new ones.
+    libusb_device** devs = nullptr;
+    libusb_get_device_list(nullptr, &devs);
+    std::unordered_map<uint64_t, libusb_device*> current_devices;
+    for (size_t i = 0; devs[i] != nullptr; i++) {
+        libusb_device* dev = devs[i];
+        auto key = get_key_for_device(dev);
+        current_devices[key] = dev;
+
+        if (known_devices.count(key) == 0) {
+            hotplug_callback(nullptr, dev, LIBUSB_HOTPLUG_EVENT_DEVICE_ARRIVED, nullptr);
+        }
     }
 
+    // Handle disconnected devices
+    for (const auto& [key, dev] : known_devices) {
+        if (current_devices.count(key) == 0) {
+            hotplug_callback(nullptr, dev, LIBUSB_HOTPLUG_EVENT_DEVICE_LEFT, nullptr);
+        }
+    }
+    known_devices = std::move(current_devices);
+    libusb_free_device_list(devs, 0);
+}
+
+// For in-house hotplug, we spawn a thread which periodically calls libusb_get_device_list and
+// calls the callback which would have normally been called.
+static void start_inhouse_hotplug_thread() {
+    std::thread([]() {
+        while (true) {
+            inhouse_hotplug_scan();
+            using namespace std::chrono_literals;
+            std::this_thread::sleep_for(2s);
+        }
+    }).detach();
+}
+
+static void register_libusb_hotplug() {
     // Register the hotplug callback.
-    rc = libusb_hotplug_register_callback(
+    int rc = libusb_hotplug_register_callback(
             nullptr,
             static_cast<libusb_hotplug_event>(LIBUSB_HOTPLUG_EVENT_DEVICE_ARRIVED |
                                               LIBUSB_HOTPLUG_EVENT_DEVICE_LEFT),
@@ -1070,6 +1150,23 @@ void usb_init() {
 
     if (rc != LIBUSB_SUCCESS) {
         LOG(FATAL) << "failed to register libusb hotplug callback";
+    }
+}
+
+void usb_init() {
+    VLOG(USB) << "initializing libusb...";
+    int rc = libusb_init(nullptr);
+    if (rc != 0) {
+        LOG(WARNING) << "failed to initialize libusb: " << libusb_error_name(rc);
+        return;
+    }
+
+    if (libusb_has_capability(LIBUSB_CAP_HAS_HOTPLUG)) {
+        LOG(WARNING) << "Using libusb hotplug";
+        register_libusb_hotplug();
+    } else {
+        LOG(WARNING) << "Using in-house hotplug";
+        start_inhouse_hotplug_thread();
     }
 
     // Spawn a thread for libusb_handle_events.
