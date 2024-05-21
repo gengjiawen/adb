@@ -1,0 +1,118 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32f60473_13c16b22",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 22
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2024-05-21T21:03:29Z",
+      "side": 1,
+      "message": "Waiving naming rules because this matches the pre-existing style.\n\nTests?",
+      "revId": "f38e88a04ef23db3385a4eb43f40c3d9f8d82831",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4eb359ed_6280953e",
+        "filename": "libs/adbconnection/include/adbconnection/client.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2024-05-21T21:03:29Z",
+      "side": 1,
+      "message": "All the new ones need `__INTRODUCED_IN`",
+      "revId": "f38e88a04ef23db3385a4eb43f40c3d9f8d82831",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1707e215_96302bfe",
+        "filename": "libs/adbconnection/include/adbconnection/client.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2024-05-21T21:03:29Z",
+      "side": 1,
+      "message": "It looks like this can probably be `const`?",
+      "range": {
+        "startLine": 86,
+        "startChar": 38,
+        "endLine": 86,
+        "endChar": 64
+      },
+      "revId": "f38e88a04ef23db3385a4eb43f40c3d9f8d82831",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b14c75fe_0d58f179",
+        "filename": "libs/adbconnection/include/adbconnection/common.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2024-05-21T21:03:29Z",
+      "side": 1,
+      "message": "This is a little surprising to see in the API headers. I don\u0027t think you can rely on ABI stability of C++ (especially not the stdlib) across APEX boundaries? Can this be moved to a non-exported location?\n\nThe previous implementation of this was okay because the struct itself was all C types, and the stdlib use was restricted to the inline code. That\u0027s definitely okay because the ABI of the stdlib types (and for that matter, of C++ itself) doesn\u0027t matter beyond each TU. When the struct has stdlib or C++ members, or out of line methods, it\u0027s pretty hard to reason about, and really easy to make mistakes.",
+      "revId": "f38e88a04ef23db3385a4eb43f40c3d9f8d82831",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9780c0a_9f8c8bfe",
+        "filename": "libs/adbconnection/include/adbconnection/common.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2024-05-21T21:03:29Z",
+      "side": 1,
+      "message": "C++ in stable APIs must be inline (no C++ ABI)",
+      "revId": "f38e88a04ef23db3385a4eb43f40c3d9f8d82831",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa189d5a_aaa9804a",
+        "filename": "libs/adbconnection/libadbconnection_client.map.txt",
+        "patchSetId": 22
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2024-05-21T21:03:29Z",
+      "side": 1,
+      "message": "Just checking, since I think the pre-existing `apex` here predates the `apex`/`systemapi` split, this library is provided by an APEX, right? If it\u0027s provided by the system _for_ an APEX, it should be `systemapi`.",
+      "range": {
+        "startLine": 29,
+        "startChar": 53,
+        "endLine": 29,
+        "endChar": 57
+      },
+      "revId": "f38e88a04ef23db3385a4eb43f40c3d9f8d82831",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
