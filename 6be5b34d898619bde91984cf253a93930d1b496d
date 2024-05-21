@@ -116,6 +116,24 @@
       "parentUuid": "4b9fdb6d_c4f36c21",
       "revId": "6be5b34d898619bde91984cf253a93930d1b496d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59c5adbc_490260b4",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1061,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-05-21T21:18:05Z",
+      "side": 1,
+      "message": "yeah, we have the _language_ features, but +rprichard is still slogging away trying to get us onto a new libc++ for _library_ features :-(",
+      "parentUuid": "912ce2cb_06cea54f",
+      "revId": "6be5b34d898619bde91984cf253a93930d1b496d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
