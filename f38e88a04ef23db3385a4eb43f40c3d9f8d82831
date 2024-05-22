@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4952180b_2a4ca4e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 22
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-05-22T16:15:29Z",
+      "side": 1,
+      "message": "Done (tests.c)",
+      "parentUuid": "32f60473_13c16b22",
+      "revId": "f38e88a04ef23db3385a4eb43f40c3d9f8d82831",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4eb359ed_6280953e",
@@ -35,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ece87db_806f1db9",
+        "filename": "libs/adbconnection/include/adbconnection/client.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-05-22T16:15:29Z",
+      "side": 1,
+      "message": "Done with `( __INTRODUCED_IN(__ANDROID_API_V__)`, since there is no ` __INTRODUCED_IN(__ANDROID_API_W__)`)",
+      "parentUuid": "4eb359ed_6280953e",
+      "revId": "f38e88a04ef23db3385a4eb43f40c3d9f8d82831",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1707e215_96302bfe",
@@ -48,6 +84,30 @@
       "writtenOn": "2024-05-21T21:03:29Z",
       "side": 1,
       "message": "It looks like this can probably be `const`?",
+      "range": {
+        "startLine": 86,
+        "startChar": 38,
+        "endLine": 86,
+        "endChar": 64
+      },
+      "revId": "f38e88a04ef23db3385a4eb43f40c3d9f8d82831",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82f94f61_0d1db132",
+        "filename": "libs/adbconnection/include/adbconnection/client.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-05-22T16:15:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1707e215_96302bfe",
       "range": {
         "startLine": 86,
         "startChar": 38,
@@ -128,6 +188,42 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0136a9a9_dd899a75",
+        "filename": "libs/adbconnection/include/adbconnection/common.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-05-22T16:15:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9780c0a_9f8c8bfe",
+      "revId": "f38e88a04ef23db3385a4eb43f40c3d9f8d82831",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c91176b9_e76cd817",
+        "filename": "libs/adbconnection/include/adbconnection/common.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-05-22T16:15:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9780c0a_9f8c8bfe",
+      "revId": "f38e88a04ef23db3385a4eb43f40c3d9f8d82831",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fa189d5a_aaa9804a",
@@ -141,6 +237,30 @@
       "writtenOn": "2024-05-21T21:03:29Z",
       "side": 1,
       "message": "Just checking, since I think the pre-existing `apex` here predates the `apex`/`systemapi` split, this library is provided by an APEX, right? If it\u0027s provided by the system _for_ an APEX, it should be `systemapi`.",
+      "range": {
+        "startLine": 29,
+        "startChar": 53,
+        "endLine": 29,
+        "endChar": 57
+      },
+      "revId": "f38e88a04ef23db3385a4eb43f40c3d9f8d82831",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf87f292_9dbc1020",
+        "filename": "libs/adbconnection/libadbconnection_client.map.txt",
+        "patchSetId": 22
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-05-22T16:15:29Z",
+      "side": 1,
+      "message": "Correct, it is part of adb apex.",
+      "parentUuid": "fa189d5a_aaa9804a",
       "range": {
         "startLine": 29,
         "startChar": 53,
