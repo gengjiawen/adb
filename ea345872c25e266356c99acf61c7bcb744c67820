@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "323596e0_bf0827e3",
+        "filename": "libs/adbconnection/include/adbconnection/client.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2024-05-22T18:47:04Z",
+      "side": 1,
+      "message": "Expand this to explain that it\u0027s because the test is built for the host.",
+      "revId": "ea345872c25e266356c99acf61c7bcb744c67820",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a730ada_7d5008c4",
+        "filename": "libs/adbconnection/include/adbconnection/client.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2024-05-22T18:47:04Z",
+      "side": 1,
+      "message": "Frozen and mismatched with the map file. Let\u0027s get a constant for W into bionic. If you\u0027re in a rush and can\u0027t wait for that for some reason, use 36 here and we\u0027ll clean it up after the bionic CL lands.",
+      "range": {
+        "startLine": 62,
+        "startChar": 20,
+        "endLine": 62,
+        "endChar": 37
+      },
+      "revId": "ea345872c25e266356c99acf61c7bcb744c67820",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed945ff8_77260ac3",
+        "filename": "libs/adbconnection/tests.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2024-05-22T18:47:04Z",
+      "side": 1,
+      "message": "2024",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "ea345872c25e266356c99acf61c7bcb744c67820",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

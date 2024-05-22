@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7695c022_14712d4a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 22
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2024-05-22T18:47:04Z",
+      "side": 1,
+      "message": "This is not quite done because it\u0027s a host test and we need to test the device. Discussed over IM, and it\u0027s not clear how difficult it would be to test the device since the socket name is hard coded, and already in use by adb. A new API would be needed to make that configurable. Will be considered for a follow up.",
+      "parentUuid": "4952180b_2a4ca4e6",
+      "revId": "f38e88a04ef23db3385a4eb43f40c3d9f8d82831",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4eb359ed_6280953e",
