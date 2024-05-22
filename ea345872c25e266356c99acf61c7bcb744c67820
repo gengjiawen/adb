@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad452012_af8fcf40",
+        "filename": "libs/adbconnection/include/adbconnection/client.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-05-22T19:16:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "323596e0_bf0827e3",
+      "revId": "ea345872c25e266356c99acf61c7bcb744c67820",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2a730ada_7d5008c4",
@@ -41,6 +59,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "903c19fb_23a187d3",
+        "filename": "libs/adbconnection/include/adbconnection/client.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-05-22T19:16:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a730ada_7d5008c4",
+      "range": {
+        "startLine": 62,
+        "startChar": 20,
+        "endLine": 62,
+        "endChar": 37
+      },
+      "revId": "ea345872c25e266356c99acf61c7bcb744c67820",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ed945ff8_77260ac3",
@@ -54,6 +96,30 @@
       "writtenOn": "2024-05-22T18:47:04Z",
       "side": 1,
       "message": "2024",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "ea345872c25e266356c99acf61c7bcb744c67820",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5645858b_a8a96924",
+        "filename": "libs/adbconnection/tests.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-05-22T19:16:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed945ff8_77260ac3",
       "range": {
         "startLine": 2,
         "startChar": 17,
