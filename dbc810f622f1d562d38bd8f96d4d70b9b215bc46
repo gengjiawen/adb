@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13493f08_83d5fb10",
+        "filename": "adbd_test.map",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1229339
+      },
+      "writtenOn": "2024-05-23T22:44:54Z",
+      "side": 1,
+      "message": "I don\u0027t like copying-and-pasting this explanatory block everywhere (e.g. aosp/3092676, aosp/3092549), but I\u0027m not quite sure what to do about that. The status quo *does* seem to be that tests for APEX modules, which are run on older OS builds, do need to statically link dependencies like libbase, so it makes sense to statically link libc++ as well.",
+      "revId": "dbc810f622f1d562d38bd8f96d4d70b9b215bc46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
