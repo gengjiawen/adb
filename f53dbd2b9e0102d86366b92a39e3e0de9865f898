@@ -88,6 +88,24 @@
       "parentUuid": "4feed2df_906495d9",
       "revId": "f53dbd2b9e0102d86366b92a39e3e0de9865f898",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "907bd23f_06555b66",
+        "filename": "crypto/tests/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-05-24T21:14:17Z",
+      "side": 1,
+      "message": "oh, yeah, rprichard\u0027s right that that would be the best way to solve that problem...\n\nbut ccross is \"more right\" that we don\u0027t even have that problem (at least not for the adb unit tests) --- we just shouldn\u0027t be running them on old releases _because_ they\u0027re unit tests. and the more static you make things the _less_ valuable running them on old releases is anyway!\n\n(and my apologies for not having ccross\u0027 insight this morning :-) )",
+      "parentUuid": "b0bb608f_0d9eca40",
+      "revId": "f53dbd2b9e0102d86366b92a39e3e0de9865f898",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
