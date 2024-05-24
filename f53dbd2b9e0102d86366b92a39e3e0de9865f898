@@ -34,6 +34,24 @@
       "parentUuid": "88edd831_3d16e0c6",
       "revId": "f53dbd2b9e0102d86366b92a39e3e0de9865f898",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cbaea64_02f72cab",
+        "filename": "crypto/tests/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2024-05-24T20:16:33Z",
+      "side": 1,
+      "message": "I\u0027m not sure, it depends on what this is trying to test.  If it\u0027s a unit test then I\u0027m not sure what the point of running it on S at all is.  If it\u0027s an integration test then it should be using whatever adbd will be using.",
+      "parentUuid": "7ff9df2e_5b4343a6",
+      "revId": "f53dbd2b9e0102d86366b92a39e3e0de9865f898",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
