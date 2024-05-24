@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88edd831_3d16e0c6",
+        "filename": "crypto/tests/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2024-05-24T19:33:16Z",
+      "side": 1,
+      "message": "This is likely to be unhappy if the test binary has a static libc++",
+      "revId": "f53dbd2b9e0102d86366b92a39e3e0de9865f898",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
