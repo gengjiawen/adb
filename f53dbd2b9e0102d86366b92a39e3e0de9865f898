@@ -70,6 +70,24 @@
       "parentUuid": "7cbaea64_02f72cab",
       "revId": "f53dbd2b9e0102d86366b92a39e3e0de9865f898",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0bb608f_0d9eca40",
+        "filename": "crypto/tests/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2024-05-24T21:11:56Z",
+      "side": 1,
+      "message": "Ryan pointed me to https://android-review.git.corp.google.com/c/platform/packages/modules/adb/+/3101841 which suggests moving this into Soong. Should I instead just try to figure out how to disable all these tests on mainline? It most certainly shouldn\u0027t force us to revert the libc++ update, even if we want to keep the tests.",
+      "parentUuid": "4feed2df_906495d9",
+      "revId": "f53dbd2b9e0102d86366b92a39e3e0de9865f898",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
