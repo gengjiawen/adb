@@ -125,6 +125,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "589f469c_9d277d4f",
+        "filename": "crypto/tests/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2024-05-24T22:56:56Z",
+      "side": 1,
+      "message": "Taking the advice that these are low/no value - see updated commit message.",
+      "parentUuid": "907bd23f_06555b66",
+      "revId": "f53dbd2b9e0102d86366b92a39e3e0de9865f898",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b9a4f952_0d4f64c4",
@@ -156,6 +174,24 @@
       "side": 1,
       "message": "yeah, seems plausible. i feel like they made us add this? given that we always end up asking for (and getting) a coverage waiver anyway, it should be fine?\n\nit looks like there are loads of other presumably similarly affected tests (https://source.corp.google.com/search?q\u003dmts-adbd\u0026sq\u003drepo:android%2Fplatform%2Fsuperproject%2Fmain%20b:main%20-file:prebuilts%2Fvndk%2F%20-file:prebuilts%2Fruntime%2F) but none of the other files (the .xml files) seem to _list_ tests, so unless there\u0027s some kind of \"this set cannot be empty\" check, we can probably just delete the lot? (because amusingly, the python integration tests _aren\u0027t_ listed here, and so presumably don\u0027t get run on older OS versions?)",
       "parentUuid": "b9a4f952_0d4f64c4",
+      "revId": "f53dbd2b9e0102d86366b92a39e3e0de9865f898",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9321ed6e_6be6b5fd",
+        "filename": "crypto/tests/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2024-05-24T22:56:56Z",
+      "side": 1,
+      "message": "I removed the other ones except for the one that had been ported. Hopefully this works with abtd. We can follow up with removing the other test from the suite next week if that\u0027s the direction we want to go.",
+      "parentUuid": "52b1a07b_ac638f45",
       "revId": "f53dbd2b9e0102d86366b92a39e3e0de9865f898",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
