@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "49acdc9d_7815f626",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-05-24T21:59:25Z",
+      "side": 1,
+      "message": "(+2 anyway as a short term fix we can revert later and disable all these tests, but that cs/ makes me think there are three more lurking, hiding behind this one...)",
+      "revId": "f53dbd2b9e0102d86366b92a39e3e0de9865f898",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "88edd831_3d16e0c6",
@@ -121,6 +138,24 @@
       "writtenOn": "2024-05-24T21:24:57Z",
       "side": 1,
       "message": "I assume this is the line that I\u0027d remove if we want to get these out of the legacy testing.",
+      "revId": "f53dbd2b9e0102d86366b92a39e3e0de9865f898",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52b1a07b_ac638f45",
+        "filename": "crypto/tests/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-05-24T21:59:25Z",
+      "side": 1,
+      "message": "yeah, seems plausible. i feel like they made us add this? given that we always end up asking for (and getting) a coverage waiver anyway, it should be fine?\n\nit looks like there are loads of other presumably similarly affected tests (https://source.corp.google.com/search?q\u003dmts-adbd\u0026sq\u003drepo:android%2Fplatform%2Fsuperproject%2Fmain%20b:main%20-file:prebuilts%2Fvndk%2F%20-file:prebuilts%2Fruntime%2F) but none of the other files (the .xml files) seem to _list_ tests, so unless there\u0027s some kind of \"this set cannot be empty\" check, we can probably just delete the lot? (because amusingly, the python integration tests _aren\u0027t_ listed here, and so presumably don\u0027t get run on older OS versions?)",
+      "parentUuid": "b9a4f952_0d4f64c4",
       "revId": "f53dbd2b9e0102d86366b92a39e3e0de9865f898",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
