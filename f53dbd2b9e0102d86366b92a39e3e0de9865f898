@@ -106,6 +106,23 @@
       "parentUuid": "b0bb608f_0d9eca40",
       "revId": "f53dbd2b9e0102d86366b92a39e3e0de9865f898",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9a4f952_0d4f64c4",
+        "filename": "crypto/tests/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2024-05-24T21:24:57Z",
+      "side": 1,
+      "message": "I assume this is the line that I\u0027d remove if we want to get these out of the legacy testing.",
+      "revId": "f53dbd2b9e0102d86366b92a39e3e0de9865f898",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
