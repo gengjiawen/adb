@@ -52,6 +52,24 @@
       "parentUuid": "7ff9df2e_5b4343a6",
       "revId": "f53dbd2b9e0102d86366b92a39e3e0de9865f898",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4feed2df_906495d9",
+        "filename": "crypto/tests/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-05-24T21:08:30Z",
+      "side": 1,
+      "message": "yeah, \"what ccross said\" ... i don\u0027t understand why we\u0027re running this unit test (or the one rprichard fixed overnight) on S at all.\n\nthe integration tests (which do make sense to run on old releases) are all python!",
+      "parentUuid": "7cbaea64_02f72cab",
+      "revId": "f53dbd2b9e0102d86366b92a39e3e0de9865f898",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
