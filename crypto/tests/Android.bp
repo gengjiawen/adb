@@ -48,6 +48,8 @@ cc_test {
         "libadb_sysdeps",
     ],
 
+    stl: "libc++_static",
+
     test_suites: [
         "general-tests",
         "mts-adbd",
