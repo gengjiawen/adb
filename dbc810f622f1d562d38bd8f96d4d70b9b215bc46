@@ -34,6 +34,24 @@
       "parentUuid": "13493f08_83d5fb10",
       "revId": "dbc810f622f1d562d38bd8f96d4d70b9b215bc46",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba1af216_2a702c7e",
+        "filename": "adbd_test.map",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-05-24T11:39:01Z",
+      "side": 1,
+      "message": "yeah, it even feels like it should be inferred from the presence of \"mts-*\" in the `test_suites`...",
+      "parentUuid": "7a1c4322_54a1da5e",
+      "revId": "dbc810f622f1d562d38bd8f96d4d70b9b215bc46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
