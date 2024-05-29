@@ -16,6 +16,24 @@
       "message": "@sanglardf@google.com do you know why this might still be showing up as running in go/abtd? I have https://android-build.corp.google.com/builds/abtd/run/L05400030004057964 running again, but I am not sure if it is just caching an old list of what to run or not. Perhaps it\u0027s worth submitting this CL and seeing whether further runs include these tests or not.",
       "revId": "7b049341ffa4f4989dda15a40f8180b7422b05f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dea6c4ae_c5bf02d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1981170
+      },
+      "writtenOn": "2024-05-29T21:48:02Z",
+      "side": 1,
+      "message": "The changes here should work after rebasing on top of https://android-review.git.corp.google.com/c/platform/packages/modules/adb/+/3107321.\n\nPlease remove the problematic Test Modules from both `mainline-presubmit` test group and `adbd-mainline-presubmit` test group.\n\nThanks!",
+      "parentUuid": "d95ee275_37f503ce",
+      "revId": "7b049341ffa4f4989dda15a40f8180b7422b05f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
