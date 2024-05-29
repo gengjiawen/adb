@@ -97,6 +97,54 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2344deb5_ad612ec5",
+        "filename": "TEST_MAPPING",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2024-05-29T21:18:21Z",
+      "side": 1,
+      "message": "Yeah, let\u0027s add this doc to a future CL to minimize merge conflicts here.",
+      "parentUuid": "bca49197_dd77be36",
+      "range": {
+        "startLine": 2,
+        "startChar": 3,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "5675696dd81c3d4360320e7da32c8e0b413a13e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d640e9ca_eb4e7b5f",
+        "filename": "TEST_MAPPING",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2024-05-29T21:18:21Z",
+      "side": 1,
+      "message": "No, let\u0027s not differ from git_main. We shouldn\u0027t be merging CLs for an AOSP-first project internally.",
+      "parentUuid": "7466f785_c4482073",
+      "range": {
+        "startLine": 2,
+        "startChar": 2,
+        "endLine": 2,
+        "endChar": 27
+      },
+      "revId": "5675696dd81c3d4360320e7da32c8e0b413a13e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3da69e2d_d3a6ea7e",
         "filename": "TEST_MAPPING",
         "patchSetId": 2
@@ -132,6 +180,30 @@
       "side": 1,
       "message": "I agree with what you are trying to do, but the reason I am trying to submit this changes is, the `TEST_MAPPING` file at `git_main` and `aosp-main` are different because the change at [ag/26895801](https://googleplex-android-review.git.corp.google.com/c/platform/packages/modules/adb/+/26895801) was only merged to `git_main`. \n\nOnce this change is cherry-picked to `aosp-main`, you can submit your changes and remove the problematic test modules.\n\nWill that not work ?",
       "parentUuid": "3da69e2d_d3a6ea7e",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 5
+      },
+      "revId": "5675696dd81c3d4360320e7da32c8e0b413a13e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa76302c_e78a8a97",
+        "filename": "TEST_MAPPING",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2024-05-29T21:18:21Z",
+      "side": 1,
+      "message": "Ah that\u0027s true. Let\u0027s just merge this and then stack a fixup that removes the bogus tests. I can repurpose my CL to do just that.",
+      "parentUuid": "1d3aef33_00eb4076",
       "range": {
         "startLine": 6,
         "startChar": 0,
