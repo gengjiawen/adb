@@ -49,6 +49,54 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7466f785_c4482073",
+        "filename": "TEST_MAPPING",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1981170
+      },
+      "writtenOn": "2024-05-29T21:02:18Z",
+      "side": 1,
+      "message": "I am very new to how cherry-pick works.\n\nDoes it makes sense to add that here if does not exists on `git_main` ?",
+      "parentUuid": "58f439d4_9ab2620a",
+      "range": {
+        "startLine": 2,
+        "startChar": 2,
+        "endLine": 2,
+        "endChar": 27
+      },
+      "revId": "5675696dd81c3d4360320e7da32c8e0b413a13e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bca49197_dd77be36",
+        "filename": "TEST_MAPPING",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1981170
+      },
+      "writtenOn": "2024-05-29T21:02:18Z",
+      "side": 1,
+      "message": "There is a design doc at go/isolated-mainline-presubmit",
+      "parentUuid": "447fc37a_c7cb81a5",
+      "range": {
+        "startLine": 2,
+        "startChar": 3,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "5675696dd81c3d4360320e7da32c8e0b413a13e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3da69e2d_d3a6ea7e",
         "filename": "TEST_MAPPING",
         "patchSetId": 2
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1d3aef33_00eb4076",
+        "filename": "TEST_MAPPING",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1981170
+      },
+      "writtenOn": "2024-05-29T21:02:18Z",
+      "side": 1,
+      "message": "I agree with what you are trying to do, but the reason I am trying to submit this changes is, the `TEST_MAPPING` file at `git_main` and `aosp-main` are different because the change at [ag/26895801](https://googleplex-android-review.git.corp.google.com/c/platform/packages/modules/adb/+/26895801) was only merged to `git_main`. \n\nOnce this change is cherry-picked to `aosp-main`, you can submit your changes and remove the problematic test modules.\n\nWill that not work ?",
+      "parentUuid": "3da69e2d_d3a6ea7e",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 5
+      },
+      "revId": "5675696dd81c3d4360320e7da32c8e0b413a13e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fbb03504_6ab04f06",
         "filename": "TEST_MAPPING",
         "patchSetId": 2
@@ -83,6 +155,30 @@
       "writtenOn": "2024-05-29T20:38:16Z",
       "side": 1,
       "message": "Should we also keep this Test Mapping group? I don\u0027t fully understand the architecture here, how are Test Mapping group `adbd-mainline-presubmit` and `mainline-presubmit` differing?",
+      "range": {
+        "startLine": 19,
+        "startChar": 2,
+        "endLine": 19,
+        "endChar": 22
+      },
+      "revId": "5675696dd81c3d4360320e7da32c8e0b413a13e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1160340b_002cca69",
+        "filename": "TEST_MAPPING",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1981170
+      },
+      "writtenOn": "2024-05-29T21:02:18Z",
+      "side": 1,
+      "message": "\u003e Should we also keep this Test Mapping group?\n\nYes, both test group should be configured until the migration from previous Test Mapping to Dedicated Test Mapping is completed. \n\n\u003e I don\u0027t fully understand the architecture here, how are Test Mapping group `adbd-mainline-presubmit` and `mainline-presubmit` differing?\n\nThe major different between those test group is how the Mainline module installation happens for each Test Module. \n\nThe previous test group will install and rollback Mainline module for each test module in `mainline-presubmit` group but for `adbd-mainline-presubmit` test group, the installation will only happen once during device setup and it will run all the test module in that group.\n\nThere is more detail at go/isolated-mainline-presubmit.",
+      "parentUuid": "fbb03504_6ab04f06",
       "range": {
         "startLine": 19,
         "startChar": 2,
