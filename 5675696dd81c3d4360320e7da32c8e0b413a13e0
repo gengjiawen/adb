@@ -160,6 +160,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "96456245_4e63600b",
+        "filename": "TEST_MAPPING",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1981170
+      },
+      "writtenOn": "2024-05-29T21:22:43Z",
+      "side": 1,
+      "message": "Noted. Thank you",
+      "parentUuid": "2344deb5_ad612ec5",
+      "range": {
+        "startLine": 2,
+        "startChar": 3,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "5675696dd81c3d4360320e7da32c8e0b413a13e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "597718a1_c6daf717",
+        "filename": "TEST_MAPPING",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1981170
+      },
+      "writtenOn": "2024-05-29T21:22:43Z",
+      "side": 1,
+      "message": "\u003e  No, let\u0027s not differ from git_main. We shouldn\u0027t be merging CLs for an AOSP-first project internally.\n\nSounds good. Leaving this as is for now.",
+      "parentUuid": "d640e9ca_eb4e7b5f",
+      "range": {
+        "startLine": 2,
+        "startChar": 2,
+        "endLine": 2,
+        "endChar": 27
+      },
+      "revId": "5675696dd81c3d4360320e7da32c8e0b413a13e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3da69e2d_d3a6ea7e",
@@ -221,6 +269,30 @@
       "side": 1,
       "message": "Ah that\u0027s true. Let\u0027s just merge this and then stack a fixup that removes the bogus tests. I can repurpose my CL to do just that.",
       "parentUuid": "1d3aef33_00eb4076",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 5
+      },
+      "revId": "5675696dd81c3d4360320e7da32c8e0b413a13e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc0c0d62_09cdc6ae",
+        "filename": "TEST_MAPPING",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1981170
+      },
+      "writtenOn": "2024-05-29T21:22:43Z",
+      "side": 1,
+      "message": "\u003e I can repurpose my CL to do just that.\n\nThat would be great. Thank You!",
+      "parentUuid": "aa76302c_e78a8a97",
       "range": {
         "startLine": 6,
         "startChar": 0,
