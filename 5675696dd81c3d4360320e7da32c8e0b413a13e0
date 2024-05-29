@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3da69e2d_d3a6ea7e",
+        "filename": "TEST_MAPPING",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2024-05-29T20:27:10Z",
+      "side": 1,
+      "message": "These 4 tests should not be added, as they aren\u0027t even testing the right libc++. They are unit tests that are built in weird ways that don\u0027t truly work. We similarly should remove them from the mainline-presubmit below (which is what my other CL was trying to do).",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 5
+      },
+      "revId": "5675696dd81c3d4360320e7da32c8e0b413a13e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
