@@ -3,6 +3,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "447fc37a_c7cb81a5",
+        "filename": "TEST_MAPPING",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-05-29T20:38:16Z",
+      "side": 1,
+      "message": "Any documentation for \"Mainline Test Mapping group\" available somewhere?\n\nThat would help future engineer understanding the mapping.",
+      "range": {
+        "startLine": 2,
+        "startChar": 3,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "5675696dd81c3d4360320e7da32c8e0b413a13e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58f439d4_9ab2620a",
+        "filename": "TEST_MAPPING",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-05-29T20:38:16Z",
+      "side": 1,
+      "message": "Add a comment above:\n\n// Use Dedicated Mainline Test Mapping group",
+      "range": {
+        "startLine": 2,
+        "startChar": 2,
+        "endLine": 2,
+        "endChar": 27
+      },
+      "revId": "5675696dd81c3d4360320e7da32c8e0b413a13e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3da69e2d_d3a6ea7e",
         "filename": "TEST_MAPPING",
         "patchSetId": 2
@@ -19,6 +65,29 @@
         "startChar": 0,
         "endLine": 17,
         "endChar": 5
+      },
+      "revId": "5675696dd81c3d4360320e7da32c8e0b413a13e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbb03504_6ab04f06",
+        "filename": "TEST_MAPPING",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-05-29T20:38:16Z",
+      "side": 1,
+      "message": "Should we also keep this Test Mapping group? I don\u0027t fully understand the architecture here, how are Test Mapping group `adbd-mainline-presubmit` and `mainline-presubmit` differing?",
+      "range": {
+        "startLine": 19,
+        "startChar": 2,
+        "endLine": 19,
+        "endChar": 22
       },
       "revId": "5675696dd81c3d4360320e7da32c8e0b413a13e0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
