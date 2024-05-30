@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7f47b97_57205b10",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 28
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-05-30T16:59:05Z",
+      "side": 1,
+      "message": "(only a rebase since ps25 which had cr+2 and ndk+1, so copying those forward...)",
+      "revId": "15335e015954be242b742bbff60ec83f506f09f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
