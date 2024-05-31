@@ -36,8 +36,8 @@ import threading
 import time
 import unittest
 
+import proto.adb_host_pb2 as adb_host_proto
 import proto.devices_pb2 as proto_devices
-import proto.app_processes_pb2 as proto_track_app
 
 from datetime import datetime
 
@@ -1830,7 +1830,7 @@ class DevicesListing(DeviceTest):
             output_size = int(proc.stdout.read(4).decode("utf-8"), 16)
             proto = proc.stdout.read(output_size)
 
-            devices = proto_devices.Devices()
+            devices = adb_host_proto.Devices()
             devices.ParseFromString(proto)
 
             device = devices.device[0]
@@ -1844,10 +1844,6 @@ class DevicesListing(DeviceTest):
             self.assertTrue(device.transport_id == int(device.transport_id))
 
             proc.terminate()
-
-class DevicesListing(DeviceTest):
-
-    serial = subprocess.check_output(['adb', 'get-serialno']).strip().decode("utf-8")
 
     def test_track_app_appinfo(self):
         return # Disabled until b/301491148 is fixed.
@@ -1881,6 +1877,17 @@ class DevicesListing(DeviceTest):
             self.assertTrue(foundAdbAppDefProc)
             self.assertTrue(foundAdbAppOwnProc)
             proc.terminate()
+
+class ServerStatus(ServerStatusTest):
+    def test_server_status(self):
+        with subprocess.Popen(['adb', 'server-status'], stdin=subprocess.PIPE, stdout=subprocess.PIPE) as proc:
+            lines = list(map(lambda b: b.decode("utf-8"), proc.stdout.readlines()))
+            self.assertTrue("usb_backend" in lines[0])
+            self.assertTrue("mdns_backend" in lines[1])
+            self.assertTrue("version" in lines[2])
+            self.assertTrue("build" in lines[3])
+            self.assertTrue("executable_absolute_path" in lines[4])
+            self.assertTrue("log_absolute_path" in lines[5])
 
 if __name__ == '__main__':
     random.seed(0)

@@ -57,8 +57,8 @@
 
 #if ADB_HOST
 #include <google/protobuf/text_format.h>
+#include "adb_host.pb.h"
 #include "client/usb.h"
-#include "devices.pb.h"
 #endif
 
 using namespace adb::crypto;
