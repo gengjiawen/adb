@@ -279,6 +279,7 @@ asocket* host_service_to_socket(std::string_view name, std::string_view serial,
                 "pair", std::bind(pair_service, std::placeholders::_1, host, password));
         return create_local_socket(std::move(fd));
     }
+
     return nullptr;
 }
 #endif /* ADB_HOST */

@@ -56,6 +56,7 @@
 #include "adb.h"
 #include "adb_auth.h"
 #include "adb_client.h"
+#include "adb_host.pb.h"
 #include "adb_install.h"
 #include "adb_io.h"
 #include "adb_unique_fd.h"
@@ -1359,7 +1360,9 @@ static int adb_connect_command(const std::string& command, TransportId* transpor
                                StandardStreamsCallbackInterface* callback) {
     std::string error;
     unique_fd fd(adb_connect(transport, command, &error));
+    VLOG(ADB) << "adb_connect_command";
     if (fd < 0) {
+        VLOG(ADB) << "adb_connect_command ERROR";
         fprintf(stderr, "error: %s\n", error.c_str());
         return 1;
     }
@@ -1370,6 +1373,30 @@ static int adb_connect_command(const std::string& command, TransportId* transpor
 static int adb_connect_command(const std::string& command, TransportId* transport = nullptr) {
     return adb_connect_command(command, transport, &DEFAULT_STANDARD_STREAMS_CALLBACK);
 }
+
+// A class to convert server status binary protobuf to text protobuf.
+class AdbServerStateStreamsCallback : public DefaultStandardStreamsCallback {
+  public:
+    AdbServerStateStreamsCallback() : DefaultStandardStreamsCallback(nullptr, nullptr) {}
+
+    bool OnStdout(const char* buffer, size_t length) override {
+        return OnStream(&output_, nullptr, buffer, length, false);
+    }
+
+    int Done(int status) {
+        ::adb::proto::AdbServerStatus binary_proto;
+        binary_proto.ParseFromString(output_);
+
+        std::string string_proto;
+        google::protobuf::TextFormat::PrintToString(binary_proto, &string_proto);
+
+        return OnStream(nullptr, stdout, string_proto.data(), string_proto.length(), false);
+    }
+
+  private:
+    std::string output_;
+    DISALLOW_COPY_AND_ASSIGN(AdbServerStateStreamsCallback);
+};
 
 // A class that prints out human readable form of the protobuf message for "track-app" service
 // (received in binary format).
@@ -2185,6 +2212,9 @@ int adb_commandline(int argc, const char** argv) {
         }
         printf("%s\n", result.c_str());
         return 0;
+    } else if (!strcmp(argv[0], "server-status")) {
+        AdbServerStateStreamsCallback callback;
+        return adb_connect_command("host:server-status", nullptr, &callback);
     }
 
     error_exit("unknown command %s", argv[0]);
