@@ -73,6 +73,7 @@ using namespace std::chrono_literals;
 #endif
 
 #if ADB_HOST
+#include "adb_host.pb.h"
 #include "client/usb.h"
 #endif
 
@@ -1322,6 +1323,28 @@ HostRequestResult handle_host_request(std::string_view service, TransportType ty
             SendFail(reply_fd, error);
             return HostRequestResult::Handled;
         }
+    }
+
+    if (service == "server-status") {
+        adb::proto::AdbServerStatus status;
+        status.set_usb_backend(adb::proto::AdbServerStatus::LIBUSB);
+        status.set_usb_backend_forced(getenv("ADB_LIBUSB") != nullptr);
+
+        status.set_mdns_backend(adb::proto::AdbServerStatus::OPENSCREEN);
+        status.set_mdns_backend_forced(getenv("ADB_MDNS_OPENSCREEN") != nullptr);
+
+        status.set_version(std::string(PLATFORM_TOOLS_VERSION));
+        status.set_build(android::build::GetBuildNumber());
+        status.set_executable_absolute_path(android::base::GetExecutablePath());
+        status.set_log_absolute_path(GetLogFilePath());
+        status.set_os(GetOSVersion());
+
+        std::string server_status_string;
+        status.SerializeToString(&server_status_string);
+        SendOkay(reply_fd, server_status_string);
+        //        WriteFdExactly(reply_fd, server_status_string.data(),
+        //        server_status_string.size());
+        return HostRequestResult::Handled;
     }
 
     // return a list of all connected devices
