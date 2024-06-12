@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "504fa785_1c9b9d03",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-06-12T20:39:02Z",
+      "side": 1,
+      "message": "we should just switch to more markdown-friendly formatting ... this is going to keep happening, because most people\u0027s editors are (rightly) configured to do this by default.",
+      "parentUuid": "f5e6c5b6_71561e97",
+      "range": {
+        "startLine": 363,
+        "startChar": 0,
+        "endLine": 363,
+        "endChar": 13
+      },
+      "revId": "18803f10395486c81fda96042128d395120767ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "94dfef85_b79a98ea",
         "filename": "docs/user/adb.1.md",
         "patchSetId": 2
