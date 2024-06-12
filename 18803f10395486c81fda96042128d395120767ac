@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5e6c5b6_71561e97",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-06-12T20:37:39Z",
+      "side": 1,
+      "message": "Revert. This is needed for formatting,.",
+      "range": {
+        "startLine": 363,
+        "startChar": 0,
+        "endLine": 363,
+        "endChar": 13
+      },
+      "revId": "18803f10395486c81fda96042128d395120767ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94dfef85_b79a98ea",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-06-12T20:37:39Z",
+      "side": 1,
+      "message": "Ditto",
+      "range": {
+        "startLine": 366,
+        "startChar": 0,
+        "endLine": 366,
+        "endChar": 8
+      },
+      "revId": "18803f10395486c81fda96042128d395120767ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
