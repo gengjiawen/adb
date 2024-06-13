@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a0d6976_c6d29092",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1019013
+      },
+      "writtenOn": "2024-06-13T08:53:29Z",
+      "side": 1,
+      "message": "Done.\n\nJust FYI, I used cider and didn\u0027t do anything manual for formatting.",
+      "parentUuid": "504fa785_1c9b9d03",
+      "range": {
+        "startLine": 363,
+        "startChar": 0,
+        "endLine": 363,
+        "endChar": 13
+      },
+      "revId": "18803f10395486c81fda96042128d395120767ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "94dfef85_b79a98ea",
@@ -61,6 +85,30 @@
       "writtenOn": "2024-06-12T20:37:39Z",
       "side": 1,
       "message": "Ditto",
+      "range": {
+        "startLine": 366,
+        "startChar": 0,
+        "endLine": 366,
+        "endChar": 8
+      },
+      "revId": "18803f10395486c81fda96042128d395120767ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1963959d_280f0bbf",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1019013
+      },
+      "writtenOn": "2024-06-13T08:53:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94dfef85_b79a98ea",
       "range": {
         "startLine": 366,
         "startChar": 0,
