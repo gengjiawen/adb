@@ -16,6 +16,24 @@
       "message": "(i\u0027d be interested to read more on how you debugged this, even if it was just \"lots of printf()\"!)",
       "revId": "c692c166f6882f793b54c56ef3ec062b1cc82fd2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9bcdf67b_880009a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-06-18T15:16:04Z",
+      "side": 1,
+      "message": "1/ Enabled ADB_TRACE, found out that our call to `client_-\u003eOnRead` (https://cs.android.com/android/platform/superproject/main/+/main:packages/modules/adb/client/openscreen/platform/udp_socket.cpp;l\u003d600?q\u003dclient_-%3EOnRead) failed.\n\n2/ Looked inside `openscreen` and traces `MdnsReceiver::OnRead`, find out that it gets empty packets.\n\n3/ Go back to our `udp_socket.cpp`. It was our `adb_recvmsg` which failed and returned zero bytes (https://cs.android.com/android/platform/superproject/main/+/main:packages/modules/adb/client/openscreen/platform/udp_socket.cpp;l\u003d120?q\u003dclient_-%3EOnRead).\n\n4/ Now the question is why is our fdevevent\u0027s `poll()` is triggering if there is no data to read on UDP socket (read returns zero)?\n\n5/ Turns out it was because we `network_peek` at it with an unsupported flag and that places the socket in error mode. I assume all subsequent operation on it fail after that bad `MSG_PEEK | MSG_TRUNK`.\n\n6/ My first fix was to use `ioctl(FIONREAD)` which behaves differently on Linux and Mac. But we had the good idea to have an assert (https://cs.android.com/android/platform/superproject/main/+/main:packages/modules/adb/client/openscreen/platform/udp_socket.cpp;l\u003d125?q\u003dclient_-%3EOnRead) which made sure peek \u003d\u003d read. I would have dropped packets without it and that would have been many more printfs.\n\nPS: All that was done with printf indeed.\nPS2: We should add a VLOG after all calls to `adb_recvmsg`, that would have helped in this case. Or perhaps even inside `adb_recvmsg`.",
+      "parentUuid": "fcec834d_4b2958b3",
+      "revId": "c692c166f6882f793b54c56ef3ec062b1cc82fd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
