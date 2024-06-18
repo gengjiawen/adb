@@ -34,6 +34,24 @@
       "parentUuid": "fcec834d_4b2958b3",
       "revId": "c692c166f6882f793b54c56ef3ec062b1cc82fd2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ec30def_e6f651a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-06-18T16:02:02Z",
+      "side": 1,
+      "message": "\u003e PS2: We should add a VLOG after all calls to adb_recvmsg, that would have helped in this case. Or perhaps even inside adb_recvmsg.\n\nyeah, +1 to inside adb_recvmsg() so you can always see what it\u0027s returning...",
+      "parentUuid": "9bcdf67b_880009a5",
+      "revId": "c692c166f6882f793b54c56ef3ec062b1cc82fd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
