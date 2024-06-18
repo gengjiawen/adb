@@ -33,6 +33,7 @@
 
 // Include this before open/close/isatty/unlink are defined as macros below.
 #include <android-base/errors.h>
+#include <android-base/logging.h>
 #include <android-base/macros.h>
 #include <android-base/off64_t.h>
 #include <android-base/unique_fd.h>
@@ -694,7 +695,11 @@ inline ssize_t adb_sendmsg(borrowed_fd fd, const adb_msghdr* msg, int flags) {
 }
 
 inline ssize_t adb_recvmsg(borrowed_fd fd, adb_msghdr* msg, int flags) {
-    return recvmsg(fd.get(), msg, flags);
+    ssize_t ret = recvmsg(fd.get(), msg, flags);
+    if (ret == -1) {
+        LOG(ERROR) << "adb_recmsg error";
+    }
+    return ret;
 }
 
 using adb_cmsghdr = cmsghdr;
