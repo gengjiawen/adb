@@ -52,6 +52,8 @@ static inline void* mempcpy(void* dst, const void* src, size_t n) {
 }
 #endif
 
+std::optional<ssize_t> network_peek(borrowed_fd fd);
+
 #ifdef _WIN32
 
 #include <ctype.h>
@@ -184,8 +186,6 @@ inline int network_local_server(const char* name, int namespace_id, int type, st
 
 int network_connect(const std::string& host, int port, int type, int timeout,
                     std::string* error);
-
-std::optional<ssize_t> network_peek(borrowed_fd fd);
 
 extern int adb_socket_accept(borrowed_fd serverfd, struct sockaddr* addr, socklen_t* addrlen);
 
@@ -606,11 +606,6 @@ inline int network_local_server(const char* name, int namespace_id, int type, st
 }
 
 int network_connect(const std::string& host, int port, int type, int timeout, std::string* error);
-
-inline std::optional<ssize_t> network_peek(borrowed_fd fd) {
-    ssize_t ret = recv(fd.get(), nullptr, 0, MSG_PEEK | MSG_TRUNC);
-    return ret == -1 ? std::nullopt : std::make_optional(ret);
-}
 
 static inline int adb_socket_accept(borrowed_fd serverfd, struct sockaddr* addr,
                                     socklen_t* addrlen) {
