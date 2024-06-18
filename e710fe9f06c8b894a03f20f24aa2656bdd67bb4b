@@ -81,6 +81,30 @@
       },
       "revId": "e710fe9f06c8b894a03f20f24aa2656bdd67bb4b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "906f53d9_b441aff6",
+        "filename": "adb_trace.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-06-18T16:49:52Z",
+      "side": 1,
+      "message": "yeah, i was hoping we could get to where we had a static_assert, but this is definitely a step in the right direction...",
+      "parentUuid": "eda1c46a_ac3e114b",
+      "range": {
+        "startLine": 25,
+        "startChar": 7,
+        "endLine": 25,
+        "endChar": 21
+      },
+      "revId": "e710fe9f06c8b894a03f20f24aa2656bdd67bb4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
