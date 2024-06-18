@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23edebf0_c4aa2af8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-06-18T15:00:22Z",
+      "side": 1,
+      "message": "(i\u0027m assuming this matches, say, usb, where \"transport\" doesn\u0027t automatically include \"usb\"?)",
+      "revId": "e710fe9f06c8b894a03f20f24aa2656bdd67bb4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "888f7082_5b99318e",
+        "filename": "adb_trace.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-06-18T15:00:22Z",
+      "side": 1,
+      "message": "setup_trace_mask()?\n\n(should we put the initializer in this header too?)",
+      "range": {
+        "startLine": 25,
+        "startChar": 7,
+        "endLine": 25,
+        "endChar": 21
+      },
+      "revId": "e710fe9f06c8b894a03f20f24aa2656bdd67bb4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
