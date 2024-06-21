@@ -16,6 +16,23 @@
       "message": "Rebased an retested, please one more round of review.",
       "revId": "bbdad8e73a3a289735ef31ade8d559d7293cff79",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03d7dbe2_a4d717af",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511237
+      },
+      "writtenOn": "2024-06-21T11:42:06Z",
+      "side": 1,
+      "message": "Is there any action pending from my side to get it merged?\nHot to proceed with this change?",
+      "revId": "bbdad8e73a3a289735ef31ade8d559d7293cff79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
