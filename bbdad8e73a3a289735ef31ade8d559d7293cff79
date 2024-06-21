@@ -122,6 +122,24 @@
       "parentUuid": "3d6615be_108c387c",
       "revId": "bbdad8e73a3a289735ef31ade8d559d7293cff79",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46798279_53d9dc0e",
+        "filename": "client/transport_local.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1511237
+      },
+      "writtenOn": "2024-06-21T20:06:40Z",
+      "side": 1,
+      "message": "I don\u0027t expect it to ever fail. But, I still need to handle corner cases such as ENOMEM e.t.c.",
+      "parentUuid": "b9218530_9d890e44",
+      "revId": "bbdad8e73a3a289735ef31ade8d559d7293cff79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
