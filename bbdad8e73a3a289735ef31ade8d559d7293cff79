@@ -140,6 +140,24 @@
       "parentUuid": "b9218530_9d890e44",
       "revId": "bbdad8e73a3a289735ef31ade8d559d7293cff79",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32f15a8b_d9e8ddc8",
+        "filename": "client/transport_local.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-06-21T20:56:45Z",
+      "side": 1,
+      "message": "no, that\u0027s just made this look more complicated than it actually is, with all the -1/std::optional stuff. and if you _did_ want to have error checking, it should be in init_socket_transport() so you can actually report the error. here we\u0027re just going to silently assume we know better (but via the most complicated path possible).",
+      "parentUuid": "46798279_53d9dc0e",
+      "revId": "bbdad8e73a3a289735ef31ade8d559d7293cff79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
