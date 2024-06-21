@@ -86,6 +86,24 @@
       "parentUuid": "27214b40_bbf86549",
       "revId": "bbdad8e73a3a289735ef31ade8d559d7293cff79",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d6615be_108c387c",
+        "filename": "client/transport_local.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1511237
+      },
+      "writtenOn": "2024-06-21T15:52:43Z",
+      "side": 1,
+      "message": "Sure, it accepts pair only, always console port and adb port together.\nBut console doesn\u0027t have to be next to adb port (port-1). The name of the function \"local_connect_arbitrary_ports()\" kinda implies that.\n\nThe port number getting coveted to serial in following calls of local_connect_arbitrary_ports():\n```\nstd::string getEmulatorSerialString(int console_port) {\n    return android::base::StringPrintf(\"emulator-%d\", console_port);\n}\n```",
+      "parentUuid": "3a6040c3_c3f097ec",
+      "revId": "bbdad8e73a3a289735ef31ade8d559d7293cff79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
