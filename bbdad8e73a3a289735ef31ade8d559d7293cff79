@@ -50,6 +50,24 @@
       "message": "when is this the case? shouldn\u0027t the serial always be \"emulator-%d\", but the number is either an arbitrary number or just (port-1)? is the serial something different in the default (port-1) case? (and if so, is _that_ the bug?)",
       "revId": "bbdad8e73a3a289735ef31ade8d559d7293cff79",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27214b40_bbf86549",
+        "filename": "client/transport_local.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1511237
+      },
+      "writtenOn": "2024-06-21T13:01:55Z",
+      "side": 1,
+      "message": "I\u0027m not sure if genuine Android emulator can create such ports.\nI personally, use this query in combination with ADBHOST env set to remote host.\nBut, as long as adb accepts queries like \"connect emu:xxxx,yyyy\" where xxxx and yyyy can be arbitrary values, I would say overwriting serial port is a bug.",
+      "parentUuid": "571fa2de_92920878",
+      "revId": "bbdad8e73a3a289735ef31ade8d559d7293cff79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
