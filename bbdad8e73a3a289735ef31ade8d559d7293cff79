@@ -33,6 +33,23 @@
       "message": "Is there any action pending from my side to get it merged?\nHot to proceed with this change?",
       "revId": "bbdad8e73a3a289735ef31ade8d559d7293cff79",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "571fa2de_92920878",
+        "filename": "client/transport_local.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-06-21T12:03:53Z",
+      "side": 1,
+      "message": "when is this the case? shouldn\u0027t the serial always be \"emulator-%d\", but the number is either an arbitrary number or just (port-1)? is the serial something different in the default (port-1) case? (and if so, is _that_ the bug?)",
+      "revId": "bbdad8e73a3a289735ef31ade8d559d7293cff79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
