@@ -104,6 +104,24 @@
       "parentUuid": "3a6040c3_c3f097ec",
       "revId": "bbdad8e73a3a289735ef31ade8d559d7293cff79",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9218530_9d890e44",
+        "filename": "client/transport_local.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-06-21T17:34:33Z",
+      "side": 1,
+      "message": "but when would the sscanf() in the new code be expected to fail?",
+      "parentUuid": "3d6615be_108c387c",
+      "revId": "bbdad8e73a3a289735ef31ade8d559d7293cff79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
