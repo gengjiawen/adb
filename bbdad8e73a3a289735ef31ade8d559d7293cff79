@@ -68,6 +68,24 @@
       "parentUuid": "571fa2de_92920878",
       "revId": "bbdad8e73a3a289735ef31ade8d559d7293cff79",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a6040c3_c3f097ec",
+        "filename": "client/transport_local.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-06-21T14:49:05Z",
+      "side": 1,
+      "message": "it looks like we _only_ accept pairs of ports:\n```\nvoid connect_emulator(const std::string\u0026 port_spec, std::string* response) {\n    std::vector\u003cstd::string\u003e pieces \u003d android::base::Split(port_spec, \",\");\n    if (pieces.size() !\u003d 2) {\n        *response \u003d android::base::StringPrintf(\"unable to parse \u0027%s\u0027 as \u003cconsole port\u003e,\u003cadb port\u003e\",\n                                                port_spec.c_str());\n        return;\n    }\n```\nwhich again makes me question why there\u0027s no emulator-%d serial here...",
+      "parentUuid": "27214b40_bbf86549",
+      "revId": "bbdad8e73a3a289735ef31ade8d559d7293cff79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
