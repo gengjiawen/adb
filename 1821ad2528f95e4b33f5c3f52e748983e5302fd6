@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4e3bc728_88195668",
+        "filename": "docs/dev/adb_wifi.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-06-24T21:27:31Z",
+      "side": 1,
+      "message": "it\u0027s unusual, so it makes me ask \"what\u0027s special here?\". (even without the capital, \"workstation\" is unusual too? why not just the usual \"host\" and \"device\"?)",
+      "parentUuid": "a8071613_539bad64",
+      "range": {
+        "startLine": 3,
+        "startChar": 56,
+        "endLine": 3,
+        "endChar": 62
+      },
+      "revId": "1821ad2528f95e4b33f5c3f52e748983e5302fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f0c2ca50_3a70df7a",
         "filename": "docs/dev/adb_wifi.md",
         "patchSetId": 4
@@ -954,6 +978,30 @@
       "side": 1,
       "message": "Sorry, remove what?",
       "parentUuid": "fd14dddf_826aa525",
+      "range": {
+        "startLine": 159,
+        "startChar": 71,
+        "endLine": 159,
+        "endChar": 76
+      },
+      "revId": "1821ad2528f95e4b33f5c3f52e748983e5302fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a17580a1_b6844e05",
+        "filename": "docs/dev/adb_wifi.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-06-24T21:27:31Z",
+      "side": 1,
+      "message": "(clarified)",
+      "parentUuid": "7f8d763e_5a2b5d97",
       "range": {
         "startLine": 159,
         "startChar": 71,
