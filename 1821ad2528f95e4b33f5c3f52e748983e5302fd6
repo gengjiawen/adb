@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb1762ca_8b6a478d",
+        "filename": "docs/dev/adb_wifi.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-06-24T22:24:28Z",
+      "side": 1,
+      "message": "Done\nDevice -\u003e device\nWorkstation -\u003e host",
+      "parentUuid": "4e3bc728_88195668",
+      "range": {
+        "startLine": 3,
+        "startChar": 56,
+        "endLine": 3,
+        "endChar": 62
+      },
+      "revId": "1821ad2528f95e4b33f5c3f52e748983e5302fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f0c2ca50_3a70df7a",
