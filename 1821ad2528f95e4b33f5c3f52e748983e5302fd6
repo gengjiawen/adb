@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a8071613_539bad64",
+        "filename": "docs/dev/adb_wifi.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-06-24T18:32:28Z",
+      "side": 1,
+      "message": "Gar nicht! I just think it looks better. If it is a blocker, I am ok reverting to lowercase.",
+      "parentUuid": "c27b11a8_e99046f0",
+      "range": {
+        "startLine": 3,
+        "startChar": 56,
+        "endLine": 3,
+        "endChar": 62
+      },
+      "revId": "1821ad2528f95e4b33f5c3f52e748983e5302fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f0c2ca50_3a70df7a",
         "filename": "docs/dev/adb_wifi.md",
         "patchSetId": 4
@@ -37,6 +61,30 @@
       "writtenOn": "2024-06-24T13:34:37Z",
       "side": 1,
       "message": "unencrypted",
+      "range": {
+        "startLine": 23,
+        "startChar": 19,
+        "endLine": 23,
+        "endChar": 27
+      },
+      "revId": "1821ad2528f95e4b33f5c3f52e748983e5302fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ea43c9d_2af8e562",
+        "filename": "docs/dev/adb_wifi.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-06-24T18:32:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0c2ca50_3a70df7a",
       "range": {
         "startLine": 23,
         "startChar": 19,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c159647_e6275dd6",
+        "filename": "docs/dev/adb_wifi.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-06-24T18:32:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8255cc8c_a6d80a4a",
+      "range": {
+        "startLine": 24,
+        "startChar": 30,
+        "endLine": 24,
+        "endChar": 42
+      },
+      "revId": "1821ad2528f95e4b33f5c3f52e748983e5302fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "52c59547_4001ab72",
@@ -87,6 +159,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0276076_ac39b10c",
+        "filename": "docs/dev/adb_wifi.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-06-24T18:32:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "52c59547_4001ab72",
+      "revId": "1821ad2528f95e4b33f5c3f52e748983e5302fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6072b84b_c8aa080e",
@@ -100,6 +190,30 @@
       "writtenOn": "2024-06-24T13:34:37Z",
       "side": 1,
       "message": "digit",
+      "range": {
+        "startLine": 56,
+        "startChar": 68,
+        "endLine": 56,
+        "endChar": 74
+      },
+      "revId": "1821ad2528f95e4b33f5c3f52e748983e5302fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9eaf2fe_27e99dc0",
+        "filename": "docs/dev/adb_wifi.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-06-24T18:32:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6072b84b_c8aa080e",
       "range": {
         "startLine": 56,
         "startChar": 68,
@@ -156,6 +270,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1932027e_595ef173",
+        "filename": "docs/dev/adb_wifi.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-06-24T18:32:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21dc712c_cd7ab05c",
+      "range": {
+        "startLine": 57,
+        "startChar": 40,
+        "endLine": 57,
+        "endChar": 101
+      },
+      "revId": "1821ad2528f95e4b33f5c3f52e748983e5302fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "403efa2b_458965e6",
+        "filename": "docs/dev/adb_wifi.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-06-24T18:32:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb4b3da0_fa1726f8",
+      "range": {
+        "startLine": 57,
+        "startChar": 8,
+        "endLine": 57,
+        "endChar": 14
+      },
+      "revId": "1821ad2528f95e4b33f5c3f52e748983e5302fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67667bda_331e562e",
@@ -169,6 +331,30 @@
       "writtenOn": "2024-06-24T13:34:37Z",
       "side": 1,
       "message": "listens",
+      "range": {
+        "startLine": 61,
+        "startChar": 66,
+        "endLine": 61,
+        "endChar": 72
+      },
+      "revId": "1821ad2528f95e4b33f5c3f52e748983e5302fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c36881d_987fbb89",
+        "filename": "docs/dev/adb_wifi.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-06-24T18:32:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67667bda_331e562e",
       "range": {
         "startLine": 61,
         "startChar": 66,
@@ -202,6 +388,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "efa02cc6_610d0b10",
+        "filename": "docs/dev/adb_wifi.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-06-24T18:32:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac8c19f0_67032432",
+      "range": {
+        "startLine": 65,
+        "startChar": 19,
+        "endLine": 65,
+        "endChar": 33
+      },
+      "revId": "1821ad2528f95e4b33f5c3f52e748983e5302fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "050db743_60af2b80",
@@ -215,6 +425,30 @@
       "writtenOn": "2024-06-24T13:34:37Z",
       "side": 1,
       "message": "services\u0027",
+      "range": {
+        "startLine": 79,
+        "startChar": 14,
+        "endLine": 79,
+        "endChar": 22
+      },
+      "revId": "1821ad2528f95e4b33f5c3f52e748983e5302fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a60a97b7_2916fb8c",
+        "filename": "docs/dev/adb_wifi.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-06-24T18:32:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "050db743_60af2b80",
       "range": {
         "startLine": 79,
         "startChar": 14,
@@ -248,6 +482,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea9d91d1_a4c276ba",
+        "filename": "docs/dev/adb_wifi.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-06-24T18:32:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ecc58f9_6a55c72a",
+      "range": {
+        "startLine": 88,
+        "startChar": 30,
+        "endLine": 88,
+        "endChar": 37
+      },
+      "revId": "1821ad2528f95e4b33f5c3f52e748983e5302fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "43ca641c_f91d948f",
@@ -261,6 +519,30 @@
       "writtenOn": "2024-06-24T13:34:37Z",
       "side": 1,
       "message": "QR code",
+      "range": {
+        "startLine": 90,
+        "startChar": 5,
+        "endLine": 90,
+        "endChar": 11
+      },
+      "revId": "1821ad2528f95e4b33f5c3f52e748983e5302fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b21f629_5c77dbd5",
+        "filename": "docs/dev/adb_wifi.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-06-24T18:32:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43ca641c_f91d948f",
       "range": {
         "startLine": 90,
         "startChar": 5,
@@ -294,6 +576,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4634de98_c1fb87a0",
+        "filename": "docs/dev/adb_wifi.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-06-24T18:32:28Z",
+      "side": 1,
+      "message": "I intentionally did not go into details because we are going to delete mdnsResponder stack.\n\nRephrased to:\n\n```\n`$ adb mdns check` tells the user the name of adb\u0027s mDNS stack and its version.\n```",
+      "parentUuid": "88694c9c_d4083bda",
+      "range": {
+        "startLine": 107,
+        "startChar": 34,
+        "endLine": 107,
+        "endChar": 63
+      },
+      "revId": "1821ad2528f95e4b33f5c3f52e748983e5302fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b56d1fa7_050c0c78",
@@ -307,6 +613,30 @@
       "writtenOn": "2024-06-24T13:34:37Z",
       "side": 1,
       "message": "services\u0027",
+      "range": {
+        "startLine": 115,
+        "startChar": 47,
+        "endLine": 115,
+        "endChar": 55
+      },
+      "revId": "1821ad2528f95e4b33f5c3f52e748983e5302fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "053d5c82_a687c56d",
+        "filename": "docs/dev/adb_wifi.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-06-24T18:32:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b56d1fa7_050c0c78",
       "range": {
         "startLine": 115,
         "startChar": 47,
@@ -363,6 +693,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "12d27a66_ce78e31f",
+        "filename": "docs/dev/adb_wifi.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-06-24T18:32:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "975ae7e8_f820ea52",
+      "range": {
+        "startLine": 131,
+        "startChar": 54,
+        "endLine": 131,
+        "endChar": 59
+      },
+      "revId": "1821ad2528f95e4b33f5c3f52e748983e5302fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1714e3b3_feeea0f7",
+        "filename": "docs/dev/adb_wifi.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-06-24T18:32:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7601cee4_aadbf65b",
+      "range": {
+        "startLine": 131,
+        "startChar": 79,
+        "endLine": 131,
+        "endChar": 83
+      },
+      "revId": "1821ad2528f95e4b33f5c3f52e748983e5302fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3b044f2d_e17d581b",
@@ -376,6 +754,30 @@
       "writtenOn": "2024-06-24T13:34:37Z",
       "side": 1,
       "message": "so maybe s/In this case/The usual case is that/, and then #include my earlier comment about giving me a link or ctrl-f string, or just being quiet :-)",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 61
+      },
+      "revId": "1821ad2528f95e4b33f5c3f52e748983e5302fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "434b55ef_0938291d",
+        "filename": "docs/dev/adb_wifi.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-06-24T18:32:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b044f2d_e17d581b",
       "range": {
         "startLine": 132,
         "startChar": 0,
@@ -403,6 +805,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ee70dcb_c6f63cbc",
+        "filename": "docs/dev/adb_wifi.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-06-24T18:32:28Z",
+      "side": 1,
+      "message": "Rephrased to `advantage`.",
+      "parentUuid": "8af81b88_4136621d",
+      "revId": "1821ad2528f95e4b33f5c3f52e748983e5302fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67df0e51_18bf6945",
@@ -416,6 +836,30 @@
       "writtenOn": "2024-06-24T13:34:37Z",
       "side": 1,
       "message": "QR code",
+      "range": {
+        "startLine": 156,
+        "startChar": 25,
+        "endLine": 156,
+        "endChar": 32
+      },
+      "revId": "1821ad2528f95e4b33f5c3f52e748983e5302fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0efc2dce_2ae67846",
+        "filename": "docs/dev/adb_wifi.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-06-24T18:32:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67df0e51_18bf6945",
       "range": {
         "startLine": 156,
         "startChar": 25,
@@ -472,6 +916,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3305cfb8_dbecee33",
+        "filename": "docs/dev/adb_wifi.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-06-24T18:32:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed694069_b5ad8f14",
+      "range": {
+        "startLine": 159,
+        "startChar": 65,
+        "endLine": 159,
+        "endChar": 71
+      },
+      "revId": "1821ad2528f95e4b33f5c3f52e748983e5302fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f8d763e_5a2b5d97",
+        "filename": "docs/dev/adb_wifi.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-06-24T18:32:28Z",
+      "side": 1,
+      "message": "Sorry, remove what?",
+      "parentUuid": "fd14dddf_826aa525",
+      "range": {
+        "startLine": 159,
+        "startChar": 71,
+        "endLine": 159,
+        "endChar": 76
+      },
+      "revId": "1821ad2528f95e4b33f5c3f52e748983e5302fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e828d5b2_30e83d89",
@@ -508,6 +1000,54 @@
       "writtenOn": "2024-06-24T13:34:37Z",
       "side": 1,
       "message": "there are clearly more than just two :-)\n\neither explain the S: part and the empty (!) part, or weasel out with something like \"Two parts of this are particularly interesting.\".",
+      "range": {
+        "startLine": 163,
+        "startChar": 135,
+        "endLine": 163,
+        "endChar": 159
+      },
+      "revId": "1821ad2528f95e4b33f5c3f52e748983e5302fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99665214_542d3888",
+        "filename": "docs/dev/adb_wifi.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-06-24T18:32:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e828d5b2_30e83d89",
+      "range": {
+        "startLine": 163,
+        "startChar": 45,
+        "endLine": 163,
+        "endChar": 51
+      },
+      "revId": "1821ad2528f95e4b33f5c3f52e748983e5302fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b2305f3_1e5953ca",
+        "filename": "docs/dev/adb_wifi.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-06-24T18:32:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61db2fce_00746e17",
       "range": {
         "startLine": 163,
         "startChar": 135,
