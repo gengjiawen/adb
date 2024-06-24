@@ -158,6 +158,24 @@
       "parentUuid": "46798279_53d9dc0e",
       "revId": "bbdad8e73a3a289735ef31ade8d559d7293cff79",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "334b1a8c_739e9830",
+        "filename": "client/transport_local.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1511237
+      },
+      "writtenOn": "2024-06-24T14:30:32Z",
+      "side": 1,
+      "message": "Ok, I\u0027ve updated change with explicit error handling in init_socket_transport().",
+      "parentUuid": "32f15a8b_d9e8ddc8",
+      "revId": "bbdad8e73a3a289735ef31ade8d559d7293cff79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
