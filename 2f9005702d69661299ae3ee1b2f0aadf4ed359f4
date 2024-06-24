@@ -16,6 +16,47 @@
       "message": "Thank you so much for reading all that, really appreciate it :) !",
       "revId": "2f9005702d69661299ae3ee1b2f0aadf4ed359f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3b24b4b_ac4a2a97",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-06-24T22:43:59Z",
+      "side": 1,
+      "message": "thanks for writing quality docs --- i tend to pay attention in proportion to the value i think it\u0027s adding to the world :-)",
+      "parentUuid": "d9e32ba2_faf9ad67",
+      "revId": "2f9005702d69661299ae3ee1b2f0aadf4ed359f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f8a9dfb_5e599eee",
+        "filename": "docs/dev/adb_wifi.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-06-24T22:43:59Z",
+      "side": 1,
+      "message": "(your argument sgtm then, but it\u0027s still \"piggyback\" rather than \"piggybag\" :-) )",
+      "range": {
+        "startLine": 161,
+        "startChar": 12,
+        "endLine": 161,
+        "endChar": 20
+      },
+      "revId": "2f9005702d69661299ae3ee1b2f0aadf4ed359f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
