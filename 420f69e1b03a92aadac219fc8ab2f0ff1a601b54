@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ee72129_d0f0d80e",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 1386,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-06-28T23:23:43Z",
+      "side": 1,
+      "message": "Done (check length). \n\nBut I don\u0027t think I can consolidate `TrackAppStreamsCallback` and `AdbServerStateStreamsCallback` elegantly. `track-app` never ends whereas `server-state` is one-shot.",
+      "parentUuid": "5613133f_0364c628",
+      "revId": "420f69e1b03a92aadac219fc8ab2f0ff1a601b54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e3c87553_cf863cc3",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-06-28T21:52:23Z",
       "side": 1,
       "message": "maybe also add the server socket address?",
+      "revId": "420f69e1b03a92aadac219fc8ab2f0ff1a601b54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ad15dbe_947d22c1",
+        "filename": "proto/adb_host.proto",
+        "patchSetId": 9
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-06-28T23:23:43Z",
+      "side": 1,
+      "message": "I am not sure this is valuable. If the client was able to get the content, it already knows the port. In what case would this info be useful?",
+      "parentUuid": "e3c87553_cf863cc3",
       "revId": "420f69e1b03a92aadac219fc8ab2f0ff1a601b54",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
