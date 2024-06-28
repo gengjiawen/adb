@@ -1,0 +1,130 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1319d43_3ff14498",
+        "filename": "Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-06-28T12:13:30Z",
+      "side": 1,
+      "message": "|sort",
+      "revId": "5a4a8a90cff124aa42df11000ef7bf70e51ec375",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6ad2ab8_3dfeb031",
+        "filename": "adb.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1353,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-06-28T12:13:30Z",
+      "side": 1,
+      "message": "?",
+      "revId": "5a4a8a90cff124aa42df11000ef7bf70e51ec375",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a801dbb6_0b59cc07",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1387,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-06-28T12:13:30Z",
+      "side": 1,
+      "message": "Skip\n\n(maybe even\n```\n// Skip the 4-hex prefix.\nstd::string binary_proto_bytes{output_.substr(4)};\n\n::adb::proto::AdbServerStatus binary_proto;\nbinary_proto.ParseFromString(binary_proto_bytes);\n```\nto not hide that this whole line is doing a lot more than just skipping the header? i also go the name of binary_proto_bytes wrong at first, because i\u0027d _totally_ misunderstood what \"String\" meant in this context until i read the next block!)",
+      "range": {
+        "startLine": 1387,
+        "startChar": 11,
+        "endLine": 1387,
+        "endChar": 17
+      },
+      "revId": "5a4a8a90cff124aa42df11000ef7bf70e51ec375",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "161e282a_e5d3290d",
+        "filename": "client/transport_mdns.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-06-28T12:13:30Z",
+      "side": 1,
+      "message": "mismatch between the future \"should\" in the function name and the present \"using\" in the variable name?\n\n(also even modern see doesn\u0027t need `(void)` :-) )",
+      "range": {
+        "startLine": 229,
+        "startChar": 5,
+        "endLine": 229,
+        "endChar": 23
+      },
+      "revId": "5a4a8a90cff124aa42df11000ef7bf70e51ec375",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3240c87_b6cc3184",
+        "filename": "proto/adb_host.proto",
+        "patchSetId": 7
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-06-28T12:13:30Z",
+      "side": 1,
+      "message": "UNKNOWN_USB",
+      "range": {
+        "startLine": 66,
+        "startChar": 8,
+        "endLine": 66,
+        "endChar": 19
+      },
+      "revId": "5a4a8a90cff124aa42df11000ef7bf70e51ec375",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86496676_3949ea31",
+        "filename": "proto/adb_host.proto",
+        "patchSetId": 7
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-06-28T12:13:30Z",
+      "side": 1,
+      "message": "UNKNOWN_MDNS",
+      "range": {
+        "startLine": 72,
+        "startChar": 8,
+        "endLine": 72,
+        "endChar": 20
+      },
+      "revId": "5a4a8a90cff124aa42df11000ef7bf70e51ec375",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
