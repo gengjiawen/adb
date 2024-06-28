@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1206a09c_12373f36",
+        "filename": "Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-06-28T18:21:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1319d43_3ff14498",
+      "revId": "5a4a8a90cff124aa42df11000ef7bf70e51ec375",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d6ad2ab8_3dfeb031",
@@ -35,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a0d0ccc_a47e040b",
+        "filename": "adb.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1353,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-06-28T18:21:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6ad2ab8_3dfeb031",
+      "revId": "5a4a8a90cff124aa42df11000ef7bf70e51ec375",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a801dbb6_0b59cc07",
@@ -48,6 +84,30 @@
       "writtenOn": "2024-06-28T12:13:30Z",
       "side": 1,
       "message": "Skip\n\n(maybe even\n```\n// Skip the 4-hex prefix.\nstd::string binary_proto_bytes{output_.substr(4)};\n\n::adb::proto::AdbServerStatus binary_proto;\nbinary_proto.ParseFromString(binary_proto_bytes);\n```\nto not hide that this whole line is doing a lot more than just skipping the header? i also go the name of binary_proto_bytes wrong at first, because i\u0027d _totally_ misunderstood what \"String\" meant in this context until i read the next block!)",
+      "range": {
+        "startLine": 1387,
+        "startChar": 11,
+        "endLine": 1387,
+        "endChar": 17
+      },
+      "revId": "5a4a8a90cff124aa42df11000ef7bf70e51ec375",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd009deb_f6c822fe",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1387,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-06-28T18:21:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a801dbb6_0b59cc07",
       "range": {
         "startLine": 1387,
         "startChar": 11,
@@ -81,6 +141,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e599618f_0adcc52e",
+        "filename": "client/transport_mdns.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-06-28T18:21:38Z",
+      "side": 1,
+      "message": "Done. I did it to match the usb part with uses `should_use_usb` as a test before it is done but I see the point and agree.",
+      "parentUuid": "161e282a_e5d3290d",
+      "range": {
+        "startLine": 229,
+        "startChar": 5,
+        "endLine": 229,
+        "endChar": 23
+      },
+      "revId": "5a4a8a90cff124aa42df11000ef7bf70e51ec375",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e3240c87_b6cc3184",
@@ -104,6 +188,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5dd07142_7386a3b9",
+        "filename": "proto/adb_host.proto",
+        "patchSetId": 7
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-06-28T18:21:38Z",
+      "side": 1,
+      "message": "Done. Sorry :|",
+      "parentUuid": "e3240c87_b6cc3184",
+      "range": {
+        "startLine": 66,
+        "startChar": 8,
+        "endLine": 66,
+        "endChar": 19
+      },
+      "revId": "5a4a8a90cff124aa42df11000ef7bf70e51ec375",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "86496676_3949ea31",
@@ -117,6 +225,30 @@
       "writtenOn": "2024-06-28T12:13:30Z",
       "side": 1,
       "message": "UNKNOWN_MDNS",
+      "range": {
+        "startLine": 72,
+        "startChar": 8,
+        "endLine": 72,
+        "endChar": 20
+      },
+      "revId": "5a4a8a90cff124aa42df11000ef7bf70e51ec375",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bf887dc_0c737b42",
+        "filename": "proto/adb_host.proto",
+        "patchSetId": 7
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-06-28T18:21:38Z",
+      "side": 1,
+      "message": "Done. Sorry :|",
+      "parentUuid": "86496676_3949ea31",
       "range": {
         "startLine": 72,
         "startChar": 8,
