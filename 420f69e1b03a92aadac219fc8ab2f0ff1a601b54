@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5613133f_0364c628",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 1386,
+      "author": {
+        "id": 1076798
+      },
+      "writtenOn": "2024-06-28T21:52:23Z",
+      "side": 1,
+      "message": "There\u0027s an out of bounds read here if output_ is less than 4 bytes long.\n\nMaybe template this based on the proto type and unify with TrackAppStreamsCallback below, instead of duplicating the logic?",
+      "revId": "420f69e1b03a92aadac219fc8ab2f0ff1a601b54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3c87553_cf863cc3",
+        "filename": "proto/adb_host.proto",
+        "patchSetId": 9
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1076798
+      },
+      "writtenOn": "2024-06-28T21:52:23Z",
+      "side": 1,
+      "message": "maybe also add the server socket address?",
+      "revId": "420f69e1b03a92aadac219fc8ab2f0ff1a601b54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
