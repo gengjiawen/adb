@@ -16,6 +16,23 @@
       "message": "(rprichard: another eager customer!)",
       "revId": "4edf499b42f262c4bcef007ffac61c0949cdc6cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b6df1a8_c60d31f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076798
+      },
+      "writtenOn": "2024-06-29T21:51:43Z",
+      "side": 1,
+      "message": "I remember running into deadlock",
+      "revId": "4edf499b42f262c4bcef007ffac61c0949cdc6cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

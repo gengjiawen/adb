@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e771aa0_20b5e4ea",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1076798
+      },
+      "writtenOn": "2024-06-29T21:51:43Z",
+      "side": 1,
+      "message": "```suggestion\n// For in-house hotplug, we generate an unique identifier based on device invariant (vendor,\n```\n\n\nAlso, isn\u0027t this not an invariant? The product ID changes based on the USB mode (adb vs adb+mtp, etc.)\n\nAre you encoding this to handle reenumeration when changing modes?",
+      "revId": "be0f74745a2024a932c89c11c5f38e5399022d1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77249032_a90e9ad9",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1076798
+      },
+      "writtenOn": "2024-06-29T21:51:43Z",
+      "side": 1,
+      "message": "Isn\u0027t this true for Linux as well?",
+      "revId": "be0f74745a2024a932c89c11c5f38e5399022d1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4477cff_463d1152",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1076798
+      },
+      "writtenOn": "2024-06-29T21:51:43Z",
+      "side": 1,
+      "message": "```suggestion\n    // When a Windows machine go to sleep it powers off all its USB host controllers to save\n    // energy. When the machine awakens, it powers them up which causes all the endpoints\n    // to be closed (which generates a read/write failure leading to us Close()ing the device). The\n    // USB device also briefly goes away and comes back with the exact same properties (including\n    // address). This makes in-house hotplug miss device reconnection upon wakeup. To solve that\n    // problem, we remove ourselves from the list of known devices when read/write fails.\n```",
+      "range": {
+        "startLine": 190,
+        "startChar": 0,
+        "endLine": 195,
+        "endChar": 87
+      },
+      "revId": "be0f74745a2024a932c89c11c5f38e5399022d1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbd2b584_ac02d368",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1076798
+      },
+      "writtenOn": "2024-06-29T21:51:43Z",
+      "side": 1,
+      "message": "I think there\u0027s a potential race condition here if we went to sleep while doing a write: we\u0027ll get multiple calls to this function, interleaved with the hotplug scan in the middle.\n\nNot sure how likely this is to happen, but it seems cleaner to me to have a queue of \"hotplug left devices\" and handle all of the state in the hotplug loop. (I\u0027m also leery of lock ordering problems here: we get called from a libusb thread here and try to take the inhouse lock, and we call into libusb with the inhouse lock taken in the scanning thread)",
+      "range": {
+        "startLine": 200,
+        "startChar": 0,
+        "endLine": 201,
+        "endChar": 50
+      },
+      "revId": "be0f74745a2024a932c89c11c5f38e5399022d1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b11194f_75f7e9a7",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 934,
+      "author": {
+        "id": 1076798
+      },
+      "writtenOn": "2024-06-29T21:51:43Z",
+      "side": 1,
+      "message": "Make this just a plain size_t, if it\u0027s actually GUARDED_BY the mutex?\n\n(I don\u0027t remember why I made this atomic)",
+      "revId": "be0f74745a2024a932c89c11c5f38e5399022d1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
