@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5ad396d_a8aeae50",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 1386,
+      "author": {
+        "id": 1076798
+      },
+      "writtenOn": "2024-06-29T21:48:56Z",
+      "side": 1,
+      "message": "Isn\u0027t that represented by whether or not the stream gets Done?",
+      "parentUuid": "9ee72129_d0f0d80e",
+      "revId": "420f69e1b03a92aadac219fc8ab2f0ff1a601b54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e3c87553_cf863cc3",
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "I am not sure this is valuable. If the client was able to get the content, it already knows the port. In what case would this info be useful?",
       "parentUuid": "e3c87553_cf863cc3",
+      "revId": "420f69e1b03a92aadac219fc8ab2f0ff1a601b54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dee51581_5a0f3d50",
+        "filename": "proto/adb_host.proto",
+        "patchSetId": 9
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1076798
+      },
+      "writtenOn": "2024-06-29T21:48:56Z",
+      "side": 1,
+      "message": "Ah, I thought I had added automatic handling of the local socket path, but that never got merged: https://android-review.googlesource.com/c/platform/system/core/+/264859",
+      "parentUuid": "1ad15dbe_947d22c1",
       "revId": "420f69e1b03a92aadac219fc8ab2f0ff1a601b54",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
