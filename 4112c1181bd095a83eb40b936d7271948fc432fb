@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfb79803_b53b3b21",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-06-29T16:25:47Z",
+      "side": 1,
+      "message": "(this is why i don\u0027t use auto-submit except on trivial changes... you just don\u0027t have enough control over when it\u0027s going to submit, especially given treehugger\u0027s wild variations in latency! it could be in 30mins, it could be in 9hrs. spin the wheel and find out!)",
+      "revId": "4112c1181bd095a83eb40b936d7271948fc432fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
