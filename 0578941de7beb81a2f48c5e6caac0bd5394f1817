@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddd731d9_0d040b4e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-06-29T07:11:42Z",
+      "side": 1,
+      "message": "Noticed the missing `return` in\n\n```\nOnStream(nullptr, stdout, output_.data(), output_.length(), false);\n```\n\nbut too late to prevent auto-submit. Sending a fix ASAP.",
+      "revId": "0578941de7beb81a2f48c5e6caac0bd5394f1817",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
