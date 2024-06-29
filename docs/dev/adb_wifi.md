@@ -92,8 +92,27 @@ to be used with a pairing code or a QR code.
 
 When the host starts, it also starts mDNS service discovery for all three service types.
 Any service instance of type `_adb-tls-connect` being published by the device results in a connection attempt
-by the host. If the device was previously paired, TLS authentication will automatically succeed and the device is made
-available to the host.
+by the host (if the device's GUID is known to the host from pairing). If the device was previously paired,
+TLS authentication will automatically succeed and the device is made available to the host.
+
+There is one exception. When the Pairing client finishes on the host, it also attempts to connect to the device
+is just paired with. This is because `_adb-tls-connect` was already published before pairing even began, which
+means the host cannot rely on mDNS `_adb-tls-connect` "Create" event being published.
+
+### Device components communication
+
+On the device, three components must communicate. There is adbd, Framework, and the mDNS daemon.
+
+The Pairing Server and the TLS server are part of adbd apex API, Framework is dynamically linked against
+these two libs. The rest of the communication works via system properties.
+
+- `persist.adb.tls_server.enable`: Set when Developer Settings UI checkbox "Use wireless debugging" is changed.
+adbd listen for this value and manages the TLSServer lifecycle accordingly.
+-  `service.adb.tls.port`: Set by adbd. Retrieved by Framework so it can publish `_adb-tls-connect`.
+- `ctl.start`: Set to `mdnsd` by adbd to make sure the mDNS daemon is up and running.
+- `persist.adb.tcp.port`: Where the device GUID (used to build service instance name) comes from. Both adbd
+and Framework retrieve this property to build  `_adb-tls-connect` and `_adb-tls-pairing` service instance
+names.
 
 # CLI tools
 
