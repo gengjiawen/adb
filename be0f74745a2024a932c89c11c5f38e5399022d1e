@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "54f55fff_69b30325",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-06-30T20:55:59Z",
+      "side": 1,
+      "message": "Yes. I improved the comment.",
+      "parentUuid": "0e771aa0_20b5e4ea",
+      "revId": "be0f74745a2024a932c89c11c5f38e5399022d1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "77249032_a90e9ad9",
@@ -35,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b6c52f9_b0ef53c9",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-06-30T20:55:59Z",
+      "side": 1,
+      "message": "I have not checked. I am only interested in Windows here.",
+      "parentUuid": "77249032_a90e9ad9",
+      "revId": "be0f74745a2024a932c89c11c5f38e5399022d1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a4477cff_463d1152",
@@ -48,6 +84,30 @@
       "writtenOn": "2024-06-29T21:51:43Z",
       "side": 1,
       "message": "```suggestion\n    // When a Windows machine go to sleep it powers off all its USB host controllers to save\n    // energy. When the machine awakens, it powers them up which causes all the endpoints\n    // to be closed (which generates a read/write failure leading to us Close()ing the device). The\n    // USB device also briefly goes away and comes back with the exact same properties (including\n    // address). This makes in-house hotplug miss device reconnection upon wakeup. To solve that\n    // problem, we remove ourselves from the list of known devices when read/write fails.\n```",
+      "range": {
+        "startLine": 190,
+        "startChar": 0,
+        "endLine": 195,
+        "endChar": 87
+      },
+      "revId": "be0f74745a2024a932c89c11c5f38e5399022d1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbeda377_d60e6e92",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-06-30T20:55:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4477cff_463d1152",
       "range": {
         "startLine": 190,
         "startChar": 0,
@@ -83,6 +143,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d4d95bc1_8b0d5288",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-06-30T20:55:59Z",
+      "side": 1,
+      "message": "\u003e I think there\u0027s a potential race condition here if we went to sleep while doing a write: we\u0027ll get multiple calls to this function, interleaved with the hotplug scan in the middle.\n\nI don\u0027t see how. Multiple calls (if that was to ever happen) would block on the mutex, if the scan is running (the whole scan is guarded by the same lock). When the scan ends, these blocked calls are allowed to resume.\n\n\u003e I\u0027m also leery of lock ordering problems here: we get called from a libusb thread here and try to take the inhouse lock, and we call into libusb with the inhouse lock taken in the scanning thread\n\n`libusb_has_capability(LIBUSB_CAP_HAS_HOTPLUG)` is implemented a `\u003d\u003dnullptr`. There is no risk of locking here. If you really don\u0027t like it, I would also wrap all that in a `#ifdef WIN`, although I would really prefer not to.",
+      "parentUuid": "dbd2b584_ac02d368",
+      "range": {
+        "startLine": 200,
+        "startChar": 0,
+        "endLine": 201,
+        "endChar": 50
+      },
+      "revId": "be0f74745a2024a932c89c11c5f38e5399022d1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4b11194f_75f7e9a7",
         "filename": "client/usb_libusb.cpp",
         "patchSetId": 10
@@ -94,6 +178,24 @@
       "writtenOn": "2024-06-29T21:51:43Z",
       "side": 1,
       "message": "Make this just a plain size_t, if it\u0027s actually GUARDED_BY the mutex?\n\n(I don\u0027t remember why I made this atomic)",
+      "revId": "be0f74745a2024a932c89c11c5f38e5399022d1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d833778c_7d65a98c",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 934,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-06-30T20:55:59Z",
+      "side": 1,
+      "message": "ACK, will change that in next CL.",
+      "parentUuid": "4b11194f_75f7e9a7",
       "revId": "be0f74745a2024a932c89c11c5f38e5399022d1e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
