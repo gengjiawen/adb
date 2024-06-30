@@ -167,6 +167,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "85953cf3_e7168f2c",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-06-30T21:28:18Z",
+      "side": 1,
+      "message": "I meant replace the `libusb_has_capability` with `#ifdef`.",
+      "parentUuid": "d4d95bc1_8b0d5288",
+      "range": {
+        "startLine": 200,
+        "startChar": 0,
+        "endLine": 201,
+        "endChar": 50
+      },
+      "revId": "be0f74745a2024a932c89c11c5f38e5399022d1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4b11194f_75f7e9a7",
         "filename": "client/usb_libusb.cpp",
         "patchSetId": 10
