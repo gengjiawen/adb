@@ -64,6 +64,7 @@ static void setup_daemon_logging() {
 }
 
 void adb_server_cleanup() {
+    VLOG(ADB) << "Cleaning up before shutdown...";
     // Upon exit, we want to clean up in the following order:
     //   1. close_smartsockets, so that we don't get any new clients
     //   2. kick_all_transports, to avoid writing only part of a packet to a transport.
