@@ -1,0 +1,228 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4dcdbd14_9bcafd8a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-01T12:57:35Z",
+      "side": 1,
+      "message": "(all the cases where i\u0027m asking for more information are not a regression, so )",
+      "revId": "583b09bbd6eda66dc7eec163d3f5fb8e324e5d98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65251148_175d17b5",
+        "filename": "docs/dev/adb_wifi.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-01T12:57:35Z",
+      "side": 1,
+      "message": "pairing",
+      "range": {
+        "startLine": 98,
+        "startChar": 33,
+        "endLine": 98,
+        "endChar": 40
+      },
+      "revId": "583b09bbd6eda66dc7eec163d3f5fb8e324e5d98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb67406d_6020b8a1",
+        "filename": "docs/dev/adb_wifi.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-01T12:57:35Z",
+      "side": 1,
+      "message": "it",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 2
+      },
+      "revId": "583b09bbd6eda66dc7eec163d3f5fb8e324e5d98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8579adf_f074e343",
+        "filename": "docs/dev/adb_wifi.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-01T12:57:35Z",
+      "side": 1,
+      "message": "on the",
+      "range": {
+        "startLine": 100,
+        "startChar": 27,
+        "endLine": 100,
+        "endChar": 29
+      },
+      "revId": "583b09bbd6eda66dc7eec163d3f5fb8e324e5d98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "927fef6b_d02c238f",
+        "filename": "docs/dev/adb_wifi.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-01T12:57:35Z",
+      "side": 1,
+      "message": "we can be a bit more specific than just \"framework\", no?",
+      "range": {
+        "startLine": 104,
+        "startChar": 65,
+        "endLine": 104,
+        "endChar": 74
+      },
+      "revId": "583b09bbd6eda66dc7eec163d3f5fb8e324e5d98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "144f1ba0_5e932d35",
+        "filename": "docs/dev/adb_wifi.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-01T12:57:35Z",
+      "side": 1,
+      "message": "\"These two libraries are linked into system_server\" is probably clearer. (it is system_server, right?)",
+      "range": {
+        "startLine": 106,
+        "startChar": 65,
+        "endLine": 106,
+        "endChar": 74
+      },
+      "revId": "583b09bbd6eda66dc7eec163d3f5fb8e324e5d98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "271df83d_2a6f6ee5",
+        "filename": "docs/dev/adb_wifi.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-01T12:57:35Z",
+      "side": 1,
+      "message": "of the",
+      "range": {
+        "startLine": 106,
+        "startChar": 47,
+        "endLine": 106,
+        "endChar": 49
+      },
+      "revId": "583b09bbd6eda66dc7eec163d3f5fb8e324e5d98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7f12807_251c2cd2",
+        "filename": "docs/dev/adb_wifi.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-01T12:57:35Z",
+      "side": 1,
+      "message": "when the",
+      "range": {
+        "startLine": 109,
+        "startChar": 39,
+        "endLine": 109,
+        "endChar": 43
+      },
+      "revId": "583b09bbd6eda66dc7eec163d3f5fb8e324e5d98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b120738d_88e3ccdf",
+        "filename": "docs/dev/adb_wifi.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-01T12:57:35Z",
+      "side": 1,
+      "message": "listens\n\n(i\u0027d probably just say \"listens for this\" or \"listens for these changes\"; \"value\" makes it sound like it\u0027s listening for a _specific_ value, whereas it\u0027s actually just any change.)",
+      "range": {
+        "startLine": 110,
+        "startChar": 5,
+        "endLine": 110,
+        "endChar": 11
+      },
+      "revId": "583b09bbd6eda66dc7eec163d3f5fb8e324e5d98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ae11fd8_221fa587",
+        "filename": "docs/dev/adb_wifi.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-01T12:57:35Z",
+      "side": 1,
+      "message": "the whole GUID isn\u0027t just the port, right? or is \"port\" here not actually a port? (either way, this bullet probably warrants a bit more explanation!)",
+      "range": {
+        "startLine": 113,
+        "startChar": 43,
+        "endLine": 113,
+        "endChar": 47
+      },
+      "revId": "583b09bbd6eda66dc7eec163d3f5fb8e324e5d98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
