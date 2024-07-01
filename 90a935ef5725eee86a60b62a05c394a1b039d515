@@ -1,0 +1,262 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8c24185_5ccb090b",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-01T14:25:39Z",
+      "side": 1,
+      "message": "remove the parentheses to match the other items in this list",
+      "range": {
+        "startLine": 91,
+        "startChar": 84,
+        "endLine": 91,
+        "endChar": 92
+      },
+      "revId": "90a935ef5725eee86a60b62a05c394a1b039d515",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0bd61dd_ad73dc56",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-01T14:25:39Z",
+      "side": 1,
+      "message": "invariants",
+      "range": {
+        "startLine": 91,
+        "startChar": 74,
+        "endLine": 91,
+        "endChar": 83
+      },
+      "revId": "90a935ef5725eee86a60b62a05c394a1b039d515",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee921ae2_68ec5a6d",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-01T14:25:39Z",
+      "side": 1,
+      "message": "a unique identifier",
+      "range": {
+        "startLine": 91,
+        "startChar": 37,
+        "endLine": 91,
+        "endChar": 57
+      },
+      "revId": "90a935ef5725eee86a60b62a05c394a1b039d515",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68c879a9_019c5b49",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-01T14:25:39Z",
+      "side": 1,
+      "message": "don\u0027t we need a function call to turn this into a string?",
+      "range": {
+        "startLine": 99,
+        "startChar": 73,
+        "endLine": 99,
+        "endChar": 79
+      },
+      "revId": "90a935ef5725eee86a60b62a05c394a1b039d515",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a47a82a9_8ae5db67",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-01T14:25:39Z",
+      "side": 1,
+      "message": "goes",
+      "range": {
+        "startLine": 191,
+        "startChar": 30,
+        "endLine": 191,
+        "endChar": 32
+      },
+      "revId": "90a935ef5725eee86a60b62a05c394a1b039d515",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "072e0436_666ed5ec",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-01T14:25:39Z",
+      "side": 1,
+      "message": "...?",
+      "range": {
+        "startLine": 195,
+        "startChar": 92,
+        "endLine": 195,
+        "endChar": 96
+      },
+      "revId": "90a935ef5725eee86a60b62a05c394a1b039d515",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1cba841_2dc01386",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 934,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-01T14:25:39Z",
+      "side": 1,
+      "message": "std::atomic _and_ GUARDED_BY?",
+      "revId": "90a935ef5725eee86a60b62a05c394a1b039d515",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87d9c4dd_8ec12378",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 1118,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-01T14:25:39Z",
+      "side": 1,
+      "message": "!contains()",
+      "range": {
+        "startLine": 1118,
+        "startChar": 43,
+        "endLine": 1118,
+        "endChar": 48
+      },
+      "revId": "90a935ef5725eee86a60b62a05c394a1b039d515",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9402f047_9658514e",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 1125,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-01T14:25:39Z",
+      "side": 1,
+      "message": "!contains()",
+      "range": {
+        "startLine": 1125,
+        "startChar": 28,
+        "endLine": 1125,
+        "endChar": 33
+      },
+      "revId": "90a935ef5725eee86a60b62a05c394a1b039d515",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1ec9fe8_d4833f17",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 1139,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-01T14:25:39Z",
+      "side": 1,
+      "message": "why isn\u0027t this at the global scope?",
+      "revId": "90a935ef5725eee86a60b62a05c394a1b039d515",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76e325dc_6e3c60aa",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 1155,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-01T14:25:39Z",
+      "side": 1,
+      "message": "(it it worth logging the specific failure?)",
+      "revId": "90a935ef5725eee86a60b62a05c394a1b039d515",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "784d53b7_f7e8852c",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 1163,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-01T14:25:39Z",
+      "side": 1,
+      "message": "(that\u0027s the function i was thinking of! :-) )",
+      "range": {
+        "startLine": 1163,
+        "startChar": 59,
+        "endLine": 1163,
+        "endChar": 76
+      },
+      "revId": "90a935ef5725eee86a60b62a05c394a1b039d515",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
