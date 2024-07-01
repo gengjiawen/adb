@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f67754f8_626e8515",
+        "filename": "client/main.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-01T14:28:10Z",
+      "side": 1,
+      "message": "(more useful to have a VLOG in each of the subsystems instead?)",
+      "revId": "7dfe6aadfa69094366d62e59225c2d6b190821f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a83071fa_2249c8bf",
+        "filename": "client/usb_linux.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 646,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-01T14:28:10Z",
+      "side": 1,
+      "message": "(heh, now the \"should\" seems weird here :-) )",
+      "range": {
+        "startLine": 646,
+        "startChar": 8,
+        "endLine": 646,
+        "endChar": 25
+      },
+      "revId": "7dfe6aadfa69094366d62e59225c2d6b190821f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
