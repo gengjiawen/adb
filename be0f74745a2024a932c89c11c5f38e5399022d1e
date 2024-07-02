@@ -191,6 +191,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7841c018_ad82420e",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1076798
+      },
+      "writtenOn": "2024-07-02T08:36:17Z",
+      "side": 1,
+      "message": "\u003e Multiple calls (if that was to ever happen) would block on the mutex, if the scan is running (the whole scan is guarded by the same lock).\n\nOnly if the scan wins the race. If there\u0027s a read cb, write cb, and scan thread all waiting for the lock, and they get interleaved as read, scan, write, then you die.\n\n\u003e libusb_has_capability(LIBUSB_CAP_HAS_HOTPLUG) is implemented a \u003d\u003dnullptr. There is no risk of locking here.\n\nThat is not what I mean: these callbacks are called from a libusb thread. The hotplug thread might have the hotplug mutex taken and block on a libusb lock while one of these callbacks is being called on a libusb thread that is holding a libusb lock, and block on the hotplug mutex.",
+      "parentUuid": "85953cf3_e7168f2c",
+      "range": {
+        "startLine": 200,
+        "startChar": 0,
+        "endLine": 201,
+        "endChar": 50
+      },
+      "revId": "be0f74745a2024a932c89c11c5f38e5399022d1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4b11194f_75f7e9a7",
         "filename": "client/usb_libusb.cpp",
         "patchSetId": 10
