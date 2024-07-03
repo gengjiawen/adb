@@ -1371,7 +1371,7 @@ HostRequestResult handle_host_request(std::string_view service, TransportType ty
     if (service == "host-features") {
         FeatureSet features = supported_features();
         // Abuse features to report libusb status.
-        if (should_use_libusb()) {
+        if (is_libusb_enabled()) {
             features.emplace_back(kFeatureLibusb);
         }
         features.emplace_back(kFeaturePushSync);
