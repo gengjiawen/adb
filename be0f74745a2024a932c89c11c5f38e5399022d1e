@@ -215,6 +215,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "37bf309b_1f174439",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-07-03T21:41:10Z",
+      "side": 1,
+      "message": "\u003eOnly if the scan wins the race. \n\nFrom what I can read in `libusb` source code, the event system (handling hotplug and transfer callbacks) is dissociated from device enumeration. If my understanding is incorrect (citation needed :P), that means `libusb_get_device_list` and the callbacks must never occur at the same tim.\n\nI like your idea to handle everything on the event thread. That would remove the need to create a second thread. What about I move the call to `inhouse_hotplug_scan` just above `libusb_handle_events` (and make `inhouse_hotplug_scan` actually scan every `2s` and otherwise be a noop)? This way, everything happens on libusb event thread. WDYT?",
+      "parentUuid": "7841c018_ad82420e",
+      "range": {
+        "startLine": 200,
+        "startChar": 0,
+        "endLine": 201,
+        "endChar": 50
+      },
+      "revId": "be0f74745a2024a932c89c11c5f38e5399022d1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4b11194f_75f7e9a7",
         "filename": "client/usb_libusb.cpp",
         "patchSetId": 10
