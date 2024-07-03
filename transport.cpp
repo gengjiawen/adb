@@ -731,7 +731,7 @@ void update_transports() {
 static bool usb_devices_start_detached() {
     static const char* env = getenv("ADB_LIBUSB_START_DETACHED");
     static bool result = env && strcmp("1", env) == 0;
-    return should_use_libusb() && result;
+    return is_libusb_enabled() && result;
 }
 #endif
 
@@ -1076,7 +1076,7 @@ bool atransport::Attach(std::string* error) {
     D("%s: attach", serial.c_str());
     fdevent_check_looper();
 
-    if (!should_use_libusb()) {
+    if (!is_libusb_enabled()) {
         *error = "attach/detach only implemented for libusb backend";
         return false;
     }
@@ -1103,7 +1103,7 @@ bool atransport::Detach(std::string* error) {
     D("%s: detach", serial.c_str());
     fdevent_check_looper();
 
-    if (!should_use_libusb()) {
+    if (!is_libusb_enabled()) {
         *error = "attach/detach only implemented for libusb backend";
         return false;
     }
