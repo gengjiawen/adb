@@ -816,15 +816,6 @@ static int adb_abb(int argc, const char** argv) {
                        service_string);
 }
 
-static int adb_shell_noinput(int argc, const char** argv) {
-#if !defined(_WIN32)
-    unique_fd fd(adb_open("/dev/null", O_RDONLY));
-    CHECK_NE(STDIN_FILENO, fd.get());
-    dup2(fd.get(), STDIN_FILENO);
-#endif
-    return adb_shell(argc, argv);
-}
-
 static int adb_sideload_legacy(const char* filename, int in_fd, int size) {
     std::string error;
     unique_fd out_fd(adb_connect(android::base::StringPrintf("sideload:%d", size), &error));
@@ -1483,15 +1474,15 @@ const std::optional<FeatureSet>& adb_get_feature_set_or_die(void) {
 static int process_remount_or_verity_service(const int argc, const char** argv) {
     auto&& features = adb_get_feature_set_or_die();
     if (CanUseFeature(*features, kFeatureRemountShell)) {
-        std::vector<const char*> args = {"shell"};
-        args.insert(args.cend(), argv, argv + argc);
-        return adb_shell_noinput(args.size(), args.data());
-    } else if (argc > 1) {
-        auto command = android::base::StringPrintf("%s:%s", argv[0], argv[1]);
-        return adb_connect_command(command);
-    } else {
-        return adb_connect_command(std::string(argv[0]) + ":");
+        int exit_code = send_shell_command(
+                android::base::Join(std::vector<const char*>(argv, argv + argc), ' '));
+        // If the device reboots, the shell stream would disconnect with exit code 255.
+        // We shouldn't report an error in this case.
+        return exit_code == 255 ? 0 : exit_code;
     }
+    const std::string command =
+            android::base::StringPrintf("%s:%s", argv[0], argc > 1 ? argv[1] : "");
+    return adb_connect_command(command);
 }
 
 static int adb_query_command(const std::string& command) {
