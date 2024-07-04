@@ -1,0 +1,45 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3125e4e6_721d2ddc",
+        "filename": "adb.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1330,
+      "author": {
+        "id": 1600736
+      },
+      "writtenOn": "2024-07-04T00:07:23Z",
+      "side": 1,
+      "message": "don\u0027t this need to be is_libusb_enabled now?",
+      "range": {
+        "startLine": 1330,
+        "startChar": 12,
+        "endLine": 1330,
+        "endChar": 29
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "07653a20_b237747c",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "adb.cpp",
+              "range": {
+                "startLine": 1330,
+                "startChar": 0,
+                "endLine": 1331,
+                "endChar": 0
+              },
+              "replacement": "        if (is_libusb_enabled()) {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "b1cbc9821d3b36ab0c71efb8bb558a5778c7abb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
