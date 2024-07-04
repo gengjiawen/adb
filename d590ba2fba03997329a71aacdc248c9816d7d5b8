@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff6b4de8_ba806098",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3515741
+      },
+      "writtenOn": "2024-07-04T17:31:15Z",
+      "side": 1,
+      "message": "3160697: adb-remount: Don\u0027t return error code if device disconnects | https://android-review.googlesource.com/c/platform/packages/modules/adb/+/3160697",
+      "revId": "d590ba2fba03997329a71aacdc248c9816d7d5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
