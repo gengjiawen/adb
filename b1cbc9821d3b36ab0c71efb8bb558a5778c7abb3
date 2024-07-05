@@ -40,6 +40,30 @@
       ],
       "revId": "b1cbc9821d3b36ab0c71efb8bb558a5778c7abb3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9ab83b3_6e6eacad",
+        "filename": "adb.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1330,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-07-05T19:09:46Z",
+      "side": 1,
+      "message": "Indeed. aosp/3111222 (which uses `should_use_libusb`) landed after I wrote this CL and broke it.",
+      "parentUuid": "3125e4e6_721d2ddc",
+      "range": {
+        "startLine": 1330,
+        "startChar": 12,
+        "endLine": 1330,
+        "endChar": 29
+      },
+      "revId": "b1cbc9821d3b36ab0c71efb8bb558a5778c7abb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
