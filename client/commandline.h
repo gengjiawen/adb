@@ -127,15 +127,19 @@ bool copy_to_file(int inFd, int outFd);
 // if |callback| is non-null, stdout/stderr output will be handled by it.
 int send_shell_command(
         const std::string& command, bool disable_shell_protocol = false,
-        StandardStreamsCallbackInterface* callback = &DEFAULT_STANDARD_STREAMS_CALLBACK);
+        StandardStreamsCallbackInterface* callback = &DEFAULT_STANDARD_STREAMS_CALLBACK,
+        bool can_disconnect = false);
 
 // Reads from |fd| and prints received data. If |use_shell_protocol| is true
 // this expects that incoming data will use the shell protocol, in which case
 // stdout/stderr are routed independently and the remote exit code will be
 // returned.
 // if |callback| is non-null, stdout/stderr output will be handled by it.
+// if |can_disconnect| is true, expects the shell protocol stream to disconnect mid-transfer, and
+// returns 0 (EXIT_SUCCESS) exit code upon disconnection.
 int read_and_dump(borrowed_fd fd, bool use_shell_protocol = false,
-                  StandardStreamsCallbackInterface* callback = &DEFAULT_STANDARD_STREAMS_CALLBACK);
+                  StandardStreamsCallbackInterface* callback = &DEFAULT_STANDARD_STREAMS_CALLBACK,
+                  bool can_disconnect = false);
 
 // Connects to the device "abb" service with |command| and returns the fd.
 template <typename ContainerT>

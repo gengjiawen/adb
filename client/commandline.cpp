@@ -292,9 +292,10 @@ static void stdin_raw_restore() {
 }
 #endif
 
-int read_and_dump_protocol(borrowed_fd fd, StandardStreamsCallbackInterface* callback) {
+int read_and_dump_protocol(borrowed_fd fd, StandardStreamsCallbackInterface* callback,
+                           bool can_disconnect) {
     // OpenSSH returns 255 on unexpected disconnection.
-    int exit_code = 255;
+    int exit_code = can_disconnect ? 0 : 255;
     std::unique_ptr<ShellProtocol> protocol = std::make_unique<ShellProtocol>(fd);
     if (!protocol) {
       LOG(ERROR) << "failed to allocate memory for ShellProtocol object";
@@ -322,12 +323,12 @@ int read_and_dump_protocol(borrowed_fd fd, StandardStreamsCallbackInterface* cal
 }
 
 int read_and_dump(borrowed_fd fd, bool use_shell_protocol,
-                  StandardStreamsCallbackInterface* callback) {
+                  StandardStreamsCallbackInterface* callback, bool can_disconnect) {
     int exit_code = 0;
     if (fd < 0) return exit_code;
 
     if (use_shell_protocol) {
-      exit_code = read_and_dump_protocol(fd, callback);
+        exit_code = read_and_dump_protocol(fd, callback, can_disconnect);
     } else {
       char raw_buffer[BUFSIZ];
       char* buffer_ptr = raw_buffer;
@@ -816,15 +817,6 @@ static int adb_abb(int argc, const char** argv) {
                        service_string);
 }
 
-static int adb_shell_noinput(int argc, const char** argv) {
-#if !defined(_WIN32)
-    unique_fd fd(adb_open("/dev/null", O_RDONLY));
-    CHECK_NE(STDIN_FILENO, fd.get());
-    dup2(fd.get(), STDIN_FILENO);
-#endif
-    return adb_shell(argc, argv);
-}
-
 static int adb_sideload_legacy(const char* filename, int in_fd, int size) {
     std::string error;
     unique_fd out_fd(adb_connect(android::base::StringPrintf("sideload:%d", size), &error));
@@ -1108,7 +1100,7 @@ static bool adb_root(const char* command) {
 }
 
 int send_shell_command(const std::string& command, bool disable_shell_protocol,
-                       StandardStreamsCallbackInterface* callback) {
+                       StandardStreamsCallbackInterface* callback, bool can_disconnect) {
     unique_fd fd;
     bool use_shell_protocol = false;
 
@@ -1143,7 +1135,7 @@ int send_shell_command(const std::string& command, bool disable_shell_protocol,
         }
     }
 
-    return read_and_dump(fd.get(), use_shell_protocol, callback);
+    return read_and_dump(fd.get(), use_shell_protocol, callback, can_disconnect);
 }
 
 static int logcat(int argc, const char** argv) {
@@ -1483,15 +1475,14 @@ const std::optional<FeatureSet>& adb_get_feature_set_or_die(void) {
 static int process_remount_or_verity_service(const int argc, const char** argv) {
     auto&& features = adb_get_feature_set_or_die();
     if (CanUseFeature(*features, kFeatureRemountShell)) {
-        std::vector<const char*> args = {"shell"};
-        args.insert(args.cend(), argv, argv + argc);
-        return adb_shell_noinput(args.size(), args.data());
-    } else if (argc > 1) {
-        auto command = android::base::StringPrintf("%s:%s", argv[0], argv[1]);
-        return adb_connect_command(command);
-    } else {
-        return adb_connect_command(std::string(argv[0]) + ":");
+        // If the remount command causes device to reboot, then the command stream would disconnect
+        // without an explicit "Done" signal. We should treat this case as a success.
+        return send_shell_command(
+                android::base::Join(std::vector<const char*>(argv, argv + argc), ' '), false,
+                &DEFAULT_STANDARD_STREAMS_CALLBACK, /*can_disconnect=*/true);
     }
+    return adb_connect_command(
+            android::base::StringPrintf("%s:%s", argv[0], argc > 1 ? argv[1] : ""));
 }
 
 static int adb_query_command(const std::string& command) {
