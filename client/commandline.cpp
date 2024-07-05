@@ -316,6 +316,7 @@ int read_and_dump_protocol(borrowed_fd fd, StandardStreamsCallbackInterface* cal
         // Cast to uint8_t to prevent 255 from being sign extended to INT_MIN,
         // which doesn't get truncated on Windows.
         exit_code = static_cast<uint8_t>(protocol->data()[0]);
+        callback->Done(exit_code);
       }
     }
     return exit_code;
@@ -323,28 +324,26 @@ int read_and_dump_protocol(borrowed_fd fd, StandardStreamsCallbackInterface* cal
 
 int read_and_dump(borrowed_fd fd, bool use_shell_protocol,
                   StandardStreamsCallbackInterface* callback) {
-    int exit_code = 0;
-    if (fd < 0) return exit_code;
+    if (fd < 0) return 0;
 
     if (use_shell_protocol) {
-      exit_code = read_and_dump_protocol(fd, callback);
-    } else {
-      char raw_buffer[BUFSIZ];
-      char* buffer_ptr = raw_buffer;
-      while (true) {
+        return read_and_dump_protocol(fd, callback);
+    }
+
+    char raw_buffer[BUFSIZ];
+    char* buffer_ptr = raw_buffer;
+    while (true) {
         D("read_and_dump(): pre adb_read(fd=%d)", fd.get());
         int length = adb_read(fd, raw_buffer, sizeof(raw_buffer));
         D("read_and_dump(): post adb_read(fd=%d): length=%d", fd.get(), length);
         if (length <= 0) {
-          break;
+            break;
         }
         if (!callback->OnStdout(buffer_ptr, length)) {
-          break;
+            break;
         }
-      }
     }
-
-    return callback->Done(exit_code);
+    return callback->Done(0);
 }
 
 static void stdinout_raw_prologue(int inFd, int outFd, int& old_stdin_mode, int& old_stdout_mode) {
@@ -814,15 +813,6 @@ static int adb_abb(int argc, const char** argv) {
 
     return RemoteShell(use_shell_protocol, shell_type_arg, escape_char, empty_command,
                        service_string);
-}
-
-static int adb_shell_noinput(int argc, const char** argv) {
-#if !defined(_WIN32)
-    unique_fd fd(adb_open("/dev/null", O_RDONLY));
-    CHECK_NE(STDIN_FILENO, fd.get());
-    dup2(fd.get(), STDIN_FILENO);
-#endif
-    return adb_shell(argc, argv);
 }
 
 static int adb_sideload_legacy(const char* filename, int in_fd, int size) {
@@ -1476,6 +1466,22 @@ const std::optional<FeatureSet>& adb_get_feature_set_or_die(void) {
     return features;
 }
 
+class AdbRemountStreamsCallback : public DefaultStandardStreamsCallback {
+  public:
+    AdbRemountStreamsCallback() : DefaultStandardStreamsCallback(nullptr, nullptr) {}
+
+    int Done(int status) override {
+        done_ = true;
+        return DefaultStandardStreamsCallback::Done(status);
+    }
+
+    int IsDone() { return done_; }
+
+  private:
+    bool done_ = false;
+    DISALLOW_COPY_AND_ASSIGN(AdbRemountStreamsCallback);
+};
+
 // Helper function to handle processing of shell service commands:
 // remount, disable/enable-verity. There's only one "feature",
 // but they were all moved from adbd to external binaries in the
@@ -1483,15 +1489,17 @@ const std::optional<FeatureSet>& adb_get_feature_set_or_die(void) {
 static int process_remount_or_verity_service(const int argc, const char** argv) {
     auto&& features = adb_get_feature_set_or_die();
     if (CanUseFeature(*features, kFeatureRemountShell)) {
-        std::vector<const char*> args = {"shell"};
-        args.insert(args.cend(), argv, argv + argc);
-        return adb_shell_noinput(args.size(), args.data());
-    } else if (argc > 1) {
-        auto command = android::base::StringPrintf("%s:%s", argv[0], argv[1]);
-        return adb_connect_command(command);
-    } else {
-        return adb_connect_command(std::string(argv[0]) + ":");
+        AdbRemountStreamsCallback callback;
+        int exit_code = send_shell_command(
+                android::base::Join(std::vector<const char*>(argv, argv + argc), ' '), false,
+                &callback);
+        // If the remount command causes device to reboot, then the command stream would disconnect
+        // without an explicit "Done" signal. We should treat this case as a success.
+        return callback.IsDone() ? exit_code : 0;
     }
+    const std::string command =
+            android::base::StringPrintf("%s:%s", argv[0], argc > 1 ? argv[1] : "");
+    return adb_connect_command(command);
 }
 
 static int adb_query_command(const std::string& command) {
