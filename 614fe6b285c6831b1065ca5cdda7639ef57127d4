@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "25f5dc92_2f8335b3",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-07-08T21:10:54Z",
+      "side": 1,
+      "message": "You are touching a core part of the CLI tool (`read_and_dump`), I would prefer to avoid \"optimization\" line changes such as this one so we can get a cleared picture of what is being modified.",
+      "range": {
+        "startLine": 327,
+        "startChar": 4,
+        "endLine": 327,
+        "endChar": 25
+      },
+      "revId": "614fe6b285c6831b1065ca5cdda7639ef57127d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9f9ef71a_3aad4197",
         "filename": "client/commandline.cpp",
         "patchSetId": 2
