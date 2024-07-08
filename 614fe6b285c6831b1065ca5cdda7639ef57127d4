@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f9ef71a_3aad4197",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1494,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-08T20:59:02Z",
+      "side": 1,
+      "message": "this seems like a regression (with potential [lack of] quoting problems)? can\u0027t you just keep it as the vector?",
+      "revId": "614fe6b285c6831b1065ca5cdda7639ef57127d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
