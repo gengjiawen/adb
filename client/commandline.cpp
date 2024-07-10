@@ -1383,7 +1383,7 @@ class AdbServerStateStreamsCallback : public DefaultStandardStreamsCallback {
 
     int Done(int status) {
         if (output_.size() < 4) {
-            return OnStream(nullptr, stdout, output_.data(), output_.length(), false);
+            OnStream(nullptr, stdout, output_.data(), output_.length(), false);
         }
 
         // Skip the 4-hex prefix
