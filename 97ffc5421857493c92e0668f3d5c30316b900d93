@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2772f44_7fcf1618",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1337669
+      },
+      "writtenOn": "2024-07-11T11:18:53Z",
+      "side": 1,
+      "message": "looks weird i know but this is what clang-format demands....",
+      "range": {
+        "startLine": 331,
+        "startChar": 6,
+        "endLine": 331,
+        "endChar": 9
+      },
+      "revId": "97ffc5421857493c92e0668f3d5c30316b900d93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
