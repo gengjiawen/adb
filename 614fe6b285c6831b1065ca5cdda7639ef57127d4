@@ -71,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f15dd92_719c1136",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1337669
+      },
+      "writtenOn": "2024-07-11T11:16:47Z",
+      "side": 1,
+      "message": "ACK. I\u0027ll change my implementation.",
+      "parentUuid": "25f5dc92_2f8335b3",
+      "range": {
+        "startLine": 327,
+        "startChar": 4,
+        "endLine": 327,
+        "endChar": 25
+      },
+      "revId": "614fe6b285c6831b1065ca5cdda7639ef57127d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9f9ef71a_3aad4197",
@@ -84,6 +108,24 @@
       "writtenOn": "2024-07-08T20:59:02Z",
       "side": 1,
       "message": "this seems like a regression (with potential [lack of] quoting problems)? can\u0027t you just keep it as the vector?",
+      "revId": "614fe6b285c6831b1065ca5cdda7639ef57127d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8320f553_ed331666",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1494,
+      "author": {
+        "id": 1337669
+      },
+      "writtenOn": "2024-07-11T11:16:47Z",
+      "side": 1,
+      "message": "Cannot keep as vector, as `send_shell_command` only accept a single, joined, command string.\n\nPlus this is what `adb_shell()` does anyway (https://cs.android.com/android/platform/superproject/main/+/main:packages/modules/adb/client/commandline.cpp;l\u003d787;bpv\u003d0;bpt\u003d1)\nso I consider this _not a new_ regression.",
+      "parentUuid": "9f9ef71a_3aad4197",
       "revId": "614fe6b285c6831b1065ca5cdda7639ef57127d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
