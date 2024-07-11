@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfd5bbb9_0b62bb97",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-07-11T18:23:32Z",
+      "side": 1,
+      "message": "Daniel, how do you reproduce this issue? Do you have a tool to generate truncated dDNS queries? If you do, can you share it on the but as an attachment?",
+      "revId": "d165c6807526de93565c06b7d372225b6ec4b34b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "608360e0_1b935550",
