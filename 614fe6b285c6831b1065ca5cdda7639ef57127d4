@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1d3e6355_9d8130c4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1019013
+      },
+      "writtenOn": "2024-07-11T06:49:56Z",
+      "side": 1,
+      "message": "Two questions)\n - Question 1) Returning 255 is the feature request from meta (b/321787891). What\u0027s our intention here? Can we discuss what\u0027s the desired behavior first?\n - Question 2) Would you also revert adb-remount-test.sh change? (i.e. revert aosp/2984453)?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 68
+      },
+      "revId": "614fe6b285c6831b1065ca5cdda7639ef57127d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "25f5dc92_2f8335b3",
         "filename": "client/commandline.cpp",
         "patchSetId": 2
