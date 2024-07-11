@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "45e16d20_a819e80c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-11T12:08:03Z",
+      "side": 1,
+      "message": "i still think this is philosophically flawed --- this will cause us to report success even if we get an unexpected disconnection before the \"success\" disconnect, and that\u0027s not right...",
+      "parentUuid": "309500c6_d7bd33bb",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 68
+      },
+      "revId": "614fe6b285c6831b1065ca5cdda7639ef57127d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "25f5dc92_2f8335b3",
         "filename": "client/commandline.cpp",
         "patchSetId": 2
