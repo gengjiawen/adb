@@ -224,7 +224,7 @@ static void help() {
         " get-devpath              print <device-path>\n"
         " remount [-R]\n"
         "      remount partitions read-write. if a reboot is required, -R will\n"
-        "      will automatically reboot the device.\n"
+        "      will automatically reboot the device and return 255\n"
         " reboot [bootloader|recovery|sideload|sideload-auto-reboot]\n"
         "     reboot the device; defaults to booting system image but\n"
         "     supports bootloader and recovery too. sideload reboots\n"

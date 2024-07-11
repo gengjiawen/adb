@@ -304,7 +304,7 @@ remount [**-R**]
 &nbsp;&nbsp;&nbsp;&nbsp;Remount partitions read-write.
 
 **-R**
-&nbsp;&nbsp;&nbsp;&nbsp;Automatically reboot the device.
+&nbsp;&nbsp;&nbsp;&nbsp;Automatically reboot the device if required. Return 255 if rebooted.
 
 reboot [**bootloader**|**recovery**|**sideload**|**sideload-auto-reboot**]
 &nbsp;&nbsp;&nbsp;&nbsp;Reboot the device; defaults to booting system image but supports **bootloader** and **recovery** too.
@@ -361,10 +361,10 @@ detach **SERIAL**
 
 # Features:
 
-host-features  
+host-features
 &nbsp;&nbsp;&nbsp;&nbsp;list features supported by adb server.
 
-features  
+features
 &nbsp;&nbsp;&nbsp;&nbsp;list features supported by both adb server and device.
 
 # ENVIRONMENT VARIABLES
