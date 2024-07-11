@@ -80,6 +80,30 @@
       },
       "revId": "d165c6807526de93565c06b7d372225b6ec4b34b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56e2d6dc_2138c37f",
+        "filename": "client/transport_mdns.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 3258455
+      },
+      "writtenOn": "2024-07-11T23:57:01Z",
+      "side": 1,
+      "message": "I emailed the PCAP file to you on 12/Feb/2024.\n\nI previously documented the steps to replicate on the bug (comment #6) but it appears to have been deleted.\n\nI was able to replicate the bug by replaying the PCAP over UDP.\nI used this tool to replay the PCAP: https://github.com/ska-sa/udpreplay",
+      "parentUuid": "a604bc1e_dc42e62d",
+      "range": {
+        "startLine": 164,
+        "startChar": 35,
+        "endLine": 164,
+        "endChar": 37
+      },
+      "revId": "d165c6807526de93565c06b7d372225b6ec4b34b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

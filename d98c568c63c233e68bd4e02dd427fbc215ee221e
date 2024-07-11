@@ -193,6 +193,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "bfe01292_fd3c2f7d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 3258455
+      },
+      "writtenOn": "2024-07-11T23:57:01Z",
+      "side": 1,
+      "message": "I previously documented the steps to replicate on the bug (comment #6) but it appears to have been deleted. I will re-share the PCAP on the bug.\n\nI was able to replicate the bug by replaying the PCAP over UDP.\nI used this tool to replay the PCAP: https://github.com/ska-sa/udpreplay",
+      "parentUuid": "a3162344_d0de9db7",
+      "range": {
+        "startLine": 15,
+        "startChar": 6,
+        "endLine": 15,
+        "endChar": 12
+      },
+      "revId": "d98c568c63c233e68bd4e02dd427fbc215ee221e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "8595d7c0_732fd9ea",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
