@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "82bf519d_d4869927",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1337669
+      },
+      "writtenOn": "2024-07-11T10:54:08Z",
+      "side": 1,
+      "message": "q1: My intention is to make \"adb remount -R\" return the success exit code (`0`) and revert the hack that is aosp/Ida33bfa00887e8ac358e057fc37fd45095ccc26b\nThis was the expected behavior for a long time before b/321787891\nI think b/321787891 was meant to change the exit code of \"adb shell disconnect\", and it was an unintentional change to change the exit code of \"adb remount\". \n\nq2: Yes",
+      "parentUuid": "1d3e6355_9d8130c4",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 68
+      },
+      "revId": "614fe6b285c6831b1065ca5cdda7639ef57127d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "25f5dc92_2f8335b3",
         "filename": "client/commandline.cpp",
         "patchSetId": 2
