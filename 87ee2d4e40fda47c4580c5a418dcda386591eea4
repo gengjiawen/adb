@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5102db21_fbdc484d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1337669
+      },
+      "writtenOn": "2024-07-11T06:35:59Z",
+      "side": 1,
+      "message": "I actually consider this a regression, and wanted to fix this actually: https://android-review.git.corp.google.com/c/platform/packages/modules/adb/+/3161117\n\nIt used to return 0 if disconnected. After I25f740bd222263fcb3c501def38977db6af1e0d9 it becomes 255, and I consider this an unintended regression",
+      "revId": "87ee2d4e40fda47c4580c5a418dcda386591eea4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
