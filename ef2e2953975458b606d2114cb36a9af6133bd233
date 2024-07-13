@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "015924e3_ffe2479f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-07-13T00:53:49Z",
+      "side": 1,
+      "message": "I have tweaked you fix a bit to keep the reference with the rest of the mdns state. I have verified that it fixes the issue.\n\nFeel free to verify the fix on your side again and the merge after it passes the presubmit.",
+      "revId": "ef2e2953975458b606d2114cb36a9af6133bd233",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
