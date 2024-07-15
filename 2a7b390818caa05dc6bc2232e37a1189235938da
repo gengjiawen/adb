@@ -39,6 +39,30 @@
       },
       "revId": "2a7b390818caa05dc6bc2232e37a1189235938da",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4aecad6_e6f1778a",
+        "filename": "Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-15T17:19:01Z",
+      "side": 1,
+      "message": "isn\u0027t having a buildbot-built mac binary even _more_ important than a linux one, since 99% of people won\u0027t be able to build their own mac binary?",
+      "parentUuid": "344f8ac6_db28876b",
+      "range": {
+        "startLine": 478,
+        "startChar": 0,
+        "endLine": 487,
+        "endChar": 6
+      },
+      "revId": "2a7b390818caa05dc6bc2232e37a1189235938da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
