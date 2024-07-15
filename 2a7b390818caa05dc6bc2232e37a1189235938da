@@ -16,6 +16,29 @@
       "message": "(see my comment on https://buganizer.corp.google.com/issues/352909537#comment7)",
       "revId": "2a7b390818caa05dc6bc2232e37a1189235938da",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "344f8ac6_db28876b",
+        "filename": "Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2024-07-15T17:16:12Z",
+      "side": 1,
+      "message": "This section is what is causing `adb_asan` to build in the mac SDK build, since it has `sdk-repo-platform-tools dist` on the command line.  If you move it out of defaults and into the `adb` module directly it shouldn\u0027t build by default on mac.",
+      "range": {
+        "startLine": 478,
+        "startChar": 0,
+        "endLine": 487,
+        "endChar": 6
+      },
+      "revId": "2a7b390818caa05dc6bc2232e37a1189235938da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
