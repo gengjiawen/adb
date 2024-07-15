@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f9fa8051_1892d2a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-07-15T21:14:30Z",
+      "side": 1,
+      "message": "aosp/3174681 should fix this. Perhaps we can wait before merging the revert?",
+      "revId": "2a7b390818caa05dc6bc2232e37a1189235938da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "344f8ac6_db28876b",
         "filename": "Android.bp",
         "patchSetId": 1
