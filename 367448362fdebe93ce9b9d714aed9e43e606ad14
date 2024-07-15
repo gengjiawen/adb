@@ -1,0 +1,533 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e50e3e8_4f4e20d2",
+        "filename": "README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-15T17:04:44Z",
+      "side": 1,
+      "message": "OSes\n\n(or \"to computers running other OSes\"?)",
+      "range": {
+        "startLine": 3,
+        "startChar": 54,
+        "endLine": 3,
+        "endChar": 56
+      },
+      "revId": "367448362fdebe93ce9b9d714aed9e43e606ad14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91d36caa_5e9b3e1c",
+        "filename": "README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-15T17:04:44Z",
+      "side": 1,
+      "message": "devices",
+      "range": {
+        "startLine": 3,
+        "startChar": 42,
+        "endLine": 3,
+        "endChar": 44
+      },
+      "revId": "367448362fdebe93ce9b9d714aed9e43e606ad14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "902034ad_49aaff68",
+        "filename": "docs/dev/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-15T17:04:44Z",
+      "side": 1,
+      "message": "if you\u0027re going to break the internet\u0027s links by changing the _path_ you may as well do the .txt -\u003e .md transition at the same time, rather than save that up for a second round of pain.",
+      "range": {
+        "startLine": 3,
+        "startChar": 64,
+        "endLine": 3,
+        "endChar": 76
+      },
+      "revId": "367448362fdebe93ce9b9d714aed9e43e606ad14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f54e89b_cbc0392b",
+        "filename": "docs/dev/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-15T17:04:44Z",
+      "side": 1,
+      "message": "replace all the selected text with \"gives\" or \"shows\"? (or make it clearer what all those extra words were meant to convey :-) )",
+      "range": {
+        "startLine": 5,
+        "startChar": 14,
+        "endLine": 5,
+        "endChar": 154
+      },
+      "revId": "367448362fdebe93ce9b9d714aed9e43e606ad14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0c05f33_30255bc5",
+        "filename": "docs/dev/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-15T17:04:44Z",
+      "side": 1,
+      "message": "(https://sembr.org/?)",
+      "range": {
+        "startLine": 9,
+        "startChar": 124,
+        "endLine": 9,
+        "endChar": 125
+      },
+      "revId": "367448362fdebe93ce9b9d714aed9e43e606ad14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab14b24d_f6eb1317",
+        "filename": "docs/dev/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-15T17:04:44Z",
+      "side": 1,
+      "message": "link",
+      "range": {
+        "startLine": 9,
+        "startChar": 19,
+        "endLine": 9,
+        "endChar": 27
+      },
+      "revId": "367448362fdebe93ce9b9d714aed9e43e606ad14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71df4815_5ad42874",
+        "filename": "docs/dev/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-15T17:04:44Z",
+      "side": 1,
+      "message": "s/outlined/described in more detail/ (_this_ is the outline :-) )",
+      "range": {
+        "startLine": 9,
+        "startChar": 3,
+        "endLine": 9,
+        "endChar": 11
+      },
+      "revId": "367448362fdebe93ce9b9d714aed9e43e606ad14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a6d965b_a74d3611",
+        "filename": "docs/dev/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-15T17:04:44Z",
+      "side": 1,
+      "message": "link, or just say \"connection\" if we\u0027re keeping this a vague high-level intro.",
+      "range": {
+        "startLine": 9,
+        "startChar": 224,
+        "endLine": 9,
+        "endChar": 236
+      },
+      "revId": "367448362fdebe93ce9b9d714aed9e43e606ad14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f650701d_dab2cbf8",
+        "filename": "docs/dev/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-15T17:04:44Z",
+      "side": 1,
+      "message": "such as",
+      "range": {
+        "startLine": 9,
+        "startChar": 348,
+        "endLine": 9,
+        "endChar": 350
+      },
+      "revId": "367448362fdebe93ce9b9d714aed9e43e606ad14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c81ab03d_0eebfc14",
+        "filename": "docs/dev/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-15T17:04:44Z",
+      "side": 1,
+      "message": "are",
+      "range": {
+        "startLine": 29,
+        "startChar": 132,
+        "endLine": 29,
+        "endChar": 134
+      },
+      "revId": "367448362fdebe93ce9b9d714aed9e43e606ad14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b3d36e6_ce53d949",
+        "filename": "docs/dev/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-15T17:04:44Z",
+      "side": 1,
+      "message": "guards\n\n(high level: is that a bug, or is there a good reason for having two variants? and if there\u0027s a good reason, should we write it down?)",
+      "range": {
+        "startLine": 29,
+        "startChar": 291,
+        "endLine": 29,
+        "endChar": 296
+      },
+      "revId": "367448362fdebe93ce9b9d714aed9e43e606ad14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46b07724_8db1ad39",
+        "filename": "docs/dev/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-15T17:04:44Z",
+      "side": 1,
+      "message": "within",
+      "range": {
+        "startLine": 29,
+        "startChar": 269,
+        "endLine": 29,
+        "endChar": 276
+      },
+      "revId": "367448362fdebe93ce9b9d714aed9e43e606ad14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2cc9983c_14636d9a",
+        "filename": "docs/dev/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-15T17:04:44Z",
+      "side": 1,
+      "message": "what\u0027s \"smart\" about it?",
+      "range": {
+        "startLine": 34,
+        "startChar": 45,
+        "endLine": 34,
+        "endChar": 50
+      },
+      "revId": "367448362fdebe93ce9b9d714aed9e43e606ad14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38571a8d_83de9223",
+        "filename": "docs/dev/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-15T17:04:44Z",
+      "side": 1,
+      "message": "of an",
+      "range": {
+        "startLine": 62,
+        "startChar": 165,
+        "endLine": 62,
+        "endChar": 169
+      },
+      "revId": "367448362fdebe93ce9b9d714aed9e43e606ad14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d31a914_cc14d6b5",
+        "filename": "docs/dev/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-15T17:04:44Z",
+      "side": 1,
+      "message": "peers",
+      "range": {
+        "startLine": 62,
+        "startChar": 456,
+        "endLine": 62,
+        "endChar": 462
+      },
+      "revId": "367448362fdebe93ce9b9d714aed9e43e606ad14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d64877fb_363cda75",
+        "filename": "docs/dev/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-15T17:04:44Z",
+      "side": 1,
+      "message": "\u0027of apackets\u0027 or \u0027containing apackets\u0027 would be a lot less fancy :-)",
+      "range": {
+        "startLine": 64,
+        "startChar": 29,
+        "endLine": 64,
+        "endChar": 67
+      },
+      "revId": "367448362fdebe93ce9b9d714aed9e43e606ad14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7f8b62e_f1e59c42",
+        "filename": "docs/dev/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-15T17:04:44Z",
+      "side": 1,
+      "message": "features",
+      "range": {
+        "startLine": 86,
+        "startChar": 264,
+        "endLine": 86,
+        "endChar": 271
+      },
+      "revId": "367448362fdebe93ce9b9d714aed9e43e606ad14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a24277d2_24553629",
+        "filename": "docs/dev/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-15T17:04:44Z",
+      "side": 1,
+      "message": "admit that this (aiui) is more of a historical accident than a design decision?",
+      "range": {
+        "startLine": 86,
+        "startChar": 324,
+        "endLine": 86,
+        "endChar": 334
+      },
+      "revId": "367448362fdebe93ce9b9d714aed9e43e606ad14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75db5e3d_6633d9fe",
+        "filename": "docs/dev/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-15T17:04:44Z",
+      "side": 1,
+      "message": "link to something like https://en.wikipedia.org/wiki/TCP_congestion_control rather than use scare quotes?",
+      "range": {
+        "startLine": 86,
+        "startChar": 275,
+        "endLine": 86,
+        "endChar": 276
+      },
+      "revId": "367448362fdebe93ce9b9d714aed9e43e606ad14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "182f646f_4e4f0834",
+        "filename": "docs/dev/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-15T17:04:44Z",
+      "side": 1,
+      "message": "\"Without going into too much detail, the amessage arg1 and arg2 fields are similar to the TCP local and remote ports, where the combination uniquely identifies a particular stream.\"",
+      "range": {
+        "startLine": 86,
+        "startChar": 72,
+        "endLine": 86,
+        "endChar": 236
+      },
+      "revId": "367448362fdebe93ce9b9d714aed9e43e606ad14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c2a318a_fd901374",
+        "filename": "docs/dev/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-15T17:04:44Z",
+      "side": 1,
+      "message": "multiplexing\n\n(or \"allows adb to\", but that seems superfluous?)",
+      "range": {
+        "startLine": 86,
+        "startChar": 19,
+        "endLine": 86,
+        "endChar": 31
+      },
+      "revId": "367448362fdebe93ce9b9d714aed9e43e606ad14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18d46fe9_10fe10c6",
+        "filename": "docs/dev/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-15T17:04:44Z",
+      "side": 1,
+      "message": "since it has \"sync\" in the name, explicitly mention that this isn\u0027t _just_ `adb sync`, but also `pull` and `push`?",
+      "range": {
+        "startLine": 96,
+        "startChar": 4,
+        "endLine": 96,
+        "endChar": 8
+      },
+      "revId": "367448362fdebe93ce9b9d714aed9e43e606ad14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8dbcd4a_73b25cf9",
+        "filename": "docs/dev/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-15T17:04:44Z",
+      "side": 1,
+      "message": "Please fix this WARNING reported by Check Contents: Please remove the trailing whitespace.\n\nAnalyzer Description: Validates that changes do not have prohibited expressions in them.\nOwner: ayeaye-team@google.com\n\nPlease remove the trailing whitespace.",
+      "range": {
+        "startLine": 136,
+        "startChar": 76,
+        "endLine": 136,
+        "endChar": 77
+      },
+      "revId": "367448362fdebe93ce9b9d714aed9e43e606ad14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
