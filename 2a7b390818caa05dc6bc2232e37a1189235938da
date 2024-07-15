@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c4a8778_4308ee4c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-15T12:47:25Z",
+      "side": 1,
+      "message": "(see my comment on https://buganizer.corp.google.com/issues/352909537#comment7)",
+      "revId": "2a7b390818caa05dc6bc2232e37a1189235938da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
