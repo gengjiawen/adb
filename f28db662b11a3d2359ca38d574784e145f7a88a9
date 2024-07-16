@@ -16,6 +16,24 @@
       "message": "(fwiw, this was the first section in the \"new\" doc where i actually thought \"wait a minute --- i\u0027ve seen this before\" :-) )",
       "revId": "f28db662b11a3d2359ca38d574784e145f7a88a9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd82f730_25233766",
+        "filename": "README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-07-16T01:01:37Z",
+      "side": 0,
+      "message": "Acknowledged",
+      "parentUuid": "341feb1a_6baf61c7",
+      "revId": "f28db662b11a3d2359ca38d574784e145f7a88a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
