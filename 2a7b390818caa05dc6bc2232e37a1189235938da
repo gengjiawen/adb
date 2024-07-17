@@ -52,6 +52,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c672e60_f79c8f80",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-07-17T20:39:53Z",
+      "side": 1,
+      "message": "I suggest this CL to be abandonned.",
+      "revId": "2a7b390818caa05dc6bc2232e37a1189235938da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "344f8ac6_db28876b",
