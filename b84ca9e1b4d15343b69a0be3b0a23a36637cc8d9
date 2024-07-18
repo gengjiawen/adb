@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41bbebd5_d54e2d15",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-07-18T20:02:10Z",
+      "side": 1,
+      "message": "Adding Yurii who wrote the initial implementation",
+      "revId": "b84ca9e1b4d15343b69a0be3b0a23a36637cc8d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
