@@ -52,6 +52,24 @@
       "parentUuid": "33ed7853_16b84b59",
       "revId": "f1d1d17e3f38d530ec18c642429c98c230cadba0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fa2bef8_a573e6e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1090594
+      },
+      "writtenOn": "2024-07-18T20:12:08Z",
+      "side": 1,
+      "message": "sure, I\u0027ll amend the commit msg.",
+      "parentUuid": "5fe5cd41_0cffc182",
+      "revId": "f1d1d17e3f38d530ec18c642429c98c230cadba0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
