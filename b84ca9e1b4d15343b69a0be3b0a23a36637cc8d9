@@ -69,6 +69,24 @@
       "parentUuid": "79774a0e_3a614a0c",
       "revId": "b84ca9e1b4d15343b69a0be3b0a23a36637cc8d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aad34b7a_5fa99983",
+        "filename": "client/adb_install.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1090594
+      },
+      "writtenOn": "2024-07-18T20:32:38Z",
+      "side": 1,
+      "message": "\u003ed\u0027oh! is there no test? can we add one?\n\nNo idea about that, also as an external contributor, I\u0027d rather not spend time learning how to do that properly.\n\n\u003e(did this actually cause a failure or just mean that incremental wasn\u0027t used and it fell back to non-incremental?)\n\nit didn\u0027t cause any failure for me, I just accidentally spotted it while reading the code.",
+      "parentUuid": "bb29c48e_016c550c",
+      "revId": "b84ca9e1b4d15343b69a0be3b0a23a36637cc8d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
