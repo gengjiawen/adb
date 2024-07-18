@@ -87,6 +87,24 @@
       "parentUuid": "bb29c48e_016c550c",
       "revId": "b84ca9e1b4d15343b69a0be3b0a23a36637cc8d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1616a91_1c5a2cd2",
+        "filename": "client/adb_install.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-18T20:37:00Z",
+      "side": 1,
+      "message": "\u003e as an external contributor...\n\noh, sorry, i didn\u0027t realize. (gerrit\u0027s ui doesn\u0027t make that clear.)\n\nwe\u0027ll see what zyy says tomorrow then...",
+      "parentUuid": "aad34b7a_5fa99983",
+      "revId": "b84ca9e1b4d15343b69a0be3b0a23a36637cc8d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
