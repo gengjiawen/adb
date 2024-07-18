@@ -34,6 +34,24 @@
       "parentUuid": "f007a886_b8055c43",
       "revId": "f1d1d17e3f38d530ec18c642429c98c230cadba0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fe5cd41_0cffc182",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-18T20:07:33Z",
+      "side": 1,
+      "message": "yeah, worth pasting the \"Invalid namespace \u0027enable_adb_incremental_install_default\u0027\" error message into the commit message for searchability (and ease of copy \u0026 paste when we do the release notes for the next release :-) ).",
+      "parentUuid": "33ed7853_16b84b59",
+      "revId": "f1d1d17e3f38d530ec18c642429c98c230cadba0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

@@ -16,6 +16,23 @@
       "message": "Adding Yurii who wrote the initial implementation",
       "revId": "b84ca9e1b4d15343b69a0be3b0a23a36637cc8d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3602b8a_d25c7568",
+        "filename": "client/adb_install.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-18T20:07:33Z",
+      "side": 1,
+      "message": "did this work on older devices? remember that adb needs to work for old and new devices, so we might need a conditional here? or (a) has this never worked? or (b) does the new command work on old and new devices?",
+      "revId": "b84ca9e1b4d15343b69a0be3b0a23a36637cc8d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
