@@ -105,6 +105,24 @@
       "parentUuid": "aad34b7a_5fa99983",
       "revId": "b84ca9e1b4d15343b69a0be3b0a23a36637cc8d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ce70b66_adc07870",
+        "filename": "client/adb_install.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1080076
+      },
+      "writtenOn": "2024-07-19T17:11:01Z",
+      "side": 1,
+      "message": "Well, it looks like I only checked for it to allow incremental installations with no flag, as nothing else mattered at the moment. The code was checking if the result parsed as a boolean `false` and disabled incremental if it did. The error message doesn\u0027t parse like a `false`, so effectively there was no way to disable incremental by default on a device\n\nThanks for spotting it. adb tests are quite sparse and there\u0027s nothing that even closely covers this case, so I will have to find some time to add them here",
+      "parentUuid": "e1616a91_1c5a2cd2",
+      "revId": "b84ca9e1b4d15343b69a0be3b0a23a36637cc8d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
