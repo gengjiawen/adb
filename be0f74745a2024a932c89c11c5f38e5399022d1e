@@ -239,6 +239,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d4abed3b_11600b06",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-07-19T01:47:33Z",
+      "side": 1,
+      "message": "Here is what I had in mind.",
+      "parentUuid": "37bf309b_1f174439",
+      "range": {
+        "startLine": 200,
+        "startChar": 0,
+        "endLine": 201,
+        "endChar": 50
+      },
+      "revId": "be0f74745a2024a932c89c11c5f38e5399022d1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4b11194f_75f7e9a7",
         "filename": "client/usb_libusb.cpp",
         "patchSetId": 10
