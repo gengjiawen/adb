@@ -33,6 +33,23 @@
       "message": "Bootloader",
       "revId": "9fdbe5884af7be67fd5c74ad288427745e23f1aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b81d0922_9fe99b23",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3543679
+      },
+      "writtenOn": "2024-07-21T22:50:18Z",
+      "side": 1,
+      "message": "git clone https://android.googlesource.com/platform/bootable/bootloader/legacy",
+      "revId": "9fdbe5884af7be67fd5c74ad288427745e23f1aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
