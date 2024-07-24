@@ -35,6 +35,7 @@
 #include "fastdeploycallbacks.h"
 #include "sysdeps.h"
 
+#include "adb_client.h"
 #include "adb_utils.h"
 
 static constexpr long kRequiredAgentVersion = 0x00000003;
@@ -112,7 +113,7 @@ static void push_to_device(const void* data, size_t byte_count, const char* dst,
     // but can't be removed until after the push.
     unix_close(tf.release());
 
-    if (!do_sync_push(srcs, dst, sync, CompressionType::Any, false)) {
+    if (!do_sync_push(srcs, dst, sync, CompressionType::Any, false, false)) {
         error_exit("Failed to push fastdeploy agent to device.");
     }
 }
@@ -160,7 +161,8 @@ static std::string get_package_name_from_apk(const char* apk_path) {
         error_exit("Could not find AndroidManifest.xml inside %s", apk_path);
     }
     uint32_t manifest_len = 0;
-    if (!zip_file->getEntryInfo(entry, NULL, &manifest_len, NULL, NULL, NULL, NULL)) {
+    if (!zip_file->getEntryInfo(entry, nullptr, &manifest_len, nullptr, nullptr, nullptr, nullptr,
+                                nullptr)) {
         error_exit("Could not read AndroidManifest.xml inside %s", apk_path);
     }
     std::vector<char> manifest_data(manifest_len);

@@ -287,7 +287,7 @@ static int install_app_legacy(int argc, const char** argv, bool use_fastdeploy) 
         }
     }
 
-    if (do_sync_push(apk_file, apk_dest.c_str(), false, CompressionType::Any, false)) {
+    if (do_sync_push(apk_file, apk_dest.c_str(), false, CompressionType::Any, false, false)) {
         result = pm_command(argc, argv);
         delete_device_file(apk_dest);
     }
@@ -391,7 +391,7 @@ static std::pair<InstallMode, std::optional<InstallMode>> calculate_install_mode
         // still ok: let's see if the device allows using incremental by default
         // it starts feeling like we're looking for an excuse to not to use incremental...
         std::string error;
-        std::vector<std::string> args = {"settings", "get",
+        std::vector<std::string> args = {"settings", "get", "global",
                                          "enable_adb_incremental_install_default"};
         auto fd = send_abb_exec_command(args, &error);
         if (!fd.ok()) {

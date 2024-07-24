@@ -1,3 +1,4 @@
+```
 This file tries to document all requests a client can make
 to the ADB server of an adbd daemon. See the OVERVIEW.TXT document
 to understand what's going on here.
@@ -80,6 +81,10 @@ host:<request>
     When asking for information related to a device, 'host:' can also be
     interpreted as 'any single device or emulator connected to/running on
     the host'.
+
+host:server-status
+    Return adb server status (version, build, usb backend, mdns backend, ...).
+    See adb_host.proto AdbServerStatus for more details.
 
 <host-prefix>:get-serialno
     Returns the serial number of the corresponding device/emulator.
@@ -191,7 +196,17 @@ dev:<path>
     Opens a device file and connects the client directly to it for
     read/write purposes. Useful for debugging, but may require special
     privileges and thus may not run on all devices. <path> is a full
-    path from the root of the filesystem.
+    path from the root of the filesystem. Besides debugging this is
+    useful for allowing test automation running on host (not Android
+    device) to directly interact with the device file when a
+    non-trivial protocol is needed and adb shell is not suitable. Use
+    cases: factory tests for device peripherals, emulated peripheral
+    control (cuttlefish) for test automation.
+
+dev-raw:<path>
+    Similar with dev:<path>, the only difference being that the device
+    is opened in raw tty mode. Useful when default tty settings
+    interferes with protocol that is used to control the device.
 
 tcp:<port>
     Tries to connect to tcp port <port> on localhost.
@@ -291,3 +306,4 @@ reverse:<forward-command>
 
     The output of reverse:list-forward is the same as host:list-forward
     except that <serial> will be just 'host'.
+```

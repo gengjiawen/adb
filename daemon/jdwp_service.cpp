@@ -33,7 +33,6 @@
 #include <thread>
 #include <vector>
 
-#include <adbconnection/process_info.h>
 #include <adbconnection/server.h>
 #include <android-base/cmsg.h>
 #include <android-base/unique_fd.h>
@@ -140,8 +139,8 @@ enum class TrackerKind {
 };
 
 static void jdwp_process_event(int socket, unsigned events, void* _proc);
-static void jdwp_process_list_updated(void);
-static void app_process_list_updated(void);
+static void jdwp_process_list_updated();
+static void app_process_list_updated();
 
 struct JdwpProcess;
 static auto& _jdwp_list = *new std::list<std::unique_ptr<JdwpProcess>>();
@@ -153,6 +152,7 @@ struct JdwpProcess {
         this->socket = socket;
         this->process = process;
         this->fde = fdevent_create(socket.release(), jdwp_process_event, this);
+        fdevent_set(this->fde, FDE_READ);
 
         if (!this->fde) {
             LOG(FATAL) << "could not create fdevent for new JDWP process";
@@ -218,10 +218,7 @@ static size_t app_process_list(char* buffer, size_t bufferlen) {
     for (auto& proc : _jdwp_list) {
         if (!proc->process.debuggable && !proc->process.profileable) continue;
         auto* entry = temp.add_process();
-        entry->set_pid(proc->process.pid);
-        entry->set_debuggable(proc->process.debuggable);
-        entry->set_profileable(proc->process.profileable);
-        entry->set_architecture(proc->process.arch_name, proc->process.arch_name_length);
+        *entry = std::move(proc->process.toProtobuf());
         temp.SerializeToString(&serialized_message);
         if (serialized_message.size() > bufferlen) {
             D("truncating app process list (max len = %zu)", bufferlen);
@@ -264,9 +261,16 @@ static void jdwp_process_event(int socket, unsigned events, void* _proc) {
     CHECK_EQ(socket, proc->socket.get());
 
     if (events & FDE_READ) {
-        // We already have the PID, if we can read from the socket, we've probably hit EOF.
-        D("terminating JDWP connection %" PRId64, proc->process.pid);
-        goto CloseProcess;
+        auto process_info = readProcessInfoFromSocket(socket);
+
+        // Unable to get a process info, the remote app process either died or errored
+        if (!process_info) {
+            goto CloseProcess;
+        }
+
+        proc->process = std::move(*process_info);
+        jdwp_process_list_updated();
+        app_process_list_updated();
     }
 
     if (events & FDE_WRITE) {
@@ -373,7 +377,7 @@ static void jdwp_socket_ready(asocket* s) {
     }
 }
 
-asocket* create_jdwp_service_socket(void) {
+asocket* create_jdwp_service_socket() {
     JdwpSocket* s = new JdwpSocket();
 
     if (!s) {
@@ -405,9 +409,15 @@ struct JdwpTracker : public asocket {
 static auto& _jdwp_trackers = *new std::vector<std::unique_ptr<JdwpTracker>>();
 
 static void process_list_updated(TrackerKind kind) {
+    // Find out the max payload we can output.
+    // We start with the max the protocol can handle (hex4).
+    size_t maxPayload = UINT16_MAX;
+    for (auto& t : _jdwp_trackers) {
+        maxPayload = std::min(maxPayload, t->get_max_payload());
+    }
+
     std::string data;
-    const int kMaxLength = kind == TrackerKind::kJdwp ? 1024 : 2048;
-    data.resize(kMaxLength);
+    data.resize(maxPayload);
     data.resize(process_list_msg(kind, &data[0], data.size()));
 
     for (auto& t : _jdwp_trackers) {
@@ -419,11 +429,11 @@ static void process_list_updated(TrackerKind kind) {
     }
 }
 
-static void jdwp_process_list_updated(void) {
+static void jdwp_process_list_updated() {
     process_list_updated(TrackerKind::kJdwp);
 }
 
-static void app_process_list_updated(void) {
+static void app_process_list_updated() {
     process_list_updated(TrackerKind::kApp);
 }
 
@@ -497,7 +507,7 @@ asocket* create_app_tracker_service_socket() {
     return create_process_tracker_service_socket(TrackerKind::kApp);
 }
 
-int init_jdwp(void) {
+int init_jdwp() {
     std::thread([]() {
         adb_thread_setname("jdwp control");
         adbconnection_listen([](int fd, ProcessInfo process) {
@@ -520,7 +530,7 @@ int init_jdwp(void) {
 #else  // !defined(__ANDROID_RECOVERY)
 #include "adb.h"
 
-asocket* create_jdwp_service_socket(void) {
+asocket* create_jdwp_service_socket() {
     return nullptr;
 }
 
