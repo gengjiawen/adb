@@ -16,6 +16,24 @@
       "message": "This is my first contribution to a huge codebase such as this one, do let me know if any changes are required :)",
       "revId": "00357ae540aa38fdf4f9f682b631ab07772007fa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a654247c_c7edfcdb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-25T11:34:12Z",
+      "side": 1,
+      "message": "i think the main one is a commit message that motivates the change...\n\n(and explains why the backwards compatibility issue of \"for anyone with that environment variable set, this will effectively make hide all their existing files\" is a price worth paying.)",
+      "parentUuid": "9c2fb4bb_b2fb2609",
+      "revId": "00357ae540aa38fdf4f9f682b631ab07772007fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
