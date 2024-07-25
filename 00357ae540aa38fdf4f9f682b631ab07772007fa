@@ -52,6 +52,24 @@
       "parentUuid": "a654247c_c7edfcdb",
       "revId": "00357ae540aa38fdf4f9f682b631ab07772007fa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89d85b53_c62b3e01",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3540759
+      },
+      "writtenOn": "2024-07-25T12:41:25Z",
+      "side": 1,
+      "message": "Thanks for the links. From what I can see in the discussion, the biggest pain point is backwards compatibility and the general consensus is that it\u0027s too much work to ensure that other scripts/apps won\u0027t break.\n\nI personally think that implementing one of the solutions such as https://issuetracker.google.com/issues/160478861#comment10 is a good way forward given that the issue has been open since 2020.\n\nShould I try to implement this, or should I abandon the contribution (at least temporarily) until a \"correct\" way to proceed has been decided?",
+      "parentUuid": "a402883d_9ad1ad5b",
+      "revId": "00357ae540aa38fdf4f9f682b631ab07772007fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
