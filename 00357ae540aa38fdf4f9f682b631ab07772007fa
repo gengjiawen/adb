@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c2fb4bb_b2fb2609",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3540759
+      },
+      "writtenOn": "2024-07-25T11:15:50Z",
+      "side": 1,
+      "message": "This is my first contribution to a huge codebase such as this one, do let me know if any changes are required :)",
+      "revId": "00357ae540aa38fdf4f9f682b631ab07772007fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
