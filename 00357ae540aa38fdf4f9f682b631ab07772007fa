@@ -88,6 +88,24 @@
       "parentUuid": "89d85b53_c62b3e01",
       "revId": "00357ae540aa38fdf4f9f682b631ab07772007fa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "654fbc26_80f85e45",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-07-25T17:57:15Z",
+      "side": 1,
+      "message": "Thank you for your contribution. As enh mentioned, I would like to see more elaboration on what problem we are trying to solve. \n\nYes, this is annoying that we are not in `~/.config` but besides being cleaner, not a lot of people have complained about it and I am concerned about the risk/reward ratio here, particularly when it comes to breaking people who were happy in the first place.",
+      "parentUuid": "0c1cef7b_a67df397",
+      "revId": "00357ae540aa38fdf4f9f682b631ab07772007fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
