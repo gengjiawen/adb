@@ -308,8 +308,16 @@ std::string adb_get_homedir_path() {
 }
 
 std::string adb_get_android_dir_path() {
-    std::string user_dir = adb_get_homedir_path();
-    std::string android_dir = user_dir + OS_PATH_SEPARATOR + ".android";
+    const char* android_user_home = getenv("ANDROID_USER_HOME");
+    std::string android_dir;
+
+    if (android_user_home) {
+        android_dir = std::string(android_user_home);
+    } else {
+        std::string user_dir = adb_get_homedir_path();
+        android_dir = user_dir + OS_PATH_SEPARATOR + ".android";
+    }
+
     struct stat buf;
     if (stat(android_dir.c_str(), &buf) == -1) {
         if (adb_mkdir(android_dir, 0750) == -1) {
