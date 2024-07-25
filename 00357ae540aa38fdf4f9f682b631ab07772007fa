@@ -106,6 +106,24 @@
       "parentUuid": "0c1cef7b_a67df397",
       "revId": "00357ae540aa38fdf4f9f682b631ab07772007fa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1a1c72c_3b297c99",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3540759
+      },
+      "writtenOn": "2024-07-25T21:45:44Z",
+      "side": 1,
+      "message": "That\u0027s fair, in most of the projects I\u0027ve worked on I didn\u0027t have to worry about breaking thousands of peoples\u0027 workflows with backwards incompatibility :b\n\nI think a patch on my local install might be better suited for this kind of thing, thanks for the help!",
+      "parentUuid": "654fbc26_80f85e45",
+      "revId": "00357ae540aa38fdf4f9f682b631ab07772007fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
