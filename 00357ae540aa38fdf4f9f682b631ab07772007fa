@@ -70,6 +70,24 @@
       "parentUuid": "a402883d_9ad1ad5b",
       "revId": "00357ae540aa38fdf4f9f682b631ab07772007fa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c1cef7b_a67df397",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-25T13:13:25Z",
+      "side": 1,
+      "message": "for me the most interesting unanswered question was \"who/what is currently setting this environment variable?\" ... luckily sanglardf works on Studio, so should be able to answer the question of whether or not this would immediately affect all Studio users.",
+      "parentUuid": "89d85b53_c62b3e01",
+      "revId": "00357ae540aa38fdf4f9f682b631ab07772007fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
