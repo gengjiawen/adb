@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ae0f087_402d5f57",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1879655
+      },
+      "writtenOn": "2024-08-07T18:24:09Z",
+      "side": 1,
+      "message": "Of course I built it before pushing a cl :) it works",
+      "parentUuid": "f2899f6e_1e911295",
+      "range": {
+        "startLine": 12,
+        "startChar": 26,
+        "endLine": 12,
+        "endChar": 37
+      },
+      "revId": "d38697ed814a5569fa9dd522768c69b6c02ee3a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "46b2a6f3_d3ec7ec4",
