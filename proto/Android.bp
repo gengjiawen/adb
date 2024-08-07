@@ -186,3 +186,10 @@ cc_library_host_static {
         type: "full",
     },
 }
+
+filegroup {
+    name: "adb_host_proto",
+    srcs: [
+        "adb_host.proto",
+    ],
+}
