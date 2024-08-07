@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cd7154d_bd40686d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1890551
+      },
+      "writtenOn": "2024-08-07T18:19:20Z",
+      "side": 1,
+      "message": "Have you verified whether this approach works or not?",
+      "range": {
+        "startLine": 12,
+        "startChar": 26,
+        "endLine": 12,
+        "endChar": 37
+      },
+      "revId": "d38697ed814a5569fa9dd522768c69b6c02ee3a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
