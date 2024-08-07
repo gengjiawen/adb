@@ -22,6 +22,30 @@
       },
       "revId": "d38697ed814a5569fa9dd522768c69b6c02ee3a9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "420c94a4_3e7f9178",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1890551
+      },
+      "writtenOn": "2024-08-07T18:20:01Z",
+      "side": 1,
+      "message": "And at least you can test this by building it",
+      "parentUuid": "1cd7154d_bd40686d",
+      "range": {
+        "startLine": 12,
+        "startChar": 26,
+        "endLine": 12,
+        "endChar": 37
+      },
+      "revId": "d38697ed814a5569fa9dd522768c69b6c02ee3a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
