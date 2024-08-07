@@ -941,7 +941,7 @@ python_test_host {
     main: "test_device.py",
     srcs: [
         "proto/app_processes.proto",
-        "proto/adb_host.proto",
+        ":adb_host_proto",
         "test_device.py",
     ],
     proto: {
