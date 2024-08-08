@@ -111,6 +111,24 @@
       "message": "Thank you for improving adb :) !\n\n1. Can you also update the targets in this file to use the filegroup?\n2. Can you add a https://android.googlesource.com/platform/build/soong/+/master/README.md#visibility so we can control/see who is using our proto?",
       "revId": "d38697ed814a5569fa9dd522768c69b6c02ee3a9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c26b7e1c_139dc80a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1879655
+      },
+      "writtenOn": "2024-08-08T01:40:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46b2a6f3_d3ec7ec4",
+      "revId": "d38697ed814a5569fa9dd522768c69b6c02ee3a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
