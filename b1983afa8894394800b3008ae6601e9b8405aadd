@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "84e6af21_144d94a4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-08-20T17:39:33Z",
+      "side": 1,
+      "message": "Discussed in b/360934966",
+      "parentUuid": "a0c04bbb_2f34c927",
+      "revId": "b1983afa8894394800b3008ae6601e9b8405aadd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "484d47d2_965bc3a1",
@@ -31,6 +49,30 @@
       "writtenOn": "2024-08-20T13:52:42Z",
       "side": 1,
       "message": "maybe \"shell\" is more pertinent than \"dd\"?\n\n(heh, i noticed later that you even call this the \"shell\" benchmark in the commit message :-) )",
+      "range": {
+        "startLine": 155,
+        "startChar": 27,
+        "endLine": 155,
+        "endChar": 29
+      },
+      "revId": "b1983afa8894394800b3008ae6601e9b8405aadd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5729be5a_71f4d77b",
+        "filename": "benchmark_device.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-08-20T17:39:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "484d47d2_965bc3a1",
       "range": {
         "startLine": 155,
         "startChar": 27,
