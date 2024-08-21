@@ -24,22 +24,23 @@ bool IsLoggingOn(LogLevel level, const char* file) {
     return true;
 }
 
-void LogWithLevel(LogLevel level, const char* file, int line, std::stringstream message) {
+void LogWithLevel(LogLevel level, const char* file, int line, std::stringstream desc) {
+    std::string message = std::string(file) + ":" + std::to_string(line) + " " + desc.str();
     switch (level) {
         case LogLevel::kInfo:
-            LOG(INFO) << message.str();
+            LOG(INFO) << message;
             break;
         case LogLevel::kWarning:
-            LOG(WARNING) << message.str();
+            LOG(WARNING) << message;
             break;
         case LogLevel::kError:
-            LOG(ERROR) << message.str();
+            LOG(ERROR) << message;
             break;
         case LogLevel::kFatal:
-            LOG(FATAL) << message.str();
+            LOG(FATAL) << message;
             break;
         default:
-            LOG(VERBOSE) << message.str();
+            LOG(VERBOSE) << message;
             break;
     }
 }
