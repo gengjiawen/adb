@@ -16,6 +16,24 @@
       "message": "(alternatively, you can just translate these constants to the constants used by the LOG() macro and only say `LOG() \u003c\u003c message;` once...)",
       "revId": "ccf0c2f20ec7d67215f54afb9c73c2b212c4f3cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9bd28af7_39a1cee4",
+        "filename": "client/openscreen/platform/logging.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-08-21T19:39:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "230a2898_9fb954e6",
+      "revId": "ccf0c2f20ec7d67215f54afb9c73c2b212c4f3cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
