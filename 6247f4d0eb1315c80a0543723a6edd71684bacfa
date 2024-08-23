@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5829bbf2_e03b7daa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121894
+      },
+      "writtenOn": "2024-08-23T15:56:59Z",
+      "side": 1,
+      "message": "Just as a note: you don\u0027t really need that tag.\n\nYou can execute tests module by name in ATP, so you could just list the two modules you want to execute",
+      "revId": "6247f4d0eb1315c80a0543723a6edd71684bacfa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
