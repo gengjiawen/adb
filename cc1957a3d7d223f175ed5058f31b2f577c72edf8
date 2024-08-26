@@ -16,6 +16,46 @@
       "message": "@enh@google.com @sanglardf@google.com checking status for stale CLs, could you please provide an update or redirect to a more appropriate reviewer?  Thanks!",
       "revId": "cc1957a3d7d223f175ed5058f31b2f577c72edf8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef7a323d_46b2ebab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-08-26T17:49:26Z",
+      "side": 1,
+      "message": "Update in bug. I suggested to have a `--escape` instead of `--quote`.",
+      "revId": "cc1957a3d7d223f175ed5058f31b2f577c72edf8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a067d09d_09d9f739",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-08-26T17:49:26Z",
+      "side": 1,
+      "message": "Update `docs/user/adb.1.md` as well? And since we have more space there, maybe document what happens to `\u0027` character if it is present inside an arg?",
+      "range": {
+        "startLine": 163,
+        "startChar": 14,
+        "endLine": 163,
+        "endChar": 21
+      },
+      "revId": "cc1957a3d7d223f175ed5058f31b2f577c72edf8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
