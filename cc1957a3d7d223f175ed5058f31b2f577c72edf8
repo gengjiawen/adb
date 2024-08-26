@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f55628d9_dd43ce08",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1106325
+      },
+      "writtenOn": "2024-08-26T17:42:31Z",
+      "side": 1,
+      "message": "@enh@google.com @sanglardf@google.com checking status for stale CLs, could you please provide an update or redirect to a more appropriate reviewer?  Thanks!",
+      "revId": "cc1957a3d7d223f175ed5058f31b2f577c72edf8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
