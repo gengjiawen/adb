@@ -224,6 +224,9 @@ int adbd_main(int server_port) {
         auth_required = android::base::GetBoolProperty("ro.adb.secure", false);
 #endif
     }
+
+    // Trade in mode must not authenticate or the prompt will appear over setup wizard
+    if (android::base::GetIntProperty("tradeinmode.enter", 0) != 0) auth_required = false;
 #endif
 
     // Our external storage path may be different than apps, since

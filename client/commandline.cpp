@@ -2230,6 +2230,44 @@ int adb_commandline(int argc, const char** argv) {
     } else if (!strcmp(argv[0], "server-status")) {
         AdbServerStateStreamsCallback callback;
         return adb_connect_command("host:server-status", nullptr, &callback);
+    } else if (!strcmp(argv[0], "trade-in-mode")) {
+        if (argc == 2 && strcmp(argv[1], "enter") == 0) {
+            std::string error;
+            int res = adb_connect(std::string("trade-in-mode: enter"), &error);
+            read_and_dump(res);
+            return 0;
+        } else if (argc >= 2 && strcmp(argv[1], "getstatus") == 0) {
+            int opt;
+            optind = 2;
+            std::string challenge;
+            while ((opt = getopt(argc, const_cast<char**>(argv), "c:")) != -1) {
+                switch (opt) {
+                    case 'c':
+                        challenge = optarg;
+                        for (auto c : challenge)
+                            if (!isalpha(c) && !isdigit(c))
+                                error_exit(
+                                        "usage: adb trade-in-mode getstatus [-c CHALLENGE] "
+                                        "where CHALLENGE is letters and digits only");
+                        break;
+                    default:
+                        error_exit("usage: adb trade-in-mode getstatus [-c CHALLENGE]");
+                }
+            }
+
+            if (optind != argc) {
+                error_exit("usage: adb trade-in-mode getstatus [-c CHALLENGE]");
+            }
+
+            std::string command = "trade-in-mode: getstatus";
+            if (!challenge.empty()) command = command + " -c " + challenge;
+            std::string error;
+            int res = adb_connect(command, &error);
+            read_and_dump(res);
+            return 0;
+        } else {
+            error_exit("usage: adb trade-in-mode [getstatus|enter]");
+        }
     }
 
     error_exit("unknown command %s", argv[0]);

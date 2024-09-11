@@ -275,6 +275,43 @@ asocket* daemon_service_to_socket(std::string_view name, atransport* transport) 
 unique_fd daemon_service_to_fd(std::string_view name, atransport* transport) {
     ADB_LOG(Service) << "transport " << transport->serial_name() << " opening service " << name;
 
+    if (android::base::ConsumePrefix(&name, "trade-in-mode:")) {
+        auto tokens = android::base::Tokenize(std::string(name), " ");
+        if (tokens.size() == 0) {
+            return unique_fd{};
+        } else if (tokens[0] == "getstatus") {
+            std::string cmd =
+                    "content query --uri "
+                    "content://com.android.devicediagnostics/.GetStatusContentProvider";
+            for (size_t i = 1; i < tokens.size(); ++i) {
+                if (tokens[i] == "-c" && i + 1 < tokens.size()) {
+                    // Don't allow anything unusual that might be used to try to make content
+                    // do something untoward
+                    for (auto c : tokens[i + 1])
+                        if (!isalpha(c) && !isdigit(c)) return unique_fd{};
+                    cmd += " --where " + tokens[++i];
+                } else {
+                    return unique_fd{};
+                }
+            }
+
+            auto fd =
+                    StartSubprocess(cmd, nullptr, SubprocessType::kRaw, SubprocessProtocol::kNone);
+            char c;
+            while (android::base::ReadFully(fd, &c, 1) && c != '=');
+            return fd;
+        } else if (tokens[0] == "enter") {
+            std::string cmd =
+                    "/system/bin/sh /system/bin/am start -n "
+                    "com.android.devicediagnostics/.EnterTradeInMode";
+            return StartSubprocess(cmd, nullptr, SubprocessType::kRaw, SubprocessProtocol::kNone);
+        } else {
+            return unique_fd{};
+        }
+    }
+
+    if (android::base::GetIntProperty("tradeinmode.enter", 0) == 1) return unique_fd{};
+
 #if defined(__ANDROID__) && !defined(__ANDROID_RECOVERY__)
     if (name.starts_with("abb:") || name.starts_with("abb_exec:")) {
         return execute_abb_command(name);
