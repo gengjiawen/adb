@@ -299,6 +299,14 @@ class ShellTest(DeviceTest):
         out = self.device.shell(['echo', 'foo'])[0]
         self.assertEqual(out, 'foo' + self.device.linesep)
 
+    def test_shell_quote_single(self):
+        quote = self.device._simple_call(['shell', '--quote', 'echo', "'"])
+        self.assertEqual(quote, "'\n")
+
+    def test_shell_quote_double(self):
+        quote = self.device._simple_call(['shell', '--quote', 'echo', '"'])
+        self.assertEqual(quote, '"\n')
+
     def test_shell_command_length(self):
         # Devices that have shell_v2 should be able to handle long commands.
         if self.device.has_shell_protocol():
