@@ -175,12 +175,14 @@ Disable compression.
 
 # SHELL:
 
-shell [**-e** **ESCAPE**] [**-n**] [**-Tt**] [**-x**] [**COMMAND**...]
+shell [**--quote**] [**-e** **ESCAPE**] [**-n**] [**-Tt**] [**-x**] [**COMMAND**...]
 &nbsp;&nbsp;&nbsp;&nbsp;Run remote shell command (interactive shell if no command given).
 
-**-e**
-&nbsp;&nbsp;&nbsp;&nbsp;Choose escape character, or "**none**"; default '**~**'.
+**--quote**
+&nbsp;&nbsp;&nbsp;&nbsp;Escape shell arguments to pass through the device's shell by appending \ to single quotes (') and \\\ to double quotes (").
 
+**-e**
+&nbsp;&nbsp;&nbsp;&nbsp;Sets the escape character for sessions with a pty (default: ‘~’).  The escape character is only recognized at the beginning of a line. Setting thecharacter to “none” disables any escapes and makes the session fully transparent.
 **-n**
 &nbsp;&nbsp;&nbsp;&nbsp;Don't read from stdin.
 
@@ -361,10 +363,10 @@ detach **SERIAL**
 
 # Features:
 
-host-features  
+host-features
 &nbsp;&nbsp;&nbsp;&nbsp;list features supported by adb server.
 
-features  
+features
 &nbsp;&nbsp;&nbsp;&nbsp;list features supported by both adb server and device.
 
 # ENVIRONMENT VARIABLES
