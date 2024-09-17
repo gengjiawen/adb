@@ -21,6 +21,7 @@
 #include <assert.h>
 #include <ctype.h>
 #include <errno.h>
+#include <getopt.h>
 #include <inttypes.h>
 #include <limits.h>
 #include <stdarg.h>
@@ -33,6 +34,7 @@
 #include <iostream>
 
 #include <memory>
+#include <span>
 #include <string>
 #include <thread>
 #include <vector>
@@ -161,8 +163,9 @@ static void help() {
         "     -z: enable compression with a specified algorithm (any/none/brotli/lz4/zstd)\n"
         "\n"
         "shell:\n"
-        " shell [-e ESCAPE] [-n] [-Tt] [-x] [COMMAND...]\n"
+        " shell [--quote] [-e ESCAPE] [-n] [-Tt] [-x] [COMMAND...]\n"
         "     run remote shell command (interactive shell if no command given)\n"
+        "     --quote: escape shell arguments to pass through the device's shell\n"
         "     -e: choose escape character, or \"none\"; default '~'\n"
         "     -n: don't read from stdin\n"
         "     -T: disable pty allocation\n"
@@ -708,8 +711,18 @@ static int adb_shell(int argc, const char** argv) {
 #endif
     optind = 1; // argv[0] is always "shell", so set `optind` appropriately.
     int opt;
-    while ((opt = getopt(argc, const_cast<char**>(argv), "+e:ntTx")) != -1) {
+    bool quote = false;
+    option opts[2] = {};
+    opts[0].name = "quote";
+    opts[0].has_arg = 0;
+    opts[0].flag = nullptr;
+    opts[0].val = 'q';
+
+    while ((opt = getopt_long(argc, const_cast<char**>(argv), "+e:ntTx", opts, nullptr)) != -1) {
         switch (opt) {
+            case 'q':
+                quote = true;
+                break;
             case 'e':
                 if (!(strlen(optarg) == 1 || strcmp(optarg, "none") == 0)) {
                     error_exit("-e requires a single-character argument or 'none'");
@@ -783,8 +796,28 @@ static int adb_shell(int argc, const char** argv) {
 
     std::string command;
     if (optind < argc) {
-        // We don't escape here, just like ssh(1). http://b/20564385.
-        command = android::base::Join(std::vector<const char*>(argv + optind, argv + argc), ' ');
+        if (quote) {
+            std::stringstream ss;
+            for (auto it = argv + optind; it != argv + argc; ++it) {
+                // Quote our arguments so that they pass through the device's shell.
+                // We do this by wrapping everything in single quotes, and replacing single
+                // quotes with '"'"'.
+                ss << "'";
+                for (const char* p = *it; *p != '\0'; ++p) {
+                    if (*p == '\'') {
+                        ss << R"('"'"')";
+                    } else {
+                        ss << *p;
+                    }
+                }
+                ss << "' ";
+            }
+            command = std::move(ss).str();
+            command.pop_back();
+        } else {
+            // By default, we don't escape here, just like ssh(1). http://b/20564385.
+            command = android::base::Join(std::span<const char*>(argv + optind, argv + argc), ' ');
+        }
     }
 
     std::string service_string = ShellServiceString(use_shell_protocol, shell_type_arg, command);

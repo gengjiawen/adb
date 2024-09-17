@@ -175,8 +175,11 @@ Disable compression.
 
 # SHELL:
 
-shell [**-e** **ESCAPE**] [**-n**] [**-Tt**] [**-x**] [**COMMAND**...]
+shell [**--quote**] [**-e** **ESCAPE**] [**-n**] [**-Tt**] [**-x**] [**COMMAND**...]
 &nbsp;&nbsp;&nbsp;&nbsp;Run remote shell command (interactive shell if no command given).
+
+**--quote**
+&nbsp;&nbsp;&nbsp;&nbsp;Escape shell arguments to pass through the device's shell
 
 **-e**
 &nbsp;&nbsp;&nbsp;&nbsp;Choose escape character, or "**none**"; default '**~**'.
@@ -361,10 +364,10 @@ detach **SERIAL**
 
 # Features:
 
-host-features  
+host-features
 &nbsp;&nbsp;&nbsp;&nbsp;list features supported by adb server.
 
-features  
+features
 &nbsp;&nbsp;&nbsp;&nbsp;list features supported by both adb server and device.
 
 # ENVIRONMENT VARIABLES
