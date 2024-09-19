@@ -124,6 +124,24 @@
       "parentUuid": "52146f2a_8ca87968",
       "revId": "e588a2afd04f254dc58ebe858237e1f0e24bfebd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0ba91df_89a55dac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-09-19T17:39:58Z",
+      "side": 1,
+      "message": "like much of adb (and adb shell in particular) it was modeled on ssh. https://www.man7.org/linux/man-pages/man1/ssh.1.html says:\n```\n       -e escape_char\n               Sets the escape character for sessions with a pty\n               (default: ‘~’).  The escape character is only recognized\n               at the beginning of a line.  The escape character\n               followed by a dot (‘.’) closes the connection; followed\n               by control-Z suspends the connection; and followed by\n               itself sends the escape character once.  Setting the\n               character to “none” disables any escapes and makes the\n               session fully transparent.\n```\nthough iirc we never got round to implementing the more interesting options there, and iirc no-one\u0027s ever asked.",
+      "parentUuid": "2640e250_a674d616",
+      "revId": "e588a2afd04f254dc58ebe858237e1f0e24bfebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
