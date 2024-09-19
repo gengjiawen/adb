@@ -34,6 +34,24 @@
       "parentUuid": "e299c83f_b1d21a20",
       "revId": "e588a2afd04f254dc58ebe858237e1f0e24bfebd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be83ec8a_bee8d3b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3524514
+      },
+      "writtenOn": "2024-09-19T10:34:51Z",
+      "side": 1,
+      "message": "Hi @sanglardf@google.com, I\u0027ve read through the discussion, I agree escape is possible. However, my concern is considering it\u0027ll be using --escape, causing some confusion considering there is currently an -e option that is also documented as \u0027escape\u0027 (I know they are completely different escapes but the similar in naming would cause confusion) what do you think?",
+      "parentUuid": "c08899e0_4e8f90e0",
+      "revId": "e588a2afd04f254dc58ebe858237e1f0e24bfebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
