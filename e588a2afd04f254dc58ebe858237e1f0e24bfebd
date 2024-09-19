@@ -88,6 +88,24 @@
       "parentUuid": "2d96ed8a_c1a4cf84",
       "revId": "e588a2afd04f254dc58ebe858237e1f0e24bfebd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52146f2a_8ca87968",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-09-19T15:57:30Z",
+      "side": 1,
+      "message": "1. We should update the man page. I had to read the code to understand what `-e` did in `shell` command. Just changing to `escape sequences` would suffice to clarify. Perhaps you can add this to the change since it is related?\n\n2. +1 to enh\u0027s input. We can keep it named quote but use `\\` which something that kinda be still read by a human.\n\n3. If you end up adding `-q/--quote`, remember to update the man page.",
+      "parentUuid": "cef73433_7eadb52c",
+      "revId": "e588a2afd04f254dc58ebe858237e1f0e24bfebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
