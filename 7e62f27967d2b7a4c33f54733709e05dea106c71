@@ -190,6 +190,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "327ce8f1_3265cdb5",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-09-20T15:12:26Z",
+      "side": 1,
+      "message": "oh, yeah, you\u0027re right --- i did implement \"none\".\n\nsee stdin_read_thread_loop() for the beginning of line part...\n\nbut still never copy \u0026 paste from other sources. you can rewrite in your own words though.",
+      "parentUuid": "a6ac041e_0335abc9",
+      "range": {
+        "startLine": 185,
+        "startChar": 0,
+        "endLine": 185,
+        "endChar": 251
+      },
+      "revId": "7e62f27967d2b7a4c33f54733709e05dea106c71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ee027257_eedaa8df",
         "filename": "test_device.py",
         "patchSetId": 4
