@@ -1,0 +1,118 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a61c3924_82ced73b",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 801,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-09-20T14:13:37Z",
+      "side": 1,
+      "message": "(probably clearer to index into argv with an int here rather than make people have to think about what `it` is iterating over [since there\u0027s nested iteration]?)",
+      "revId": "7e62f27967d2b7a4c33f54733709e05dea106c71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81913275_6c8d6436",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 812,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-09-20T14:13:37Z",
+      "side": 1,
+      "message": "why not just append directly into the string, and avoid the stringstream altogether?\n\nor on the other hand, if you want to use stringstream, you probably want std::quoted?",
+      "revId": "7e62f27967d2b7a4c33f54733709e05dea106c71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8f3cd4d_b45dfddb",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-09-20T14:13:37Z",
+      "side": 1,
+      "message": "(keep these in sorted order)",
+      "revId": "7e62f27967d2b7a4c33f54733709e05dea106c71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "266d4391_f2328881",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-09-20T14:13:37Z",
+      "side": 1,
+      "message": "(same here)",
+      "revId": "7e62f27967d2b7a4c33f54733709e05dea106c71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee43e032_8344dcdb",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-09-20T14:13:37Z",
+      "side": 1,
+      "message": "i don\u0027t think this is true of adb, right? this is the ssh documentation :-)",
+      "range": {
+        "startLine": 185,
+        "startChar": 0,
+        "endLine": 185,
+        "endChar": 251
+      },
+      "revId": "7e62f27967d2b7a4c33f54733709e05dea106c71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee027257_eedaa8df",
+        "filename": "test_device.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-09-20T14:13:37Z",
+      "side": 1,
+      "message": "Please fix this WARNING reported by Check Contents: Please remove the trailing whitespace.\n\nAnalyzer Description: Validates that changes do not have prohibited expressions in them.\nOwner: ayeaye-team@google.com\n\nPlease remove the trailing whitespace.",
+      "range": {
+        "startLine": 305,
+        "startChar": 0,
+        "endLine": 305,
+        "endChar": 4
+      },
+      "revId": "7e62f27967d2b7a4c33f54733709e05dea106c71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
