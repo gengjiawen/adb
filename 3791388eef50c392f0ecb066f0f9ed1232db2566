@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "957d8af3_6079ce85",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-09-20T20:22:27Z",
+      "side": 1,
+      "message": "Can we use raw string literal to make this more readable?",
+      "range": {
+        "startLine": 803,
+        "startChar": 36,
+        "endLine": 803,
+        "endChar": 39
+      },
+      "revId": "3791388eef50c392f0ecb066f0f9ed1232db2566",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "845f0a0d_f2ee5ec8",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 805,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-09-20T20:22:27Z",
+      "side": 1,
+      "message": "Same comment about raw. Also, why is it not escapae like quote?",
+      "range": {
+        "startLine": 805,
+        "startChar": 36,
+        "endLine": 805,
+        "endChar": 44
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "f2851c1b_325e322a",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "client/commandline.cpp",
+              "range": {
+                "startLine": 805,
+                "startChar": 0,
+                "endLine": 806,
+                "endChar": 0
+              },
+              "replacement": "                        command +\u003d \"\\\\\\\\\\\"\";\n"
+            },
+            {
+              "path": "client/commandline.cpp",
+              "range": {
+                "startLine": 811,
+                "startChar": 0,
+                "endLine": 812,
+                "endChar": 0
+              },
+              "replacement": "            command.pop_back();  // Remove the last space\n"
+            }
+          ]
+        }
+      ],
+      "revId": "3791388eef50c392f0ecb066f0f9ed1232db2566",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
