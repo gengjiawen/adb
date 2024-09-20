@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "05ed434e_4314ebf8",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 3524514
+      },
+      "writtenOn": "2024-09-20T20:26:31Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "957d8af3_6079ce85",
+      "range": {
+        "startLine": 803,
+        "startChar": 36,
+        "endLine": 803,
+        "endChar": 39
+      },
+      "revId": "3791388eef50c392f0ecb066f0f9ed1232db2566",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "845f0a0d_f2ee5ec8",
@@ -71,6 +95,30 @@
           ]
         }
       ],
+      "revId": "3791388eef50c392f0ecb066f0f9ed1232db2566",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ffea413_ba728d54",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 805,
+      "author": {
+        "id": 3524514
+      },
+      "writtenOn": "2024-09-20T20:26:31Z",
+      "side": 1,
+      "message": "Please correct me if my understanding is wrong, but wouldn\u0027t that only pre-pend 2 backslashes (\\\\) to double quotes, but we need triple back-slashes (\\\\\\) for double quotes according to: b/199919702 ?",
+      "parentUuid": "845f0a0d_f2ee5ec8",
+      "range": {
+        "startLine": 805,
+        "startChar": 36,
+        "endLine": 805,
+        "endChar": 44
+      },
       "revId": "3791388eef50c392f0ecb066f0f9ed1232db2566",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
