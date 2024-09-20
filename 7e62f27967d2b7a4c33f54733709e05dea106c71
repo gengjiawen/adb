@@ -214,6 +214,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c62b0ba5_42809553",
+        "filename": "docs/user/adb.1.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 3524514
+      },
+      "writtenOn": "2024-09-20T15:23:00Z",
+      "side": 1,
+      "message": "Understood, thank you. I\u0027ve rephrased it and re-added the beginning of the line part.",
+      "parentUuid": "327ce8f1_3265cdb5",
+      "range": {
+        "startLine": 185,
+        "startChar": 0,
+        "endLine": 185,
+        "endChar": 251
+      },
+      "revId": "7e62f27967d2b7a4c33f54733709e05dea106c71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ee027257_eedaa8df",
         "filename": "test_device.py",
         "patchSetId": 4
