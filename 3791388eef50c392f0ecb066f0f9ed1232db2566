@@ -121,6 +121,30 @@
       },
       "revId": "3791388eef50c392f0ecb066f0f9ed1232db2566",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a72959c1_6af8d267",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 805,
+      "author": {
+        "id": 3524514
+      },
+      "writtenOn": "2024-09-20T20:34:53Z",
+      "side": 1,
+      "message": "nvm, should be irrelevant when using raw strings as I would not need to escape them.",
+      "parentUuid": "8ffea413_ba728d54",
+      "range": {
+        "startLine": 805,
+        "startChar": 36,
+        "endLine": 805,
+        "endChar": 44
+      },
+      "revId": "3791388eef50c392f0ecb066f0f9ed1232db2566",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
