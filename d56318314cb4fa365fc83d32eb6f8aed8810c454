@@ -33,6 +33,47 @@
       "message": "Oh, looks like you did it already. Disregard my previous comment.",
       "revId": "d56318314cb4fa365fc83d32eb6f8aed8810c454",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "624f047b_34b46927",
+        "filename": "test_device.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-09-20T20:57:08Z",
+      "side": 1,
+      "message": "That is a bit light. Can you test the case you referred to in the bug or similar?",
+      "range": {
+        "startLine": 302,
+        "startChar": 0,
+        "endLine": 308,
+        "endChar": 38
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "99cb1778_e9670327",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "test_device.py",
+              "range": {
+                "startLine": 304,
+                "startChar": 0,
+                "endLine": 305,
+                "endChar": 0
+              },
+              "replacement": "        self.assertEqual(quote, \"\u0027\\n\") # Note the trailing newline\n"
+            }
+          ]
+        }
+      ],
+      "revId": "d56318314cb4fa365fc83d32eb6f8aed8810c454",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
