@@ -108,10 +108,6 @@ static bool endpoint_is_output(uint8_t endpoint) {
     return (endpoint & LIBUSB_ENDPOINT_DIR_MASK) == LIBUSB_ENDPOINT_OUT;
 }
 
-static bool should_perform_zero_transfer(size_t write_length, uint16_t zero_mask) {
-    return write_length != 0 && zero_mask != 0 && (write_length & zero_mask) == 0;
-}
-
 struct LibusbConnection : public Connection {
     struct ReadBlock {
         LibusbConnection* self = nullptr;
@@ -307,6 +303,10 @@ struct LibusbConnection : public Connection {
         if (!write->transfer) {
             LOG(FATAL) << "failed to allocate libusb_transfer for write";
         }
+        // LIBUSB_TRANSFER_ADD_ZERO_PACKET flag when set it terminates
+        // transfers that are a multiple of the endpoint's wMaxPacketSize
+        // with an extra zero length packet (ZLP)
+        write->transfer->flags = LIBUSB_TRANSFER_ADD_ZERO_PACKET;
 
         libusb_fill_bulk_transfer(write->transfer, device_handle_.get(), write_endpoint_,
                                   reinterpret_cast<unsigned char*>(write->block.data()),
@@ -336,18 +336,7 @@ struct LibusbConnection : public Connection {
         }
 
         SubmitWrite(std::move(header));
-        if (!packet->payload.empty()) {
-            size_t payload_length = packet->payload.size();
-            SubmitWrite(std::move(packet->payload));
-
-            // If the payload is a multiple of the endpoint packet size, we
-            // need an explicit zero-sized transfer.
-            if (should_perform_zero_transfer(payload_length, zero_mask_)) {
-                VLOG(USB) << "submitting zero transfer for payload length " << payload_length;
-                Block empty;
-                SubmitWrite(std::move(empty));
-            }
-        }
+        if (!packet->payload.empty()) SubmitWrite(std::move(packet->payload));
 
         return true;
     }
