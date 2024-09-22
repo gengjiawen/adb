@@ -18,6 +18,7 @@
 
 #include "client/usb.h"
 
+#include <sched.h>
 #include <stdint.h>
 #include <stdlib.h>
 
@@ -321,11 +322,30 @@ struct LibusbConnection : public Connection {
         }
     }
 
+    void ProcessCompletedTransfers(void) {
+        while (true) {
+            {
+                std::lock_guard<std::mutex> lock(write_mutex_);
+                if (writes_.size() < kTransfersThreshold) break;
+            }
+
+            if (sched_yield()) PLOG(ERROR) << "sched_yield() failed";
+        }
+    }
+
     bool Write(std::unique_ptr<apacket> packet) final {
         VLOG(USB) << "USB write: " << dump_header(&packet->msg);
         Block header;
         header.resize(sizeof(packet->msg));
         memcpy(header.data(), &packet->msg, sizeof(packet->msg));
+
+        // Make sure we don't pile up too many completed transfers
+        // because it can result in memory exhaustion. If we have
+        // more than kTransfersThreshold active writes then allow
+        // the libusb thread to run. The libusb thread executes
+        // libusb_handle_events() which services completed transfers
+        // and releases memory associatiated with them.
+        ProcessCompletedTransfers();
 
         std::lock_guard<std::mutex> lock(write_mutex_);
         if (terminated_) {
@@ -881,6 +901,12 @@ struct LibusbConnection : public Connection {
 
     uint64_t negotiated_speed_ = 0;
     uint64_t max_speed_ = 0;
+
+    // Default value of /sys/module/usbcore/parameters/usbfs_memory_mb
+    // is 16. For the default value 16 "Insufficient memory" failure
+    // showed up during submission of 45th write transfer.
+    // Based on that set threshold to around half
+    const uint8_t kTransfersThreshold = 22;
 };
 
 static std::mutex usb_handles_mutex [[clang::no_destroy]];
