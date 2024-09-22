@@ -37,6 +37,7 @@
 #include <vector>
 
 #include <libusb/libusb.h>
+#include <sched.h>
 
 #include <android-base/file.h>
 #include <android-base/logging.h>
@@ -316,11 +317,31 @@ struct LibusbConnection : public Connection {
         }
     }
 
+    void ProcessCompletedTransfers(void) {
+        while (true) {
+            {
+                std::lock_guard<std::mutex> lock(write_mutex_);
+                if (writes_.size() < kTransfersThreshold) break;
+            }
+
+            int rc = sched_yield();
+            if (rc) PLOG(ERROR) << "sched_yield() failed: ";
+        }
+    }
+
     bool Write(std::unique_ptr<apacket> packet) final {
         VLOG(USB) << "USB write: " << dump_header(&packet->msg);
         Block header;
         header.resize(sizeof(packet->msg));
         memcpy(header.data(), &packet->msg, sizeof(packet->msg));
+
+        // Make sure we don't pile up too many completed transfers
+        // because it can result in memory exhaustion. If we have
+        // more than kTransfersThreshold active writes then allow
+        // the libusb thread to run. The libusb thread executes
+        // libusb_handle_events() which services completed transfers
+        // and releases memory associatiated with them.
+        ProcessCompletedTransfers();
 
         std::lock_guard<std::mutex> lock(write_mutex_);
         if (terminated_) {
@@ -876,6 +897,8 @@ struct LibusbConnection : public Connection {
 
     uint64_t negotiated_speed_ = 0;
     uint64_t max_speed_ = 0;
+
+    const uint8_t kTransfersThreshold = 25;
 };
 
 static std::mutex usb_handles_mutex [[clang::no_destroy]];
