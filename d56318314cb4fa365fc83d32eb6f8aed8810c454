@@ -98,6 +98,30 @@
       },
       "revId": "d56318314cb4fa365fc83d32eb6f8aed8810c454",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7778341e_7734e435",
+        "filename": "test_device.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-09-23T19:17:53Z",
+      "side": 1,
+      "message": "I don\u0027t see it.",
+      "parentUuid": "782bd666_fe6ac986",
+      "range": {
+        "startLine": 302,
+        "startChar": 0,
+        "endLine": 308,
+        "endChar": 38
+      },
+      "revId": "d56318314cb4fa365fc83d32eb6f8aed8810c454",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
