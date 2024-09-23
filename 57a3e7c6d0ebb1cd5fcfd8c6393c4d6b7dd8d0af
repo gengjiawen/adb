@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1126cde6_f2d392e8",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 808,
+      "author": {
+        "id": 3524514
+      },
+      "writtenOn": "2024-09-23T11:22:33Z",
+      "side": 1,
+      "message": "Required to add in to escape commands after --quote. without it we need to run adb shell --quote echo\\ \"Foo \u0027 bar\". After the addition no need for the backslash after echo.",
+      "range": {
+        "startLine": 807,
+        "startChar": 22,
+        "endLine": 808,
+        "endChar": 39
+      },
+      "revId": "57a3e7c6d0ebb1cd5fcfd8c6393c4d6b7dd8d0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

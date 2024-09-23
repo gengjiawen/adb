@@ -74,6 +74,30 @@
       ],
       "revId": "d56318314cb4fa365fc83d32eb6f8aed8810c454",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "782bd666_fe6ac986",
+        "filename": "test_device.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 3524514
+      },
+      "writtenOn": "2024-09-23T11:22:33Z",
+      "side": 1,
+      "message": "Additional testing:\n\n./adb shell --quote echo \u0027Foo \" bar\u0027\nFoo \" bar\n./adb shell --quote echo \"Foo \u0027 bar\"\nFoo \u0027 bar",
+      "parentUuid": "624f047b_34b46927",
+      "range": {
+        "startLine": 302,
+        "startChar": 0,
+        "endLine": 308,
+        "endChar": 38
+      },
+      "revId": "d56318314cb4fa365fc83d32eb6f8aed8810c454",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
