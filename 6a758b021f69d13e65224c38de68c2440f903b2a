@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de8c1f49_b16ca101",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 802,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-09-23T21:39:03Z",
+      "side": 1,
+      "message": "To preserve argument boundaries, do we also need to wrap each argumente in double quotes (`\"`) character?",
+      "range": {
+        "startLine": 802,
+        "startChar": 16,
+        "endLine": 802,
+        "endChar": 64
+      },
+      "revId": "6a758b021f69d13e65224c38de68c2440f903b2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
