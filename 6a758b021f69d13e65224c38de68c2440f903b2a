@@ -22,6 +22,30 @@
       },
       "revId": "6a758b021f69d13e65224c38de68c2440f903b2a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d6a9398_f0d11550",
+        "filename": "client/commandline.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 802,
+      "author": {
+        "id": 3524514
+      },
+      "writtenOn": "2024-09-23T22:23:40Z",
+      "side": 1,
+      "message": "I don\u0027t think I\u0027m following along, why would we need to preserve argument boundaries in this case? Because no matter the argument we would want to escape any quotations on a character basis and not on an argument basis, as they end up messing about with the opening and closing quotations that are read by adb. So I don\u0027t see the advantage of wrapping each argumentee in double quotes. Please correct me if I am miss.",
+      "parentUuid": "de8c1f49_b16ca101",
+      "range": {
+        "startLine": 802,
+        "startChar": 16,
+        "endLine": 802,
+        "endChar": 64
+      },
+      "revId": "6a758b021f69d13e65224c38de68c2440f903b2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
