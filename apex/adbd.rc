@@ -1,4 +1,4 @@
-service adbd /apex/com.android.adbd/bin/adbd --root_seclabel=u:r:su:s0
+service adbd /apex/com.android.adbd/bin/adbd --root_seclabel=u:r:su:s0 --tim_seclabel=u:r:adbd_tradeinmode:s0
     class core
     socket adbd seqpacket 660 system system
     disabled
@@ -6,3 +6,6 @@ service adbd /apex/com.android.adbd/bin/adbd --root_seclabel=u:r:su:s0
     seclabel u:r:adbd:s0
     user root
     restart_period 0
+
+on property:service.adb.tradeinmode=-1 && property:ro.debuggable=0
+    stop adbd

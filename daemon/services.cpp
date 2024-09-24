@@ -51,6 +51,7 @@
 #include "services.h"
 #include "socket_spec.h"
 #include "sysdeps.h"
+#include "tradeinmode.h"
 #include "transport.h"
 
 #include "daemon/file_sync_service.h"
@@ -280,6 +281,10 @@ unique_fd daemon_service_to_fd(std::string_view name, atransport* transport) {
         return execute_abb_command(name);
     }
 #endif
+
+    if (is_in_tradeinmode() && !is_tradeinmode_command(name)) {
+        return unique_fd{};
+    }
 
 #if defined(__ANDROID__)
     if (name.starts_with("framebuffer:")) {
