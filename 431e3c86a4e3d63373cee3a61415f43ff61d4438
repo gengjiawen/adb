@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9b7b611_d20e18ae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-09-24T18:46:43Z",
+      "side": 1,
+      "message": "Please briefly document how trade-in work for ADB (e.g: value of properties). Create a `tradein.md` in the docs folder and link to it from `README.md`.",
+      "revId": "431e3c86a4e3d63373cee3a61415f43ff61d4438",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
