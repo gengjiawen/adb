@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b86a7e43_4fc00faf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-09-24T23:29:23Z",
+      "side": 1,
+      "message": "I understand the usage of `LIBUSB_TRANSFER_ADD_ZERO_PACKET` but not sure about `LIBUSB_TRANSFER_FREE_TRANSFER`. Please elaborate the commit message.",
+      "revId": "ae314bcbe95bee9d504a7c247a8a4c3c03afa488",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
