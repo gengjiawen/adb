@@ -44,6 +44,9 @@
 #include <private/android_filesystem_config.h>
 #include "selinux/android.h"
 #endif
+#if defined(__ANDROID__) && !defined(__ANDROID_RECOVERY__)
+#include <com_android_tradeinmode_flags.h>
+#endif
 
 #include "adb.h"
 #include "adb_auth.h"
@@ -59,6 +62,7 @@
 
 #if defined(__ANDROID__)
 static const char* root_seclabel = nullptr;
+static const char* tim_seclabel = nullptr;
 
 static bool should_drop_privileges() {
     // The properties that affect `adb root` and `adb unroot` are ro.secure and
@@ -90,6 +94,25 @@ static bool should_drop_privileges() {
     }
 
     return drop;
+}
+
+static bool should_enable_tradeinmode() {
+#if defined(__ANDROID__) && !defined(__ANDROID_RECOVERY__)
+    if (com_android_tradeinmode_flags_enable_trade_in_mode()) {
+        return false;
+    }
+    return android::base::GetIntProperty("service.adb.tradeinmode", 0) == 1;
+#else
+    return false;
+#endif
+}
+
+static void enter_tradeinmode() {
+    if (selinux_android_setcon(tim_seclabel) < 0) {
+        // Flag TIM as failed so we don't enter a restart loop.
+        android::base::SetProperty("service.adb.tradeinmode", "-1");
+        PLOG(FATAL) << "Could not set SELinux context";
+    }
 }
 
 static void drop_privileges(int server_port) {
@@ -159,6 +182,10 @@ static void drop_privileges(int server_port) {
         }
         if (cap_set_proc(caps.get()) != 0) {
             PLOG(FATAL) << "cap_set_proc() failed";
+        }
+
+        if (should_enable_tradeinmode()) {
+            enter_tradeinmode();
         }
 
         D("Local port disabled");
@@ -317,6 +344,7 @@ int main(int argc, char** argv) {
     while (true) {
         static struct option opts[] = {
                 {"root_seclabel", required_argument, nullptr, 's'},
+                {"tim_seclabel", required_argument, nullptr, 't'},
                 {"device_banner", required_argument, nullptr, 'b'},
                 {"version", no_argument, nullptr, 'v'},
                 {"logpostfsdata", no_argument, nullptr, 'l'},
@@ -333,6 +361,9 @@ int main(int argc, char** argv) {
 #if defined(__ANDROID__)
             case 's':
                 root_seclabel = optarg;
+                break;
+            case 't':
+                tim_seclabel = optarg;
                 break;
 #endif
             case 'b':

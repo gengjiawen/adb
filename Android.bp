@@ -805,6 +805,14 @@ cc_binary {
                 "libadb_pairing_auth",
                 "libadb_pairing_connection",
             ],
+            exclude_static_libs: [
+                "android_trade_in_mode_flags_cc_lib",
+            ],
+        },
+        android: {
+            static_libs: [
+                "android_trade_in_mode_flags_cc_lib",
+            ],
         },
     },
 }
