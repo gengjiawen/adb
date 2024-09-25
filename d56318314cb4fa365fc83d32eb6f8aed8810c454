@@ -170,6 +170,30 @@
       },
       "revId": "d56318314cb4fa365fc83d32eb6f8aed8810c454",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81baf089_9f79476d",
+        "filename": "test_device.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 3524514
+      },
+      "writtenOn": "2024-09-25T09:27:02Z",
+      "side": 1,
+      "message": "Replied on bug",
+      "parentUuid": "e432542d_d6d3c045",
+      "range": {
+        "startLine": 302,
+        "startChar": 0,
+        "endLine": 308,
+        "endChar": 38
+      },
+      "revId": "d56318314cb4fa365fc83d32eb6f8aed8810c454",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
