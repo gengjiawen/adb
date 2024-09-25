@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1be7cada_3e0988bf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-09-25T12:24:43Z",
+      "side": 1,
+      "message": "should we add a test for 32GiB or something? (iirc at least one OEM claimed that they see problems all the time with large files, though obviously the definition of \"large\" is going to depend on how much ram the device has :-( )",
+      "revId": "b8b3cacda700b0b64b2b677c4d4a88ee4f3b67b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03507eb2_77c3b846",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-09-25T12:24:43Z",
+      "side": 1,
+      "message": "nit: this should go up with the other unix headers\n\n(but then i _think_ the google rules are that libusb should go after android-base? i\u0027ve never liked the google rules because they\u0027re too damned complicated for humans to follow, but also not automated by a script.)",
+      "revId": "b8b3cacda700b0b64b2b677c4d4a88ee4f3b67b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f27349b_9ea46af0",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-09-25T12:24:43Z",
+      "side": 1,
+      "message": "(PLOG will add the \": \" for you.)",
+      "range": {
+        "startLine": 328,
+        "startChar": 56,
+        "endLine": 328,
+        "endChar": 58
+      },
+      "revId": "b8b3cacda700b0b64b2b677c4d4a88ee4f3b67b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a33bbf0_048c3244",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 901,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-09-25T12:24:43Z",
+      "side": 1,
+      "message": "add a comment for how you decided on 25?",
+      "revId": "b8b3cacda700b0b64b2b677c4d4a88ee4f3b67b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
