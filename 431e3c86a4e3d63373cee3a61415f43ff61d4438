@@ -16,6 +16,24 @@
       "message": "Please briefly document how trade-in work for ADB (e.g: value of properties). Create a `tradein.md` in the docs folder and link to it from `README.md`.",
       "revId": "431e3c86a4e3d63373cee3a61415f43ff61d4438",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2660f493_847b5016",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1290458
+      },
+      "writtenOn": "2024-09-25T05:32:27Z",
+      "side": 1,
+      "message": "Done. This version moves as much of the new code into tradeinmode.cpp as possible.\n\nRather than add a specific tradeinmode command, I added a helper function that rejects non-tradeinmode commands. I think I\u0027m reasonably happy with the current state of things: no new client commands, no new services. But yet we have restricted sepolicy, we don\u0027t allow things other than \"shell tradeinmode\", and we have the ability to test this in userdebug builds.",
+      "parentUuid": "f9b7b611_d20e18ae",
+      "revId": "431e3c86a4e3d63373cee3a61415f43ff61d4438",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
