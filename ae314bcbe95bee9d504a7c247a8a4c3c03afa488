@@ -16,6 +16,80 @@
       "message": "I understand the usage of `LIBUSB_TRANSFER_ADD_ZERO_PACKET` but not sure about `LIBUSB_TRANSFER_FREE_TRANSFER`. Please elaborate the commit message.",
       "revId": "ae314bcbe95bee9d504a7c247a8a4c3c03afa488",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6d4d54c_819642d2",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-09-25T00:06:19Z",
+      "side": 1,
+      "message": "Isn\u0027t this also affected by LIBUSB_TRANSFER_FREE_TRANSFER?",
+      "range": {
+        "startLine": 141,
+        "startChar": 8,
+        "endLine": 141,
+        "endChar": 51
+      },
+      "revId": "ae314bcbe95bee9d504a7c247a8a4c3c03afa488",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a05bb4cd_c5cf5c81",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-09-25T00:06:19Z",
+      "side": 1,
+      "message": "Same comment about using `LIBUSB_TRANSFER_FREE_TRANSFER`. If that flag works, we should never have to call `libusb_free_transfer`?",
+      "range": {
+        "startLine": 315,
+        "startChar": 12,
+        "endLine": 315,
+        "endChar": 32
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "5f166535_8823680e",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "client/usb_libusb.cpp",
+              "range": {
+                "startLine": 305,
+                "startChar": 0,
+                "endLine": 306,
+                "endChar": 0
+              },
+              "replacement": "        write-\u003etransfer-\u003eflags \u003d LIBUSB_TRANSFER_ADD_ZERO_PACKET;\n"
+            },
+            {
+              "path": "client/usb_libusb.cpp",
+              "range": {
+                "startLine": 315,
+                "startChar": 0,
+                "endLine": 316,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "ae314bcbe95bee9d504a7c247a8a4c3c03afa488",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
