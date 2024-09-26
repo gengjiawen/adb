@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "751bb322_f38b0b42",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1881538
+      },
+      "writtenOn": "2024-09-26T11:38:28Z",
+      "side": 1,
+      "message": "Are you referring to the tests here for USB3 push/pull https://data.corp.google.com/sites/iyg0gxokdyu2/adb_health/\n\n\nThe logs in the comment https://b.corp.google.com/issues/354870754#comment5 show that for some time thread servicing callbacks follows and we have 2 active write:\n```\n09-20 17:02:36.996 148610 148610 E adb     : usb_libusb.cpp:307 Write_id :571\n09-20 17:02:36.996 148610 148610 E adb     : usb_libusb.cpp:321 Number of active writes :1\n09-20 17:02:36.996 148610 148610 E adb     : usb_libusb.cpp:307 Write_id :572\n09-20 17:02:36.996 148610 148610 E adb     : usb_libusb.cpp:321 Number of active writes :2\n09-20 17:02:36.996 148610 148610 D adb     : sockets.cpp:218 LS(4): fd\u003d10 post peer-\u003eenqueue(). r\u003d1\n09-20 17:02:36.996 148610 148610 D adb     : sockets.cpp:237 LS(4): acks not deferred, blocking\n09-20 17:02:36.996 148610 148615 E adb     : usb_libusb.cpp:263 Erasing id : 571, status \u003d 0\n09-20 17:02:36.999 148610 148615 E adb     : usb_libusb.cpp:263 Erasing id : 572, status \u003d 0\n```\nthen it starts falling behind:\n```\n09-20 17:02:37.059 148610 148610 E adb     : usb_libusb.cpp:307 Write_id :630\n09-20 17:02:37.059 148610 148610 E adb     : usb_libusb.cpp:321 Number of active writes :21\n09-20 17:02:37.059 148610 148610 E adb     : usb_libusb.cpp:307 Write_id :631\n09-20 17:02:37.059 148610 148610 E adb     : usb_libusb.cpp:321 Number of active writes :22\n09-20 17:02:37.059 148610 148610 D adb     : usb_libusb.cpp:351 submitting zero transfer for payload length 131072\n09-20 17:02:37.059 148610 148610 E adb     : usb_libusb.cpp:307 Write_id :632\n09-20 17:02:37.059 148610 148610 E adb     : usb_libusb.cpp:321 Number of active writes :23\n09-20 17:02:37.059 148610 148610 D adb     : sockets.cpp:218 LS(4): fd\u003d10 post peer-\u003eenqueue(). r\u003d1\n09-20 17:02:37.059 148610 148610 D adb     : sockets.cpp:237 LS(4): acks not deferred, blocking\n09-20 17:02:37.062 148610 148615 E adb     : usb_libusb.cpp:263 Erasing id : 610, status \u003d 0\n09-20 17:02:37.062 148610 148615 E adb     : usb_libusb.cpp:263 Erasing id : 611, status \u003d 0\n09-20 17:02:37.062 148610 148615 E adb     : usb_libusb.cpp:263 Erasing id : 612, status \u003d 0\n```\nand finally errors start to show up which cause push to fail\n```\nusb_libusb.cpp:323 libusb_submit_transfer failed: Insufficient memory\n```\n\nAfter the push fails the callbacks thread finally kicks in and calls callbacks on completed transfers:\n```\n09-20 17:02:41.092 148610 148615 E adb     : usb_libusb.cpp:263 Erasing id : 3580, status \u003d 0\n09-20 17:02:41.092 148610 148615 E adb     : usb_libusb.cpp:263 Erasing id : 3581, status \u003d 0\n09-20 17:02:41.092 148610 148615 E adb     : usb_libusb.cpp:263 Erasing id : 3582, status \u003d 0\n09-20 17:02:41.097 148610 148615 E adb     : usb_libusb.cpp:263 Erasing id : 3583, status \u003d 0\n09-20 17:02:41.097 148610 148615 E adb     : usb_libusb.cpp:263 Erasing id : 3584, status \u003d 0\n09-20 17:02:41.097 148610 148615 E adb     : usb_libusb.cpp:263 Erasing id : 3585, status \u003d 0\n09-20 17:02:41.097 148610 148615 E adb     : usb_libusb.cpp:263 Erasing id : 3587, status \u003d 0\n...\n09-20 17:19:38.521 148610 148615 E adb     : usb_libusb.cpp:263 Erasing id : 5593, status \u003d 0\n09-20 17:19:38.521 148610 148615 E adb     : usb_libusb.cpp:263 Erasing id : 5594, status \u003d 0\n09-20 17:19:38.523 148610 148615 E adb     : usb_libusb.cpp:263 Erasing id : 5595, status \u003d 0\n```\n\nLooks like callbacks threads is starved during push and completed transfers pile up. \n\nBy the way what is spec of machine where the tests https://data.corp.google.com/sites/iyg0gxokdyu2/adb_health/ are being executed ?",
+      "parentUuid": "0708272d_afb98320",
+      "revId": "ae314bcbe95bee9d504a7c247a8a4c3c03afa488",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b86a7e43_4fc00faf",
@@ -35,6 +53,41 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "85d6f802_979a4502",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1881538
+      },
+      "writtenOn": "2024-09-26T11:38:28Z",
+      "side": 1,
+      "message": "Fabien, Elliott,\n\nThank you for the review.\n\nThanks,\nLukasz",
+      "revId": "ae314bcbe95bee9d504a7c247a8a4c3c03afa488",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c44eb10f_432223b2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1881538
+      },
+      "writtenOn": "2024-09-26T11:38:28Z",
+      "side": 1,
+      "message": "I will add details of the LIBUSB_TRANSFER_FREE_TRANSFER",
+      "parentUuid": "b86a7e43_4fc00faf",
+      "revId": "ae314bcbe95bee9d504a7c247a8a4c3c03afa488",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c6d4d54c_819642d2",
@@ -48,6 +101,30 @@
       "writtenOn": "2024-09-25T00:06:19Z",
       "side": 1,
       "message": "Isn\u0027t this also affected by LIBUSB_TRANSFER_FREE_TRANSFER?",
+      "range": {
+        "startLine": 141,
+        "startChar": 8,
+        "endLine": 141,
+        "endChar": 51
+      },
+      "revId": "ae314bcbe95bee9d504a7c247a8a4c3c03afa488",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3bede671_5fb4773e",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1881538
+      },
+      "writtenOn": "2024-09-26T11:38:28Z",
+      "side": 1,
+      "message": "LIBUSB_TRANSFER_FREE_TRANSFER description states that when it is set it automatically calls libusb_free_transfer() after callback returns. Based on that you\u0027re right that libusb_free_transfer() should not be called in Cleanup as Cleanup is called in most cases from the callback.",
+      "parentUuid": "c6d4d54c_819642d2",
       "range": {
         "startLine": 141,
         "startChar": 8,
@@ -105,6 +182,30 @@
           ]
         }
       ],
+      "revId": "ae314bcbe95bee9d504a7c247a8a4c3c03afa488",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fe8767a_32db4b25",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1881538
+      },
+      "writtenOn": "2024-09-26T11:38:28Z",
+      "side": 1,
+      "message": "In this case libusb_free_transfer() has to be called because when libusb_submit_transfer() fails the callback will not be executed.",
+      "parentUuid": "a05bb4cd_c5cf5c81",
+      "range": {
+        "startLine": 315,
+        "startChar": 12,
+        "endLine": 315,
+        "endChar": 32
+      },
       "revId": "ae314bcbe95bee9d504a7c247a8a4c3c03afa488",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
