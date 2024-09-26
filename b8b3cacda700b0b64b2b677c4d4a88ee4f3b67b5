@@ -20,6 +20,41 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "82d28cb2_f6632a24",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1881538
+      },
+      "writtenOn": "2024-09-26T12:40:44Z",
+      "side": 1,
+      "message": "IMHO it makes sense to have a test for a \"large\" file too. Could you please ask the OEM to capture the logs with ADB_TRACE when they hit the issue ? We could check if this is the same.",
+      "parentUuid": "1be7cada_3e0988bf",
+      "revId": "b8b3cacda700b0b64b2b677c4d4a88ee4f3b67b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ad46210_6641d14b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1881538
+      },
+      "writtenOn": "2024-09-26T12:40:44Z",
+      "side": 1,
+      "message": "Thank you for the comments Elliott.",
+      "revId": "b8b3cacda700b0b64b2b677c4d4a88ee4f3b67b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "03507eb2_77c3b846",
         "filename": "client/usb_libusb.cpp",
         "patchSetId": 1
@@ -31,6 +66,24 @@
       "writtenOn": "2024-09-25T12:24:43Z",
       "side": 1,
       "message": "nit: this should go up with the other unix headers\n\n(but then i _think_ the google rules are that libusb should go after android-base? i\u0027ve never liked the google rules because they\u0027re too damned complicated for humans to follow, but also not automated by a script.)",
+      "revId": "b8b3cacda700b0b64b2b677c4d4a88ee4f3b67b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c1513a7_db492779",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1881538
+      },
+      "writtenOn": "2024-09-26T12:40:44Z",
+      "side": 1,
+      "message": "I will double check.",
+      "parentUuid": "03507eb2_77c3b846",
       "revId": "b8b3cacda700b0b64b2b677c4d4a88ee4f3b67b5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -60,6 +113,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5af4a4d4_ce9af02a",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1881538
+      },
+      "writtenOn": "2024-09-26T12:40:44Z",
+      "side": 1,
+      "message": "I will fix it",
+      "parentUuid": "7f27349b_9ea46af0",
+      "range": {
+        "startLine": 328,
+        "startChar": 56,
+        "endLine": 328,
+        "endChar": 58
+      },
+      "revId": "b8b3cacda700b0b64b2b677c4d4a88ee4f3b67b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9a33bbf0_048c3244",
         "filename": "client/usb_libusb.cpp",
         "patchSetId": 1
@@ -71,6 +148,24 @@
       "writtenOn": "2024-09-25T12:24:43Z",
       "side": 1,
       "message": "add a comment for how you decided on 25?",
+      "revId": "b8b3cacda700b0b64b2b677c4d4a88ee4f3b67b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ada082a7_bdd0330c",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 901,
+      "author": {
+        "id": 1881538
+      },
+      "writtenOn": "2024-09-26T12:40:44Z",
+      "side": 1,
+      "message": "I will clarify it",
+      "parentUuid": "9a33bbf0_048c3244",
       "revId": "b8b3cacda700b0b64b2b677c4d4a88ee4f3b67b5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
