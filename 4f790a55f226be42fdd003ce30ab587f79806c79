@@ -16,6 +16,126 @@
       "message": "Expanded the doc more.",
       "revId": "4f790a55f226be42fdd003ce30ab587f79806c79",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70234104_fee0ade3",
+        "filename": "apex/adbd.rc",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-09-26T19:48:57Z",
+      "side": 1,
+      "message": "do you actually need this? if adbd is setting tradeinmode to -1 itself and then exiting, you shouldn\u0027t?",
+      "revId": "4f790a55f226be42fdd003ce30ab587f79806c79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b72928e_2d4a0791",
+        "filename": "daemon/services.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-09-26T19:48:57Z",
+      "side": 1,
+      "message": "doesn\u0027t this need to come above the abb support?",
+      "revId": "4f790a55f226be42fdd003ce30ab587f79806c79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a24b5e0_5d1ad10e",
+        "filename": "daemon/tradeinmode.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-09-26T19:48:57Z",
+      "side": 1,
+      "message": "do you actually want FATAL here? or do you just want to exit? (because failure exit will count as a strike against the apex, and i _think_ the idea here is \"i\u0027m a new adbd apex running on a device too old to have trade-in mode\"?)",
+      "revId": "4f790a55f226be42fdd003ce30ab587f79806c79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4780e678_667ac3aa",
+        "filename": "daemon/tradeinmode.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-09-26T19:48:57Z",
+      "side": 1,
+      "message": "don\u0027t you need a \\s after this? otherwise if i can get a binary tradeinmode-evil onto the device, i can run that too?",
+      "range": {
+        "startLine": 69,
+        "startChar": 39,
+        "endLine": 69,
+        "endChar": 50
+      },
+      "revId": "4f790a55f226be42fdd003ce30ab587f79806c79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e85df58_312089ed",
+        "filename": "docs/dev/adb_tradeinmode.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-09-26T19:48:57Z",
+      "side": 1,
+      "message": "link or something to grep for?",
+      "range": {
+        "startLine": 31,
+        "startChar": 64,
+        "endLine": 31,
+        "endChar": 86
+      },
+      "revId": "4f790a55f226be42fdd003ce30ab587f79806c79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "956f5ec3_ac0121a4",
+        "filename": "docs/dev/adb_tradeinmode.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-09-26T19:48:57Z",
+      "side": 1,
+      "message": "link or something to grep for?",
+      "range": {
+        "startLine": 32,
+        "startChar": 21,
+        "endLine": 32,
+        "endChar": 33
+      },
+      "revId": "4f790a55f226be42fdd003ce30ab587f79806c79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
