@@ -253,7 +253,6 @@ struct LibusbConnection : public Connection {
 
         {
             std::lock_guard<std::mutex> lock(self->write_mutex_);
-            libusb_free_transfer(transfer);
             self->writes_.erase(write_block->id);
 
             if (self->terminated_ && self->writes_.empty()) {
@@ -306,7 +305,9 @@ struct LibusbConnection : public Connection {
         // LIBUSB_TRANSFER_ADD_ZERO_PACKET flag when set it terminates
         // transfers that are a multiple of the endpoint's wMaxPacketSize
         // with an extra zero length packet (ZLP)
-        write->transfer->flags = LIBUSB_TRANSFER_ADD_ZERO_PACKET;
+        // LIBUSB_TRANSFER_FREE_TRANSFER flag when set it automatically
+        // calls libusb_free_transfer() after callback returns
+        write->transfer->flags = LIBUSB_TRANSFER_ADD_ZERO_PACKET | LIBUSB_TRANSFER_FREE_TRANSFER;
 
         libusb_fill_bulk_transfer(write->transfer, device_handle_.get(), write_endpoint_,
                                   reinterpret_cast<unsigned char*>(write->block.data()),
