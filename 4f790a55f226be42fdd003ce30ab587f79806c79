@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ce7deae7_3820e0a1",
+        "filename": "apex/adbd.rc",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1290458
+      },
+      "writtenOn": "2024-09-27T00:25:38Z",
+      "side": 1,
+      "message": "On userdebug it\u0027s not needed, but I\u0027m worried that on user builds adb will just restart in non-TIM mode.",
+      "parentUuid": "70234104_fee0ade3",
+      "revId": "4f790a55f226be42fdd003ce30ab587f79806c79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0b72928e_2d4a0791",
         "filename": "daemon/services.cpp",
         "patchSetId": 3
@@ -48,6 +66,24 @@
       "writtenOn": "2024-09-26T19:48:57Z",
       "side": 1,
       "message": "doesn\u0027t this need to come above the abb support?",
+      "revId": "4f790a55f226be42fdd003ce30ab587f79806c79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aeb70b9f_4664799c",
+        "filename": "daemon/services.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1290458
+      },
+      "writtenOn": "2024-09-27T00:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b72928e_2d4a0791",
       "revId": "4f790a55f226be42fdd003ce30ab587f79806c79",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -69,6 +105,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9dbf918c_f6ff3e65",
+        "filename": "daemon/tradeinmode.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1290458
+      },
+      "writtenOn": "2024-09-27T00:25:38Z",
+      "side": 1,
+      "message": "exit is fine, I think.",
+      "parentUuid": "2a24b5e0_5d1ad10e",
+      "revId": "4f790a55f226be42fdd003ce30ab587f79806c79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4780e678_667ac3aa",
@@ -82,6 +136,30 @@
       "writtenOn": "2024-09-26T19:48:57Z",
       "side": 1,
       "message": "don\u0027t you need a \\s after this? otherwise if i can get a binary tradeinmode-evil onto the device, i can run that too?",
+      "range": {
+        "startLine": 69,
+        "startChar": 39,
+        "endLine": 69,
+        "endChar": 50
+      },
+      "revId": "4f790a55f226be42fdd003ce30ab587f79806c79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37ed5581_c8fb46e8",
+        "filename": "daemon/tradeinmode.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1290458
+      },
+      "writtenOn": "2024-09-27T00:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4780e678_667ac3aa",
       "range": {
         "startLine": 69,
         "startChar": 39,
@@ -115,6 +193,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea0c87d8_4499367a",
+        "filename": "docs/dev/adb_tradeinmode.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1290458
+      },
+      "writtenOn": "2024-09-27T00:25:38Z",
+      "side": 1,
+      "message": "This is TBD, the framework parts aren\u0027t in yet. Once all those pieces are signed off we\u0027ll update the doc.",
+      "parentUuid": "3e85df58_312089ed",
+      "range": {
+        "startLine": 31,
+        "startChar": 64,
+        "endLine": 31,
+        "endChar": 86
+      },
+      "revId": "4f790a55f226be42fdd003ce30ab587f79806c79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "956f5ec3_ac0121a4",
@@ -128,6 +230,30 @@
       "writtenOn": "2024-09-26T19:48:57Z",
       "side": 1,
       "message": "link or something to grep for?",
+      "range": {
+        "startLine": 32,
+        "startChar": 21,
+        "endLine": 32,
+        "endChar": 33
+      },
+      "revId": "4f790a55f226be42fdd003ce30ab587f79806c79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05090089_988692fc",
+        "filename": "docs/dev/adb_tradeinmode.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1290458
+      },
+      "writtenOn": "2024-09-27T00:25:38Z",
+      "side": 1,
+      "message": "ditto here",
+      "parentUuid": "956f5ec3_ac0121a4",
       "range": {
         "startLine": 32,
         "startChar": 21,
