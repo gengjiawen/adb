@@ -54,6 +54,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "efc95f0a_810c5214",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1881538
+      },
+      "writtenOn": "2024-09-30T14:44:17Z",
+      "side": 1,
+      "message": "Both b\\220258353 and b\\223614029 happen on a device side. This patch helps to avoid memory exhaustion on a host side. Do you think both are related ?",
+      "parentUuid": "ba7288ff_7e610b3c",
+      "revId": "b8b3cacda700b0b64b2b677c4d4a88ee4f3b67b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "3ad46210_6641d14b",
@@ -102,6 +120,24 @@
       "side": 1,
       "message": "I will double check.",
       "parentUuid": "03507eb2_77c3b846",
+      "revId": "b8b3cacda700b0b64b2b677c4d4a88ee4f3b67b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36a9bd42_adb74c5d",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1881538
+      },
+      "writtenOn": "2024-09-30T14:44:17Z",
+      "side": 1,
+      "message": "I moved the `include \u003csched.h` to C headers according to https://engdoc.corp.google.com/eng/doc/devguide/cpp/styleguide.md?cl\u003dhead#Names_and_Order_of_Includes. Do you think I should move inclusion of libusb.h there as well ? I\u0027\u0027m not sure about it.",
+      "parentUuid": "8c1513a7_db492779",
       "revId": "b8b3cacda700b0b64b2b677c4d4a88ee4f3b67b5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
