@@ -72,6 +72,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "4da71f37_182d18ad",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-09-30T14:53:13Z",
+      "side": 1,
+      "message": "yeah, it doesn\u0027t seem likely that this could _fix_ those problems, though it might (?) help work around them somewhat by reducing pressure? (but maybe it makes them worse by _increasing_ pressure if the client libusb thread is running more?)\n\nyeah, \"dunno\" :-)",
+      "parentUuid": "efc95f0a_810c5214",
+      "revId": "b8b3cacda700b0b64b2b677c4d4a88ee4f3b67b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "3ad46210_6641d14b",
@@ -138,6 +156,24 @@
       "side": 1,
       "message": "I moved the `include \u003csched.h` to C headers according to https://engdoc.corp.google.com/eng/doc/devguide/cpp/styleguide.md?cl\u003dhead#Names_and_Order_of_Includes. Do you think I should move inclusion of libusb.h there as well ? I\u0027\u0027m not sure about it.",
       "parentUuid": "8c1513a7_db492779",
+      "revId": "b8b3cacda700b0b64b2b677c4d4a88ee4f3b67b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4304b840_6667b2bf",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-09-30T14:53:13Z",
+      "side": 1,
+      "message": "yeah, i think what you have now is (a) probably fine and (b) definitely \"not a regression\" :-)",
+      "parentUuid": "36a9bd42_adb74c5d",
       "revId": "b8b3cacda700b0b64b2b677c4d4a88ee4f3b67b5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
