@@ -137,6 +137,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f70f0b4d_4742a538",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1881538
+      },
+      "writtenOn": "2024-09-30T14:39:55Z",
+      "side": 1,
+      "message": "I moved usage of the LIBUSB_TRANSFER_FREE_TRANSFER flag to a separate commit.",
+      "parentUuid": "3bede671_5fb4773e",
+      "range": {
+        "startLine": 141,
+        "startChar": 8,
+        "endLine": 141,
+        "endChar": 51
+      },
+      "revId": "ae314bcbe95bee9d504a7c247a8a4c3c03afa488",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a05bb4cd_c5cf5c81",
         "filename": "client/usb_libusb.cpp",
         "patchSetId": 1
