@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b469f73_987b9632",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1881538
+      },
+      "writtenOn": "2024-09-30T14:50:54Z",
+      "side": 1,
+      "message": "For receive path we reuse a buffer once allocated with libusb_alloc_transfer. Therefore for receive path we don\u0027t want to use the LIBUSB_TRANSFER_FREE_TRANSFER flag.\n\nFor transmit path we can use it but IMHO it will make code less readable if we use it only for transmit path.\n\nBased on that I think we should drop this patch",
+      "revId": "3ebd7b65db63c675228abca80f191ffe1dfb90e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
