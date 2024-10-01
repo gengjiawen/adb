@@ -51,6 +51,24 @@
       "parentUuid": "7f8c4020_59c31d97",
       "revId": "3ebd7b65db63c675228abca80f191ffe1dfb90e3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b10c262_b2d9b272",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-10-01T21:41:58Z",
+      "side": 1,
+      "message": "Agreed, it makes the code harder to read. Let\u0027s abandon this CL.",
+      "parentUuid": "5b469f73_987b9632",
+      "revId": "3ebd7b65db63c675228abca80f191ffe1dfb90e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
