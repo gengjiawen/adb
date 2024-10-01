@@ -16,6 +16,24 @@
       "message": "\"Simplify default port handling\" might be a bit closer to the truth...\n\ni\u0027m surprised this doesn\u0027t affect miniadbd tbh.",
       "revId": "6836ac7e206f36c2872eb9aaa456d3f49700eef2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67e448dc_32970602",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-10-01T20:36:51Z",
+      "side": 1,
+      "message": "Done.\n\nFrom what I can see in `minadb`, there is no call to adbd main function and no handling of TCP port (https://cs.android.com/android/platform/superproject/main/+/main:bootable/recovery/minadbd/minadbd.cpp).",
+      "parentUuid": "16079dc0_8d2b6021",
+      "revId": "6836ac7e206f36c2872eb9aaa456d3f49700eef2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
