@@ -159,6 +159,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "777b1e6a_465abf38",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-10-01T21:19:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f70f0b4d_4742a538",
+      "range": {
+        "startLine": 141,
+        "startChar": 8,
+        "endLine": 141,
+        "endChar": 51
+      },
+      "revId": "ae314bcbe95bee9d504a7c247a8a4c3c03afa488",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a05bb4cd_c5cf5c81",
@@ -224,6 +248,30 @@
       "side": 1,
       "message": "In this case libusb_free_transfer() has to be called because when libusb_submit_transfer() fails the callback will not be executed.",
       "parentUuid": "a05bb4cd_c5cf5c81",
+      "range": {
+        "startLine": 315,
+        "startChar": 12,
+        "endLine": 315,
+        "endChar": 32
+      },
+      "revId": "ae314bcbe95bee9d504a7c247a8a4c3c03afa488",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "595566a0_b79f63b3",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-10-01T21:19:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6fe8767a_32db4b25",
       "range": {
         "startLine": 315,
         "startChar": 12,
