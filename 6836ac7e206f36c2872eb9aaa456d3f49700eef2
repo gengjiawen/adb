@@ -34,6 +34,24 @@
       "parentUuid": "16079dc0_8d2b6021",
       "revId": "6836ac7e206f36c2872eb9aaa456d3f49700eef2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c8c43dd_eaaa8cde",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-10-01T20:40:50Z",
+      "side": 1,
+      "message": "i guess it makes sense, given that the variable was indeed unused on the adbd side --- just funny that minadb was cleaner :-)",
+      "parentUuid": "67e448dc_32970602",
+      "revId": "6836ac7e206f36c2872eb9aaa456d3f49700eef2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
