@@ -109,6 +109,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4c6d8e21_4c35f2b9",
+        "filename": "apex/adbd.rc",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1290458
+      },
+      "writtenOn": "2024-10-01T23:35:49Z",
+      "side": 1,
+      "message": "Right, but the behavior is to start adb w/ the normal sepolicy if `service.adb.tradeinmode \u003d\u003d -1`. That\u0027s so userdebug builds can gracefully recover from failures. And on user builds, say the setcon() fails for some reason... we want adb to stop, to *not* restart. But if you then manually enable adb after SUW completes, you\u0027d want adb to start normally.\n\nI couldn\u0027t think of a good way to enforce this purely through C++.",
+      "parentUuid": "86e321d6_c2f698e7",
+      "revId": "4f790a55f226be42fdd003ce30ab587f79806c79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0b72928e_2d4a0791",
         "filename": "daemon/services.cpp",
         "patchSetId": 3
