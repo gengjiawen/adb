@@ -173,7 +173,8 @@ struct LibusbConnection : public Connection {
         }
 
         if (transfer->status != LIBUSB_TRANSFER_COMPLETED) {
-            std::string msg = StringPrintf("usb read failed: status = %d", transfer->status);
+            std::string msg = StringPrintf("usb read failed: status = %s",
+                                           libusb_error_name(transfer->status));
             LOG(ERROR) << msg;
             if (!self->detached_) {
                 self->OnError(msg);
@@ -222,7 +223,8 @@ struct LibusbConnection : public Connection {
         }
 
         if (transfer->status != LIBUSB_TRANSFER_COMPLETED) {
-            std::string msg = StringPrintf("usb read failed: status = %d", transfer->status);
+            std::string msg = StringPrintf("usb read failed: status = %s",
+                                           libusb_error_name(transfer->status));
             LOG(ERROR) << msg;
             if (!self->detached_) {
                 self->OnError(msg);
