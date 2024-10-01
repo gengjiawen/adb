@@ -16,6 +16,23 @@
       "message": "For receive path we reuse a buffer once allocated with libusb_alloc_transfer. Therefore for receive path we don\u0027t want to use the LIBUSB_TRANSFER_FREE_TRANSFER flag.\n\nFor transmit path we can use it but IMHO it will make code less readable if we use it only for transmit path.\n\nBased on that I think we should drop this patch",
       "revId": "3ebd7b65db63c675228abca80f191ffe1dfb90e3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f8c4020_59c31d97",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-10-01T21:35:50Z",
+      "side": 1,
+      "message": "Did you test this with `adb_asan` target? I am surprised this is not corrupting the heap.\n\n`header_read_` is only allocated once and then `resize()` is called on it upon `SubmitRead`. When `libusb` frees the transfer after the cb, it does not set the buffer value to `nullptr` (so `resize` would re-allocated). \n\nSo next read operation will write into a dangling pointer?",
+      "revId": "3ebd7b65db63c675228abca80f191ffe1dfb90e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
