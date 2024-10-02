@@ -100,6 +100,30 @@
       },
       "revId": "7599f62aefc5fec17336038786dc4dd18347bcf8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "547d85c8_85fb9851",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-10-02T16:15:10Z",
+      "side": 1,
+      "message": "That is the convention in this code base to have curly braces even if the next line is only one line.",
+      "parentUuid": "a6828561_2655945b",
+      "range": {
+        "startLine": 339,
+        "startChar": 8,
+        "endLine": 339,
+        "endChar": 78
+      },
+      "revId": "7599f62aefc5fec17336038786dc4dd18347bcf8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
