@@ -127,6 +127,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e0d1f547_b23d27ca",
+        "filename": "apex/adbd.rc",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-10-02T23:46:46Z",
+      "side": 1,
+      "message": "It sounds like if it stops here, something else would restart it. What restarts it?",
+      "parentUuid": "4c6d8e21_4c35f2b9",
+      "revId": "4f790a55f226be42fdd003ce30ab587f79806c79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0b72928e_2d4a0791",
         "filename": "daemon/services.cpp",
         "patchSetId": 3
