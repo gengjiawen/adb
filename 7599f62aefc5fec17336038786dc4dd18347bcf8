@@ -1,6 +1,24 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "196c6a44_126993a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-10-02T13:48:21Z",
+      "side": 1,
+      "message": "i think he just meant \"prefer the \u0027always use braces\u0027 style\". (though, yes, some of the code is \"same line or braces\" instead.)",
+      "tag": "mailMessageId\u003d\u003cCAJgzZor7FNL\u003dTibb\u003dshw1Xrq+Bn9rquW8Kf-B_-PbwDv0wmcFg@mail.gmail.com\u003e",
+      "revId": "7599f62aefc5fec17336038786dc4dd18347bcf8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8708c1f8_2a26b3da",
