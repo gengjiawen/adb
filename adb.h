@@ -32,7 +32,6 @@
 
 constexpr size_t MAX_PAYLOAD_V1 = 4 * 1024;
 constexpr size_t MAX_PAYLOAD = 1024 * 1024;
-constexpr size_t MAX_FRAMEWORK_PAYLOAD = 64 * 1024;
 
 // When delayed acks are supported, the initial number of unacknowledged bytes we're willing to
 // receive on a socket before the other side should block.
@@ -191,8 +190,6 @@ void put_apacket(apacket* p);
     do {                     \
     } while (0)
 #endif
-
-#define DEFAULT_ADB_PORT 5037
 
 #define DEFAULT_ADB_LOCAL_TRANSPORT_PORT 5555
 
