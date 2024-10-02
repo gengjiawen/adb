@@ -40,6 +40,30 @@
       ],
       "revId": "7599f62aefc5fec17336038786dc4dd18347bcf8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6828561_2655945b",
+        "filename": "client/usb_libusb.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1881538
+      },
+      "writtenOn": "2024-10-02T13:28:35Z",
+      "side": 1,
+      "message": "Would you please elaborate why {/} are needed ?",
+      "parentUuid": "8708c1f8_2a26b3da",
+      "range": {
+        "startLine": 339,
+        "startChar": 8,
+        "endLine": 339,
+        "endChar": 78
+      },
+      "revId": "7599f62aefc5fec17336038786dc4dd18347bcf8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
