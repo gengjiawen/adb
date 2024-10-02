@@ -19,6 +19,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "16f1531b_00b0e31a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1881538
+      },
+      "writtenOn": "2024-10-02T14:47:39Z",
+      "side": 1,
+      "message": "Understood. I thought there is some C++ behind the scenes behavior I have missed ;).",
+      "parentUuid": "196c6a44_126993a0",
+      "revId": "7599f62aefc5fec17336038786dc4dd18347bcf8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8708c1f8_2a26b3da",
