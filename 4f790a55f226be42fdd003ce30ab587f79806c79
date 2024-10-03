@@ -163,6 +163,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a91a77eb_952a2571",
+        "filename": "apex/adbd.rc",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-10-03T02:32:49Z",
+      "side": 1,
+      "message": "\u0027stop adbd\u0027 sets it as SVC_DISABLED. So, something else would need to call \u0027start adbd\u0027 to get it to start again. What about \u0027restart adbd\u0027 instead? Even if something else did call \u0027start adbd\u0027 after the restart, it\u0027s a no-op.",
+      "parentUuid": "1d308bee_27412319",
+      "revId": "4f790a55f226be42fdd003ce30ab587f79806c79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0b72928e_2d4a0791",
         "filename": "daemon/services.cpp",
         "patchSetId": 3
