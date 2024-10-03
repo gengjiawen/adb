@@ -181,6 +181,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ab3ceafe_f9d599ae",
+        "filename": "apex/adbd.rc",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1290458
+      },
+      "writtenOn": "2024-10-03T02:37:18Z",
+      "side": 1,
+      "message": "The point of this code *is* to *stop* adbd, because we don\u0027t want it to run during setup if for some reason we fail to enter TIM. If/when the user enables it through Developer Options, it would be started again.",
+      "parentUuid": "a91a77eb_952a2571",
+      "revId": "4f790a55f226be42fdd003ce30ab587f79806c79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0b72928e_2d4a0791",
         "filename": "daemon/services.cpp",
         "patchSetId": 3
